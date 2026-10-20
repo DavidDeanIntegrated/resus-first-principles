@@ -37,11 +37,15 @@ describe('question reveal and references', () => {
     expect(html).not.toContain('<details open');
     expect(html).not.toContain('Correct');
     expect(html).toContain('Prediction');
+    expect(html).toContain('class="q-kind"');
+    expect(html).toContain('class="chevron"');
+    expect(html).toContain('part-misconception');
     expect(html).not.toContain('The direct answer.');
     expect(html).not.toContain('A second paragraph of the answer.');
+    expect(html.match(/The conclusion\./g)?.length).toBe(1);
     expect(html.indexOf('The conclusion.')).toBeGreaterThan(html.indexOf('<details>'));
     expect(html.indexOf('Because of the mechanism.')).toBeGreaterThan(html.indexOf('<details>'));
-    const order = ['Conclusion', 'Causal chain', 'Assumption', 'Misconception', 'The reasoning'].map(
+    const order = ['Conclusion', 'Why', 'Assumption', 'Common misconception', 'The reasoning'].map(
       (label) => html.indexOf(label),
     );
     expect(order.every((index) => index > html.indexOf('<details>'))).toBe(true);

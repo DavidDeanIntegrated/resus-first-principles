@@ -48,53 +48,68 @@ const kindLabels: Record<QuestionKind, string> = {
 
 const parts: Array<{ key: string; label: string; text?: ProseText }> = [
   { key: 'conclusion', label: 'Conclusion', text: conclusion },
-  { key: 'causalChain', label: 'Causal chain', text: causalChain },
+  { key: 'causalChain', label: 'Why', text: causalChain },
   { key: 'assumption', label: 'Assumption', text: assumption },
-  { key: 'misconception', label: 'Misconception', text: misconception },
+  { key: 'misconception', label: 'Common misconception', text: misconception },
 ];
 ---
 
 <article class="q" id={`question-${id}`} aria-labelledby={`question-stem-${id}`}>
   <div class="q-head">
-    <p class="q-label">{label}</p>
-    {kind && <p class="q-kind">{kindLabels[kind]}</p>}
+    <div class="q-meta">
+      <p class="q-label">{label}</p>
+      {kind && <p class="q-kind">{kindLabels[kind]}</p>}
+    </div>
     <p class="q-stem" id={`question-stem-${id}`}>
       {prompt}
       <RefMarks marks={marks} />
     </p>
   </div>
-  <p class="commit">Commit to an answer before revealing.</p>
-  <details>
-    <summary>
-      Reveal answer
-      <span class="sr-only"> for {label}</span>
-    </summary>
-    {
-      !conclusion && (
-        <div class="answer">
-          <Prose text={answer} />
-        </div>
-      )
-    }
-    {
-      parts.map(
-        (part) =>
-          part.text && (
-            <div class="part">
-              <h3>{part.label}</h3>
-              <Prose text={part.text} />
-            </div>
-          ),
-      )
-    }
-    {
-      reasoning ? (
-        <Explanation buildsOnHref={buildsOnHref} buildsOnNumeral={buildsOnNumeral} buildsOnTitle={buildsOnTitle}>
-          <Prose text={reasoning} />
-        </Explanation>
-      ) : (
-        <Explanation buildsOnHref={buildsOnHref} buildsOnNumeral={buildsOnNumeral} buildsOnTitle={buildsOnTitle} />
-      )
-    }
-  </details>
+  <div class="reveal-row">
+    <p class="commit">Commit to an answer before revealing.</p>
+    <details>
+      <summary>
+        <span>
+          Reveal answer
+          <span class="sr-only"> for {label}</span>
+        </span>
+        <svg class="chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+          <path
+            d="M2.25 4.5 L6 8.25 L9.75 4.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </summary>
+      {
+        !conclusion && (
+          <div class="answer">
+            <Prose text={answer} />
+          </div>
+        )
+      }
+      {
+        parts.map(
+          (part) =>
+            part.text && (
+              <div class:list={['part', part.key === 'misconception' && 'part-misconception']}>
+                <h3>{part.label}</h3>
+                <Prose text={part.text} />
+              </div>
+            ),
+        )
+      }
+      {
+        reasoning ? (
+          <Explanation buildsOnHref={buildsOnHref} buildsOnNumeral={buildsOnNumeral} buildsOnTitle={buildsOnTitle}>
+            <Prose text={reasoning} />
+          </Explanation>
+        ) : (
+          <Explanation buildsOnHref={buildsOnHref} buildsOnNumeral={buildsOnNumeral} buildsOnTitle={buildsOnTitle} />
+        )
+      }
+    </details>
+  </div>
 </article>
