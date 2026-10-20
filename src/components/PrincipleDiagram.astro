@@ -1,0 +1,19 @@
+---
+import CompressionPause from './diagrams/CompressionPause.astro';
+import PressureGradient from './diagrams/PressureGradient.astro';
+import type { DiagramId } from '../lib/schema.ts';
+
+interface Props {
+  diagram: DiagramId;
+}
+
+const diagrams = {
+  'pressure-gradient': PressureGradient,
+  'compression-pause': CompressionPause,
+} satisfies Record<DiagramId, typeof PressureGradient>;
+
+const { diagram } = Astro.props;
+const Diagram = diagrams[diagram];
+---
+
+<Diagram />

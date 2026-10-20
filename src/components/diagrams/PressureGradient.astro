@@ -1,0 +1,58 @@
+---
+const titleId = 'diagram-pressure-gradient-title';
+const descId = 'diagram-pressure-gradient-desc';
+---
+
+<figure class="diagram" data-diagram="pressure-gradient">
+  <svg
+    viewBox="0 0 320 590"
+    role="img"
+    aria-labelledby={titleId}
+    aria-describedby={descId}
+  >
+    <title id={titleId}>Coronary perfusion pressure is the gap between aortic diastolic pressure and right atrial pressure, not either pressure alone.</title>
+    <desc id={descId}>Two stacked drawings. Each has an upper line labeled aortic diastolic pressure and a lower line labeled right atrial pressure. The shaded gap between those lines is coronary perfusion pressure. In the open gradient the lines are far apart. In the narrow gradient the aortic line is unchanged and the right atrial line is higher, so the gap is smaller. No pressures are shown as numbers.</desc>
+
+    <text class="diagram-kicker" x="16" y="28" font-size="14">Open gradient</text>
+    <text class="diagram-label" x="16" y="58" font-size="15">Aortic diastolic pressure</text>
+    <rect class="diagram-gap" x="16" y="72" width="252" height="128"></rect>
+    <line class="diagram-aortic" x1="16" y1="72" x2="268" y2="72"></line>
+    <line class="diagram-aortic" x1="16" y1="66" x2="16" y2="78"></line>
+    <line class="diagram-aortic" x1="268" y1="66" x2="268" y2="78"></line>
+    <text class="diagram-display" x="28" y="128" font-size="18">Coronary perfusion</text>
+    <text class="diagram-display" x="28" y="152" font-size="18">pressure</text>
+    <path class="diagram-bracket" d="M276 72 H292 M284 72 V200 M276 200 H292"></path>
+    <line class="diagram-atrial" x1="16" y1="200" x2="268" y2="200"></line>
+    <line class="diagram-atrial" x1="16" y1="194" x2="16" y2="206"></line>
+    <line class="diagram-atrial" x1="268" y1="194" x2="268" y2="206"></line>
+    <text class="diagram-label" x="16" y="230" font-size="15">Right atrial pressure</text>
+
+    <rect class="diagram-mark" x="16" y="258" width="48" height="2"></rect>
+
+    <text class="diagram-kicker" x="16" y="292" font-size="14">Narrow gradient</text>
+    <text class="diagram-note" x="16" y="320" font-size="15">Same aortic diastolic pressure.</text>
+    <text class="diagram-note" x="16" y="342" font-size="15">Higher right atrial pressure.</text>
+    <text class="diagram-label" x="16" y="378" font-size="15">Aortic diastolic pressure</text>
+    <rect class="diagram-gap" x="16" y="392" width="252" height="48"></rect>
+    <text class="diagram-label" x="28" y="421" font-size="15">Gap</text>
+    <line class="diagram-aortic" x1="16" y1="392" x2="268" y2="392"></line>
+    <line class="diagram-aortic" x1="16" y1="386" x2="16" y2="398"></line>
+    <line class="diagram-aortic" x1="268" y1="386" x2="268" y2="398"></line>
+    <path class="diagram-bracket" d="M276 392 H292 M284 392 V440 M276 440 H292"></path>
+    <line class="diagram-atrial" x1="16" y1="440" x2="268" y2="440"></line>
+    <line class="diagram-atrial" x1="16" y1="434" x2="16" y2="446"></line>
+    <line class="diagram-atrial" x1="268" y1="434" x2="268" y2="446"></line>
+    <text class="diagram-label" x="16" y="470" font-size="15">Right atrial pressure</text>
+    <text class="diagram-display" x="16" y="514" font-size="18">Smaller gap</text>
+    <text class="diagram-note" x="16" y="544" font-size="15">Perfusion follows the gap,</text>
+    <text class="diagram-note" x="16" y="566" font-size="15">not either pressure alone.</text>
+  </svg>
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>
+      Coronary perfusion pressure is the gap between aortic diastolic pressure and right atrial
+      pressure. The aortic level is the same in both drawings. When right atrial pressure is higher,
+      the gap is smaller, so neither pressure alone sets coronary perfusion.
+    </p>
+  </figcaption>
+</figure>

@@ -1,0 +1,58 @@
+---
+const titleId = 'diagram-compression-pause-title';
+const descId = 'diagram-compression-pause-desc';
+---
+
+<figure class="diagram" data-diagram="compression-pause">
+  <svg
+    viewBox="0 0 320 416"
+    role="img"
+    aria-labelledby={titleId}
+    aria-describedby={descId}
+  >
+    <title id={titleId}>Schematic, not measured data. Coronary perfusion pressure builds over consecutive compressions, falls quickly during a pause, and takes several compressions to rebuild.</title>
+    <desc id={descId}>A timeline of blocks, not a measured curve and not a numbered scale. Each block is one compression. Blocks step upward while compressions continue. At the pause, an arrow shows perfusion pressure falling quickly to the baseline, and the gap stays empty until compressions start again. The next blocks then step upward, so the pressure takes several compressions to rebuild. No axis values are shown.</desc>
+
+    <rect class="diagram-banner" x="0" y="0" width="320" height="48"></rect>
+    <rect class="diagram-mark" x="0" y="0" width="4" height="48"></rect>
+    <text class="diagram-schematic" x="16" y="30" font-size="15">Schematic, not measured data</text>
+
+    <text class="diagram-kicker" x="16" y="78" font-size="14">Timeline</text>
+    <text class="diagram-display" x="16" y="108" font-size="18">Perfusion pressure</text>
+    <text class="diagram-note" x="16" y="136" font-size="15">Each block is one compression.</text>
+
+    <line class="diagram-baseline" x1="16" y1="292" x2="304" y2="292"></line>
+    <rect class="diagram-block" x="16" y="268" width="14" height="24" rx="2"></rect>
+    <rect class="diagram-block" x="34" y="244" width="14" height="48" rx="2"></rect>
+    <rect class="diagram-block" x="52" y="220" width="14" height="72" rx="2"></rect>
+    <rect class="diagram-block" x="70" y="196" width="14" height="96" rx="2"></rect>
+    <rect class="diagram-block" x="88" y="172" width="14" height="120" rx="2"></rect>
+
+    <line class="diagram-fall" x1="102" y1="172" x2="118" y2="172"></line>
+    <line class="diagram-fall" x1="118" y1="172" x2="118" y2="278"></line>
+    <polygon class="diagram-fall-head" points="118,292 111,278 125,278"></polygon>
+
+    <rect class="diagram-block" x="218" y="268" width="14" height="24" rx="2"></rect>
+    <rect class="diagram-block" x="236" y="244" width="14" height="48" rx="2"></rect>
+    <rect class="diagram-block" x="254" y="220" width="14" height="72" rx="2"></rect>
+    <rect class="diagram-block" x="272" y="196" width="14" height="96" rx="2"></rect>
+    <rect class="diagram-block" x="290" y="172" width="14" height="120" rx="2"></rect>
+
+    <text class="diagram-label" x="59" y="324" font-size="15" text-anchor="middle">Builds</text>
+    <text class="diagram-label" x="160" y="324" font-size="15" text-anchor="middle">Pause</text>
+    <text class="diagram-label" x="160" y="346" font-size="15" text-anchor="middle">falls quickly</text>
+    <text class="diagram-label" x="261" y="324" font-size="15" text-anchor="middle">Rebuilds</text>
+
+    <text class="diagram-label" x="16" y="390" font-size="15">Time</text>
+    <line class="diagram-time" x1="58" y1="385" x2="286" y2="385"></line>
+    <polygon class="diagram-time-head" points="304,385 292,379 292,391"></polygon>
+  </svg>
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>
+      Schematic, not measured data. Coronary perfusion pressure builds over consecutive compressions,
+      falls quickly during a pause, and takes several compressions to rebuild. There is no scale and
+      no measured curve.
+    </p>
+  </figcaption>
+</figure>

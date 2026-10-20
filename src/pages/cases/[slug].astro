@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PrincipleDiagram from '../../components/PrincipleDiagram.astro';
 import PrincipleHeader from '../../components/PrincipleHeader.astro';
 import QuestionCard from '../../components/QuestionCard.astro';
 import ReferenceList from '../../components/ReferenceList.astro';
@@ -78,6 +79,7 @@ const description = entry.data.summary;
               {body.map((paragraph) => <p>{paragraph}</p>)}
             </div>
           )}
+          {principle.diagram && <PrincipleDiagram diagram={principle.diagram} />}
           {principle.questions.map((question, questionIndex) => {
             const meta = principleMeta.get(principle.id);
             return (

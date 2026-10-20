@@ -8,6 +8,7 @@
   "principles": [
     {
       "id": "coronary-cerebral-perfusion",
+      "diagram": "pressure-gradient",
       "title": "Compressions make a gradient, and the gradient makes the flow",
       "explanation": [
         "In cardiac arrest the heart has stopped generating pressure, so every milliliter of coronary and cerebral blood flow has to be manufactured from outside the chest. It helps to keep three quantities apart. Pressure is what the compression produces in the aorta. A gradient is the difference between two pressures. Flow is what actually reaches tissue, and it follows the gradient, not the pressure alone.",
@@ -65,6 +66,7 @@
     },
     {
       "id": "minimize-interruptions",
+      "diagram": "compression-pause",
       "title": "Pauses cost more than their length",
       "explanation": [
         "Coronary perfusion pressure is built, not switched on. Over the first several compressions after a pause, aortic pressure climbs toward a plateau. When compressions stop, it falls almost at once. A pause therefore costs its own seconds plus the run of compressions needed to rebuild the gradient afterward. Several short pauses can cost more perfusion than their total time suggests, because each one restarts the climb.",
