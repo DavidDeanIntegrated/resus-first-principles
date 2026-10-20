@@ -39,4 +39,46 @@ describe('static build output', () => {
     expect(casePage).toContain('/fonts/Fraunces-latin.woff2');
     expect(casePage).toContain('/fonts/Literata-latin.woff2');
   });
+
+  it('renders both primer diagrams inside the principles they explain', () => {
+    const casePage = readDist('cases/adult-cardiac-arrest/index.html');
+    const perfusion = section(casePage, 'principle-coronary-cerebral-perfusion');
+    const pauses = section(casePage, 'principle-minimize-interruptions');
+    const gradient = figure(perfusion, 'pressure-gradient');
+    const timeline = figure(pauses, 'compression-pause');
+
+    expect(gradient).toContain('role="img"');
+    expect(gradient).toContain('<title');
+    expect(gradient).toContain('<desc');
+    expect(gradient).toContain('<figcaption');
+    expect(gradient).toContain('Coronary perfusion pressure is the gap');
+    expect(gradient).toContain('Aortic diastolic pressure');
+    expect(gradient).toContain('Right atrial pressure');
+    expect(gradient.toLowerCase()).not.toContain('mm');
+
+    expect(timeline).toContain('role="img"');
+    expect(timeline).toContain('<title');
+    expect(timeline).toContain('<desc');
+    expect(timeline).toContain('<figcaption');
+    expect(timeline).toContain('Schematic, not measured data');
+    expect(timeline).toContain('Each block is one compression.');
+    expect(timeline.toLowerCase()).not.toContain('mm');
+
+    expect(section(casePage, 'principle-early-defibrillation')).not.toContain('data-diagram');
+  });
 });
+
+function section(html: string, id: string): string {
+  const start = html.indexOf(`id="${id}"`);
+  expect(start).toBeGreaterThan(-1);
+  const next = html.indexOf('<section', start + 1);
+  return html.slice(start, next === -1 ? undefined : next);
+}
+
+function figure(html: string, diagram: string): string {
+  const start = html.indexOf(`data-diagram="${diagram}"`);
+  expect(start).toBeGreaterThan(-1);
+  const end = html.indexOf('</figure>', start);
+  expect(end).toBeGreaterThan(start);
+  return html.slice(start, end);
+}

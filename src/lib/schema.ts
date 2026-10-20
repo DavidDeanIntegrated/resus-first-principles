@@ -34,12 +34,15 @@ export const questionSchema = z.object({
   refs: refsSchema.optional(),
 });
 
+export const diagramIdSchema = z.enum(['pressure-gradient', 'compression-pause']);
+
 export const principleSchema = z.object({
   id: idSchema,
   title: textSchema,
   explanation: proseSchema,
   refs: refsSchema.optional(),
   questions: z.array(questionSchema).min(1),
+  diagram: diagramIdSchema.optional(),
 });
 
 export const treatmentStepSchema = z.object({
@@ -277,6 +280,7 @@ export const caseSchema = z
 export type Prose = z.infer<typeof proseSchema>;
 export type QuestionKind = z.infer<typeof questionKindSchema>;
 export type Question = z.infer<typeof questionSchema>;
+export type DiagramId = z.infer<typeof diagramIdSchema>;
 export type Principle = z.infer<typeof principleSchema>;
 export type TreatmentStep = z.infer<typeof treatmentStepSchema>;
 export type Reference = z.infer<typeof referenceSchema>;

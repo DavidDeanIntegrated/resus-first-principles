@@ -737,6 +737,128 @@ h2 {
   margin-bottom: var(--s4);
 }
 
+/* Primer diagrams. Geometry is in the SVG; color and type use the tokens above. */
+.diagram {
+  width: 100%;
+  max-width: var(--measure);
+  min-width: 0;
+  margin: var(--s5) 0 0;
+}
+
+.diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.diagram figcaption {
+  max-width: var(--measure);
+  margin-top: var(--s3);
+}
+
+.diagram figcaption p + p {
+  margin-top: var(--s2);
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+.diagram-kicker {
+  font-family: var(--f-text);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  fill: var(--accent);
+  font-variation-settings: "opsz" 12, "wght" 600;
+}
+
+.diagram-display {
+  font-family: var(--f-display);
+  font-weight: 500;
+  fill: var(--ink);
+  font-variation-settings: "opsz" 30, "SOFT" 30, "WONK" 0, "wght" 500;
+}
+
+.diagram-label {
+  font-family: var(--f-text);
+  font-weight: 400;
+  fill: var(--ink);
+  font-variation-settings: "opsz" 14, "wght" 400;
+}
+
+.diagram-note {
+  font-family: var(--f-text);
+  font-style: italic;
+  font-weight: 400;
+  fill: var(--ink-soft);
+  font-variation-settings: "opsz" 14, "wght" 400;
+}
+
+.diagram-schematic {
+  font-family: var(--f-text);
+  font-style: italic;
+  font-weight: 600;
+  fill: var(--accent);
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.diagram-gap {
+  fill: var(--accent-tint);
+}
+
+.diagram-aortic,
+.diagram-bracket,
+.diagram-fall {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.diagram-bracket,
+.diagram-fall {
+  stroke-width: 1.5;
+}
+
+.diagram-atrial {
+  fill: none;
+  stroke: var(--sage);
+  stroke-width: 2.5;
+  stroke-linecap: square;
+}
+
+.diagram-mark,
+.diagram-fall-head {
+  fill: var(--accent);
+}
+
+.diagram-banner {
+  fill: var(--paper-deep);
+}
+
+.diagram-block {
+  fill: var(--sage-tint);
+  stroke: var(--sage);
+  stroke-width: 1.5;
+}
+
+.diagram-baseline,
+.diagram-time {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+}
+
+.diagram-time-head {
+  fill: var(--ink);
+}
+
 @media (min-width: 900px) {
   :root {
     --text-body: 18px;

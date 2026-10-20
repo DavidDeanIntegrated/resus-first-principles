@@ -132,6 +132,35 @@ describe('case schema', () => {
     expect(parsed.success).toBe(false);
   });
 
+  it('accepts the optional diagram ids and rejects an unknown one', () => {
+    const withDiagram = placeholderCase();
+    const principle = withDiagram.principles[0];
+    if (!principle) throw new Error('fixture missing principle');
+    principle.diagram = 'pressure-gradient';
+    expect(caseSchema.safeParse(withDiagram).success).toBe(true);
+
+    const raw = {
+      ...withDiagram,
+      principles: [{ ...principle, diagram: 'made-up-curve' }],
+    };
+    const parsed = caseSchema.safeParse(raw);
+    expect(parsed.success).toBe(false);
+  });
+
+  it('keys the cardiac arrest diagrams to the principles they explain', () => {
+    const result = validateContentDirectory(contentDirectory);
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    const document = result.cases[0]?.document;
+    const diagrams = new Map(document?.principles.map((principle) => [principle.id, principle.diagram]));
+    expect(diagrams.get('coronary-cerebral-perfusion')).toBe('pressure-gradient');
+    expect(diagrams.get('minimize-interruptions')).toBe('compression-pause');
+    for (const [id, diagram] of diagrams) {
+      if (id === 'coronary-cerebral-perfusion' || id === 'minimize-interruptions') continue;
+      expect(diagram, id).toBeUndefined();
+    }
+  });
+
   it('rejects a placeholder that is not clearly marked', () => {
     const parsed = caseSchema.safeParse(
       placeholderCase({
