@@ -386,15 +386,23 @@ h2 {
   color: var(--sage);
 }
 
+.q-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--s3);
+  row-gap: var(--s1);
+}
+
 .q-kind {
-  margin-top: var(--s2);
+  margin: 0;
   font-family: var(--f-text);
   font-weight: 600;
   font-size: var(--text-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.12em;
   line-height: 1.2;
-  color: var(--ink-soft);
+  color: var(--sage);
   font-variation-settings: "opsz" 12, "wght" 600;
 }
 
@@ -409,32 +417,49 @@ h2 {
 
 .commit {
   margin: 0;
-  padding: 0 var(--card-pad) var(--s4);
+  padding: 0 var(--card-pad) var(--s3);
+  max-width: var(--measure);
+  font-family: var(--f-text);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  line-height: 1.5;
   color: var(--ink-soft);
-  font-size: var(--text-small);
+  font-variation-settings: "opsz" 13, "wght" 400;
 }
 
 .answer,
 .part {
-  padding: var(--s4) var(--card-pad) 0;
+  margin: var(--s5) var(--card-pad) 0;
 }
 
 .answer p,
 .part p {
-  margin: 0 0 var(--s3);
+  margin: 0;
   max-width: var(--measure);
+  overflow-wrap: break-word;
+}
+
+.answer p + p,
+.part p + p {
+  margin-top: var(--s3);
 }
 
 .part h3 {
-  margin: var(--s4) 0 var(--s2);
+  margin: 0 0 var(--s2);
   font-family: var(--f-text);
   font-weight: 600;
-  font-size: var(--text-small);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: var(--text-label);
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.12em;
   line-height: 1.2;
-  color: var(--ink-soft);
-  font-variation-settings: "opsz" 14, "wght" 600;
+  color: var(--sage);
+  font-variation-settings: "opsz" 12, "wght" 600;
+}
+
+.part-misconception {
+  padding-top: var(--s4);
+  border-top: 1px solid var(--accent);
 }
 
 .ref-marks {
@@ -484,40 +509,54 @@ h2 {
 .q summary {
   cursor: pointer;
   list-style: none;
-  padding: var(--s4) var(--card-pad);
-  min-height: 48px;
+  padding: 0 var(--card-pad);
+  min-height: 44px;
   font-family: var(--f-text);
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: var(--text-body);
   line-height: 1.2;
-  color: var(--accent);
+  color: var(--ink);
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: var(--s3);
-  font-variation-settings: "opsz" 15, "wght" 600;
+  font-variation-settings: "opsz" var(--body-opsz), "wght" 600;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.q summary:hover {
+  color: var(--accent);
+}
+
+.q summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: -3px;
 }
 
 .q summary::-webkit-details-marker {
   display: none;
 }
 
-.q summary::after {
-  content: "+";
-  flex-shrink: 0;
-  font-family: var(--f-display);
-  font-weight: 400;
-  font-size: 1.25rem;
-  line-height: 1;
-  font-variation-settings: "opsz" 24, "SOFT" 50, "WONK" 0, "wght" 400;
+.q summary::marker {
+  content: "";
 }
 
-.q details[open] summary::after {
-  content: "–";
+.q .chevron {
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  color: var(--accent);
+  transform: rotate(0deg);
+  transition: transform 180ms ease;
+}
+
+.q details[open] .chevron {
+  transform: rotate(180deg);
 }
 
 .why {
-  margin: 0 var(--card-pad) var(--s5);
+  margin: var(--s5) var(--card-pad) var(--s5);
   padding: var(--s4) var(--s4) var(--s4) var(--s5);
   background: var(--paper-deep);
   border-left: 3px solid var(--accent);
@@ -758,6 +797,33 @@ h2 {
     font-variation-settings: "opsz" 13, "wght" 400;
   }
 
+  .reveal-row {
+    display: grid;
+    grid-template-columns: calc(var(--margin) - var(--s6)) minmax(0, 1fr);
+    column-gap: var(--s6);
+    width: calc(100% + var(--margin));
+    margin-left: calc(-1 * var(--margin));
+    align-items: start;
+  }
+
+  .reveal-row > .commit {
+    grid-column: 1;
+    align-self: start;
+    min-width: 0;
+    max-width: none;
+    min-height: 44px;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    align-items: center;
+    text-align: right;
+  }
+
+  .reveal-row > details {
+    grid-column: 2;
+    min-width: 0;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -768,5 +834,9 @@ h2 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .q .chevron {
+    transition: none;
   }
 }
