@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+import { loadCases } from '../../lib/cases.ts';
+
+export async function getStaticPaths() {
+  const cases = await loadCases();
+  return cases.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const principleTitles = new Map(entry.data.principles.map((principle) => [principle.id, principle.title]));
+const description = entry.data.summary;
+---
+
+<Base title={entry.data.title} description={description}>
+  <article>
+    <p class="muted">Case</p>
+    <h1>{entry.data.title}</h1>
+    {
+      entry.data.contentStatus === 'placeholder' && (
+        <p class="notice" role="status">
+          PLACEHOLDER FIXTURE. This page is not clinical content and is not for patient care.
+        </p>
+      )
+    }
+    <p class="summary">{entry.data.summary}</p>
+
+    <section aria-labelledby="principles-heading">
+      <h2 id="principles-heading">First principles</h2>
+      {
+        entry.data.principles.map((principle) => (
+          <section class="principle" id={`principle-${principle.id}`}>
+            <h3>{principle.title}</h3>
+            <p>{principle.explanation}</p>
+            <h4>Questions</h4>
+            <ol>
+              {principle.questions.map((question) => (
+                <li id={`question-${question.id}`}>
+                  <p>{question.prompt}</p>
+                  <details>
+                    <summary>Answer and reasoning</summary>
+                    <p>
+                      <strong>Answer. </strong>
+                      {question.answer}
+                    </p>
+                    <p>
+                      <strong>Reasoning. </strong>
+                      {question.reasoning}
+                    </p>
+                  </details>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))
+      }
+    </section>
+
+    <section aria-labelledby="treatment-heading">
+      <h2 id="treatment-heading">Treatment approach</h2>
+      <ol>
+        {
+          entry.data.treatmentApproach.map((step) => (
+            <li class="step" id={`step-${step.id}`}>
+              <h3>{step.title}</h3>
+              <p>{step.action}</p>
+              <p>
+                <strong>Why. </strong>
+                {step.why}
+              </p>
+              <p>Linked principles:</p>
+              <ul class="principle-links">
+                {step.principleIds.map((principleId) => (
+                  <li>
+                    <a href={`#principle-${principleId}`}>
+                      {principleTitles.get(principleId) ?? principleId}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </article>
+</Base>

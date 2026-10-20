@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "adult-cardiac-arrest",
+  "slug": "adult-cardiac-arrest",
+  "title": "Adult cardiac arrest (PLACEHOLDER)",
+  "summary": "PLACEHOLDER FIXTURE. This file only reserves the adult cardiac arrest case so the site can render the content schema. It is not clinical content and must not be used for teaching or patient care.",
+  "contentStatus": "placeholder",
+  "principles": [
+    {
+      "id": "principle-placeholder-1",
+      "title": "PLACEHOLDER principle one",
+      "explanation": "PLACEHOLDER. The first-principles pathophysiology explanation for this principle will be authored later. This sentence is not a medical claim.",
+      "questions": [
+        {
+          "id": "question-placeholder-1",
+          "prompt": "PLACEHOLDER question prompt targeting principle one.",
+          "answer": "PLACEHOLDER answer for principle one.",
+          "reasoning": "PLACEHOLDER reasoning that will explain why this answer follows from principle one."
+        }
+      ]
+    },
+    {
+      "id": "principle-placeholder-2",
+      "title": "PLACEHOLDER principle two",
+      "explanation": "PLACEHOLDER. A second pathophysiology principle will be written here later. This sentence is not a medical claim.",
+      "questions": [
+        {
+          "id": "question-placeholder-2",
+          "prompt": "PLACEHOLDER question prompt targeting principle two.",
+          "answer": "PLACEHOLDER answer for principle two.",
+          "reasoning": "PLACEHOLDER reasoning that will explain why this answer follows from principle two."
+        }
+      ]
+    }
+  ],
+  "treatmentApproach": [
+    {
+      "id": "step-placeholder-1",
+      "title": "PLACEHOLDER treatment step one",
+      "action": "PLACEHOLDER action. No treatment is described.",
+      "why": "PLACEHOLDER. This will explain why step one follows from principle one.",
+      "principleIds": ["principle-placeholder-1"]
+    },
+    {
+      "id": "step-placeholder-2",
+      "title": "PLACEHOLDER treatment step two",
+      "action": "PLACEHOLDER action. No treatment is described.",
+      "why": "PLACEHOLDER. This will explain why step two follows from both placeholder principles.",
+      "principleIds": ["principle-placeholder-1", "principle-placeholder-2"]
+    }
+  ]
+}
