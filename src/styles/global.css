@@ -665,6 +665,12 @@ h2 {
   margin-top: var(--s4);
 }
 
+/* Home: separate Cases from the intro, and sit the heading on the list rule. */
+.page > h2 {
+  margin-top: var(--s7);
+  margin-bottom: var(--s4);
+}
+
 @media (min-width: 900px) {
   :root {
     --text-body: 18px;
