@@ -47,21 +47,27 @@ function placeholderCase(overrides: Record<string, unknown> = {}): CaseDocument 
 }
 
 describe('case schema', () => {
-  it('accepts the committed adult cardiac arrest placeholder', () => {
+  it('accepts the committed adult cardiac arrest case', () => {
     const result = validateContentDirectory(contentDirectory);
     expect(result.ok).toBe(true);
     if (!result.ok) return;
     expect(result.cases).toHaveLength(1);
     const document = result.cases[0]?.document;
     expect(document?.slug).toBe('adult-cardiac-arrest');
-    expect(document?.contentStatus).toBe('placeholder');
-    expect(document?.summary.toUpperCase()).toContain('PLACEHOLDER');
-    expect(document?.principles[0]?.questions[0]).toMatchObject({
-      prompt: expect.any(String),
-      answer: expect.any(String),
-      reasoning: expect.any(String),
-    });
+    expect(document?.contentStatus).toBe('published');
+    expect(document?.title.toUpperCase()).not.toContain('PLACEHOLDER');
+    expect(document?.principles.length).toBeGreaterThanOrEqual(5);
+    for (const principle of document?.principles ?? []) {
+      expect(principle.questions.length).toBeGreaterThanOrEqual(2);
+      for (const question of principle.questions) {
+        expect(question.prompt.length).toBeGreaterThan(0);
+        expect(question.answer.length).toBeGreaterThan(0);
+        expect(question.reasoning.length).toBeGreaterThan(0);
+      }
+    }
+    expect(document?.treatmentApproach.length).toBeGreaterThanOrEqual(1);
     for (const step of document?.treatmentApproach ?? []) {
+      expect(step.principleIds.length).toBeGreaterThanOrEqual(1);
       for (const principleId of step.principleIds) {
         expect(document?.principles.some((principle) => principle.id === principleId)).toBe(true);
       }
