@@ -19,10 +19,10 @@ describe('static build output', () => {
     expect(index).toContain('href="/cases/adult-cardiac-arrest"');
     expect(index).not.toContain('PLACEHOLDER FIXTURE');
 
-    expect(casePage).toContain('Coronary and cerebral perfusion depend on compressions');
-    expect(casePage).toContain('During CPR, coronary perfusion pressure is judged in the relaxation phase between compressions');
-    expect(casePage).toContain('Incomplete recoil leaves right atrial pressure high');
-    expect(casePage).toContain('The compression generates aortic pressure, but the coronary gradient is aortic pressure minus right atrial pressure');
+    expect(casePage).toContain('Compressions make a gradient, and the gradient makes the flow');
+    expect(casePage).toContain('Predict: a compressor is pushing to a good depth but leaning on the chest between compressions');
+    expect(casePage).toContain('Coronary flow falls, even though each push looks deep');
+    expect(casePage).toContain('incomplete release keeps intrathoracic and right atrial pressure elevated');
     expect(casePage).toContain('When a pulse returns, leave 100% oxygen on until SpO2 or PaO2 is reliably measured');
     expect(casePage).toContain('href="#principle-coronary-cerebral-perfusion"');
     expect(casePage).toContain('href="#principle-post-rosc-physiology"');

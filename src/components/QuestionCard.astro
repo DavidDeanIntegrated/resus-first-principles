@@ -12,7 +12,7 @@ interface Props {
   kind?: QuestionKind;
   prompt: string;
   answer: ProseText;
-  reasoning: ProseText;
+  reasoning?: ProseText;
   conclusion?: ProseText;
   causalChain?: ProseText;
   assumption?: ProseText;
@@ -83,8 +83,14 @@ const parts: Array<{ key: string; label: string; text?: ProseText }> = [
           ),
       )
     }
-    <Explanation buildsOnHref={buildsOnHref} buildsOnNumeral={buildsOnNumeral} buildsOnTitle={buildsOnTitle}>
-      <Prose text={reasoning} />
-    </Explanation>
+    {
+      reasoning ? (
+        <Explanation buildsOnHref={buildsOnHref} buildsOnNumeral={buildsOnNumeral} buildsOnTitle={buildsOnTitle}>
+          <Prose text={reasoning} />
+        </Explanation>
+      ) : (
+        <Explanation buildsOnHref={buildsOnHref} buildsOnNumeral={buildsOnNumeral} buildsOnTitle={buildsOnTitle} />
+      )
+    }
   </details>
 </article>

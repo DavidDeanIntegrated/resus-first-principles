@@ -26,7 +26,7 @@ export const questionSchema = z.object({
   kind: questionKindSchema.optional(),
   prompt: textSchema,
   answer: proseSchema,
-  reasoning: proseSchema,
+  reasoning: proseSchema.optional(),
   conclusion: proseSchema.optional(),
   causalChain: proseSchema.optional(),
   assumption: proseSchema.optional(),
@@ -176,6 +176,15 @@ export const caseSchema = z
           });
         }
         questionIds.add(question.id);
+
+        const hasPart = answerPartKeys.some((key) => question[key] != null);
+        if (question.reasoning == null && !hasPart) {
+          ctx.addIssue({
+            code: 'custom',
+            message: `Question "${question.id}" needs reasoning or an answer part`,
+            path: ['principles', index, 'questions', questionIndex, 'reasoning'],
+          });
+        }
       });
     });
 

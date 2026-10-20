@@ -61,8 +61,18 @@ describe('case schema', () => {
       expect(principle.questions.length).toBeGreaterThanOrEqual(2);
       for (const question of principle.questions) {
         expect(question.prompt.length).toBeGreaterThan(0);
-        expect(question.answer.length).toBeGreaterThan(0);
-        expect(question.reasoning.length).toBeGreaterThan(0);
+        const answer = typeof question.answer === 'string' ? question.answer : question.answer.join('');
+        expect(answer.length).toBeGreaterThan(0);
+        const reasoning =
+          question.reasoning == null
+            ? ''
+            : typeof question.reasoning === 'string'
+              ? question.reasoning
+              : question.reasoning.join('');
+        const hasPart = Boolean(
+          question.conclusion || question.causalChain || question.assumption || question.misconception,
+        );
+        expect(reasoning.length > 0 || hasPart).toBe(true);
       }
     }
     expect(document?.treatmentApproach.length).toBeGreaterThanOrEqual(1);
