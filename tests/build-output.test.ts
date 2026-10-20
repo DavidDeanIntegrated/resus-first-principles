@@ -22,7 +22,9 @@ describe('static build output', () => {
     expect(casePage).toContain('Compressions make a gradient, and the gradient makes the flow');
     expect(casePage).toContain('Predict: a compressor is pushing to a good depth but leaning on the chest between compressions');
     expect(casePage).toContain('Coronary flow falls, even though each push looks deep');
-    expect(casePage).toContain('incomplete release keeps intrathoracic and right atrial pressure elevated');
+    expect(casePage).toContain('Incomplete release keeps intrathoracic and right atrial pressure elevated');
+    expect(casePage).not.toContain('<div class="answer">');
+    expect(casePage).toContain('id="reference-aha-2025-bls"');
     expect(casePage).toContain('When a pulse returns, leave 100% oxygen on until SpO2 or PaO2 is reliably measured');
     expect(casePage).toContain('href="#principle-coronary-cerebral-perfusion"');
     expect(casePage).toContain('href="#principle-post-rosc-physiology"');

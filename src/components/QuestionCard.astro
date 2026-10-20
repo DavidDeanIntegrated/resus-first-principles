@@ -69,9 +69,13 @@ const parts: Array<{ key: string; label: string; text?: ProseText }> = [
       Reveal answer
       <span class="sr-only"> for {label}</span>
     </summary>
-    <div class="answer">
-      <Prose text={answer} />
-    </div>
+    {
+      !conclusion && (
+        <div class="answer">
+          <Prose text={answer} />
+        </div>
+      )
+    }
     {
       parts.map(
         (part) =>
