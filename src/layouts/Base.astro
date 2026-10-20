@@ -14,17 +14,23 @@ const fullTitle = title === 'Resus First Principles' ? title : `${title} · Resu
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/fonts/Fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Literata-latin.woff2" as="font" type="font/woff2" crossorigin />
     <title>{fullTitle}</title>
   </head>
   <body>
+    <a class="skip" href="#content">Skip to content</a>
     <header class="site-header">
-      <a href="/">Resus First Principles</a>
+      <a class="wordmark" href="/">Resus <em>First Principles</em></a>
+      <nav class="site-nav" aria-label="Site">
+        <a href="/">Cases</a>
+      </nav>
     </header>
-    <main>
+    <main id="content">
       <slot />
     </main>
     <footer class="site-footer">

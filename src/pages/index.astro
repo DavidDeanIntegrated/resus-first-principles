@@ -9,26 +9,28 @@ const cases = await loadCases();
   title="Resus First Principles"
   description="Static first-principles teaching pages for resuscitation cases. Version 1 is adult cardiac arrest."
 >
-  <h1>Resus First Principles</h1>
-  <p class="lede">
-    Each resuscitation case is split into pathophysiology principles, questions on those principles
-    (with the reasoning behind each answer), and a treatment approach whose steps point back at the
-    principles they depend on. Pages are generated ahead of time from committed files.
-  </p>
-  <p>
-    Version 1 is adult cardiac arrest, written for study against the 2025 American Heart Association
-    adult guidelines. It is not a substitute for the current guideline or a local protocol.
-  </p>
-  <h2>Cases</h2>
-  <ul class="case-list">
-    {
-      cases.map((entry) => (
-        <li>
-          <a href={`/cases/${entry.data.slug}`}>{entry.data.title}</a>
-          <span class="status">{entry.data.contentStatus}</span>
-          <p>{entry.data.summary}</p>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="page">
+    <h1>Resus First Principles</h1>
+    <p class="lede">
+      Each resuscitation case is split into pathophysiology principles, questions on those principles
+      (with the reasoning behind each answer), and a treatment approach whose steps point back at the
+      principles they depend on. Pages are generated ahead of time from committed files.
+    </p>
+    <p>
+      Version 1 is adult cardiac arrest, written for study against the 2025 American Heart Association
+      adult guidelines. It is not a substitute for the current guideline or a local protocol.
+    </p>
+    <h2>Cases</h2>
+    <ul class="case-list">
+      {
+        cases.map((entry) => (
+          <li>
+            <a href={`/cases/${entry.data.slug}`}>{entry.data.title}</a>
+            <span class="status">{entry.data.contentStatus}</span>
+            <p>{entry.data.summary}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </Base>

@@ -11,6 +11,19 @@ Content is written ahead of time and committed as files. The site only renders t
 - No deployment is configured. The `dist/` directory is plain HTML that a free static host such as GitHub Pages or Vercel can serve later.
 - Styles live in one file, `src/styles/global.css`, with tokens at the top.
 
+## Type and layout
+
+The case page is the annotated primer. It renders the existing case schema through components in `src/components/`. There is no second content model.
+
+- `PrincipleHeader.astro` — roman numeral from principle order, title, and the first sentence of `explanation` as the italic summary. The remainder of that field is the prose under the rule. Anchor id is `principle-{id}`.
+- `QuestionCard.astro` — question label, `prompt` as the stem, and `answer` as the option row. Opening the native `<details>` element (no JavaScript) reveals the sage treatment and a visible "Correct" label, plus the reasoning.
+- `Explanation.astro` — the "why" inset and a "Builds on" link back to that question's principle.
+- `TreatmentStep.astro` — step number, `title`, `action`, `why`, and one `PrincipleChip.astro` pill per `principleIds` entry. Each pill links to `#principle-{id}`.
+
+Fraunces (headings, numerals, question stems) and Literata (body, labels) are self-hosted Latin `woff2` subsets in `public/fonts/`, with `font-display: swap` and a Georgia fallback. Their SIL Open Font License texts are `public/fonts/OFL-Fraunces.txt` and `public/fonts/OFL-Literata.txt`.
+
+Tokens in `:root` are the paper palette, a 4px spacing scale (`--s1` through `--s9`), the type scale, and `--measure: 66ch`. Base CSS is for a 390px-wide page. The only layout breakpoint is `900px`, where the case page becomes a margin column plus a 52rem reading column. Margin notes are hidden below that breakpoint and are not essential. Tap targets for controls are at least 44px.
+
 ## Content schema
 
 Case files live in `src/content/cases/*.json`. The filename must be `{slug}.json`.

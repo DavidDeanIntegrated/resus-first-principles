@@ -1,0 +1,46 @@
+---
+import Explanation from './Explanation.astro';
+
+interface Props {
+  id: string;
+  label: string;
+  prompt: string;
+  answer: string;
+  reasoning: string;
+  open?: boolean;
+  buildsOnHref: string;
+  buildsOnNumeral: string;
+  buildsOnTitle: string;
+}
+
+const {
+  id,
+  label,
+  prompt,
+  answer,
+  reasoning,
+  open = false,
+  buildsOnHref,
+  buildsOnNumeral,
+  buildsOnTitle,
+} = Astro.props;
+---
+
+<article class="q" id={`question-${id}`} aria-labelledby={`question-stem-${id}`}>
+  <div class="q-head">
+    <p class="q-label">{label}</p>
+    <p class="q-stem" id={`question-stem-${id}`}>{prompt}</p>
+  </div>
+  <ol class="options">
+    <li class="option is-correct">
+      <span class="option-text">{answer}</span>
+      <span class="correct-label">Correct</span>
+    </li>
+  </ol>
+  <details open={open}>
+    <summary>Why this answer</summary>
+    <Explanation buildsOnHref={buildsOnHref} buildsOnNumeral={buildsOnNumeral} buildsOnTitle={buildsOnTitle}>
+      <p>{reasoning}</p>
+    </Explanation>
+  </details>
+</article>
