@@ -97,7 +97,9 @@ try {
         nav: box('.site-nav a'),
         correctVisible: visible('.q:has(details[open]) .correct-label'),
         closedCorrectVisible: visible('.q:not(:has(details[open])) .correct-label'),
-        sideDisplay: getComputedStyle(document.querySelector('.side')).display,
+        sideDisplay: document.querySelector('.side')
+          ? getComputedStyle(document.querySelector('.side')).display
+          : 'absent',
         bodyFont: getComputedStyle(document.body).fontFamily,
         bodySize: getComputedStyle(document.body).fontSize,
         h1Font: getComputedStyle(document.querySelector('h1')).fontFamily,
