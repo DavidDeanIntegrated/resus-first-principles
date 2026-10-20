@@ -1,6 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PrincipleHeader from '../../components/PrincipleHeader.astro';
+import QuestionCard from '../../components/QuestionCard.astro';
+import TreatmentStep from '../../components/TreatmentStep.astro';
 import { loadCases } from '../../lib/cases.ts';
+import { splitLead } from '../../lib/prose.ts';
+import { toRoman } from '../../lib/roman.ts';
 
 export async function getStaticPaths() {
   const cases = await loadCases();
@@ -11,80 +16,111 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const principleTitles = new Map(entry.data.principles.map((principle) => [principle.id, principle.title]));
+const principleMeta = new Map(
+  entry.data.principles.map((principle, index) => [
+    principle.id,
+    { numeral: toRoman(index + 1), title: principle.title, href: `#principle-${principle.id}` },
+  ]),
+);
 const description = entry.data.summary;
 ---
 
 <Base title={entry.data.title} description={description}>
-  <article>
-    <p class="muted">Case</p>
-    <h1>{entry.data.title}</h1>
-    {
-      entry.data.contentStatus === 'placeholder' && (
-        <p class="notice" role="status">
-          PLACEHOLDER FIXTURE. This page is not clinical content and is not for patient care.
-        </p>
-      )
-    }
-    <p class="summary">{entry.data.summary}</p>
-
-    <section aria-labelledby="principles-heading">
-      <h2 id="principles-heading">First principles</h2>
+  <div class="wrap">
+    <section class="hero">
+      <p class="kicker">Case</p>
+      <h1>{entry.data.title}</h1>
       {
-        entry.data.principles.map((principle) => (
-          <section class="principle" id={`principle-${principle.id}`}>
-            <h3>{principle.title}</h3>
-            <p>{principle.explanation}</p>
-            <h4>Questions</h4>
-            <ol>
-              {principle.questions.map((question) => (
-                <li id={`question-${question.id}`}>
-                  <p>{question.prompt}</p>
-                  <details>
-                    <summary>Answer and reasoning</summary>
-                    <p>
-                      <strong>Answer. </strong>
-                      {question.answer}
-                    </p>
-                    <p>
-                      <strong>Reasoning. </strong>
-                      {question.reasoning}
-                    </p>
-                  </details>
-                </li>
-              ))}
-            </ol>
-          </section>
-        ))
+        entry.data.contentStatus === 'placeholder' && (
+          <p class="notice" role="status">
+            PLACEHOLDER FIXTURE. This page is not clinical content and is not for patient care.
+          </p>
+        )
       }
-    </section>
-
-    <section aria-labelledby="treatment-heading">
-      <h2 id="treatment-heading">Treatment approach</h2>
-      <ol>
+      <p class="lede">{entry.data.summary}</p>
+      <ol class="toc">
         {
-          entry.data.treatmentApproach.map((step) => (
-            <li class="step" id={`step-${step.id}`}>
-              <h3>{step.title}</h3>
-              <p>{step.action}</p>
-              <p>
-                <strong>Why. </strong>
-                {step.why}
-              </p>
-              <p>Linked principles:</p>
-              <ul class="principle-links">
-                {step.principleIds.map((principleId) => (
-                  <li>
-                    <a href={`#principle-${principleId}`}>
-                      {principleTitles.get(principleId) ?? principleId}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          entry.data.principles.map((principle) => (
+            <li>
+              <a href={`#principle-${principle.id}`}>{principle.title}</a>
             </li>
           ))
         }
       </ol>
     </section>
-  </article>
+
+    {
+      entry.data.contentStatus === 'placeholder' && (
+        <aside class="side">
+          PLACEHOLDER margin note. Desktop only. This aside is not essential and is not clinical content.
+        </aside>
+      )
+    }
+
+    {
+      entry.data.principles.map((principle, principleIndex) => {
+        const { lead, rest } = splitLead(principle.explanation);
+        return (
+        <PrincipleHeader
+          id={`principle-${principle.id}`}
+          numeral={toRoman(principleIndex + 1)}
+          title={principle.title}
+          summary={lead}
+        >
+          {rest && (
+            <div class="prose">
+              <p>{rest}</p>
+            </div>
+          )}
+          {principle.questions.map((question, questionIndex) => {
+            const meta = principleMeta.get(principle.id);
+            return (
+              <QuestionCard
+                id={question.id}
+                label={`Question ${principleIndex + 1}.${questionIndex + 1}`}
+                prompt={question.prompt}
+                answer={question.answer}
+                reasoning={question.reasoning}
+                open={principleIndex === 0 && questionIndex === 0}
+                buildsOnHref={meta?.href ?? `#principle-${principle.id}`}
+                buildsOnNumeral={meta?.numeral ?? toRoman(principleIndex + 1)}
+                buildsOnTitle={meta?.title ?? principle.title}
+              />
+            );
+          })}
+        </PrincipleHeader>
+        );
+      })
+    }
+  </div>
+
+  <section class="treat" aria-labelledby="treatment-heading">
+    <div class="wrap">
+      <div class="treat-inner">
+        <p class="kicker">Putting it together</p>
+        <h2 id="treatment-heading">Approach to treatment</h2>
+        <ol class="steps">
+          {
+            entry.data.treatmentApproach.map((step, index) => (
+              <TreatmentStep
+                id={step.id}
+                number={index + 1}
+                title={step.title}
+                action={step.action}
+                why={step.why}
+                principles={step.principleIds.map((principleId) => {
+                  const meta = principleMeta.get(principleId);
+                  return {
+                    href: meta?.href ?? `#principle-${principleId}`,
+                    numeral: meta?.numeral ?? principleId,
+                    title: meta?.title ?? principleId,
+                  };
+                })}
+              />
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
 </Base>

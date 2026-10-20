@@ -28,5 +28,11 @@ describe('static build output', () => {
     expect(casePage).toContain('href="#principle-post-rosc-physiology"');
     expect(casePage).not.toContain('PLACEHOLDER FIXTURE');
     expect(casePage).not.toContain('api.openai.com');
+    expect(casePage).not.toContain('fonts.googleapis.com');
+    expect(casePage).toContain('Why this answer');
+    expect(casePage).toContain('>Correct<');
+    expect(casePage).toContain('<details open');
+    expect(casePage).toContain('/fonts/Fraunces-latin.woff2');
+    expect(casePage).toContain('/fonts/Literata-latin.woff2');
   });
 });

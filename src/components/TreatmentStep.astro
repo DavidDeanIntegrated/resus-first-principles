@@ -1,0 +1,36 @@
+---
+import PrincipleChip from './PrincipleChip.astro';
+
+interface PrincipleLink {
+  href: string;
+  numeral: string;
+  title: string;
+}
+
+interface Props {
+  id: string;
+  number: number;
+  title: string;
+  action: string;
+  why: string;
+  principles: PrincipleLink[];
+}
+
+const { id, number, title, action, why, principles } = Astro.props;
+---
+
+<li class="step" id={`step-${id}`}>
+  <span class="step-num" aria-hidden="true">{number}</span>
+  <div class="step-body">
+    <h3>{title}</h3>
+    <p>{action}</p>
+    <p>{why}</p>
+    <div class="chips">
+      {
+        principles.map((principle) => (
+          <PrincipleChip href={principle.href} numeral={principle.numeral} title={principle.title} />
+        ))
+      }
+    </div>
+  </div>
+</li>
