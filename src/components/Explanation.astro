@@ -6,10 +6,11 @@ interface Props {
 }
 
 const { buildsOnHref, buildsOnNumeral, buildsOnTitle } = Astro.props;
+const hasBody = Astro.slots.has('default');
 ---
 
 <div class="why">
-  <h3>The reasoning</h3>
+  {hasBody && <h3>The reasoning</h3>}
   <slot />
   <p class="back">
     Builds on <a href={buildsOnHref}>{buildsOnNumeral} · {buildsOnTitle}</a>
