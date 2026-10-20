@@ -1,0 +1,174 @@
+/*
+ * The only stylesheet. Restyle the site by editing these tokens and the
+ * element rules below. Pages do not carry their own style blocks.
+ */
+:root {
+  --color-bg: #f7f6f3;
+  --color-surface: #ffffff;
+  --color-text: #1c1917;
+  --color-muted: #57534e;
+  --color-border: #e7e5e4;
+  --color-accent: #1e3a5f;
+  --color-notice-bg: #fff7ed;
+  --color-notice-border: #fdba74;
+  --color-notice-text: #9a3412;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --measure: 42rem;
+  --radius: 6px;
+  --line-height: 1.55;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: var(--line-height);
+}
+
+a {
+  color: var(--color-accent);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.site-header,
+.site-footer,
+main {
+  width: min(var(--measure), calc(100% - 2 * var(--space-4)));
+  margin-inline: auto;
+}
+
+.site-header {
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header a {
+  color: inherit;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.site-footer {
+  padding-block: var(--space-6);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+main {
+  padding-block: var(--space-6) var(--space-8);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  margin-block: var(--space-6) var(--space-3);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.85rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+h4 {
+  font-size: 1rem;
+  margin-bottom: var(--space-2);
+}
+
+p,
+li {
+  margin-block: var(--space-2);
+}
+
+.lede,
+.summary,
+.muted {
+  color: var(--color-muted);
+}
+
+.notice {
+  background: var(--color-notice-bg);
+  color: var(--color-notice-text);
+  border: 1px solid var(--color-notice-border);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+}
+
+.status {
+  display: inline-block;
+  margin-left: var(--space-2);
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.case-list {
+  padding-left: 1.2rem;
+}
+
+.case-list li {
+  margin-block: var(--space-4);
+}
+
+.principle,
+.step {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  margin-block: var(--space-4);
+}
+
+.principle h3,
+.step h3 {
+  margin-top: 0;
+}
+
+details {
+  margin-top: var(--space-3);
+}
+
+summary {
+  cursor: pointer;
+}
+
+.principle-links {
+  padding-left: 1.2rem;
+}
