@@ -1,0 +1,24 @@
+---
+import type { ReferenceMark } from '../lib/references.ts';
+
+interface Props {
+  marks?: readonly ReferenceMark[];
+}
+
+const marks = Astro.props.marks ?? [];
+---
+
+{
+  marks.length > 0 && (
+    <sup class="ref-marks">
+      {marks.map((mark, index) => (
+        <>
+          {index > 0 ? ',' : ''}
+          <a href={`#reference-${mark.id}`} aria-label={`Reference ${mark.n}`}>
+            {mark.n}
+          </a>
+        </>
+      ))}
+    </sup>
+  )
+}

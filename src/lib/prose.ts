@@ -1,3 +1,10 @@
+/** A single paragraph, or one string per paragraph. */
+export type ProseText = string | readonly string[];
+
+export function asParagraphs(text: ProseText): string[] {
+  return typeof text === 'string' ? [text] : [...text];
+}
+
 /** Split a committed explanation into its first sentence and the remainder. */
 export function splitLead(text: string): { lead: string; rest: string } {
   const trimmed = text.trim();

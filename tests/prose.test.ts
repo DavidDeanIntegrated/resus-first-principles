@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { splitLead } from '../src/lib/prose.ts';
+import { asParagraphs, splitLead } from '../src/lib/prose.ts';
 import type { CaseDocument } from '../src/lib/schema.ts';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
@@ -14,9 +14,10 @@ describe('splitLead', () => {
     ) as CaseDocument;
 
     for (const principle of document.principles) {
-      const { lead, rest } = splitLead(principle.explanation);
-      const rebuilt = rest ? `${lead} ${rest}` : lead;
-      expect(rebuilt.replace(/\s+/g, ' ')).toBe(principle.explanation.replace(/\s+/g, ' '));
+      const paragraphs = asParagraphs(principle.explanation);
+      const { lead, rest } = splitLead(paragraphs[0] ?? '');
+      const rebuilt = [rest ? `${lead} ${rest}` : lead, ...paragraphs.slice(1)].join(' ');
+      expect(rebuilt.replace(/\s+/g, ' ')).toBe(paragraphs.join(' ').replace(/\s+/g, ' '));
       expect(lead.length).toBeGreaterThan(0);
     }
   });

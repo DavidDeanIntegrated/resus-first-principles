@@ -13,6 +13,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "validate": "node --experimental-strip-types scripts/validate-content.ts",
+    "validate:strict": "node --experimental-strip-types scripts/validate-content.ts --strict",
     "check:no-models": "node scripts/check-no-model-calls.mjs",
     "check:types": "astro check",
     "test": "vitest run"

@@ -1,13 +1,23 @@
 ---
 import Explanation from './Explanation.astro';
+import Prose from './Prose.astro';
+import RefMarks from './RefMarks.astro';
+import type { ReferenceMark } from '../lib/references.ts';
+import type { ProseText } from '../lib/prose.ts';
+import type { QuestionKind } from '../lib/schema.ts';
 
 interface Props {
   id: string;
   label: string;
+  kind?: QuestionKind;
   prompt: string;
-  answer: string;
-  reasoning: string;
-  open?: boolean;
+  answer: ProseText;
+  reasoning: ProseText;
+  conclusion?: ProseText;
+  causalChain?: ProseText;
+  assumption?: ProseText;
+  misconception?: ProseText;
+  marks?: readonly ReferenceMark[];
   buildsOnHref: string;
   buildsOnNumeral: string;
   buildsOnTitle: string;
@@ -16,31 +26,65 @@ interface Props {
 const {
   id,
   label,
+  kind,
   prompt,
   answer,
   reasoning,
-  open = false,
+  conclusion,
+  causalChain,
+  assumption,
+  misconception,
+  marks,
   buildsOnHref,
   buildsOnNumeral,
   buildsOnTitle,
 } = Astro.props;
+
+const kindLabels: Record<QuestionKind, string> = {
+  prediction: 'Prediction',
+  transfer: 'Transfer',
+  'evidence-boundary': 'Evidence boundary',
+};
+
+const parts: Array<{ key: string; label: string; text?: ProseText }> = [
+  { key: 'conclusion', label: 'Conclusion', text: conclusion },
+  { key: 'causalChain', label: 'Causal chain', text: causalChain },
+  { key: 'assumption', label: 'Assumption', text: assumption },
+  { key: 'misconception', label: 'Misconception', text: misconception },
+];
 ---
 
 <article class="q" id={`question-${id}`} aria-labelledby={`question-stem-${id}`}>
   <div class="q-head">
     <p class="q-label">{label}</p>
-    <p class="q-stem" id={`question-stem-${id}`}>{prompt}</p>
+    {kind && <p class="q-kind">{kindLabels[kind]}</p>}
+    <p class="q-stem" id={`question-stem-${id}`}>
+      {prompt}
+      <RefMarks marks={marks} />
+    </p>
   </div>
-  <ol class="options">
-    <li class="option is-correct">
-      <span class="option-text">{answer}</span>
-      <span class="correct-label">Correct</span>
-    </li>
-  </ol>
-  <details open={open}>
-    <summary>Why this answer</summary>
+  <p class="commit">Commit to an answer before revealing.</p>
+  <details>
+    <summary>
+      Reveal answer
+      <span class="sr-only"> for {label}</span>
+    </summary>
+    <div class="answer">
+      <Prose text={answer} />
+    </div>
+    {
+      parts.map(
+        (part) =>
+          part.text && (
+            <div class="part">
+              <h3>{part.label}</h3>
+              <Prose text={part.text} />
+            </div>
+          ),
+      )
+    }
     <Explanation buildsOnHref={buildsOnHref} buildsOnNumeral={buildsOnNumeral} buildsOnTitle={buildsOnTitle}>
-      <p>{reasoning}</p>
+      <Prose text={reasoning} />
     </Explanation>
   </details>
 </article>

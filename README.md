@@ -1,49 +1,65 @@
 # Resus First Principles
 
-Static teaching pages for resuscitation cases. Each case breaks the pathology into first principles of its pathophysiology, asks questions that target those principles (with the reasoning behind each answer), and explains the treatment approach with the why behind each step tied back to a principle.
+Static teaching pages for resuscitation topic modules. Each topic module breaks the pathology into first principles of its pathophysiology, asks questions that target those principles (with the reasoning behind each answer), and explains the treatment approach with the why behind each step tied back to a principle.
 
-Content is written ahead of time and committed as files. The site only renders those files. Version 1 is adult cardiac arrest, written for study against the 2025 American Heart Association adult basic life support, advanced life support, and post–cardiac arrest care guidelines. It is not a clinical protocol.
+Content is written ahead of time and committed as files. The site only renders those files. Version 1 is the adult cardiac arrest topic module, written for study against the 2025 American Heart Association adult basic life support, advanced life support, and post–cardiac arrest care guidelines. It is not a clinical protocol.
 
 ## Stack
 
 - [Astro](https://astro.build) static output (`output: 'static'`). There is no server adapter.
 - No backend, accounts, database, or analytics.
-- No deployment is configured. The `dist/` directory is plain HTML that a free static host such as GitHub Pages or Vercel can serve later.
+- The site is live at [https://resus-first-principles.vercel.app/](https://resus-first-principles.vercel.app/). Vercel auto-deploys from `main`. The `dist/` directory is the same static HTML.
 - Styles live in one file, `src/styles/global.css`, with tokens at the top.
 
 ## Type and layout
 
-The case page is the annotated primer. It renders the existing case schema through components in `src/components/`. There is no second content model.
+The topic module page is the annotated primer. It renders the topic module schema through components in `src/components/`. There is no second content model.
 
-- `PrincipleHeader.astro` — roman numeral from principle order, title, and the first sentence of `explanation` as the italic summary. The remainder of that field is the prose under the rule. Anchor id is `principle-{id}`.
-- `QuestionCard.astro` — question label, `prompt` as the stem, and `answer` as the option row. Opening the native `<details>` element (no JavaScript) reveals the sage treatment and a visible "Correct" label, plus the reasoning.
+- `PrincipleHeader.astro` — roman numeral from principle order, title, and the first sentence of `explanation` as the italic summary. The remainder of that field is the prose under the rule. An array of strings renders as one paragraph each. Anchor id is `principle-{id}`.
+- `QuestionCard.astro` — question label, optional `kind`, and `prompt` as the stem. A line above the control says "Commit to an answer before revealing." The answer and its explanation stay inside a native `<details>` / `<summary>` labelled "Reveal answer" (keyboard accessible, no JavaScript). There is no "Correct" label. Optional `conclusion`, `causalChain`, `assumption`, and `misconception` render under that reveal, in that order, ahead of the reasoning.
 - `Explanation.astro` — the "why" inset and a "Builds on" link back to that question's principle.
 - `TreatmentStep.astro` — step number, `title`, `action`, `why`, and one `PrincipleChip.astro` pill per `principleIds` entry. Each pill links to `#principle-{id}`.
 
 Fraunces (headings, numerals, question stems) and Literata (body, labels) are self-hosted Latin `woff2` subsets in `public/fonts/`, with `font-display: swap` and a Georgia fallback. Their SIL Open Font License texts are `public/fonts/OFL-Fraunces.txt` and `public/fonts/OFL-Literata.txt`.
 
-Tokens in `:root` are the paper palette, a 4px spacing scale (`--s1` through `--s9`), the type scale, and `--measure: 66ch`. Base CSS is for a 390px-wide page. The only layout breakpoint is `900px`, where the case page becomes a margin column plus a 52rem reading column. Margin notes are hidden below that breakpoint and are not essential. Tap targets for controls are at least 44px.
+Tokens in `:root` are the paper palette, a 4px spacing scale (`--s1` through `--s9`), the type scale, and `--measure: 66ch`. Base CSS is for a 390px-wide page. The only layout breakpoint is `900px`, where the topic module page becomes a margin column plus a 52rem reading column. Margin notes are hidden below that breakpoint and are not essential. Tap targets for controls are at least 44px.
 
 ## Content schema
 
-Case files live in `src/content/cases/*.json`. The filename must be `{slug}.json`.
+Topic module files live in `src/content/cases/*.json`. The filename must be `{slug}.json`.
 
-Each case has:
+Each topic module has:
 
 - `schemaVersion` (`1`), `id`, `slug`, `title`, `summary`, and `contentStatus` (`placeholder` or `published`)
-- `principles`: id, title, `explanation` (the pathophysiology first-principles writeup), and `questions`
-- each question: `prompt`, `answer`, and `reasoning`
-- `treatmentApproach`: ordered steps with `action`, `why`, and `principleIds` pointing at principle ids
+- optional `strict` (`true` turns on the stricter question rules below for that file)
+- optional `references`: `{ id, label, url, note? }`. `url` is an absolute URL. `note` is optional.
+- `principles`: `id`, `title`, `explanation`, optional `refs` (reference ids), and `questions`
+- each question: `prompt`, `answer`, `reasoning`, optional `kind` (`prediction`, `transfer`, or `evidence-boundary`), optional `conclusion`, `causalChain`, `assumption`, `misconception`, and optional `refs`
+- `treatmentApproach`: ordered steps with `action`, `why`, `principleIds` pointing at principle ids, and optional `refs`
 
-A placeholder case must include the word `PLACEHOLDER` in the title or summary. Published cases set `contentStatus` to `published`. The adult cardiac arrest file is published study content.
+`explanation`, `answer`, `reasoning`, `conclusion`, `causalChain`, `assumption`, and `misconception` are either one string or an array of strings. Each array entry is one paragraph. A string stays a single paragraph. The first sentence of a principle `explanation` is still the italic summary; further sentences and later array entries are the prose under the rule.
 
-`src/lib/schema.ts` is the Zod schema. `npm run validate` checks every case file against it, including principle links. `astro build` runs that check first (`prebuild`) and the Astro content collection validates the same schema again, so a malformed file fails the build and CI.
+`refs` on a principle, question, or step must name ids from that topic module's `references`. The page renders them as superscript links to a References list at the bottom. The list items link out to `url`.
+
+A placeholder topic module must include the word `PLACEHOLDER` in the title or summary. Published topic modules set `contentStatus` to `published`. The adult cardiac arrest file is published study content.
+
+`src/lib/schema.ts` is the Zod schema. `npm run validate` checks every topic module against it, including principle links and reference ids. `astro build` runs that check first (`prebuild`) and the Astro content collection validates the same schema again, so a malformed file fails the build and CI.
+
+### Strict question shape
+
+`kind` and the four answer parts are optional, so the current adult cardiac arrest topic module still validates. The strict rules fail a topic module when any question lacks a `kind` or any of `conclusion`, `causalChain`, `assumption`, and `misconception`, or when any principle lacks at least one `prediction` question and one `transfer` question. An `evidence-boundary` question does not count as either.
+
+CI does not run this yet. Turn it on for a content PR in either of these ways:
+
+- Set `"strict": true` on the topic module. `npm run validate`, the build, and CI then enforce the rules for that file.
+- Run `npm run validate:strict` to apply the rules to every topic module even when `strict` is omitted. Add that script to `.github/workflows/ci.yml` once the content satisfies it.
 
 ## Scripts
 
 ```sh
 npm install
 npm run validate
+npm run validate:strict
 npm run build
 npm test
 npm run check:no-models
@@ -54,7 +70,7 @@ npm run dev
 
 ## No runtime model calls and no paid dependencies
 
-Generation of future case content happens outside this site. The running site, the build, and CI must not call a model, ship a model SDK, or spend money on an API.
+Generation of future topic module content happens outside this site. The running site, the build, and CI must not call a model, ship a model SDK, or spend money on an API.
 
 `npm run check:no-models` (`scripts/check-no-model-calls.mjs`) fails the build when the repository contains any of the following:
 

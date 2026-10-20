@@ -29,9 +29,11 @@ describe('static build output', () => {
     expect(casePage).not.toContain('PLACEHOLDER FIXTURE');
     expect(casePage).not.toContain('api.openai.com');
     expect(casePage).not.toContain('fonts.googleapis.com');
-    expect(casePage).toContain('Why this answer');
-    expect(casePage).toContain('>Correct<');
-    expect(casePage).toContain('<details open');
+    expect(casePage).toContain('Commit to an answer before revealing.');
+    expect(casePage).toContain('Reveal answer');
+    expect(casePage).toContain('<details>');
+    expect(casePage).not.toContain('>Correct<');
+    expect(casePage).not.toContain('<details open');
     expect(casePage).toContain('/fonts/Fraunces-latin.woff2');
     expect(casePage).toContain('/fonts/Literata-latin.woff2');
   });

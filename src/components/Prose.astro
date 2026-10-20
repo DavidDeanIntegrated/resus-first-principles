@@ -1,0 +1,11 @@
+---
+import { asParagraphs, type ProseText } from '../lib/prose.ts';
+
+interface Props {
+  text: ProseText;
+}
+
+const paragraphs = asParagraphs(Astro.props.text);
+---
+
+{paragraphs.map((paragraph) => <p>{paragraph}</p>)}

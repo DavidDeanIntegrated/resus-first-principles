@@ -1,5 +1,7 @@
 ---
 import PrincipleChip from './PrincipleChip.astro';
+import RefMarks from './RefMarks.astro';
+import type { ReferenceMark } from '../lib/references.ts';
 
 interface PrincipleLink {
   href: string;
@@ -14,15 +16,16 @@ interface Props {
   action: string;
   why: string;
   principles: PrincipleLink[];
+  marks?: readonly ReferenceMark[];
 }
 
-const { id, number, title, action, why, principles } = Astro.props;
+const { id, number, title, action, why, principles, marks } = Astro.props;
 ---
 
 <li class="step" id={`step-${id}`}>
   <span class="step-num" aria-hidden="true">{number}</span>
   <div class="step-body">
-    <h3>{title}</h3>
+    <h3>{title}<RefMarks marks={marks} /></h3>
     <p>{action}</p>
     <p>{why}</p>
     <div class="chips">
