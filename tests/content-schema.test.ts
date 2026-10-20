@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { caseSchema, type CaseDocument } from '../src/lib/schema.ts';
+import { caseSchema, type CaseDocument, type QuestionKind } from '../src/lib/schema.ts';
 import { validateContentDirectory } from '../src/lib/validate-content.ts';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
@@ -150,6 +150,172 @@ describe('case schema', () => {
     expect(result.errors.some((error) => error.includes('filename must be'))).toBe(true);
   });
 
+  it('accepts multi-paragraph prose and linked references', () => {
+    const parsed = caseSchema.safeParse(
+      placeholderCase({
+        references: [
+          {
+            id: 'source-one',
+            label: 'Example source',
+            url: 'https://example.com/source',
+            note: 'A note for the writer.',
+          },
+        ],
+        principles: [
+          {
+            id: 'principle-placeholder-1',
+            title: 'PLACEHOLDER principle',
+            explanation: ['PLACEHOLDER first paragraph.', 'PLACEHOLDER second paragraph.'],
+            refs: ['source-one'],
+            questions: [
+              {
+                id: 'question-placeholder-1',
+                prompt: 'PLACEHOLDER prompt.',
+                answer: ['PLACEHOLDER answer paragraph.', 'PLACEHOLDER answer follow-up.'],
+                reasoning: ['PLACEHOLDER reasoning paragraph.', 'PLACEHOLDER reasoning follow-up.'],
+                conclusion: 'PLACEHOLDER conclusion.',
+                causalChain: ['PLACEHOLDER cause.', 'PLACEHOLDER effect.'],
+                assumption: 'PLACEHOLDER assumption.',
+                misconception: 'PLACEHOLDER misconception.',
+                kind: 'prediction',
+                refs: ['source-one'],
+              },
+            ],
+          },
+        ],
+        treatmentApproach: [
+          {
+            id: 'step-placeholder-1',
+            title: 'PLACEHOLDER step',
+            action: 'PLACEHOLDER action.',
+            why: 'PLACEHOLDER why.',
+            principleIds: ['principle-placeholder-1'],
+            refs: ['source-one'],
+          },
+        ],
+      }),
+    );
+    expect(parsed.success).toBe(true);
+  });
+
+  it('rejects a ref id that is not in references', () => {
+    const parsed = caseSchema.safeParse(
+      placeholderCase({
+        principles: [
+          {
+            id: 'principle-placeholder-1',
+            title: 'PLACEHOLDER principle',
+            explanation: 'PLACEHOLDER explanation.',
+            refs: ['missing-source'],
+            questions: [
+              {
+                id: 'question-placeholder-1',
+                prompt: 'PLACEHOLDER prompt.',
+                answer: 'PLACEHOLDER answer.',
+                reasoning: 'PLACEHOLDER reasoning.',
+              },
+            ],
+          },
+        ],
+      }),
+    );
+    expect(parsed.success).toBe(false);
+    if (parsed.success) return;
+    expect(parsed.error.issues.some((issue) => issue.message.includes('Unknown reference'))).toBe(true);
+  });
+
+  it('rejects a duplicate reference id', () => {
+    const parsed = caseSchema.safeParse(
+      placeholderCase({
+        references: [
+          { id: 'source-one', label: 'First', url: 'https://example.com/a' },
+          { id: 'source-one', label: 'Second', url: 'https://example.com/b' },
+        ],
+      }),
+    );
+    expect(parsed.success).toBe(false);
+    if (parsed.success) return;
+    expect(parsed.error.issues.some((issue) => issue.message.includes('Duplicate reference id'))).toBe(true);
+  });
+
+  it('keeps question parts optional unless strict is set', () => {
+    expect(caseSchema.safeParse(placeholderCase()).success).toBe(true);
+    const strict = caseSchema.safeParse(placeholderCase({ strict: true }));
+    expect(strict.success).toBe(false);
+    if (strict.success) return;
+    const messages = strict.error.issues.map((issue) => issue.message).join('\n');
+    expect(messages).toContain('needs a kind');
+    expect(messages).toContain('needs conclusion');
+    expect(messages).toContain('needs causalChain');
+    expect(messages).toContain('needs assumption');
+    expect(messages).toContain('needs misconception');
+    expect(messages).toContain('needs at least one prediction question');
+    expect(messages).toContain('needs at least one transfer question');
+  });
+
+  it('accepts a strict topic module with both question kinds and all four parts', () => {
+    const question = (id: string, kind: QuestionKind) => ({
+      id,
+      kind,
+      prompt: 'PLACEHOLDER prompt.',
+      answer: 'PLACEHOLDER answer.',
+      reasoning: 'PLACEHOLDER reasoning.',
+      conclusion: 'PLACEHOLDER conclusion.',
+      causalChain: 'PLACEHOLDER chain.',
+      assumption: 'PLACEHOLDER assumption.',
+      misconception: 'PLACEHOLDER misconception.',
+    });
+    const parsed = caseSchema.safeParse(
+      placeholderCase({
+        strict: true,
+        principles: [
+          {
+            id: 'principle-placeholder-1',
+            title: 'PLACEHOLDER principle',
+            explanation: 'PLACEHOLDER explanation.',
+            questions: [
+              question('question-prediction', 'prediction'),
+              question('question-transfer', 'transfer'),
+              question('question-boundary', 'evidence-boundary'),
+            ],
+          },
+        ],
+      }),
+    );
+    expect(parsed.success).toBe(true);
+  });
+
+  it('rejects a strict principle that has no transfer question', () => {
+    const parsed = caseSchema.safeParse(
+      placeholderCase({
+        strict: true,
+        principles: [
+          {
+            id: 'principle-placeholder-1',
+            title: 'PLACEHOLDER principle',
+            explanation: 'PLACEHOLDER explanation.',
+            questions: [
+              {
+                id: 'question-prediction',
+                kind: 'prediction',
+                prompt: 'PLACEHOLDER prompt.',
+                answer: 'PLACEHOLDER answer.',
+                reasoning: 'PLACEHOLDER reasoning.',
+                conclusion: 'PLACEHOLDER conclusion.',
+                causalChain: 'PLACEHOLDER chain.',
+                assumption: 'PLACEHOLDER assumption.',
+                misconception: 'PLACEHOLDER misconception.',
+              },
+            ],
+          },
+        ],
+      }),
+    );
+    expect(parsed.success).toBe(false);
+    if (parsed.success) return;
+    expect(parsed.error.issues.some((issue) => issue.message.includes('transfer question'))).toBe(true);
+  });
+
   it('returns a failing exit code from the validate script', () => {
     const directory = mkdtempSync(join(tmpdir(), 'resus-content-'));
     mkdirSync(directory, { recursive: true });
@@ -161,5 +327,54 @@ describe('case schema', () => {
     );
     expect(result.status).toBe(1);
     expect(result.stdout).toContain('Content validation: FAIL');
+  });
+
+  it('validate:strict fails an ordinary topic module and passes a complete one', () => {
+    const directory = mkdtempSync(join(tmpdir(), 'resus-strict-'));
+    const question = (id: string, kind: QuestionKind) => ({
+      id,
+      kind,
+      prompt: 'PLACEHOLDER prompt.',
+      answer: 'PLACEHOLDER answer.',
+      reasoning: 'PLACEHOLDER reasoning.',
+      conclusion: 'PLACEHOLDER conclusion.',
+      causalChain: 'PLACEHOLDER chain.',
+      assumption: 'PLACEHOLDER assumption.',
+      misconception: 'PLACEHOLDER misconception.',
+    });
+    writeFileSync(join(directory, 'adult-cardiac-arrest.json'), JSON.stringify(placeholderCase()));
+    const loose = spawnSync(
+      process.execPath,
+      ['--experimental-strip-types', join(repoRoot, 'scripts/validate-content.ts'), '--strict', directory],
+      { cwd: repoRoot, encoding: 'utf8' },
+    );
+    expect(loose.status).toBe(1);
+    expect(loose.stdout).toContain('needs a kind');
+
+    writeFileSync(
+      join(directory, 'adult-cardiac-arrest.json'),
+      JSON.stringify(
+        placeholderCase({
+          principles: [
+            {
+              id: 'principle-placeholder-1',
+              title: 'PLACEHOLDER principle',
+              explanation: 'PLACEHOLDER explanation.',
+              questions: [
+                question('question-prediction', 'prediction'),
+                question('question-transfer', 'transfer'),
+              ],
+            },
+          ],
+        }),
+      ),
+    );
+    const ready = spawnSync(
+      process.execPath,
+      ['--experimental-strip-types', join(repoRoot, 'scripts/validate-content.ts'), '--strict', directory],
+      { cwd: repoRoot, encoding: 'utf8' },
+    );
+    expect(ready.status).toBe(0);
+    expect(ready.stdout).toContain('Content validation: PASS');
   });
 });

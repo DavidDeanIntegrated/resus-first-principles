@@ -386,6 +386,18 @@ h2 {
   color: var(--sage);
 }
 
+.q-kind {
+  margin-top: var(--s2);
+  font-family: var(--f-text);
+  font-weight: 600;
+  font-size: var(--text-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--ink-soft);
+  font-variation-settings: "opsz" 12, "wght" 600;
+}
+
 .q-stem {
   font-family: var(--f-display);
   font-weight: 500;
@@ -395,50 +407,65 @@ h2 {
   margin-top: var(--s3);
 }
 
-.options {
-  list-style: none;
+.commit {
   margin: 0;
-  padding: 0 var(--card-pad) var(--card-pad);
+  padding: 0 var(--card-pad) var(--s4);
+  color: var(--ink-soft);
+  font-size: var(--text-small);
 }
 
-.option {
-  position: relative;
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  padding: var(--s3) var(--s4);
-  margin-top: var(--s2);
-  display: flex;
-  gap: var(--s3);
-  min-height: 44px;
-  align-items: center;
+.answer,
+.part {
+  padding: var(--s4) var(--card-pad) 0;
 }
 
-.option-text {
-  min-width: 0;
+.answer p,
+.part p {
+  margin: 0 0 var(--s3);
+  max-width: var(--measure);
 }
 
-.correct-label {
-  margin-left: auto;
-  flex-shrink: 0;
+.part h3 {
+  margin: var(--s4) 0 var(--s2);
   font-family: var(--f-text);
   font-weight: 600;
-  font-size: var(--text-label);
-  letter-spacing: 0.12em;
+  font-size: var(--text-small);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   line-height: 1.2;
-  color: var(--sage);
-  border: 1px solid var(--sage);
-  border-radius: 99px;
-  padding: 4px 10px;
+  color: var(--ink-soft);
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.ref-marks {
+  font-family: var(--f-text);
+  font-size: 0.75em;
+  font-weight: 600;
+  line-height: 1;
+  margin-left: 0.2em;
+  letter-spacing: 0;
   font-variation-settings: "opsz" 12, "wght" 600;
 }
 
-.q:has(details[open]) .option.is-correct {
-  border-color: var(--sage);
-  background: var(--sage-tint);
+.ref-marks a {
+  text-decoration: none;
 }
 
-.q:not(:has(details[open])) .correct-label {
+.references {
+  padding: var(--s7) 0;
+}
+
+.references ol {
+  margin: 0;
+  padding-left: 1.4rem;
+  max-width: var(--measure);
+}
+
+.references li {
+  margin-top: var(--s3);
+}
+
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -731,20 +758,6 @@ h2 {
     font-variation-settings: "opsz" 13, "wght" 400;
   }
 
-  .options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: var(--s3);
-    align-items: stretch;
-  }
-
-  .option {
-    height: 100%;
-  }
-
-  .options .option:only-child {
-    grid-column: 1 / -1;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

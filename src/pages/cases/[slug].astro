@@ -2,9 +2,11 @@
 import Base from '../../layouts/Base.astro';
 import PrincipleHeader from '../../components/PrincipleHeader.astro';
 import QuestionCard from '../../components/QuestionCard.astro';
+import ReferenceList from '../../components/ReferenceList.astro';
 import TreatmentStep from '../../components/TreatmentStep.astro';
 import { loadCases } from '../../lib/cases.ts';
-import { splitLead } from '../../lib/prose.ts';
+import { asParagraphs, splitLead } from '../../lib/prose.ts';
+import { marksFor, referenceNumbers } from '../../lib/references.ts';
 import { toRoman } from '../../lib/roman.ts';
 
 export async function getStaticPaths() {
@@ -16,6 +18,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const numbers = referenceNumbers(entry.data.references);
 const principleMeta = new Map(
   entry.data.principles.map((principle, index) => [
     principle.id,
@@ -59,17 +62,20 @@ const description = entry.data.summary;
 
     {
       entry.data.principles.map((principle, principleIndex) => {
-        const { lead, rest } = splitLead(principle.explanation);
+        const paragraphs = asParagraphs(principle.explanation);
+        const { lead, rest } = splitLead(paragraphs[0] ?? '');
+        const body = [rest, ...paragraphs.slice(1)].filter((paragraph) => paragraph.length > 0);
         return (
         <PrincipleHeader
           id={`principle-${principle.id}`}
           numeral={toRoman(principleIndex + 1)}
           title={principle.title}
           summary={lead}
+          marks={marksFor(principle.refs, numbers)}
         >
-          {rest && (
+          {body.length > 0 && (
             <div class="prose">
-              <p>{rest}</p>
+              {body.map((paragraph) => <p>{paragraph}</p>)}
             </div>
           )}
           {principle.questions.map((question, questionIndex) => {
@@ -78,10 +84,15 @@ const description = entry.data.summary;
               <QuestionCard
                 id={question.id}
                 label={`Question ${principleIndex + 1}.${questionIndex + 1}`}
+                kind={question.kind}
                 prompt={question.prompt}
                 answer={question.answer}
                 reasoning={question.reasoning}
-                open={principleIndex === 0 && questionIndex === 0}
+                conclusion={question.conclusion}
+                causalChain={question.causalChain}
+                assumption={question.assumption}
+                misconception={question.misconception}
+                marks={marksFor(question.refs, numbers)}
                 buildsOnHref={meta?.href ?? `#principle-${principle.id}`}
                 buildsOnNumeral={meta?.numeral ?? toRoman(principleIndex + 1)}
                 buildsOnTitle={meta?.title ?? principle.title}
@@ -108,6 +119,7 @@ const description = entry.data.summary;
                 title={step.title}
                 action={step.action}
                 why={step.why}
+                marks={marksFor(step.refs, numbers)}
                 principles={step.principleIds.map((principleId) => {
                   const meta = principleMeta.get(principleId);
                   return {
@@ -123,4 +135,5 @@ const description = entry.data.summary;
       </div>
     </div>
   </section>
+  {entry.data.references && <ReferenceList references={entry.data.references} />}
 </Base>

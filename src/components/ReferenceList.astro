@@ -1,0 +1,27 @@
+---
+import type { Reference } from '../lib/schema.ts';
+
+interface Props {
+  references: readonly Reference[];
+}
+
+const { references } = Astro.props;
+---
+
+{
+  references.length > 0 && (
+    <section class="references" aria-labelledby="references-heading">
+      <div class="wrap">
+        <h2 id="references-heading">References</h2>
+        <ol>
+          {references.map((reference) => (
+            <li id={`reference-${reference.id}`}>
+              <a href={reference.url}>{reference.label}</a>
+              {reference.note ? <span class="ref-note"> {reference.note}</span> : null}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )
+}

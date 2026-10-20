@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
-import { caseSchema, type CaseDocument } from './schema.ts';
+import { caseSchema, strictContentIssues, type CaseDocument } from './schema.ts';
 
 export interface ValidatedCaseFile {
   file: string;
@@ -30,7 +30,10 @@ function formatIssues(error: { issues: Array<{ path: PropertyKey[]; message: str
     .join('; ');
 }
 
-export function validateContentDirectory(directory: string): ContentValidationResult {
+export function validateContentDirectory(
+  directory: string,
+  options: { strict?: boolean } = {},
+): ContentValidationResult {
   const root = resolve(directory);
   let entries: string[];
   try {
@@ -73,6 +76,20 @@ export function validateContentDirectory(directory: string): ContentValidationRe
     if (!parsed.success) {
       errors.push(`${file}: ${formatIssues(parsed.error)}`);
       continue;
+    }
+
+    if (options.strict && !parsed.data.strict) {
+      const issues = strictContentIssues(parsed.data);
+      if (issues.length > 0) {
+        const detail = issues
+          .map((issue) => {
+            const path = issue.path.map(String).join('.') || '(root)';
+            return `${path}: ${issue.message}`;
+          })
+          .join('; ');
+        errors.push(`${file}: ${detail}`);
+        continue;
+      }
     }
 
     const expectedName = `${parsed.data.slug}.json`;
