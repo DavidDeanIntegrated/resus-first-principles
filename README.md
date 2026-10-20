@@ -16,7 +16,7 @@ Content is written ahead of time and committed as files. The site only renders t
 The topic module page is the annotated primer. It renders the topic module schema through components in `src/components/`. There is no second content model.
 
 - `PrincipleHeader.astro` — roman numeral from principle order, title, and the first sentence of `explanation` as the italic summary. The remainder of that field is the prose under the rule. An array of strings renders as one paragraph each. Anchor id is `principle-{id}`.
-- `QuestionCard.astro` — question label, optional `kind`, and `prompt` as the stem. A line above the control says "Commit to an answer before revealing." The answer and its explanation stay inside a native `<details>` / `<summary>` labelled "Reveal answer" (keyboard accessible, no JavaScript). There is no "Correct" label. Optional `conclusion`, `causalChain`, `assumption`, and `misconception` render under that reveal, in that order, ahead of the reasoning.
+- `QuestionCard.astro` — question label, optional `kind`, and `prompt` as the stem. A line above the control says "Commit to an answer before revealing." The revealed text stays inside a native `<details>` / `<summary>` labelled "Reveal answer" (keyboard accessible, no JavaScript). There is no "Correct" label. Optional `conclusion`, `causalChain`, `assumption`, and `misconception` render under that reveal, in that order, ahead of the reasoning. When `conclusion` is set, `answer` is not rendered again.
 - `Explanation.astro` — the "why" inset and a "Builds on" link back to that question's principle.
 - `TreatmentStep.astro` — step number, `title`, `action`, `why`, and one `PrincipleChip.astro` pill per `principleIds` entry. Each pill links to `#principle-{id}`.
 
@@ -47,12 +47,12 @@ A placeholder topic module must include the word `PLACEHOLDER` in the title or s
 
 ### Strict question shape
 
-`kind` and the four answer parts are optional, so the current adult cardiac arrest topic module still validates. The strict rules fail a topic module when any question lacks a `kind` or any of `conclusion`, `causalChain`, `assumption`, and `misconception`, or when any principle lacks at least one `prediction` question and one `transfer` question. An `evidence-boundary` question does not count as either.
+`kind` and the four answer parts are optional on the base schema. The strict rules fail a topic module when any question lacks a `kind` or any of `conclusion`, `causalChain`, `assumption`, and `misconception`, or when any principle lacks at least one `prediction` question and one `transfer` question. An `evidence-boundary` question does not count as either. The adult cardiac arrest topic module sets `"strict": true`.
 
-CI does not run this yet. Turn it on for a content PR in either of these ways:
+CI runs both checks:
 
-- Set `"strict": true` on the topic module. `npm run validate`, the build, and CI then enforce the rules for that file.
-- Run `npm run validate:strict` to apply the rules to every topic module even when `strict` is omitted. Add that script to `.github/workflows/ci.yml` once the content satisfies it.
+- `npm run validate` enforces strict rules only for a topic module that sets `"strict": true`.
+- `npm run validate:strict` applies the rules to every topic module even when `strict` is omitted.
 
 ## Scripts
 

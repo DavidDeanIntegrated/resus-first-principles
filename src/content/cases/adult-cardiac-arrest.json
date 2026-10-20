@@ -22,28 +22,45 @@
           "kind": "prediction",
           "prompt": "Predict: a compressor is pushing to a good depth but leaning on the chest between compressions. What happens to coronary flow, and why does it surprise people?",
           "answer": "Coronary flow falls, even though each push looks deep, because leaning keeps right atrial pressure high and narrows the gradient.",
-          "causalChain": "incomplete release keeps intrathoracic and right atrial pressure elevated. Coronary perfusion pressure is aortic pressure minus right atrial pressure during relaxation, so a higher right atrial pressure shrinks the difference. A smaller gradient means less coronary filling during the very phase when filling happens.",
-          "assumption": "aortic relaxation pressure is not rising enough to compensate. In practice leaning does not raise it, so the gradient narrows.",
-          "misconception": "that perfusion is made by the push. The push creates aortic pressure; the release is what lets that pressure become coronary flow. Recoil is part of the work, not a rest from it."
+          "causalChain": "Incomplete release keeps intrathoracic and right atrial pressure elevated. Coronary perfusion pressure is aortic pressure minus right atrial pressure during relaxation, so a higher right atrial pressure shrinks the difference. A smaller gradient means less coronary filling during the very phase when filling happens.",
+          "assumption": "Aortic relaxation pressure is not rising enough to compensate. In practice leaning does not raise it, so the gradient narrows.",
+          "misconception": "The belief that perfusion is made by the push. The push creates aortic pressure; the release is what lets that pressure become coronary flow. Recoil is part of the work, not a rest from it.",
+          "conclusion": "Coronary flow falls, even though each push looks deep, because leaning keeps right atrial pressure high and narrows the gradient.",
+          "refs": [
+            "yannopoulos-2005"
+          ]
         },
         {
           "id": "cpp-rate-and-recoil",
           "kind": "transfer",
           "prompt": "Transfer: a new compressor is going at about 140 per minute with shallow pushes and incomplete recoil. Someone argues that more compressions must mean more flow. How do you answer?",
           "answer": "More compressions are not more flow. Above the 100 to 120 per minute range, depth and recoil tend to suffer, and the gain in number is offset by a smaller gradient on each cycle.",
-          "causalChain": "each compression needs time to be pushed to depth and then released. Shorten the cycle and both phases are compromised. Shallower pushes raise aortic pressure less, and incomplete release keeps right atrial pressure high. The gradient on each cycle shrinks, so the extra compressions add less coronary and cerebral flow than their number suggests.",
-          "assumption": "the rescuer cannot maintain depth and recoil at the higher rate. Observational work has favored survival at about 100 to 119 per minute over both slower and faster rates, which suggests that in practice they usually cannot.",
-          "misconception": "treating rate as the quantity that delivers flow. Rate, depth, and recoil are linked, and the rate range exists because pushing one variable degrades the others."
+          "causalChain": "Each compression needs time to be pushed to depth and then released. Shorten the cycle and both phases are compromised. Shallower pushes raise aortic pressure less, and incomplete release keeps right atrial pressure high. The gradient on each cycle shrinks, so the extra compressions add less coronary and cerebral flow than their number suggests.",
+          "assumption": "The rescuer cannot maintain depth and recoil at the higher rate. Observational work has favored survival at about 100 to 119 per minute over both slower and faster rates, which suggests that in practice they usually cannot.",
+          "misconception": "Treating rate as the quantity that delivers flow. Rate, depth, and recoil are linked, and the rate range exists because pushing one variable degrades the others.",
+          "conclusion": "More compressions are not more flow. Above the 100 to 120 per minute range, depth and recoil tend to suffer, and the gain in number is offset by a smaller gradient on each cycle.",
+          "refs": [
+            "aha-2025-bls"
+          ]
         },
         {
           "id": "cpp-depth-ceiling",
           "kind": "evidence-boundary",
           "prompt": "Evidence boundary: why is the depth target written as at least 5 cm rather than as deep as possible, and how confident should you be in the upper limit?",
           "answer": "Because depths above about 6 cm have been associated with lower survival. That limit comes from observational data, so it is a caution about excess rather than a precisely measured ceiling.",
-          "causalChain": "deeper compressions raise aortic pressure, but beyond a point they add injury, such as rib and visceral trauma, and may impair recoil, without clear benefit.",
-          "assumption": "the association reflects depth itself rather than other features of the resuscitations in which very deep compressions occurred. Observational data cannot fully separate those.",
-          "misconception": "that a guideline number marks a sharp physiological threshold. Here the number marks the edge of what the evidence supports."
+          "causalChain": "Deeper compressions raise aortic pressure, but beyond a point they add injury, such as rib and visceral trauma, and may impair recoil, without clear benefit.",
+          "assumption": "The association reflects depth itself rather than other features of the resuscitations in which very deep compressions occurred. Observational data cannot fully separate those.",
+          "misconception": "The belief that a guideline number marks a sharp physiological threshold. Here the number marks the edge of what the evidence supports.",
+          "conclusion": "Because depths above about 6 cm have been associated with lower survival. That limit comes from observational data, so it is a caution about excess rather than a precisely measured ceiling.",
+          "refs": [
+            "aha-2025-bls"
+          ]
         }
+      ],
+      "refs": [
+        "aha-2025-bls",
+        "aha-2025-algorithm",
+        "yannopoulos-2005"
       ]
     },
     {
@@ -63,28 +80,44 @@
           "kind": "prediction",
           "prompt": "Predict: the team stops compressions for 20 seconds to feel carefully for a pulse and study the monitor. What happens to coronary perfusion pressure during the pause, and after it?",
           "answer": "It falls almost immediately during the pause, and it stays below its plateau for several compressions afterward while it rebuilds. The real cost is longer than 20 seconds.",
-          "causalChain": "aortic pressure during CPR exists only because compressions produce it. When they stop, it decays toward right atrial pressure, and the gradient collapses. When compressions resume, the first several build aortic pressure back up before coronary flow returns to where it was.",
-          "assumption": "compressions before the pause were good enough to build a meaningful gradient. If they were poor, the pause costs less only because there was less to lose.",
-          "misconception": "that a careful pulse check is free because it is diagnostic. A prolonged search buys little extra certainty and spends perfusion. Restart compressions if a pulse is not definitely felt within about 10 seconds."
+          "causalChain": "Aortic pressure during CPR exists only because compressions produce it. When they stop, it decays toward right atrial pressure, and the gradient collapses. When compressions resume, the first several build aortic pressure back up before coronary flow returns to where it was.",
+          "assumption": "Compressions before the pause were good enough to build a meaningful gradient. If they were poor, the pause costs less only because there was less to lose.",
+          "misconception": "The belief that a careful pulse check is free because it is diagnostic. A prolonged search buys little extra certainty and spends perfusion. Restart compressions if a pulse is not definitely felt within about 10 seconds.",
+          "conclusion": "It falls almost immediately during the pause, and it stays below its plateau for several compressions afterward while it rebuilds. The real cost is longer than 20 seconds.",
+          "refs": [
+            "aha-2025-bls"
+          ]
         },
         {
           "id": "resume-after-shock",
           "kind": "prediction",
           "prompt": "Predict: immediately after a shock, someone wants to hold compressions and watch the monitor to see whether it worked. What is likely to happen if you comply?",
           "answer": "You lose perfusion at the moment the myocardium most needs it, and watching does not change whether the shock worked. Resume compressions at once and check the rhythm at the end of the two-minute cycle.",
-          "causalChain": "even when a shock terminates VF, the heart often produces little or no effective output for the first moments afterward. Compressions supply coronary flow while it recovers. Holding off leaves a stunned myocardium unperfused.",
-          "assumption": "a brief pause would not detect anything that changes the immediate action. In randomized trials, pausing after defibrillation to analyze the rhythm did not improve survival.",
-          "misconception": "that VF found at the next rhythm check means the shock failed and you should have watched. Much of that VF is recurrence during CPR, not a reason to have stayed off the chest."
+          "causalChain": "Even when a shock terminates VF, the heart often produces little or no effective output for the first moments afterward. Compressions supply coronary flow while it recovers. Holding off leaves a stunned myocardium unperfused.",
+          "assumption": "A brief pause would not detect anything that changes the immediate action. In randomized trials, pausing after defibrillation to analyze the rhythm did not improve survival.",
+          "misconception": "The belief that VF found at the next rhythm check means the shock failed and you should have watched. Much of that VF is recurrence during CPR, not a reason to have stayed off the chest.",
+          "conclusion": "You lose perfusion at the moment the myocardium most needs it, and watching does not change whether the shock worked. Resume compressions at once and check the rhythm at the end of the two-minute cycle.",
+          "refs": [
+            "aha-2025-als"
+          ]
         },
         {
           "id": "pause-with-advanced-airway",
           "kind": "transfer",
           "prompt": "Transfer: the patient is now intubated, and a team member suggests pausing compressions briefly every so often to give a few good breaths together. How has the airway changed the right answer?",
           "answer": "Do not pause for breaths once an advanced airway is in. Give 1 breath every 6 seconds while compressions continue, and keep planned pauses for rhythm checks and shocks only.",
-          "causalChain": "the advanced airway removes the reason for the 30:2 pause, which existed so that breaths could enter the lungs rather than the stomach without compressions competing. With a tube in place, ventilation and compressions can happen at the same time, so any pause for breathing is now pure loss of gradient.",
-          "assumption": "the airway is correctly placed and secured, which continuous waveform capnography helps confirm.",
-          "misconception": "carrying the pause-sharing advice from 30:2 CPR into the intubated phase. The principle stays the same, keep pauses few and short, but the airway state changes which pauses exist."
+          "causalChain": "The advanced airway removes the reason for the 30:2 pause, which existed so that breaths could enter the lungs rather than the stomach without compressions competing. With a tube in place, ventilation and compressions can happen at the same time, so any pause for breathing is now pure loss of gradient.",
+          "assumption": "The airway is correctly placed and secured, which continuous waveform capnography helps confirm.",
+          "misconception": "Carrying the pause-sharing advice from 30:2 CPR into the intubated phase. The principle stays the same, keep pauses few and short, but the airway state changes which pauses exist.",
+          "conclusion": "Do not pause for breaths once an advanced airway is in. Give 1 breath every 6 seconds while compressions continue, and keep planned pauses for rhythm checks and shocks only.",
+          "refs": [
+            "aha-2025-bls"
+          ]
         }
+      ],
+      "refs": [
+        "aha-2025-bls",
+        "aha-2025-als"
       ]
     },
     {
@@ -104,27 +137,45 @@
           "prompt": "Predict: a monitored patient loses a pulse and the screen shows VF. What changes the outcome more in the first minute, a shock or epinephrine?",
           "answer": "The shock. Defibrillation is what terminates VF, and delay to the first shock costs survival. Epinephrine in a shockable rhythm comes after initial shocks have failed, then 1 mg every 3 to 5 minutes.",
           "causalChain": "VF is an electrical failure. Epinephrine can raise aortic diastolic pressure during CPR, which helps perfusion, but it does not organize the rhythm. Only depolarizing the myocardium can do that, and the chance of success falls with each minute.",
-          "assumption": "a defibrillator is immediately available. When it is not, compressions are what keep the myocardium viable until it arrives.",
-          "misconception": "that a drug should come before a procedure. In witnessed, monitored VF, the immediate action is one shock and an immediate return to compressions."
+          "assumption": "A defibrillator is immediately available. When it is not, compressions are what keep the myocardium viable until it arrives.",
+          "misconception": "The belief that a drug should come before a procedure. In witnessed, monitored VF, the immediate action is one shock and an immediate return to compressions.",
+          "conclusion": "The shock. Defibrillation is what terminates VF, and delay to the first shock costs survival. Epinephrine in a shockable rhythm comes after initial shocks have failed, then 1 mg every 3 to 5 minutes.",
+          "refs": [
+            "aha-2025-als",
+            "stieglis-2025-arrest"
+          ]
         },
         {
           "id": "single-shock-not-stacked",
           "kind": "transfer",
           "prompt": "Transfer: after several minutes of CPR for an unwitnessed arrest, the first rhythm check shows VF. Why is the answer different from stacking shocks the way you might for a freshly witnessed arrest?",
           "answer": "Deliver one shock at the device's recommended biphasic energy, or its maximum if that setting is unknown, then resume CPR for about 2 minutes. Stacked shocks extend time off the chest when the myocardium most needs perfusion.",
-          "causalChain": "after minutes of untreated or partly treated VF, the myocardium's energy stores are depleted. Compressions between shocks restore some coronary flow and improve the conditions for the next shock. Back-to-back shocks keep compressions stopped and let coronary perfusion pressure fall.",
-          "assumption": "the single-shock strategy, preferred by the guidelines, holds across these settings. Its advantage is less pause time, not a higher success rate per shock.",
-          "misconception": "that more shocks, sooner, must be better. If a later shock is needed and the device can escalate, a higher energy may be considered, but each shock still comes inside the CPR cycle. Vector change and double sequential defibrillation are not established treatments for VF that persists after three or more shocks."
+          "causalChain": "After minutes of untreated or partly treated VF, the myocardium's energy stores are depleted. Compressions between shocks restore some coronary flow and improve the conditions for the next shock. Back-to-back shocks keep compressions stopped and let coronary perfusion pressure fall.",
+          "assumption": "This is an arrest that has already had minutes of CPR. The single-shock preference rests on less pause time, not a higher success rate per shock, and whether stacked shocks are better in a monitored, witnessed arrest is unknown.",
+          "misconception": "The belief that more shocks, sooner, must be better. If a later shock is needed and the device can escalate, a higher energy may be considered, but each shock still comes inside the CPR cycle. Vector change and double sequential defibrillation are not established treatments for VF that persists after three or more shocks.",
+          "conclusion": "Deliver one shock at the device's recommended biphasic energy, or its maximum if that setting is unknown, then resume CPR for about 2 minutes. Stacked shocks extend time off the chest when the myocardium most needs perfusion.",
+          "refs": [
+            "aha-2025-als"
+          ]
         },
         {
           "id": "organized-rhythm-no-pulse",
           "kind": "transfer",
           "prompt": "Transfer: after a shock and two minutes of CPR, the monitor shows a narrow, organized rhythm. A team member says the shock worked. What can and can't you conclude?",
           "answer": "You can conclude that the electrical problem has changed. You cannot conclude that the heart is perfusing until you confirm a pulse or another sign of circulation.",
-          "causalChain": "an organized rhythm means the myocardium is depolarizing in sequence. Whether that produces contraction, and whether contraction produces enough flow, are separate questions. Without a pulse, this is PEA, and it calls for continued CPR, epinephrine, and the search for a cause.",
-          "assumption": "the pulse check is brief and the finding is clear. If a pulse is not definitely felt within about 10 seconds, compressions resume.",
-          "misconception": "reading the monitor as a measure of circulation. It measures electrical activity, which is necessary for perfusion but not enough to prove it."
+          "causalChain": "An organized rhythm means the myocardium is depolarizing in sequence. Whether that produces contraction, and whether contraction produces enough flow, are separate questions. Without a pulse, this is PEA, and it calls for continued CPR, epinephrine, and the search for a cause.",
+          "assumption": "The pulse check is brief and the finding is clear. If a pulse is not definitely felt within about 10 seconds, compressions resume.",
+          "misconception": "Reading the monitor as a measure of circulation. It measures electrical activity, which is necessary for perfusion but not enough to prove it.",
+          "conclusion": "You can conclude that the electrical problem has changed. You cannot conclude that the heart is perfusing until you confirm a pulse or another sign of circulation.",
+          "refs": [
+            "aha-2025-algorithm"
+          ]
         }
+      ],
+      "refs": [
+        "aha-2025-als",
+        "aha-2025-algorithm",
+        "stieglis-2025-arrest"
       ]
     },
     {
@@ -143,28 +194,46 @@
           "kind": "prediction",
           "prompt": "Predict: the monitor shows a slow organized rhythm, there is no pulse, and the patient has had two doses of epinephrine. What would you expect a third dose to change if the cause is a tamponade?",
           "answer": "Very little. Epinephrine can raise coronary perfusion pressure during compressions, but it cannot relieve a tamponade. The rhythm will not become a pulse until the obstruction is treated.",
-          "causalChain": "in tamponade, pressure in the pericardium stops the heart from filling. Without filling there is little stroke volume, whatever the rhythm or the vascular tone. Removing the pericardial fluid restores filling, and then the organized electrical activity can produce output.",
-          "assumption": "tamponade is actually the cause. The same reasoning applies to hypovolemia, tension pneumothorax, and massive pulmonary embolism, each of which needs its own treatment.",
-          "misconception": "that repeating the drug is the plan. Epinephrine every 3 to 5 minutes and the search for a cause happen together; neither replaces the other."
+          "causalChain": "In tamponade, pressure in the pericardium stops the heart from filling. Without filling there is little stroke volume, whatever the rhythm or the vascular tone. Removing the pericardial fluid restores filling, and then the organized electrical activity can produce output.",
+          "assumption": "Tamponade is actually the cause. The same reasoning applies to hypovolemia, tension pneumothorax, and massive pulmonary embolism, each of which needs its own treatment.",
+          "misconception": "The belief that repeating the drug is the plan. Epinephrine every 3 to 5 minutes and the search for a cause happen together; neither replaces the other.",
+          "conclusion": "Very little. Epinephrine can raise coronary perfusion pressure during compressions, but it cannot relieve a tamponade. The rhythm will not become a pulse until the obstruction is treated.",
+          "refs": [
+            "aha-2025-algorithm"
+          ]
         },
         {
           "id": "no-routine-calcium-bicarb",
           "kind": "transfer",
           "prompt": "Transfer: someone asks for calcium and sodium bicarbonate because the arrest has gone on a long time. Using the physiology, what is the default answer, and what would change it?",
           "answer": "Do not give either drug just because time has passed. Routine calcium and routine bicarbonate are not recommended, and in arrest suspected from hyperkalemia their benefit is not well established. Specific causes change the answer: calcium for life-threatening calcium-channel blocker poisoning or arrest in a pregnant patient on intravenous magnesium, and bicarbonate for tricyclic or other sodium-channel blocker toxicity.",
-          "causalChain": "these drugs treat specific mechanisms, such as calcium-channel blockade or sodium-channel blockade. In undifferentiated arrest that mechanism is not present, and trials and registry data have not shown better survival. Routine calcium leans toward harm.",
-          "assumption": "the duration of the resuscitation tells you nothing about which mechanism is present. A long resuscitation is a reason to recheck CPR quality and the H and T list.",
-          "misconception": "that a drug which makes physiological sense must help. Hyperkalemia is the clearest example, where the mechanism is plausible but the benefit during arrest is not well established."
+          "causalChain": "These drugs treat specific mechanisms, such as calcium-channel blockade or sodium-channel blockade. In undifferentiated arrest that mechanism is not present, and trials and registry data have not shown better survival. Routine calcium leans toward harm.",
+          "assumption": "The duration of the resuscitation tells you nothing about which mechanism is present. A long resuscitation is a reason to recheck CPR quality and the H and T list.",
+          "misconception": "The belief that a drug which makes physiological sense must help. Hyperkalemia is the clearest example, where the mechanism is plausible but the benefit during arrest is not well established.",
+          "conclusion": "Do not give either drug just because time has passed. Routine calcium and routine bicarbonate are not recommended, and in arrest suspected from hyperkalemia their benefit is not well established. Specific causes change the answer: calcium for life-threatening calcium-channel blocker poisoning or arrest in a pregnant patient on intravenous magnesium, and bicarbonate for tricyclic or other sodium-channel blocker toxicity.",
+          "refs": [
+            "aha-2025-als",
+            "aha-2025-special"
+          ]
         },
         {
           "id": "hs-ts-by-mechanism",
           "kind": "evidence-boundary",
           "prompt": "Evidence boundary: why is it useful to sort the Hs and Ts by physiology rather than memorize the list, and what can't that sorting tell you?",
           "answer": "Grouping the causes by what fails tells you what kind of treatment each one needs and why compressions alone won't fix it. It cannot tell you which cause is present in this patient.",
-          "causalChain": "causes that empty the heart need volume or decompression, causes that obstruct it need the obstruction removed, and causes that injure the myocardium need the injury reversed. That links each cause to an action.",
-          "assumption": "one cause dominates. Arrests often have more than one, and you usually can't confirm them during CPR, so some treatment happens on suspicion.",
-          "misconception": "that a framework is a diagnosis. The grouping guides the search; history, examination, and ultrasound when it doesn't interrupt CPR narrow it."
+          "causalChain": "Causes that empty the heart need volume or decompression, causes that obstruct it need the obstruction removed, and causes that injure the myocardium need the injury reversed. That links each cause to an action.",
+          "assumption": "One cause dominates. Arrests often have more than one, and you usually can't confirm them during CPR, so some treatment happens on suspicion.",
+          "misconception": "The belief that a framework is a diagnosis. The grouping guides the search; history, examination, and ultrasound when it doesn't interrupt CPR narrow it.",
+          "conclusion": "Grouping the causes by what fails tells you what kind of treatment each one needs and why compressions alone won't fix it. It cannot tell you which cause is present in this patient.",
+          "refs": [
+            "aha-2025-algorithm"
+          ]
         }
+      ],
+      "refs": [
+        "aha-2025-algorithm",
+        "aha-2025-als",
+        "aha-2025-special"
       ]
     },
     {
@@ -183,28 +252,44 @@
           "kind": "prediction",
           "prompt": "Predict: the patient is intubated and the bag is being squeezed every 2 or 3 seconds to give more oxygen. What will that do to the circulation, and what rate should replace it?",
           "answer": "It is roughly 20 to 30 breaths per minute, and it is likely to reduce venous return and the perfusion that compressions create, as well as risking gastric inflation, regurgitation, and aspiration. With an advanced airway, the rate is 1 breath every 6 seconds, enough to see the chest rise.",
-          "causalChain": "each breath raises intrathoracic pressure. More breaths per minute keep it raised for more of the time, so less blood returns to the chest. With less blood in the heart, each compression ejects less, and coronary perfusion pressure falls. The guideline names the result as decreased cardiac output.",
-          "assumption": "blood oxygen is not limited by ventilation at the slower rate. During CPR, blood flow is low, so 10 breaths per minute at an adequate tidal volume is usually enough to match it.",
-          "misconception": "that more breaths mean more oxygen delivered. Oxygen delivery depends on blood flow as well as oxygen content, and overventilation lowers the flow. Continued after ROSC, the same excess also lowers PaCO2 and constricts cerebral arterioles."
+          "causalChain": "Each breath raises intrathoracic pressure. More breaths per minute keep it raised for more of the time, so less blood returns to the chest. With less blood in the heart, each compression ejects less, and coronary perfusion pressure falls. The guideline names the result as decreased cardiac output.",
+          "assumption": "Blood oxygen is not limited by ventilation at the slower rate. During CPR, blood flow is low, so 10 breaths per minute at an adequate tidal volume is usually enough to match it.",
+          "misconception": "The belief that more breaths mean more oxygen delivered. Oxygen delivery depends on blood flow as well as oxygen content, and overventilation lowers the flow. Continued after ROSC, the same excess also lowers PaCO2 and constricts cerebral arterioles.",
+          "conclusion": "It is roughly 20 to 30 breaths per minute, and it is likely to reduce venous return and the perfusion that compressions create, as well as risking gastric inflation, regurgitation, and aspiration. With an advanced airway, the rate is 1 breath every 6 seconds, enough to see the chest rise.",
+          "refs": [
+            "aha-2025-bls"
+          ]
         },
         {
           "id": "etco2-means-reassess-cpr",
           "kind": "transfer",
           "prompt": "Transfer: end-tidal CO2 has fallen from 18 mm Hg to 8 mm Hg, and the team starts discussing whether to stop. What could have changed, and what do you check first?",
           "answer": "Check CPR quality and airway position first: rate, depth, recoil, interruptions, and whether the tube is still in the trachea. A falling end-tidal CO2 is a signal about blood flow or ventilation, not a standalone reason to stop.",
-          "causalChain": "with steady ventilation, end-tidal CO2 during CPR tracks pulmonary blood flow. A fall often means the compressions are moving less blood, often from fatigue, or the airway has moved. A sudden increase in ventilation rate can also lower it by washing CO2 out faster.",
-          "assumption": "ventilation has been steady. If the ventilation rate changed, the number partly reflects that, not blood flow.",
-          "misconception": "treating the number as a prognosis. The guidelines say end-tidal CO2 is not used in isolation to end a resuscitation. Only in an intubated patient, and only after 20 minutes of ALS, may failure to exceed 10 mm Hg be considered as one element among others."
+          "causalChain": "With steady ventilation, end-tidal CO2 during CPR tracks pulmonary blood flow. A fall often means the compressions are moving less blood, often from fatigue, or the airway has moved. A sudden increase in ventilation rate can also lower it by washing CO2 out faster.",
+          "assumption": "Ventilation has been steady. If the ventilation rate changed, the number partly reflects that, not blood flow.",
+          "misconception": "Treating the number as a prognosis. The guidelines say end-tidal CO2 is not used in isolation to end a resuscitation. Only in an intubated patient, and only after 20 minutes of ALS, may failure to exceed 10 mm Hg be considered as one element among others.",
+          "conclusion": "Check CPR quality and airway position first: rate, depth, recoil, interruptions, and whether the tube is still in the trachea. A falling end-tidal CO2 is a signal about blood flow or ventilation, not a standalone reason to stop.",
+          "refs": [
+            "aha-2025-als"
+          ]
         },
         {
           "id": "etco2-after-epinephrine",
           "kind": "evidence-boundary",
           "prompt": "Evidence boundary: a minute after epinephrine, end-tidal CO2 falls even though nothing else has changed. Why shouldn't you read that change as a direct measure of better or worse blood flow?",
           "answer": "Because epinephrine usually lowers end-tidal CO2 for 1 to 2 minutes even while it raises coronary perfusion pressure. The number has several determinants, and a drug can move it in the opposite direction from the quantity you care about.",
-          "causalChain": "end-tidal CO2 depends on how much CO2 reaches the lungs and how well the ventilated areas of the lung are perfused. Epinephrine raises aortic pressure, which helps coronary perfusion, but it also redistributes flow so that less blood reaches the lungs for a short time. Less pulmonary blood flow carries less CO2 to be exhaled, so the reading dips while perfusion of the heart may be improving.",
-          "assumption": "ventilation and compression quality were truly unchanged across that minute.",
-          "misconception": "that end-tidal CO2 is a flow meter. It is a surrogate, useful for trends when other variables are stable, and least reliable when several are changing at once."
+          "causalChain": "End-tidal CO2 depends on how much CO2 reaches the lungs and how well the ventilated areas of the lung are perfused. Epinephrine raises aortic pressure, which helps coronary perfusion, but it also redistributes flow so that less blood reaches the lungs for a short time. Less pulmonary blood flow carries less CO2 to be exhaled, so the reading dips while perfusion of the heart may be improving.",
+          "assumption": "Ventilation and compression quality were truly unchanged across that minute.",
+          "misconception": "The belief that end-tidal CO2 is a flow meter. It is a surrogate, useful for trends when other variables are stable, and least reliable when several are changing at once.",
+          "conclusion": "Because epinephrine usually lowers end-tidal CO2 for 1 to 2 minutes even while it raises coronary perfusion pressure. The number has several determinants, and a drug can move it in the opposite direction from the quantity you care about.",
+          "refs": [
+            "aha-2025-als"
+          ]
         }
+      ],
+      "refs": [
+        "aha-2025-bls",
+        "aha-2025-als"
       ]
     },
     {
@@ -224,28 +309,47 @@
           "kind": "prediction",
           "prompt": "Predict: two minutes after ROSC the pulse oximeter has no reliable reading, and someone turns the oxygen down to avoid oxygen toxicity. What is the more likely harm?",
           "answer": "Hypoxemia. Until SpO2 or PaO2 is reliably measured, 100% oxygen is recommended. Hyperoxemia is handled by titration once you have a number.",
-          "causalChain": "without a measurement you cannot tell whether the patient is hypoxemic or hyperoxemic. Of the two errors, unrecognized hypoxemia directly extends ischemic injury. The EXACT trial found more hypoxemic events when oxygen was reduced early toward a lower saturation target.",
-          "assumption": "the oximeter will soon give a reliable reading, so the period of high oxygen is short.",
-          "misconception": "that a failed oximeter is a reassuring one. You cannot aim for the narrower target until the number exists."
+          "causalChain": "Without a measurement you cannot tell whether the patient is hypoxemic or hyperoxemic. Of the two errors, unrecognized hypoxemia directly extends ischemic injury. The EXACT trial found more hypoxemic events when oxygen was reduced early toward a lower saturation target.",
+          "assumption": "The oximeter will soon give a reliable reading, so the period of high oxygen is short.",
+          "misconception": "The belief that a failed oximeter is a reassuring one. You cannot aim for the narrower target until the number exists.",
+          "conclusion": "Hypoxemia. Until SpO2 or PaO2 is reliably measured, 100% oxygen is recommended. Hyperoxemia is handled by titration once you have a number.",
+          "refs": [
+            "aha-2025-pcac",
+            "exact-2022"
+          ]
         },
         {
           "id": "map-and-paco2-floors",
           "kind": "transfer",
           "prompt": "Transfer: the patient is comatose after ROSC, mean arterial pressure is 58 mm Hg, and the ventilator has been set to a PaCO2 of 28 mm Hg to protect the brain. Which of those protects the brain?",
           "answer": "Neither. A MAP below 65 mm Hg is hypotension to correct, and a PaCO2 of 28 mm Hg is hypocapnia, which constricts cerebral arterioles. The targets are a MAP of at least 65 mm Hg and a PaCO2 generally of 35 to 45 mm Hg, plus temperature control while the patient does not respond to verbal commands.",
-          "causalChain": "with impaired autoregulation, a low MAP passes directly through as low cerebral blood flow, and a low PaCO2 reduces that flow further by narrowing the vessels. The two errors compound each other.",
-          "assumption": "autoregulation is impaired, which is common after arrest but not universal. That is why the MAP instruction is a floor rather than a precise target.",
-          "misconception": "carrying hyperventilation over from the idea of lowering intracranial pressure. After cardiac arrest, normocapnia is the goal. Trials have not shown better outcomes from pushing MAP well above 65 mm Hg, so the answer is a floor of 65 mm Hg, not a higher invented target."
+          "causalChain": "With impaired autoregulation, a low MAP passes directly through as low cerebral blood flow, and a low PaCO2 reduces that flow further by narrowing the vessels. The two errors compound each other.",
+          "assumption": "Autoregulation is impaired, which is common after arrest but not universal. That is why the MAP instruction is a floor rather than a precise target.",
+          "misconception": "Carrying hyperventilation over from the idea of lowering intracranial pressure. After cardiac arrest, normocapnia is the goal. Trials have not shown better outcomes from pushing MAP well above 65 mm Hg, so the answer is a floor of 65 mm Hg, not a higher invented target.",
+          "conclusion": "Neither. A MAP below 65 mm Hg is hypotension to correct, and a PaCO2 of 28 mm Hg is hypocapnia, which constricts cerebral arterioles. The targets are a MAP of at least 65 mm Hg and a PaCO2 generally of 35 to 45 mm Hg, plus temperature control while the patient does not respond to verbal commands.",
+          "refs": [
+            "aha-2025-pcac",
+            "tame-2023"
+          ]
         },
         {
           "id": "post-rosc-target-evidence",
           "kind": "evidence-boundary",
           "prompt": "Evidence boundary: the MAP floor is 65 mm Hg and trials of higher targets were neutral. Does that mean 65 mm Hg is the ideal pressure for every patient after arrest?",
           "answer": "No. It means aiming higher did not improve outcomes on average, and going lower has not been shown to be safe. It is a floor supported by evidence, not proof of an optimal value for an individual.",
-          "causalChain": "an individual patient's autoregulation curve may be shifted, for example by chronic hypertension, so the pressure needed to perfuse their brain can differ from the population average. Neutral trials compare strategies across many patients and can hide that variation.",
-          "assumption": "the trial populations resemble the patient in front of you.",
-          "misconception": "that a neutral trial proves the lower target is best. It shows that the higher target did not help on average, which is a different and narrower conclusion."
+          "causalChain": "An individual patient's autoregulation curve may be shifted, for example by chronic hypertension, so the pressure needed to perfuse their brain can differ from the population average. Neutral trials compare strategies across many patients and can hide that variation.",
+          "assumption": "The trial populations resemble the patient in front of you.",
+          "misconception": "The belief that a neutral trial proves the lower target is best. It shows that the higher target did not help on average, which is a different and narrower conclusion.",
+          "conclusion": "No. It means aiming higher did not improve outcomes on average, and going lower has not been shown to be safe. It is a floor supported by evidence, not proof of an optimal value for an individual.",
+          "refs": [
+            "aha-2025-pcac"
+          ]
         }
+      ],
+      "refs": [
+        "aha-2025-pcac",
+        "exact-2022",
+        "tame-2023"
       ]
     }
   ],
@@ -253,11 +357,14 @@
     {
       "id": "start-compressions",
       "title": "Start high-quality chest compressions",
-      "action": "As soon as cardiac arrest is recognized, start compressions on a firm surface. Use a rate of 100 to 120 per minute, a depth of at least 2 inches (5 cm), and full chest recoil without leaning. Do not treat depths greater than about 6 cm (2.4 inches) as a better compression. Change the compressor about every 2 minutes, or sooner if they are tiring, and make the change at a rhythm check.",
+      "action": "As soon as cardiac arrest is recognized, start compressions right away, on a firm surface when feasible. Use a rate of 100 to 120 per minute, a depth of at least 2 inches (5 cm), and full chest recoil without leaning. Do not treat depths greater than about 6 cm (2.4 inches) as a better compression. Change the compressor about every 2 minutes, or sooner if they are tiring, and make the change at a rhythm check.",
       "why": "Coronary and cerebral blood flow during arrest are produced by these compressions. The relaxation-phase gradient that perfuses the heart decays as soon as they stop, and it sags when recoil is incomplete or the compressor fatigues. Rotating at the planned 2-minute check keeps depth up without adding a separate pause.",
       "principleIds": [
         "coronary-cerebral-perfusion",
         "minimize-interruptions"
+      ],
+      "refs": [
+        "aha-2025-bls"
       ]
     },
     {
@@ -268,6 +375,9 @@
       "principleIds": [
         "minimize-interruptions",
         "coronary-cerebral-perfusion"
+      ],
+      "refs": [
+        "aha-2025-bls"
       ]
     },
     {
@@ -278,6 +388,10 @@
       "principleIds": [
         "early-defibrillation",
         "minimize-interruptions"
+      ],
+      "refs": [
+        "aha-2025-als",
+        "aha-2025-algorithm"
       ]
     },
     {
@@ -289,6 +403,10 @@
         "oxygenation-without-hyperventilation",
         "coronary-cerebral-perfusion",
         "minimize-interruptions"
+      ],
+      "refs": [
+        "aha-2025-bls",
+        "aha-2025-als"
       ]
     },
     {
@@ -300,6 +418,9 @@
         "coronary-cerebral-perfusion",
         "early-defibrillation",
         "minimize-interruptions"
+      ],
+      "refs": [
+        "aha-2025-als"
       ]
     },
     {
@@ -310,27 +431,87 @@
       "principleIds": [
         "early-defibrillation",
         "reversible-causes"
+      ],
+      "refs": [
+        "aha-2025-als",
+        "aha-2025-special"
       ]
     },
     {
       "id": "treat-reversible-causes",
       "title": "Search for Hs and Ts while CPR continues",
-      "action": "During compressions, look for hypovolemia, hypoxia, acidosis, hypo- or hyperkalemia, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis, and coronary thrombosis, and treat the cause you find. Use ultrasound only if the operator is experienced and the probe does not stop compressions.",
+      "action": "During compressions, look for hypovolemia, hypoxia, acidosis, hypo- or hyperkalemia, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis, and coronary thrombosis, and treat the cause you find. Ultrasound's usefulness during arrest is not well established; use it only if an experienced operator can do it without stopping compressions.",
       "why": "A mechanical or metabolic cause will not yield to compressions and epinephrine alone. The search is part of resuscitation, but it is not a reason to let coronary perfusion pressure fall to zero while people look.",
       "principleIds": [
         "reversible-causes",
         "minimize-interruptions"
+      ],
+      "refs": [
+        "aha-2025-algorithm",
+        "aha-2025-als"
       ]
     },
     {
       "id": "post-rosc-care",
       "title": "Limit secondary injury after ROSC",
-      "action": "When a pulse returns, leave 100% oxygen on until SpO2 or PaO2 is reliably measured, then titrate to an SpO2 of 90% to 98%. Ventilate toward a PaCO2 of about 35 to 45 mm Hg. Correct hypotension so mean arterial pressure is at least 65 mm Hg. Record a 12-lead ECG as soon as feasible. If the patient does not respond to verbal commands, control temperature between 32 °C and 37.5 °C, and it is reasonable to continue that control for at least 36 hours. In adults with spontaneous hypothermia after ROSC, or who are being rewarmed after hypothermic temperature control, it may be reasonable to avoid rewarming faster than 0.5 °C per hour. Do not give a routine prehospital bolus of cold intravenous fluid to force hypothermia.",
+      "action": "When a pulse returns, leave 100% oxygen on until SpO2 or PaO2 is reliably measured, then titrate to an SpO2 of 90% to 98%. In a patient who remains comatose, ventilate toward a PaCO2 of about 35 to 45 mm Hg. Correct hypotension so mean arterial pressure is at least 65 mm Hg. Record a 12-lead ECG as soon as feasible. If the patient does not respond to verbal commands, control temperature between 32 °C and 37.5 °C, and it is reasonable to continue that control for at least 36 hours. In adults with spontaneous hypothermia after ROSC, or who are being rewarmed after hypothermic temperature control, it may be reasonable to avoid rewarming faster than 0.5 °C per hour. Do not give a routine prehospital bolus of cold intravenous fluid to force hypothermia.",
       "why": "After ROSC the problem changes from no flow to reperfusion. Hypoxemia, hyperoxemia, hypocapnia, hypotension, and uncontrolled temperature each add injury to a brain that may not be autoregulating. These are the ranges and floors from the 2025 post-cardiac arrest guideline, including the shift from the ventilation limits used during CPR to a normal PaCO2 once a pulse has returned.",
       "principleIds": [
         "post-rosc-physiology",
         "oxygenation-without-hyperventilation"
+      ],
+      "refs": [
+        "aha-2025-pcac"
       ]
     }
-  ]
+  ],
+  "references": [
+    {
+      "id": "aha-2025-bls",
+      "label": "2025 American Heart Association Guidelines for CPR and ECC, Part 7: Adult Basic Life Support",
+      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support"
+    },
+    {
+      "id": "aha-2025-als",
+      "label": "2025 American Heart Association Guidelines for CPR and ECC, Part 9: Adult Advanced Life Support",
+      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support"
+    },
+    {
+      "id": "aha-2025-special",
+      "label": "2025 American Heart Association Guidelines for CPR and ECC, Part 10: Adult and Pediatric Special Circumstances of Resuscitation",
+      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation"
+    },
+    {
+      "id": "aha-2025-pcac",
+      "label": "2025 American Heart Association Guidelines for CPR and ECC, Part 11: Post-Cardiac Arrest Care",
+      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/post-cardiac-arrest-care"
+    },
+    {
+      "id": "aha-2025-algorithm",
+      "label": "2025 AHA Adult Cardiac Arrest Algorithm",
+      "url": "https://www.heart.org/-/media/CPR-Files/CPR-Guidelines-Files/2025-Algorithms/Algorithm-ACLS-CA-250527.pdf"
+    },
+    {
+      "id": "stieglis-2025-arrest",
+      "label": "Stieglis et al. Time to defibrillation and VF termination and survival (ARREST registry). Circulation 2025;151:235-244",
+      "url": "https://doi.org/10.1161/CIRCULATIONAHA.124.069834",
+      "note": "First-shock VF termination and the relative reduction in survival per minute of delay."
+    },
+    {
+      "id": "exact-2022",
+      "label": "Bernard et al. Effect of lower vs higher oxygen saturation targets on survival after out-of-hospital cardiac arrest (EXACT). JAMA 2022",
+      "url": "https://doi.org/10.1001/jama.2022.17701"
+    },
+    {
+      "id": "tame-2023",
+      "label": "Eastwood et al. Mild hypercapnia or normocapnia after out-of-hospital cardiac arrest (TAME). N Engl J Med 2023",
+      "url": "https://doi.org/10.1056/NEJMoa2214552"
+    },
+    {
+      "id": "yannopoulos-2005",
+      "label": "Yannopoulos et al. Effects of incomplete chest wall decompression during CPR on coronary and cerebral perfusion pressures. Resuscitation 2005;64:363-372",
+      "url": "https://doi.org/10.1016/j.resuscitation.2004.10.009"
+    }
+  ],
+  "strict": true
 }

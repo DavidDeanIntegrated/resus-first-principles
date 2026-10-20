@@ -37,10 +37,10 @@ describe('question reveal and references', () => {
     expect(html).not.toContain('<details open');
     expect(html).not.toContain('Correct');
     expect(html).toContain('Prediction');
-    expect(html.indexOf('The direct answer.')).toBeGreaterThan(html.indexOf('<details>'));
+    expect(html).not.toContain('The direct answer.');
+    expect(html).not.toContain('A second paragraph of the answer.');
+    expect(html.indexOf('The conclusion.')).toBeGreaterThan(html.indexOf('<details>'));
     expect(html.indexOf('Because of the mechanism.')).toBeGreaterThan(html.indexOf('<details>'));
-    expect(html).toContain('<p>The direct answer.</p>');
-    expect(html).toContain('<p>A second paragraph of the answer.</p>');
     const order = ['Conclusion', 'Causal chain', 'Assumption', 'Misconception', 'The reasoning'].map(
       (label) => html.indexOf(label),
     );
@@ -72,9 +72,28 @@ describe('question reveal and references', () => {
     expect(html).toContain('References');
   });
 
-  it('does not run the strict validator in CI', () => {
+  it('renders the answer when a question has no conclusion', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(QuestionCard, {
+      props: {
+        id: 'sample-answer',
+        label: 'Question 1.2',
+        prompt: 'What happens next?',
+        answer: 'The direct answer.',
+        buildsOnHref: '#principle-sample',
+        buildsOnNumeral: 'I',
+        buildsOnTitle: 'Sample principle',
+      },
+    });
+
+    expect(html.indexOf('The direct answer.')).toBeGreaterThan(html.indexOf('<details>'));
+    expect(html).toContain('<div class="answer">');
+    expect(html).not.toContain('>Conclusion<');
+  });
+
+  it('runs the strict validator in CI', () => {
     const workflow = readFileSync(join(repoRoot, '.github/workflows/ci.yml'), 'utf8');
-    expect(workflow).not.toContain('validate:strict');
+    expect(workflow).toContain('npm run validate:strict');
     expect(workflow).toContain('npm run validate');
   });
 });
