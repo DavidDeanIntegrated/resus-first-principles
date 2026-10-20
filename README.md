@@ -2,7 +2,7 @@
 
 Static teaching pages for resuscitation cases. Each case breaks the pathology into first principles of its pathophysiology, asks questions that target those principles (with the reasoning behind each answer), and explains the treatment approach with the why behind each step tied back to a principle.
 
-Content is written ahead of time and committed as files. The site only renders those files. Version 1 has a single case slot, adult cardiac arrest, and the committed file is a **placeholder fixture**, not clinical content.
+Content is written ahead of time and committed as files. The site only renders those files. Version 1 is adult cardiac arrest, written for study against the 2025 American Heart Association adult basic life support, advanced life support, and post–cardiac arrest care guidelines. It is not a clinical protocol.
 
 ## Stack
 
@@ -22,7 +22,7 @@ Each case has:
 - each question: `prompt`, `answer`, and `reasoning`
 - `treatmentApproach`: ordered steps with `action`, `why`, and `principleIds` pointing at principle ids
 
-A placeholder case must include the word `PLACEHOLDER` in the title or summary. The adult cardiac arrest file is that fixture. Do not add real clinical teaching in this repository until a later content change says so.
+A placeholder case must include the word `PLACEHOLDER` in the title or summary. Published cases set `contentStatus` to `published`. The adult cardiac arrest file is published study content.
 
 `src/lib/schema.ts` is the Zod schema. `npm run validate` checks every case file against it, including principle links. `astro build` runs that check first (`prebuild`) and the Astro content collection validates the same schema again, so a malformed file fails the build and CI.
 

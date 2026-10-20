@@ -10,21 +10,23 @@ function readDist(path: string): string {
 }
 
 describe('static build output', () => {
-  it('renders the case index and the placeholder case', () => {
+  it('renders the case index and the adult cardiac arrest case', () => {
     const index = readDist('index.html');
     const casePage = readDist('cases/adult-cardiac-arrest/index.html');
 
     expect(index).toContain('Resus First Principles');
-    expect(index).toContain('Adult cardiac arrest (PLACEHOLDER)');
+    expect(index).toContain('Adult cardiac arrest');
     expect(index).toContain('href="/cases/adult-cardiac-arrest"');
+    expect(index).not.toContain('PLACEHOLDER FIXTURE');
 
-    expect(casePage).toContain('PLACEHOLDER FIXTURE');
-    expect(casePage).toContain('PLACEHOLDER question prompt targeting principle one.');
-    expect(casePage).toContain('PLACEHOLDER answer for principle one.');
-    expect(casePage).toContain('PLACEHOLDER reasoning that will explain why this answer follows from principle one.');
-    expect(casePage).toContain('PLACEHOLDER. This will explain why step two follows from both placeholder principles.');
-    expect(casePage).toContain('href="#principle-principle-placeholder-1"');
-    expect(casePage).toContain('href="#principle-principle-placeholder-2"');
+    expect(casePage).toContain('Coronary and cerebral perfusion depend on compressions');
+    expect(casePage).toContain('During CPR, coronary perfusion pressure is judged in the relaxation phase between compressions');
+    expect(casePage).toContain('Incomplete recoil leaves right atrial pressure high');
+    expect(casePage).toContain('The compression generates aortic pressure, but the coronary gradient is aortic pressure minus right atrial pressure');
+    expect(casePage).toContain('When a pulse returns, leave 100% oxygen on until SpO2 or PaO2 is reliably measured');
+    expect(casePage).toContain('href="#principle-coronary-cerebral-perfusion"');
+    expect(casePage).toContain('href="#principle-post-rosc-physiology"');
+    expect(casePage).not.toContain('PLACEHOLDER FIXTURE');
     expect(casePage).not.toContain('api.openai.com');
   });
 });
