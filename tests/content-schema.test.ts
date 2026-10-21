@@ -5,7 +5,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { caseSchema, type CaseDocument, type QuestionKind } from '../src/lib/schema.ts';
-import { validateContentDirectory } from '../src/lib/validate-content.ts';
+import { formatValidationReport, validateContentDirectory } from '../src/lib/validate-content.ts';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const contentDirectory = join(repoRoot, 'src/content/cases');
@@ -29,6 +29,27 @@ function placeholderCase(overrides: Record<string, unknown> = {}): CaseDocument 
             prompt: 'PLACEHOLDER prompt.',
             answer: 'PLACEHOLDER answer.',
             reasoning: 'PLACEHOLDER reasoning.',
+          },
+        ],
+        causes: [
+          {
+            id: 'cause-placeholder',
+            name: 'PLACEHOLDER cause',
+            category: 'filling',
+            failure: 'PLACEHOLDER failure.',
+            rhythm: 'PLACEHOLDER rhythm.',
+            causalChain: ['PLACEHOLDER chain.', 'PLACEHOLDER follow-up.'],
+            compressions: 'PLACEHOLDER compressions.',
+            fix: 'PLACEHOLDER fix.',
+            bedside: 'PLACEHOLDER bedside.',
+            limits: 'PLACEHOLDER limits.',
+            examples: [
+              {
+                id: 'example-placeholder',
+                vignette: 'PLACEHOLDER vignette.',
+                reasoning: 'PLACEHOLDER example reasoning.',
+              },
+            ],
           },
         ],
       },
@@ -75,6 +96,17 @@ describe('case schema', () => {
         expect(reasoning.length > 0 || hasPart).toBe(true);
       }
     }
+    expect(document?.reviewNote).toBe(
+      'Source-checked against AHA 2025; not yet independently physician-reviewed.',
+    );
+    expect(document?.principles.some((principle) => principle.causes != null)).toBe(false);
+    const report = formatValidationReport(result);
+    expect(report).toContain('prediction=7');
+    expect(report).toContain('transfer=7');
+    expect(report).toContain('evidence-boundary=4');
+    expect(report).toContain('insufficient-information=0');
+    expect(report).toContain('causes=0');
+    expect(report).toContain('examples=0');
     expect(document?.treatmentApproach.length).toBeGreaterThanOrEqual(1);
     for (const step of document?.treatmentApproach ?? []) {
       expect(step.principleIds.length).toBeGreaterThanOrEqual(1);
@@ -353,6 +385,123 @@ describe('case schema', () => {
     expect(parsed.success).toBe(false);
     if (parsed.success) return;
     expect(parsed.error.issues.some((issue) => issue.message.includes('transfer question'))).toBe(true);
+  });
+
+  it('requires two examples, resolvable cause ids, and missingData only in strict mode', () => {
+    const question = (id: string, kind: QuestionKind, extra: Record<string, unknown> = {}) => ({
+      id,
+      kind,
+      prompt: 'PLACEHOLDER prompt.',
+      answer: 'PLACEHOLDER answer.',
+      reasoning: 'PLACEHOLDER reasoning.',
+      conclusion: 'PLACEHOLDER conclusion.',
+      causalChain: 'PLACEHOLDER chain.',
+      assumption: 'PLACEHOLDER assumption.',
+      misconception: 'PLACEHOLDER misconception.',
+      ...extra,
+    });
+    const cause = (exampleCount: number, extra: Record<string, unknown> = {}) => ({
+      id: 'cause-placeholder',
+      name: 'PLACEHOLDER cause',
+      category: 'obstruction',
+      failure: 'PLACEHOLDER failure.',
+      rhythm: 'PLACEHOLDER rhythm.',
+      causalChain: 'PLACEHOLDER chain.',
+      compressions: 'PLACEHOLDER compressions.',
+      fix: 'PLACEHOLDER fix.',
+      bedside: 'PLACEHOLDER bedside.',
+      limits: 'PLACEHOLDER limits.',
+      examples: Array.from({ length: exampleCount }, (_, index) => ({
+        id: `example-${index + 1}`,
+        vignette: 'PLACEHOLDER vignette.',
+        reasoning: 'PLACEHOLDER example reasoning.',
+        ...(index === 0 ? extra : {}),
+      })),
+    });
+    const principles = (exampleCount: number, extra: Record<string, unknown> = {}) => [
+      {
+        id: 'principle-placeholder-1',
+        title: 'PLACEHOLDER principle',
+        explanation: 'PLACEHOLDER explanation.',
+        questions: [
+          question('question-prediction', 'prediction'),
+          question('question-transfer', 'transfer'),
+          question('question-gap', 'insufficient-information', { missingData: 'PLACEHOLDER missing.' }),
+        ],
+        causes: [cause(exampleCount, extra)],
+      },
+    ];
+
+    expect(caseSchema.safeParse(placeholderCase({ principles: principles(1) })).success).toBe(true);
+
+    const short = caseSchema.safeParse(placeholderCase({ strict: true, principles: principles(1) }));
+    expect(short.success).toBe(false);
+    if (!short.success) {
+      expect(short.error.issues.some((issue) => issue.message.includes('at least 2 examples'))).toBe(true);
+    }
+
+    const unknownCause = caseSchema.safeParse(
+      placeholderCase({
+        strict: true,
+        principles: principles(2, { causeIds: ['missing-cause'] }),
+      }),
+    );
+    expect(unknownCause.success).toBe(false);
+    if (!unknownCause.success) {
+      expect(unknownCause.error.issues.some((issue) => issue.message.includes('unknown cause'))).toBe(true);
+    }
+
+    const unknownRef = caseSchema.safeParse(
+      placeholderCase({
+        strict: true,
+        principles: [
+          {
+            ...principles(2)[0],
+            causes: [{ ...cause(2), refs: ['missing-source'] }],
+          },
+        ],
+      }),
+    );
+    expect(unknownRef.success).toBe(false);
+    if (!unknownRef.success) {
+      expect(unknownRef.error.issues.some((issue) => issue.message.includes('Unknown reference'))).toBe(true);
+    }
+
+    const ready = caseSchema.safeParse(
+      placeholderCase({
+        strict: true,
+        references: [{ id: 'source-one', label: 'Example source', url: 'https://example.com/source' }],
+        principles: [
+          {
+            ...principles(2, { causeIds: ['cause-placeholder'] })[0],
+            causes: [{ ...cause(2, { causeIds: ['cause-placeholder'] }), refs: ['source-one'] }],
+          },
+        ],
+      }),
+    );
+    expect(ready.success).toBe(true);
+
+    const missing = caseSchema.safeParse(
+      placeholderCase({
+        strict: true,
+        principles: [
+          {
+            id: 'principle-placeholder-1',
+            title: 'PLACEHOLDER principle',
+            explanation: 'PLACEHOLDER explanation.',
+            questions: [
+              question('question-prediction', 'prediction'),
+              question('question-transfer', 'transfer'),
+              question('question-gap', 'insufficient-information'),
+            ],
+          },
+        ],
+      }),
+    );
+    expect(missing.success).toBe(false);
+    if (!missing.success) {
+      expect(missing.error.issues.some((issue) => issue.message.includes('needs missingData'))).toBe(true);
+    }
   });
 
   it('returns a failing exit code from the validate script', () => {

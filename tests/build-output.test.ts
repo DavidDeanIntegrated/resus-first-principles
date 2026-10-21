@@ -31,6 +31,10 @@ describe('static build output', () => {
     expect(casePage).not.toContain('PLACEHOLDER FIXTURE');
     expect(casePage).not.toContain('api.openai.com');
     expect(casePage).not.toContain('fonts.googleapis.com');
+    expect(casePage).toContain(
+      'Source-checked against AHA 2025; not yet independently physician-reviewed.',
+    );
+    expect(casePage).not.toContain('id="cause-');
     expect(casePage).toContain('Commit to an answer before revealing.');
     expect(casePage).toContain('Reveal answer');
     expect(casePage).toContain('<details>');

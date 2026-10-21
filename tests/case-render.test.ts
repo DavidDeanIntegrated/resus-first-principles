@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { describe, expect, it } from 'vitest';
+import CauseList from '../src/components/CauseList.astro';
 import QuestionCard from '../src/components/QuestionCard.astro';
 import ReferenceList from '../src/components/ReferenceList.astro';
 
@@ -23,6 +24,7 @@ describe('question reveal and references', () => {
         causalChain: ['Cause.', 'Effect.'],
         assumption: 'The assumption.',
         misconception: 'The misconception.',
+        missingData: 'The reading is missing.',
         marks: [{ id: 'source-one', n: 2 }],
         buildsOnHref: '#principle-sample',
         buildsOnNumeral: 'I',
@@ -50,8 +52,75 @@ describe('question reveal and references', () => {
     );
     expect(order.every((index) => index > html.indexOf('<details>'))).toBe(true);
     expect(order).toEqual([...order].sort((a, b) => a - b));
+    expect(html.indexOf('The reading is missing.')).toBeLessThan(html.indexOf('<details>'));
+    expect(html).toContain('Missing data');
     expect(html).toContain('href="#reference-source-one"');
     expect(html).toContain('>2<');
+  });
+
+  it('renders causes in one section with a category jump list', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(CauseList, {
+      props: {
+        causeNames: { 'cause-fill': 'PLACEHOLDER filling', 'cause-block': 'PLACEHOLDER obstruction' },
+        referenceNumbers: new Map([['source-one', 1]]),
+        causes: [
+          {
+            id: 'cause-block',
+            name: 'PLACEHOLDER obstruction',
+            category: 'obstruction',
+            failure: 'PLACEHOLDER failure.',
+            rhythm: ['PLACEHOLDER rhythm.', 'PLACEHOLDER rhythm follow-up.'],
+            causalChain: 'PLACEHOLDER chain.',
+            compressions: 'PLACEHOLDER compressions.',
+            fix: 'PLACEHOLDER fix.',
+            bedside: 'PLACEHOLDER bedside.',
+            mimics: 'PLACEHOLDER mimics.',
+            limits: 'PLACEHOLDER limits.',
+            refs: ['source-one'],
+            examples: [
+              {
+                id: 'example-one',
+                vignette: 'PLACEHOLDER vignette.',
+                reasoning: 'PLACEHOLDER example reasoning.',
+                causeIds: ['cause-fill'],
+              },
+            ],
+          },
+          {
+            id: 'cause-fill',
+            name: 'PLACEHOLDER filling',
+            category: 'filling',
+            failure: 'PLACEHOLDER failure.',
+            rhythm: 'PLACEHOLDER rhythm.',
+            causalChain: 'PLACEHOLDER chain.',
+            compressions: 'PLACEHOLDER compressions.',
+            fix: 'PLACEHOLDER fix.',
+            bedside: 'PLACEHOLDER bedside.',
+            limits: 'PLACEHOLDER limits.',
+            examples: [
+              {
+                id: 'example-two',
+                vignette: 'PLACEHOLDER second vignette.',
+                reasoning: 'PLACEHOLDER second reasoning.',
+              },
+            ],
+          },
+        ],
+      },
+    });
+
+    expect(html).toContain('class="cause-nav"');
+    expect(html.indexOf('>Filling<')).toBeLessThan(html.indexOf('>Obstruction<'));
+    expect(html.indexOf('href="#cause-cause-fill"')).toBeLessThan(html.indexOf('href="#cause-cause-block"'));
+    expect(html).toContain('id="cause-cause-block"');
+    expect(html).toContain('id="example-example-one"');
+    expect(html).toContain('PLACEHOLDER mimics.');
+    expect(html).toContain('<p>PLACEHOLDER rhythm.</p>');
+    expect(html).toContain('<p>PLACEHOLDER rhythm follow-up.</p>');
+    expect(html).toContain('href="#cause-cause-fill"');
+    expect(html).toContain('href="#reference-source-one"');
+    expect(html.indexOf('id="cause-cause-block"')).toBeLessThan(html.indexOf('id="cause-cause-fill"'));
   });
 
   it('renders a reference list that the superscripts can target', async () => {

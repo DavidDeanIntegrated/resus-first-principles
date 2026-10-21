@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
-import { caseSchema, strictContentIssues, type CaseDocument } from './schema.ts';
+import { caseSchema, questionKindSchema, strictContentIssues, type CaseDocument } from './schema.ts';
 
 export interface ValidatedCaseFile {
   file: string;
@@ -20,6 +20,36 @@ export interface ContentValidationFailure {
 }
 
 export type ContentValidationResult = ContentValidationSuccess | ContentValidationFailure;
+
+function countContent(document: CaseDocument) {
+  const kinds = {
+    prediction: 0,
+    transfer: 0,
+    'evidence-boundary': 0,
+    'insufficient-information': 0,
+  };
+  let questions = 0;
+  let causes = 0;
+  let examples = 0;
+  for (const principle of document.principles) {
+    questions += principle.questions.length;
+    for (const question of principle.questions) {
+      if (question.kind) kinds[question.kind] += 1;
+    }
+    for (const cause of principle.causes ?? []) {
+      causes += 1;
+      examples += cause.examples.length;
+    }
+  }
+  return {
+    principles: document.principles.length,
+    questions,
+    kinds,
+    causes,
+    examples,
+    steps: document.treatmentApproach.length,
+  };
+}
 
 function formatIssues(error: { issues: Array<{ path: PropertyKey[]; message: string }> }): string {
   return error.issues
@@ -124,8 +154,11 @@ export function formatValidationReport(result: ContentValidationResult): string 
     `Directory: ${directory}`,
     `Cases: ${result.cases.length}`,
     ...result.cases.map(({ file, document }) => {
-      const questions = document.principles.reduce((count, principle) => count + principle.questions.length, 0);
-      return `- ${file} slug=${document.slug} status=${document.contentStatus} principles=${document.principles.length} questions=${questions} steps=${document.treatmentApproach.length}`;
+      const counts = countContent(document);
+      const kinds = questionKindSchema.options
+        .map((kind) => `${kind}=${counts.kinds[kind]}`)
+        .join(' ');
+      return `- ${file} slug=${document.slug} status=${document.contentStatus} principles=${counts.principles} questions=${counts.questions} ${kinds} causes=${counts.causes} examples=${counts.examples} steps=${counts.steps}`;
     }),
   ];
   return lines.join('\n');

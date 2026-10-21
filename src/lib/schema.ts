@@ -13,7 +13,12 @@ const textSchema = z.string().trim().min(1);
 /** One paragraph, or several paragraphs rendered as separate `<p>` elements. */
 export const proseSchema = z.union([textSchema, z.array(textSchema).min(1)]);
 
-export const questionKindSchema = z.enum(['prediction', 'transfer', 'evidence-boundary']);
+export const questionKindSchema = z.enum([
+  'prediction',
+  'transfer',
+  'evidence-boundary',
+  'insufficient-information',
+]);
 
 const refsSchema = z.array(idSchema).min(1);
 
@@ -31,6 +36,37 @@ export const questionSchema = z.object({
   causalChain: proseSchema.optional(),
   assumption: proseSchema.optional(),
   misconception: proseSchema.optional(),
+  missingData: proseSchema.optional(),
+  refs: refsSchema.optional(),
+});
+
+export const causeCategorySchema = z.enum([
+  'filling',
+  'obstruction',
+  'contractility-electrical',
+  'oxygen-content',
+]);
+
+export const causeExampleSchema = z.object({
+  id: idSchema,
+  vignette: proseSchema,
+  reasoning: proseSchema,
+  causeIds: z.array(idSchema).min(1).optional(),
+});
+
+export const causeSchema = z.object({
+  id: idSchema,
+  name: textSchema,
+  category: causeCategorySchema,
+  failure: proseSchema,
+  rhythm: proseSchema,
+  causalChain: proseSchema,
+  compressions: proseSchema,
+  fix: proseSchema,
+  bedside: proseSchema,
+  mimics: proseSchema.optional(),
+  limits: proseSchema,
+  examples: z.array(causeExampleSchema).min(1),
   refs: refsSchema.optional(),
 });
 
@@ -42,6 +78,7 @@ export const principleSchema = z.object({
   explanation: proseSchema,
   refs: refsSchema.optional(),
   questions: z.array(questionSchema).min(1),
+  causes: z.array(causeSchema).min(1).optional(),
   diagram: diagramIdSchema.optional(),
 });
 
@@ -73,16 +110,37 @@ type StrictQuestion = {
   causalChain?: z.infer<typeof proseSchema>;
   assumption?: z.infer<typeof proseSchema>;
   misconception?: z.infer<typeof proseSchema>;
+  missingData?: z.infer<typeof proseSchema>;
+};
+
+type StrictExample = {
+  id: string;
+  causeIds?: string[];
+};
+
+type StrictCause = {
+  id: string;
+  examples: StrictExample[];
+  refs?: string[];
 };
 
 type StrictPrinciple = {
   id: string;
   questions: StrictQuestion[];
+  causes?: StrictCause[];
 };
 
 /** Rules for a future content pass. Not applied unless the case sets `strict: true` or validate is run with `--strict`. */
-export function strictContentIssues(value: { principles: StrictPrinciple[] }): StrictContentIssue[] {
+export function strictContentIssues(value: {
+  principles: StrictPrinciple[];
+  references?: { id: string }[];
+}): StrictContentIssue[] {
   const issues: StrictContentIssue[] = [];
+  const referenceIds = new Set((value.references ?? []).map((reference) => reference.id));
+  const knownCauseIds = new Set<string>();
+  value.principles.forEach((principle) => {
+    principle.causes?.forEach((cause) => knownCauseIds.add(cause.id));
+  });
 
   value.principles.forEach((principle, index) => {
     let hasPrediction = false;
@@ -94,7 +152,13 @@ export function strictContentIssues(value: { principles: StrictPrinciple[] }): S
       if (!question.kind) {
         issues.push({
           path: ['principles', index, 'questions', questionIndex, 'kind'],
-          message: `Question "${question.id}" needs a kind (prediction, transfer, or evidence-boundary)`,
+          message: `Question "${question.id}" needs a kind (prediction, transfer, evidence-boundary, or insufficient-information)`,
+        });
+      }
+      if (question.kind === 'insufficient-information' && question.missingData == null) {
+        issues.push({
+          path: ['principles', index, 'questions', questionIndex, 'missingData'],
+          message: `Question "${question.id}" needs missingData`,
         });
       }
       for (const key of answerPartKeys) {
@@ -119,6 +183,67 @@ export function strictContentIssues(value: { principles: StrictPrinciple[] }): S
         message: `Principle "${principle.id}" needs at least one transfer question`,
       });
     }
+
+    principle.causes?.forEach((cause, causeIndex) => {
+      if (cause.examples.length < 2) {
+        issues.push({
+          path: ['principles', index, 'causes', causeIndex, 'examples'],
+          message: `Cause "${cause.id}" needs at least 2 examples`,
+        });
+      }
+      cause.examples.forEach((example, exampleIndex) => {
+        const linked = new Set<string>();
+        example.causeIds?.forEach((causeId, causeIdIndex) => {
+          if (!knownCauseIds.has(causeId)) {
+            issues.push({
+              path: [
+                'principles',
+                index,
+                'causes',
+                causeIndex,
+                'examples',
+                exampleIndex,
+                'causeIds',
+                causeIdIndex,
+              ],
+              message: `Example "${example.id}" links unknown cause "${causeId}"`,
+            });
+          }
+          if (linked.has(causeId)) {
+            issues.push({
+              path: [
+                'principles',
+                index,
+                'causes',
+                causeIndex,
+                'examples',
+                exampleIndex,
+                'causeIds',
+                causeIdIndex,
+              ],
+              message: `Example "${example.id}" links cause "${causeId}" more than once`,
+            });
+          }
+          linked.add(causeId);
+        });
+      });
+      const seenRefs = new Set<string>();
+      cause.refs?.forEach((refId, refIndex) => {
+        if (!referenceIds.has(refId)) {
+          issues.push({
+            path: ['principles', index, 'causes', causeIndex, 'refs', refIndex],
+            message: `Unknown reference "${refId}"`,
+          });
+        }
+        if (seenRefs.has(refId)) {
+          issues.push({
+            path: ['principles', index, 'causes', causeIndex, 'refs', refIndex],
+            message: `Duplicate reference "${refId}"`,
+          });
+        }
+        seenRefs.add(refId);
+      });
+    });
   });
 
   return issues;
@@ -133,6 +258,7 @@ export const caseSchema = z
     summary: textSchema,
     contentStatus: z.enum(['placeholder', 'published']),
     strict: z.boolean().optional(),
+    reviewNote: textSchema.optional(),
     references: z.array(referenceSchema).min(1).optional(),
     principles: z.array(principleSchema).min(1),
     treatmentApproach: z.array(treatmentStepSchema).min(1),
@@ -159,6 +285,8 @@ export const caseSchema = z
 
     const principleIds = new Set<string>();
     const questionIds = new Set<string>();
+    const causeIds = new Set<string>();
+    const exampleIds = new Set<string>();
 
     value.principles.forEach((principle, index) => {
       if (principleIds.has(principle.id)) {
@@ -169,6 +297,27 @@ export const caseSchema = z
         });
       }
       principleIds.add(principle.id);
+
+      principle.causes?.forEach((cause, causeIndex) => {
+        if (causeIds.has(cause.id)) {
+          ctx.addIssue({
+            code: 'custom',
+            message: `Duplicate cause id "${cause.id}"`,
+            path: ['principles', index, 'causes', causeIndex, 'id'],
+          });
+        }
+        causeIds.add(cause.id);
+        cause.examples.forEach((example, exampleIndex) => {
+          if (exampleIds.has(example.id)) {
+            ctx.addIssue({
+              code: 'custom',
+              message: `Duplicate example id "${example.id}"`,
+              path: ['principles', index, 'causes', causeIndex, 'examples', exampleIndex, 'id'],
+            });
+          }
+          exampleIds.add(example.id);
+        });
+      });
 
       principle.questions.forEach((question, questionIndex) => {
         if (questionIds.has(question.id)) {
@@ -261,6 +410,9 @@ export const caseSchema = z
       principle.questions.forEach((question, questionIndex) => {
         checkRefs(question.refs, ['principles', index, 'questions', questionIndex, 'refs']);
       });
+      principle.causes?.forEach((cause, causeIndex) => {
+        checkRefs(cause.refs, ['principles', index, 'causes', causeIndex, 'refs']);
+      });
     });
     value.treatmentApproach.forEach((step, index) => {
       checkRefs(step.refs, ['treatmentApproach', index, 'refs']);
@@ -280,6 +432,9 @@ export const caseSchema = z
 export type Prose = z.infer<typeof proseSchema>;
 export type QuestionKind = z.infer<typeof questionKindSchema>;
 export type Question = z.infer<typeof questionSchema>;
+export type CauseCategory = z.infer<typeof causeCategorySchema>;
+export type CauseExample = z.infer<typeof causeExampleSchema>;
+export type Cause = z.infer<typeof causeSchema>;
 export type DiagramId = z.infer<typeof diagramIdSchema>;
 export type Principle = z.infer<typeof principleSchema>;
 export type TreatmentStep = z.infer<typeof treatmentStepSchema>;
