@@ -76,7 +76,7 @@
           "kind": "evidence-boundary",
           "prompt": "Evidence boundary: why is the depth target written as at least 5 cm rather than as deep as possible, and how confident should you be in the upper limit?",
           "answer": "Because depths above about 6 cm have been associated with lower survival. That limit comes from observational data, so it is a caution about excess rather than a precisely measured ceiling.",
-          "causalChain": "Deeper compressions raise aortic pressure, but beyond a point they add injury, such as rib and visceral trauma, and may impair recoil, without clear benefit.",
+          "causalChain": "Deeper compressions raise aortic pressure, but beyond a point they add injury, such as rib and visceral trauma, without clear benefit.",
           "assumption": "The association reflects depth itself rather than other features of the resuscitations in which very deep compressions occurred. Observational data cannot fully separate those.",
           "misconception": "The belief that a guideline number marks a sharp physiological threshold. Here the number marks the edge of what the evidence supports.",
           "refs": [
@@ -746,7 +746,7 @@
             {
               "id": "tp-asthma-autopeep",
               "vignette": "A patient with severe asthma, bagged rapidly after intubation, loses his pulse. Breath sounds are equal but very quiet.",
-              "reasoning": "Breath stacking raises intrathoracic pressure on both sides and reduces venous return by the same mechanism as a tension pneumothorax. A brief disconnection from the bag to allow exhalation tests this, while a true tension pneumothorax remains possible."
+              "reasoning": "Breath stacking raises intrathoracic pressure on both sides and reduces venous return by the same mechanism as a tension pneumothorax. A brief disconnection from the bag to allow exhalation may relieve it, while a true tension pneumothorax remains possible."
             }
           ]
         },
@@ -913,7 +913,8 @@
       ],
       "refs": [
         "aha-2025-als",
-        "aha-2025-algorithm"
+        "aha-2025-algorithm",
+        "aha-2025-special"
       ],
       "questions": []
     },
@@ -925,7 +926,8 @@
         "Many of the variables in this text are controlled by people, not physiology. Compression quality depends on who is compressing and for how long, so compressor changes are scheduled at rhythm checks rather than left to fatigue. Pauses are shortest when the next action is prepared before the current one ends: the defibrillator charged during compressions, the next compressor ready, the airway operator waiting for a planned pause instead of creating one. A team leader who is not doing a task can watch the clock, the compression fraction, and the reversible-cause list, and can notice when the hypothesis should change. Closed-loop communication is intended to reduce missed or duplicated drugs. After the event, debriefing is how the team learns what the monitor recorded and the room did not see. Debriefing after the event, using the recorded CPR data, is reasonable (COR 2a, LOE B-NR)."
       ],
       "refs": [
-        "aha-2025-bls"
+        "aha-2025-bls",
+        "aha-2025-soc"
       ],
       "questions": []
     },
@@ -941,7 +943,9 @@
       ],
       "refs": [
         "aha-2025-bls",
-        "aha-2025-als"
+        "aha-2025-als",
+        "aha-2025-special",
+        "aha-2025-soc"
       ],
       "questions": []
     },
@@ -1167,17 +1171,17 @@
     {
       "id": "aha-2025-bls",
       "label": "2025 American Heart Association Guidelines for CPR and ECC, Part 7: Adult Basic Life Support",
-      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support"
+      "url": "https://doi.org/10.1161/CIR.0000000000001369"
     },
     {
       "id": "aha-2025-als",
       "label": "2025 American Heart Association Guidelines for CPR and ECC, Part 9: Adult Advanced Life Support",
-      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support"
+      "url": "https://doi.org/10.1161/CIR.0000000000001376"
     },
     {
       "id": "aha-2025-special",
       "label": "2025 American Heart Association Guidelines for CPR and ECC, Part 10: Adult and Pediatric Special Circumstances of Resuscitation",
-      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation"
+      "url": "https://doi.org/10.1161/CIR.0000000000001380"
     },
     {
       "id": "aha-2025-pcac",
@@ -1221,6 +1225,11 @@
       "label": "Umpierrez et al. Hyperglycemic crises in adults with diabetes: a consensus report. Diabetes Care 2024",
       "url": "https://doi.org/10.2337/dci24-0032",
       "note": "Potassium shifts and the limited place of bicarbonate in severe DKA, outside cardiac arrest."
+    },
+    {
+      "id": "aha-2025-soc",
+      "label": "2025 American Heart Association Guidelines for CPR and ECC, Part 4: Systems of Care (Dezfulian C, et al. Circulation. 2025;152(suppl 2):S353–S384)",
+      "url": "https://doi.org/10.1161/CIR.0000000000001378"
     }
   ],
   "strict": true
