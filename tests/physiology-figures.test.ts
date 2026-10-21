@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { figuresForPrinciple, groupParagraphs, inlineFiguresAfter } from '../src/lib/figure-placement.ts';
+import { figuresForPrinciple, inlineFiguresAfter } from '../src/lib/figure-placement.ts';
 import {
   physiologyAnchorErrors,
   physiologyFigure,
@@ -48,14 +48,14 @@ describe('physiology figure assets', () => {
   it('keeps the oxygen figure between the CPR paragraph and the held-constant paragraph', () => {
     const principle = document.principles.find((item) => item.id === 'normal-circulation');
     const paragraphs = principle?.body ?? [];
-    const groups = groupParagraphs(
-      paragraphs,
-      (paragraph, index) => (index === 0 ? '' : paragraph),
-      (paragraph) => inlineFiguresAfter('normal-circulation', paragraph),
-    );
-    expect(groups.map((group) => group.figures)).toEqual([['01-oxygen-delivery'], []]);
-    expect(groups[0]?.paragraphs[0]).toMatch(/^During CPR the first factor/);
-    expect(groups[1]?.paragraphs[0]).toMatch(/^Held constant in these predictions/);
+    const cpr = paragraphs.findIndex((paragraph) => paragraph.startsWith('During CPR the first factor'));
+    const held = paragraphs.findIndex((paragraph) => paragraph.startsWith('Held constant in these predictions'));
+    expect(cpr).toBeGreaterThanOrEqual(0);
+    expect(held).toBeGreaterThan(cpr);
+    const withFigures = paragraphs
+      .map((paragraph, index) => [index, inlineFiguresAfter('normal-circulation', paragraph)] as const)
+      .filter(([, figures]) => figures.length > 0);
+    expect(withFigures).toEqual([[cpr, ['01-oxygen-delivery']]]);
   });
 
   it('changes only presentation in the SVG and keeps the drawn labels', () => {
