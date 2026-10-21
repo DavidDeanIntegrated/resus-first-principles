@@ -23,7 +23,7 @@ describe('static build output', () => {
 
     expect(casePage).toContain('Compressions make a gradient, and the gradient makes the flow');
     expect(casePage).toContain('Predict: a compressor is pushing to a good depth but leaning on the chest between compressions');
-    expect(casePage).toContain('Coronary flow falls, even though each push looks deep');
+    expect(casePage).toContain('Coronary flow is likely to fall even though each push looks deep');
     expect(casePage).toContain('Incomplete release keeps intrathoracic and right atrial pressure elevated');
     expect(casePage).toContain('<div class="answer">');
     expect(casePage.indexOf('<div class="answer">')).toBeGreaterThan(casePage.indexOf('<details>'));
