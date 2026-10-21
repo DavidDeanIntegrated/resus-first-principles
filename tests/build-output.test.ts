@@ -163,14 +163,31 @@ describe('static build output', () => {
 
     const perfusion = section(casePage, 'principle-coronary-cerebral-perfusion');
     const coronary = figure(perfusion, 'coronary-circuit');
-    expect(perfusion.indexOf('sound alike but are different ideas.')).toBeLessThan(
+    const pairs = figure(perfusion, 'pressure-pairs');
+    const release = figure(perfusion, 'compression-release');
+    expect(perfusion.indexOf('The heart is a muscle that never rests in health')).toBeLessThan(
       perfusion.indexOf('data-diagram="coronary-circuit"'),
     );
     expect(perfusion.indexOf('data-diagram="coronary-circuit"')).toBeLessThan(
-      perfusion.indexOf('With that picture in place, the equation'),
+      perfusion.indexOf('That path explains why two pressures'),
     );
-    expect(perfusion.indexOf('data-diagram="coronary-circuit"')).toBeLessThan(
+    expect(perfusion.indexOf('With that picture in place, the equation')).toBeLessThan(
+      perfusion.indexOf('data-diagram="pressure-pairs"'),
+    );
+    expect(perfusion.indexOf('data-diagram="pressure-pairs"')).toBeLessThan(
+      perfusion.indexOf('Phase matters for a second reason'),
+    );
+    expect(perfusion.indexOf('Phase matters for a second reason')).toBeLessThan(
+      perfusion.indexOf('data-diagram="compression-release"'),
+    );
+    expect(perfusion.indexOf('data-diagram="compression-release"')).toBeLessThan(
+      perfusion.indexOf('For the heart, the gradient that matters'),
+    );
+    expect(perfusion.indexOf('For the heart, the gradient that matters')).toBeLessThan(
       perfusion.indexOf('data-diagram="pressure-gradient"'),
+    );
+    expect(perfusion.indexOf('data-diagram="pressure-gradient"')).toBeLessThan(
+      perfusion.indexOf('The model has limits'),
     );
     expect(coronary).toContain('role="img"');
     expect(coronary).toContain('id="diagram-coronary-circuit-wide-title"');
@@ -191,6 +208,25 @@ describe('static build output', () => {
       'the difference between the two, measured at the same moment, between compressions.',
     );
     expect(coronary.toLowerCase()).not.toContain('mmhg');
+    expect(pairs).toContain('role="img"');
+    expect(pairs).toContain('Two pressures and the difference between them');
+    expect(pairs).toContain('zeroed at the level of the right atrium');
+    expect(pairs).toContain('hypothetical, above those usually measured in human CPR');
+    expect(pairs).toContain('Data as table');
+    expect(pairs).toContain('35 &minus; 10 = 25&nbsp;mm&nbsp;Hg');
+    expect(pairs).toContain('35 &minus; 25 = 10&nbsp;mm&nbsp;Hg');
+    expect(pairs).toContain('50 &minus; 40 = 10&nbsp;mm&nbsp;Hg');
+    expect(pairs).toContain('class="diagram-wide"');
+    expect(pairs).toContain('class="diagram-stack"');
+    expect(pairs.toLowerCase()).not.toContain('diastolic');
+    expect(pairs.toLowerCase()).not.toContain('worse');
+    expect(release).toContain('role="img"');
+    expect(release).toContain('forward coronary flow is small');
+    expect(release).toContain('the coronary bed fills mainly now');
+    expect(release).toContain('Pause: no compression, aortic pressure decays');
+    expect(release).toContain('Read here');
+    expect(release).toContain('Data as table');
+    expect(release.toLowerCase()).not.toContain('diastolic');
     expect(section(casePage, 'principle-coronary-cerebral-perfusion')).toContain('data-diagram="pressure-gradient"');
     expect(section(casePage, 'principle-minimize-interruptions')).toContain('data-diagram="compression-pause"');
     expect(section(casePage, 'principle-coronary-cerebral-perfusion')).not.toContain('oxygen-delivery');

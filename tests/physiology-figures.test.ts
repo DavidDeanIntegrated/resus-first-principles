@@ -45,11 +45,26 @@ describe('physiology figure assets', () => {
     expect(figuresForPrinciple('reversible-causes')).toEqual(['reversible-cause-overlap']);
     expect(figuresForPrinciple('coronary-cerebral-perfusion')).toEqual([]);
     expect(
+      inlineFiguresAfter('coronary-cerebral-perfusion', 'The heart is a muscle that never rests in health'),
+    ).toEqual(['coronary-circuit']);
+    expect(
       inlineFiguresAfter(
         'coronary-cerebral-perfusion',
-        'Coronary artery pressure and coronary perfusion pressure sound alike but are different ideas.',
+        'With that picture in place, the equation is a short summary of it.',
       ),
-    ).toEqual(['coronary-circuit']);
+    ).toEqual(['pressure-pairs']);
+    expect(
+      inlineFiguresAfter(
+        'coronary-cerebral-perfusion',
+        'Phase matters for a second reason, which has to do with the vessels themselves.',
+      ),
+    ).toEqual(['compression-release']);
+    expect(
+      inlineFiguresAfter(
+        'coronary-cerebral-perfusion',
+        'For the heart, the gradient that matters is coronary perfusion pressure',
+      ),
+    ).toEqual(['pressure-gradient']);
   });
 
   it('keeps the oxygen figure between the CPR paragraph and the held-constant paragraph', () => {

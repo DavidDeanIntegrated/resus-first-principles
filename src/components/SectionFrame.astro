@@ -51,6 +51,10 @@ const markdownGroups = groupParagraphs(
   (paragraph, index) => (explanation.length > 0 ? paragraph : index === 0 ? markdownLeadRest : paragraph),
   (paragraph) => inlineFiguresAfter(principle.id, paragraph),
 );
+const inlineFigureIds = new Set<string>([
+  ...explanationGroups.flatMap((group) => group.figures),
+  ...markdownGroups.flatMap((group) => group.figures),
+]);
 ---
 
 <PrincipleHeader
@@ -100,7 +104,11 @@ const markdownGroups = groupParagraphs(
       </aside>
     )
   }
-  {principle.diagram && <PrincipleDiagram diagram={principle.diagram} causeNames={causeNames} />}
+  {
+    principle.diagram && !inlineFigureIds.has(principle.diagram) && (
+      <PrincipleDiagram diagram={principle.diagram} causeNames={causeNames} />
+    )
+  }
   {
     figuresForPrinciple(principle.id).map((diagram) => (
       <PrincipleDiagram diagram={diagram} causeNames={causeNames} />

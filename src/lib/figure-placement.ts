@@ -1,10 +1,13 @@
 import { physiologyFigures } from './physiology-figures.ts';
 
-/** Figures drawn beside a principle. They are not keys in the case JSON. */
+/** Figures the presentation layer places inside a principle. */
 export const placedFigureIds = [
   ...physiologyFigures.map((figure) => figure.id),
   'reversible-cause-overlap',
   'coronary-circuit',
+  'pressure-pairs',
+  'compression-release',
+  'pressure-gradient',
 ] as const;
 
 export type PlacedFigureId = (typeof placedFigureIds)[number];
@@ -19,8 +22,22 @@ const primerInline = [
   {
     id: 'coronary-circuit',
     principleId: 'coronary-cerebral-perfusion',
-    afterParagraphStartsWith:
-      'Coronary artery pressure and coronary perfusion pressure sound alike but are different ideas.',
+    afterParagraphStartsWith: 'The heart is a muscle that never rests in health',
+  },
+  {
+    id: 'pressure-pairs',
+    principleId: 'coronary-cerebral-perfusion',
+    afterParagraphStartsWith: 'With that picture in place, the equation is a short summary of it.',
+  },
+  {
+    id: 'compression-release',
+    principleId: 'coronary-cerebral-perfusion',
+    afterParagraphStartsWith: 'Phase matters for a second reason, which has to do with the vessels themselves.',
+  },
+  {
+    id: 'pressure-gradient',
+    principleId: 'coronary-cerebral-perfusion',
+    afterParagraphStartsWith: 'For the heart, the gradient that matters is coronary perfusion pressure',
   },
 ] as const satisfies readonly {
   id: PlacedFigureId;

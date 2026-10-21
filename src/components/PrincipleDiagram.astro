@@ -1,8 +1,10 @@
 ---
 import CompressionPause from './diagrams/CompressionPause.astro';
+import CompressionRelease from './diagrams/CompressionRelease.astro';
 import CoronaryCircuit from './diagrams/CoronaryCircuit.astro';
 import PhysiologyFigure from './diagrams/PhysiologyFigure.astro';
 import PressureGradient from './diagrams/PressureGradient.astro';
+import PressurePairs from './diagrams/PressurePairs.astro';
 import ReversibleCauseOverlap from './diagrams/ReversibleCauseOverlap.astro';
 import { isPhysiologyFigureId } from '../lib/physiology-figures.ts';
 import type { PlacedFigureId } from '../lib/figure-placement.ts';
@@ -25,6 +27,10 @@ const Diagram = diagram === 'pressure-gradient' || diagram === 'compression-paus
 {
   diagram === 'coronary-circuit' ? (
     <CoronaryCircuit />
+  ) : diagram === 'pressure-pairs' ? (
+    <PressurePairs />
+  ) : diagram === 'compression-release' ? (
+    <CompressionRelease />
   ) : isPhysiologyFigureId(diagram) ? (
     <PhysiologyFigure id={diagram} />
   ) : diagram === 'reversible-cause-overlap' ? (

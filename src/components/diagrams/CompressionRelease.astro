@@ -1,0 +1,153 @@
+---
+const wideTitleId = 'diagram-compression-release-wide-title';
+const wideDescId = 'diagram-compression-release-wide-desc';
+const stackTitleId = 'diagram-compression-release-stack-title';
+const stackDescId = 'diagram-compression-release-stack-desc';
+
+const title = 'Read during release';
+const description =
+  'Three cells, not a measured waveform. Compression: the vessels in the heart muscle are narrowed but a lumen remains, and forward coronary flow is small. Release: the coronary bed fills mainly now, inside a window marked read here, where aortic pressure during release and right atrial pressure are taken at the same moment. Pause: no compression, aortic pressure decays. The pause is set apart from the cycle.';
+const caption =
+  'Read during release. During compression, forward coronary flow is small and the vessels in the heart muscle are narrowed but not shut. On release, the coronary bed fills mainly now. The sage window is where aortic pressure during release and right atrial pressure are read at the same moment. A pause is not that release. Pause: no compression, aortic pressure decays. Schematic, not a measured waveform and not to scale in time.';
+---
+
+<figure class="diagram" data-diagram="compression-release">
+  <svg class="diagram-stack" viewBox="0 0 340 980" role="img" aria-labelledby={stackTitleId} aria-describedby={stackDescId}>
+    <title id={stackTitleId}>{title}</title>
+    <desc id={stackDescId}>{description}</desc>
+    <defs>
+      <pattern id="compression-release-hatch-stack" width="7" height="7" patternUnits="userSpaceOnUse">
+        <path class="diagram-hatch" d="M-1 6 L6 -1"></path>
+      </pattern>
+    </defs>
+
+    <text class="diagram-panel-title" x="8" y="30" font-size="20">Read during release</text>
+    <text class="diagram-key" x="8" y="56" font-size="15">One cycle, not a measured waveform</text>
+
+    <rect class="diagram-cell-rule" x="8" y="76" width="324" height="250" rx="6"></rect>
+    <text class="diagram-key" x="24" y="104" font-size="16">Compression</text>
+    <rect class="diagram-myocardium" x="24" y="120" width="200" height="112"></rect>
+    <rect x="24" y="120" width="200" height="112" fill="url(#compression-release-hatch-stack)"></rect>
+    <g class="diagram-vessel-narrow">
+      <path d="M40 142 C90 142 130 150 200 144"></path>
+      <path d="M40 152 C90 152 130 160 200 154"></path>
+      <path d="M40 170 C100 174 140 164 200 172"></path>
+      <path d="M40 180 C100 184 140 174 200 182"></path>
+      <path d="M40 198 C80 198 140 190 190 202"></path>
+      <path d="M40 208 C80 208 140 200 190 212"></path>
+    </g>
+    <text class="diagram-label" x="24" y="268" font-size="16">forward coronary flow</text>
+    <text class="diagram-label" x="24" y="290" font-size="16">is small</text>
+
+    <text class="diagram-key" x="170" y="354" text-anchor="middle" font-size="15">one cycle</text>
+
+    <rect class="diagram-read-window" x="8" y="372" width="324" height="280" rx="6"></rect>
+    <text class="diagram-key" x="24" y="400" font-size="16">Release</text>
+    <text class="diagram-marker-caption" x="24" y="424" font-size="16">Read here</text>
+    <rect class="diagram-myocardium" x="24" y="444" width="200" height="112"></rect>
+    <rect x="24" y="444" width="200" height="112" fill="url(#compression-release-hatch-stack)"></rect>
+    <g class="diagram-vessel-open">
+      <path d="M40 458 C90 458 130 466 200 460"></path>
+      <path d="M40 476 C90 476 130 484 200 478"></path>
+      <path d="M40 494 C100 498 140 488 200 496"></path>
+      <path d="M40 512 C100 516 140 506 200 514"></path>
+      <path d="M40 528 C80 528 140 520 190 532"></path>
+      <path d="M40 546 C80 546 140 538 190 550"></path>
+    </g>
+    <text class="diagram-label" x="24" y="592" font-size="16">the coronary bed fills</text>
+    <text class="diagram-label" x="24" y="614" font-size="16">mainly now</text>
+
+    <rect class="diagram-cell-rule" x="8" y="688" width="324" height="260" rx="6"></rect>
+    <text class="diagram-key" x="24" y="716" font-size="16">Pause</text>
+    <path class="diagram-quiet" d="M48 748 C110 760 150 820 250 860"></path>
+    <text class="diagram-label" x="24" y="888" font-size="16">Pause: no compression,</text>
+    <text class="diagram-label" x="24" y="910" font-size="16">aortic pressure decays</text>
+  </svg>
+
+  <svg class="diagram-wide" viewBox="0 0 640 460" role="img" aria-labelledby={wideTitleId} aria-describedby={wideDescId}>
+    <title id={wideTitleId}>{title}</title>
+    <desc id={wideDescId}>{description}</desc>
+    <defs>
+      <pattern id="compression-release-hatch-wide" width="7" height="7" patternUnits="userSpaceOnUse">
+        <path class="diagram-hatch" d="M-1 6 L6 -1"></path>
+      </pattern>
+    </defs>
+
+    <text class="diagram-panel-title" x="20" y="34" font-size="22">Read during release</text>
+    <text class="diagram-key" x="20" y="60" font-size="16">One cycle, not a measured waveform</text>
+
+    <rect class="diagram-cell-rule" x="16" y="80" width="188" height="292" rx="6"></rect>
+    <text class="diagram-key" x="28" y="108" font-size="16">Compression</text>
+    <rect class="diagram-myocardium" x="36" y="124" width="148" height="108"></rect>
+    <rect x="36" y="124" width="148" height="108" fill="url(#compression-release-hatch-wide)"></rect>
+    <g class="diagram-vessel-narrow">
+      <path d="M52 146 C90 146 120 152 168 148"></path>
+      <path d="M52 156 C90 156 120 162 168 158"></path>
+      <path d="M52 174 C100 178 130 168 168 176"></path>
+      <path d="M52 184 C100 188 130 178 168 186"></path>
+      <path d="M52 202 C80 202 130 194 160 208"></path>
+      <path d="M52 212 C80 212 130 204 160 218"></path>
+    </g>
+    <text class="diagram-label" x="28" y="268" font-size="16">forward coronary flow</text>
+    <text class="diagram-label" x="28" y="290" font-size="16">is small</text>
+
+    <rect class="diagram-read-window" x="220" y="80" width="200" height="292" rx="6"></rect>
+    <text class="diagram-key" x="232" y="108" font-size="16">Release</text>
+    <text class="diagram-marker-caption" x="232" y="132" font-size="16">Read here</text>
+    <rect class="diagram-myocardium" x="240" y="148" width="160" height="96"></rect>
+    <rect x="240" y="148" width="160" height="96" fill="url(#compression-release-hatch-wide)"></rect>
+    <g class="diagram-vessel-open">
+      <path d="M256 162 C300 162 340 168 384 164"></path>
+      <path d="M256 178 C300 178 340 184 384 180"></path>
+      <path d="M256 192 C310 196 350 186 384 194"></path>
+      <path d="M256 208 C310 212 350 202 384 210"></path>
+      <path d="M256 220 C290 220 350 212 376 226"></path>
+      <path d="M256 236 C290 236 350 228 376 242"></path>
+    </g>
+    <text class="diagram-label" x="232" y="276" font-size="16">the coronary bed fills</text>
+    <text class="diagram-label" x="232" y="298" font-size="16">mainly now</text>
+
+    <rect class="diagram-cell-rule" x="456" y="80" width="168" height="292" rx="6"></rect>
+    <text class="diagram-key" x="468" y="108" font-size="16">Pause</text>
+    <path class="diagram-quiet" d="M484 150 C520 170 540 230 590 280"></path>
+    <text class="diagram-label" x="468" y="318" font-size="15">Pause: no compression,</text>
+    <text class="diagram-label" x="468" y="338" font-size="15">aortic pressure decays</text>
+
+    <line class="diagram-time" x1="16" y1="396" x2="408" y2="396"></line>
+    <polygon class="diagram-time-head" points="420,396 408,391 408,401"></polygon>
+    <text class="diagram-key" x="210" y="424" text-anchor="middle" font-size="15">one cycle</text>
+  </svg>
+
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>{caption}</p>
+  </figcaption>
+
+  <details class="diagram-data">
+    <summary>Data as table</summary>
+    <table>
+      <caption>One cycle, read during release. Not a measured waveform.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Phase</th>
+          <th scope="col">What the drawing shows</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Compression</th>
+          <td>Vessels in the heart muscle are narrowed, with a lumen still open. Forward coronary flow is small.</td>
+        </tr>
+        <tr>
+          <th scope="row">Release</th>
+          <td>The coronary bed fills mainly now. Read here: aortic pressure during release and right atrial pressure, at the same moment.</td>
+        </tr>
+        <tr>
+          <th scope="row">Pause</th>
+          <td>Pause: no compression, aortic pressure decays.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Coronary perfusion pressure is read during the release phase of each compression, with both pressures taken at the same moment.</p>
+  </details>
+</figure>
