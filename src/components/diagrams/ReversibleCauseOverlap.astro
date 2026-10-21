@@ -20,31 +20,71 @@ function splitName(name: string): string[] {
   return [name];
 }
 
-let cursor = 168;
-const groups = causeMechanismGroups.map((group) => {
-  const labelLines = splitName(group.label);
-  const labelYs = labelLines.map((_, index) => cursor + 16 + index * 22);
-  const labelY = labelYs[labelYs.length - 1] ?? cursor + 16;
-  let rowTop = labelY + 20;
-  const rows = group.causeIds.map((id) => {
-    const name = causeNames[id];
-    if (!name) throw new Error(`Overlap figure is missing the case label for ${id}`);
-    const lines = splitName(name);
-    const height = lines.length > 1 ? twoLineHeight : rowHeight;
-    const textYs = lines.length > 1 ? [rowTop + 30, rowTop + 54] : [rowTop + 32];
-    const row = { id, name, lines, y: rowTop, height, textYs };
-    rowTop += height + rowGap;
-    return row;
+interface LaidRow {
+  id: string;
+  name: string;
+  lines: string[];
+  y: number;
+  height: number;
+  textYs: number[];
+  x: number;
+}
+
+interface LaidGroup {
+  id: string;
+  label: string;
+  labelLines: string[];
+  labelYs: number[];
+  labelY: number;
+  rows: LaidRow[];
+  x: number;
+}
+
+function layoutGroups(
+  source: readonly (typeof causeMechanismGroups)[number][],
+  originX: number,
+  startY: number,
+): { groups: LaidGroup[]; bottom: number } {
+  let cursor = startY;
+  const laid = source.map((group) => {
+    const labelLines = splitName(group.label);
+    const labelYs = labelLines.map((_, index) => cursor + 16 + index * 22);
+    const labelY = labelYs[labelYs.length - 1] ?? cursor + 16;
+    let rowTop = labelY + 20;
+    const rows = group.causeIds.map((id) => {
+      const name = causeNames[id];
+      if (!name) throw new Error(`Overlap figure is missing the case label for ${id}`);
+      const lines = splitName(name);
+      const height = lines.length > 1 ? twoLineHeight : rowHeight;
+      const textYs = lines.length > 1 ? [rowTop + 30, rowTop + 54] : [rowTop + 32];
+      const row = { id, name, lines, y: rowTop, height, textYs, x: originX };
+      rowTop += height + rowGap;
+      return row;
+    });
+    const item = { id: group.id, label: group.label, labelLines, labelYs, labelY, rows, x: originX };
+    cursor = rowTop + 16;
+    return item;
   });
-  const laid = { id: group.id, label: group.label, labelLines, labelYs, labelY, rows };
-  cursor = rowTop + 16;
-  return laid;
-});
-const height = cursor + 8;
+  return { groups: laid, bottom: cursor };
+}
+
+const screen = layoutGroups(causeMechanismGroups, 16, 168);
+const groups = screen.groups;
+const height = screen.bottom + 8;
+const printLeft = layoutGroups(causeMechanismGroups.slice(0, 3), 16, 168);
+const printRight = layoutGroups(causeMechanismGroups.slice(3), 360, 168);
+const printHeight = Math.max(printLeft.bottom, printRight.bottom) + 8;
+const printGroups = [...printLeft.groups, ...printRight.groups];
 ---
 
 <figure class="diagram" data-diagram="reversible-cause-overlap">
-  <svg viewBox={`0 0 320 ${height}`} role="group" aria-labelledby={titleId} aria-describedby={descId}>
+  <svg
+    class="diagram-screen"
+    viewBox={`0 0 320 ${height}`}
+    role="group"
+    aria-labelledby={titleId}
+    aria-describedby={descId}
+  >
     <title id={titleId}>{overlapTitle}</title>
     <desc id={descId}>{caption}</desc>
 
@@ -59,20 +99,54 @@ const height = cursor + 8;
     {
       groups.map((group) => (
         <g>
-          <text class="diagram-caps" x="16" font-size="14">
+          <text class="diagram-caps" x={group.x} font-size="14">
             {group.labelLines.map((line, index) => (
-              <tspan x="16" y={group.labelYs[index]}>
+              <tspan x={group.x} y={group.labelYs[index]}>
                 {line}
               </tspan>
             ))}
           </text>
-          <rect class="diagram-mark" x="16" y={group.labelY + 8} width="32" height="2" />
+          <rect class="diagram-mark" x={group.x} y={group.labelY + 8} width="32" height="2" />
           {group.rows.map((row) => (
             <a class="diagram-cause" href={`#cause-${row.id}`} aria-label={row.name}>
-              <rect class="diagram-node" x="16" y={row.y} width="288" height={row.height} />
-              <text class="diagram-label" x="28" font-size="15">
+              <rect class="diagram-node" x={row.x} y={row.y} width="288" height={row.height} />
+              <text class="diagram-label" x={row.x + 12} font-size="15">
                 {row.lines.map((line, index) => (
-                  <tspan x="28" y={row.textYs[index]}>
+                  <tspan x={row.x + 12} y={row.textYs[index]}>
+                    {line}
+                  </tspan>
+                ))}
+              </text>
+            </a>
+          ))}
+        </g>
+      ))
+    }
+  </svg>
+  <svg class="diagram-print" viewBox={`0 0 664 ${printHeight}`} aria-hidden="true">
+    <rect class="diagram-banner" x="0" y="0" width="664" height="48"></rect>
+    <rect class="diagram-mark" x="0" y="0" width="4" height="48"></rect>
+    <text class="diagram-schematic" x="16" y="30" font-size="18">Schematic, not measured data</text>
+    <text class="diagram-caps" x="16" y="78" font-size="16">Mechanisms</text>
+    <text class="diagram-display" x="16" y="112" font-size="22">Reversible causes</text>
+    <text class="diagram-note" x="16" y="144" font-size="18">Each name links to that cause.</text>
+    {
+      printGroups.map((group) => (
+        <g>
+          <text class="diagram-caps" x={group.x} font-size="16">
+            {group.labelLines.map((line, index) => (
+              <tspan x={group.x} y={group.labelYs[index]}>
+                {line}
+              </tspan>
+            ))}
+          </text>
+          <rect class="diagram-mark" x={group.x} y={group.labelY + 8} width="32" height="2" />
+          {group.rows.map((row) => (
+            <a href={`#cause-${row.id}`}>
+              <rect class="diagram-node" x={row.x} y={row.y} width="288" height={row.height} />
+              <text class="diagram-label" x={row.x + 12} font-size="18">
+                {row.lines.map((line, index) => (
+                  <tspan x={row.x + 12} y={row.textYs[index]}>
                     {line}
                   </tspan>
                 ))}

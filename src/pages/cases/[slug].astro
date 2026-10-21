@@ -43,51 +43,53 @@ const numeralRecord = Object.fromEntries(numerals);
 
 <Base title={entry.data.title} description={description}>
   <div class="wrap">
-    <section class="hero">
-      <p class="kicker">Case</p>
-      <h1>{entry.data.title}</h1>
-      {
-        entry.data.reviewNote && (
-          <p class="review-note">
-            <span class="field-label">Review</span>
-            {entry.data.reviewNote}
-          </p>
-        )
-      }
+    <Contents sections={entry.data.principles} />
+    <div class="case-body">
+      <section class="hero">
+        <p class="kicker">Case</p>
+        <h1>{entry.data.title}</h1>
+        {
+          entry.data.reviewNote && (
+            <p class="review-note">
+              <span class="field-label">Review</span>
+              {entry.data.reviewNote}
+            </p>
+          )
+        }
+        {
+          entry.data.contentStatus === 'placeholder' && (
+            <p class="notice" role="status">
+              PLACEHOLDER FIXTURE. This page is not clinical content and is not for patient care.
+            </p>
+          )
+        }
+        <p class="lede">{entry.data.summary}</p>
+      </section>
+
       {
         entry.data.contentStatus === 'placeholder' && (
-          <p class="notice" role="status">
-            PLACEHOLDER FIXTURE. This page is not clinical content and is not for patient care.
-          </p>
+          <aside class="side">
+            PLACEHOLDER margin note. Desktop only. This aside is not essential and is not clinical content.
+          </aside>
         )
       }
-      <p class="lede">{entry.data.summary}</p>
-      <Contents sections={entry.data.principles} />
-    </section>
 
-    {
-      entry.data.contentStatus === 'placeholder' && (
-        <aside class="side">
-          PLACEHOLDER margin note. Desktop only. This aside is not essential and is not clinical content.
-        </aside>
-      )
-    }
-
-    {
-      parts.map((part) => {
-        return (
-          <SectionPart
-            principle={part.item}
-            subsections={part.children.map((child) => child.item)}
-            numeral={numerals.get(part.item.id) ?? ''}
-            numerals={numeralRecord}
-            partNumber={numbered.get(part.item.id)?.partNumber ?? 0}
-            causeNames={causeNames}
-            referenceNumbers={numbers}
-          />
-        );
-      })
-    }
+      {
+        parts.map((part) => {
+          return (
+            <SectionPart
+              principle={part.item}
+              subsections={part.children.map((child) => child.item)}
+              numeral={numerals.get(part.item.id) ?? ''}
+              numerals={numeralRecord}
+              partNumber={numbered.get(part.item.id)?.partNumber ?? 0}
+              causeNames={causeNames}
+              referenceNumbers={numbers}
+            />
+          );
+        })
+      }
+    </div>
   </div>
 
   <section class="treat" aria-labelledby="treatment-heading">
