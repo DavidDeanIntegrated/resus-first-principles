@@ -236,6 +236,10 @@ describe('question reveal and references', () => {
     expect(parent).toBeLessThan(child);
     expect(child).toBeLessThan(nextRoot);
     expect(html.slice(parent, nextRoot)).toContain('<ol>');
+    expect(html).toContain('>I<');
+    expect(html).toContain('>III<');
+    expect(html.slice(parent, nextRoot)).toContain('>3.1<');
+    expect(html).not.toContain('>III.1<');
   });
 
   it('renders optional questions after a subsection and keeps the cause anchor', async () => {

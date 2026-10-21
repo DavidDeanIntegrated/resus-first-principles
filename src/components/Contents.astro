@@ -1,4 +1,5 @@
 ---
+import { sectionNumerals } from '../lib/roman.ts';
 import { sectionTree } from '../lib/sections.ts';
 
 interface SectionLink {
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const roots = sectionTree(Astro.props.sections);
+const numerals = sectionNumerals(Astro.props.sections);
 ---
 
 <nav aria-label="Contents">
@@ -19,11 +21,13 @@ const roots = sectionTree(Astro.props.sections);
     {
       roots.map((root) => (
         <li>
+          <span class="toc-num">{numerals.get(root.item.id)?.label}</span>
           <a href={`#principle-${root.item.id}`}>{root.item.title}</a>
           {root.children.length > 0 && (
             <ol>
               {root.children.map((child) => (
                 <li>
+                  <span class="toc-num">{numerals.get(child.item.id)?.label}</span>
                   <a href={`#principle-${child.item.id}`}>{child.item.title}</a>
                 </li>
               ))}

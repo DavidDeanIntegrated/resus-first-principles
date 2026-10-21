@@ -311,7 +311,6 @@ h2 {
   margin: var(--s6) 0 0;
   padding: 0;
   list-style: none;
-  counter-reset: principle;
   border-top: 1px solid var(--rule);
 }
 
@@ -323,17 +322,12 @@ h2 {
   min-height: 44px;
 }
 
-.toc > li {
-  counter-increment: principle;
-}
-
-.toc > li::before {
-  content: counter(principle, upper-roman);
+.toc-num {
   font-family: var(--f-display);
   font-weight: 500;
   font-size: var(--text-small);
   color: var(--accent);
-  min-width: 2.5ch;
+  min-width: 4ch;
   font-variation-settings: "opsz" 24, "SOFT" 50, "WONK" 0, "wght" 500;
 }
 
