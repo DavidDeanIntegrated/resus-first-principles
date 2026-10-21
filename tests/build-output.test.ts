@@ -34,7 +34,9 @@ describe('static build output', () => {
     expect(casePage).toContain(
       'Source-checked against AHA 2025; not yet independently physician-reviewed.',
     );
-    expect(casePage).not.toContain('id="cause-');
+    expect(casePage).toContain('id="cause-hypovolemia"');
+    expect(casePage).toContain('id="cause-coronary-thrombosis"');
+    expect(casePage).toContain('id="example-hv-gi-bleed"');
     expect(casePage).toContain('Commit to an answer before revealing.');
     expect(casePage).toContain('Reveal answer');
     expect(casePage).toContain('<details>');
