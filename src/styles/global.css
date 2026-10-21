@@ -832,6 +832,26 @@ h2 {
   stroke-linecap: square;
 }
 
+.diagram-prior {
+  fill: none;
+  stroke: var(--ink-soft);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+  stroke-linecap: square;
+}
+
+.diagram-rise {
+  fill: none;
+  stroke: var(--sage);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.diagram-rise-head {
+  fill: var(--sage);
+}
+
 .diagram-mark,
 .diagram-fall-head {
   fill: var(--accent);
