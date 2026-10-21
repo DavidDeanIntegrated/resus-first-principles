@@ -1,0 +1,40 @@
+---
+import { oxygenDeliveryCaption, oxygenDeliveryDesc, oxygenDeliveryTitle } from '../../lib/figure-copy.ts';
+
+const titleId = 'diagram-oxygen-delivery-title';
+const descId = 'diagram-oxygen-delivery-desc';
+---
+
+<figure class="diagram" data-diagram="oxygen-delivery">
+  <svg viewBox="0 0 320 520" role="img" aria-labelledby={titleId} aria-describedby={descId}>
+    <title id={titleId}>{oxygenDeliveryTitle}</title>
+    <desc id={descId}>{oxygenDeliveryDesc}</desc>
+
+    <rect class="diagram-banner" x="0" y="0" width="320" height="48"></rect>
+    <rect class="diagram-mark" x="0" y="0" width="4" height="48"></rect>
+    <text class="diagram-schematic" x="16" y="30" font-size="15">Schematic, not measured data</text>
+
+    <text class="diagram-caps" x="16" y="78" font-size="14">Relationship</text>
+    <text class="diagram-display" x="16" y="112" font-size="18">Oxygen delivery</text>
+
+    <rect class="diagram-panel-flow" x="16" y="136" width="288" height="64"></rect>
+    <text class="diagram-display" x="32" y="176" font-size="18">Flow</text>
+
+    <g class="diagram-multiply" transform="translate(24, 228)">
+      <line x1="-6" y1="-6" x2="6" y2="6"></line>
+      <line x1="-6" y1="6" x2="6" y2="-6"></line>
+    </g>
+    <text class="diagram-note" x="40" y="234" font-size="15">multiplied by</text>
+
+    <rect class="diagram-panel-content" x="16" y="260" width="288" height="228"></rect>
+    <text class="diagram-caps" x="32" y="292" font-size="14">Arterial oxygen content</text>
+    <text class="diagram-label" x="32" y="340" font-size="15">Hemoglobin</text>
+    <text class="diagram-label" x="32" y="388" font-size="15">Saturation</text>
+    <text class="diagram-label" x="32" y="436" font-size="15">Dissolved oxygen</text>
+    <path class="diagram-bracket" d="M276 316 H292 M284 316 V452 M276 452 H292"></path>
+  </svg>
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>{oxygenDeliveryCaption}</p>
+  </figcaption>
+</figure>

@@ -1,0 +1,90 @@
+---
+import { causeMechanismGroups, overlapCaption, overlapTitle } from '../../lib/cause-mechanisms.ts';
+
+interface Props {
+  causeNames: Readonly<Record<string, string>>;
+}
+
+const { causeNames } = Astro.props;
+const caption = overlapCaption(causeNames);
+const titleId = 'diagram-reversible-cause-overlap-title';
+const descId = 'diagram-reversible-cause-overlap-desc';
+
+const rowHeight = 52;
+const twoLineHeight = 76;
+const rowGap = 8;
+
+function splitName(name: string): string[] {
+  const paren = name.indexOf(' (');
+  if (paren > 0 && name.length > 28) return [name.slice(0, paren), name.slice(paren + 1)];
+  return [name];
+}
+
+let cursor = 168;
+const groups = causeMechanismGroups.map((group) => {
+  const labelLines = splitName(group.label);
+  const labelYs = labelLines.map((_, index) => cursor + 16 + index * 22);
+  const labelY = labelYs[labelYs.length - 1] ?? cursor + 16;
+  let rowTop = labelY + 20;
+  const rows = group.causeIds.map((id) => {
+    const name = causeNames[id];
+    if (!name) throw new Error(`Overlap figure is missing the case label for ${id}`);
+    const lines = splitName(name);
+    const height = lines.length > 1 ? twoLineHeight : rowHeight;
+    const textYs = lines.length > 1 ? [rowTop + 30, rowTop + 54] : [rowTop + 32];
+    const row = { id, name, lines, y: rowTop, height, textYs };
+    rowTop += height + rowGap;
+    return row;
+  });
+  const laid = { id: group.id, label: group.label, labelLines, labelYs, labelY, rows };
+  cursor = rowTop + 16;
+  return laid;
+});
+const height = cursor + 8;
+---
+
+<figure class="diagram" data-diagram="reversible-cause-overlap">
+  <svg viewBox={`0 0 320 ${height}`} role="group" aria-labelledby={titleId} aria-describedby={descId}>
+    <title id={titleId}>{overlapTitle}</title>
+    <desc id={descId}>{caption}</desc>
+
+    <rect class="diagram-banner" x="0" y="0" width="320" height="48"></rect>
+    <rect class="diagram-mark" x="0" y="0" width="4" height="48"></rect>
+    <text class="diagram-schematic" x="16" y="30" font-size="15">Schematic, not measured data</text>
+
+    <text class="diagram-caps" x="16" y="78" font-size="14">Mechanisms</text>
+    <text class="diagram-display" x="16" y="112" font-size="18">Reversible causes</text>
+    <text class="diagram-note" x="16" y="144" font-size="15">Each name links to that cause.</text>
+
+    {
+      groups.map((group) => (
+        <g>
+          <text class="diagram-caps" x="16" font-size="14">
+            {group.labelLines.map((line, index) => (
+              <tspan x="16" y={group.labelYs[index]}>
+                {line}
+              </tspan>
+            ))}
+          </text>
+          <rect class="diagram-mark" x="16" y={group.labelY + 8} width="32" height="2" />
+          {group.rows.map((row) => (
+            <a class="diagram-cause" href={`#cause-${row.id}`} aria-label={row.name}>
+              <rect class="diagram-node" x="16" y={row.y} width="288" height={row.height} />
+              <text class="diagram-label" x="28" font-size="15">
+                {row.lines.map((line, index) => (
+                  <tspan x="28" y={row.textYs[index]}>
+                    {line}
+                  </tspan>
+                ))}
+              </text>
+            </a>
+          ))}
+        </g>
+      ))
+    }
+  </svg>
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>{caption}</p>
+  </figcaption>
+</figure>
