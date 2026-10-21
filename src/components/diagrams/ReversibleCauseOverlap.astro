@@ -22,7 +22,9 @@ function splitName(name: string): string[] {
 
 let cursor = 168;
 const groups = causeMechanismGroups.map((group) => {
-  const labelY = cursor + 16;
+  const labelLines = splitName(group.label);
+  const labelYs = labelLines.map((_, index) => cursor + 16 + index * 22);
+  const labelY = labelYs[labelYs.length - 1] ?? cursor + 16;
   let rowTop = labelY + 20;
   const rows = group.causeIds.map((id) => {
     const name = causeNames[id];
@@ -34,7 +36,7 @@ const groups = causeMechanismGroups.map((group) => {
     rowTop += height + rowGap;
     return row;
   });
-  const laid = { id: group.id, label: group.label, labelY, rows };
+  const laid = { id: group.id, label: group.label, labelLines, labelYs, labelY, rows };
   cursor = rowTop + 16;
   return laid;
 });
@@ -57,8 +59,12 @@ const height = cursor + 8;
     {
       groups.map((group) => (
         <g>
-          <text class="diagram-caps" x="16" y={group.labelY} font-size="14">
-            {group.label}
+          <text class="diagram-caps" x="16" font-size="14">
+            {group.labelLines.map((line, index) => (
+              <tspan x="16" y={group.labelYs[index]}>
+                {line}
+              </tspan>
+            ))}
           </text>
           <rect class="diagram-mark" x="16" y={group.labelY + 8} width="32" height="2" />
           {group.rows.map((row) => (
