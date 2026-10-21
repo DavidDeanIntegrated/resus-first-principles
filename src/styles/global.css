@@ -1431,16 +1431,62 @@ h2 {
     top: var(--s5);
     align-self: start;
     justify-self: end;
-    width: calc(var(--margin) - var(--s6));
-    max-width: calc(var(--margin) - var(--s6));
+    width: 16rem;
+    max-width: 100%;
     height: auto;
     max-height: calc(100vh - 2 * var(--s5));
-    margin: 0 var(--s6) 0 0;
-    padding: 0;
+    margin: 0;
+    padding: 0 var(--s2) 0 0;
     overflow: auto;
     background: transparent;
     border: 0;
     z-index: 2;
+  }
+
+  .toc a {
+    align-items: baseline;
+    gap: var(--s2);
+    padding-left: 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.35;
+    overflow-wrap: break-word;
+  }
+
+  .toc-title {
+    overflow-wrap: break-word;
+  }
+
+  .toc-num {
+    flex: 0 0 2rem;
+    min-width: 2rem;
+    line-height: 1.35;
+  }
+
+  .toc-part > a {
+    font-weight: 600;
+  }
+
+  .toc ol {
+    padding-left: 0.4rem;
+  }
+
+  .toc ol a {
+    font-weight: 400;
+    color: var(--ink-soft);
+  }
+
+  .toc ol a:hover,
+  .toc ol a.is-current,
+  .toc ol a[aria-current='location'] {
+    color: var(--accent);
+  }
+
+  .toc-dock.is-spying .toc-part > ol {
+    display: none;
+  }
+
+  .toc-dock.is-spying .toc-part.is-current > ol {
+    display: block;
   }
 
   .toc-dock.is-yielding {

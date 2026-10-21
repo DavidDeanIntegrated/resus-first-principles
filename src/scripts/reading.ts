@@ -18,6 +18,7 @@ function syncTocMode(): void {
 
 function updateSpy(): void {
   if (!toc) return;
+  toc.classList.toggle('is-spying', desktopQuery.matches);
   const pad = Number.parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
   const marker = pad + 12;
   const links = [...toc.querySelectorAll<HTMLAnchorElement>('a[href^="#principle-"]')];
