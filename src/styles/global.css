@@ -1189,7 +1189,8 @@ h2 {
   overflow: hidden;
 }
 
-.diagram-print {
+.diagram-print,
+.diagram svg.diagram-print {
   display: none;
 }
 
