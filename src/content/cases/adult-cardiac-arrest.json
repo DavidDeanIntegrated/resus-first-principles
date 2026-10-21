@@ -12,11 +12,11 @@
       "diagram": "pressure-gradient",
       "title": "Compressions make a gradient, and the gradient makes the flow",
       "explanation": [
-        "In cardiac arrest the heart has stopped generating pressure, so every milliliter of coronary and cerebral blood flow has to be manufactured from outside the chest. It helps to keep three quantities apart. Pressure is what the compression produces in the aorta. A gradient is the difference between two pressures. Flow is what actually reaches tissue, and it follows the gradient, not the pressure alone.",
+        "In cardiac arrest the heart is no longer generating effective pressure, so nearly all coronary and cerebral blood flow during CPR depends on what compressions produce from outside the chest. It helps to keep four quantities apart. Pressure is what the compression produces in the aorta. A gradient is the difference between two pressures. Resistance is how much a vascular bed opposes flow. Flow is what actually reaches tissue, and it is set by the gradient divided by the resistance, not by the pressure alone. Resistance is why the same gradient can deliver different flow: coronary resistance is high while the compressed myocardium squeezes its own vessels and lower during release, and a vasoconstrictor such as epinephrine raises aortic pressure largely by raising peripheral resistance, which helps the heart and brain only if their own beds are not constricted to the same degree.",
         "For the heart, the gradient that matters is coronary perfusion pressure: aortic pressure minus right atrial pressure, measured during the relaxation phase between compressions. The coronary arteries fill mainly then, when the chest is released and the myocardium is not being squeezed. Two things therefore have to happen on every cycle. The push has to be deep enough to raise aortic pressure, and the release has to be complete enough to let right atrial pressure fall. A deep compression followed by leaning on the chest keeps right atrial pressure up while aortic pressure in the relaxation phase falls, so the difference between them, which is what fills the coronary arteries, narrows.",
         "This is why the 2025 AHA adult algorithm specifies the whole cycle, not just the push: at least 2 inches (5 cm) deep, 100 to 120 per minute, full recoil, and no leaning. Compressing on a firm surface is preferred when it is feasible and does not delay compressions. More is not automatically better. Observational data have linked depths greater than 6 cm (about 2.4 inches) with lower survival, and faster rates tend to cost depth and recoil. Compression depth also falls after about 90 to 120 seconds of continuous CPR as the compressor tires, which is why the compressor changes about every 2 minutes.",
         "The brain depends on the same compressions, through the arterial pressure they generate. Its own gradient is opposed by intracranial and venous pressure rather than right atrial pressure, but the practical lesson is shared: poor compressions fail both organs at once.",
-        "What you can observe at the bedside is limited. You can see depth, rate, and recoil, and end-tidal CO2 gives an indirect signal of flow. You usually cannot see the gradient itself. The model predicts that anything raising right atrial or intrathoracic pressure, or lowering aortic pressure, will reduce coronary flow even when the compressions look vigorous."
+        "What you can observe at the bedside is limited. You can see depth, rate, and recoil, and end-tidal CO2 gives an indirect signal of flow. You usually cannot see the gradient itself. The model predicts that a rise in right atrial or intrathoracic pressure, or a fall in aortic relaxation pressure, will tend to reduce coronary flow even when the compressions look vigorous, unless something else widens the gradient at the same time."
       ],
       "questions": [
         {
@@ -33,15 +33,16 @@
           ]
         },
         {
-          "id": "cpp-rate-and-recoil",
+          "id": "cpp-two-catheters",
           "kind": "transfer",
-          "prompt": "Transfer: a new compressor is going at about 140 per minute with shallow pushes and incomplete recoil. Someone argues that more compressions must mean more flow. How do you answer?",
-          "answer": "More compressions are not more flow. Above the 100 to 120 per minute range, depth and recoil tend to suffer, and the gain in number is offset by a smaller gradient on each cycle.",
-          "causalChain": "Each compression needs time to be pushed to depth and then released. Shorten the cycle and both phases are compromised. Shallower pushes raise aortic pressure less, and incomplete release keeps right atrial pressure high. The gradient on each cycle shrinks, so the extra compressions add less coronary and cerebral flow than their number suggests.",
-          "assumption": "The rescuer cannot maintain depth and recoil at the higher rate. Observational work has favored survival at about 100 to 119 per minute over both slower and faster rates, which suggests that in practice they usually cannot.",
-          "misconception": "Treating rate as the quantity that delivers flow. Rate, depth, and recoil are linked, and the rate range exists because pushing one variable degrades the others.",
-          "conclusion": "More compressions are not more flow. Above the 100 to 120 per minute range, depth and recoil tend to suffer, and the gain in number is offset by a smaller gradient on each cycle.",
+          "prompt": "Transfer: in the cath lab, a patient in arrest has an arterial line and a central venous line. During compressions that look deep and fast, the relaxation-phase aortic pressure is 30 mm Hg and the right atrial pressure is 25 mm Hg. What does the gradient tell you, and what would you check?",
+          "answer": "The coronary perfusion pressure is only about 5 mm Hg, so coronary flow is minimal despite vigorous-looking compressions. The high right atrial pressure is the problem to explain: check recoil and leaning, the ventilation rate, and causes that raise right atrial pressure, such as tamponade, tension pneumothorax, or a massive embolus.",
+          "causalChain": "Coronary perfusion pressure is aortic minus right atrial pressure during relaxation. A right atrial pressure close to aortic pressure collapses the gradient regardless of depth. Incomplete recoil, rapid ventilation, and obstruction around or beyond the right heart all raise right atrial pressure.",
+          "assumption": "The catheters are correctly zeroed and positioned, and the pressures are read during the relaxation phase.",
+          "misconception": "The belief that compressions that look good must produce good perfusion. The pressures show what the eye cannot.",
+          "conclusion": "The coronary perfusion pressure is only about 5 mm Hg, so coronary flow is minimal despite vigorous-looking compressions. The high right atrial pressure is the problem to explain: check recoil and leaning, the ventilation rate, and causes that raise right atrial pressure, such as tamponade, tension pneumothorax, or a massive embolus.",
           "refs": [
+            "yannopoulos-2005",
             "aha-2025-bls"
           ]
         },
@@ -105,15 +106,16 @@
           ]
         },
         {
-          "id": "pause-with-advanced-airway",
+          "id": "pause-for-imaging",
           "kind": "transfer",
-          "prompt": "Transfer: the patient is now intubated, and a team member suggests pausing compressions briefly every so often to give a few good breaths together. How has the airway changed the right answer?",
-          "answer": "Do not pause for breaths once an advanced airway is in. Give 1 breath every 6 seconds while compressions continue, and keep planned pauses for rhythm checks and shocks only.",
-          "causalChain": "The advanced airway removes the reason for the 30:2 pause, which existed so that breaths could enter the lungs rather than the stomach without compressions competing. With a tube in place, ventilation and compressions can happen at the same time, so any pause for breathing is now pure loss of gradient.",
-          "assumption": "The airway is correctly placed and secured, which continuous waveform capnography helps confirm.",
-          "misconception": "Carrying the pause-sharing advice from 30:2 CPR into the intubated phase. The principle stays the same, keep pauses few and short, but the airway state changes which pauses exist.",
-          "conclusion": "Do not pause for breaths once an advanced airway is in. Give 1 breath every 6 seconds while compressions continue, and keep planned pauses for rhythm checks and shocks only.",
+          "prompt": "Transfer: in the cath lab, compressions are paused every 30 seconds so fluoroscopy can image the coronary arteries. Each pause lasts about 10 seconds. Using what you know about pauses, what is the cost, and what alternative does the guideline support?",
+          "answer": "Each pause restarts the climb of coronary perfusion pressure, so frequent short pauses cost more perfusion than their total time suggests. Mechanical CPR is reasonable in the cath lab, because it allows imaging and intervention without stopping compressions.",
+          "causalChain": "Aortic pressure falls quickly when compressions stop and takes several compressions to rebuild. Repeated pauses keep the gradient below its plateau for most of the time. A mechanical device removes the operator from the field and keeps compressions continuous during imaging.",
+          "assumption": "A device is available and can be placed without a long interruption.",
+          "misconception": "The belief that brief pauses are harmless if each is short. Their cost is multiplied by how often they occur.",
+          "conclusion": "Each pause restarts the climb of coronary perfusion pressure, so frequent short pauses cost more perfusion than their total time suggests. Mechanical CPR is reasonable in the cath lab, because it allows imaging and intervention without stopping compressions.",
           "refs": [
+            "aha-2025-special",
             "aha-2025-bls"
           ]
         }
@@ -187,8 +189,8 @@
       "explanation": [
         "Not every arrest is a primary electrical failure. When the rhythm is PEA or asystole, the heart is often unable to produce output because something upstream or around it has failed. The 2025 adult algorithm keeps one reversible-cause list: hypovolemia, hypoxia, hydrogen ion (acidosis), hypo- or hyperkalemia, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis, and coronary thrombosis.",
         "The list is easier to use when it is grouped by physiology. Some causes leave the heart with too little to pump: hypovolemia, and the loss of venous return from tension pneumothorax. Some stop the heart from filling or emptying: tamponade and massive pulmonary embolism. Some starve or poison the myocardium itself: hypoxia, coronary thrombosis, acidosis, potassium disturbance, hypothermia, and toxins. Each group predicts what will and won't help.",
-        "This is why compressions and epinephrine alone often fail in these arrests. Compressions cannot fill an empty ventricle, drain a tamponade, decompress a tension pneumothorax, or open an occluded coronary artery. Epinephrine raises arterial tone, but it does not remove an obstruction. The cause has to be found and treated while compressions continue. Point-of-care ultrasound can be used by an experienced operator to look for a reversible cause when it does not interrupt CPR, though its usefulness during arrest is not well established.",
-        "Calcium and sodium bicarbonate show how a plausible mechanism can outrun the evidence. Neither is a routine drug for undifferentiated arrest. Randomized and registry evidence does not show a survival benefit, and routine calcium has a signal toward harm. In arrest suspected to be from hyperkalemia, the benefit of intravenous calcium and of intravenous sodium bicarbonate is not well established. Calcium is reasonable for life-threatening calcium-channel blocker poisoning and for arrest in a pregnant patient receiving intravenous magnesium. Sodium bicarbonate should be used for life-threatening tricyclic antidepressant cardiotoxicity, and it is reasonable for other sodium-channel blocker toxicity. A long resuscitation is not, by itself, a reason to give either drug.",
+        "This is why compressions and epinephrine alone often fail in these arrests. Compressions do little to fill an empty ventricle, and they do not drain a tamponade, decompress a tension pneumothorax, or open an occluded coronary artery. Epinephrine raises arterial tone, but it does not remove an obstruction. The cause has to be found and treated while compressions continue. Point-of-care ultrasound can be used by an experienced operator to look for a reversible cause when it does not interrupt CPR, though its usefulness during arrest is not well established.",
+        "Calcium and sodium bicarbonate show how a plausible mechanism can outrun the evidence. Undifferentiated arrest means the cause is unknown, not that no cause is present, and four different statements need to be kept apart here. Routine use is not recommended: giving either drug to every arrest, without a specific indication, has not improved survival in randomized and registry evidence, and routine calcium has a signal toward harm. Benefit is uncertain in some specific settings: in arrest suspected to be from hyperkalemia, the benefit of intravenous calcium and of intravenous sodium bicarbonate is not well established. A mechanism being plausible is not the same as it being established in this patient, which usually cannot be confirmed during CPR. And none of this makes either drug contraindicated; it makes them targeted rather than default. Calcium is reasonable for life-threatening calcium-channel blocker poisoning and for arrest in a pregnant patient receiving intravenous magnesium. Sodium bicarbonate should be used for life-threatening tricyclic antidepressant cardiotoxicity, and it is reasonable for other sodium-channel blocker toxicity. A long resuscitation is not, by itself, a reason to give either drug.",
         "The limit of the model: during arrest you often cannot confirm the cause, and several can coexist. The categories help you decide what to look for and what to treat on suspicion, not prove the diagnosis."
       ],
       "questions": [
@@ -196,11 +198,11 @@
           "id": "pea-is-a-cause",
           "kind": "prediction",
           "prompt": "Predict: the monitor shows a slow organized rhythm, there is no pulse, and the patient has had two doses of epinephrine. What would you expect a third dose to change if the cause is a tamponade?",
-          "answer": "Very little. Epinephrine can raise coronary perfusion pressure during compressions, but it cannot relieve a tamponade. The rhythm will not become a pulse until the obstruction is treated.",
+          "answer": "Very little. Epinephrine can raise coronary perfusion pressure during compressions, but it cannot relieve a tamponade. While the tamponade persists, the organized rhythm is unlikely to produce a pulse; relieving it is what gives the rhythm a chance to.",
           "causalChain": "In tamponade, pressure in the pericardium stops the heart from filling. Without filling there is little stroke volume, whatever the rhythm or the vascular tone. Removing the pericardial fluid restores filling, and then the organized electrical activity can produce output.",
           "assumption": "Tamponade is actually the cause. The same reasoning applies to hypovolemia, tension pneumothorax, and massive pulmonary embolism, each of which needs its own treatment.",
           "misconception": "The belief that repeating the drug is the plan. Epinephrine every 3 to 5 minutes and the search for a cause happen together; neither replaces the other.",
-          "conclusion": "Very little. Epinephrine can raise coronary perfusion pressure during compressions, but it cannot relieve a tamponade. The rhythm will not become a pulse until the obstruction is treated.",
+          "conclusion": "Very little. Epinephrine can raise coronary perfusion pressure during compressions, but it cannot relieve a tamponade. While the tamponade persists, the organized rhythm is unlikely to produce a pulse; relieving it is what gives the rhythm a chance to.",
           "refs": [
             "aha-2025-algorithm"
           ]
@@ -210,7 +212,7 @@
           "kind": "transfer",
           "prompt": "Transfer: someone asks for calcium and sodium bicarbonate because the arrest has gone on a long time. Using the physiology, what is the default answer, and what would change it?",
           "answer": "Do not give either drug just because time has passed. Routine calcium and routine bicarbonate are not recommended, and in arrest suspected from hyperkalemia their benefit is not well established. Specific causes change the answer: calcium for life-threatening calcium-channel blocker poisoning or arrest in a pregnant patient on intravenous magnesium, and bicarbonate for tricyclic or other sodium-channel blocker toxicity.",
-          "causalChain": "These drugs treat specific mechanisms, such as calcium-channel blockade or sodium-channel blockade. In undifferentiated arrest that mechanism is not present, and trials and registry data have not shown better survival. Routine calcium leans toward harm.",
+          "causalChain": "These drugs treat specific mechanisms, such as calcium-channel blockade or sodium-channel blockade. In undifferentiated arrest the cause is unknown, so the mechanism the drug targets has not been established in this patient. Given routinely across such arrests, trials and registry data have not shown better survival, and routine calcium leans toward harm.",
           "assumption": "The duration of the resuscitation tells you nothing about which mechanism is present. A long resuscitation is a reason to recheck CPR quality and the H and T list.",
           "misconception": "The belief that a drug which makes physiological sense must help. Hyperkalemia is the clearest example, where the mechanism is plausible but the benefit during arrest is not well established.",
           "conclusion": "Do not give either drug just because time has passed. Routine calcium and routine bicarbonate are not recommended, and in arrest suspected from hyperkalemia their benefit is not well established. Specific causes change the answer: calcium for life-threatening calcium-channel blocker poisoning or arrest in a pregnant patient on intravenous magnesium, and bicarbonate for tricyclic or other sodium-channel blocker toxicity.",
@@ -231,12 +233,524 @@
           "refs": [
             "aha-2025-algorithm"
           ]
+        },
+        {
+          "id": "pea-etco2-sudden-fall",
+          "kind": "prediction",
+          "prompt": "Predict: in PEA with an advanced airway, end-tidal CO2 has held near 25 mm Hg for several minutes with the same ventilation rate. It suddenly drops to 8 mm Hg. Name the competing explanations, and the order in which you test them.",
+          "answer": "With ventilation unchanged, a sudden fall means less CO2 is reaching the exhaled gas. The quickest explanations to test are a displaced or obstructed tube and a fall in compression quality. If both are excluded, a new obstruction to pulmonary blood flow, such as a tension pneumothorax, becomes more likely.",
+          "causalChain": "End-tidal CO2 needs blood to carry CO2 to ventilated lung and a patent airway to carry it out. A dislodged tube removes the second; a tired compressor, a change of hands, or a pause reduces the first; a tension pneumothorax or a new embolus blocks blood from reaching the lung. Each of these can produce the same number, so the number tells you to look, not where.",
+          "assumption": "Ventilation really was constant, and no drug was just given. A recent dose of epinephrine can lower the reading transiently by itself.",
+          "misconception": "The belief that a falling end-tidal CO2 is a prognosis. Here it is a signal that something changed, and several of the candidates are quickly correctable.",
+          "conclusion": "With ventilation unchanged, a sudden fall means less CO2 is reaching the exhaled gas. The quickest explanations to test are a displaced or obstructed tube and a fall in compression quality. If both are excluded, a new obstruction to pulmonary blood flow, such as a tension pneumothorax, becomes more likely.",
+          "refs": [
+            "aha-2025-als",
+            "aha-2025-special"
+          ]
+        },
+        {
+          "id": "post-intubation-arrest",
+          "kind": "transfer",
+          "prompt": "Transfer: a hypotensive septic patient is intubated after induction and arrests within three minutes. The rhythm is a fast, narrow PEA and the capnography waveform is present. Using the filling and obstruction categories, which causes compete, and what would distinguish them?",
+          "answer": "Three causes compete. Induction drugs remove sympathetic tone and positive pressure raises right atrial pressure, so a patient short of volume loses venous return; a tension pneumothorax from positive pressure obstructs it; and a severe metabolic acidosis loses its respiratory compensation if the ventilator rate is lower than the patient's own. A present waveform makes esophageal intubation less likely. Unilateral signs and rising airway pressure point to tension, a pre-intubation blood gas and breathing pattern point to acidosis, and the shock state before induction points to filling.",
+          "causalChain": "Before intubation, venous return was sustained by vasoconstriction keeping mean systemic filling pressure up and by negative-pressure breathing keeping right atrial pressure low. Induction lowers filling pressure; positive pressure raises right atrial pressure. Both narrow the gradient for venous return at once, and in an underfilled patient the combination can drop output below the threshold for a pulse.",
+          "assumption": "The tube is in the trachea, which the waveform supports but does not prove if pulmonary blood flow is very low.",
+          "misconception": "The belief that an arrest right after intubation is a coincidence or a drug reaction alone. Its timing is the clue that the procedure changed the physiology.",
+          "conclusion": "Three causes compete. Induction drugs remove sympathetic tone and positive pressure raises right atrial pressure, so a patient short of volume loses venous return; a tension pneumothorax from positive pressure obstructs it; and a severe metabolic acidosis loses its respiratory compensation if the ventilator rate is lower than the patient's own. A present waveform makes esophageal intubation less likely. Unilateral signs and rising airway pressure point to tension, a pre-intubation blood gas and breathing pattern point to acidosis, and the shock state before induction points to filling.",
+          "refs": [
+            "aha-2025-als",
+            "jellinek-2000"
+          ]
+        },
+        {
+          "id": "wide-slow-pea-unknown",
+          "kind": "insufficient-information",
+          "prompt": "Not enough information: a 70-year-old is found unresponsive at home. The rhythm is a wide, slow PEA at 30 per minute. A team member wants calcium now for hyperkalemia. What data would you need before you could attribute this arrest to hyperkalemia rather than another cause?",
+          "answer": "You cannot tell from the rhythm alone. A wide, slow PEA fits hyperkalemia, but it also fits sodium-channel-blocker or calcium-channel-blocker poisoning, severe acidosis, hypothermia, and a long low-flow interval from any cause. The decision depends on history and data you do not yet have.",
+          "causalChain": "Several mechanisms slow conduction through the myocardium: a less negative resting potential in hyperkalemia, sodium-channel blockade, acidosis, and cold. Each widens the QRS and slows the rate. Prolonged ischemia from an arrest of any cause does the same, so the rhythm narrows the field without choosing within it.",
+          "assumption": "The arrest was unwitnessed, so the downtime, which can produce this rhythm by itself, is unknown.",
+          "misconception": "The belief that a rhythm pattern is a diagnosis. The wide, slow pattern is a category, and calcium's benefit even in suspected hyperkalemic arrest is not well established.",
+          "conclusion": "You cannot tell from the rhythm alone. A wide, slow PEA fits hyperkalemia, but it also fits sodium-channel-blocker or calcium-channel-blocker poisoning, severe acidosis, hypothermia, and a long low-flow interval from any cause. The decision depends on history and data you do not yet have.",
+          "refs": [
+            "aha-2025-special",
+            "aha-2025-algorithm"
+          ],
+          "missingData": [
+            "Kidney function, dialysis schedule, and potassium-raising medications",
+            "Any ingestion or access to tricyclics, calcium-channel blockers, or beta blockers",
+            "A pre-arrest ECG or EMS rhythm strip",
+            "Point-of-care potassium and blood gas, interpreted knowing that acidosis during arrest raises measured potassium",
+            "Core temperature",
+            "Estimated downtime before CPR"
+          ]
+        },
+        {
+          "id": "calcium-without-lower-potassium",
+          "kind": "prediction",
+          "prompt": "Predict: a hyperkalemic patient with a wide QRS and a weak pulse is given intravenous calcium, and the QRS narrows within minutes. If you drew a potassium five minutes later, what would it show, and what does that imply for the next hour?",
+          "answer": "The potassium would be essentially unchanged. Calcium stabilizes the membrane by raising the threshold potential; it does not move or remove potassium. Its effect wears off, so potassium must still be shifted into cells and then removed.",
+          "causalChain": "Hyperkalemia makes the resting potential less negative, bringing it close to threshold and inactivating sodium channels. Calcium raises the threshold, restoring the gap between resting and threshold potential, so the cell can again fire a normal action potential. The extracellular potassium concentration is the same before and after.",
+          "assumption": "The rhythm improvement was due to calcium and not to another treatment given at the same time.",
+          "misconception": "The belief that a narrowing QRS means the potassium is falling. It means the membrane has been temporarily protected from the potassium.",
+          "conclusion": "The potassium would be essentially unchanged. Calcium stabilizes the membrane by raising the threshold potential; it does not move or remove potassium. Its effect wears off, so potassium must still be shifted into cells and then removed.",
+          "refs": [
+            "aha-2025-special"
+          ]
+        },
+        {
+          "id": "narrow-fast-rule-breaks",
+          "kind": "transfer",
+          "prompt": "Transfer: a patient on a high-dose beta blocker develops massive gastrointestinal bleeding and arrests. The PEA is slow, at about 45 per minute, with a narrow complex. Does the slow rate argue against hypovolemia?",
+          "answer": "No. The rule that empty-heart states produce fast PEA depends on an intact sympathetic response. Beta blockade blunts the tachycardia, so a hypovolemic arrest can present with a slow rate. The history of bleeding outweighs the rate.",
+          "causalChain": "In hypovolemia, falling stroke volume triggers catecholamine release, which speeds the sinus node. A beta blocker blocks that response at the receptor, so the rate stays low even as filling fails. The rhythm then looks less like an empty heart than the physiology really is.",
+          "assumption": "The narrow complex reflects intact conduction rather than a toxin or metabolic cause, which supports reading this as a filling problem.",
+          "misconception": "Applying the narrow-fast versus wide-slow rule as a diagnosis. It is a probability shift that depends on intact autonomic responses and a short arrest.",
+          "conclusion": "No. The rule that empty-heart states produce fast PEA depends on an intact sympathetic response. Beta blockade blunts the tachycardia, so a hypovolemic arrest can present with a slow rate. The history of bleeding outweighs the rate.",
+          "refs": [
+            "aha-2025-algorithm"
+          ]
+        },
+        {
+          "id": "dilated-rv-late",
+          "kind": "insufficient-information",
+          "prompt": "Not enough information: after 25 minutes of CPR for an unwitnessed arrest, ultrasound shows a dilated right ventricle. A colleague proposes thrombolysis for pulmonary embolism. What would you need to know before you could attribute the arrest to embolism?",
+          "answer": "A dilated right ventricle after a long arrest is not specific for embolism, because blood pools in the right heart once the circulation stops. You would need history and timing that point to embolism before weighing thrombolysis on suspicion, with its bleeding risk and its need for prolonged CPR afterward.",
+          "causalChain": "When the heart stops, pressures equalize and the compliant right heart distends with venous blood. Prolonged CPR and right ventricular ischemia add to this. So a late dilated right ventricle can be a consequence of any arrest as well as the signature of an obstructed pulmonary outflow.",
+          "assumption": "The ultrasound view is adequate and was obtained without interrupting compressions.",
+          "misconception": "The belief that one ultrasound finding names the cause. During arrest its usefulness is not well established, and the finding has to be weighed against the history.",
+          "conclusion": "A dilated right ventricle after a long arrest is not specific for embolism, because blood pools in the right heart once the circulation stops. You would need history and timing that point to embolism before weighing thrombolysis on suspicion, with its bleeding risk and its need for prolonged CPR afterward.",
+          "refs": [
+            "aha-2025-special",
+            "aha-2025-als"
+          ],
+          "missingData": [
+            "Symptoms before collapse, such as sudden dyspnea or pleuritic pain",
+            "Risk factors such as recent surgery, immobility, cancer, or known deep vein thrombosis",
+            "Whether the right ventricle was dilated on the first view or only after prolonged CPR",
+            "Bleeding risk and contraindications to thrombolysis",
+            "Availability of catheter or surgical embolectomy or extracorporeal support"
+          ]
+        },
+        {
+          "id": "dka-volume-first",
+          "kind": "prediction",
+          "prompt": "Predict: a patient in diabetic ketoacidosis arrests with a fast, narrow PEA. The pH is very low and the potassium is high. Someone asks for bicarbonate first. Which failure is most likely limiting compressions, and what treatment addresses it?",
+          "answer": "Filling is most likely the limiting failure. Osmotic diuresis and vomiting have emptied the circulation, which fits the fast, narrow PEA. Volume restores filling pressure; bicarbonate does not, and routine use is not recommended. Acidosis and the potassium shift are real, but they are not what is emptying the heart.",
+          "causalChain": "Glucose in the urine pulls water and salt with it, and vomiting adds to the loss. Mean systemic filling pressure falls, and venous return falls with it. Acidosis weakens the heart and shifts potassium out of cells, so the measured potassium is high even though total-body potassium is low. Volume treats the first failure; insulin will later push potassium back into cells and can make it fall sharply.",
+          "assumption": "The fast, narrow rhythm reflects intact conduction. If the QRS were wide, hyperkalemia or acidosis would be a stronger competitor.",
+          "misconception": "The belief that the most abnormal number is the cause. The pH is the most striking value, but the empty circulation is what compressions cannot overcome.",
+          "conclusion": "Filling is most likely the limiting failure. Osmotic diuresis and vomiting have emptied the circulation, which fits the fast, narrow PEA. Volume restores filling pressure; bicarbonate does not, and routine use is not recommended. Acidosis and the potassium shift are real, but they are not what is emptying the heart.",
+          "refs": [
+            "aha-2025-als",
+            "aha-2025-algorithm"
+          ]
         }
       ],
       "refs": [
         "aha-2025-algorithm",
         "aha-2025-als",
         "aha-2025-special"
+      ],
+      "causes": [
+        {
+          "id": "hypovolemia",
+          "name": "Hypovolemia",
+          "category": "filling",
+          "failure": "The ventricle has too little blood to eject. Mean systemic filling pressure depends on how much blood is stretching the veins, so losing volume lowers the pressure that drives blood back to the heart, and venous return falls even before the heart itself is injured.",
+          "rhythm": [
+            "An empty heart still conducts. Before arrest the sinus node is driven hard by catecholamines, so the typical picture is a narrow-complex tachycardia that becomes PEA with a fast, narrow rhythm once stroke volume is too small to make a palpable pulse. Early in this state the ventricle may still be contracting vigorously around very little blood, which is why some of these patients have cardiac motion on ultrasound without a pulse.",
+            "The rule of thumb breaks when the arrest has gone on long enough for acidosis and ischemia to slow and widen the complex, and in patients on beta blockers or with conduction disease who cannot mount a tachycardia in the first place."
+          ],
+          "causalChain": "Blood loss or fluid loss lowers the volume stretching the venous system. Mean systemic filling pressure falls toward right atrial pressure, the gradient for venous return narrows, and the ventricle fills less on each beat. Stroke volume falls, the body compensates with heart rate and vasoconstriction, and when compensation is exhausted, aortic pressure falls below what is needed to perfuse the coronary arteries. The myocardium then becomes ischemic, and the arrest that began as an empty heart becomes an injured one.",
+          "compressions": "Compressions squeeze whatever blood is in the chest. With little blood in the heart and great veins, each compression ejects a small volume, and the release has little venous return to refill from. Aortic pressure during compression stays low, so coronary perfusion pressure stays low even when depth and recoil are perfect.",
+          "fix": "Volume, and in hemorrhage, blood and control of the bleeding, restores the quantity that was missing. Raising the circulating volume raises mean systemic filling pressure, which widens the gradient for venous return, so the heart refills between beats or between compressions. Vasopressors can raise filling pressure modestly by tightening the veins, but they cannot replace volume that has left the circulation.",
+          "bedside": "The history usually makes the diagnosis: trauma, gastrointestinal bleeding, a ruptured aneurysm or ectopic pregnancy, or severe vomiting, diarrhea, or diuresis. Flat neck veins and a pale patient support it. On ultrasound a small, hyperdynamic ventricle with a collapsing inferior vena cava fits, though during CPR the vena cava is hard to interpret and a small ventricle can also be seen with obstruction downstream of it.",
+          "mimics": "Tension pneumothorax and tamponade also reduce filling and produce a fast, narrow PEA, but they raise venous pressure rather than lowering it, so distended neck veins point away from simple hypovolemia. Vasodilatory states such as anaphylaxis or sepsis lower filling pressure by enlarging the venous space rather than by losing blood, and behave like hypovolemia at the bedside.",
+          "limits": "You usually cannot measure the deficit during CPR. Ultrasound findings of an empty heart are suggestive rather than diagnostic, and their usefulness during arrest is not well established. In traumatic arrest, hemorrhage control and volume matter more than drugs, but the details of traumatic arrest management sit outside this case.",
+          "refs": [
+            "aha-2025-algorithm",
+            "aha-2025-als"
+          ],
+          "examples": [
+            {
+              "id": "hv-gi-bleed",
+              "vignette": "A 68-year-old with melena and dizziness becomes unresponsive in triage. The monitor shows a narrow rhythm at 130 per minute with no pulse.",
+              "reasoning": "A fast, narrow PEA after visible blood loss points to an empty heart. Compressions continue, but the decisive treatment is volume and blood through large-bore access."
+            },
+            {
+              "id": "hv-ruptured-ectopic",
+              "vignette": "A 29-year-old collapses at home after a day of lower abdominal pain. EMS finds PEA at a rapid narrow rate; her abdomen is distended.",
+              "reasoning": "Intra-abdominal hemorrhage, such as a ruptured ectopic pregnancy, empties the venous reservoir. Epinephrine will not refill it; volume, blood, and definitive surgical control address the failure."
+            },
+            {
+              "id": "hv-trauma-tension",
+              "vignette": "A motorcyclist with a pelvic fracture and absent breath sounds on the right arrests en route. The rhythm is narrow and fast; the neck veins are flat despite the chest finding.",
+              "reasoning": "Two filling failures can coexist. Blood loss lowers filling pressure, and a tension pneumothorax raises intrathoracic pressure; flat neck veins here reflect how little volume is left. Decompress the chest and give blood, because treating only one leaves the gradient for venous return closed.",
+              "causeIds": [
+                "hypovolemia",
+                "tension-pneumothorax"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hypoxia",
+          "name": "Hypoxia",
+          "category": "oxygen-content",
+          "failure": "The blood still moves, but it carries too little oxygen. The heart is the organ most dependent on a continuous supply, so falling arterial oxygen content starves the myocardium and the conducting system until they fail.",
+          "rhythm": [
+            "Hypoxic arrest classically progresses through bradycardia. The myocardium and the sinus node slow as oxygen falls, so the terminal rhythm is often a slow PEA that degrades to asystole, sometimes preceded by a period of tachycardia while catecholamines still drive the heart.",
+            "This does not fit the narrow-fast versus wide-slow rule neatly. The complex may be narrow at first and widen only as acidosis and ischemia accumulate, and a hypoxic patient with underlying heart disease can arrest in VF instead."
+          ],
+          "causalChain": "Airway obstruction, apnea, drowning, or failure of gas exchange lowers alveolar and then arterial oxygen. Oxygen delivery to the myocardium falls, aerobic metabolism fails, and contractility and conduction weaken. The heart slows, cardiac output falls further, and the decline in delivery accelerates until the circulation stops.",
+          "compressions": "Compressions can move blood, but if that blood is desaturated they deliver very little oxygen. In asphyxial arrest, oxygen stores were depleted before the circulation stopped, so compression-only CPR moves blood that has nothing to give.",
+          "fix": "Opening the airway and ventilating with oxygen restores arterial oxygen content, so the same compression-generated flow now delivers oxygen to the myocardium. If the heart has not been without oxygen for long, restoring content alone may be enough for the slowing heart to recover.",
+          "bedside": "The setting usually tells you: choking, drowning, opioid overdose, severe asthma or COPD, or a failed airway. Cyanosis, a slow rhythm before arrest, and a history of respiratory distress support it. After intubation, waveform capnography confirms the tube; a tube in the esophagus produces no sustained CO2 waveform.",
+          "mimics": "Tension pneumothorax and a misplaced or obstructed tube produce hypoxia and also impair circulation. Severe acidosis and hyperkalemia can also slow the heart before arrest.",
+          "limits": "Pulse oximetry is unreliable during CPR, so arterial oxygenation usually cannot be measured until circulation returns. The guideline emphasis on breaths in drowning reflects the hypoxic mechanism; the evidence comes mainly from observational studies.",
+          "refs": [
+            "aha-2025-bls",
+            "aha-2025-special"
+          ],
+          "examples": [
+            {
+              "id": "hx-drowning",
+              "vignette": "A 40-year-old is pulled from a lake after several minutes underwater. He is pulseless and the first rhythm is asystole.",
+              "reasoning": "Drowning arrest is usually hypoxic. Breaths matter here more than in a sudden cardiac arrest, because the blood was desaturated before it stopped moving."
+            },
+            {
+              "id": "hx-opioid",
+              "vignette": "A 25-year-old is found apneic with pinpoint pupils, then loses her pulse; the rhythm is a slow PEA.",
+              "reasoning": "Opioid-induced apnea causes hypoxic arrest. Ventilation and compressions come first; an opioid antagonist may be reasonable if it does not interrupt high-quality CPR, but it cannot restart a heart that has already arrested from hypoxia.",
+              "causeIds": [
+                "hypoxia",
+                "toxins"
+              ]
+            },
+            {
+              "id": "hx-esophageal-tube",
+              "vignette": "Minutes after intubation for pneumonia, a patient's saturation falls, the heart slows, and the pulse is lost. The capnography waveform is flat.",
+              "reasoning": "A flat waveform after intubation suggests the tube is not in the trachea, or there is no pulmonary blood flow. Check tube position first, because a misplaced tube makes hypoxia the cause and is quickly corrected."
+            }
+          ]
+        },
+        {
+          "id": "hydrogen-ion",
+          "name": "Hydrogen ion (acidosis)",
+          "category": "contractility-electrical",
+          "failure": "Severe acidemia weakens the myocardium and the vessels. It depresses contractility, blunts the response of the heart and vessels to catecholamines, and favors arrhythmia, so the pump and the pressure it works against both fail.",
+          "rhythm": [
+            "Metabolic arrests tend toward a slow, wide-complex PEA, because acidosis and the potassium shifts that accompany it slow conduction through the myocardium.",
+            "The rule breaks often. Acidosis is usually a consequence of another failure, such as shock, hypoxia, or a toxin, and the rhythm reflects that primary failure. A patient with diabetic ketoacidosis may arrest from hypovolemia with a narrow, fast PEA long before acidosis widens the complex."
+          ],
+          "causalChain": "A primary metabolic insult, such as ketoacidosis, sepsis, renal failure, or a toxic alcohol, or a respiratory one, such as hypoventilation, lowers the pH. Contractility falls, vascular tone falls, and the response to catecholamines weakens. Cardiac output and blood pressure fall, tissue perfusion worsens, and more lactate is produced. The loop closes until the circulation fails.",
+          "compressions": "Compressions are generating flow through a vascular bed with poor tone and into a myocardium that is less responsive to the epinephrine meant to augment the gradient. The acidosis itself does not stop compressions from moving blood, but it reduces what they and the drugs achieve.",
+          "fix": "The durable fix is to treat the source: restore perfusion, ventilate a patient whose acidosis is respiratory, treat the toxin or the ketoacidosis. Sodium bicarbonate raises pH chemically, but it generates CO2 that must be ventilated away, and routine use in cardiac arrest is not recommended. It is a targeted drug for specific toxic causes, not a general correction of acidosis.",
+          "bedside": "History of renal failure, diabetes, sepsis, toxic ingestion, or prolonged shock raises suspicion. Kussmaul breathing before arrest suggests a metabolic acidosis with respiratory compensation. A blood gas during CPR shows severe acidemia in most prolonged arrests regardless of cause, so the number is less diagnostic than the history.",
+          "mimics": "Almost every prolonged arrest becomes acidotic. Hyperkalemia often travels with acidosis and produces the same wide, slow rhythm.",
+          "limits": "During CPR you usually cannot separate acidosis that caused the arrest from acidosis the arrest caused. A severely acidemic patient with a compensating respiratory drive can deteriorate if intubated and ventilated at a lower minute ventilation than they were generating; this is physiologically reasonable but has not been tested in trials.",
+          "refs": [
+            "aha-2025-als",
+            "aha-2025-special"
+          ],
+          "examples": [
+            {
+              "id": "hi-dka-triple",
+              "vignette": "A 22-year-old with type 1 diabetes, vomiting for two days, arrives breathing deep and fast, then arrests. The rhythm is a fast, narrow PEA. The glucose is very high, and the first potassium was high despite total-body depletion.",
+              "reasoning": "Three causes overlap. Osmotic diuresis and vomiting have emptied the circulation, acidosis has shifted potassium out of cells and weakened the myocardium, and insulin will later drive potassium back in. The narrow, fast rhythm points to volume as the first priority.",
+              "causeIds": [
+                "hydrogen-ion",
+                "hypovolemia",
+                "hyperkalemia"
+              ]
+            },
+            {
+              "id": "hi-intubation-acidosis",
+              "vignette": "A patient with severe salicylate or metabolic acidosis, compensating by breathing very fast, arrests minutes after intubation and ventilation at a standard rate.",
+              "reasoning": "The ventilator removed the respiratory compensation, so CO2 rose and pH fell abruptly. Both the acidosis and the toxin are in play; the ventilation rate before and after intubation is the key piece of history.",
+              "causeIds": [
+                "hydrogen-ion",
+                "toxins"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hyperkalemia",
+          "name": "Hyperkalemia",
+          "category": "contractility-electrical",
+          "failure": "A high extracellular potassium lowers the resting membrane potential of cardiac cells toward threshold. Partly depolarized cells inactivate their fast sodium channels, so the action potential rises more slowly, conduction slows, and eventually the myocardium can no longer propagate an impulse.",
+          "rhythm": [
+            "This is the classic wide, slow pattern. Conduction slows across atria and ventricles, the QRS widens, and before arrest the tracing may approach a sine wave. The arrest rhythm is often a slow, wide PEA or asystole, though VF can occur.",
+            "The characteristic ECG changes have low sensitivity and specificity. Some patients arrest with only modest QRS widening, and acidosis or sodium-channel-blocking drugs can produce the same wide, slow picture."
+          ],
+          "causalChain": "Renal failure, potassium-sparing drugs, tissue breakdown, or a shift of potassium out of cells raises extracellular potassium. The resting membrane potential becomes less negative, sodium channels inactivate, conduction slows and blocks, and contraction fails because the electrical signal can no longer spread.",
+          "compressions": "Compressions perfuse a myocardium that cannot conduct. They keep the cells alive while the electrical problem is treated, but they do nothing to restore conduction.",
+          "fix": "Calcium raises the threshold potential, widening the gap between the resting potential and threshold again. It stabilizes the membrane without lowering potassium at all, which is why its effect is temporary. Insulin with glucose and sodium bicarbonate shift potassium into cells, and only removal, usually by dialysis, lowers total-body potassium. In arrest suspected to be from hyperkalemia, the effectiveness of intravenous calcium, intravenous sodium bicarbonate, and insulin with glucose is each not well established in the 2025 guidance, and inhaled beta-2 agonists are not recommended.",
+          "bedside": "Dialysis patients who missed a session, patients with acute kidney injury, crush injury, or those taking potassium-raising drugs. A pre-arrest ECG with peaked T waves, a widened QRS, or a sine wave supports it. A point-of-care potassium can confirm it quickly where available.",
+          "mimics": "Acidosis shifts potassium out of cells during any prolonged arrest, so a high potassium measured late in CPR does not prove hyperkalemia caused the arrest. Sodium-channel-blocker poisoning widens the QRS by a different mechanism.",
+          "limits": "The physiology of membrane stabilization is well established, but evidence that calcium improves survival in hyperkalemic arrest is thin, largely old experimental and case data. Treat on reasonable suspicion while knowing that the benefit during arrest is uncertain.",
+          "refs": [
+            "aha-2025-special",
+            "aha-2025-als"
+          ],
+          "examples": [
+            {
+              "id": "hk-missed-dialysis",
+              "vignette": "A dialysis patient who missed two sessions is bradycardic with a wide QRS on arrival, then loses her pulse. The rhythm is a slow, wide PEA.",
+              "reasoning": "Missed dialysis plus a wide, slow rhythm makes hyperkalemia the leading cause. Calcium may stabilize the membrane while potassium is shifted and then removed, though its benefit during arrest is not well established."
+            },
+            {
+              "id": "hk-crush",
+              "vignette": "A worker trapped under a collapsed wall for hours arrests shortly after the load is lifted. The rhythm is wide and slow.",
+              "reasoning": "Release of a crushed limb returns potassium and acid from damaged muscle into the circulation. The timing, arrest soon after release, is the clue; hypovolemia from third spacing may coexist.",
+              "causeIds": [
+                "hyperkalemia",
+                "hypovolemia"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hypokalemia",
+          "name": "Hypokalemia",
+          "category": "contractility-electrical",
+          "failure": "A low extracellular potassium makes the resting membrane more negative but delays repolarization, prolonging the action potential and favoring early afterdepolarizations and triggered activity. The heart is electrically unstable rather than unexcitable.",
+          "rhythm": [
+            "Hypokalemia tends toward ventricular arrhythmias, including torsades de pointes and VF, rather than the slow, wide PEA of hyperkalemia. Prolonged QT and prominent U waves before arrest are the warning.",
+            "Severe hypokalemia can also cause profound weakness, including of respiratory muscles, and an arrest that is partly hypoxic may not follow this pattern."
+          ],
+          "causalChain": "Losses from diuretics, vomiting, diarrhea, or a shift into cells from insulin or catecholamines lower extracellular potassium. Repolarization is delayed, the QT lengthens, and afterdepolarizations trigger ventricular ectopy that can degenerate into VF.",
+          "compressions": "Compressions supply flow during VF, but they do not correct the substrate. A shock may terminate VF, only for it to recur while the potassium remains low.",
+          "fix": "Replacing potassium restores normal repolarization. Magnesium deficiency often travels with hypokalemia and impairs its correction. Neither has a defined dose in the 2025 adult arrest algorithm, so specific replacement regimens belong to local protocol.",
+          "bedside": "Heavy diuretic use, vomiting, diarrhea, alcohol use disorder, or recent insulin treatment for DKA. A pre-arrest ECG with QT prolongation and U waves supports it.",
+          "mimics": "Drug-induced QT prolongation and hypomagnesemia produce the same torsades-prone substrate.",
+          "limits": "Potassium replacement during CPR has not been tested in trials, and the measured value can be distorted by shifts during arrest. The mechanism is sound; the timing and amount of intra-arrest replacement are not established.",
+          "refs": [
+            "aha-2025-algorithm",
+            "aha-2025-als"
+          ],
+          "examples": [
+            {
+              "id": "hypok-recurrent-vf",
+              "vignette": "A patient on high-dose diuretics develops recurrent VF that terminates with each shock and returns within a minute.",
+              "reasoning": "VF that keeps recurring after successful shocks suggests a persistent substrate. A low potassium or magnesium is one candidate, alongside ischemia, and needs correcting for the shocks to hold."
+            },
+            {
+              "id": "hypok-dka-insulin",
+              "vignette": "Six hours into insulin treatment for DKA, a patient whose potassium was not rechecked develops torsades and then VF.",
+              "reasoning": "Insulin shifts potassium into cells. A patient who was depleted overall despite a high initial value can become severely hypokalemic during treatment."
+            }
+          ]
+        },
+        {
+          "id": "hypothermia",
+          "name": "Hypothermia",
+          "category": "contractility-electrical",
+          "failure": "Cold slows every process in the heart: conduction, contraction, and the metabolic rate of the myocardium itself. Below a point the myocardium becomes irritable and prone to VF, and further cooling leads to asystole.",
+          "rhythm": [
+            "Progressive cooling produces bradycardia, prolonged intervals, and sometimes a J (Osborn) wave, then atrial fibrillation, VF, and asystole. The slow, wide pattern fits.",
+            "The pattern breaks because rough handling or rewarming can trigger VF at any stage, and a cold patient can have a pulse so slow and faint that it is missed."
+          ],
+          "causalChain": "Environmental exposure, immersion, or impaired thermoregulation lowers core temperature. Conduction and contraction slow, the myocardium becomes irritable, and eventually VF or asystole ends the circulation. The same cold lowers the brain's oxygen demand, which is why some patients survive prolonged arrest neurologically intact.",
+          "compressions": "The cold chest wall is stiff and compressions are harder to deliver effectively. A cold myocardium may respond poorly to shocks and drugs until it is rewarmed.",
+          "fix": "Rewarming restores the temperature-dependent function of the conducting system and myocardium. Patients should be rewarmed during resuscitation, and extracorporeal life support can be used where available, because it rewarms the core while supporting the circulation.",
+          "bedside": "The setting, cold exposure or immersion, and a low core temperature measured with a low-reading thermometer. Pulse and breathing should be checked carefully, because both may be very slow.",
+          "mimics": "Hypothyroidism, sepsis, and intoxication cause hypothermia that is a marker of another illness rather than the primary cause of arrest.",
+          "limits": "Patients with environmental hypothermia may survive with good neurological outcome after prolonged arrest, which makes the usual cues for stopping unreliable. The specifics of drug and shock timing in severe hypothermia rest on weak evidence; follow Part 10 and local protocol rather than a rule derived here.",
+          "refs": [
+            "aha-2025-special"
+          ],
+          "examples": [
+            {
+              "id": "ht-avalanche",
+              "vignette": "A skier buried in snow for over an hour is extracted pulseless with a core temperature well below normal. The rhythm is VF.",
+              "reasoning": "A cold heart may resist shocks until rewarmed, and a cold brain may tolerate a long low-flow period. Continue resuscitation, rewarm, and transfer to a center with extracorporeal support where available."
+            },
+            {
+              "id": "ht-immersion-hypoxia",
+              "vignette": "A 30-year-old is pulled from icy water after a long submersion. She is cold and asystolic.",
+              "reasoning": "Two causes coexist: drowning makes the arrest hypoxic, and cold may protect the brain. Ventilation with oxygen and rewarming are both part of the treatment.",
+              "causeIds": [
+                "hypothermia",
+                "hypoxia"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tension-pneumothorax",
+          "name": "Tension pneumothorax",
+          "category": "obstruction",
+          "failure": "Air trapped under pressure in one pleural space raises intrathoracic pressure and compresses the great veins and the heart. Physically this is a filling failure caused by an obstruction outside the heart: right atrial pressure rises toward mean systemic filling pressure, so the gradient for venous return closes.",
+          "rhythm": [
+            "Like the empty heart, a tension pneumothorax typically produces a fast, narrow PEA. The ventricle is underfilled but electrically healthy at first.",
+            "Late, hypoxia and acidosis slow and widen the rhythm. In a ventilated patient, rising airway pressures and falling saturation may precede the change in rhythm."
+          ],
+          "causalChain": "A one-way leak lets air enter the pleural space without escaping. Pressure builds, the mediastinum shifts, the vena cava and right atrium are compressed, and venous return falls. Cardiac output falls while gas exchange worsens on the affected side, and the combination of obstruction and hypoxia ends the circulation.",
+          "compressions": "Compressions push on a chest already under raised pressure. Each release cannot lower intrathoracic pressure enough to draw blood back, so the heart refills poorly, and positive-pressure ventilation worsens the tension with every breath.",
+          "fix": "Decompression lets the trapped air escape, lowering intrathoracic and right atrial pressure. The gradient for venous return reopens, the heart refills, and output can recover within a few beats if the myocardium is not yet injured.",
+          "bedside": "Trauma, positive-pressure ventilation, central line placement, or severe asthma or COPD. Absent breath sounds on one side, rising peak airway pressures, distended neck veins, and tracheal deviation are classic but inconsistent. In life-threatening asthma, sudden high inspiratory pressures or difficulty ventilating should prompt evaluation for tension pneumothorax.",
+          "mimics": "Mainstem intubation produces unilateral absent breath sounds without tension. Dynamic hyperinflation in asthma raises intrathoracic pressure and reduces venous return by the same mechanism, on both sides.",
+          "limits": "Clinical signs are unreliable in a noisy resuscitation, and ultrasound for absent lung sliding is helpful in experienced hands but has not been established as accurate during arrest. Needle decompression can fail if the needle is too short or kinks.",
+          "refs": [
+            "aha-2025-algorithm",
+            "aha-2025-special"
+          ],
+          "examples": [
+            {
+              "id": "tp-post-intubation",
+              "vignette": "A patient with COPD arrests three minutes after intubation. Peak pressures are high, the left chest is silent, and the rhythm is a fast, narrow PEA.",
+              "reasoning": "Positive pressure into fragile lungs can create a tension pneumothorax. The timing after intubation and the high airway pressures point to obstruction of venous return."
+            },
+            {
+              "id": "tp-asthma-autopeep",
+              "vignette": "A patient with severe asthma, bagged rapidly after intubation, loses his pulse. Breath sounds are equal but very quiet.",
+              "reasoning": "Breath stacking raises intrathoracic pressure on both sides and reduces venous return by the same mechanism as a tension pneumothorax. A brief disconnection from the bag to allow exhalation tests this, while a true tension pneumothorax remains possible."
+            }
+          ]
+        },
+        {
+          "id": "tamponade",
+          "name": "Cardiac tamponade",
+          "category": "obstruction",
+          "failure": "Fluid in the pericardium raises pressure around the heart. Because the pericardium cannot stretch acutely, the chambers cannot expand to fill, so the heart is physically prevented from receiving blood.",
+          "rhythm": [
+            "Tamponade typically produces a fast, narrow rhythm that becomes PEA as filling fails, with electrical alternans sometimes visible before arrest.",
+            "After cardiac surgery, trauma to the heart, or in a patient with conduction disease, the rhythm may not fit, and long arrests widen it."
+          ],
+          "causalChain": "Blood or fluid accumulates in the pericardial sac. Pericardial pressure rises until it approaches the filling pressures of the right heart. The right atrium and ventricle collapse during diastole, filling falls, stroke volume falls, and output fails despite an electrically intact heart.",
+          "compressions": "Compressions squeeze a heart that cannot refill on release, because the pericardial pressure holds the chambers small. External compression may also raise pericardial pressure further.",
+          "fix": "Draining the pericardium, by pericardiocentesis or by opening the chest when that is possible and appropriate, lowers pericardial pressure below filling pressure again. The chambers expand, fill, and eject, often immediately.",
+          "bedside": "Penetrating chest trauma, recent cardiac surgery or catheter procedures, malignancy, renal failure, or aortic dissection. Distended neck veins with a fast, narrow PEA suggest it. A pericardial effusion with a collapsing right heart on ultrasound supports it, though an effusion alone does not prove tamponade.",
+          "mimics": "Tension pneumothorax and massive pulmonary embolism also produce distended neck veins with a narrow, fast PEA. Epicardial fat can look like an effusion.",
+          "limits": "Ultrasound is the main bedside tool for this cause, but its accuracy during arrest has not been quantified against a reference standard. After cardiac surgery, the guideline supports early resternotomy in an appropriately staffed and equipped ICU.",
+          "refs": [
+            "aha-2025-algorithm",
+            "aha-2025-special"
+          ],
+          "examples": [
+            {
+              "id": "tm-stab",
+              "vignette": "A young man with a stab wound below the left nipple loses his pulse in the trauma bay. The neck veins are full and the rhythm is narrow and fast.",
+              "reasoning": "Penetrating trauma to the cardiac box plus distended neck veins points to tamponade. Draining the pericardium, not more epinephrine, reopens filling."
+            },
+            {
+              "id": "tm-post-cabg",
+              "vignette": "Six hours after bypass surgery, chest tube output stops abruptly, blood pressure falls, and the patient arrests.",
+              "reasoning": "Clotted drains can let blood accumulate around the heart. Early after cardiac surgery, rapid resternotomy in an equipped ICU addresses both tamponade and bleeding.",
+              "causeIds": [
+                "tamponade",
+                "hypovolemia"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pulmonary-thrombosis",
+          "name": "Pulmonary thrombosis (massive embolism)",
+          "category": "obstruction",
+          "failure": "A large clot blocks the pulmonary arterial outflow. The right ventricle cannot eject against the obstruction, so the left heart receives too little blood. The right ventricle dilates and pushes the septum into the left ventricle, worsening left-sided filling further.",
+          "rhythm": [
+            "Massive embolism typically presents as a fast, narrow PEA, often after a period of sinus tachycardia and hypoxia.",
+            "Right ventricular ischemia and hypoxia can slow and widen the rhythm, and a right bundle branch block pattern can appear."
+          ],
+          "causalChain": "A clot from the deep veins lodges in the main pulmonary arteries. Right ventricular afterload rises abruptly, the right ventricle dilates and fails, left ventricular filling falls, and systemic pressure falls. Right coronary perfusion falls just as right ventricular demand rises, and the right ventricle becomes ischemic.",
+          "compressions": "Compressions push blood toward a blocked pulmonary outflow. Little reaches the left heart, so each compression ejects a small volume into the aorta, and coronary perfusion pressure stays low.",
+          "fix": "Thrombolysis, or surgical or catheter removal of the clot, reopens the pulmonary outflow so the right ventricle can eject and the left ventricle can fill. Extracorporeal life support can bypass the obstruction while definitive treatment is arranged.",
+          "bedside": "Recent surgery, immobility, cancer, prior thrombosis, pregnancy, or a swollen leg; sudden collapse after dyspnea or chest pain. A dilated right ventricle on ultrasound is suggestive.",
+          "mimics": "Any prolonged arrest can dilate the right ventricle, because blood pools in the right heart once the circulation stops. Right ventricular infarction and tension pneumothorax can produce similar findings.",
+          "limits": "During CPR, pulmonary embolism is usually suspected rather than confirmed. The strength of the guideline support differs between confirmed and suspected embolism, and thrombolysis on suspicion carries bleeding risk and takes time to work, so CPR may need to continue for a prolonged period after it is given. Right ventricular dilation on ultrasound during arrest is not specific for embolism.",
+          "refs": [
+            "aha-2025-special",
+            "aha-2025-algorithm"
+          ],
+          "examples": [
+            {
+              "id": "pe-postop",
+              "vignette": "Five days after hip surgery, a patient becomes suddenly breathless and collapses. The rhythm is a fast, narrow PEA; ultrasound shows a very large right ventricle.",
+              "reasoning": "The history and the dilated right ventricle make pulmonary embolism likely, though RV dilation during arrest is not specific. Weigh thrombolysis or clot removal on suspicion, knowing the evidence is weaker without confirmation."
+            },
+            {
+              "id": "pe-etco2-fall",
+              "vignette": "A patient admitted with a known deep vein thrombosis has a sudden fall in end-tidal CO2 while still conscious, followed by collapse.",
+              "reasoning": "A sudden fall in end-tidal CO2 with steady ventilation means less blood is reaching ventilated lung. Before arrest, that fits obstruction of pulmonary blood flow."
+            }
+          ]
+        },
+        {
+          "id": "toxins",
+          "name": "Toxins",
+          "category": "contractility-electrical",
+          "failure": "Poisons fail the circulation in several ways: by blocking ion channels in the myocardium, by depressing contractility, by dilating vessels, or by stopping breathing. The category is mechanistic rather than single: each toxin needs its own physiology.",
+          "rhythm": [
+            "Sodium-channel blockers such as tricyclic antidepressants widen the QRS and produce a wide, slow rhythm. Calcium-channel blockers and beta blockers produce bradycardia and conduction block. These fit the wide, slow pattern.",
+            "Stimulants such as cocaine and sympathomimetics produce tachycardia and VF, and opioids cause hypoxic arrest. A toxic arrest may therefore look like any rhythm."
+          ],
+          "causalChain": "The toxin reaches the heart, vessels, or brainstem. Ion-channel blockade slows conduction or reduces contraction, vasodilation lowers filling and afterload, or apnea removes oxygen. The mechanism determines which antidote can reverse it.",
+          "compressions": "Compressions generate flow into a myocardium whose ion channels may still be blocked, so the heart may not respond to standard drugs. Prolonged CPR is sometimes justified because the toxin can be cleared or bypassed if the circulation is supported long enough.",
+          "fix": "Targeted antidotes reverse specific mechanisms. Sodium bicarbonate raises extracellular sodium and pH, overcoming sodium-channel blockade, and should be used in life-threatening tricyclic cardiotoxicity. Calcium partly overcomes calcium-channel blockade and is reasonable for life-threatening calcium-channel blocker poisoning. An opioid antagonist reverses opioid receptor effects. Extracorporeal life support can sustain the circulation while a toxin is metabolized.",
+          "bedside": "A known ingestion, empty pill bottles, a toxidrome before arrest, or a QRS that was wide before the arrest. Poison center consultation can guide specific antidotes.",
+          "mimics": "Hyperkalemia and acidosis widen the QRS. Hypoxia from any cause mimics opioid toxicity.",
+          "limits": "Most toxicology recommendations rest on case series and expert opinion. Calcium and bicarbonate are targeted antidotes here, not routine arrest drugs, and the evidence for them during arrest is weaker than their physiological rationale.",
+          "refs": [
+            "aha-2025-special",
+            "aha-2025-als"
+          ],
+          "examples": [
+            {
+              "id": "tx-tca",
+              "vignette": "A patient who took an overdose of amitriptyline seizes and then arrests. The rhythm before arrest had a very wide QRS.",
+              "reasoning": "Sodium-channel blockade explains the wide QRS. Sodium bicarbonate should be used for life-threatening tricyclic cardiotoxicity, because raising sodium and pH partly overcomes the blockade."
+            },
+            {
+              "id": "tx-ccb",
+              "vignette": "A patient who took an overdose of extended-release verapamil develops profound bradycardia and hypotension and then arrests.",
+              "reasoning": "Calcium-channel blockade weakens contraction and slows conduction. Calcium is reasonable for this poisoning, and extracorporeal support may sustain the circulation while the drug is cleared."
+            },
+            {
+              "id": "tx-cocaine-mi",
+              "vignette": "A 35-year-old using cocaine develops chest pain and then VF.",
+              "reasoning": "Cocaine causes coronary vasoconstriction and thrombosis and also lowers the arrhythmia threshold. Both toxin and coronary ischemia may contribute.",
+              "causeIds": [
+                "toxins",
+                "coronary-thrombosis"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "coronary-thrombosis",
+          "name": "Coronary thrombosis",
+          "category": "contractility-electrical",
+          "failure": "A clot in a coronary artery cuts off blood to part of the myocardium. Ischemic muscle loses contractility and becomes electrically unstable, so the heart fails as a pump and as a rhythm generator.",
+          "rhythm": [
+            "Acute coronary occlusion is the classic cause of VF. Later in an ischemic arrest, or with a large infarction, the rhythm may be PEA or asystole.",
+            "This cause does not fit the narrow-fast versus wide-slow rule; VF is the expected rhythm, and PEA reflects extensive myocardial failure rather than a filling problem."
+          ],
+          "causalChain": "A ruptured plaque triggers a thrombus that occludes the artery. The downstream myocardium becomes ischemic within seconds, its electrical properties become heterogeneous, and reentry can trigger VF. If the territory is large, contractility fails and cardiogenic shock follows.",
+          "compressions": "Compressions perfuse the non-occluded coronary beds but cannot push blood past the clot. The ischemic territory stays ischemic, so VF may recur after successful shocks.",
+          "fix": "Reperfusion, by coronary angiography and intervention, restores blood to the territory. After ROSC, persistent ST elevation with a suspected cardiac cause calls for emergency angiography, and selected patients without ST elevation who have shock, recurrent ventricular arrhythmias, or significant ongoing ischemia are reasonable candidates.",
+          "bedside": "Chest pain before arrest, known coronary disease, or VF as the initial rhythm. After ROSC, the 12-lead ECG helps but can overcall ST elevation early and can miss an occlusion.",
+          "mimics": "Aortic dissection involving the coronary ostia, cocaine, and coronary vasospasm. Pulmonary embolism can cause chest pain and right heart strain.",
+          "limits": "During CPR, coronary occlusion is usually inferred from the history and the rhythm. Angiography during arrest requires mechanical CPR or extracorporeal support and is limited to specialized centers.",
+          "refs": [
+            "aha-2025-pcac",
+            "aha-2025-als"
+          ],
+          "examples": [
+            {
+              "id": "ct-refractory-vf",
+              "vignette": "A 58-year-old collapses after an hour of chest pain. VF persists after three shocks.",
+              "reasoning": "Shock-refractory VF after chest pain suggests ongoing ischemia from an occluded artery. Continued shocks and antiarrhythmics buy time; reperfusion addresses the cause."
+            },
+            {
+              "id": "ct-rosc-stemi",
+              "vignette": "After ROSC, the 12-lead ECG ten minutes later shows persistent ST elevation in the anterior leads. The patient remains comatose.",
+              "reasoning": "Persistent ST elevation with a suspected cardiac cause calls for emergency coronary angiography regardless of coma."
+            }
+          ]
+        }
       ]
     },
     {
@@ -244,10 +758,10 @@
       "title": "Ventilation is gas exchange and a circulatory intervention",
       "explanation": [
         "Compressions move blood, and that blood still has to carry oxygen while carbon dioxide is cleared. Arterial oxygen content falls if ventilation is left out for long, especially in asphyxial arrest. For health care professionals, the 2025 BLS guidance says it is reasonable to give both compressions and ventilations, with enough tidal volume to see the chest rise, while avoiding both hypoventilation and hyperventilation.",
-        "Every positive-pressure breath is also a circulatory event. It raises intrathoracic pressure, and blood returns to the heart only when the pressure outside the chest exceeds the pressure inside it. Extra breaths narrow that difference, so venous return falls, and with less blood entering the heart, the compressions produce less coronary perfusion pressure. The guideline names the harms of excessive ventilation directly: gastric inflation, regurgitation, aspiration, and decreased cardiac output.",
+        "Every positive-pressure breath is also a circulatory event. Venous return is driven by the difference between mean systemic filling pressure, the pressure the blood volume exerts on the stretched walls of the systemic veins, and right atrial pressure, and it is opposed by the resistance to venous return. A positive-pressure breath raises intrathoracic pressure, and with it right atrial pressure. If filling pressure and venous resistance stay roughly constant over that breath, the driving gradient narrows and venous return falls. More breaths, or breaths held longer, keep that gradient narrowed for more of each minute. With less blood entering the heart, each compression has less to eject, and coronary perfusion pressure tends to fall. The prediction weakens when those held-constant terms move: a volume-loaded or vasoconstricted patient has a higher filling pressure and tolerates the same breath better, while a hypovolemic patient loses venous return sooner. The guideline names the harms of excessive ventilation directly: gastric inflation, regurgitation, aspiration, and decreased cardiac output.",
         "The airway state determines the rhythm of breathing. Without an advanced airway the ratio is 30 compressions to 2 breaths. With an advanced airway in place, give 1 breath every 6 seconds (10 breaths per minute) without pausing compressions. Begin with a bag-mask and oxygen. If placing an advanced airway would interrupt compressions, defer it until initial CPR and defibrillation have failed, or until there is ROSC.",
         "End-tidal CO2 links ventilation back to circulation. When an endotracheal tube is used, continuous waveform capnography plus clinical assessment is the most reliable confirmation that it is in the trachea. During CPR, carbon dioxide reaches the lungs only as fast as blood carries it there, so end-tidal CO2 tracks pulmonary blood flow. But it has many determinants: the rate and volume of ventilation, tube position, metabolic production, and drugs such as epinephrine. A change in the number is a prompt to ask which of those changed.",
-        "Its limits are real. A low or falling value is a prompt to reassess compression quality and tube position. Do not use end-tidal CO2 alone to stop resuscitation. In an intubated adult, failure to exceed 10 mm Hg after 20 minutes of ALS may be one part of a multimodal decision to stop. A sudden rise can accompany ROSC, but there is no single cutoff that proves it."
+        "Because the number has so many inputs, it is better used as a question than as a verdict. A low or falling value asks first whether the compressions have weakened or the tube has moved, and only later whether the patient can be resuscitated. Even then it should not decide the matter alone: in an intubated adult, failure to exceed 10 mm Hg after 20 minutes of ALS may be one part of a multimodal decision to stop. A sudden rise can accompany ROSC, though no single cutoff proves it, so the rise prompts a pulse check rather than replacing one."
       ],
       "questions": [
         {
@@ -260,7 +774,8 @@
           "misconception": "The belief that more breaths mean more oxygen delivered. Oxygen delivery depends on blood flow as well as oxygen content, and overventilation lowers the flow. Continued after ROSC, the same excess also lowers PaCO2 and constricts cerebral arterioles.",
           "conclusion": "It is roughly 20 to 30 breaths per minute, and it is likely to reduce venous return and the perfusion that compressions create, as well as risking gastric inflation, regurgitation, and aspiration. With an advanced airway, the rate is 1 breath every 6 seconds, enough to see the chest rise.",
           "refs": [
-            "aha-2025-bls"
+            "aha-2025-bls",
+            "jellinek-2000"
           ]
         },
         {
@@ -280,11 +795,11 @@
           "id": "etco2-after-epinephrine",
           "kind": "evidence-boundary",
           "prompt": "Evidence boundary: a minute after epinephrine, end-tidal CO2 falls even though nothing else has changed. Why shouldn't you read that change as a direct measure of better or worse blood flow?",
-          "answer": "Because epinephrine usually lowers end-tidal CO2 for 1 to 2 minutes even while it raises coronary perfusion pressure. The number has several determinants, and a drug can move it in the opposite direction from the quantity you care about.",
-          "causalChain": "End-tidal CO2 depends on how much CO2 reaches the lungs and how well the ventilated areas of the lung are perfused. Epinephrine raises aortic pressure, which helps coronary perfusion, but it also redistributes flow so that less blood reaches the lungs for a short time. Less pulmonary blood flow carries less CO2 to be exhaled, so the reading dips while perfusion of the heart may be improving.",
+          "answer": "Because epinephrine can lower end-tidal CO2 for a short time even while it raises aortic pressure and, with it, coronary perfusion pressure. The number has several determinants, and a drug can move it in the opposite direction from the quantity you care about.",
+          "causalChain": "End-tidal CO2 depends on how much CO2 reaches the lungs and how well the ventilated areas of the lung are perfused. Epinephrine raises aortic pressure, which helps coronary perfusion, but a transient fall in end-tidal CO2 after a dose has been observed, and the proposed explanations, less CO2 delivered to ventilated lung or more ventilated lung that is poorly perfused, are not settled. Whatever the mechanism, the reading can dip while perfusion of the heart is unchanged or improving.",
           "assumption": "Ventilation and compression quality were truly unchanged across that minute.",
           "misconception": "The belief that end-tidal CO2 is a flow meter. It is a surrogate, useful for trends when other variables are stable, and least reliable when several are changing at once.",
-          "conclusion": "Because epinephrine usually lowers end-tidal CO2 for 1 to 2 minutes even while it raises coronary perfusion pressure. The number has several determinants, and a drug can move it in the opposite direction from the quantity you care about.",
+          "conclusion": "Because epinephrine can lower end-tidal CO2 for a short time even while it raises aortic pressure and, with it, coronary perfusion pressure. The number has several determinants, and a drug can move it in the opposite direction from the quantity you care about.",
           "refs": [
             "aha-2025-als"
           ]
@@ -292,7 +807,8 @@
       ],
       "refs": [
         "aha-2025-bls",
-        "aha-2025-als"
+        "aha-2025-als",
+        "jellinek-2000"
       ]
     },
     {
@@ -303,7 +819,7 @@
         "The 2025 post-cardiac arrest recommendations stay inside ranges that trials have actually compared, and each target guards against a specific way the injured brain and heart can be hurt again. Give 100% oxygen until SpO2 or PaO2 can be measured reliably, because turning the oxygen down before you have a number risks hypoxemia. Once saturation is trustworthy, titrate the inspired oxygen fraction to an SpO2 of 90% to 98% (PaO2 about 60 to 105 mm Hg) and avoid both hypoxemia and hyperoxemia. The two ends fail in different ways: too little oxygen extends the ischemic injury, while too much can add oxidative injury to tissue that has just been reperfused.",
         "In adults who remain comatose after ROSC, keep PaCO2 in a normal physiologic range, generally 35 to 45 mm Hg. Carbon dioxide is one of the strongest controls on cerebral vessel tone, so a low PaCO2 constricts cerebral arterioles and reduces flow to a brain that is already short of it. Mild hypercapnia, the opposite move, did not improve six-month neurologic outcome in the TAME trial.",
         "Avoid hypotension by holding mean arterial pressure at least 65 mm Hg. When autoregulation is impaired, cerebral blood flow follows arterial pressure more directly, so a pressure the healthy brain would tolerate can leave the injured brain underperfused. Randomized comparisons of higher versus lower MAP targets have not shown better survival or neurologic outcome, and aiming below 65 mm Hg has not been shown to be safe in this group.",
-        "Record a 12-lead ECG as soon as feasible. An immediate post-ROSC tracing can overcall ST elevation, and the absence of ST elevation does not rule out an intervenable lesion. That uncertainty is not a reason for emergency angiography: in a comatose patient without ST elevation, shock, or instability, emergency angiography has shown no benefit. For adults who remain unresponsive to verbal commands, a deliberate temperature-control strategy is recommended, holding a temperature between 32 °C and 37.5 °C. In that same group, it is reasonable to continue temperature control for at least 36 hours. In adults with spontaneous hypothermia after ROSC, or who are being rewarmed after hypothermic temperature control, it may be reasonable to avoid rewarming faster than 0.5 °C per hour. Routine rapid infusion of cold intravenous fluid for prehospital cooling is not recommended.",
+        "Record a 12-lead ECG as soon as feasible. An immediate post-ROSC tracing can overcall ST elevation, and the absence of ST elevation does not rule out an intervenable lesion. Persistent ST elevation with a suspected cardiac cause calls for emergency coronary angiography, whether or not the patient is comatose. Without ST elevation, emergency angiography is reasonable for selected patients with a suspected cardiac cause who have cardiogenic shock, recurrent ventricular arrhythmias, or evidence of significant ongoing myocardial ischemia, again regardless of coma. In a comatose patient with none of those features, no ST elevation, shock, electrical instability, or significant ongoing ischemia, emergency angiography is not recommended over a delayed or selective strategy, because randomized trials found no benefit from going early. For adults who remain unresponsive to verbal commands, a deliberate temperature-control strategy is recommended, holding a temperature between 32 °C and 37.5 °C. In that same group, it is reasonable to continue temperature control for at least 36 hours. In adults with spontaneous hypothermia after ROSC, or who are being rewarmed after hypothermic temperature control, it may be reasonable to avoid rewarming faster than 0.5 °C per hour. Routine rapid infusion of cold intravenous fluid for prehospital cooling is not recommended.",
         "The limit of the model: these are ranges for a population, and the evidence for several of them is that a different target did not help, not that this exact range is optimal. The reasoning explains why each extreme is dangerous. It does not identify the best value for a particular patient."
       ],
       "questions": [
@@ -322,14 +838,14 @@
           ]
         },
         {
-          "id": "map-and-paco2-floors",
+          "id": "paco2-not-etco2",
           "kind": "transfer",
-          "prompt": "Transfer: the patient is comatose after ROSC, mean arterial pressure is 58 mm Hg, and the ventilator has been set to a PaCO2 of 28 mm Hg to protect the brain. Which of those protects the brain?",
-          "answer": "Neither. A MAP below 65 mm Hg is hypotension to correct, and a PaCO2 of 28 mm Hg is hypocapnia, which constricts cerebral arterioles. The targets are a MAP of at least 65 mm Hg and a PaCO2 generally of 35 to 45 mm Hg, plus temperature control while the patient does not respond to verbal commands.",
-          "causalChain": "With impaired autoregulation, a low MAP passes directly through as low cerebral blood flow, and a low PaCO2 reduces that flow further by narrowing the vessels. The two errors compound each other.",
-          "assumption": "Autoregulation is impaired, which is common after arrest but not universal. That is why the MAP instruction is a floor rather than a precise target.",
-          "misconception": "Carrying hyperventilation over from the idea of lowering intracranial pressure. After cardiac arrest, normocapnia is the goal. Trials have not shown better outcomes from pushing MAP well above 65 mm Hg, so the answer is a floor of 65 mm Hg, not a higher invented target.",
-          "conclusion": "Neither. A MAP below 65 mm Hg is hypotension to correct, and a PaCO2 of 28 mm Hg is hypocapnia, which constricts cerebral arterioles. The targets are a MAP of at least 65 mm Hg and a PaCO2 generally of 35 to 45 mm Hg, plus temperature control while the patient does not respond to verbal commands.",
+          "prompt": "Transfer: after ROSC, a comatose patient's end-tidal CO2 reads 30 mm Hg, and the team wants to slow the ventilator to bring it up to 40. A blood gas has not been drawn. Using what you know about end-tidal CO2, what could go wrong?",
+          "answer": "End-tidal CO2 after cardiac arrest may be falsely low and may not reflect PaCO2, because poorly perfused lung adds dead space. If the PaCO2 is already normal or high, slowing the ventilator could push it higher. Obtain a blood gas and target a PaCO2 generally of 35 to 45 mm Hg.",
+          "causalChain": "End-tidal CO2 approximates PaCO2 only when ventilated lung is well perfused. After arrest, low cardiac output and lung injury create ventilated areas with little blood flow, which dilute the exhaled CO2. The gap between end-tidal and arterial CO2 widens, so the end-tidal value underestimates PaCO2.",
+          "assumption": "The gap is large in this patient, which only a blood gas can show.",
+          "misconception": "The belief that end-tidal CO2 and PaCO2 are interchangeable after ROSC. The guideline notes the end-tidal value can be falsely low and supports measuring PaCO2.",
+          "conclusion": "End-tidal CO2 after cardiac arrest may be falsely low and may not reflect PaCO2, because poorly perfused lung adds dead space. If the PaCO2 is already normal or high, slowing the ventilator could push it higher. Obtain a blood gas and target a PaCO2 generally of 35 to 45 mm Hg.",
           "refs": [
             "aha-2025-pcac",
             "tame-2023"
@@ -430,7 +946,7 @@
       "id": "antiarrhythmic-if-refractory",
       "title": "Add an antiarrhythmic only for shock-refractory VF or pulseless VT",
       "action": "If VF or pulseless VT continues after defibrillation, amiodarone or lidocaine may be considered. Amiodarone is 300 mg IV or IO, then 150 mg if a second dose is needed. Lidocaine is 1 to 1.5 mg/kg IV or IO, then 0.5 to 0.75 mg/kg. Do not give calcium or sodium bicarbonate as routine arrest drugs.",
-      "why": "These antiarrhythmics are an adjunct for a shockable rhythm that defibrillation has not settled. They are not treatment for PEA or asystole, and they do not replace further shocks or CPR. Calcium and bicarbonate do not improve undifferentiated arrest, and their benefit in arrest suspected from hyperkalemia is not well established. Calcium is reasonable for life-threatening calcium-channel blocker poisoning and for arrest in a pregnant patient receiving intravenous magnesium. Sodium bicarbonate should be used for life-threatening tricyclic antidepressant cardiotoxicity, and it is reasonable for other sodium-channel blocker toxicity.",
+      "why": "These antiarrhythmics are an adjunct for a shockable rhythm that defibrillation has not settled. They are not treatment for PEA or asystole, and they do not replace further shocks or CPR. Routine calcium and bicarbonate, given without a specific indication, have not improved outcomes, and their benefit in arrest suspected from hyperkalemia is not well established. Calcium is reasonable for life-threatening calcium-channel blocker poisoning and for arrest in a pregnant patient receiving intravenous magnesium. Sodium bicarbonate should be used for life-threatening tricyclic antidepressant cardiotoxicity, and it is reasonable for other sodium-channel blocker toxicity.",
       "principleIds": [
         "early-defibrillation",
         "reversible-causes"
@@ -514,6 +1030,12 @@
       "id": "yannopoulos-2005",
       "label": "Yannopoulos et al. Effects of incomplete chest wall decompression during CPR on coronary and cerebral perfusion pressures. Resuscitation 2005;64:363-372",
       "url": "https://doi.org/10.1016/j.resuscitation.2004.10.009"
+    },
+    {
+      "id": "jellinek-2000",
+      "label": "Jellinek et al. Influence of positive airway pressure on the pressure gradient for venous return in humans. J Appl Physiol 2000;88:926-932",
+      "url": "https://doi.org/10.1152/jappl.2000.88.3.926",
+      "note": "Mean systemic filling pressure, right atrial pressure, and venous return under positive airway pressure."
     }
   ],
   "strict": true
