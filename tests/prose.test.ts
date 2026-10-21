@@ -14,10 +14,11 @@ describe('splitLead', () => {
     ) as CaseDocument;
 
     for (const principle of document.principles) {
-      if (!principle.explanation) {
-        throw new Error(`principle ${principle.id} has no explanation`);
+      const narrative = principle.explanation ?? principle.body;
+      if (!narrative) {
+        throw new Error(`principle ${principle.id} has neither explanation nor body`);
       }
-      const paragraphs = asParagraphs(principle.explanation);
+      const paragraphs = asParagraphs(narrative);
       const { lead, rest } = splitLead(paragraphs[0] ?? '');
       const rebuilt = [rest ? `${lead} ${rest}` : lead, ...paragraphs.slice(1)].join(' ');
       expect(rebuilt.replace(/\s+/g, ' ')).toBe(paragraphs.join(' ').replace(/\s+/g, ' '));

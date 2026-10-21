@@ -7,8 +7,8 @@ import SectionPart from '../../components/SectionPart.astro';
 import TreatmentStep from '../../components/TreatmentStep.astro';
 import { loadCases } from '../../lib/cases.ts';
 import { marksFor, referenceNumbers } from '../../lib/references.ts';
+import { sectionNumerals } from '../../lib/roman.ts';
 import { sectionTree } from '../../lib/sections.ts';
-import { toRoman } from '../../lib/roman.ts';
 
 export async function getStaticPaths() {
   const cases = await loadCases();
@@ -20,9 +20,8 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const numbers = referenceNumbers(entry.data.references);
-const numerals = new Map(
-  entry.data.principles.map((principle, index) => [principle.id, toRoman(index + 1)]),
-);
+const numbered = sectionNumerals(entry.data.principles);
+const numerals = new Map([...numbered].map(([id, value]) => [id, value.label]));
 const principleMeta = new Map(
   entry.data.principles.map((principle) => [
     principle.id,
@@ -76,14 +75,13 @@ const numeralRecord = Object.fromEntries(numerals);
 
     {
       parts.map((part) => {
-        const index = entry.data.principles.findIndex((principle) => principle.id === part.item.id);
         return (
           <SectionPart
             principle={part.item}
             subsections={part.children.map((child) => child.item)}
             numeral={numerals.get(part.item.id) ?? ''}
             numerals={numeralRecord}
-            partNumber={index + 1}
+            partNumber={numbered.get(part.item.id)?.partNumber ?? 0}
             causeNames={causeNames}
             referenceNumbers={numbers}
           />
