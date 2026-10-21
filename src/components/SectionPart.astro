@@ -1,0 +1,68 @@
+---
+import QuestionCard from './QuestionCard.astro';
+import SectionFrame from './SectionFrame.astro';
+import { marksFor, type ReferenceMark } from '../lib/references.ts';
+import type { Principle, Question } from '../lib/schema.ts';
+
+interface Props {
+  principle: Principle;
+  subsections?: readonly Principle[];
+  numeral: string;
+  numerals: Readonly<Record<string, string>>;
+  partNumber: number;
+  causeNames: Readonly<Record<string, string>>;
+  referenceNumbers: ReadonlyMap<string, number>;
+}
+
+const { principle, numeral, numerals, partNumber, causeNames, referenceNumbers } = Astro.props;
+const subsections = Astro.props.subsections ?? [];
+
+const cards: Array<{ question: Question; section: Principle }> = [
+  ...principle.questions.map((question) => ({ question, section: principle })),
+  ...subsections.flatMap((child) => child.questions.map((question) => ({ question, section: child }))),
+];
+
+function marks(refs: string[] | undefined): ReferenceMark[] {
+  return marksFor(refs, referenceNumbers);
+}
+---
+
+<SectionFrame
+  principle={principle}
+  numeral={numeral}
+  marks={marks(principle.refs)}
+  causeNames={causeNames}
+  referenceNumbers={referenceNumbers}
+>
+  {
+    subsections.map((child) => (
+      <SectionFrame
+        principle={child}
+        numeral={numerals[child.id] ?? ''}
+        marks={marks(child.refs)}
+        causeNames={causeNames}
+        referenceNumbers={referenceNumbers}
+      />
+    ))
+  }
+  {
+    cards.map((card, index) => (
+      <QuestionCard
+        id={card.question.id}
+        label={`Question ${partNumber}.${index + 1}`}
+        kind={card.question.kind}
+        prompt={card.question.prompt}
+        answer={card.question.answer}
+        reasoning={card.question.reasoning}
+        causalChain={card.question.causalChain}
+        assumption={card.question.assumption}
+        misconception={card.question.misconception}
+        missingData={card.question.missingData}
+        marks={marks(card.question.refs)}
+        buildsOnHref={`#principle-${card.section.id}`}
+        buildsOnNumeral={numerals[card.section.id] ?? numeral}
+        buildsOnTitle={card.section.title}
+      />
+    ))
+  }
+</SectionFrame>

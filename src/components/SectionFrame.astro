@@ -1,0 +1,78 @@
+---
+import CauseList from './CauseList.astro';
+import MarkdownParagraphs from './MarkdownParagraphs.astro';
+import PrincipleDiagram from './PrincipleDiagram.astro';
+import PrincipleHeader from './PrincipleHeader.astro';
+import { stripInlineMarkdown } from '../lib/markdown.ts';
+import { asParagraphs, splitLead } from '../lib/prose.ts';
+import type { ReferenceMark } from '../lib/references.ts';
+import type { Principle } from '../lib/schema.ts';
+
+interface Props {
+  principle: Principle;
+  numeral: string;
+  marks?: readonly ReferenceMark[];
+  causeNames: Readonly<Record<string, string>>;
+  referenceNumbers: ReadonlyMap<string, number>;
+}
+
+const { principle, numeral, marks, causeNames, referenceNumbers } = Astro.props;
+const explanation = principle.explanation ? asParagraphs(principle.explanation) : [];
+const narrative = principle.body ?? [];
+let lead = '';
+let explanationRest: string[] = [];
+let markdownParagraphs: string[] = [];
+
+if (explanation.length > 0) {
+  const split = splitLead(explanation[0] ?? '');
+  lead = split.lead;
+  explanationRest = [split.rest, ...explanation.slice(1)].filter((paragraph) => paragraph.length > 0);
+  markdownParagraphs = [...narrative];
+} else if (narrative.length > 0) {
+  const split = splitLead(narrative[0] ?? '');
+  lead = stripInlineMarkdown(split.lead);
+  markdownParagraphs = [split.rest, ...narrative.slice(1)].filter((paragraph) => paragraph.length > 0);
+}
+---
+
+<PrincipleHeader
+  id={`principle-${principle.id}`}
+  numeral={numeral}
+  title={principle.title}
+  summary={lead}
+  marks={marks}
+>
+  {
+    explanationRest.length > 0 && (
+      <div class="prose">
+        {explanationRest.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+    )
+  }
+  {
+    markdownParagraphs.length > 0 && (
+      <div class="prose">
+        <MarkdownParagraphs paragraphs={markdownParagraphs} />
+      </div>
+    )
+  }
+  {
+    principle.workedExample && (
+      <aside class="worked-example" id={`worked-example-${principle.workedExample.id}`}>
+        <h3>{principle.workedExample.title}</h3>
+        <div class="prose">
+          <MarkdownParagraphs paragraphs={principle.workedExample.body} />
+        </div>
+      </aside>
+    )
+  }
+  {principle.diagram && <PrincipleDiagram diagram={principle.diagram} />}
+  {
+    principle.causes && principle.causes.length > 0 && (
+      <CauseList causes={principle.causes} causeNames={causeNames} referenceNumbers={referenceNumbers} />
+    )
+  }
+  <slot />
+</PrincipleHeader>

@@ -316,7 +316,6 @@ h2 {
 }
 
 .toc li {
-  counter-increment: principle;
   border-bottom: 1px solid var(--rule);
   display: flex;
   gap: var(--s4);
@@ -324,7 +323,11 @@ h2 {
   min-height: 44px;
 }
 
-.toc li::before {
+.toc > li {
+  counter-increment: principle;
+}
+
+.toc > li::before {
   content: counter(principle, upper-roman);
   font-family: var(--f-display);
   font-weight: 500;
@@ -332,6 +335,49 @@ h2 {
   color: var(--accent);
   min-width: 2.5ch;
   font-variation-settings: "opsz" 24, "SOFT" 50, "WONK" 0, "wght" 500;
+}
+
+.toc li:has(> ol) {
+  flex-wrap: wrap;
+}
+
+.toc ol {
+  flex: 1 0 100%;
+  margin: 0;
+  padding: 0 0 0 var(--s5);
+  list-style: none;
+}
+
+.overview {
+  margin: var(--s4) 0 var(--s6);
+  padding-left: 1.4rem;
+  max-width: var(--measure);
+}
+
+.overview li + li {
+  margin-top: var(--s2);
+}
+
+.overview a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.worked-example {
+  margin-top: var(--s5);
+  max-width: var(--measure);
+}
+
+.worked-example h3 {
+  margin: 0 0 var(--s3);
+  font-family: var(--f-display);
+  font-size: var(--text-step);
+  font-weight: 500;
+}
+
+.principle .principle {
+  padding-top: var(--s6);
 }
 
 .toc a {

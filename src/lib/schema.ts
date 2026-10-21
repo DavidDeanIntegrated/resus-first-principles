@@ -1,4 +1,6 @@
 import { z } from 'zod';
+import { markdownHrefs } from './markdown.ts';
+import { anchorIds, sectionTree } from './sections.ts';
 
 const idSchema = z
   .string()
@@ -22,7 +24,8 @@ export const questionKindSchema = z.enum([
 
 const refsSchema = z.array(idSchema).min(1);
 
-export const answerPartKeys = ['conclusion', 'causalChain', 'assumption', 'misconception'] as const;
+/** Parts a strict question must include. `conclusion` is deprecated and is not one of them. */
+export const answerPartKeys = ['causalChain', 'assumption', 'misconception'] as const;
 
 export type AnswerPartKey = (typeof answerPartKeys)[number];
 
@@ -72,14 +75,23 @@ export const causeSchema = z.object({
 
 export const diagramIdSchema = z.enum(['pressure-gradient', 'compression-pause']);
 
-export const principleSchema = z.object({
+export const workedExampleSchema = z.object({
   id: idSchema,
   title: textSchema,
-  explanation: proseSchema,
+  body: z.array(textSchema).min(1),
+});
+
+export const principleSchema = z.object({
+  id: idSchema,
+  parentId: idSchema.optional(),
+  title: textSchema,
+  explanation: proseSchema.optional(),
+  body: z.array(textSchema).min(1).optional(),
   refs: refsSchema.optional(),
-  questions: z.array(questionSchema).min(1),
+  questions: z.array(questionSchema).default([]),
   causes: z.array(causeSchema).min(1).optional(),
   diagram: diagramIdSchema.optional(),
+  workedExample: workedExampleSchema.optional(),
 });
 
 export const treatmentStepSchema = z.object({
@@ -126,7 +138,8 @@ type StrictCause = {
 
 type StrictPrinciple = {
   id: string;
-  questions: StrictQuestion[];
+  parentId?: string;
+  questions?: StrictQuestion[];
   causes?: StrictCause[];
 };
 
@@ -143,12 +156,7 @@ export function strictContentIssues(value: {
   });
 
   value.principles.forEach((principle, index) => {
-    let hasPrediction = false;
-    let hasTransfer = false;
-
-    principle.questions.forEach((question, questionIndex) => {
-      if (question.kind === 'prediction') hasPrediction = true;
-      if (question.kind === 'transfer') hasTransfer = true;
+    (principle.questions ?? []).forEach((question, questionIndex) => {
       if (!question.kind) {
         issues.push({
           path: ['principles', index, 'questions', questionIndex, 'kind'],
@@ -170,19 +178,6 @@ export function strictContentIssues(value: {
         }
       }
     });
-
-    if (!hasPrediction) {
-      issues.push({
-        path: ['principles', index, 'questions'],
-        message: `Principle "${principle.id}" needs at least one prediction question`,
-      });
-    }
-    if (!hasTransfer) {
-      issues.push({
-        path: ['principles', index, 'questions'],
-        message: `Principle "${principle.id}" needs at least one transfer question`,
-      });
-    }
 
     principle.causes?.forEach((cause, causeIndex) => {
       if (cause.examples.length < 2) {
@@ -246,6 +241,43 @@ export function strictContentIssues(value: {
     });
   });
 
+  for (const root of sectionTree(value.principles)) {
+    const members = [root.item, ...root.children.map((child) => child.item)];
+    const questions = members.flatMap((member) => member.questions ?? []);
+    if (questions.length === 0) continue;
+    const rootIndex = value.principles.findIndex((principle) => principle.id === root.item.id);
+    if (!questions.some((question) => question.kind === 'prediction')) {
+      issues.push({
+        path: ['principles', rootIndex, 'questions'],
+        message: `Principle "${root.item.id}" needs at least one prediction question`,
+      });
+    }
+    if (!questions.some((question) => question.kind === 'transfer')) {
+      issues.push({
+        path: ['principles', rootIndex, 'questions'],
+        message: `Principle "${root.item.id}" needs at least one transfer question`,
+      });
+    }
+  }
+
+  return issues;
+}
+
+/** Strict mode reports these, but they do not fail validation. `answer` is canonical. */
+export function deprecatedConclusionWarnings(value: {
+  principles: ReadonlyArray<{ questions?: ReadonlyArray<{ id: string; conclusion?: unknown }> }>;
+}): StrictContentIssue[] {
+  const issues: StrictContentIssue[] = [];
+  value.principles.forEach((principle, index) => {
+    (principle.questions ?? []).forEach((question, questionIndex) => {
+      if (question.conclusion != null) {
+        issues.push({
+          path: ['principles', index, 'questions', questionIndex, 'conclusion'],
+          message: `Question "${question.id}" uses deprecated conclusion; answer is canonical`,
+        });
+      }
+    });
+  });
   return issues;
 }
 
@@ -287,6 +319,7 @@ export const caseSchema = z
     const questionIds = new Set<string>();
     const causeIds = new Set<string>();
     const exampleIds = new Set<string>();
+    const workedExampleIds = new Set<string>();
 
     value.principles.forEach((principle, index) => {
       if (principleIds.has(principle.id)) {
@@ -297,6 +330,25 @@ export const caseSchema = z
         });
       }
       principleIds.add(principle.id);
+
+      if (principle.explanation == null && principle.body == null) {
+        ctx.addIssue({
+          code: 'custom',
+          message: `Section "${principle.id}" needs explanation or body`,
+          path: ['principles', index, 'body'],
+        });
+      }
+
+      if (principle.workedExample) {
+        if (workedExampleIds.has(principle.workedExample.id)) {
+          ctx.addIssue({
+            code: 'custom',
+            message: `Duplicate worked example id "${principle.workedExample.id}"`,
+            path: ['principles', index, 'workedExample', 'id'],
+          });
+        }
+        workedExampleIds.add(principle.workedExample.id);
+      }
 
       principle.causes?.forEach((cause, causeIndex) => {
         if (causeIds.has(cause.id)) {
@@ -329,7 +381,8 @@ export const caseSchema = z
         }
         questionIds.add(question.id);
 
-        const hasPart = answerPartKeys.some((key) => question[key] != null);
+        const hasPart =
+          answerPartKeys.some((key) => question[key] != null) || question.conclusion != null;
         if (question.reasoning == null && !hasPart) {
           ctx.addIssue({
             code: 'custom',
@@ -338,6 +391,28 @@ export const caseSchema = z
           });
         }
       });
+    });
+
+    value.principles.forEach((principle, index) => {
+      if (!principle.parentId) return;
+      if (principle.parentId === principle.id || !principleIds.has(principle.parentId)) {
+        ctx.addIssue({
+          code: 'custom',
+          message: principleIds.has(principle.parentId)
+            ? `Section "${principle.id}" cannot be its own parent`
+            : `Section "${principle.id}" parent "${principle.parentId}" does not resolve`,
+          path: ['principles', index, 'parentId'],
+        });
+        return;
+      }
+      const parent = value.principles.find((item) => item.id === principle.parentId);
+      if (parent?.parentId) {
+        ctx.addIssue({
+          code: 'custom',
+          message: `Section "${principle.id}" is nested more than one level. Only a top-level part and its subsections are allowed`,
+          path: ['principles', index, 'parentId'],
+        });
+      }
     });
 
     const stepIds = new Set<string>();
@@ -418,6 +493,37 @@ export const caseSchema = z
       checkRefs(step.refs, ['treatmentApproach', index, 'refs']);
     });
 
+    const anchors = anchorIds(value);
+    const checkLinks = (paragraphs: string[] | undefined, path: (string | number)[]) => {
+      paragraphs?.forEach((paragraph, paragraphIndex) => {
+        markdownHrefs(paragraph).forEach((href) => {
+          if (href.startsWith('#')) {
+            const anchor = href.slice(1);
+            if (!anchors.has(anchor)) {
+              ctx.addIssue({
+                code: 'custom',
+                message: `Unknown anchor "${anchor}"`,
+                path: [...path, paragraphIndex],
+              });
+            }
+            return;
+          }
+          if (!/^https?:\/\//.test(href)) {
+            ctx.addIssue({
+              code: 'custom',
+              message: `Link "${href}" must be an http(s) URL or a #anchor`,
+              path: [...path, paragraphIndex],
+            });
+          }
+        });
+      });
+    };
+
+    value.principles.forEach((principle, index) => {
+      checkLinks(principle.body, ['principles', index, 'body']);
+      checkLinks(principle.workedExample?.body, ['principles', index, 'workedExample', 'body']);
+    });
+
     if (value.strict) {
       for (const issue of strictContentIssues(value)) {
         ctx.addIssue({
@@ -436,6 +542,7 @@ export type CauseCategory = z.infer<typeof causeCategorySchema>;
 export type CauseExample = z.infer<typeof causeExampleSchema>;
 export type Cause = z.infer<typeof causeSchema>;
 export type DiagramId = z.infer<typeof diagramIdSchema>;
+export type WorkedExample = z.infer<typeof workedExampleSchema>;
 export type Principle = z.infer<typeof principleSchema>;
 export type TreatmentStep = z.infer<typeof treatmentStepSchema>;
 export type Reference = z.infer<typeof referenceSchema>;

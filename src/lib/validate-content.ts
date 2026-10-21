@@ -1,6 +1,12 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
-import { caseSchema, questionKindSchema, strictContentIssues, type CaseDocument } from './schema.ts';
+import {
+  caseSchema,
+  deprecatedConclusionWarnings,
+  questionKindSchema,
+  strictContentIssues,
+  type CaseDocument,
+} from './schema.ts';
 
 export interface ValidatedCaseFile {
   file: string;
@@ -11,12 +17,14 @@ export interface ContentValidationSuccess {
   ok: true;
   directory: string;
   cases: ValidatedCaseFile[];
+  warnings: string[];
 }
 
 export interface ContentValidationFailure {
   ok: false;
   directory: string;
   errors: string[];
+  warnings: string[];
 }
 
 export type ContentValidationResult = ContentValidationSuccess | ContentValidationFailure;
@@ -70,7 +78,12 @@ export function validateContentDirectory(
     entries = readdirSync(root);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    return { ok: false, directory: root, errors: [`Cannot read content directory: ${message}`] };
+    return {
+      ok: false,
+      directory: root,
+      errors: [`Cannot read content directory: ${message}`],
+      warnings: [],
+    };
   }
 
   const jsonFiles = entries.filter((entry) => entry.endsWith('.json')).sort();
@@ -83,6 +96,7 @@ export function validateContentDirectory(
   const errors: string[] = unexpected.map(
     (entry) => `${entry}: only .json case files are allowed in the content directory`,
   );
+  const warnings: string[] = [];
 
   if (jsonFiles.length === 0) {
     errors.push('No case files found. Add at least one .json file.');
@@ -106,6 +120,13 @@ export function validateContentDirectory(
     if (!parsed.success) {
       errors.push(`${file}: ${formatIssues(parsed.error)}`);
       continue;
+    }
+
+    if (options.strict || parsed.data.strict) {
+      for (const warning of deprecatedConclusionWarnings(parsed.data)) {
+        const path = warning.path.map(String).join('.') || '(root)';
+        warnings.push(`${file}: ${path}: ${warning.message}`);
+      }
     }
 
     if (options.strict && !parsed.data.strict) {
@@ -132,20 +153,23 @@ export function validateContentDirectory(
   }
 
   if (errors.length > 0) {
-    return { ok: false, directory: root, errors };
+    return { ok: false, directory: root, errors, warnings };
   }
 
-  return { ok: true, directory: root, cases };
+  return { ok: true, directory: root, cases, warnings };
 }
 
 export function formatValidationReport(result: ContentValidationResult): string {
   const directory = relative(process.cwd(), result.directory) || result.directory;
-  if (!result.ok) {
+    if (!result.ok) {
     const lines = [
       'Content validation: FAIL',
       `Directory: ${directory}`,
       ...result.errors.map((error) => `- ${error}`),
     ];
+    if (result.warnings.length > 0) {
+      lines.push('Warnings:', ...result.warnings.map((warning) => `- ${warning}`));
+    }
     return lines.join('\n');
   }
 
@@ -161,5 +185,8 @@ export function formatValidationReport(result: ContentValidationResult): string 
       return `- ${file} slug=${document.slug} status=${document.contentStatus} principles=${counts.principles} questions=${counts.questions} ${kinds} causes=${counts.causes} examples=${counts.examples} steps=${counts.steps}`;
     }),
   ];
+  if (result.warnings.length > 0) {
+    lines.push('Warnings:', ...result.warnings.map((warning) => `- ${warning}`));
+  }
   return lines.join('\n');
 }
