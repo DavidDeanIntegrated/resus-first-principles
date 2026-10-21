@@ -1194,6 +1194,18 @@ h2 {
   display: none;
 }
 
+@media screen and (min-width: 701px) {
+  .diagram svg.diagram-screen {
+    display: none;
+  }
+
+  .diagram svg.diagram-print {
+    display: block;
+    max-width: 664px;
+    margin-inline: auto;
+  }
+}
+
 .diagram-physiology {
   max-width: none;
 }
