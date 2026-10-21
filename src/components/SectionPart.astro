@@ -46,23 +46,43 @@ function marks(refs: string[] | undefined): ReferenceMark[] {
     ))
   }
   {
-    cards.map((card, index) => (
-      <QuestionCard
-        id={card.question.id}
-        label={`Question ${partNumber}.${index + 1}`}
-        kind={card.question.kind}
-        prompt={card.question.prompt}
-        answer={card.question.answer}
-        reasoning={card.question.reasoning}
-        causalChain={card.question.causalChain}
-        assumption={card.question.assumption}
-        misconception={card.question.misconception}
-        missingData={card.question.missingData}
-        marks={marks(card.question.refs)}
-        buildsOnHref={`#principle-${card.section.id}`}
-        buildsOnNumeral={numerals[card.section.id] ?? numeral}
-        buildsOnTitle={card.section.title}
-      />
-    ))
+    cards.length > 0 && (
+      <details class="part-questions">
+        <summary>
+          <span>
+            Questions for this part <span class="q-count">({cards.length})</span>
+          </span>
+          <svg class="chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+            <path
+              d="M2.25 4.5 L6 8.25 L9.75 4.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </summary>
+        <div class="part-questions-list">
+          {cards.map((card, index) => (
+            <QuestionCard
+              id={card.question.id}
+              label={`Question ${partNumber}.${index + 1}`}
+              kind={card.question.kind}
+              prompt={card.question.prompt}
+              answer={card.question.answer}
+              reasoning={card.question.reasoning}
+              causalChain={card.question.causalChain}
+              assumption={card.question.assumption}
+              misconception={card.question.misconception}
+              missingData={card.question.missingData}
+              marks={marks(card.question.refs)}
+              buildsOnHref={`#principle-${card.section.id}`}
+              buildsOnNumeral={numerals[card.section.id] ?? numeral}
+              buildsOnTitle={card.section.title}
+            />
+          ))}
+        </div>
+      </details>
+    )
   }
 </SectionFrame>

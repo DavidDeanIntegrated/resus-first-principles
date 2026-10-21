@@ -16,25 +16,52 @@ const roots = sectionTree(Astro.props.sections);
 const numerals = sectionNumerals(Astro.props.sections);
 ---
 
-<nav aria-label="Contents">
-  <ol class="toc">
-    {
-      roots.map((root) => (
-        <li>
-          <span class="toc-num">{numerals.get(root.item.id)?.label}</span>
-          <a href={`#principle-${root.item.id}`}>{root.item.title}</a>
-          {root.children.length > 0 && (
-            <ol>
-              {root.children.map((child) => (
-                <li>
-                  <span class="toc-num">{numerals.get(child.item.id)?.label}</span>
-                  <a href={`#principle-${child.item.id}`}>{child.item.title}</a>
-                </li>
-              ))}
-            </ol>
-          )}
-        </li>
-      ))
-    }
-  </ol>
+<nav class="toc-dock" aria-label="Contents">
+  <p class="kicker toc-kicker">Contents</p>
+  <details class="toc-panel">
+    <summary>
+      <span class="toc-summary-text">
+        <span class="kicker">Contents</span>
+        <span class="toc-here" data-toc-here></span>
+      </span>
+      <svg class="chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+        <path
+          d="M2.25 4.5 L6 8.25 L9.75 4.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </summary>
+    <div class="toc-scroll">
+      <ol class="toc">
+        {
+          roots.map((root) => (
+            <li class="toc-part">
+              <a href={`#principle-${root.item.id}`}>
+                <span class="toc-num">{numerals.get(root.item.id)?.label}</span>
+                <span class="toc-title">{root.item.title}</span>
+              </a>
+              {root.children.length > 0 && (
+                <ol>
+                  {root.children.map((child) => (
+                    <li>
+                      <a href={`#principle-${child.item.id}`}>
+                        <span class="toc-num">{numerals.get(child.item.id)?.label}</span>
+                        <span class="toc-title">{child.item.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </details>
 </nav>
+<script>
+  import '../scripts/reading.ts';
+</script>

@@ -81,7 +81,22 @@ describe('annotated primer tokens', () => {
     expect(desktop?.[1]).toContain('--text-h2: 2.5rem');
 
     const queries = [...css.matchAll(/@media\s*([^{]+)\{/g)].map((match) => match[1]?.trim());
-    expect(queries).toEqual(['(min-width: 900px)', '(prefers-reduced-motion: reduce)']);
+    expect(queries).toEqual(['(min-width: 900px)', '(prefers-reduced-motion: reduce)', 'print']);
+  });
+
+  it('prints without navigation, with disclosures open and figures intact', () => {
+    const print = css.match(/@media print\s*\{([\s\S]*)\n\}/)?.[1] ?? '';
+    expect(print).toContain('.toc-dock');
+    expect(print).toContain('.cause-nav');
+    expect(print).toContain('display: none !important');
+    expect(print).toContain('details:not([open]) > :not(summary)');
+    expect(print).toContain('display: block !important');
+    expect(print).toContain('break-inside: avoid');
+    expect(print).toContain("content: ' (' attr(href) ')'");
+    expect(print).toContain('.diagram-node');
+    expect(print).toContain('stroke: #111');
+    expect(print).toContain('.diagram-print');
+    expect(print).toContain('max-height: 7.6in');
   });
 
   it('keeps text and the focus ring at WCAG AA contrast', () => {

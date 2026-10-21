@@ -298,11 +298,15 @@ describe('question reveal and references', () => {
 
     const childAt = html.indexOf('id="principle-compression-mechanics"');
     const questionAt = html.indexOf('id="question-q-sample"');
+    const questionsAt = html.indexOf('class="part-questions"');
     expect(html.indexOf('id="cause-bleed"')).toBeGreaterThan(-1);
     expect(html.indexOf('id="cause-bleed"')).toBeLessThan(childAt);
-    expect(questionAt).toBeGreaterThan(childAt);
+    expect(questionsAt).toBeGreaterThan(childAt);
+    expect(questionAt).toBeGreaterThan(questionsAt);
     expect(html.indexOf('<details>')).toBeGreaterThan(childAt);
     expect(html).not.toContain('<details open');
+    expect(html).toContain('Questions for this part');
+    expect(html).toContain('(1)');
     expect(html).toContain('Question 3.1');
     expect(html).toContain('PLACEHOLDER answer.');
   });
