@@ -2,6 +2,7 @@
 import Prose from './Prose.astro';
 import RefMarks from './RefMarks.astro';
 import type { Cause, CauseCategory } from '../lib/schema.ts';
+import { toRoman } from '../lib/roman.ts';
 import { marksFor, type ReferenceMark } from '../lib/references.ts';
 
 interface Props {
@@ -26,14 +27,13 @@ const categoryLabels: Record<CauseCategory, string> = {
   'oxygen-content': 'Oxygen content',
 };
 
-const fields: Array<{ key: 'failure' | 'rhythm' | 'causalChain' | 'compressions' | 'fix' | 'bedside' | 'limits'; label: string }> = [
+const fieldsBefore: Array<{ key: 'failure' | 'rhythm' | 'causalChain' | 'compressions' | 'fix' | 'bedside'; label: string }> = [
   { key: 'failure', label: 'Failure' },
   { key: 'rhythm', label: 'Rhythm' },
   { key: 'causalChain', label: 'Causal chain' },
   { key: 'compressions', label: 'Compressions' },
   { key: 'fix', label: 'Fix' },
   { key: 'bedside', label: 'Bedside' },
-  { key: 'limits', label: 'Limits' },
 ];
 
 function marks(refs: string[] | undefined): ReferenceMark[] {
@@ -43,75 +43,99 @@ function marks(refs: string[] | undefined): ReferenceMark[] {
 
 <section class="causes" aria-label="Causes">
   <nav class="cause-nav" aria-label="Causes by category">
+    <div class="cause-nav-scroll">
+      {
+        categoryOrder.map((category) => {
+          const group = causes.filter((cause) => cause.category === category);
+          if (group.length === 0) return null;
+          return (
+            <div class="cause-group">
+              <p class="kicker">{categoryLabels[category]}</p>
+              <ul>
+                {group.map((cause) => (
+                  <li>
+                    <a href={`#cause-${cause.id}`}>{cause.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })
+      }
+    </div>
+  </nav>
+  <div class="cause-stream">
     {
-      categoryOrder.map((category) => {
-        const group = causes.filter((cause) => cause.category === category);
-        if (group.length === 0) return null;
-        return (
-          <div class="cause-group">
-            <p class="kicker">{categoryLabels[category]}</p>
-            <ul>
-              {group.map((cause) => (
-                <li>
-                  <a href={`#cause-${cause.id}`}>{cause.name}</a>
+      causes.map((cause) => (
+        <article class="cause" id={`cause-${cause.id}`}>
+          <header class="cause-head">
+            <p class="kicker">{categoryLabels[cause.category]}</p>
+            <h3>
+              {cause.name}
+              <RefMarks marks={marks(cause.refs)} />
+            </h3>
+          </header>
+          {fieldsBefore.map((field) => (
+            <div class="cause-field">
+              <h4 class="field-label">{field.label}</h4>
+              <div class="prose">
+                <Prose text={cause[field.key]} />
+              </div>
+            </div>
+          ))}
+          {cause.mimics ? (
+            <div class="cause-field cause-field-mimics">
+              <h4 class="field-label">Mimics</h4>
+              <div class="prose">
+                <Prose text={cause.mimics} />
+              </div>
+            </div>
+          ) : null}
+          <div class="cause-field">
+            <h4 class="field-label">Limits</h4>
+            <div class="prose">
+              <Prose text={cause.limits} />
+            </div>
+          </div>
+          <div class="cause-examples">
+            <h4 class="examples-title">Examples</h4>
+            <ol>
+              {cause.examples.map((example, exampleIndex) => (
+                <li class="example" id={`example-${example.id}`}>
+                  <p class="example-kicker">
+                    <span class="example-num">{toRoman(exampleIndex + 1)}</span>
+                    <span class="field-label">Example</span>
+                  </p>
+                  <div class="example-vignette">
+                    <p class="field-label">Vignette</p>
+                    <div class="prose">
+                      <Prose text={example.vignette} />
+                    </div>
+                  </div>
+                  <div class="example-reasoning">
+                    <p class="field-label">Reasoning</p>
+                    <div class="prose">
+                      <Prose text={example.reasoning} />
+                    </div>
+                  </div>
+                  {example.causeIds && example.causeIds.length > 0 && (
+                    <div class="example-links">
+                      <p class="field-label">Coexisting</p>
+                      <div class="chips">
+                        {example.causeIds.map((id) => (
+                          <a class="chip" href={`#cause-${id}`}>
+                            <span class="chip-name">{causeNames[id] ?? id}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
-        );
-      })
+        </article>
+      ))
     }
-  </nav>
-  {
-    causes.map((cause) => (
-      <article class="cause" id={`cause-${cause.id}`}>
-        <header class="cause-head">
-          <p class="kicker">{categoryLabels[cause.category]}</p>
-          <h3>
-            {cause.name}
-            <RefMarks marks={marks(cause.refs)} />
-          </h3>
-        </header>
-        {fields.map((field) => (
-          <div class="cause-field">
-            <h4>{field.label}</h4>
-            <div class="prose">
-              <Prose text={cause[field.key]} />
-            </div>
-          </div>
-        ))}
-        {cause.mimics ? (
-          <div class="cause-field">
-            <h4>Mimics</h4>
-            <div class="prose">
-              <Prose text={cause.mimics} />
-            </div>
-          </div>
-        ) : null}
-        <div class="cause-examples">
-          <h4>Examples</h4>
-          <ol>
-            {cause.examples.map((example) => (
-              <li id={`example-${example.id}`}>
-                <div class="prose">
-                  <Prose text={example.vignette} />
-                </div>
-                <div class="prose">
-                  <Prose text={example.reasoning} />
-                </div>
-                {example.causeIds && example.causeIds.length > 0 && (
-                  <p class="cause-also">
-                    Coexisting
-                    {example.causeIds.map((id) => (
-                      <a href={`#cause-${id}`}>{causeNames[id] ?? id}</a>
-                    ))}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ol>
-        </div>
-      </article>
-    ))
-  }
+  </div>
 </section>

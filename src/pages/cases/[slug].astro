@@ -39,7 +39,14 @@ for (const principle of entry.data.principles) {
     <section class="hero">
       <p class="kicker">Case</p>
       <h1>{entry.data.title}</h1>
-      {entry.data.reviewNote && <p class="notice">{entry.data.reviewNote}</p>}
+      {
+        entry.data.reviewNote && (
+          <p class="review-note">
+            <span class="field-label">Review</span>
+            {entry.data.reviewNote}
+          </p>
+        )
+      }
       {
         entry.data.contentStatus === 'placeholder' && (
           <p class="notice" role="status">

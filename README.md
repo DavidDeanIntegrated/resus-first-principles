@@ -16,8 +16,8 @@ Content is written ahead of time and committed as files. The site only renders t
 The topic module page is the annotated primer. It renders the topic module schema through components in `src/components/`. There is no second content model.
 
 - `PrincipleHeader.astro` — roman numeral from principle order, title, and the first sentence of `explanation` as the italic summary. The remainder of that field is the prose under the rule. An array of strings renders as one paragraph each. Anchor id is `principle-{id}`.
-- `QuestionCard.astro` — question label, optional `kind`, and `prompt` as the stem. A line above the control says "Commit to an answer before revealing." The revealed text stays inside a native `<details>` / `<summary>` labelled "Reveal answer" (keyboard accessible, no JavaScript). There is no "Correct" label. Optional `conclusion`, `causalChain`, `assumption`, and `misconception` render under that reveal, in that order, ahead of the reasoning. When `conclusion` is set, `answer` is not rendered again. Optional `missingData` renders inside that reveal, labeled Missing data, so it stays hidden until the learner opens the answer.
-- `CauseList.astro` — when a principle has `causes`, one section after the explanation. A compact jump list at the top groups causes by `category`. Each cause is an anchored sub-heading (`#cause-{id}`) followed by its fields and examples.
+- `QuestionCard.astro` — question label, optional `kind`, and `prompt` as the stem. A line above the control says "Commit to an answer before revealing." The revealed text stays inside a native `<details>` / `<summary>` labelled "Reveal answer" (keyboard accessible, no JavaScript). There is no "Correct" label. Optional `conclusion`, `causalChain`, `assumption`, and `misconception` render under that reveal, in that order, ahead of the reasoning. When `conclusion` is set, `answer` is not rendered again. Optional `missingData` renders inside that reveal, labeled Missing data in the same small caps as the other revealed parts, so it stays hidden until the learner opens the answer.
+- `CauseList.astro` — when a principle has `causes`, one section after the explanation. A jump list groups causes by `category`. On a narrow page it is one sticky row of 44px links, fading into the paper at the right edge where the row continues; from 900px it sticks in the margin beside the causes. Each cause is an anchored sub-heading (`#cause-{id}`) with small-caps field labels, then worked examples. Each example shows the vignette, the reasoning, and one chip per `causeIds` entry. Cause and example anchors use `scroll-margin` so they clear the sticky list.
 - `Explanation.astro` — the "why" inset and a "Builds on" link back to that question's principle.
 - `TreatmentStep.astro` — step number, `title`, `action`, `why`, and one `PrincipleChip.astro` pill per `principleIds` entry. Each pill links to `#principle-{id}`.
 
@@ -33,7 +33,7 @@ Each topic module has:
 
 - `schemaVersion` (`1`), `id`, `slug`, `title`, `summary`, and `contentStatus` (`placeholder` or `published`)
 - optional `strict` (`true` turns on the stricter question rules below for that file)
-- optional `reviewNote` (string), rendered near the top of the case
+- optional `reviewNote` (string), rendered as a review line under the case title
 - optional `references`: `{ id, label, url, note? }`. `url` is an absolute URL. `note` is optional.
 - `principles`: `id`, `title`, `explanation`, optional `diagram` (`pressure-gradient` or `compression-pause`), optional `refs` (reference ids), `questions`, and optional `causes`
 - each question: `id`, `prompt`, `answer`, optional `reasoning`, optional `kind` (`prediction`, `transfer`, `evidence-boundary`, or `insufficient-information`), optional `conclusion`, `causalChain`, `assumption`, `misconception`, optional `missingData`, and optional `refs`
