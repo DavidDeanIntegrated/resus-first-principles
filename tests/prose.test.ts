@@ -14,6 +14,9 @@ describe('splitLead', () => {
     ) as CaseDocument;
 
     for (const principle of document.principles) {
+      if (!principle.explanation) {
+        throw new Error(`principle ${principle.id} has no explanation`);
+      }
       const paragraphs = asParagraphs(principle.explanation);
       const { lead, rest } = splitLead(paragraphs[0] ?? '');
       const rebuilt = [rest ? `${lead} ${rest}` : lead, ...paragraphs.slice(1)].join(' ');

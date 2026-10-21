@@ -1,0 +1,36 @@
+---
+import { sectionTree } from '../lib/sections.ts';
+
+interface SectionLink {
+  id: string;
+  title: string;
+  parentId?: string;
+}
+
+interface Props {
+  sections: readonly SectionLink[];
+}
+
+const roots = sectionTree(Astro.props.sections);
+---
+
+<nav aria-label="Contents">
+  <ol class="toc">
+    {
+      roots.map((root) => (
+        <li>
+          <a href={`#principle-${root.item.id}`}>{root.item.title}</a>
+          {root.children.length > 0 && (
+            <ol>
+              {root.children.map((child) => (
+                <li>
+                  <a href={`#principle-${child.item.id}`}>{child.item.title}</a>
+                </li>
+              ))}
+            </ol>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

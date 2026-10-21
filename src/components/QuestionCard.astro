@@ -13,7 +13,6 @@ interface Props {
   prompt: string;
   answer: ProseText;
   reasoning?: ProseText;
-  conclusion?: ProseText;
   causalChain?: ProseText;
   assumption?: ProseText;
   misconception?: ProseText;
@@ -31,7 +30,6 @@ const {
   prompt,
   answer,
   reasoning,
-  conclusion,
   causalChain,
   assumption,
   misconception,
@@ -50,7 +48,6 @@ const kindLabels: Record<QuestionKind, string> = {
 };
 
 const parts: Array<{ key: string; label: string; text?: ProseText }> = [
-  { key: 'conclusion', label: 'Conclusion', text: conclusion },
   { key: 'causalChain', label: 'Why', text: causalChain },
   { key: 'assumption', label: 'Assumption', text: assumption },
   { key: 'misconception', label: 'Common misconception', text: misconception },
@@ -95,11 +92,9 @@ const parts: Array<{ key: string; label: string; text?: ProseText }> = [
         )
       }
       {
-        !conclusion && (
-          <div class="answer">
-            <Prose text={answer} />
-          </div>
-        )
+        <div class="answer">
+          <Prose text={answer} />
+        </div>
       }
       {
         parts.map(

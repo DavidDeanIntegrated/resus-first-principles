@@ -1,0 +1,24 @@
+---
+interface StepLink {
+  id: string;
+  title: string;
+}
+
+interface Props {
+  steps: readonly StepLink[];
+}
+
+const { steps } = Astro.props;
+---
+
+<nav class="overview" aria-label="Management overview">
+  <ol>
+    {
+      steps.map((step) => (
+        <li>
+          <a href={`#step-${step.id}`}>{step.title}</a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>

@@ -23,11 +23,17 @@ describe('static build output', () => {
     expect(casePage).toContain('Predict: a compressor is pushing to a good depth but leaning on the chest between compressions');
     expect(casePage).toContain('Coronary flow falls, even though each push looks deep');
     expect(casePage).toContain('Incomplete release keeps intrathoracic and right atrial pressure elevated');
-    expect(casePage).not.toContain('<div class="answer">');
+    expect(casePage).toContain('<div class="answer">');
+    expect(casePage.indexOf('<div class="answer">')).toBeGreaterThan(casePage.indexOf('<details>'));
+    expect(casePage).not.toContain('>Conclusion<');
     expect(casePage).toContain('id="reference-aha-2025-bls"');
     expect(casePage).toContain('When a pulse returns, leave 100% oxygen on until SpO2 or PaO2 is reliably measured');
     expect(casePage).toContain('href="#principle-coronary-cerebral-perfusion"');
     expect(casePage).toContain('href="#principle-post-rosc-physiology"');
+    expect(casePage).toContain('aria-label="Contents"');
+    expect(casePage).toContain('aria-label="Management overview"');
+    expect(casePage).toContain('href="#step-start-compressions"');
+    expect(casePage).toContain('href="#step-post-rosc-care"');
     expect(casePage).not.toContain('PLACEHOLDER FIXTURE');
     expect(casePage).not.toContain('api.openai.com');
     expect(casePage).not.toContain('fonts.googleapis.com');

@@ -1,0 +1,11 @@
+---
+import { inlineMarkdownToHtml } from '../lib/markdown.ts';
+
+interface Props {
+  paragraphs: readonly string[];
+}
+
+const { paragraphs } = Astro.props;
+---
+
+{paragraphs.map((paragraph) => <p set:html={inlineMarkdownToHtml(paragraph)} />)}

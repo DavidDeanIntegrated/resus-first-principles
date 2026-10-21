@@ -110,6 +110,13 @@ describe('case schema', () => {
     expect(report).toContain('causes=11');
     expect(report).toContain('examples=25');
     expect(report).toContain('questions=25');
+    const conclusions = (document?.principles ?? [])
+      .flatMap((principle) => principle.questions)
+      .filter((question) => question.conclusion != null);
+    expect(conclusions.length).toBeGreaterThan(0);
+    expect(result.warnings).toHaveLength(conclusions.length);
+    expect(report).toContain('Warnings:');
+    expect(report).toContain('uses deprecated conclusion; answer is canonical');
     expect(document?.treatmentApproach.length).toBeGreaterThanOrEqual(1);
     for (const step of document?.treatmentApproach ?? []) {
       expect(step.principleIds.length).toBeGreaterThanOrEqual(1);
@@ -319,7 +326,7 @@ describe('case schema', () => {
     if (strict.success) return;
     const messages = strict.error.issues.map((issue) => issue.message).join('\n');
     expect(messages).toContain('needs a kind');
-    expect(messages).toContain('needs conclusion');
+    expect(messages).not.toContain('needs conclusion');
     expect(messages).toContain('needs causalChain');
     expect(messages).toContain('needs assumption');
     expect(messages).toContain('needs misconception');
@@ -567,5 +574,215 @@ describe('case schema', () => {
     );
     expect(ready.status).toBe(0);
     expect(ready.stdout).toContain('Content validation: PASS');
+    expect(ready.stdout).toContain('uses deprecated conclusion; answer is canonical');
+  });
+
+  it('fits a two-level chapter without adding those parts to the published case', () => {
+    const partIds = [
+      'orientation',
+      'normal-circulation',
+      'cpr-circulation',
+      'electrical-mechanical',
+      'ventilation',
+      'monitoring',
+      'reversible-causes',
+      'treatment',
+      'after-rosc',
+      'limits',
+    ];
+    const section = (id: string, extra: Record<string, unknown> = {}) => ({
+      id,
+      title: `PLACEHOLDER ${id}`,
+      body: ['PLACEHOLDER paragraph.'],
+      ...extra,
+    });
+    const cause = {
+      id: 'bleed',
+      name: 'PLACEHOLDER bleed',
+      category: 'filling',
+      failure: 'PLACEHOLDER failure.',
+      rhythm: 'PLACEHOLDER rhythm.',
+      causalChain: 'PLACEHOLDER chain.',
+      compressions: 'PLACEHOLDER compressions.',
+      fix: 'PLACEHOLDER fix.',
+      bedside: 'PLACEHOLDER bedside.',
+      limits: 'PLACEHOLDER limits.',
+      examples: [
+        {
+          id: 'bleed-one',
+          vignette: 'PLACEHOLDER vignette.',
+          reasoning: 'PLACEHOLDER example reasoning.',
+        },
+      ],
+    };
+    const chapter = (principles: Record<string, unknown>[]) =>
+      placeholderCase({
+        principles,
+        treatmentApproach: [
+          {
+            id: 'step-placeholder-1',
+            title: 'PLACEHOLDER step',
+            action: 'PLACEHOLDER action.',
+            why: 'PLACEHOLDER why.',
+            principleIds: ['treatment'],
+          },
+        ],
+      });
+
+    const principles = [
+      ...partIds.map((id) =>
+        section(
+          id,
+          id === 'reversible-causes'
+            ? { causes: [cause], body: ['See [bleeding](#cause-bleed).'] }
+            : id === 'limits'
+              ? {
+                  workedExample: {
+                    id: 'limit-case',
+                    title: 'PLACEHOLDER worked example',
+                    body: ['PLACEHOLDER worked example paragraph.'],
+                  },
+                }
+              : {},
+        ),
+      ),
+      section('compression-mechanics', { parentId: 'cpr-circulation' }),
+    ];
+    const parsed = caseSchema.safeParse(chapter(principles));
+    expect(parsed.success).toBe(true);
+    if (!parsed.success) return;
+    expect(parsed.data.principles.map((principle) => principle.id)).toEqual([
+      ...partIds,
+      'compression-mechanics',
+    ]);
+    const subsection = parsed.data.principles.find((principle) => principle.id === 'compression-mechanics');
+    expect(subsection?.questions).toEqual([]);
+
+    const omitted = caseSchema.safeParse(
+      chapter([
+        ...partIds.map((id) => {
+          const item = section(id) as { questions?: unknown };
+          delete item.questions;
+          return item;
+        }),
+      ]),
+    );
+    expect(omitted.success).toBe(true);
+
+    const tooDeep = caseSchema.safeParse(
+      chapter([
+        ...principles,
+        section('deeper-still', { parentId: 'compression-mechanics' }),
+      ]),
+    );
+    expect(tooDeep.success).toBe(false);
+    if (!tooDeep.success) {
+      expect(tooDeep.error.issues.some((issue) => issue.message.includes('nested more than one level'))).toBe(
+        true,
+      );
+    }
+
+    const cycle = caseSchema.safeParse(
+      chapter([
+        section('orientation', { parentId: 'limits' }),
+        section('limits', { parentId: 'orientation' }),
+      ]),
+    );
+    expect(cycle.success).toBe(false);
+
+    const missingParent = caseSchema.safeParse(
+      chapter([section('orientation'), section('orphan', { parentId: 'missing-part' })]),
+    );
+    expect(missingParent.success).toBe(false);
+    if (!missingParent.success) {
+      expect(missingParent.error.issues.some((issue) => issue.message.includes('does not resolve'))).toBe(true);
+    }
+
+    const missingAnchor = caseSchema.safeParse(
+      chapter([section('orientation', { body: ['See [a cause](#cause-missing).'] })]),
+    );
+    expect(missingAnchor.success).toBe(false);
+    if (!missingAnchor.success) {
+      expect(missingAnchor.error.issues.some((issue) => issue.message.includes('Unknown anchor'))).toBe(true);
+    }
+
+    const noNarrative = caseSchema.safeParse(chapter([{ id: 'orientation', title: 'PLACEHOLDER orientation' }]));
+    expect(noNarrative.success).toBe(false);
+
+    const question = (id: string, kind: QuestionKind) => ({
+      id,
+      kind,
+      prompt: 'PLACEHOLDER prompt.',
+      answer: 'PLACEHOLDER answer.',
+      causalChain: 'PLACEHOLDER chain.',
+      assumption: 'PLACEHOLDER assumption.',
+      misconception: 'PLACEHOLDER misconception.',
+    });
+    expect(
+      caseSchema.safeParse(
+        placeholderCase({
+          strict: true,
+          principles: [section('orientation')],
+          treatmentApproach: [
+            {
+              id: 'step-placeholder-1',
+              title: 'PLACEHOLDER step',
+              action: 'PLACEHOLDER action.',
+              why: 'PLACEHOLDER why.',
+              principleIds: ['orientation'],
+            },
+          ],
+        }),
+      ).success,
+    ).toBe(true);
+
+    const childOnly = caseSchema.safeParse(
+      placeholderCase({
+        strict: true,
+        principles: [
+          section('cpr-circulation'),
+          section('compression-mechanics', {
+            parentId: 'cpr-circulation',
+            questions: [question('question-prediction', 'prediction')],
+          }),
+        ],
+        treatmentApproach: [
+          {
+            id: 'step-placeholder-1',
+            title: 'PLACEHOLDER step',
+            action: 'PLACEHOLDER action.',
+            why: 'PLACEHOLDER why.',
+            principleIds: ['cpr-circulation'],
+          },
+        ],
+      }),
+    );
+    expect(childOnly.success).toBe(false);
+    if (!childOnly.success) {
+      expect(childOnly.error.issues.some((issue) => issue.message.includes('transfer question'))).toBe(true);
+    }
+
+    const acrossThePart = caseSchema.safeParse(
+      placeholderCase({
+        strict: true,
+        principles: [
+          section('cpr-circulation', { questions: [question('question-transfer', 'transfer')] }),
+          section('compression-mechanics', {
+            parentId: 'cpr-circulation',
+            questions: [question('question-prediction', 'prediction')],
+          }),
+        ],
+        treatmentApproach: [
+          {
+            id: 'step-placeholder-1',
+            title: 'PLACEHOLDER step',
+            action: 'PLACEHOLDER action.',
+            why: 'PLACEHOLDER why.',
+            principleIds: ['cpr-circulation'],
+          },
+        ],
+      }),
+    );
+    expect(acrossThePart.success).toBe(true);
   });
 });
