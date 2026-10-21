@@ -1096,10 +1096,16 @@ h2 {
   fill: var(--paper-deep);
 }
 
-.diagram-block {
+.diagram-ramp {
   fill: var(--sage-tint);
+}
+
+.diagram-ramp-line {
+  fill: none;
   stroke: var(--sage);
-  stroke-width: 1.5;
+  stroke-width: 2.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
 }
 
 .diagram-baseline,
