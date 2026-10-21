@@ -5,13 +5,13 @@ const descId = 'diagram-pressure-gradient-desc';
 
 <figure class="diagram" data-diagram="pressure-gradient">
   <svg
-    viewBox="0 0 320 590"
+    viewBox="0 0 320 992"
     role="img"
     aria-labelledby={titleId}
     aria-describedby={descId}
   >
-    <title id={titleId}>Coronary perfusion pressure is the gap between aortic diastolic pressure and right atrial pressure, not either pressure alone.</title>
-    <desc id={descId}>Two stacked drawings. Each has an upper line labeled aortic diastolic pressure and a lower line labeled right atrial pressure. The shaded gap between those lines is coronary perfusion pressure. In the open gradient the lines are far apart. In the narrow gradient the aortic line is unchanged and the right atrial line is higher, so the gap is smaller. No pressures are shown as numbers.</desc>
+    <title id={titleId}>Coronary perfusion pressure is the gap between aortic diastolic pressure and right atrial pressure, not either pressure alone. When compressions pause or are ineffective, aortic pressure falls while right atrial pressure rises and the gap narrows.</title>
+    <desc id={descId}>Three stacked drawings. Each has an upper line labeled aortic diastolic pressure and a lower line labeled right atrial pressure. The shaded gap between those lines is coronary perfusion pressure. In the open gradient the lines are far apart. In the narrow gradient the aortic line is unchanged and the right atrial line is higher, so the gap is smaller. In the pause or ineffective drawing, dashed lines mark the earlier pressures: the aortic line has moved down and the right atrial line has moved up, so the gap is narrower. No pressures are shown as numbers.</desc>
 
     <text class="diagram-kicker" x="16" y="28" font-size="14">Open gradient</text>
     <text class="diagram-label" x="16" y="58" font-size="15">Aortic diastolic pressure</text>
@@ -46,13 +46,50 @@ const descId = 'diagram-pressure-gradient-desc';
     <text class="diagram-display" x="16" y="514" font-size="18">Smaller gap</text>
     <text class="diagram-note" x="16" y="544" font-size="15">Perfusion follows the gap,</text>
     <text class="diagram-note" x="16" y="566" font-size="15">not either pressure alone.</text>
+
+    <rect class="diagram-mark" x="16" y="598" width="48" height="2"></rect>
+
+    <text class="diagram-kicker" x="16" y="632" font-size="14">Pause or ineffective</text>
+    <text class="diagram-note" x="16" y="660" font-size="15">Aortic pressure falls.</text>
+    <text class="diagram-note" x="16" y="682" font-size="15">Right atrial pressure rises.</text>
+    <text class="diagram-label" x="16" y="718" font-size="15">Aortic diastolic pressure</text>
+
+    <line class="diagram-prior" x1="16" y1="732" x2="268" y2="732"></line>
+    <line class="diagram-prior" x1="16" y1="726" x2="16" y2="738"></line>
+    <line class="diagram-prior" x1="268" y1="726" x2="268" y2="738"></line>
+    <text class="diagram-note" x="28" y="758" font-size="15">Falls</text>
+    <line class="diagram-fall" x1="250" y1="744" x2="250" y2="760"></line>
+    <polygon class="diagram-fall-head" points="250,772 243,760 257,760"></polygon>
+
+    <rect class="diagram-gap" x="16" y="772" width="252" height="48"></rect>
+    <text class="diagram-label" x="28" y="801" font-size="15">Gap</text>
+    <line class="diagram-aortic" x1="16" y1="772" x2="268" y2="772"></line>
+    <line class="diagram-aortic" x1="16" y1="766" x2="16" y2="778"></line>
+    <line class="diagram-aortic" x1="268" y1="766" x2="268" y2="778"></line>
+    <path class="diagram-bracket" d="M276 772 H292 M284 772 V820 M276 820 H292"></path>
+    <line class="diagram-atrial" x1="16" y1="820" x2="268" y2="820"></line>
+    <line class="diagram-atrial" x1="16" y1="814" x2="16" y2="826"></line>
+    <line class="diagram-atrial" x1="268" y1="814" x2="268" y2="826"></line>
+    <text class="diagram-note" x="28" y="846" font-size="15">Rises</text>
+    <line class="diagram-rise" x1="250" y1="848" x2="250" y2="832"></line>
+    <polygon class="diagram-rise-head" points="250,820 243,832 257,832"></polygon>
+    <line class="diagram-prior" x1="16" y1="860" x2="268" y2="860"></line>
+    <line class="diagram-prior" x1="16" y1="854" x2="16" y2="866"></line>
+    <line class="diagram-prior" x1="268" y1="854" x2="268" y2="866"></line>
+
+    <text class="diagram-label" x="16" y="890" font-size="15">Right atrial pressure</text>
+    <text class="diagram-display" x="16" y="934" font-size="18">Gradient narrows</text>
+    <text class="diagram-note" x="16" y="964" font-size="15">The gap narrows from both sides.</text>
   </svg>
   <figcaption>
     <p class="kicker">Figure</p>
     <p>
       Coronary perfusion pressure is the gap between aortic diastolic pressure and right atrial
-      pressure. The aortic level is the same in both drawings. When right atrial pressure is higher,
-      the gap is smaller, so neither pressure alone sets coronary perfusion.
+      pressure. When right atrial pressure is higher and aortic diastolic pressure is unchanged, the
+      gap is smaller. When compressions pause or are ineffective, aortic diastolic pressure falls
+      while right atrial pressure rises, so the gap narrows. Flow depends on that pressure difference
+      divided by resistance. A narrower difference, or a higher resistance, means less flow. Neither
+      pressure alone sets coronary perfusion.
     </p>
   </figcaption>
 </figure>

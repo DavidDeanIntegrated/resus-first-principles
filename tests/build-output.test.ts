@@ -65,7 +65,12 @@ describe('static build output', () => {
     expect(gradient).toContain('Coronary perfusion pressure is the gap');
     expect(gradient).toContain('Aortic diastolic pressure');
     expect(gradient).toContain('Right atrial pressure');
+    expect(gradient).toContain('Pause or ineffective');
+    expect(gradient).toContain('Aortic pressure falls.');
+    expect(gradient).toContain('Right atrial pressure rises.');
+    expect(gradient).toContain('divided by resistance');
     expect(gradient.toLowerCase()).not.toContain('mm');
+    expect(gradient).not.toMatch(/\d+\s*(mmHg|seconds|second|ms)\b/i);
 
     expect(timeline).toContain('role="img"');
     expect(timeline).toContain('<title');
@@ -73,7 +78,11 @@ describe('static build output', () => {
     expect(timeline).toContain('<figcaption');
     expect(timeline).toContain('Schematic, not measured data');
     expect(timeline).toContain('Each block is one compression.');
+    expect(timeline).toContain('When they pause, it falls.');
+    expect(timeline).not.toContain('quickly');
+    expect(timeline).not.toContain('several');
     expect(timeline.toLowerCase()).not.toContain('mm');
+    expect(timeline).not.toMatch(/\d+\s*(mmHg|seconds|second|ms)\b/i);
 
     expect(section(casePage, 'principle-early-defibrillation')).not.toContain('data-diagram');
   });

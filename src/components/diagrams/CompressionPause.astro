@@ -10,8 +10,8 @@ const descId = 'diagram-compression-pause-desc';
     aria-labelledby={titleId}
     aria-describedby={descId}
   >
-    <title id={titleId}>Schematic, not measured data. Coronary perfusion pressure builds over consecutive compressions, falls quickly during a pause, and takes several compressions to rebuild.</title>
-    <desc id={descId}>A timeline of blocks, not a measured curve and not a numbered scale. Each block is one compression. Blocks step upward while compressions continue. At the pause, an arrow shows perfusion pressure falling quickly to the baseline, and the gap stays empty until compressions start again. The next blocks then step upward, so the pressure takes several compressions to rebuild. No axis values are shown.</desc>
+    <title id={titleId}>Schematic, not measured data. When compressions continue, coronary perfusion pressure builds. When they pause, it falls. When compressions resume, it builds again.</title>
+    <desc id={descId}>A timeline of blocks, not a measured curve and not a numbered scale. Each block is one compression. Blocks step upward while compressions continue. At the pause, an arrow shows perfusion pressure falling toward the baseline, and the gap stays empty until compressions start again. The next blocks then step upward, so the pressure builds again once compressions resume. No axis values are shown.</desc>
 
     <rect class="diagram-banner" x="0" y="0" width="320" height="48"></rect>
     <rect class="diagram-mark" x="0" y="0" width="4" height="48"></rect>
@@ -40,7 +40,7 @@ const descId = 'diagram-compression-pause-desc';
 
     <text class="diagram-label" x="59" y="324" font-size="15" text-anchor="middle">Builds</text>
     <text class="diagram-label" x="160" y="324" font-size="15" text-anchor="middle">Pause</text>
-    <text class="diagram-label" x="160" y="346" font-size="15" text-anchor="middle">falls quickly</text>
+    <text class="diagram-label" x="160" y="346" font-size="15" text-anchor="middle">falls</text>
     <text class="diagram-label" x="261" y="324" font-size="15" text-anchor="middle">Rebuilds</text>
 
     <text class="diagram-label" x="16" y="390" font-size="15">Time</text>
@@ -50,9 +50,9 @@ const descId = 'diagram-compression-pause-desc';
   <figcaption>
     <p class="kicker">Figure</p>
     <p>
-      Schematic, not measured data. Coronary perfusion pressure builds over consecutive compressions,
-      falls quickly during a pause, and takes several compressions to rebuild. There is no scale and
-      no measured curve.
+      Schematic, not measured data. When compressions continue, coronary perfusion pressure builds.
+      When they pause, it falls. When compressions resume, it builds again. There is no scale and no
+      measured curve.
     </p>
   </figcaption>
 </figure>
