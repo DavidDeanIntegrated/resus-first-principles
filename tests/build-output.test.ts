@@ -71,7 +71,7 @@ describe('static build output', () => {
     expect(gradient).toContain('Gap collapses');
     expect(gradient).toContain('Compressions continue.');
     expect(gradient).toContain('or both.');
-    expect(gradient).toContain('without collapsing it');
+    expect(gradient).toContain('how narrow depends on how ineffective they are');
     expect(gradient).not.toContain('Pause or ineffective');
     expect(gradient).toContain('divided by resistance');
     expect(gradient.toLowerCase()).not.toContain('mm');
