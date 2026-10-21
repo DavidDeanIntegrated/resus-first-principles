@@ -138,6 +138,9 @@ describe('question reveal and references', () => {
     });
 
     expect(html).toContain('class="cause-nav"');
+    expect(html).toContain('class="field-label"');
+    expect(html).toContain('class="chip"');
+    expect(html).toContain('class="example"');
     expect(html.indexOf('>Filling<')).toBeLessThan(html.indexOf('>Obstruction<'));
     expect(html.indexOf('href="#cause-cause-fill"')).toBeLessThan(html.indexOf('href="#cause-cause-block"'));
     expect(html).toContain('id="cause-cause-block"');
