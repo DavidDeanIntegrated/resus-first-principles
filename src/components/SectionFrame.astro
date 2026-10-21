@@ -3,7 +3,8 @@ import CauseList from './CauseList.astro';
 import MarkdownParagraphs from './MarkdownParagraphs.astro';
 import PrincipleDiagram from './PrincipleDiagram.astro';
 import PrincipleHeader from './PrincipleHeader.astro';
-import { figuresForPrinciple } from '../lib/figure-placement.ts';
+import { figuresForPrinciple, groupParagraphs, inlineFiguresAfter } from '../lib/figure-placement.ts';
+import { physiologyAnchorErrors } from '../lib/physiology-figures.ts';
 import { stripInlineMarkdown } from '../lib/markdown.ts';
 import { asParagraphs, splitLead } from '../lib/prose.ts';
 import type { ReferenceMark } from '../lib/references.ts';
@@ -21,19 +22,32 @@ const { principle, numeral, marks, causeNames, referenceNumbers } = Astro.props;
 const explanation = principle.explanation ? asParagraphs(principle.explanation) : [];
 const narrative = principle.body ?? [];
 let lead = '';
-let explanationRest: string[] = [];
-let markdownParagraphs: string[] = [];
+let explanationLeadRest = '';
+let markdownLeadRest = '';
 
 if (explanation.length > 0) {
   const split = splitLead(explanation[0] ?? '');
   lead = split.lead;
-  explanationRest = [split.rest, ...explanation.slice(1)].filter((paragraph) => paragraph.length > 0);
-  markdownParagraphs = [...narrative];
+  explanationLeadRest = split.rest;
 } else if (narrative.length > 0) {
   const split = splitLead(narrative[0] ?? '');
   lead = stripInlineMarkdown(split.lead);
-  markdownParagraphs = [split.rest, ...narrative.slice(1)].filter((paragraph) => paragraph.length > 0);
+  markdownLeadRest = split.rest;
 }
+
+const anchorErrors = physiologyAnchorErrors(principle.id, [...explanation, ...narrative]);
+if (anchorErrors.length > 0) throw new Error(anchorErrors.join('; '));
+
+const explanationGroups = groupParagraphs(
+  explanation,
+  (paragraph, index) => (index === 0 ? explanationLeadRest : paragraph),
+  (paragraph) => inlineFiguresAfter(principle.id, paragraph),
+);
+const markdownGroups = groupParagraphs(
+  narrative,
+  (paragraph, index) => (explanation.length > 0 ? paragraph : index === 0 ? markdownLeadRest : paragraph),
+  (paragraph) => inlineFiguresAfter(principle.id, paragraph),
+);
 ---
 
 <PrincipleHeader
@@ -44,20 +58,34 @@ if (explanation.length > 0) {
   marks={marks}
 >
   {
-    explanationRest.length > 0 && (
-      <div class="prose">
-        {explanationRest.map((paragraph) => (
-          <p>{paragraph}</p>
+    explanationGroups.map((group) => (
+      <>
+        {group.paragraphs.length > 0 && (
+          <div class="prose">
+            {group.paragraphs.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        )}
+        {group.figures.map((diagram) => (
+          <PrincipleDiagram diagram={diagram} causeNames={causeNames} />
         ))}
-      </div>
-    )
+      </>
+    ))
   }
   {
-    markdownParagraphs.length > 0 && (
-      <div class="prose">
-        <MarkdownParagraphs paragraphs={markdownParagraphs} />
-      </div>
-    )
+    markdownGroups.map((group) => (
+      <>
+        {group.paragraphs.length > 0 && (
+          <div class="prose">
+            <MarkdownParagraphs paragraphs={group.paragraphs} />
+          </div>
+        )}
+        {group.figures.map((diagram) => (
+          <PrincipleDiagram diagram={diagram} causeNames={causeNames} />
+        ))}
+      </>
+    ))
   }
   {
     principle.workedExample && (

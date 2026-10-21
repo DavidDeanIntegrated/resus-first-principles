@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { causeMechanismGroups, overlapCaption } from '../src/lib/cause-mechanisms.ts';
-import { etco2Caption, oxygenDeliveryCaption } from '../src/lib/figure-copy.ts';
+import { physiologyFigures } from '../src/lib/physiology-figures.ts';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
@@ -104,53 +104,115 @@ describe('static build output', () => {
     expect(section(casePage, 'principle-early-defibrillation')).not.toContain('data-diagram');
   });
 
-  it('renders the oxygen, end-tidal CO2, and reversible-cause figures beside their principles', () => {
+  it('renders the six physiology figures once, in place of the simpler oxygen and capnography drawings', () => {
+    const casePage = readDist('cases/adult-cardiac-arrest/index.html');
+    expect(casePage).not.toContain('data-diagram="oxygen-delivery"');
+    expect(casePage).not.toContain('data-diagram="etco2-determinants"');
+    expect(casePage).not.toContain('Oxygen delivery is shown as flow multiplied by arterial oxygen content.');
+    expect(casePage).not.toContain('End-tidal CO2 is shown as a reading that reflects CO2 production');
+
+    const partTwo = section(casePage, 'principle-normal-circulation');
+    expect(partTwo.indexOf('During CPR the first factor is the limiting one.')).toBeLessThan(
+      partTwo.indexOf('data-diagram="01-oxygen-delivery"'),
+    );
+    expect(partTwo.indexOf('data-diagram="01-oxygen-delivery"')).toBeLessThan(
+      partTwo.indexOf('Held constant in these predictions'),
+    );
+
+    const afterShock = section(casePage, 'principle-after-shock');
+    expect(afterShock.indexOf('Two mechanisms look the same on a single rhythm check.')).toBeLessThan(
+      afterShock.indexOf('data-diagram="02-after-the-shock"'),
+    );
+    expect(afterShock.indexOf('data-diagram="02-after-the-shock"')).toBeLessThan(
+      afterShock.indexOf('id="question-resume-after-shock"'),
+    );
+
+    const ventilation = section(casePage, 'principle-oxygenation-without-hyperventilation');
+    expect(ventilation.indexOf('Every positive-pressure breath is also a circulatory event.')).toBeLessThan(
+      ventilation.indexOf('data-diagram="03-two-pressure-gradients"'),
+    );
+    expect(ventilation.indexOf('data-diagram="03-two-pressure-gradients"')).toBeLessThan(
+      ventilation.indexOf('The airway state determines the rhythm of breathing.'),
+    );
+    expect(ventilation).not.toContain('01-oxygen-delivery');
+    expect(ventilation).not.toContain('05-reading-capnography');
+
+    const trapping = section(casePage, 'principle-peri-intubation');
+    expect(trapping.indexOf('Gas trapping adds a fourth mechanism.')).toBeLessThan(
+      trapping.indexOf('data-diagram="04-gas-trapping"'),
+    );
+    expect(trapping.indexOf('data-diagram="04-gas-trapping"')).toBeLessThan(
+      trapping.indexOf('What remains uncertain'),
+    );
+
+    const monitoring = section(casePage, 'principle-monitoring');
+    expect(monitoring.indexOf('Because the number has so many inputs')).toBeLessThan(
+      monitoring.indexOf('data-diagram="05-reading-capnography"'),
+    );
+    expect(monitoring.indexOf('data-diagram="05-reading-capnography"')).toBeLessThan(
+      monitoring.indexOf('class="part-questions"'),
+    );
+
+    const afterRosc = section(casePage, 'principle-post-rosc-physiology');
+    expect(afterRosc.indexOf('The limit of the model')).toBeLessThan(
+      afterRosc.indexOf('data-diagram="06-after-rosc"'),
+    );
+    expect(casePage.indexOf('data-diagram="06-after-rosc"')).toBeLessThan(
+      casePage.indexOf('id="principle-rosc-hemodynamics"'),
+    );
+
+    expect(section(casePage, 'principle-coronary-cerebral-perfusion')).toContain('data-diagram="pressure-gradient"');
+    expect(section(casePage, 'principle-minimize-interruptions')).toContain('data-diagram="compression-pause"');
+    expect(section(casePage, 'principle-coronary-cerebral-perfusion')).not.toContain('oxygen-delivery');
+    expect(section(casePage, 'principle-early-defibrillation')).not.toContain('etco2-determinants');
+
+    for (const spec of physiologyFigures) {
+      const needle = `data-diagram="${spec.id}"`;
+      const at = casePage.indexOf(needle);
+      expect(at, spec.id).toBeGreaterThan(-1);
+      expect(casePage.indexOf(needle, at + needle.length), spec.id).toBe(-1);
+      const block = figure(casePage, spec.id);
+      expect(block).toContain('role="img"');
+      expect(block).toContain(`aria-label="${spec.alt}"`);
+      expect(block).toContain(`aria-label="${spec.scrollLabel}"`);
+      expect(block).toContain('class="diagram-scroll"');
+      expect(block).toContain('role="region"');
+      expect(block).toContain('tabindex="0"');
+      expect(block).toContain(spec.caption);
+      expect(block).toContain('class="field-label"');
+      expect(block).toContain('>Sources<');
+      for (const url of spec.sources) {
+        expect(block).toContain(`href="${url}"`);
+        expect(block).toContain(`>${url}<`);
+      }
+      expect(block).toContain('viewBox="');
+      const root = block.match(/<svg\b[^>]*>/)?.[0] ?? '';
+      expect(root, spec.id).not.toMatch(/\swidth="/);
+      expect(root, spec.id).not.toMatch(/\sheight="/);
+      expect(block).not.toContain('DejaVu');
+      expect(block).toContain('Fraunces');
+      expect(block).toContain('Literata');
+    }
+
+    const oxygen = figure(casePage, '01-oxygen-delivery');
+    expect(oxygen).toContain('>1020<');
+    expect(oxygen).toContain('>306<');
+    expect(oxygen).toContain('>324<');
+  });
+
+  it('renders the reversible-cause figure beside its principle', () => {
     const casePage = readDist('cases/adult-cardiac-arrest/index.html');
     const source = readFileSync(join(repoRoot, 'src/content/cases/adult-cardiac-arrest.json'), 'utf8');
     const names = causeNames(source);
-
-    const ventilation = section(casePage, 'principle-oxygenation-without-hyperventilation');
     const causes = section(casePage, 'principle-reversible-causes');
-    const oxygen = figure(ventilation, 'oxygen-delivery');
-    const etco2 = figure(ventilation, 'etco2-determinants');
     const overlap = figure(causes, 'reversible-cause-overlap');
 
-    expect(ventilation.indexOf('data-diagram="oxygen-delivery"')).toBeLessThan(
-      ventilation.indexOf('data-diagram="etco2-determinants"'),
-    );
     const reversibleAt = casePage.indexOf('id="principle-reversible-causes"');
     const overlapAt = casePage.indexOf('data-diagram="reversible-cause-overlap"', reversibleAt);
     const causeListAt = casePage.indexOf('class="causes"', reversibleAt);
     expect(overlapAt).toBeGreaterThan(reversibleAt);
     expect(overlapAt).toBeLessThan(causeListAt);
     expect(casePage.indexOf('id="cause-hypovolemia"', reversibleAt)).toBeGreaterThan(overlapAt);
-    expect(section(casePage, 'principle-coronary-cerebral-perfusion')).not.toContain('oxygen-delivery');
-    expect(section(casePage, 'principle-early-defibrillation')).not.toContain('etco2-determinants');
-
-    expect(oxygen).toContain('role="img"');
-    expect(oxygen).toContain('id="diagram-oxygen-delivery-title"');
-    expect(oxygen).toContain('id="diagram-oxygen-delivery-desc"');
-    expect(oxygen).toContain(oxygenDeliveryCaption);
-    expect(visibleText(oxygen)).toContain('Flow');
-    expect(visibleText(oxygen)).toContain('multiplied by');
-    expect(visibleText(oxygen)).toContain('Arterial oxygen content');
-    expect(visibleText(oxygen)).toContain('Hemoglobin');
-    expect(visibleText(oxygen)).toContain('Saturation');
-    expect(visibleText(oxygen)).toContain('Dissolved oxygen');
-    expect(visibleText(oxygen)).not.toMatch(/\d/);
-
-    expect(etco2).toContain('role="img"');
-    expect(etco2).toContain('id="diagram-etco2-determinants-title"');
-    expect(etco2).toContain('id="diagram-etco2-determinants-desc"');
-    expect(etco2).toContain(etco2Caption);
-    const etco2Words = visibleText(etco2);
-    expect(etco2Words).toContain('CO2 production');
-    expect(etco2Words).toContain('Pulmonary blood flow');
-    expect(etco2Words).toContain('Ventilation');
-    expect(etco2Words).toContain('Drugs such as epinephrine');
-    expect(etco2Words).toContain('for reasons other than flow.');
-    expect(etco2Words.replaceAll('CO2', '')).not.toMatch(/\d/);
-    expect(etco2Words.toLowerCase()).not.toMatch(/rise|fall|increas|decreas|higher|lower|mmhg|%/);
 
     expect(overlap).toContain('role="group"');
     expect(overlap).toContain('id="diagram-reversible-cause-overlap-title"');
