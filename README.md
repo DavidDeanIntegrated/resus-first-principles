@@ -16,7 +16,8 @@ Content is written ahead of time and committed as files. The site only renders t
 The topic module page is the annotated primer. It renders the topic module schema through components in `src/components/`. There is no second content model.
 
 - `PrincipleHeader.astro` — roman numeral from principle order, title, and the first sentence of `explanation` as the italic summary. The remainder of that field is the prose under the rule. An array of strings renders as one paragraph each. Anchor id is `principle-{id}`.
-- `QuestionCard.astro` — question label, optional `kind`, and `prompt` as the stem. A line above the control says "Commit to an answer before revealing." The revealed text stays inside a native `<details>` / `<summary>` labelled "Reveal answer" (keyboard accessible, no JavaScript). There is no "Correct" label. Optional `conclusion`, `causalChain`, `assumption`, and `misconception` render under that reveal, in that order, ahead of the reasoning. When `conclusion` is set, `answer` is not rendered again.
+- `QuestionCard.astro` — question label, optional `kind`, and `prompt` as the stem. A line above the control says "Commit to an answer before revealing." The revealed text stays inside a native `<details>` / `<summary>` labelled "Reveal answer" (keyboard accessible, no JavaScript). There is no "Correct" label. Optional `conclusion`, `causalChain`, `assumption`, and `misconception` render under that reveal, in that order, ahead of the reasoning. When `conclusion` is set, `answer` is not rendered again. Optional `missingData` renders with the stem, before the reveal.
+- `CauseList.astro` — when a principle has `causes`, one section after the explanation. A compact jump list at the top groups causes by `category`. Each cause is an anchored sub-heading (`#cause-{id}`) followed by its fields and examples.
 - `Explanation.astro` — the "why" inset and a "Builds on" link back to that question's principle.
 - `TreatmentStep.astro` — step number, `title`, `action`, `why`, and one `PrincipleChip.astro` pill per `principleIds` entry. Each pill links to `#principle-{id}`.
 
@@ -32,14 +33,17 @@ Each topic module has:
 
 - `schemaVersion` (`1`), `id`, `slug`, `title`, `summary`, and `contentStatus` (`placeholder` or `published`)
 - optional `strict` (`true` turns on the stricter question rules below for that file)
+- optional `reviewNote` (string), rendered near the top of the case
 - optional `references`: `{ id, label, url, note? }`. `url` is an absolute URL. `note` is optional.
-- `principles`: `id`, `title`, `explanation`, optional `refs` (reference ids), and `questions`
-- each question: `prompt`, `answer`, `reasoning`, optional `kind` (`prediction`, `transfer`, or `evidence-boundary`), optional `conclusion`, `causalChain`, `assumption`, `misconception`, and optional `refs`
-- `treatmentApproach`: ordered steps with `action`, `why`, `principleIds` pointing at principle ids, and optional `refs`
+- `principles`: `id`, `title`, `explanation`, optional `diagram` (`pressure-gradient` or `compression-pause`), optional `refs` (reference ids), `questions`, and optional `causes`
+- each question: `id`, `prompt`, `answer`, optional `reasoning`, optional `kind` (`prediction`, `transfer`, `evidence-boundary`, or `insufficient-information`), optional `conclusion`, `causalChain`, `assumption`, `misconception`, optional `missingData`, and optional `refs`
+- each cause: `id` (anchor `#cause-{id}`), `name`, `category` (`filling`, `obstruction`, `contractility-electrical`, or `oxygen-content`), `failure`, `rhythm`, `causalChain`, `compressions`, `fix`, `bedside`, optional `mimics`, `limits`, `examples`, and optional `refs`
+- each example: `id`, `vignette`, `reasoning`, and optional `causeIds` (ids of coexisting causes)
+- `treatmentApproach`: ordered steps with `id`, `title`, `action`, `why`, `principleIds` pointing at principle ids, and optional `refs`
 
-`explanation`, `answer`, `reasoning`, `conclusion`, `causalChain`, `assumption`, and `misconception` are either one string or an array of strings. Each array entry is one paragraph. A string stays a single paragraph. The first sentence of a principle `explanation` is still the italic summary; further sentences and later array entries are the prose under the rule.
+`explanation`, `answer`, `reasoning`, `conclusion`, `causalChain`, `assumption`, `misconception`, `missingData`, and every cause text field (`failure`, `rhythm`, `causalChain`, `compressions`, `fix`, `bedside`, `mimics`, `limits`, plus example `vignette` and `reasoning`) are either one string or an array of strings. Each array entry is one paragraph. A string stays a single paragraph. The first sentence of a principle `explanation` is still the italic summary; further sentences and later array entries are the prose under the rule.
 
-`refs` on a principle, question, or step must name ids from that topic module's `references`. The page renders them as superscript links to a References list at the bottom. The list items link out to `url`.
+`refs` on a principle, question, cause, or step must name ids from that topic module's `references`. The page renders them as superscript links to a References list at the bottom. The list items link out to `url`.
 
 A placeholder topic module must include the word `PLACEHOLDER` in the title or summary. Published topic modules set `contentStatus` to `published`. The adult cardiac arrest file is published study content.
 
@@ -47,7 +51,7 @@ A placeholder topic module must include the word `PLACEHOLDER` in the title or s
 
 ### Strict question shape
 
-`kind` and the four answer parts are optional on the base schema. The strict rules fail a topic module when any question lacks a `kind` or any of `conclusion`, `causalChain`, `assumption`, and `misconception`, or when any principle lacks at least one `prediction` question and one `transfer` question. An `evidence-boundary` question does not count as either. The adult cardiac arrest topic module sets `"strict": true`.
+`kind` and the four answer parts are optional on the base schema. The strict rules fail a topic module when any question lacks a `kind` or any of `conclusion`, `causalChain`, `assumption`, and `misconception`, or when any principle lacks at least one `prediction` question and one `transfer` question. `evidence-boundary` and `insufficient-information` count as neither. An `insufficient-information` question also needs `missingData`. Each cause needs at least two examples, every `causeIds` entry must name a cause in the topic module, and every `refs` entry must name a reference. The adult cardiac arrest topic module sets `"strict": true`.
 
 CI runs both checks:
 

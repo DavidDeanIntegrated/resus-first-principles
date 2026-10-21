@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import CauseList from '../../components/CauseList.astro';
 import PrincipleDiagram from '../../components/PrincipleDiagram.astro';
 import PrincipleHeader from '../../components/PrincipleHeader.astro';
 import QuestionCard from '../../components/QuestionCard.astro';
@@ -27,6 +28,10 @@ const principleMeta = new Map(
   ]),
 );
 const description = entry.data.summary;
+const causeNames: Record<string, string> = {};
+for (const principle of entry.data.principles) {
+  for (const cause of principle.causes ?? []) causeNames[cause.id] = cause.name;
+}
 ---
 
 <Base title={entry.data.title} description={description}>
@@ -34,6 +39,7 @@ const description = entry.data.summary;
     <section class="hero">
       <p class="kicker">Case</p>
       <h1>{entry.data.title}</h1>
+      {entry.data.reviewNote && <p class="notice">{entry.data.reviewNote}</p>}
       {
         entry.data.contentStatus === 'placeholder' && (
           <p class="notice" role="status">
@@ -80,6 +86,9 @@ const description = entry.data.summary;
             </div>
           )}
           {principle.diagram && <PrincipleDiagram diagram={principle.diagram} />}
+          {principle.causes && principle.causes.length > 0 && (
+            <CauseList causes={principle.causes} causeNames={causeNames} referenceNumbers={numbers} />
+          )}
           {principle.questions.map((question, questionIndex) => {
             const meta = principleMeta.get(principle.id);
             return (
@@ -94,6 +103,7 @@ const description = entry.data.summary;
                 causalChain={question.causalChain}
                 assumption={question.assumption}
                 misconception={question.misconception}
+                missingData={question.missingData}
                 marks={marksFor(question.refs, numbers)}
                 buildsOnHref={meta?.href ?? `#principle-${principle.id}`}
                 buildsOnNumeral={meta?.numeral ?? toRoman(principleIndex + 1)}

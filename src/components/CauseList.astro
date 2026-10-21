@@ -1,0 +1,117 @@
+---
+import Prose from './Prose.astro';
+import RefMarks from './RefMarks.astro';
+import type { Cause, CauseCategory } from '../lib/schema.ts';
+import { marksFor, type ReferenceMark } from '../lib/references.ts';
+
+interface Props {
+  causes: Cause[];
+  causeNames: Readonly<Record<string, string>>;
+  referenceNumbers: ReadonlyMap<string, number>;
+}
+
+const { causes, causeNames, referenceNumbers } = Astro.props;
+
+const categoryOrder: CauseCategory[] = [
+  'filling',
+  'obstruction',
+  'contractility-electrical',
+  'oxygen-content',
+];
+
+const categoryLabels: Record<CauseCategory, string> = {
+  filling: 'Filling',
+  obstruction: 'Obstruction',
+  'contractility-electrical': 'Contractility and electrical',
+  'oxygen-content': 'Oxygen content',
+};
+
+const fields: Array<{ key: 'failure' | 'rhythm' | 'causalChain' | 'compressions' | 'fix' | 'bedside' | 'limits'; label: string }> = [
+  { key: 'failure', label: 'Failure' },
+  { key: 'rhythm', label: 'Rhythm' },
+  { key: 'causalChain', label: 'Causal chain' },
+  { key: 'compressions', label: 'Compressions' },
+  { key: 'fix', label: 'Fix' },
+  { key: 'bedside', label: 'Bedside' },
+  { key: 'limits', label: 'Limits' },
+];
+
+function marks(refs: string[] | undefined): ReferenceMark[] {
+  return marksFor(refs, referenceNumbers);
+}
+---
+
+<section class="causes" aria-label="Causes">
+  <nav class="cause-nav" aria-label="Causes by category">
+    {
+      categoryOrder.map((category) => {
+        const group = causes.filter((cause) => cause.category === category);
+        if (group.length === 0) return null;
+        return (
+          <div class="cause-group">
+            <p class="kicker">{categoryLabels[category]}</p>
+            <ul>
+              {group.map((cause) => (
+                <li>
+                  <a href={`#cause-${cause.id}`}>{cause.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })
+    }
+  </nav>
+  {
+    causes.map((cause) => (
+      <article class="cause" id={`cause-${cause.id}`}>
+        <header class="cause-head">
+          <p class="kicker">{categoryLabels[cause.category]}</p>
+          <h3>
+            {cause.name}
+            <RefMarks marks={marks(cause.refs)} />
+          </h3>
+        </header>
+        {fields.map((field) => (
+          <div class="cause-field">
+            <h4>{field.label}</h4>
+            <div class="prose">
+              <Prose text={cause[field.key]} />
+            </div>
+          </div>
+        ))}
+        {cause.mimics ? (
+          <div class="cause-field">
+            <h4>Mimics</h4>
+            <div class="prose">
+              <Prose text={cause.mimics} />
+            </div>
+          </div>
+        ) : null}
+        <div class="cause-examples">
+          <h4>Examples</h4>
+          <ol>
+            {cause.examples.map((example) => (
+              <li id={`example-${example.id}`}>
+                <div class="prose">
+                  <Prose text={example.vignette} />
+                </div>
+                <div class="prose">
+                  <Prose text={example.reasoning} />
+                </div>
+                {example.causeIds && example.causeIds.length > 0 && (
+                  <p class="cause-also">
+                    Coexisting
+                    {example.causeIds.map((id) => (
+                      <a href={`#cause-${id}`}>{causeNames[id] ?? id}</a>
+                    ))}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </article>
+    ))
+  }
+</section>

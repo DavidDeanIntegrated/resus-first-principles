@@ -17,6 +17,7 @@ interface Props {
   causalChain?: ProseText;
   assumption?: ProseText;
   misconception?: ProseText;
+  missingData?: ProseText;
   marks?: readonly ReferenceMark[];
   buildsOnHref: string;
   buildsOnNumeral: string;
@@ -34,6 +35,7 @@ const {
   causalChain,
   assumption,
   misconception,
+  missingData,
   marks,
   buildsOnHref,
   buildsOnNumeral,
@@ -44,6 +46,7 @@ const kindLabels: Record<QuestionKind, string> = {
   prediction: 'Prediction',
   transfer: 'Transfer',
   'evidence-boundary': 'Evidence boundary',
+  'insufficient-information': 'Insufficient information',
 };
 
 const parts: Array<{ key: string; label: string; text?: ProseText }> = [
@@ -64,6 +67,16 @@ const parts: Array<{ key: string; label: string; text?: ProseText }> = [
       {prompt}
       <RefMarks marks={marks} />
     </p>
+    {
+      missingData && (
+        <div class="missing">
+          <p class="kicker">Missing data</p>
+          <div class="prose">
+            <Prose text={missingData} />
+          </div>
+        </div>
+      )
+    }
   </div>
   <div class="reveal-row">
     <p class="commit">Commit to an answer before revealing.</p>
