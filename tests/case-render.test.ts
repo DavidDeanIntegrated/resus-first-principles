@@ -24,7 +24,6 @@ describe('question reveal and references', () => {
         causalChain: ['Cause.', 'Effect.'],
         assumption: 'The assumption.',
         misconception: 'The misconception.',
-        missingData: 'The reading is missing.',
         marks: [{ id: 'source-one', n: 2 }],
         buildsOnHref: '#principle-sample',
         buildsOnNumeral: 'I',
@@ -52,10 +51,38 @@ describe('question reveal and references', () => {
     );
     expect(order.every((index) => index > html.indexOf('<details>'))).toBe(true);
     expect(order).toEqual([...order].sort((a, b) => a - b));
-    expect(html.indexOf('The reading is missing.')).toBeLessThan(html.indexOf('<details>'));
-    expect(html).toContain('Missing data');
     expect(html).toContain('href="#reference-source-one"');
     expect(html).toContain('>2<');
+  });
+
+  it('keeps missing data hidden until the answer is revealed', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(QuestionCard, {
+      props: {
+        id: 'sample-gap',
+        label: 'Question 1.2',
+        kind: 'insufficient-information',
+        prompt: 'Can you name the cause?',
+        answer: 'Not from what is on the page.',
+        missingData: 'The reading is missing.',
+        conclusion: 'Not from what is on the page.',
+        causalChain: 'The chain needs that reading.',
+        assumption: 'Nothing else was measured.',
+        misconception: 'Guessing fills the gap.',
+        buildsOnHref: '#principle-sample',
+        buildsOnNumeral: 'I',
+        buildsOnTitle: 'Sample principle',
+      },
+    });
+
+    const detailsAt = html.indexOf('<details>');
+    const beforeReveal = html.slice(0, detailsAt);
+    expect(detailsAt).toBeGreaterThan(-1);
+    expect(html).not.toContain('<details open');
+    expect(beforeReveal).not.toContain('The reading is missing.');
+    expect(beforeReveal).not.toContain('Missing data');
+    expect(html.indexOf('>Missing data<')).toBeGreaterThan(detailsAt);
+    expect(html.indexOf('The reading is missing.')).toBeGreaterThan(detailsAt);
   });
 
   it('renders causes in one section with a category jump list', async () => {

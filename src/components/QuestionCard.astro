@@ -67,16 +67,6 @@ const parts: Array<{ key: string; label: string; text?: ProseText }> = [
       {prompt}
       <RefMarks marks={marks} />
     </p>
-    {
-      missingData && (
-        <div class="missing">
-          <p class="kicker">Missing data</p>
-          <div class="prose">
-            <Prose text={missingData} />
-          </div>
-        </div>
-      )
-    }
   </div>
   <div class="reveal-row">
     <p class="commit">Commit to an answer before revealing.</p>
@@ -96,6 +86,14 @@ const parts: Array<{ key: string; label: string; text?: ProseText }> = [
             stroke-linejoin="round"></path>
         </svg>
       </summary>
+      {
+        missingData && (
+          <div class="part">
+            <h3>Missing data</h3>
+            <Prose text={missingData} />
+          </div>
+        )
+      }
       {
         !conclusion && (
           <div class="answer">

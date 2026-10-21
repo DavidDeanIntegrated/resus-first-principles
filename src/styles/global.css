@@ -437,10 +437,6 @@ h2 {
   margin-left: var(--s2);
 }
 
-.missing {
-  margin-top: var(--s4);
-}
-
 .prose p {
   max-width: var(--measure);
   margin-top: var(--s4);
