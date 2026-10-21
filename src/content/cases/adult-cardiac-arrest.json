@@ -40,7 +40,8 @@
       "title": "Compressions make a gradient, and the gradient makes the flow",
       "explanation": [
         "In cardiac arrest the heart is no longer generating effective pressure, so nearly all coronary and cerebral blood flow during CPR depends on what compressions produce from outside the chest. It helps to keep four quantities apart. Pressure is what the compression produces in the aorta. A gradient is the difference between two pressures. Resistance is how much a vascular bed opposes flow. Flow is what actually reaches tissue, and it is set by the gradient divided by the resistance, not by the pressure alone. Resistance is why the same gradient can deliver different flow: coronary resistance is high while the compressed myocardium squeezes its own vessels and lower during release, and a vasoconstrictor such as epinephrine raises aortic pressure largely by raising peripheral resistance, which helps the heart and brain only if their own beds are not constricted to the same degree.",
-        "For the heart, the gradient that matters is coronary perfusion pressure: aortic pressure minus right atrial pressure, measured during the relaxation phase between compressions. The coronary arteries fill mainly then, when the chest is released and the myocardium is not being squeezed. Two things therefore have to happen on every cycle. The push has to be deep enough to raise aortic pressure, and the release has to be complete enough to let right atrial pressure fall. A deep compression followed by leaning on the chest keeps right atrial pressure up while aortic pressure in the relaxation phase falls, so the difference between them, which is what fills the coronary arteries, narrows.",
+        "For the heart, the gradient that matters is coronary perfusion pressure. The coronary arteries arise from the aortic root just above the aortic valve, so aortic pressure is the pressure pushing blood into them. After crossing the myocardium, coronary blood drains through the coronary veins and the coronary sinus into the right atrium, so right atrial pressure is the back pressure it drains against. Coronary perfusion pressure is the difference between the two: aortic pressure minus right atrial pressure. It is not a pressure measured inside the coronary arteries but the net push across the coronary bed, and flow follows that difference rather than aortic pressure alone.",
+        "The difference is measured during the relaxation phase between compressions because that is when it exists. During the push, compression raises aortic and right atrial pressure together and squeezes the vessels inside the myocardium, so little blood crosses the coronary bed. During release, the closed aortic valve and the recoil of the stretched aorta hold aortic pressure up while chest recoil lets right atrial pressure fall. The gap opens, and the coronary arteries fill. In a classic human study, return of spontaneous circulation was rare when this gradient stayed below about 15 mm Hg. Two things therefore have to happen on every cycle. The push has to be deep enough to raise aortic pressure, and the release has to be complete enough to let right atrial pressure fall. A deep compression followed by leaning on the chest keeps right atrial pressure up while aortic pressure in the relaxation phase falls, so the difference between them, which is what fills the coronary arteries, narrows.",
         "This is why the 2025 AHA adult algorithm specifies the whole cycle, not just the push: at least 2 inches (5 cm) deep, 100 to 120 per minute, full recoil, and no leaning. Compressing on a firm surface is preferred when it is feasible and does not delay compressions. More is not automatically better. Observational data have linked depths greater than 6 cm (about 2.4 inches) with lower survival, and faster rates tend to cost depth and recoil. Compression depth also falls after about 90 to 120 seconds of continuous CPR as the compressor tires, which is why the compressor changes about every 2 minutes.",
         "The brain depends on the same compressions, through the arterial pressure they generate. Its own gradient is opposed by intracranial and venous pressure rather than right atrial pressure, but the practical lesson is shared: poor compressions fail both organs at once.",
         "What you can observe at the bedside is limited. You can see depth, rate, and recoil, and end-tidal CO2 gives an indirect signal of flow. You usually cannot see the gradient itself. The model predicts that a rise in right atrial or intrathoracic pressure, or a fall in aortic relaxation pressure, will tend to reduce coronary flow even when the compressions look vigorous, unless something else widens the gradient at the same time."
@@ -87,7 +88,8 @@
       "refs": [
         "aha-2025-bls",
         "aha-2025-algorithm",
-        "yannopoulos-2005"
+        "yannopoulos-2005",
+        "paradis-1990-cpp"
       ],
       "parentId": "cpr-circulation"
     },
@@ -1230,6 +1232,11 @@
       "id": "aha-2025-soc",
       "label": "2025 American Heart Association Guidelines for CPR and ECC, Part 4: Systems of Care (Dezfulian C, et al. Circulation. 2025;152(suppl 2):S353–S384)",
       "url": "https://doi.org/10.1161/CIR.0000000000001378"
+    },
+    {
+      "id": "paradis-1990-cpp",
+      "label": "Paradis NA, Martin GB, Rivers EP, et al. Coronary perfusion pressure and the return of spontaneous circulation in human cardiopulmonary resuscitation. JAMA. 1990;263(8):1106–1113",
+      "url": "https://doi.org/10.1001/jama.1990.03440080084029"
     }
   ],
   "strict": true
