@@ -1,0 +1,27 @@
+---
+import { physiologyFigure, physiologySvgSource, type PhysiologyFigureId } from '../../lib/physiology-figures.ts';
+import { preparePhysiologySvg } from '../../lib/physiology-svg.ts';
+
+interface Props {
+  id: PhysiologyFigureId;
+}
+
+const figure = physiologyFigure(Astro.props.id);
+const svg = preparePhysiologySvg(physiologySvgSource(figure.file), `fig-${figure.id}`, figure.alt);
+---
+
+<figure class="diagram diagram-physiology" data-diagram={figure.id}>
+  <div class="diagram-frame">
+    <div class="diagram-scroll" role="region" aria-label={figure.scrollLabel} tabindex="0" set:html={svg} />
+  </div>
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>{figure.caption}</p>
+    <p class="diagram-sources">
+      <span class="field-label">Sources</span>
+      {figure.sources.map((url) => (
+        <a href={url}>{url}</a>
+      ))}
+    </p>
+  </figcaption>
+</figure>

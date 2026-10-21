@@ -81,7 +81,15 @@ describe('annotated primer tokens', () => {
     expect(desktop?.[1]).toContain('--text-h2: 2.5rem');
 
     const queries = [...css.matchAll(/@media\s*([^{]+)\{/g)].map((match) => match[1]?.trim());
-    expect(queries).toEqual(['(min-width: 900px)', '(prefers-reduced-motion: reduce)', 'print']);
+    expect(queries).toEqual([
+      '(min-width: 900px)',
+      '(prefers-reduced-motion: reduce)',
+      'screen and (max-width: 700px)',
+      'print',
+    ]);
+    const narrow = css.match(/@media screen and \(max-width:\s*700px\)\s*\{([\s\S]*?)\n\}/)?.[1] ?? '';
+    expect(narrow).toContain('width: 780px');
+    expect(narrow).not.toContain('--text-body');
   });
 
   it('prints without navigation, with disclosures open and figures intact', () => {

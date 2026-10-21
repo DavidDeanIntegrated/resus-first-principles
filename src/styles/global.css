@@ -1193,9 +1193,37 @@ h2 {
   display: none;
 }
 
+.diagram-physiology {
+  max-width: none;
+}
+
+.diagram-frame {
+  position: relative;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.diagram-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  max-width: 100%;
+  min-width: 0;
+  scrollbar-color: var(--rule) transparent;
+}
+
 .diagram figcaption {
   max-width: var(--measure);
   margin-top: var(--s3);
+  overflow-wrap: anywhere;
+}
+
+.diagram-sources .field-label {
+  display: block;
+}
+
+.diagram-sources a {
+  display: block;
+  overflow-wrap: anywhere;
 }
 
 .diagram figcaption p + p {
@@ -1659,6 +1687,25 @@ h2 {
   }
 }
 
+@media screen and (max-width: 700px) {
+  .diagram-scroll svg {
+    width: 780px;
+    max-width: none;
+    height: auto;
+  }
+
+  .diagram-frame::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1.75rem;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, var(--paper));
+  }
+}
+
 @media print {
   :root {
     --toc-bar: 0px;
@@ -1695,6 +1742,25 @@ h2 {
     background: #fff;
     border-color: #111;
     filter: none;
+  }
+
+  .diagram-frame,
+  .diagram-scroll {
+    overflow: visible;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .diagram-frame::after {
+    content: none;
+  }
+
+  .diagram-physiology svg {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    max-height: 6.6in;
   }
 
   .diagram[data-diagram='pressure-gradient'] svg {

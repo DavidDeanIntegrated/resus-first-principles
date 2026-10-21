@@ -1,0 +1,85 @@
+[
+  {
+    "file": "01-oxygen-delivery.svg",
+    "png": "01-oxygen-delivery.png",
+    "section": "II — What normal circulation accomplishes",
+    "heading_url": "https://resus-first-principles.vercel.app/cases/adult-cardiac-arrest#principle-normal-circulation-title",
+    "placement": "After the paragraph beginning “During CPR the first factor is the limiting one.” Move or omit the simpler oxygen-delivery figure currently in 5.1 to avoid repetition.",
+    "caption": "Oxygen delivery is the product of flow and arterial oxygen content. These calculated examples hold hemoglobin and saturation constant to isolate the contributions of flow and dissolved oxygen; they are not expected CPR outputs or treatment targets.",
+    "alt": "Three calculated oxygen-delivery bars: at hemoglobin 15 g/dL and saturation 100%, cardiac output 5 L/min with PaO2 100 mm Hg gives 1020 mL O2/min; 1.5 L/min gives 306; increasing PaO2 to 500 at the same low flow gives 324. Teal represents hemoglobin-bound oxygen, gold dissolved oxygen.",
+    "sources": [
+      "https://resus-first-principles.vercel.app/cases/adult-cardiac-arrest",
+      "https://www.rcemlearning.org/modules/oxygen-in-human-physiology/lessons/investigations-4/topic/oxygen-delivery/"
+    ],
+    "review_notes": "The ×10 conversion is required when cardiac output is in L/min and content is in mL/dL. A saturation of exactly 1.00 at both PaO2 values is a simplifying assumption. Neither 1.5 L/min nor the resulting delivery is a CPR target. This figure does not estimate extraction or oxygen consumption."
+  },
+  {
+    "file": "02-after-the-shock.svg",
+    "png": "02-after-the-shock.png",
+    "section": "4.2 — After the shock",
+    "heading_url": "https://resus-first-principles.vercel.app/cases/adult-cardiac-arrest#principle-after-shock-title",
+    "placement": "After the paragraph describing incessant versus recurrent VF.",
+    "caption": "Electrical organization, contraction, and effective circulation are distinct. VF can persist because a shock did not terminate it, or recur after successful termination. The timelines illustrate the distinction without implying a duration.",
+    "alt": "Electrical organization leads toward contraction and circulation, but neither transition is guaranteed. Incessant VF continues through the shock; recurrent VF terminates and later returns. CPR artifact may hide the interval. Immediate post-shock CPR supports circulation.",
+    "sources": [
+      "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support",
+      "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support"
+    ],
+    "review_notes": "This is a conceptual sequence, not an ECG strip or post-shock monitoring protocol. The interval labeled VF terminated can include asystole, PEA, or a perfusing rhythm. No extra pause is needed to distinguish these mechanisms."
+  },
+  {
+    "file": "03-two-pressure-gradients.svg",
+    "png": "03-two-pressure-gradients.png",
+    "section": "5.1 — Ventilation is gas exchange and a circulatory intervention",
+    "heading_url": "https://resus-first-principles.vercel.app/cases/adult-cardiac-arrest#principle-oxygenation-without-hyperventilation-title",
+    "placement": "After the paragraph beginning “Every positive-pressure breath is also a circulatory event.”",
+    "caption": "Right atrial pressure is the downstream pressure in two different models. Venous return depends on the systemic filling-pressure gradient and venous resistance; coronary perfusion during CPR depends on the relaxation-phase aortic–right atrial gradient and coronary resistance.",
+    "alt": "Two unscaled pressure diagrams. With upstream pressure fixed, increasing right atrial pressure narrows the venous-return gradient on the left and coronary perfusion gradient on the right. Positive-pressure ventilation can also change upstream pressure and resistance, so its net effect is conditional.",
+    "sources": [
+      "https://resus-first-principles.vercel.app/cases/adult-cardiac-arrest",
+      "https://pubmed.ncbi.nlm.nih.gov/10710387/",
+      "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support"
+    ],
+    "review_notes": "The panels compare concepts, not numerical pressures. Jellinek et al. studied 10 anesthetized adults undergoing defibrillator implantation; this does not directly describe routine CPR. Their findings caution against assuming positive airway pressure changes only right atrial pressure. Pms is a conceptual no-flow equilibrium pressure, not a routinely measured venous pressure. CPP here means coronary perfusion pressure, not cerebral perfusion pressure."
+  },
+  {
+    "file": "04-gas-trapping.svg",
+    "png": "04-gas-trapping.png",
+    "section": "5.2 — Peri-intubation deterioration and gas trapping",
+    "heading_url": "https://resus-first-principles.vercel.app/cases/adult-cardiac-arrest#principle-peri-intubation-title",
+    "placement": "After the gas-trapping paragraph and before “What remains uncertain.”",
+    "caption": "Expiratory flow that has not returned to zero when inspiration begins suggests incomplete emptying. Continued trapping can increase end-expiratory volume and intrinsic PEEP, impairing circulation. The trace does not measure the amount of intrinsic PEEP.",
+    "alt": "Two flow-time schematics with inspiration above zero and expiration below. The first returns to zero before each breath. In the second, the next inspiration starts while expiratory flow remains negative. A downstream sequence links trapping, intrinsic PEEP, and possible circulatory impairment.",
+    "sources": [
+      "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation",
+      "https://resus-first-principles.vercel.app/cases/adult-cardiac-arrest"
+    ],
+    "review_notes": "Waveforms are idealized, with no numerical time or flow scale, patient effort, leak, or CPR artifact. They are not volume traces. Intrinsic PEEP is not measured from the size of the visible flow deficit. Heterogeneous obstruction can hide regional trapping even if measured flow reaches zero. Tension pneumothorax remains a competing cause of deterioration."
+  },
+  {
+    "file": "05-reading-capnography.svg",
+    "png": "05-reading-capnography.png",
+    "section": "VI — Reading the resuscitation",
+    "heading_url": "https://resus-first-principles.vercel.app/cases/adult-cardiac-arrest#principle-monitoring-title",
+    "placement": "After the final explanatory paragraph, before the optional questions. This can replace the simpler ETCO2 inputs figure currently in 5.1.",
+    "caption": "Interpret a change in end-tidal CO2 by checking the determinants that could have changed: production, transport, ventilation, and measurement. A rise can suggest ROSC; a low value alone does not establish futility.",
+    "alt": "CO2 production, pulmonary transport, and excretion feed into measured end-tidal CO2. A sudden fall has competing flow, ventilation, airway, and sampling explanations. A sustained rise can accompany ROSC. Persistently low readings require context rather than an isolated stopping decision.",
+    "sources": [
+      "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support"
+    ],
+    "review_notes": "This is an interpretation aid, not a termination-of-resuscitation algorithm. It deliberately omits a numerical stopping threshold. Assess potentially correctable changes without adding prolonged CPR interruptions. ETCO2 is not interchangeable with PaCO2."
+  },
+  {
+    "file": "06-after-rosc.svg",
+    "png": "06-after-rosc.png",
+    "section": "9.1 — After ROSC the goal changes",
+    "heading_url": "https://resus-first-principles.vercel.app/cases/adult-cardiac-arrest#principle-post-rosc-physiology-title",
+    "placement": "At the end of 9.1, before 9.2 on persistent shock.",
+    "caption": "After ROSC, oxygen availability, cerebral perfusion, and metabolic demand remain interdependent. The displayed oxygen, carbon-dioxide, and blood-pressure targets summarize selected initial AHA 2025 recommendations, not the entire post-arrest care pathway.",
+    "alt": "Three domains converge on limiting secondary brain injury: oxygen content, cerebral flow, and metabolic demand. Selected targets are SpO2 90–98% once reliable, PaCO2 generally 35–45 mm Hg in comatose adults, and MAP at least 65 mm Hg. Use 100% inspired oxygen until reliable measurement.",
+    "sources": [
+      "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/post-cardiac-arrest-care"
+    ],
+    "review_notes": "SpO2 and MAP targets are not proof of adequate tissue oxygenation. The normocapnia recommendation shown is for adults who remain comatose. Temperature management, seizures, investigation of the cause, and neurological prognosis require their own sections. An ETCO2 reading should not be substituted for the PaCO2 target."
+  }
+]
