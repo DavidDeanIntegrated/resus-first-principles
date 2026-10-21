@@ -34,7 +34,14 @@ describe('static build output', () => {
     expect(casePage).toContain(
       'Source-checked against AHA 2025; not yet independently physician-reviewed.',
     );
-    expect(casePage).not.toContain('id="cause-');
+    expect(casePage).toContain('class="cause-nav"');
+    expect(casePage).toContain('id="cause-hypovolemia"');
+    expect(casePage).toContain('id="question-wide-slow-pea-unknown"');
+    const gap = casePage.slice(casePage.indexOf('id="question-wide-slow-pea-unknown"'));
+    const gapDetails = gap.indexOf('<details>');
+    expect(gapDetails).toBeGreaterThan(-1);
+    expect(gap.slice(0, gapDetails)).not.toContain('Missing data');
+    expect(gap.slice(gapDetails)).toContain('>Missing data<');
     expect(casePage).toContain('Commit to an answer before revealing.');
     expect(casePage).toContain('Reveal answer');
     expect(casePage).toContain('<details>');

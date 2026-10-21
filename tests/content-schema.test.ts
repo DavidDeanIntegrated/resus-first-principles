@@ -99,14 +99,17 @@ describe('case schema', () => {
     expect(document?.reviewNote).toBe(
       'Source-checked against AHA 2025; not yet independently physician-reviewed.',
     );
-    expect(document?.principles.some((principle) => principle.causes != null)).toBe(false);
+    const causes = (document?.principles ?? []).flatMap((principle) => principle.causes ?? []);
+    expect(causes).toHaveLength(11);
+    expect(causes.reduce((count, cause) => count + cause.examples.length, 0)).toBeGreaterThanOrEqual(25);
     const report = formatValidationReport(result);
-    expect(report).toContain('prediction=7');
-    expect(report).toContain('transfer=7');
+    expect(report).toContain('prediction=10');
+    expect(report).toContain('transfer=9');
     expect(report).toContain('evidence-boundary=4');
-    expect(report).toContain('insufficient-information=0');
-    expect(report).toContain('causes=0');
-    expect(report).toContain('examples=0');
+    expect(report).toContain('insufficient-information=2');
+    expect(report).toContain('causes=11');
+    expect(report).toContain('examples=25');
+    expect(report).toContain('questions=25');
     expect(document?.treatmentApproach.length).toBeGreaterThanOrEqual(1);
     for (const step of document?.treatmentApproach ?? []) {
       expect(step.principleIds.length).toBeGreaterThanOrEqual(1);
