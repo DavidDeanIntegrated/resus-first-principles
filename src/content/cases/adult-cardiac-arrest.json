@@ -112,12 +112,24 @@
       "parentId": "cpr-circulation",
       "title": "Rate, depth, recoil, duty cycle, and fatigue interact",
       "body": [
-        "The compression variables are not independent dials. Each cycle has a push phase, when aortic pressure is raised, and a release phase, when the chest recoils, right atrial pressure falls, the heart refills, and the coronary arteries fill. Duty cycle is the fraction of each cycle spent in the push phase. Changing one variable moves the others.",
-        "Rate shortens the cycle. Above the guideline range of 100 to 120 per minute, there is less time per cycle to push to depth and to release fully, so depth and recoil tend to fall. Below it, the gradient decays between compressions. Depth raises aortic pressure, but excessive depth, above about 6 cm in observational data, has been associated with lower survival. Recoil sets right atrial pressure in the relaxation phase; leaning keeps it up and narrows the coronary gradient even when depth looks good. Duty cycle trades the two phases against each other: a longer push gives more time for forward flow, a longer release gives more time for refilling and coronary filling. The optimal duty cycle is not known; the 2025 guideline says it may be reasonable to make compression and recoil times approximately equal (COR 2b, LOE C-EO), and calls the optimum a knowledge gap.",
+        "A compression moves blood by raising pressure in the heart and the chest above the pressure in the vessels outside the chest, and blood leaves toward the lower pressure. Two mechanisms do this, and 3.1 introduced them. In the cardiac-pump description, the sternum squeezes the ventricles against the spine, the mitral and tricuspid valves typically close, and blood is pushed out through the aortic and pulmonary valves much as in a heartbeat. In the thoracic-pump description, the compression raises pressure throughout the chest, the heart behaves more like a passive conduit, and blood is pushed out of the lungs, heart, and great vessels together; valves in the large veins at the thoracic inlet are thought to keep that pressure from driving blood backward into the head and arms, so the forward path toward the arteries is favored. Echocardiographic and pressure studies during CPR have been interpreted as supporting each pattern in different patients and at different times, which is why this text treats both as contributing and does not name one as the mechanism. The balance probably varies with the patient; in one human echo study, the ventricles were compressed more in narrower chests, and heart size, hand position, and arrest duration are thought to matter as well.",
+        "Release is the other half of the cycle, and it is not suction in the sense of the heart pulling blood in. When the hands come off the sternum, the elastic chest wall springs back, intrathoracic pressure falls, sometimes slightly below atmospheric, and the pressures inside the heart and great veins fall with it. Blood returns because mean systemic filling pressure in the veins outside the chest is now higher than right atrial pressure, the same gradient described in 5.1, and the coronary arteries fill because relaxation-phase aortic pressure is held above right atrial pressure, as described in 3.1. The aortic valve, closed by the higher pressure above it, keeps the aorta from emptying backward into the ventricle during this phase. Nothing pulls the blood; the release removes the pressure that was opposing its return.",
+        "The compression variables are not independent dials. Each cycle has a push phase and a release phase; duty cycle is the fraction spent pushing. Changing one variable moves the others.",
+        "Rate shortens the cycle. Above the guideline range of 100 to 120 per minute, there is less time per cycle to push to depth and to release fully, so depth and recoil tend to fall. Below it, the gradient decays between compressions. Depth raises aortic pressure, but excessive depth, above about 6 cm in observational data, has been associated with lower survival. Recoil lets the chest and heart re-expand in the relaxation phase; in a pig study in which a device held compression depth constant, incomplete recoil lowered relaxation-phase aortic pressure and narrowed the coronary gradient while right atrial pressure changed little. Duty cycle trades the two phases against each other: a longer push gives more time for forward flow, a longer release gives more time for refilling and coronary filling. The optimal duty cycle is not known; the 2025 guideline says it may be reasonable to make compression and recoil times approximately equal (COR 2b, LOE C-EO), and calls the optimum a knowledge gap.",
+        "An illustrative calculation, from the guideline numbers rather than from measurement, shows why rate and duty cycle are tied together. At 100 compressions per minute each cycle lasts 0.6 seconds; at 120 per minute, 0.5 seconds. With compression and recoil times approximately equal, the release phase available for refilling and coronary filling is about 0.3 seconds at the lower rate and about 0.25 seconds at the upper. Beyond the range the release gets shorter still, and any leaning eats further into it. These figures show the arithmetic of the cycle, not targets, and they do not say how much flow occurs in each phase.",
+        "Ventilation acts on the same chest. A positive-pressure breath raises intrathoracic pressure, and if breaths come too often or are held too long, the chest spends more of each minute at a higher pressure, which tends to oppose venous return during release in the way 5.1 describes. In pigs, faster ventilation rates during CPR raised mean intrathoracic pressure and lowered coronary perfusion pressure and survival; in people, very fast bagging has been observed during resuscitation, but the hemodynamic and survival effects come from the animal data. The guideline rates are 30 compressions to 2 breaths without an advanced airway and 1 breath every 6 seconds with one.",
         "Fatigue degrades all of them together. Depth begins to fall after about 90 to 120 seconds, while rate holds, which is why changing compressors at about 2 minutes is built into the cycle. The practical model is that a compression is good only if all four variables are within range at once, and that a change aimed at one, such as pushing faster, should be judged by what it does to the others. Feedback on depth and rate is one way teams see what the eye misses. During arrest, real-time audiovisual feedback on CPR quality is reasonable (COR 2a, LOE B-R), though its association is with ROSC and survival to discharge rather than survival with favorable neurological outcome; in training, feedback devices are recommended (COR 1, LOE A)."
       ],
       "refs": [
-        "aha-2025-bls"
+        "aha-2025-bls",
+        "higano-1990",
+        "redberg-1993",
+        "werner-1981",
+        "rudikoff-1980",
+        "fisher-1982",
+        "porter-1992",
+        "yannopoulos-2005",
+        "aufderheide-2004"
       ],
       "questions": []
     },
@@ -754,7 +766,7 @@
             "Late, hypoxia and acidosis slow and widen the rhythm. In a ventilated patient, rising airway pressures and falling saturation may precede the change in rhythm."
           ],
           "causalChain": "A one-way leak lets air enter the pleural space without escaping. Pressure builds, the mediastinum shifts, the vena cava and right atrium are compressed, and venous return falls. Cardiac output falls while gas exchange worsens on the affected side, and the combination of obstruction and hypoxia ends the circulation.",
-          "compressions": "Compressions push on a chest already under raised pressure. Each release cannot lower intrathoracic pressure enough to draw blood back, so the heart refills poorly, and positive-pressure ventilation worsens the tension with every breath.",
+          "compressions": "Compressions push on a chest already under raised pressure. On release, the trapped air keeps intrathoracic and right atrial pressure high, so right atrial pressure does not fall far enough below mean systemic filling pressure for blood to return; the heart refills poorly, and positive-pressure ventilation worsens the tension with every breath.",
           "fix": "Decompression lets the trapped air escape, lowering intrathoracic and right atrial pressure. The gradient for venous return reopens, the heart refills, and output can recover within a few beats if the myocardium is not yet injured.",
           "bedside": "Trauma, positive-pressure ventilation, central line placement, or severe asthma or COPD. Absent breath sounds on one side, rising peak airway pressures, distended neck veins, and tracheal deviation are classic but inconsistent. In life-threatening asthma, sudden high inspiratory pressures or difficulty ventilating should prompt evaluation for tension pneumothorax.",
           "mimics": "Mainstem intubation produces unilateral absent breath sounds without tension. Dynamic hyperinflation in asthma raises intrathoracic pressure and reduces venous return by the same mechanism, on both sides.",
@@ -1286,6 +1298,36 @@
       "id": "maas-2013",
       "label": "Maas JJ, Pinsky MR, de Wilde RB, et al. Cardiac output response to norepinephrine in postoperative cardiac surgery patients: interpretation with venous return and cardiac function curves. Crit Care Med. 2013;41(1):143–150",
       "url": "https://doi.org/10.1097/CCM.0b013e318265ea64"
+    },
+    {
+      "id": "rudikoff-1980",
+      "label": "Rudikoff MT, Maughan WL, Effron M, Freund P, Weisfeldt ML. Mechanisms of blood flow during cardiopulmonary resuscitation. Circulation. 1980;61(2):345–352",
+      "url": "https://doi.org/10.1161/01.cir.61.2.345"
+    },
+    {
+      "id": "werner-1981",
+      "label": "Werner JA, Greene HL, Janko CL, Cobb LA. Visualization of cardiac valve motion in man during external chest compression using two-dimensional echocardiography. Circulation. 1981;63(6):1417–1421",
+      "url": "https://doi.org/10.1161/01.cir.63.6.1417"
+    },
+    {
+      "id": "fisher-1982",
+      "label": "Fisher J, Vaghaiwalla F, Tsitlik J, et al. Determinants and clinical significance of jugular venous valve competence. Circulation. 1982;65(1):188–196",
+      "url": "https://doi.org/10.1161/01.cir.65.1.188"
+    },
+    {
+      "id": "higano-1990",
+      "label": "Higano ST, Oh JK, Ewy GA, Seward JB. The mechanism of blood flow during closed chest cardiac massage in humans: transesophageal echocardiographic observations. Mayo Clin Proc. 1990;65(11):1432–1440",
+      "url": "https://doi.org/10.1016/s0025-6196(12)62167-3"
+    },
+    {
+      "id": "porter-1992",
+      "label": "Porter TR, Ornato JP, Guard CS, et al. Transesophageal echocardiography to assess mitral valve function and flow during cardiopulmonary resuscitation. Am J Cardiol. 1992;70(11):1056–1060",
+      "url": "https://doi.org/10.1016/0002-9149(92)90360-b"
+    },
+    {
+      "id": "redberg-1993",
+      "label": "Redberg RF, Tucker KJ, Cohen TJ, et al. Physiology of blood flow during cardiopulmonary resuscitation. A transesophageal echocardiographic study. Circulation. 1993;88(2):534–542",
+      "url": "https://doi.org/10.1161/01.cir.88.2.534"
     }
   ],
   "strict": true
