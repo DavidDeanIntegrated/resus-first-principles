@@ -3,6 +3,7 @@ import CauseList from './CauseList.astro';
 import MarkdownParagraphs from './MarkdownParagraphs.astro';
 import PrincipleDiagram from './PrincipleDiagram.astro';
 import PrincipleHeader from './PrincipleHeader.astro';
+import { figuresForPrinciple } from '../lib/figure-placement.ts';
 import { stripInlineMarkdown } from '../lib/markdown.ts';
 import { asParagraphs, splitLead } from '../lib/prose.ts';
 import type { ReferenceMark } from '../lib/references.ts';
@@ -68,7 +69,12 @@ if (explanation.length > 0) {
       </aside>
     )
   }
-  {principle.diagram && <PrincipleDiagram diagram={principle.diagram} />}
+  {principle.diagram && <PrincipleDiagram diagram={principle.diagram} causeNames={causeNames} />}
+  {
+    figuresForPrinciple(principle.id).map((diagram) => (
+      <PrincipleDiagram diagram={diagram} causeNames={causeNames} />
+    ))
+  }
   {
     principle.causes && principle.causes.length > 0 && (
       <CauseList causes={principle.causes} causeNames={causeNames} referenceNumbers={referenceNumbers} />

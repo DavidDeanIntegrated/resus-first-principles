@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
+import { causeMechanismGroups, overlapCaption } from '../src/lib/cause-mechanisms.ts';
+import { etco2Caption, oxygenDeliveryCaption } from '../src/lib/figure-copy.ts';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
@@ -101,6 +103,72 @@ describe('static build output', () => {
 
     expect(section(casePage, 'principle-early-defibrillation')).not.toContain('data-diagram');
   });
+
+  it('renders the oxygen, end-tidal CO2, and reversible-cause figures beside their principles', () => {
+    const casePage = readDist('cases/adult-cardiac-arrest/index.html');
+    const source = readFileSync(join(repoRoot, 'src/content/cases/adult-cardiac-arrest.json'), 'utf8');
+    const names = causeNames(source);
+
+    const ventilation = section(casePage, 'principle-oxygenation-without-hyperventilation');
+    const causes = section(casePage, 'principle-reversible-causes');
+    const oxygen = figure(ventilation, 'oxygen-delivery');
+    const etco2 = figure(ventilation, 'etco2-determinants');
+    const overlap = figure(causes, 'reversible-cause-overlap');
+
+    expect(ventilation.indexOf('data-diagram="oxygen-delivery"')).toBeLessThan(
+      ventilation.indexOf('data-diagram="etco2-determinants"'),
+    );
+    const reversibleAt = casePage.indexOf('id="principle-reversible-causes"');
+    const overlapAt = casePage.indexOf('data-diagram="reversible-cause-overlap"', reversibleAt);
+    const causeListAt = casePage.indexOf('class="causes"', reversibleAt);
+    expect(overlapAt).toBeGreaterThan(reversibleAt);
+    expect(overlapAt).toBeLessThan(causeListAt);
+    expect(casePage.indexOf('id="cause-hypovolemia"', reversibleAt)).toBeGreaterThan(overlapAt);
+    expect(section(casePage, 'principle-coronary-cerebral-perfusion')).not.toContain('oxygen-delivery');
+    expect(section(casePage, 'principle-early-defibrillation')).not.toContain('etco2-determinants');
+
+    expect(oxygen).toContain('role="img"');
+    expect(oxygen).toContain('id="diagram-oxygen-delivery-title"');
+    expect(oxygen).toContain('id="diagram-oxygen-delivery-desc"');
+    expect(oxygen).toContain(oxygenDeliveryCaption);
+    expect(visibleText(oxygen)).toContain('Flow');
+    expect(visibleText(oxygen)).toContain('multiplied by');
+    expect(visibleText(oxygen)).toContain('Arterial oxygen content');
+    expect(visibleText(oxygen)).toContain('Hemoglobin');
+    expect(visibleText(oxygen)).toContain('Saturation');
+    expect(visibleText(oxygen)).toContain('Dissolved oxygen');
+    expect(visibleText(oxygen)).not.toMatch(/\d/);
+
+    expect(etco2).toContain('role="img"');
+    expect(etco2).toContain('id="diagram-etco2-determinants-title"');
+    expect(etco2).toContain('id="diagram-etco2-determinants-desc"');
+    expect(etco2).toContain(etco2Caption);
+    const etco2Words = visibleText(etco2);
+    expect(etco2Words).toContain('CO2 production');
+    expect(etco2Words).toContain('Pulmonary blood flow');
+    expect(etco2Words).toContain('Ventilation');
+    expect(etco2Words).toContain('Drugs such as epinephrine');
+    expect(etco2Words).toContain('for reasons other than flow.');
+    expect(etco2Words.replaceAll('CO2', '')).not.toMatch(/\d/);
+    expect(etco2Words.toLowerCase()).not.toMatch(/rise|fall|increas|decreas|higher|lower|mmhg|%/);
+
+    expect(overlap).toContain('role="group"');
+    expect(overlap).toContain('id="diagram-reversible-cause-overlap-title"');
+    expect(overlap).toContain('id="diagram-reversible-cause-overlap-desc"');
+    expect(overlap).toContain(overlapCaption(names));
+    for (const group of causeMechanismGroups) {
+      expect(visibleText(overlap)).toContain(group.label);
+      for (const id of group.causeIds) {
+        const name = names[id];
+        expect(name, id).toBeTruthy();
+        expect(overlap).toContain(`href="#cause-${id}"`);
+        expect(overlap).toContain(`aria-label="${name}"`);
+      }
+    }
+    const grouped = new Set<string>(causeMechanismGroups.flatMap((group) => group.causeIds));
+    for (const id of Object.keys(names)) expect(grouped.has(id), id).toBe(true);
+    expect(visibleText(overlap)).not.toMatch(/\d/);
+  });
 });
 
 function section(html: string, id: string): string {
@@ -116,4 +184,19 @@ function figure(html: string, diagram: string): string {
   const end = html.indexOf('</figure>', start);
   expect(end).toBeGreaterThan(start);
   return html.slice(start, end);
+}
+
+function visibleText(html: string): string {
+  return [...html.matchAll(/>([^<]+)</g)].map((match) => match[1] ?? '').join(' ');
+}
+
+function causeNames(source: string): Record<string, string> {
+  const document = JSON.parse(source) as {
+    principles: Array<{ causes?: Array<{ id: string; name: string }> }>;
+  };
+  const names: Record<string, string> = {};
+  for (const principle of document.principles) {
+    for (const cause of principle.causes ?? []) names[cause.id] = cause.name;
+  }
+  return names;
 }

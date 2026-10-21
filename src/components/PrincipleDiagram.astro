@@ -1,19 +1,32 @@
 ---
 import CompressionPause from './diagrams/CompressionPause.astro';
+import Etco2Determinants from './diagrams/Etco2Determinants.astro';
+import OxygenDelivery from './diagrams/OxygenDelivery.astro';
 import PressureGradient from './diagrams/PressureGradient.astro';
+import ReversibleCauseOverlap from './diagrams/ReversibleCauseOverlap.astro';
+import type { PlacedFigureId } from '../lib/figure-placement.ts';
 import type { DiagramId } from '../lib/schema.ts';
 
 interface Props {
-  diagram: DiagramId;
+  diagram: DiagramId | PlacedFigureId;
+  causeNames?: Readonly<Record<string, string>>;
 }
 
 const diagrams = {
   'pressure-gradient': PressureGradient,
   'compression-pause': CompressionPause,
-} satisfies Record<DiagramId, typeof PressureGradient>;
+  'oxygen-delivery': OxygenDelivery,
+  'etco2-determinants': Etco2Determinants,
+} satisfies Record<DiagramId | 'oxygen-delivery' | 'etco2-determinants', typeof PressureGradient>;
 
-const { diagram } = Astro.props;
-const Diagram = diagrams[diagram];
+const { diagram, causeNames = {} } = Astro.props;
+const Diagram = diagram === 'reversible-cause-overlap' ? null : diagrams[diagram];
 ---
 
-<Diagram />
+{
+  diagram === 'reversible-cause-overlap' ? (
+    <ReversibleCauseOverlap causeNames={causeNames} />
+  ) : (
+    Diagram && <Diagram />
+  )
+}

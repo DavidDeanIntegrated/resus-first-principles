@@ -1166,6 +1166,61 @@ h2 {
   fill: var(--ink);
 }
 
+.diagram-caps {
+  font-family: var(--f-text);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-variant-caps: all-small-caps;
+  fill: var(--accent);
+  font-variation-settings: "opsz" 12, "wght" 600;
+}
+
+.diagram-panel-flow {
+  fill: var(--sage-tint);
+  stroke: var(--sage);
+  stroke-width: 1.5;
+}
+
+.diagram-panel-content {
+  fill: var(--accent-tint);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.diagram-node {
+  fill: var(--card);
+  stroke: var(--rule);
+  stroke-width: 1.5;
+}
+
+.diagram-multiply {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+}
+
+.diagram-aside {
+  fill: var(--paper-deep);
+  stroke: var(--ink-soft);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+}
+
+.diagram a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.diagram a:hover .diagram-node {
+  stroke: var(--accent);
+}
+
+.diagram a:focus-visible .diagram-node {
+  stroke: var(--focus);
+  stroke-width: 3;
+}
+
 @media (min-width: 900px) {
   :root {
     --text-body: 18px;
