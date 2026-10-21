@@ -3,7 +3,7 @@ import CauseList from './CauseList.astro';
 import MarkdownParagraphs from './MarkdownParagraphs.astro';
 import PrincipleDiagram from './PrincipleDiagram.astro';
 import PrincipleHeader from './PrincipleHeader.astro';
-import { figuresForPrinciple, groupParagraphs, inlineFiguresAfter } from '../lib/figure-placement.ts';
+import { figuresForPrinciple, groupParagraphs, inlineFiguresAfter, primerAnchorErrors } from '../lib/figure-placement.ts';
 import { physiologyAnchorErrors } from '../lib/physiology-figures.ts';
 import { stripInlineMarkdown } from '../lib/markdown.ts';
 import { asParagraphs, splitLead } from '../lib/prose.ts';
@@ -35,7 +35,10 @@ if (explanation.length > 0) {
   markdownLeadRest = split.rest;
 }
 
-const anchorErrors = physiologyAnchorErrors(principle.id, [...explanation, ...narrative]);
+const anchorErrors = [
+  ...physiologyAnchorErrors(principle.id, [...explanation, ...narrative]),
+  ...primerAnchorErrors(principle.id, [...explanation, ...narrative]),
+];
 if (anchorErrors.length > 0) throw new Error(anchorErrors.join('; '));
 
 const explanationGroups = groupParagraphs(

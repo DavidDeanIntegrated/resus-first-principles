@@ -43,6 +43,13 @@ describe('physiology figure assets', () => {
     expect(figuresForPrinciple('monitoring')).toEqual(['05-reading-capnography']);
     expect(figuresForPrinciple('post-rosc-physiology')).toEqual(['06-after-rosc']);
     expect(figuresForPrinciple('reversible-causes')).toEqual(['reversible-cause-overlap']);
+    expect(figuresForPrinciple('coronary-cerebral-perfusion')).toEqual([]);
+    expect(
+      inlineFiguresAfter(
+        'coronary-cerebral-perfusion',
+        'Coronary artery pressure and coronary perfusion pressure sound alike but are different ideas.',
+      ),
+    ).toEqual(['coronary-circuit']);
   });
 
   it('keeps the oxygen figure between the CPR paragraph and the held-constant paragraph', () => {

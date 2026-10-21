@@ -1,5 +1,6 @@
 ---
 import CompressionPause from './diagrams/CompressionPause.astro';
+import CoronaryCircuit from './diagrams/CoronaryCircuit.astro';
 import PhysiologyFigure from './diagrams/PhysiologyFigure.astro';
 import PressureGradient from './diagrams/PressureGradient.astro';
 import ReversibleCauseOverlap from './diagrams/ReversibleCauseOverlap.astro';
@@ -22,7 +23,9 @@ const Diagram = diagram === 'pressure-gradient' || diagram === 'compression-paus
 ---
 
 {
-  isPhysiologyFigureId(diagram) ? (
+  diagram === 'coronary-circuit' ? (
+    <CoronaryCircuit />
+  ) : isPhysiologyFigureId(diagram) ? (
     <PhysiologyFigure id={diagram} />
   ) : diagram === 'reversible-cause-overlap' ? (
     <ReversibleCauseOverlap causeNames={causeNames} />

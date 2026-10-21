@@ -161,6 +161,36 @@ describe('static build output', () => {
       casePage.indexOf('id="principle-rosc-hemodynamics"'),
     );
 
+    const perfusion = section(casePage, 'principle-coronary-cerebral-perfusion');
+    const coronary = figure(perfusion, 'coronary-circuit');
+    expect(perfusion.indexOf('sound alike but are different ideas.')).toBeLessThan(
+      perfusion.indexOf('data-diagram="coronary-circuit"'),
+    );
+    expect(perfusion.indexOf('data-diagram="coronary-circuit"')).toBeLessThan(
+      perfusion.indexOf('With that picture in place, the equation'),
+    );
+    expect(perfusion.indexOf('data-diagram="coronary-circuit"')).toBeLessThan(
+      perfusion.indexOf('data-diagram="pressure-gradient"'),
+    );
+    expect(coronary).toContain('role="img"');
+    expect(coronary).toContain('id="diagram-coronary-circuit-wide-title"');
+    expect(coronary).toContain('id="diagram-coronary-circuit-stack-title"');
+    expect(coronary).toContain('id="diagram-coronary-circuit-wide-desc"');
+    expect(coronary).toContain('class="diagram-wide"');
+    expect(coronary).toContain('class="diagram-stack"');
+    expect(coronary).toContain('Aortic pressure');
+    expect(coronary).toContain('during release');
+    expect(coronary).toContain('Right atrial pressure');
+    expect(coronary).toContain('difference between these two points');
+    expect(coronary).toContain('= coronary perfusion pressure');
+    expect(coronary).toContain('A smaller share drains by small veins');
+    expect(coronary).toContain(
+      'The coronary circuit. Blood enters the coronary arteries at the aortic root (①), crosses the heart muscle through progressively smaller vessels, and drains mostly through the coronary sinus into the right atrium (②). Coronary perfusion pressure is the difference between the pressures at ① and ②, read at the same moment in the release phase of compression. It is a pressure difference, not a pressure at any single point and not a measure of flow. Schematic, not to scale. In studies, these pressures are measured by catheters in or near these sites.',
+    );
+    expect(coronary).toContain(
+      'the difference between the two, measured at the same moment, between compressions.',
+    );
+    expect(coronary.toLowerCase()).not.toContain('mmhg');
     expect(section(casePage, 'principle-coronary-cerebral-perfusion')).toContain('data-diagram="pressure-gradient"');
     expect(section(casePage, 'principle-minimize-interruptions')).toContain('data-diagram="compression-pause"');
     expect(section(casePage, 'principle-coronary-cerebral-perfusion')).not.toContain('oxygen-delivery');

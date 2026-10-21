@@ -53,6 +53,7 @@
   --accent-tint: #f6e4dc;
   --sage: #2f5d50;
   --sage-tint: #e3ece5;
+  --hatch: #9c8f82;
   --focus: #1f4fa8;
 
   --f-display: "Fraunces", Georgia, serif;
@@ -1419,6 +1420,125 @@ h2 {
   stroke-width: 3;
 }
 
+.diagram[data-diagram='coronary-circuit'] {
+  max-width: 40rem;
+}
+
+.diagram[data-diagram='coronary-circuit'] svg {
+  background: var(--paper);
+}
+
+.diagram[data-diagram='coronary-circuit'] svg.diagram-wide {
+  display: none;
+}
+
+.diagram-route,
+.diagram-route-fine {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.diagram-route {
+  stroke-width: 2.75;
+}
+
+.diagram-route-fine {
+  stroke-width: 1.35;
+}
+
+.diagram-route-head {
+  fill: var(--accent);
+}
+
+.diagram-opening {
+  fill: var(--paper);
+  stroke: var(--accent);
+  stroke-width: 1.75;
+}
+
+.diagram-myocardium {
+  fill: var(--paper-deep);
+  stroke: var(--hatch);
+  stroke-width: 1.25;
+}
+
+.diagram-hatch {
+  fill: none;
+  stroke: var(--hatch);
+  stroke-width: 1.15;
+}
+
+.diagram-marker-ring {
+  fill: var(--paper);
+  stroke: var(--sage);
+  stroke-width: 1.75;
+}
+
+.diagram-marker-num {
+  fill: var(--sage);
+  font-family: var(--f-text);
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: central;
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.diagram-marker-caption {
+  font-family: var(--f-text);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-variant-caps: all-small-caps;
+  fill: var(--sage);
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.diagram-cpp {
+  fill: none;
+  stroke: var(--sage);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.diagram-bracket-label {
+  font-family: var(--f-text);
+  font-weight: 400;
+  fill: var(--sage);
+  font-variation-settings: "opsz" 14, "wght" 400;
+}
+
+.diagram-label-plate {
+  fill: var(--paper);
+}
+
+.diagram-quiet {
+  fill: none;
+  stroke: var(--ink-soft);
+  stroke-width: 1.25;
+  stroke-dasharray: 2 3.5;
+  stroke-linecap: round;
+}
+
+.diagram-quiet-label {
+  font-family: var(--f-text);
+  font-style: italic;
+  font-weight: 400;
+  fill: var(--ink-soft);
+  font-variation-settings: "opsz" 14, "wght" 400;
+}
+
+@media (min-width: 600px) {
+  .diagram[data-diagram='coronary-circuit'] svg.diagram-stack {
+    display: none;
+  }
+
+  .diagram[data-diagram='coronary-circuit'] svg.diagram-wide {
+    display: block;
+  }
+}
+
 @media (min-width: 900px) {
   :root {
     --text-body: 18px;
@@ -1780,6 +1900,15 @@ h2 {
     max-height: 7.1in;
   }
 
+  .diagram[data-diagram='coronary-circuit'] svg.diagram-stack {
+    display: none !important;
+  }
+
+  .diagram[data-diagram='coronary-circuit'] svg.diagram-wide {
+    display: block !important;
+    max-height: 7.2in;
+  }
+
   .diagram-screen {
     display: none !important;
   }
@@ -1794,8 +1923,39 @@ h2 {
   .diagram-schematic,
   .diagram-display,
   .diagram-label,
-  .diagram-note {
+  .diagram-note,
+  .diagram-marker-caption,
+  .diagram-marker-num,
+  .diagram-bracket-label,
+  .diagram-quiet-label {
     fill: #111;
+  }
+
+  .diagram-route,
+  .diagram-route-fine,
+  .diagram-opening,
+  .diagram-cpp,
+  .diagram-marker-ring,
+  .diagram-quiet {
+    stroke: #111;
+  }
+
+  .diagram-route-head {
+    fill: #111;
+  }
+
+  .diagram-marker-ring,
+  .diagram-label-plate {
+    fill: #fff;
+  }
+
+  .diagram-myocardium {
+    fill: #f4f4f4;
+    stroke: #111;
+  }
+
+  .diagram-hatch {
+    stroke: #666;
   }
 
   .diagram-node {
