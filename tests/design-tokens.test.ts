@@ -120,6 +120,10 @@ describe('annotated primer tokens', () => {
     expect(css).toMatch(/\.cause-nav a\s*\{[^}]*min-height:\s*44px/);
     expect(css).toMatch(/\.cause-nav a:focus-visible\s*\{[^}]*outline:\s*3px solid var\(--focus\)/);
     expect(css).toContain('scroll-margin-top: var(--cause-stick)');
+    expect(css).toMatch(
+      /\.cause-nav::after\s*\{[^}]*linear-gradient\(to right, transparent, var\(--paper\)\)/,
+    );
+    expect(css).toContain('scroll-padding-inline-end: 2.75rem');
     expect(css).toMatch(/\.part h3,\s*\n\.field-label\s*\{[^}]*font-variant-caps:\s*all-small-caps/);
   });
 

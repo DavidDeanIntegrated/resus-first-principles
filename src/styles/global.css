@@ -395,19 +395,36 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 1;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  margin: var(--s5) calc(-1 * var(--s4)) 0;
+  width: calc(100% + 2 * var(--s4));
+}
+
+.cause-nav-scroll {
   display: flex;
   align-items: center;
   gap: var(--s4);
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
-  background: var(--paper);
-  border-bottom: 1px solid var(--rule);
-  margin: var(--s5) calc(-1 * var(--s4)) 0;
   padding: var(--s2) var(--s4);
-  width: calc(100% + 2 * var(--s4));
+  padding-inline-end: 2.75rem;
   scroll-padding-inline: var(--s4);
+  scroll-padding-inline-end: 2.75rem;
   scrollbar-color: var(--rule) transparent;
+}
+
+.cause-nav::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 2.5rem;
+  pointer-events: none;
+  background: linear-gradient(to right, transparent, var(--paper));
+  z-index: 1;
 }
 
 .cause-group {
@@ -1210,6 +1227,18 @@ h2 {
     border: 0;
     border-right: 1px solid var(--rule);
     border-radius: 0;
+  }
+
+  .cause-nav::after {
+    content: none;
+  }
+
+  .cause-nav-scroll {
+    display: block;
+    overflow: visible;
+    gap: 0;
+    padding: 0;
+    scroll-snap-type: none;
   }
 
   .cause-nav .kicker {

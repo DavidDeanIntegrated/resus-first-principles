@@ -43,24 +43,26 @@ function marks(refs: string[] | undefined): ReferenceMark[] {
 
 <section class="causes" aria-label="Causes">
   <nav class="cause-nav" aria-label="Causes by category">
-    {
-      categoryOrder.map((category) => {
-        const group = causes.filter((cause) => cause.category === category);
-        if (group.length === 0) return null;
-        return (
-          <div class="cause-group">
-            <p class="kicker">{categoryLabels[category]}</p>
-            <ul>
-              {group.map((cause) => (
-                <li>
-                  <a href={`#cause-${cause.id}`}>{cause.name}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        );
-      })
-    }
+    <div class="cause-nav-scroll">
+      {
+        categoryOrder.map((category) => {
+          const group = causes.filter((cause) => cause.category === category);
+          if (group.length === 0) return null;
+          return (
+            <div class="cause-group">
+              <p class="kicker">{categoryLabels[category]}</p>
+              <ul>
+                {group.map((cause) => (
+                  <li>
+                    <a href={`#cause-${cause.id}`}>{cause.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })
+      }
+    </div>
   </nav>
   <div class="cause-stream">
     {
