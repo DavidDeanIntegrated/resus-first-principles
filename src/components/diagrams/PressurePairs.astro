@@ -6,7 +6,7 @@ const stackDescId = 'diagram-pressure-pairs-stack-desc';
 
 const title = 'Two pressures and the difference between them';
 const description =
-  'Three illustrative pairs on one scale from 0 to 60 millimetres of mercury, zeroed at the level of the right atrium. Not targets. Pair A: aortic pressure during release 35, right atrial pressure 10, gradient 25. Pair B: aortic pressure during release 35, right atrial pressure 25, gradient 10. Pair C, hypothetical, above those usually measured in human CPR: aortic pressure during release 50, right atrial pressure 40, gradient 10. B and C have the same gradient although C’s aortic pressure is higher. Brackets mark the differences. There is no threshold line and no grading of the pairs.';
+  'Three illustrative pairs on one scale from 0 to 60 millimetres of mercury, zeroed at the level of the right atrium. Not targets. Pair A: relaxation-phase aortic pressure 35, right atrial pressure 10, gradient 25. Pair B: relaxation-phase aortic pressure 35, right atrial pressure 25, gradient 10. Pair C, hypothetical, above those usually measured in human CPR: relaxation-phase aortic pressure 50, right atrial pressure 40, gradient 10. B and C have the same gradient although C’s aortic pressure is higher. Brackets mark the differences. There is no threshold line and no grading of the pairs.';
 const caption =
   'Two pressures and the difference between them. Coronary perfusion pressure is relaxation-phase aortic pressure minus right atrial pressure, read at the same moment. Pairs A, B, and C are illustrative, chosen to show the arithmetic and not as targets. Pair C is hypothetical, above those usually measured in human CPR. B and C share a 10 mm Hg gradient although C’s aortic pressure is higher. The gradient alone does not give the flow, which also depends on resistance.';
 ---
@@ -26,7 +26,7 @@ const caption =
     <text class="diagram-key" x="8" y="78" font-size="15">Illustrative pairs, not targets</text>
 
     <line class="diagram-level-aortic" x1="8" y1="100" x2="40" y2="100"></line>
-    <text class="diagram-label" x="48" y="105" font-size="15">aortic pressure during release</text>
+    <text class="diagram-label" x="48" y="105" font-size="15">relaxation-phase aortic pressure</text>
     <rect class="diagram-level-atrial" x="8" y="118" width="32" height="8"></rect>
     <text class="diagram-label" x="48" y="128" font-size="15">right atrial pressure</text>
 
@@ -100,7 +100,7 @@ const caption =
     <text class="diagram-key" x="24" y="62" font-size="16">Illustrative pairs, not targets</text>
 
     <line class="diagram-level-aortic" x1="24" y1="90" x2="56" y2="90"></line>
-    <text class="diagram-label" x="64" y="95" font-size="16">aortic pressure during release</text>
+    <text class="diagram-label" x="64" y="95" font-size="16">relaxation-phase aortic pressure</text>
     <rect class="diagram-level-atrial" x="360" y="84" width="32" height="8"></rect>
     <text class="diagram-label" x="400" y="95" font-size="16">right atrial pressure</text>
 
@@ -189,7 +189,7 @@ const caption =
       <thead>
         <tr>
           <th scope="col">Pair</th>
-          <th scope="col">Aortic pressure during release</th>
+          <th scope="col">Relaxation-phase aortic pressure</th>
           <th scope="col">Right atrial pressure</th>
           <th scope="col">Gradient</th>
         </tr>
