@@ -204,6 +204,10 @@ describe('static build output', () => {
     expect(coronary).toContain(
       'The coronary circuit. Blood enters the coronary arteries at the aortic root (①), crosses the heart muscle through progressively smaller vessels, and drains mostly through the coronary sinus into the right atrium (②). Coronary perfusion pressure is the difference between the pressures at ① and ②, read at the same moment in the release phase of compression. It is a pressure difference, not a pressure at any single point and not a measure of flow. Schematic, not to scale. In studies, these pressures are measured by catheters in or near these sites.',
     );
+    expect(coronary).toContain('Marker 1 at the aortic root shows aortic pressure here.');
+    expect(coronary).toContain('Marker 2 at the right atrium shows right atrial pressure here.');
+    expect(coronary).not.toContain('where aortic pressure is measured');
+    expect(coronary).not.toContain('where right atrial pressure is measured');
     expect(coronary).toContain(
       'the difference between the two, measured at the same moment, between compressions.',
     );
@@ -303,6 +307,42 @@ describe('static build output', () => {
     expect(table).toContain('>0.5 s<');
     expect(table).toContain('>about 0.25 s<');
     expect(table).toContain(caption);
+  });
+
+  it('sets the oxygen formulas on centred display lines without changing the prose', () => {
+    const casePage = readDist('cases/adult-cardiac-arrest/index.html');
+    const css = readFileSync(join(repoRoot, 'src/styles/global.css'), 'utf8');
+    const source = readFileSync(join(repoRoot, 'src/content/cases/adult-cardiac-arrest.json'), 'utf8');
+    const partTwo = section(casePage, 'principle-normal-circulation');
+    const cao = 'CaO2 ≈ (1.34 × Hb × SaO2) + (0.003 × PaO2)';
+    const do2 = 'DO2 = CO × CaO2';
+    const deliverySentence = `Oxygen delivery is the product of cardiac output and arterial oxygen content (${do2}).`;
+    const unitSentence =
+      'DO2 in mL O2 per minute equals CO in L/min times CaO2 in mL/dL times 10.';
+
+    expect(source).toContain(cao);
+    expect(source).toContain(deliverySentence);
+    expect(source).toContain(unitSentence);
+    expect(partTwo.split(cao).length - 1).toBe(2);
+    expect(partTwo.split(do2).length - 1).toBe(2);
+    expect(partTwo).toContain(`<p class="equation">${cao}</p>`);
+    expect(partTwo).toContain(`<p class="equation">${do2}</p>`);
+    expect(partTwo).toContain('Content describes the blood, not the patient');
+    expect(partTwo).toContain(unitSentence);
+    expect(partTwo.indexOf(cao)).toBeLessThan(partTwo.indexOf(`<p class="equation">${cao}</p>`));
+    expect(partTwo.indexOf(`<p class="equation">${cao}</p>`)).toBeLessThan(
+      partTwo.indexOf('Content describes the blood, not the patient'),
+    );
+    expect(partTwo.indexOf(deliverySentence)).toBeLessThan(partTwo.indexOf(`<p class="equation">${do2}</p>`));
+    expect(partTwo.indexOf(`<p class="equation">${do2}</p>`)).toBeLessThan(partTwo.indexOf(unitSentence));
+    expect(partTwo.indexOf(unitSentence)).toBeLessThan(
+      partTwo.indexOf('During CPR the first factor is the limiting one.'),
+    );
+
+    const rule = css.match(/\.prose \.equation\s*\{([^}]+)\}/)?.[1] ?? '';
+    expect(rule).toContain('text-align: center');
+    expect(rule).toContain('font-variant-numeric: tabular-nums');
+    expect(rule).toContain('"tnum" 1');
   });
 
   it('renders the reversible-cause figure beside its principle', () => {

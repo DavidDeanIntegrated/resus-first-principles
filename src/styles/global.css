@@ -803,6 +803,18 @@ h2 {
   margin-top: var(--s4);
 }
 
+.prose .equation {
+  max-width: min(100%, var(--measure));
+  margin: var(--s5) auto 0;
+  text-align: center;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variation-settings: "opsz" 18, "wght" 600;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
 .prose-subhead {
   max-width: var(--measure);
   margin: var(--s5) 0 0;

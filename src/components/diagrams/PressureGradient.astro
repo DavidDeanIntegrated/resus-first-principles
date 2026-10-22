@@ -5,6 +5,7 @@ const descId = 'diagram-pressure-gradient-desc';
 
 <figure class="diagram" data-diagram="pressure-gradient">
   <svg
+    class="diagram-screen"
     viewBox="0 0 320 1500"
     role="img"
     aria-labelledby={titleId}
@@ -99,6 +100,95 @@ const descId = 'diagram-pressure-gradient-desc';
     <text class="diagram-display" x="16" y="1422" font-size="18">Narrower, still open</text>
     <text class="diagram-note" x="16" y="1452" font-size="15">Narrower than the open gradient.</text>
     <text class="diagram-note" x="16" y="1474" font-size="15">The shaded gap remains.</text>
+  </svg>
+  <svg class="diagram-print" viewBox="0 0 664 892" aria-hidden="true">
+    <g>
+      <text class="diagram-kicker" x="16" y="28" font-size="14">Open gradient</text>
+      <text class="diagram-label" x="16" y="58" font-size="15">Aortic diastolic pressure</text>
+      <rect class="diagram-gap" x="16" y="72" width="252" height="128"></rect>
+      <line class="diagram-aortic" x1="16" y1="72" x2="268" y2="72"></line>
+      <line class="diagram-aortic" x1="16" y1="66" x2="16" y2="78"></line>
+      <line class="diagram-aortic" x1="268" y1="66" x2="268" y2="78"></line>
+      <text class="diagram-display" x="28" y="128" font-size="18">Coronary perfusion</text>
+      <text class="diagram-display" x="28" y="152" font-size="18">pressure</text>
+      <path class="diagram-bracket" d="M276 72 H292 M284 72 V200 M276 200 H292"></path>
+      <line class="diagram-atrial" x1="16" y1="200" x2="268" y2="200"></line>
+      <line class="diagram-atrial" x1="16" y1="194" x2="16" y2="206"></line>
+      <line class="diagram-atrial" x1="268" y1="194" x2="268" y2="206"></line>
+      <text class="diagram-label" x="16" y="230" font-size="15">Right atrial pressure</text>
+
+      <rect class="diagram-mark" x="16" y="258" width="48" height="2"></rect>
+
+      <text class="diagram-kicker" x="16" y="292" font-size="14">Narrow gradient</text>
+      <text class="diagram-note" x="16" y="320" font-size="15">Same aortic diastolic pressure.</text>
+      <text class="diagram-note" x="16" y="342" font-size="15">Higher right atrial pressure.</text>
+      <text class="diagram-label" x="16" y="378" font-size="15">Aortic diastolic pressure</text>
+      <rect class="diagram-gap" x="16" y="392" width="252" height="48"></rect>
+      <text class="diagram-label" x="28" y="421" font-size="15">Gap</text>
+      <line class="diagram-aortic" x1="16" y1="392" x2="268" y2="392"></line>
+      <line class="diagram-aortic" x1="16" y1="386" x2="16" y2="398"></line>
+      <line class="diagram-aortic" x1="268" y1="386" x2="268" y2="398"></line>
+      <path class="diagram-bracket" d="M276 392 H292 M284 392 V440 M276 440 H292"></path>
+      <line class="diagram-atrial" x1="16" y1="440" x2="268" y2="440"></line>
+      <line class="diagram-atrial" x1="16" y1="434" x2="16" y2="446"></line>
+      <line class="diagram-atrial" x1="268" y1="434" x2="268" y2="446"></line>
+      <text class="diagram-label" x="16" y="470" font-size="15">Right atrial pressure</text>
+      <text class="diagram-display" x="16" y="514" font-size="18">Smaller gap</text>
+      <text class="diagram-note" x="16" y="544" font-size="15">Perfusion follows the gap,</text>
+      <text class="diagram-note" x="16" y="566" font-size="15">not either pressure alone.</text>
+    </g>
+    <g transform="translate(356, -604)">
+      <text class="diagram-kicker" x="16" y="632" font-size="14">Pause</text>
+      <text class="diagram-note" x="16" y="660" font-size="15">No compressions.</text>
+      <text class="diagram-note" x="16" y="682" font-size="15">Aortic pressure falls toward</text>
+      <text class="diagram-note" x="16" y="704" font-size="15">right atrial pressure.</text>
+      <text class="diagram-label" x="16" y="740" font-size="15">Aortic diastolic pressure</text>
+      <line class="diagram-prior" x1="16" y1="754" x2="268" y2="754"></line>
+      <line class="diagram-prior" x1="16" y1="748" x2="16" y2="760"></line>
+      <line class="diagram-prior" x1="268" y1="748" x2="268" y2="760"></line>
+      <text class="diagram-note" x="28" y="792" font-size="15">Falls</text>
+      <line class="diagram-fall" x1="250" y1="766" x2="250" y2="808"></line>
+      <polygon class="diagram-fall-head" points="250,820 243,808 257,808"></polygon>
+      <line class="diagram-aortic" x1="16" y1="820" x2="268" y2="820"></line>
+      <line class="diagram-atrial" x1="16" y1="824" x2="268" y2="824"></line>
+      <text class="diagram-label" x="16" y="858" font-size="15">Right atrial pressure</text>
+      <text class="diagram-display" x="16" y="902" font-size="18">Gap collapses</text>
+      <text class="diagram-note" x="16" y="932" font-size="15">Fallen onto right atrial pressure.</text>
+
+      <rect class="diagram-mark" x="16" y="964" width="48" height="2"></rect>
+
+      <text class="diagram-kicker" x="16" y="998" font-size="14">Ineffective compressions</text>
+      <text class="diagram-note" x="16" y="1026" font-size="15">Compressions continue.</text>
+      <text class="diagram-note" x="16" y="1048" font-size="15">Lower aortic relaxation pressure,</text>
+      <text class="diagram-note" x="16" y="1070" font-size="15">higher right atrial pressure,</text>
+      <text class="diagram-note" x="16" y="1092" font-size="15">or both.</text>
+      <text class="diagram-label" x="16" y="1128" font-size="15">Aortic diastolic pressure</text>
+      <line class="diagram-prior" x1="16" y1="1142" x2="268" y2="1142"></line>
+      <line class="diagram-prior" x1="16" y1="1136" x2="16" y2="1148"></line>
+      <line class="diagram-prior" x1="268" y1="1136" x2="268" y2="1148"></line>
+      <text class="diagram-note" x="28" y="1180" font-size="15">Lower</text>
+      <line class="diagram-fall" x1="250" y1="1154" x2="250" y2="1194"></line>
+      <polygon class="diagram-fall-head" points="250,1206 243,1194 257,1194"></polygon>
+      <rect class="diagram-gap" x="16" y="1206" width="252" height="64"></rect>
+      <text class="diagram-label" x="28" y="1244" font-size="15">Gap</text>
+      <line class="diagram-aortic" x1="16" y1="1206" x2="268" y2="1206"></line>
+      <line class="diagram-aortic" x1="16" y1="1200" x2="16" y2="1212"></line>
+      <line class="diagram-aortic" x1="268" y1="1200" x2="268" y2="1212"></line>
+      <path class="diagram-bracket" d="M276 1206 H292 M284 1206 V1270 M276 1270 H292"></path>
+      <line class="diagram-atrial" x1="16" y1="1270" x2="268" y2="1270"></line>
+      <line class="diagram-atrial" x1="16" y1="1264" x2="16" y2="1276"></line>
+      <line class="diagram-atrial" x1="268" y1="1264" x2="268" y2="1276"></line>
+      <text class="diagram-note" x="28" y="1304" font-size="15">Higher</text>
+      <line class="diagram-rise" x1="250" y1="1330" x2="250" y2="1282"></line>
+      <polygon class="diagram-rise-head" points="250,1270 243,1282 257,1282"></polygon>
+      <line class="diagram-prior" x1="16" y1="1342" x2="268" y2="1342"></line>
+      <line class="diagram-prior" x1="16" y1="1336" x2="16" y2="1348"></line>
+      <line class="diagram-prior" x1="268" y1="1336" x2="268" y2="1348"></line>
+      <text class="diagram-label" x="16" y="1378" font-size="15">Right atrial pressure</text>
+      <text class="diagram-display" x="16" y="1422" font-size="18">Narrower, still open</text>
+      <text class="diagram-note" x="16" y="1452" font-size="15">Narrower than the open gradient.</text>
+      <text class="diagram-note" x="16" y="1474" font-size="15">The shaded gap remains.</text>
+    </g>
   </svg>
   <figcaption>
     <p class="kicker">Figure</p>

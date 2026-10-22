@@ -6,7 +6,7 @@ const stackDescId = 'diagram-coronary-circuit-stack-desc';
 
 const title = 'The coronary circuit, from the aortic root across the heart muscle to the right atrium.';
 const description =
-  'Schematic route from the aortic root through the coronary arteries, small vessels and capillaries within the heart muscle, then cardiac veins and coronary sinus into the right atrium. Marker 1 at the aortic root shows where aortic pressure is measured. Marker 2 at the right atrium shows where right atrial pressure is measured. A bracket between them is labelled coronary perfusion pressure, the difference between the two, measured at the same moment, between compressions. There is no direct connection from the aorta to the right atrium.';
+  'Schematic route from the aortic root through the coronary arteries, small vessels and capillaries within the heart muscle, then cardiac veins and coronary sinus into the right atrium. Marker 1 at the aortic root shows aortic pressure here. Marker 2 at the right atrium shows right atrial pressure here. A bracket between them is labelled coronary perfusion pressure, the difference between the two, measured at the same moment, between compressions. There is no direct connection from the aorta to the right atrium.';
 const caption =
   'The coronary circuit. Blood enters the coronary arteries at the aortic root (①), crosses the heart muscle through progressively smaller vessels, and drains mostly through the coronary sinus into the right atrium (②). Coronary perfusion pressure is the difference between the pressures at ① and ②, read at the same moment in the release phase of compression. It is a pressure difference, not a pressure at any single point and not a measure of flow. Schematic, not to scale. In studies, these pressures are measured by catheters in or near these sites.';
 ---
@@ -114,16 +114,13 @@ const caption =
     <circle class="diagram-marker-ring" cx="78" cy="96" r="13"></circle>
     <text class="diagram-marker-num" x="78" y="96" font-size="16">1</text>
 
-    <text class="diagram-label" x="78" y="196" text-anchor="middle" font-size="16">Aortic root</text>
-    <text class="diagram-label" x="148" y="176" font-size="16">coronary arteries</text>
-    <text class="diagram-label" x="148" y="196" font-size="16">begin here</text>
-    <text class="diagram-label" x="200" y="124" text-anchor="middle" font-size="16">Epicardial arteries</text>
+    <text class="diagram-label" x="78" y="200" text-anchor="middle" font-size="16">Aortic root</text>
+    <text class="diagram-label" x="24" y="222" font-size="16">coronary arteries</text>
+    <text class="diagram-label" x="24" y="242" font-size="16">begin here</text>
+    <text class="diagram-label" x="260" y="54" text-anchor="middle" font-size="16">Epicardial arteries</text>
 
     <rect class="diagram-myocardium" x="272" y="76" width="156" height="150"></rect>
     <rect x="272" y="76" width="156" height="150" fill="url(#coronary-hatch-wide)"></rect>
-    <rect class="diagram-label-plate" x="280" y="84" width="140" height="36"></rect>
-    <text class="diagram-label" x="350" y="100" text-anchor="middle" font-size="15">Arterioles and</text>
-    <text class="diagram-label" x="350" y="116" text-anchor="middle" font-size="15">capillaries</text>
     <path class="diagram-route" d="M262 146 H304"></path>
     <path class="diagram-route-fine" d="M304 146 C314 146 318 108 332 104"></path>
     <path class="diagram-route-fine" d="M304 146 H346"></path>
@@ -134,26 +131,28 @@ const caption =
     <path class="diagram-route" d="M378 146 H428"></path>
     <polygon class="diagram-route-head" points="438,146 428,141 428,151"></polygon>
     <path class="diagram-quiet" d="M400 176 C408 200 416 214 416 236"></path>
-    <text class="diagram-label" x="280" y="214" font-size="15">Heart muscle</text>
-    <text class="diagram-label" x="280" y="230" font-size="15">(myocardium)</text>
+    <text class="diagram-label" x="350" y="258" text-anchor="middle" font-size="15">Arterioles and</text>
+    <text class="diagram-label" x="350" y="274" text-anchor="middle" font-size="15">capillaries</text>
+    <text class="diagram-label" x="350" y="292" text-anchor="middle" font-size="15">Heart muscle</text>
+    <text class="diagram-label" x="350" y="308" text-anchor="middle" font-size="15">(myocardium)</text>
 
     <text class="diagram-label" x="492" y="118" text-anchor="middle" font-size="16">Cardiac veins</text>
     <path class="diagram-route" d="M438 146 H508"></path>
-    <text class="diagram-label" x="530" y="178" text-anchor="middle" font-size="16">Coronary sinus</text>
-    <path class="diagram-route" d="M508 146 H556"></path>
-    <polygon class="diagram-route-head" points="566,146 556,141 556,151"></polygon>
+    <text class="diagram-label" x="506" y="188" text-anchor="middle" font-size="16">Coronary sinus</text>
+    <path class="diagram-route" d="M508 146 H568"></path>
+    <polygon class="diagram-route-head" points="578,146 568,141 568,151"></polygon>
 
-    <rect class="diagram-route" x="572" y="104" width="52" height="84" rx="16"></rect>
-    <text class="diagram-label" x="624" y="212" text-anchor="end" font-size="16">Right atrium</text>
-    <circle class="diagram-marker-ring" cx="598" cy="146" r="13"></circle>
-    <text class="diagram-marker-num" x="598" y="146" font-size="16">2</text>
+    <rect class="diagram-route" x="584" y="104" width="52" height="84" rx="16"></rect>
+    <text class="diagram-label" x="636" y="228" text-anchor="end" font-size="16">Right atrium</text>
+    <circle class="diagram-marker-ring" cx="610" cy="146" r="13"></circle>
+    <text class="diagram-marker-num" x="610" y="146" font-size="16">2</text>
 
-    <text class="diagram-quiet-label" x="20" y="268" font-size="16">A smaller share drains by small veins</text>
-    <text class="diagram-quiet-label" x="20" y="288" font-size="16">opening directly into heart chambers.</text>
+    <text class="diagram-quiet-label" x="20" y="280" font-size="16">A smaller share drains by small veins</text>
+    <text class="diagram-quiet-label" x="20" y="300" font-size="16">opening directly into heart chambers.</text>
 
-    <path class="diagram-cpp" d="M78 320 V340 H598 V320"></path>
-    <text class="diagram-bracket-label" x="338" y="372" text-anchor="middle" font-size="16">difference between these two points</text>
-    <text class="diagram-bracket-label" x="338" y="394" text-anchor="middle" font-size="16">= coronary perfusion pressure</text>
+    <path class="diagram-cpp" d="M78 328 V348 H610 V328"></path>
+    <text class="diagram-bracket-label" x="338" y="382" text-anchor="middle" font-size="16">difference between these two points</text>
+    <text class="diagram-bracket-label" x="338" y="404" text-anchor="middle" font-size="16">= coronary perfusion pressure</text>
   </svg>
 
   <figcaption>

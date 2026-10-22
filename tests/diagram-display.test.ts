@@ -63,11 +63,19 @@ describe('diagram variant display', () => {
       }
     }
 
-    const overlap = figures.find((figure) => figure.id === 'reversible-cause-overlap');
-    expect(overlap).toBeTruthy();
-    expect(visibleClass(overlap!, rules, modes[0]!)).toBe('diagram-screen');
-    expect(visibleClass(overlap!, rules, modes[1]!)).toBe('diagram-print');
-    expect(visibleClass(overlap!, rules, modes[2]!)).toBe('diagram-print');
+    const dual = figures.filter((figure) => {
+      const names = new Set(figure.svgs.flatMap((svg) => svg.classes));
+      return names.has('diagram-screen') && names.has('diagram-print');
+    });
+    expect(dual.map((figure) => figure.id)).toEqual(
+      expect.arrayContaining(['pressure-gradient', 'reversible-cause-overlap']),
+    );
+
+    for (const figure of dual) {
+      expect(visibleClass(figure, rules, modes[0]!), `${figure.id} at ${modes[0]!.name}`).toBe('diagram-screen');
+      expect(visibleClass(figure, rules, modes[1]!), `${figure.id} at ${modes[1]!.name}`).toBe('diagram-print');
+      expect(visibleClass(figure, rules, modes[2]!), `${figure.id} at ${modes[2]!.name}`).toBe('diagram-print');
+    }
 
     const wide = rules.find(
       (rule) =>
