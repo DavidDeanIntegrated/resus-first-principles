@@ -356,10 +356,19 @@
       "title": "Reading the resuscitation",
       "explanation": [
         "End-tidal CO2 links ventilation back to circulation. When an endotracheal tube is used, continuous waveform capnography plus clinical assessment is the most reliable confirmation that it is in the trachea. During CPR, carbon dioxide reaches the lungs only as fast as blood carries it there, so end-tidal CO2 tracks pulmonary blood flow. But it has many determinants: the rate and volume of ventilation, tube position, metabolic production, and drugs such as epinephrine. A change in the number is a prompt to ask which of those changed.",
+        "The path the CO2 takes explains why. Carbon dioxide is made in the tissues, as the end product of aerobic metabolism in the mitochondria, and it diffuses from the cells into the capillary blood. Venous blood carries it mostly as bicarbonate, with smaller amounts dissolved in plasma and bound to hemoglobin, back through the right heart and the pulmonary arteries to the pulmonary capillaries. There it diffuses into the alveoli and is breathed out. The capnograph samples the exhaled gas, and the end-tidal value is the partial pressure of CO2, in mm Hg, at the end of exhalation, when the gas leaving the tube comes mostly from the alveoli. It is a partial pressure in gas, not an amount of CO2, not a blood pressure, and not a flow, although during CPR it moves with flow.",
+        "Arterial and end-tidal CO2 are related but not the same. PaCO2 is the partial pressure of CO2 in arterial blood; end-tidal CO2 is its partial pressure in exhaled gas. They are close only when the ventilated alveoli are also well perfused. Alveoli that receive gas but little blood, alveolar dead space, add gas with almost no CO2 to the exhaled mixture and dilute it, so end-tidal CO2 falls below PaCO2 and the gap between them widens. During CPR, pulmonary blood flow is low and probably unevenly distributed, so much of the ventilated lung is likely to behave this way, and end-tidal CO2 cannot be read as a stand-in for PaCO2.",
+        "That dependence is what makes the number useful during CPR. If metabolic production and ventilation are roughly steady, the main limit on how much CO2 reaches the alveoli is how much blood passes through the lungs, which is the output the compressions are generating. End-tidal CO2 then behaves as a proxy for cardiac output, and its trend is more informative than any single value. Several other inputs move it, and each acts at a different point on the path. Faster or larger breaths wash CO2 out of the alveoli and lower the reading without any change in flow. Sodium bicarbonate generates CO2 as it buffers acid, so the reading can rise after a dose without any improvement in flow. Epinephrine is among the factors the guideline lists; in a human study, end-tidal CO2 fell by a variable amount after a dose, so a fall soon after epinephrine need not mean weaker compressions. A dislodged, kinked, or obstructed tube removes or distorts the gas the capnograph is sampling. And anything that suddenly blocks blood from reaching the lung, such as a tension pneumothorax or a large embolus, lowers the reading by the same route as weak compressions.",
+        "A bedside example shows how these compete. With the tube secure and ventilation unchanged, a steady fall over a minute or two after a compressor has been working for a long time points first to fatigue and falling depth. The same fall right after the team speeds up the bag rate points first to washout. The number is identical; the history of what changed is what separates the two. The 2025 guideline notes that values above 10 mm Hg, and ideally above 20 mm Hg, are associated with higher rates of ROSC and may indicate mechanically adequate compressions; that rests on association with ROSC, not on trials of titrating CPR to a value.",
         "Because the number has so many inputs, it is better used as a question than as a verdict. A low or falling value asks first whether the compressions have weakened or the tube has moved, and only later whether the patient can be resuscitated. Even then it should not decide the matter alone: in an intubated adult, failure to exceed 10 mm Hg after 20 minutes of ALS may be one part of a multimodal decision to stop. A sudden rise can accompany ROSC, though no single cutoff proves it, so the rise prompts a pulse check rather than replacing one."
       ],
       "refs": [
-        "aha-2025-als"
+        "aha-2025-als",
+        "gudipati-1988",
+        "falk-1988",
+        "roh-2024",
+        "okamoto-1995",
+        "cantineau-1994"
       ],
       "questions": [
         {
@@ -392,11 +401,12 @@
           "kind": "evidence-boundary",
           "prompt": "Evidence boundary: a minute after epinephrine, end-tidal CO2 falls even though nothing else has changed. Why shouldn't you read that change as a direct measure of better or worse blood flow?",
           "answer": "Because epinephrine is among the factors the 2025 guideline lists as affecting end-tidal CO2, so the reading can move after a dose for reasons other than a change in blood flow. A fall after a dose should not, on its own, be read as a loss of flow. The number has several determinants, and a drug can move it in the opposite direction from the quantity you care about.",
-          "causalChain": "End-tidal CO2 depends on how much CO2 reaches the lungs and how well the ventilated areas of the lung are perfused. Epinephrine raises aortic pressure, which helps coronary perfusion, but the guideline also lists it among the factors that affect end-tidal CO2 and does not describe a consistent size or direction for that effect. After a dose, the reading can therefore move independently of cardiac perfusion.",
+          "causalChain": "End-tidal CO2 depends on how much CO2 reaches the lungs and how well the ventilated areas of the lung are perfused. Epinephrine raises aortic pressure, which helps coronary perfusion, but the guideline also lists it among the factors that affect end-tidal CO2 and in a prehospital human study the reading fell by a variable amount after a dose. After a dose, the reading can therefore move independently of cardiac perfusion.",
           "assumption": "Ventilation and compression quality were truly unchanged across that minute.",
           "misconception": "The belief that end-tidal CO2 is a flow meter. It is a surrogate, useful for trends when other variables are stable, and least reliable when several are changing at once.",
           "refs": [
-            "aha-2025-als"
+            "aha-2025-als",
+            "cantineau-1994"
           ]
         }
       ]
@@ -1344,6 +1354,31 @@
       "id": "ronco-1993",
       "label": "Ronco JJ, Fenwick JC, Tweeddale MG, et al. Identification of the critical oxygen delivery for anaerobic metabolism in critically ill septic and nonseptic humans. JAMA. 1993;270(14):1724–1730",
       "url": "https://doi.org/10.1001/jama.1993.03510140084034"
+    },
+    {
+      "id": "roh-2024",
+      "label": "Roh YI, Kim HI, Kim SJ, et al. End-tidal carbon dioxide after sodium bicarbonate infusion during mechanical ventilation or ongoing cardiopulmonary resuscitation. Am J Emerg Med. 2024;76:211–216",
+      "url": "https://doi.org/10.1016/j.ajem.2023.11.027"
+    },
+    {
+      "id": "okamoto-1995",
+      "label": "Okamoto H, Hoka S, Kawasaki T, Okuyama T, Takahashi S. Changes in end-tidal carbon dioxide tension following sodium bicarbonate administration: correlation with cardiac output and haemoglobin concentration. Acta Anaesthesiol Scand. 1995;39(1):79–84",
+      "url": "https://doi.org/10.1111/j.1399-6576.1995.tb05596.x"
+    },
+    {
+      "id": "cantineau-1994",
+      "label": "Cantineau JP, Merckx P, Lambert Y, et al. Effect of epinephrine on end-tidal carbon dioxide pressure during prehospital cardiopulmonary resuscitation. Am J Emerg Med. 1994;12(3):267–270",
+      "url": "https://doi.org/10.1016/0735-6757(94)90136-8"
+    },
+    {
+      "id": "gudipati-1988",
+      "label": "Gudipati CV, Weil MH, Bisera J, Deshmukh HG, Rackow EC. Expired carbon dioxide: a noninvasive monitor of cardiopulmonary resuscitation. Circulation. 1988;77(1):234–239",
+      "url": "https://doi.org/10.1161/01.cir.77.1.234"
+    },
+    {
+      "id": "falk-1988",
+      "label": "Falk JL, Rackow EC, Weil MH. End-tidal carbon dioxide concentration during cardiopulmonary resuscitation. N Engl J Med. 1988;318(10):607–611",
+      "url": "https://doi.org/10.1056/NEJM198803103181005"
     }
   ],
   "strict": true
