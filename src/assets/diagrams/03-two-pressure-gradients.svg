@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1050" viewBox="0 0 1080 1050" role="img" aria-labelledby="title desc"><title id="title">One downstream pressure, two different gradients</title><desc id="desc">Two unscaled pressure diagrams. With upstream pressure fixed, increasing right atrial pressure narrows the venous-return gradient on the left and coronary perfusion gradient on the right. Positive-pressure ventilation can also change upstream pressure and resistance, so its net effect is conditional.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#526671"/></marker></defs>
-<rect x="0" y="0" width="1080" height="1050" rx="0" fill="#F7F5EF"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1109" viewBox="0 0 1080 1109" role="img" aria-labelledby="title desc"><title id="title">One downstream pressure, two different gradients</title><desc id="desc">Two unscaled pressure diagrams. With upstream pressure fixed, increasing right atrial pressure narrows the venous-return gradient on the left and coronary perfusion gradient on the right. Positive-pressure ventilation can also change upstream pressure and resistance, so its net effect is conditional.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#526671"/></marker></defs>
+<rect x="0" y="0" width="1080" height="1109" rx="0" fill="#F7F5EF"/>
 <text x="44" y="43" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#087F82" font-weight="600" text-anchor="start">RESUS FIRST PRINCIPLES  /  FIGURE 03</text>
 <text x="44" y="91" font-family="DejaVu Sans, sans-serif" font-size="34" fill="#172D38" font-weight="600" text-anchor="start">One downstream pressure, two different gradients</text>
 <text x="44" y="127" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#526671" font-weight="400" text-anchor="start">Section 5.1 • How positive pressure can interfere with circulation</text>
@@ -37,15 +37,17 @@
 <rect x="818" y="407" width="53" height="74" rx="0" fill="#DDEDEA"/>
 <text x="886" y="439" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#087F82" font-weight="400" text-anchor="start">smaller</text>
 <text x="886" y="460" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#087F82" font-weight="400" text-anchor="start">gap</text>
-<rect x="44" y="616" width="992" height="92" rx="12" fill="#172D38"/>
+<rect x="44" y="616" width="992" height="124" rx="12" fill="#172D38"/>
 <text x="69" y="653" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#FFFFFF" font-weight="600" text-anchor="start">If Pra rises more than Pms, the venous-return gradient narrows.</text>
 <text x="69" y="685" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#DAE8E6" font-weight="400" text-anchor="start">At unchanged venous resistance, less blood returns to the right heart.</text>
-<text x="44" y="758" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#087F82" font-weight="600" text-anchor="start">WHY THIS IS A CONDITIONAL MODEL</text>
-<text x="44" y="798" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="400" text-anchor="start">Positive pressure may raise both Pms and Pra. Resistance to venous return,</text>
-<text x="44" y="830" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="400" text-anchor="start">RV afterload, and LV loading may also change; net cardiac output is not fixed</text>
-<text x="44" y="862" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="400" text-anchor="start">by the rise in Pra alone. This is not a complete model of positive-pressure ventilation.</text>
-<text x="44" y="919" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">Pms: mean systemic filling pressure · Pra: right atrial pressure</text>
-<text x="44" y="946" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">Pao,relax: relaxation-phase aortic pressure · Rᵥᵣ: resistance to venous return</text>
-<path d="M44 985 H1036" stroke="#D5DEDC" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="44" y="1018" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#526671" font-weight="400" text-anchor="start">Schematic • No measured pressure scale. The two panels do not imply equal pressures or equal gradients.</text>
+<text x="69" y="717" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#DAE8E6" font-weight="400" text-anchor="start">At unchanged coronary resistance, a higher Pra,relax means less coronary flow.</text>
+<text x="44" y="790" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#087F82" font-weight="600" text-anchor="start">WHY THIS IS A CONDITIONAL MODEL</text>
+<text x="44" y="830" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="400" text-anchor="start">Positive pressure may raise both Pms and Pra. Resistance to venous return,</text>
+<text x="44" y="862" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="400" text-anchor="start">RV afterload, and LV loading may also change; net cardiac output is not fixed</text>
+<text x="44" y="894" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="400" text-anchor="start">by the rise in Pra alone. This is not a complete model of positive-pressure ventilation.</text>
+<text x="44" y="951" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">Pms: mean systemic filling pressure · Pra: right atrial pressure · Qᵥᵣ: venous return</text>
+<text x="44" y="978" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">Pao,relax: relaxation-phase aortic pressure · Rᵥᵣ: resistance to venous return</text>
+<text x="44" y="1005" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">CPP: coronary perfusion pressure · Pra,relax: right atrial pressure during relaxation</text>
+<path d="M44 1044 H1036" stroke="#D5DEDC" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="44" y="1077" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#526671" font-weight="400" text-anchor="start">Schematic • No measured pressure scale. The two panels do not imply equal pressures or equal gradients.</text>
 </svg>
