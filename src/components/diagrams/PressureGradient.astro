@@ -6,7 +6,7 @@ const printDescId = 'diagram-pressure-gradient-print-desc';
 const title =
   'The gap narrows quickly in a pause and stays narrow with ineffective compressions.';
 const desc =
-  'Four drawings. Each has an upper line for aortic pressure and a lower line labeled right atrial pressure. The shaded gap between those lines is coronary perfusion pressure. In the open gradient the upper line is relaxation-phase aortic pressure and the lines are far apart. In the narrow gradient the aortic line is unchanged and the right atrial line is higher, so the gap is smaller; perfusion depends on the gap and on resistance. The pause drawing is labeled long pause and shows one selected state late in a long pause: there are no compressions, a dashed line marks the earlier aortic pressure, and the aortic line, labeled aortic pressure, no compressions, has fallen close to the right atrial line but does not touch it, leaving a very thin gap that narrows toward closing. In the ineffective drawing, compressions continue. Dashed lines mark the earlier pressures. The drawing shows both changes, a lower relaxation-phase aortic pressure and a higher right atrial pressure; either one alone also narrows the gap. How narrow the gap is depends on how ineffective the compressions are. No pressures are shown as numbers.';
+  'Four drawings. Each has an upper line for aortic pressure and a lower line labeled right atrial pressure. The shaded gap between those lines is coronary perfusion pressure. In the open gradient the upper line is relaxation-phase aortic pressure and the lines are far apart. In the narrow gradient the aortic line is unchanged and the right atrial line is higher, so the gap is smaller; flow follows the gap (at fixed resistance). The pause drawing is labeled long pause and shows one selected state late in a long pause: there are no compressions, a dashed line marks the earlier aortic pressure, and the aortic line, labeled aortic pressure, no compressions, has fallen close to the right atrial line but does not touch it, leaving a very thin gap that narrows toward closing. In the ineffective drawing, compressions continue. Dashed lines mark the earlier pressures. The drawing shows both changes, a lower relaxation-phase aortic pressure and a higher right atrial pressure; either one alone also narrows the gap. How narrow the gap is depends on how ineffective the compressions are. No pressures are shown as numbers.';
 ---
 
 <figure class="diagram" data-diagram="pressure-gradient">
@@ -51,8 +51,7 @@ const desc =
     <line class="diagram-atrial" x1="268" y1="434" x2="268" y2="446"></line>
     <text class="diagram-label" x="16" y="470" font-size="15">Right atrial pressure</text>
     <text class="diagram-display" x="16" y="514" font-size="18">Smaller gap</text>
-    <text class="diagram-note" x="16" y="544" font-size="15">Perfusion depends on the gap</text>
-    <text class="diagram-note" x="16" y="566" font-size="15">and on resistance.</text>
+    <text class="diagram-note" x="16" y="544" font-size="15">Flow follows the gap (at fixed resistance)</text>
 
     <rect class="diagram-mark" x="16" y="598" width="48" height="2"></rect>
 
@@ -150,8 +149,7 @@ const desc =
       <line class="diagram-atrial" x1="268" y1="434" x2="268" y2="446"></line>
       <text class="diagram-label" x="16" y="470" font-size="15">Right atrial pressure</text>
       <text class="diagram-display" x="16" y="514" font-size="18">Smaller gap</text>
-      <text class="diagram-note" x="16" y="544" font-size="15">Perfusion depends on the gap</text>
-      <text class="diagram-note" x="16" y="566" font-size="15">and on resistance.</text>
+      <text class="diagram-note" x="16" y="544" font-size="15">Flow follows the gap (at fixed resistance)</text>
     </g>
     <g transform="translate(356, -604)">
       <text class="diagram-kicker" x="16" y="632" font-size="14">Long pause</text>

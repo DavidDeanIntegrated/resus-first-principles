@@ -80,8 +80,7 @@ describe('static build output', () => {
     expect(gradient).toContain('Drawn with both changes; either one');
     expect(gradient).toContain('alone also narrows the gap.');
     expect(gradient).toContain('How narrow depends on how ineffective');
-    expect(gradient).toContain('Perfusion depends on the gap');
-    expect(gradient).toContain('and on resistance.');
+    expect(gradient).toContain('Flow follows the gap (at fixed resistance)');
     expect(gradient).toContain('The gap narrows quickly in a pause and stays narrow with ineffective compressions.');
     expect(gradient).not.toContain('Gap collapses');
     expect(gradient).not.toContain('Fallen onto');
