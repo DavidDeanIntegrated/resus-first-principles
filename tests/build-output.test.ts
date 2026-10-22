@@ -305,6 +305,42 @@ describe('static build output', () => {
     expect(table).toContain(caption);
   });
 
+  it('sets the oxygen formulas on centred display lines without changing the prose', () => {
+    const casePage = readDist('cases/adult-cardiac-arrest/index.html');
+    const css = readFileSync(join(repoRoot, 'src/styles/global.css'), 'utf8');
+    const source = readFileSync(join(repoRoot, 'src/content/cases/adult-cardiac-arrest.json'), 'utf8');
+    const partTwo = section(casePage, 'principle-normal-circulation');
+    const cao = 'CaO2 ≈ (1.34 × Hb × SaO2) + (0.003 × PaO2)';
+    const do2 = 'DO2 = CO × CaO2';
+    const deliverySentence = `Oxygen delivery is the product of cardiac output and arterial oxygen content (${do2}).`;
+    const unitSentence =
+      'DO2 in mL O2 per minute equals CO in L/min times CaO2 in mL/dL times 10.';
+
+    expect(source).toContain(cao);
+    expect(source).toContain(deliverySentence);
+    expect(source).toContain(unitSentence);
+    expect(partTwo.split(cao).length - 1).toBe(2);
+    expect(partTwo.split(do2).length - 1).toBe(2);
+    expect(partTwo).toContain(`<p class="equation">${cao}</p>`);
+    expect(partTwo).toContain(`<p class="equation">${do2}</p>`);
+    expect(partTwo).toContain('Content describes the blood, not the patient');
+    expect(partTwo).toContain(unitSentence);
+    expect(partTwo.indexOf(cao)).toBeLessThan(partTwo.indexOf(`<p class="equation">${cao}</p>`));
+    expect(partTwo.indexOf(`<p class="equation">${cao}</p>`)).toBeLessThan(
+      partTwo.indexOf('Content describes the blood, not the patient'),
+    );
+    expect(partTwo.indexOf(deliverySentence)).toBeLessThan(partTwo.indexOf(`<p class="equation">${do2}</p>`));
+    expect(partTwo.indexOf(`<p class="equation">${do2}</p>`)).toBeLessThan(partTwo.indexOf(unitSentence));
+    expect(partTwo.indexOf(unitSentence)).toBeLessThan(
+      partTwo.indexOf('During CPR the first factor is the limiting one.'),
+    );
+
+    const rule = css.match(/\.prose \.equation\s*\{([^}]+)\}/)?.[1] ?? '';
+    expect(rule).toContain('text-align: center');
+    expect(rule).toContain('font-variant-numeric: tabular-nums');
+    expect(rule).toContain('"tnum" 1');
+  });
+
   it('renders the reversible-cause figure beside its principle', () => {
     const casePage = readDist('cases/adult-cardiac-arrest/index.html');
     const source = readFileSync(join(repoRoot, 'src/content/cases/adult-cardiac-arrest.json'), 'utf8');

@@ -6,6 +6,7 @@ import PrincipleDiagram from './PrincipleDiagram.astro';
 import PrincipleHeader from './PrincipleHeader.astro';
 import { figuresForPrinciple, groupParagraphs, inlineFiguresAfter, primerAnchorErrors } from '../lib/figure-placement.ts';
 import { physiologyAnchorErrors } from '../lib/physiology-figures.ts';
+import { prosePieces } from '../lib/display-equations.ts';
 import { inlineMarkdownToHtml, stripInlineMarkdown } from '../lib/markdown.ts';
 import { asParagraphs, splitLead } from '../lib/prose.ts';
 import { showsCycleArithmetic, subheadBefore } from '../lib/section-layout.ts';
@@ -94,7 +95,13 @@ const leadSubhead = subheadBefore(principle.id, explanation[0] ?? narrative[0] ?
                 {subheadBefore(principle.id, paragraph) && (
                   <h3 class="prose-subhead">{subheadBefore(principle.id, paragraph)}</h3>
                 )}
-                <p set:html={inlineMarkdownToHtml(paragraph)} />
+                {prosePieces(principle.id, paragraph).map((piece) =>
+                  piece.kind === 'equation' ? (
+                    <p class="equation">{piece.text}</p>
+                  ) : (
+                    <p set:html={inlineMarkdownToHtml(piece.text)} />
+                  ),
+                )}
                 {showsCycleArithmetic(principle.id, paragraph) && <CycleArithmetic />}
               </>
             ))}
