@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { markdownHrefs } from './markdown.ts';
+import { asParagraphs } from './prose.ts';
 import { anchorIds, sectionTree } from './sections.ts';
 
 const idSchema = z
@@ -520,6 +521,9 @@ export const caseSchema = z
     };
 
     value.principles.forEach((principle, index) => {
+      if (principle.explanation != null) {
+        checkLinks(asParagraphs(principle.explanation), ['principles', index, 'explanation']);
+      }
       checkLinks(principle.body, ['principles', index, 'body']);
       checkLinks(principle.workedExample?.body, ['principles', index, 'workedExample', 'body']);
     });

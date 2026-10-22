@@ -1,0 +1,31 @@
+---
+import CycleArithmetic from './CycleArithmetic.astro';
+import { prosePieces } from '../lib/display-equations.ts';
+import { inlineMarkdownToHtml } from '../lib/markdown.ts';
+import { showsCycleArithmetic, subheadBefore } from '../lib/section-layout.ts';
+
+interface Props {
+  principleId: string;
+  paragraphs: readonly string[];
+}
+
+const { principleId, paragraphs } = Astro.props;
+---
+
+{
+  paragraphs.map((paragraph) => (
+    <>
+      {subheadBefore(principleId, paragraph) && (
+        <h3 class="prose-subhead">{subheadBefore(principleId, paragraph)}</h3>
+      )}
+      {prosePieces(principleId, paragraph).map((piece) =>
+        piece.kind === 'equation' ? (
+          <p class="equation">{piece.text}</p>
+        ) : (
+          <p set:html={inlineMarkdownToHtml(piece.text)} />
+        ),
+      )}
+      {showsCycleArithmetic(principleId, paragraph) && <CycleArithmetic />}
+    </>
+  ))
+}
