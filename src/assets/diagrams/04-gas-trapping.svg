@@ -1,48 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1000" viewBox="0 0 1080 1000" role="img" aria-labelledby="title desc"><title id="title">When the next breath arrives too soon</title><desc id="desc">Two flow-time schematics with inspiration above zero and expiration below. The first returns to zero before each breath. In the second, the next inspiration starts while expiratory flow remains negative. A downstream sequence links trapping, intrinsic PEEP, and possible circulatory impairment.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#526671"/></marker></defs>
-<rect x="0" y="0" width="1080" height="1000" rx="0" fill="#F7F5EF"/>
-<text x="44" y="43" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#087F82" font-weight="600" text-anchor="start">RESUS FIRST PRINCIPLES  /  FIGURE 04</text>
-<text x="44" y="91" font-family="DejaVu Sans, sans-serif" font-size="34" fill="#172D38" font-weight="600" text-anchor="start">When the next breath arrives too soon</text>
-<text x="44" y="127" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#526671" font-weight="400" text-anchor="start">Section 5.2 • Expiratory flow reveals incomplete emptying</text>
-<text x="44" y="176" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#087F82" font-weight="600" text-anchor="start">SCHEMATIC FLOW–TIME TRACES • INSPIRATION ABOVE ZERO</text>
-<text x="44" y="222" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#172D38" font-weight="600" text-anchor="start">Enough time to exhale</text>
-<path d="M100 300 H1010" stroke="#526671" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="53" y="307" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">0</text>
-<text x="100" y="257" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#526671" font-weight="400" text-anchor="start">inspiration</text>
-<text x="100" y="382" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#526671" font-weight="400" text-anchor="start">expiration</text>
-<path d="M230 300 L230 248 H287 L287 366 C330 315 380 300 420 300 H479" stroke="#087F82" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M480 300 L480 248 H537 L537 366 C580 315 630 300 670 300 H729" stroke="#087F82" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M730 300 L730 248 H787 L787 366 C830 315 880 300 920 300 H979" stroke="#087F82" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="1010" y="408" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="end">Time →</text>
-<text x="44" y="482" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#172D38" font-weight="600" text-anchor="start">Incomplete exhalation</text>
-<path d="M100 560 H1010" stroke="#526671" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="53" y="567" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">0</text>
-<text x="100" y="517" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#526671" font-weight="400" text-anchor="start">inspiration</text>
-<text x="100" y="642" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#526671" font-weight="400" text-anchor="start">expiration</text>
-<path d="M230 580 L230 508 H287 L287 626 C345 598 408 584 479 580" stroke="#B84A3C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M480 580 L480 508 H537 L537 626 C595 598 658 584 729 580" stroke="#B84A3C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M730 580 L730 508 H787 L787 626 C845 598 908 584 979 580" stroke="#B84A3C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="1010" y="668" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="end">Time →</text>
-<text x="390" y="422" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#087F82" font-weight="400" text-anchor="start">Expiratory flow reaches zero before the next breath.</text>
-<text x="370" y="682" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#B84A3C" font-weight="400" text-anchor="start">Flow is still expiratory when the next inspiration starts.</text>
-<path d="M940 634 L977 583" fill="none" stroke="#526671" stroke-width="2.5" marker-end="url(#arrow)"/>
-<rect x="44" y="728" width="310" height="150" rx="12" fill="#FFFFFF" stroke="#D5DEDC"/>
-<rect x="44" y="728" width="5" height="150" rx="2" fill="#B84A3C"/>
-<text x="66" y="766" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#B84A3C" font-weight="600" text-anchor="start">Air remains trapped</text>
-<text x="66" y="803" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">End-expiratory lung</text>
-<text x="66" y="833" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">volume can rise.</text>
-<rect x="385" y="728" width="310" height="150" rx="12" fill="#FFFFFF" stroke="#D5DEDC"/>
-<rect x="385" y="728" width="5" height="150" rx="2" fill="#B84A3C"/>
-<text x="407" y="766" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#B84A3C" font-weight="600" text-anchor="start">Intrinsic PEEP</text>
-<text x="407" y="803" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">Alveolar pressure stays</text>
-<text x="407" y="833" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">above set external PEEP.</text>
-<rect x="726" y="728" width="310" height="150" rx="12" fill="#FFFFFF" stroke="#D5DEDC"/>
-<rect x="726" y="728" width="5" height="150" rx="2" fill="#B84A3C"/>
-<text x="748" y="766" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#B84A3C" font-weight="600" text-anchor="start">Circulation may fall</text>
-<text x="748" y="803" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">Venous return and RV</text>
-<text x="748" y="833" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">ejection can be impaired.</text>
-<path d="M356 802 L381 802" fill="none" stroke="#526671" stroke-width="2.5" marker-end="url(#arrow)"/>
-<path d="M697 802 L722 802" fill="none" stroke="#526671" stroke-width="2.5" marker-end="url(#arrow)"/>
-<text x="44" y="920" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#172D38" font-weight="400" text-anchor="start">The flow pattern suggests incomplete emptying; it does not quantify intrinsic PEEP.</text>
-<path d="M44 935 H1036" stroke="#D5DEDC" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="44" y="968" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#526671" font-weight="400" text-anchor="start">Conceptual waveforms • No time or flow scale; no CPR artifact shown. Evaluate other causes of sudden deterioration.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1000" viewBox="0 0 1080 1000" role="img" aria-labelledby="title desc"><title id="title">When the next breath arrives too soon</title><desc id="desc">Two flow-time schematics with inspiration above zero and expiration below. The first returns to zero before each breath. In the second, the next inspiration starts while expiratory flow remains negative. A downstream sequence links trapping, intrinsic PEEP, and possible circulatory impairment.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="var(--fig-muted)"/></marker></defs>
+<rect x="0" y="0" width="1080" height="1000" rx="0" fill="var(--fig-canvas)"/>
+<text x="44" y="43" font-family="DejaVu Sans, sans-serif" font-size="16" fill="var(--fig-teal)" font-weight="600" text-anchor="start">RESUS FIRST PRINCIPLES  /  FIGURE 04</text>
+<text x="44" y="91" font-family="DejaVu Sans, sans-serif" font-size="34" fill="var(--fig-ink)" font-weight="600" text-anchor="start">When the next breath arrives too soon</text>
+<text x="44" y="127" font-family="DejaVu Sans, sans-serif" font-size="19" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Section 5.2 • Expiratory flow reveals incomplete emptying</text>
+<text x="44" y="176" font-family="DejaVu Sans, sans-serif" font-size="16" fill="var(--fig-teal)" font-weight="600" text-anchor="start">SCHEMATIC FLOW–TIME TRACES • INSPIRATION ABOVE ZERO</text>
+<text x="44" y="222" font-family="DejaVu Sans, sans-serif" font-size="25" fill="var(--fig-ink)" font-weight="600" text-anchor="start">Enough time to exhale</text>
+<path d="M100 300 H1010" stroke="var(--fig-muted)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="53" y="307" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">0</text>
+<text x="100" y="257" font-family="DejaVu Sans, sans-serif" font-size="17" fill="var(--fig-muted)" font-weight="400" text-anchor="start">inspiration</text>
+<text x="100" y="382" font-family="DejaVu Sans, sans-serif" font-size="17" fill="var(--fig-muted)" font-weight="400" text-anchor="start">expiration</text>
+<path d="M230 300 L230 248 H287 L287 366 C330 315 380 300 420 300 H479" stroke="var(--fig-teal)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M480 300 L480 248 H537 L537 366 C580 315 630 300 670 300 H729" stroke="var(--fig-teal)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M730 300 L730 248 H787 L787 366 C830 315 880 300 920 300 H979" stroke="var(--fig-teal)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1010" y="408" font-family="DejaVu Sans, sans-serif" font-size="18" fill="var(--fig-muted)" font-weight="400" text-anchor="end">Time →</text>
+<text x="44" y="482" font-family="DejaVu Sans, sans-serif" font-size="25" fill="var(--fig-ink)" font-weight="600" text-anchor="start">Incomplete exhalation</text>
+<path d="M100 560 H1010" stroke="var(--fig-muted)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="53" y="567" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">0</text>
+<text x="100" y="517" font-family="DejaVu Sans, sans-serif" font-size="17" fill="var(--fig-muted)" font-weight="400" text-anchor="start">inspiration</text>
+<text x="100" y="642" font-family="DejaVu Sans, sans-serif" font-size="17" fill="var(--fig-muted)" font-weight="400" text-anchor="start">expiration</text>
+<path d="M230 580 L230 508 H287 L287 626 C345 598 408 584 479 580" stroke="var(--fig-red)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M480 580 L480 508 H537 L537 626 C595 598 658 584 729 580" stroke="var(--fig-red)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M730 580 L730 508 H787 L787 626 C845 598 908 584 979 580" stroke="var(--fig-red)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1010" y="668" font-family="DejaVu Sans, sans-serif" font-size="18" fill="var(--fig-muted)" font-weight="400" text-anchor="end">Time →</text>
+<text x="390" y="422" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-teal)" font-weight="400" text-anchor="start">Expiratory flow reaches zero before the next breath.</text>
+<text x="370" y="682" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-red)" font-weight="400" text-anchor="start">Flow is still expiratory when the next inspiration starts.</text>
+<path d="M940 634 L977 583" fill="none" stroke="var(--fig-muted)" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="44" y="728" width="310" height="150" rx="12" fill="var(--fig-panel)" stroke="var(--fig-rule)"/>
+<rect x="44" y="728" width="5" height="150" rx="2" fill="var(--fig-red)"/>
+<text x="66" y="766" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-red)" font-weight="600" text-anchor="start">Air remains trapped</text>
+<text x="66" y="803" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">End-expiratory lung</text>
+<text x="66" y="833" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">volume can rise.</text>
+<rect x="385" y="728" width="310" height="150" rx="12" fill="var(--fig-panel)" stroke="var(--fig-rule)"/>
+<rect x="385" y="728" width="5" height="150" rx="2" fill="var(--fig-red)"/>
+<text x="407" y="766" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-red)" font-weight="600" text-anchor="start">Intrinsic PEEP</text>
+<text x="407" y="803" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Alveolar pressure stays</text>
+<text x="407" y="833" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">above set external PEEP.</text>
+<rect x="726" y="728" width="310" height="150" rx="12" fill="var(--fig-panel)" stroke="var(--fig-rule)"/>
+<rect x="726" y="728" width="5" height="150" rx="2" fill="var(--fig-red)"/>
+<text x="748" y="766" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-red)" font-weight="600" text-anchor="start">Circulation may fall</text>
+<text x="748" y="803" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Venous return and RV</text>
+<text x="748" y="833" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">ejection can be impaired.</text>
+<path d="M356 802 L381 802" fill="none" stroke="var(--fig-muted)" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M697 802 L722 802" fill="none" stroke="var(--fig-muted)" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="44" y="920" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-ink)" font-weight="400" text-anchor="start">The flow pattern suggests incomplete emptying; it does not quantify intrinsic PEEP.</text>
+<path d="M44 935 H1036" stroke="var(--fig-rule)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="44" y="968" font-family="DejaVu Sans, sans-serif" font-size="16" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Conceptual waveforms • No time or flow scale; no CPR artifact shown. Evaluate other causes of sudden deterioration.</text>
 </svg>

@@ -9,7 +9,7 @@ import {
   physiologyFigures,
   physiologySvgSource,
 } from '../src/lib/physiology-figures.ts';
-import { preparePhysiologySvg, svgText } from '../src/lib/physiology-svg.ts';
+import { preparePhysiologySvg, recolorPhysiologySvg, svgText } from '../src/lib/physiology-svg.ts';
 import { asParagraphs } from '../src/lib/prose.ts';
 import type { CaseDocument } from '../src/lib/schema.ts';
 
@@ -108,6 +108,55 @@ describe('physiology figure assets', () => {
     expect(oxygen).toContain('>306<');
     expect(oxygen).toContain('>324<');
     expect(oxygen).toContain('viewBox="0 0 1080 940"');
+  });
+
+  it('paints physiology figures from element role, not from the hex alone', () => {
+    const sample = [
+      '<rect fill="#172D38"/>',
+      '<text fill="#172D38">Heading</text>',
+      '<rect fill="#FFFFFF"/>',
+      '<text fill="#FFFFFF">On callout</text>',
+      '<rect fill="#DAE8E6"/>',
+      '<text fill="#DAE8E6">Soft</text>',
+      '<path fill="#526671" stroke="#087F82"/>',
+    ].join('');
+    expect(recolorPhysiologySvg(sample)).toBe(
+      [
+        '<rect fill="var(--fig-callout)"/>',
+        '<text fill="var(--fig-ink)">Heading</text>',
+        '<rect fill="var(--fig-panel)"/>',
+        '<text fill="var(--fig-on-callout)">On callout</text>',
+        '<rect fill="var(--fig-teal-tint)"/>',
+        '<text fill="var(--fig-on-callout-soft)">Soft</text>',
+        '<path fill="var(--fig-muted)" stroke="var(--fig-teal)"/>',
+      ].join(''),
+    );
+    expect(() => recolorPhysiologySvg('<rect fill="#123456"/>')).toThrow(/123456/);
+
+    const counts = new Map<string, number>();
+    for (const figure of physiologyFigures) {
+      const prepared = preparePhysiologySvg(physiologySvgSource(figure.file), `fig-${figure.id}`, figure.alt);
+      expect(prepared, figure.id).not.toMatch(/\b(?:fill|stroke)\s*=\s*["'][^"']*#[0-9A-Fa-f]{3,8}/i);
+      for (const match of prepared.matchAll(/\b(?:fill|stroke)="(var\(--fig-[a-z-]+\))"/g)) {
+        const token = match[1] ?? '';
+        counts.set(token, (counts.get(token) ?? 0) + 1);
+      }
+    }
+    expect(Object.fromEntries(counts)).toEqual({
+      'var(--fig-muted)': 114,
+      'var(--fig-teal)': 59,
+      'var(--fig-ink)': 32,
+      'var(--fig-rule)': 29,
+      'var(--fig-panel)': 23,
+      'var(--fig-red)': 18,
+      'var(--fig-canvas)': 6,
+      'var(--fig-callout)': 5,
+      'var(--fig-on-callout)': 5,
+      'var(--fig-on-callout-soft)': 5,
+      'var(--fig-gold)': 4,
+      'var(--fig-red-tint)': 4,
+      'var(--fig-teal-tint)': 4,
+    });
   });
 
   it('scrolls dense figures on a narrow screen and keeps each figure on one printed page', () => {

@@ -8,11 +8,49 @@ interface Props {
 
 const { title, description } = Astro.props;
 const fullTitle = title === 'Resus First Principles' ? title : `${title} · Resus First Principles`;
+
+const themeBoot = `(function () {
+  var theme = "system";
+  try {
+    var stored = localStorage.getItem("rfp-theme");
+    if (stored === "light" || stored === "dark" || stored === "system") theme = stored;
+  } catch (error) {
+    theme = "system";
+  }
+  document.documentElement.setAttribute("data-theme", theme);
+})();`;
+
+const themeChoice = `(function () {
+  var root = document.documentElement;
+  var theme = root.getAttribute("data-theme") || "system";
+  var inputs = document.querySelectorAll('input[name="color-theme"]');
+  function apply(next) {
+    if (next !== "light" && next !== "dark" && next !== "system") return;
+    root.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("rfp-theme", next);
+    } catch (error) {
+      /* Preference stays on the element for this view. */
+    }
+  }
+  for (var i = 0; i < inputs.length; i++) {
+    var input = inputs[i];
+    if (input.value === theme) input.checked = true;
+    input.addEventListener("change", function (event) {
+      var target = event.target;
+      apply(target && target.value);
+    });
+  }
+})();`;
+
+const themeBootTag = `<script>${themeBoot}</script>`;
+const themeChoiceTag = `<script>${themeChoice}</script>`;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <Fragment set:html={themeBootTag} />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
@@ -26,9 +64,27 @@ const fullTitle = title === 'Resus First Principles' ? title : `${title} · Resu
     <a class="skip" href="#content">Skip to content</a>
     <header class="site-header">
       <a class="wordmark" href="/">Resus <em>First Principles</em></a>
-      <nav class="site-nav" aria-label="Site">
-        <a href="/">Cases</a>
-      </nav>
+      <div class="site-tools">
+        <nav class="site-nav" aria-label="Site">
+          <a href="/">Cases</a>
+        </nav>
+        <fieldset class="theme-toggle">
+          <legend class="sr-only">Color theme</legend>
+          <label>
+            <input type="radio" name="color-theme" value="light" />
+            <span>Light</span>
+          </label>
+          <label>
+            <input type="radio" name="color-theme" value="dark" />
+            <span>Dark</span>
+          </label>
+          <label>
+            <input type="radio" name="color-theme" value="system" checked />
+            <span>System</span>
+          </label>
+        </fieldset>
+        <Fragment set:html={themeChoiceTag} />
+      </div>
     </header>
     <main id="content">
       <slot />
