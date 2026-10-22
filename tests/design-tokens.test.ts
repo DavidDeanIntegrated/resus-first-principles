@@ -83,6 +83,7 @@ describe('annotated primer tokens', () => {
     const queries = [...css.matchAll(/@media\s*([^{]+)\{/g)].map((match) => match[1]?.trim());
     expect(queries).toEqual([
       'screen and (min-width: 701px)',
+      '(min-width: 600px)',
       '(min-width: 900px)',
       '(prefers-reduced-motion: reduce)',
       'screen and (max-width: 700px)',
@@ -90,6 +91,9 @@ describe('annotated primer tokens', () => {
     ]);
     const wideFigure = css.match(/@media screen and \(min-width:\s*701px\)\s*\{([\s\S]*?)\n\}/)?.[1] ?? '';
     expect(wideFigure).not.toContain('--text-');
+    const coronary = css.match(/@media\s*\(min-width:\s*600px\)\s*\{([\s\S]*?)\n\}/)?.[1] ?? '';
+    expect(coronary).toContain('coronary-circuit');
+    expect(coronary).not.toContain('--text-body');
     const narrow = css.match(/@media screen and \(max-width:\s*700px\)\s*\{([\s\S]*?)\n\}/)?.[1] ?? '';
     expect(narrow).toContain('width: 780px');
     expect(narrow).not.toContain('--text-body');

@@ -161,6 +161,72 @@ describe('static build output', () => {
       casePage.indexOf('id="principle-rosc-hemodynamics"'),
     );
 
+    const perfusion = section(casePage, 'principle-coronary-cerebral-perfusion');
+    const coronary = figure(perfusion, 'coronary-circuit');
+    const pairs = figure(perfusion, 'pressure-pairs');
+    const release = figure(perfusion, 'compression-release');
+    expect(perfusion.indexOf('The heart is a muscle that never rests in health')).toBeLessThan(
+      perfusion.indexOf('data-diagram="coronary-circuit"'),
+    );
+    expect(perfusion.indexOf('data-diagram="coronary-circuit"')).toBeLessThan(
+      perfusion.indexOf('That path explains why two pressures'),
+    );
+    expect(perfusion.indexOf('With that picture in place, the equation')).toBeLessThan(
+      perfusion.indexOf('data-diagram="pressure-pairs"'),
+    );
+    expect(perfusion.indexOf('data-diagram="pressure-pairs"')).toBeLessThan(
+      perfusion.indexOf('Phase matters for a second reason'),
+    );
+    expect(perfusion.indexOf('Phase matters for a second reason')).toBeLessThan(
+      perfusion.indexOf('data-diagram="compression-release"'),
+    );
+    expect(perfusion.indexOf('data-diagram="compression-release"')).toBeLessThan(
+      perfusion.indexOf('For the heart, the gradient that matters'),
+    );
+    expect(perfusion.indexOf('For the heart, the gradient that matters')).toBeLessThan(
+      perfusion.indexOf('data-diagram="pressure-gradient"'),
+    );
+    expect(perfusion.indexOf('data-diagram="pressure-gradient"')).toBeLessThan(
+      perfusion.indexOf('The model has limits'),
+    );
+    expect(coronary).toContain('role="img"');
+    expect(coronary).toContain('id="diagram-coronary-circuit-wide-title"');
+    expect(coronary).toContain('id="diagram-coronary-circuit-stack-title"');
+    expect(coronary).toContain('id="diagram-coronary-circuit-wide-desc"');
+    expect(coronary).toContain('class="diagram-wide"');
+    expect(coronary).toContain('class="diagram-stack"');
+    expect(coronary).toContain('Aortic pressure');
+    expect(coronary).toContain('during release');
+    expect(coronary).toContain('Right atrial pressure');
+    expect(coronary).toContain('difference between these two points');
+    expect(coronary).toContain('= coronary perfusion pressure');
+    expect(coronary).toContain('A smaller share drains by small veins');
+    expect(coronary).toContain(
+      'The coronary circuit. Blood enters the coronary arteries at the aortic root (①), crosses the heart muscle through progressively smaller vessels, and drains mostly through the coronary sinus into the right atrium (②). Coronary perfusion pressure is the difference between the pressures at ① and ②, read at the same moment in the release phase of compression. It is a pressure difference, not a pressure at any single point and not a measure of flow. Schematic, not to scale. In studies, these pressures are measured by catheters in or near these sites.',
+    );
+    expect(coronary).toContain(
+      'the difference between the two, measured at the same moment, between compressions.',
+    );
+    expect(coronary.toLowerCase()).not.toContain('mmhg');
+    expect(pairs).toContain('role="img"');
+    expect(pairs).toContain('Two pressures and the difference between them');
+    expect(pairs).toContain('zeroed at the level of the right atrium');
+    expect(pairs).toContain('hypothetical, above those usually measured in human CPR');
+    expect(pairs).toContain('Data as table');
+    expect(pairs).toContain('35 &minus; 10 = 25&nbsp;mm&nbsp;Hg');
+    expect(pairs).toContain('35 &minus; 25 = 10&nbsp;mm&nbsp;Hg');
+    expect(pairs).toContain('50 &minus; 40 = 10&nbsp;mm&nbsp;Hg');
+    expect(pairs).toContain('class="diagram-wide"');
+    expect(pairs).toContain('class="diagram-stack"');
+    expect(pairs.toLowerCase()).not.toContain('diastolic');
+    expect(pairs.toLowerCase()).not.toContain('worse');
+    expect(release).toContain('role="img"');
+    expect(release).toContain('forward coronary flow is small');
+    expect(release).toContain('the coronary bed fills mainly now');
+    expect(release).toContain('Pause: no compression, aortic pressure decays');
+    expect(release).toContain('Read here');
+    expect(release).toContain('Data as table');
+    expect(release.toLowerCase()).not.toContain('diastolic');
     expect(section(casePage, 'principle-coronary-cerebral-perfusion')).toContain('data-diagram="pressure-gradient"');
     expect(section(casePage, 'principle-minimize-interruptions')).toContain('data-diagram="compression-pause"');
     expect(section(casePage, 'principle-coronary-cerebral-perfusion')).not.toContain('oxygen-delivery');
@@ -198,6 +264,45 @@ describe('static build output', () => {
     expect(oxygen).toContain('>1020<');
     expect(oxygen).toContain('>306<');
     expect(oxygen).toContain('>324<');
+  });
+
+  it('adds CPR mechanics subheads and a cycle table without changing the prose', () => {
+    const casePage = readDist('cases/adult-cardiac-arrest/index.html');
+    const mechanics = section(casePage, 'principle-cpr-mechanics');
+    const how = mechanics.indexOf('<h3 class="prose-subhead">How a compression moves blood</h3>');
+    const release = mechanics.indexOf('<h3 class="prose-subhead">Release</h3>');
+    const five = mechanics.indexOf('<h3 class="prose-subhead">Five variables, one cycle</h3>');
+    const arithmetic = 'An illustrative calculation, from the guideline numbers rather than from measurement';
+    const caption =
+      'These figures show the arithmetic of the cycle, not targets, and they do not say how much flow occurs in each phase.';
+    expect(how).toBeGreaterThan(-1);
+    expect(how).toBeLessThan(mechanics.indexOf('A compression moves blood by raising pressure'));
+    expect(release).toBeGreaterThan(how);
+    expect(release).toBeLessThan(mechanics.indexOf('Release is the other half of the cycle'));
+    expect(five).toBeGreaterThan(release);
+    expect(five).toBeLessThan(mechanics.indexOf('The compression variables are not independent dials.'));
+    expect(mechanics.indexOf(arithmetic)).toBeLessThan(mechanics.indexOf('class="cycle-arithmetic"'));
+    expect(mechanics.indexOf('class="cycle-arithmetic"')).toBeLessThan(
+      mechanics.indexOf('Ventilation acts on the same chest.'),
+    );
+    expect(mechanics).toContain('At 100 compressions per minute each cycle lasts 0.6 seconds; at 120 per minute, 0.5 seconds.');
+    expect(mechanics).toContain(
+      'the release phase available for refilling and coronary filling is about 0.3 seconds at the lower rate and about 0.25 seconds at the upper.',
+    );
+    expect(mechanics.split(caption).length - 1).toBe(2);
+    const table = mechanics.slice(
+      mechanics.indexOf('class="cycle-arithmetic"'),
+      mechanics.indexOf('</figure>', mechanics.indexOf('class="cycle-arithmetic"')),
+    );
+    const css = readFileSync(join(repoRoot, 'src/styles/global.css'), 'utf8');
+    expect(css).toMatch(/\.cycle-arithmetic table\s*\{[^}]*font-variant-numeric:\s*tabular-nums/);
+    expect(table).toContain('>100/min<');
+    expect(table).toContain('>0.6 s<');
+    expect(table).toContain('>about 0.3 s<');
+    expect(table).toContain('>120/min<');
+    expect(table).toContain('>0.5 s<');
+    expect(table).toContain('>about 0.25 s<');
+    expect(table).toContain(caption);
   });
 
   it('renders the reversible-cause figure beside its principle', () => {

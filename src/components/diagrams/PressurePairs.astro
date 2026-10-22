@@ -1,0 +1,220 @@
+---
+const wideTitleId = 'diagram-pressure-pairs-wide-title';
+const wideDescId = 'diagram-pressure-pairs-wide-desc';
+const stackTitleId = 'diagram-pressure-pairs-stack-title';
+const stackDescId = 'diagram-pressure-pairs-stack-desc';
+
+const title = 'Two pressures and the difference between them';
+const description =
+  'Three illustrative pairs on one scale from 0 to 60 millimetres of mercury, zeroed at the level of the right atrium. Not targets. Pair A: aortic pressure during release 35, right atrial pressure 10, gradient 25. Pair B: aortic pressure during release 35, right atrial pressure 25, gradient 10. Pair C, hypothetical, above those usually measured in human CPR: aortic pressure during release 50, right atrial pressure 40, gradient 10. B and C have the same gradient although C’s aortic pressure is higher. Brackets mark the differences. There is no threshold line and no grading of the pairs.';
+const caption =
+  'Two pressures and the difference between them. Coronary perfusion pressure is relaxation-phase aortic pressure minus right atrial pressure, read at the same moment. Pairs A, B, and C are illustrative, chosen to show the arithmetic and not as targets. Pair C is hypothetical, above those usually measured in human CPR. B and C share a 10 mm Hg gradient although C’s aortic pressure is higher. The gradient alone does not give the flow, which also depends on resistance.';
+---
+
+<figure class="diagram" data-diagram="pressure-pairs">
+  <svg class="diagram-stack" viewBox="0 0 340 860" role="img" aria-labelledby={stackTitleId} aria-describedby={stackDescId}>
+    <title id={stackTitleId}>{title}</title>
+    <desc id={stackDescId}>{description}</desc>
+    <defs>
+      <pattern id="pressure-pairs-hatch-stack" width="7" height="7" patternUnits="userSpaceOnUse">
+        <path class="diagram-hatch" d="M-1 6 L6 -1"></path>
+      </pattern>
+    </defs>
+
+    <text class="diagram-panel-title" x="8" y="28" font-size="18">Two pressures and the</text>
+    <text class="diagram-panel-title" x="8" y="50" font-size="18">difference between them</text>
+    <text class="diagram-key" x="8" y="78" font-size="15">Illustrative pairs, not targets</text>
+
+    <line class="diagram-level-aortic" x1="8" y1="100" x2="40" y2="100"></line>
+    <text class="diagram-label" x="48" y="105" font-size="15">aortic pressure during release</text>
+    <rect class="diagram-level-atrial" x="8" y="118" width="32" height="8"></rect>
+    <text class="diagram-label" x="48" y="128" font-size="15">right atrial pressure</text>
+
+    <text class="diagram-num" x="312" y="158" text-anchor="end" font-size="15">mm&nbsp;Hg</text>
+    <line class="diagram-axis" x1="36" y1="172" x2="312" y2="172"></line>
+    <g class="diagram-axis" stroke-width="1.25">
+      <line x1="36" y1="172" x2="36" y2="180"></line>
+      <line x1="82" y1="172" x2="82" y2="180"></line>
+      <line x1="128" y1="172" x2="128" y2="180"></line>
+      <line x1="174" y1="172" x2="174" y2="180"></line>
+      <line x1="220" y1="172" x2="220" y2="180"></line>
+      <line x1="266" y1="172" x2="266" y2="180"></line>
+      <line x1="312" y1="172" x2="312" y2="180"></line>
+    </g>
+    <g class="diagram-num" font-size="15" text-anchor="middle">
+      <text x="36" y="198">0</text>
+      <text x="82" y="198">10</text>
+      <text x="128" y="198">20</text>
+      <text x="174" y="198">30</text>
+      <text x="220" y="198">40</text>
+      <text x="266" y="198">50</text>
+      <text x="312" y="198">60</text>
+    </g>
+    <text class="diagram-label" x="8" y="228" font-size="15">zeroed at the level of the right atrium</text>
+
+    <text class="diagram-key" x="8" y="268" font-size="16">A</text>
+    <line class="diagram-level-aortic" x1="197" y1="278" x2="197" y2="310"></line>
+    <line class="diagram-level-aortic" x1="191" y1="278" x2="203" y2="278"></line>
+    <line class="diagram-level-aortic" x1="191" y1="310" x2="203" y2="310"></line>
+    <rect class="diagram-level-atrial" x="78" y="278" width="8" height="32"></rect>
+    <text class="diagram-num" x="197" y="270" text-anchor="middle" font-size="16">35</text>
+    <text class="diagram-num" x="82" y="270" text-anchor="middle" font-size="16">10</text>
+    <path class="diagram-cpp" d="M82 322 V332 H197 V322"></path>
+    <text class="diagram-num" x="140" y="354" text-anchor="middle" font-size="16">35 &minus; 10 = 25&nbsp;mm&nbsp;Hg</text>
+
+    <text class="diagram-key" x="8" y="408" font-size="16">B</text>
+    <line class="diagram-level-aortic" x1="197" y1="418" x2="197" y2="450"></line>
+    <line class="diagram-level-aortic" x1="191" y1="418" x2="203" y2="418"></line>
+    <line class="diagram-level-aortic" x1="191" y1="450" x2="203" y2="450"></line>
+    <rect class="diagram-level-atrial" x="147" y="418" width="8" height="32"></rect>
+    <text class="diagram-num" x="197" y="410" text-anchor="middle" font-size="16">35</text>
+    <text class="diagram-num" x="151" y="410" text-anchor="middle" font-size="16">25</text>
+    <path class="diagram-cpp" d="M151 462 V472 H197 V462"></path>
+    <text class="diagram-num" x="174" y="494" text-anchor="middle" font-size="16">35 &minus; 25 = 10&nbsp;mm&nbsp;Hg</text>
+
+    <rect class="diagram-myocardium" x="28" y="530" width="292" height="88"></rect>
+    <rect x="28" y="530" width="292" height="88" fill="url(#pressure-pairs-hatch-stack)"></rect>
+    <text class="diagram-key" x="8" y="548" font-size="16">C</text>
+    <line class="diagram-level-aortic diagram-level-dashed" x1="266" y1="558" x2="266" y2="590"></line>
+    <line class="diagram-level-aortic diagram-level-dashed" x1="260" y1="558" x2="272" y2="558"></line>
+    <line class="diagram-level-aortic diagram-level-dashed" x1="260" y1="590" x2="272" y2="590"></line>
+    <rect class="diagram-level-atrial diagram-level-dashed" x="216" y="558" width="8" height="32"></rect>
+    <text class="diagram-num" x="266" y="550" text-anchor="middle" font-size="16">50</text>
+    <text class="diagram-num" x="220" y="550" text-anchor="middle" font-size="16">40</text>
+    <path class="diagram-cpp" d="M220 602 V612 H266 V602"></path>
+    <text class="diagram-num" x="170" y="636" text-anchor="middle" font-size="16">50 &minus; 40 = 10&nbsp;mm&nbsp;Hg</text>
+    <text class="diagram-note" x="32" y="668" font-size="15">hypothetical, above those usually</text>
+    <text class="diagram-note" x="32" y="688" font-size="15">measured in human CPR</text>
+  </svg>
+
+  <svg class="diagram-wide" viewBox="0 0 640 610" role="img" aria-labelledby={wideTitleId} aria-describedby={wideDescId}>
+    <title id={wideTitleId}>{title}</title>
+    <desc id={wideDescId}>{description}</desc>
+    <defs>
+      <pattern id="pressure-pairs-hatch-wide" width="7" height="7" patternUnits="userSpaceOnUse">
+        <path class="diagram-hatch" d="M-1 6 L6 -1"></path>
+      </pattern>
+    </defs>
+
+    <text class="diagram-panel-title" x="24" y="34" font-size="22">{title}</text>
+    <text class="diagram-key" x="24" y="62" font-size="16">Illustrative pairs, not targets</text>
+
+    <line class="diagram-level-aortic" x1="24" y1="90" x2="56" y2="90"></line>
+    <text class="diagram-label" x="64" y="95" font-size="16">aortic pressure during release</text>
+    <rect class="diagram-level-atrial" x="360" y="84" width="32" height="8"></rect>
+    <text class="diagram-label" x="400" y="95" font-size="16">right atrial pressure</text>
+
+    <text class="diagram-num" x="24" y="150" font-size="16">mm&nbsp;Hg</text>
+    <line class="diagram-axis" x1="86" y1="176" x2="86" y2="416"></line>
+    <g class="diagram-axis">
+      <line x1="80" y1="176" x2="92" y2="176"></line>
+      <line x1="80" y1="216" x2="92" y2="216"></line>
+      <line x1="80" y1="256" x2="92" y2="256"></line>
+      <line x1="80" y1="296" x2="92" y2="296"></line>
+      <line x1="80" y1="336" x2="92" y2="336"></line>
+      <line x1="80" y1="376" x2="92" y2="376"></line>
+      <line x1="80" y1="416" x2="92" y2="416"></line>
+    </g>
+    <g class="diagram-num" font-size="16" text-anchor="end">
+      <text x="74" y="181">60</text>
+      <text x="74" y="221">50</text>
+      <text x="74" y="261">40</text>
+      <text x="74" y="301">30</text>
+      <text x="74" y="341">20</text>
+      <text x="74" y="381">10</text>
+      <text x="74" y="421">0</text>
+    </g>
+
+    <rect class="diagram-myocardium" x="472" y="176" width="96" height="240"></rect>
+    <rect x="472" y="176" width="96" height="240" fill="url(#pressure-pairs-hatch-wide)"></rect>
+
+    <g class="diagram-level-aortic">
+      <line x1="168" y1="276" x2="248" y2="276"></line>
+      <line x1="168" y1="270" x2="168" y2="282"></line>
+      <line x1="248" y1="270" x2="248" y2="282"></line>
+      <line x1="328" y1="276" x2="408" y2="276"></line>
+      <line x1="328" y1="270" x2="328" y2="282"></line>
+      <line x1="408" y1="270" x2="408" y2="282"></line>
+    </g>
+    <g class="diagram-level-aortic diagram-level-dashed">
+      <line x1="488" y1="216" x2="568" y2="216"></line>
+      <line x1="488" y1="210" x2="488" y2="222"></line>
+      <line x1="568" y1="210" x2="568" y2="222"></line>
+    </g>
+    <rect class="diagram-level-atrial" x="168" y="372" width="80" height="8"></rect>
+    <rect class="diagram-level-atrial" x="328" y="312" width="80" height="8"></rect>
+    <rect class="diagram-level-atrial diagram-level-dashed" x="488" y="252" width="80" height="8"></rect>
+
+    <g class="diagram-num" font-size="16" text-anchor="middle">
+      <text x="208" y="262">35</text>
+      <text x="208" y="404">10</text>
+      <text x="368" y="262">35</text>
+      <text x="368" y="344">25</text>
+      <text x="528" y="202">50</text>
+      <text x="528" y="284">40</text>
+    </g>
+
+    <path class="diagram-cpp" d="M256 276 H268 V376 H256"></path>
+    <path class="diagram-cpp" d="M416 276 H428 V316 H416"></path>
+    <path class="diagram-cpp" d="M576 216 H588 V256 H576"></path>
+
+    <g class="diagram-key" font-size="16" text-anchor="middle">
+      <text x="208" y="456">A</text>
+      <text x="368" y="456">B</text>
+      <text x="528" y="456">C</text>
+    </g>
+    <g class="diagram-num" font-size="16" text-anchor="middle">
+      <text x="208" y="482">35 &minus; 10</text>
+      <text x="208" y="502">= 25&nbsp;mm&nbsp;Hg</text>
+      <text x="368" y="482">35 &minus; 25</text>
+      <text x="368" y="502">= 10&nbsp;mm&nbsp;Hg</text>
+      <text x="528" y="482">50 &minus; 40</text>
+      <text x="528" y="502">= 10&nbsp;mm&nbsp;Hg</text>
+    </g>
+
+    <text class="diagram-label" x="320" y="544" text-anchor="middle" font-size="16">zeroed at the level of the right atrium</text>
+    <text class="diagram-note" x="616" y="576" text-anchor="end" font-size="16">hypothetical, above those usually</text>
+    <text class="diagram-note" x="616" y="596" text-anchor="end" font-size="16">measured in human CPR</text>
+  </svg>
+
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>{caption}</p>
+  </figcaption>
+
+  <details class="diagram-data">
+    <summary>Data as table</summary>
+    <table>
+      <caption>Illustrative pairs, not targets. Pair C is hypothetical.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Pair</th>
+          <th scope="col">Aortic pressure during release</th>
+          <th scope="col">Right atrial pressure</th>
+          <th scope="col">Gradient</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">A</th>
+          <td>35&nbsp;mm&nbsp;Hg</td>
+          <td>10&nbsp;mm&nbsp;Hg</td>
+          <td>35 &minus; 10 = 25&nbsp;mm&nbsp;Hg</td>
+        </tr>
+        <tr>
+          <th scope="row">B</th>
+          <td>35&nbsp;mm&nbsp;Hg</td>
+          <td>25&nbsp;mm&nbsp;Hg</td>
+          <td>35 &minus; 25 = 10&nbsp;mm&nbsp;Hg</td>
+        </tr>
+        <tr>
+          <th scope="row">C</th>
+          <td>50&nbsp;mm&nbsp;Hg</td>
+          <td>40&nbsp;mm&nbsp;Hg</td>
+          <td>50 &minus; 40 = 10&nbsp;mm&nbsp;Hg</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Coronary perfusion pressure is read during the release phase of each compression, with both pressures taken at the same moment. Pair C is hypothetical, above those usually measured in human CPR.</p>
+  </details>
+</figure>

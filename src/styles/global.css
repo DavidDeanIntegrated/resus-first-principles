@@ -53,6 +53,7 @@
   --accent-tint: #f6e4dc;
   --sage: #2f5d50;
   --sage-tint: #e3ece5;
+  --hatch: #9c8f82;
   --focus: #1f4fa8;
 
   --f-display: "Fraunces", Georgia, serif;
@@ -802,6 +803,56 @@ h2 {
   margin-top: var(--s4);
 }
 
+.prose-subhead {
+  max-width: var(--measure);
+  margin: var(--s5) 0 0;
+  font-family: var(--f-text);
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  color: var(--sage);
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.principle-head .prose-subhead {
+  margin: 0 0 var(--s2);
+}
+
+.prose .prose-subhead + p {
+  margin-top: var(--s2);
+}
+
+.cycle-arithmetic {
+  margin: var(--s4) 0 0;
+  max-width: var(--measure);
+}
+
+.cycle-arithmetic table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.cycle-arithmetic caption {
+  caption-side: bottom;
+  padding-top: var(--s2);
+  text-align: left;
+  color: var(--ink-soft);
+}
+
+.cycle-arithmetic th,
+.cycle-arithmetic td {
+  padding: 0.45rem 0.75rem 0.45rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
 .q {
   background: var(--card);
   border: 1px solid var(--rule);
@@ -1419,6 +1470,257 @@ h2 {
   stroke-width: 3;
 }
 
+.diagram[data-diagram="coronary-circuit"] {
+  max-width: 40rem;
+}
+
+.diagram[data-diagram="coronary-circuit"] svg {
+  background: var(--paper);
+}
+
+.diagram[data-diagram="coronary-circuit"] svg.diagram-wide,
+.diagram[data-diagram="pressure-pairs"] svg.diagram-wide,
+.diagram[data-diagram="compression-release"] svg.diagram-wide {
+  display: none;
+}
+
+.diagram[data-diagram="pressure-pairs"],
+.diagram[data-diagram="compression-release"] {
+  max-width: 40rem;
+}
+
+.diagram-panel-title {
+  font-family: var(--f-display);
+  font-weight: 500;
+  fill: var(--ink);
+  font-variation-settings: "opsz" 36, "SOFT" 40, "WONK" 0, "wght" 500;
+}
+
+.diagram-key {
+  font-family: var(--f-text);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-variant-caps: all-small-caps;
+  fill: var(--ink);
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.diagram-num {
+  font-family: var(--f-text);
+  font-weight: 600;
+  fill: var(--ink);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.diagram-level-aortic {
+  fill: none;
+  stroke: var(--sage);
+  stroke-width: 2.5;
+  stroke-linecap: square;
+}
+
+.diagram-level-atrial {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.75;
+}
+
+.diagram-level-dashed {
+  stroke-dasharray: 5 3.5;
+}
+
+.diagram-axis {
+  fill: none;
+  stroke: var(--hatch);
+  stroke-width: 1.25;
+  stroke-linecap: square;
+}
+
+.diagram-read-window {
+  fill: var(--sage-tint);
+  stroke: var(--sage);
+  stroke-width: 1.5;
+}
+
+.diagram-cell-rule {
+  fill: none;
+  stroke: var(--hatch);
+  stroke-width: 1.25;
+}
+
+.diagram-vessel-narrow,
+.diagram-vessel-open {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.diagram-data {
+  max-width: var(--measure);
+  margin-top: var(--s3);
+}
+
+.diagram-data summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.diagram-data summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.diagram-data table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.diagram-data caption,
+.diagram-data p {
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+.diagram-data caption {
+  caption-side: bottom;
+  padding-top: var(--s2);
+}
+
+.diagram-data th,
+.diagram-data td {
+  padding: 0.4rem 0.5rem 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.diagram[data-diagram="pressure-pairs"] svg,
+.diagram[data-diagram="compression-release"] svg {
+  background: var(--paper);
+}
+
+.diagram-route,
+.diagram-route-fine {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.diagram-route {
+  stroke-width: 2.75;
+}
+
+.diagram-route-fine {
+  stroke-width: 1.35;
+}
+
+.diagram-route-head {
+  fill: var(--accent);
+}
+
+.diagram-opening {
+  fill: var(--paper);
+  stroke: var(--accent);
+  stroke-width: 1.75;
+}
+
+.diagram-myocardium {
+  fill: var(--paper-deep);
+  stroke: var(--hatch);
+  stroke-width: 1.25;
+}
+
+.diagram-hatch {
+  fill: none;
+  stroke: var(--hatch);
+  stroke-width: 1.15;
+}
+
+.diagram-marker-ring {
+  fill: var(--paper);
+  stroke: var(--sage);
+  stroke-width: 1.75;
+}
+
+.diagram-marker-num {
+  fill: var(--sage);
+  font-family: var(--f-text);
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: central;
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.diagram-marker-caption {
+  font-family: var(--f-text);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-variant-caps: all-small-caps;
+  fill: var(--sage);
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.diagram-cpp {
+  fill: none;
+  stroke: var(--sage);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.diagram-bracket-label {
+  font-family: var(--f-text);
+  font-weight: 400;
+  fill: var(--sage);
+  font-variation-settings: "opsz" 14, "wght" 400;
+}
+
+.diagram-label-plate {
+  fill: var(--paper);
+}
+
+.diagram-quiet {
+  fill: none;
+  stroke: var(--ink-soft);
+  stroke-width: 1.25;
+  stroke-dasharray: 2 3.5;
+  stroke-linecap: round;
+}
+
+.diagram-quiet-label {
+  font-family: var(--f-text);
+  font-style: italic;
+  font-weight: 400;
+  fill: var(--ink-soft);
+  font-variation-settings: "opsz" 14, "wght" 400;
+}
+
+@media (min-width: 600px) {
+  .diagram[data-diagram="coronary-circuit"] svg.diagram-stack,
+  .diagram[data-diagram="pressure-pairs"] svg.diagram-stack,
+  .diagram[data-diagram="compression-release"] svg.diagram-stack {
+    display: none;
+  }
+
+  .diagram[data-diagram="coronary-circuit"] svg.diagram-wide,
+  .diagram[data-diagram="pressure-pairs"] svg.diagram-wide,
+  .diagram[data-diagram="compression-release"] svg.diagram-wide {
+    display: block;
+  }
+}
+
 @media (min-width: 900px) {
   :root {
     --text-body: 18px;
@@ -1776,8 +2078,21 @@ h2 {
     max-height: 6.6in;
   }
 
-  .diagram[data-diagram='pressure-gradient'] svg {
+  .diagram[data-diagram="pressure-gradient"] svg {
     max-height: 7.1in;
+  }
+
+  .diagram[data-diagram="coronary-circuit"] svg.diagram-stack,
+  .diagram[data-diagram="pressure-pairs"] svg.diagram-stack,
+  .diagram[data-diagram="compression-release"] svg.diagram-stack {
+    display: none !important;
+  }
+
+  .diagram[data-diagram="coronary-circuit"] svg.diagram-wide,
+  .diagram[data-diagram="pressure-pairs"] svg.diagram-wide,
+  .diagram[data-diagram="compression-release"] svg.diagram-wide {
+    display: block !important;
+    max-height: 7.2in;
   }
 
   .diagram-screen {
@@ -1794,8 +2109,56 @@ h2 {
   .diagram-schematic,
   .diagram-display,
   .diagram-label,
-  .diagram-note {
+  .diagram-note,
+  .diagram-marker-caption,
+  .diagram-marker-num,
+  .diagram-bracket-label,
+  .diagram-quiet-label,
+  .diagram-panel-title,
+  .diagram-key,
+  .diagram-num {
     fill: #111;
+  }
+
+  .diagram-route,
+  .diagram-route-fine,
+  .diagram-opening,
+  .diagram-cpp,
+  .diagram-marker-ring,
+  .diagram-quiet {
+    stroke: #111;
+  }
+
+  .diagram-route-head {
+    fill: #111;
+  }
+
+  .diagram-marker-ring,
+  .diagram-label-plate {
+    fill: #fff;
+  }
+
+  .diagram-myocardium {
+    fill: #f4f4f4;
+    stroke: #111;
+  }
+
+  .diagram-hatch {
+    stroke: #666;
+  }
+
+  .diagram-level-aortic,
+  .diagram-level-atrial,
+  .diagram-axis,
+  .diagram-read-window,
+  .diagram-cell-rule,
+  .diagram-vessel-narrow,
+  .diagram-vessel-open {
+    stroke: #111;
+  }
+
+  .diagram-read-window {
+    fill: #f4f4f4;
   }
 
   .diagram-node {
