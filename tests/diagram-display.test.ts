@@ -85,6 +85,28 @@ describe('diagram variant display', () => {
     expect(wide?.body).toContain('max-width: 664px');
     expect(wide?.body).toContain('margin-inline: auto');
   });
+
+  it('gives the visible svg an accessible name and description at every width and in print', () => {
+    for (const figure of figures) {
+      for (const mode of modes) {
+        const visible = figure.svgs.filter(
+          (svg) => resolvedDisplay(svg, figure.ancestors, rules, mode) !== 'none',
+        );
+        for (const svg of visible) {
+          const where = `${figure.id} at ${mode.name}`;
+          expect(svg.attrs['aria-hidden'], where).toBeUndefined();
+          expect(['img', 'group'], where).toContain(svg.attrs.role);
+          const labelId = svg.attrs['aria-labelledby'];
+          const name = labelId
+            ? new RegExp(`<title id="${labelId}">([^<]+)</title>`).exec(html)?.[1]
+            : svg.attrs['aria-label'];
+          expect(name?.trim().length ?? 0, where).toBeGreaterThan(0);
+          const descId = svg.attrs['aria-describedby'];
+          if (descId) expect(html, where).toContain(`<desc id="${descId}">`);
+        }
+      }
+    }
+  });
 });
 
 function visibleClass(

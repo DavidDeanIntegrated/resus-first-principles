@@ -9,6 +9,8 @@ const { causeNames } = Astro.props;
 const caption = overlapCaption(causeNames);
 const titleId = 'diagram-reversible-cause-overlap-title';
 const descId = 'diagram-reversible-cause-overlap-desc';
+const printTitleId = 'diagram-reversible-cause-overlap-print-title';
+const printDescId = 'diagram-reversible-cause-overlap-print-desc';
 
 const rowHeight = 52;
 const twoLineHeight = 76;
@@ -123,7 +125,15 @@ const printGroups = [...printLeft.groups, ...printRight.groups];
       ))
     }
   </svg>
-  <svg class="diagram-print" viewBox={`0 0 664 ${printHeight}`} aria-hidden="true">
+  <svg
+    class="diagram-print"
+    viewBox={`0 0 664 ${printHeight}`}
+    role="img"
+    aria-labelledby={printTitleId}
+    aria-describedby={printDescId}
+  >
+    <title id={printTitleId}>{overlapTitle}</title>
+    <desc id={printDescId}>{caption}</desc>
     <rect class="diagram-banner" x="0" y="0" width="664" height="48"></rect>
     <rect class="diagram-mark" x="0" y="0" width="4" height="48"></rect>
     <text class="diagram-schematic" x="16" y="30" font-size="18">Schematic, not measured data</text>
