@@ -45,7 +45,7 @@
 <text x="44" y="830" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="400" text-anchor="start">RV afterload, and LV loading may also change; net cardiac output is not fixed</text>
 <text x="44" y="862" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="400" text-anchor="start">by the rise in Pra alone. This is not a complete model of positive-pressure ventilation.</text>
 <text x="44" y="919" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">Pms: mean systemic filling pressure · Pra: right atrial pressure</text>
-<text x="44" y="946" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">Pao,relax: aortic pressure during CPR relaxation · Rᵥᵣ: resistance to venous return</text>
+<text x="44" y="946" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">Pao,relax: relaxation-phase aortic pressure · Rᵥᵣ: resistance to venous return</text>
 <path d="M44 985 H1036" stroke="#D5DEDC" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="44" y="1018" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#526671" font-weight="400" text-anchor="start">Schematic • No measured pressure scale. The two panels do not imply equal pressures or equal gradients.</text>
 </svg>

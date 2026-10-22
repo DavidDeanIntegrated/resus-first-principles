@@ -11,11 +11,11 @@ const descId = 'diagram-pressure-gradient-desc';
     aria-labelledby={titleId}
     aria-describedby={descId}
   >
-    <title id={titleId}>Coronary perfusion pressure is the gap between aortic diastolic pressure and right atrial pressure, not either pressure alone. When compressions pause, aortic pressure falls toward right atrial pressure and the gap collapses. When compressions continue but are ineffective, the gap is narrower than the open gradient and does not collapse.</title>
-    <desc id={descId}>Four stacked drawings. Each has an upper line labeled aortic diastolic pressure and a lower line labeled right atrial pressure. The shaded gap between those lines is coronary perfusion pressure. In the open gradient the lines are far apart. In the narrow gradient the aortic line is unchanged and the right atrial line is higher, so the gap is smaller. In the pause drawing there are no compressions: a dashed line marks the earlier aortic pressure, the aortic line has fallen onto the right atrial line, and there is no shaded gap. In the ineffective drawing, compressions continue. Dashed lines mark the earlier pressures. The aortic line is lower, the right atrial line is higher, or both, and a shaded gap remains that is narrower than the open gradient. No pressures are shown as numbers.</desc>
+    <title id={titleId}>Coronary perfusion pressure is the gap between relaxation-phase aortic pressure and right atrial pressure, not either pressure alone. When compressions pause, aortic pressure falls toward right atrial pressure and the gap collapses. When compressions continue but are ineffective, the gap is narrower than the open gradient and does not collapse.</title>
+    <desc id={descId}>Four stacked drawings. Each has an upper line labeled relaxation-phase aortic pressure and a lower line labeled right atrial pressure. The shaded gap between those lines is coronary perfusion pressure. In the open gradient the lines are far apart. In the narrow gradient the aortic line is unchanged and the right atrial line is higher, so the gap is smaller. In the pause drawing there are no compressions: a dashed line marks the earlier aortic pressure, the aortic line has fallen onto the right atrial line, and there is no shaded gap. In the ineffective drawing, compressions continue. Dashed lines mark the earlier pressures. The aortic line is lower, the right atrial line is higher, or both, and a shaded gap remains that is narrower than the open gradient. No pressures are shown as numbers.</desc>
 
     <text class="diagram-kicker" x="16" y="28" font-size="14">Open gradient</text>
-    <text class="diagram-label" x="16" y="58" font-size="15">Aortic diastolic pressure</text>
+    <text class="diagram-label" x="16" y="58" font-size="15">Relaxation-phase aortic pressure</text>
     <rect class="diagram-gap" x="16" y="72" width="252" height="128"></rect>
     <line class="diagram-aortic" x1="16" y1="72" x2="268" y2="72"></line>
     <line class="diagram-aortic" x1="16" y1="66" x2="16" y2="78"></line>
@@ -31,9 +31,9 @@ const descId = 'diagram-pressure-gradient-desc';
     <rect class="diagram-mark" x="16" y="258" width="48" height="2"></rect>
 
     <text class="diagram-kicker" x="16" y="292" font-size="14">Narrow gradient</text>
-    <text class="diagram-note" x="16" y="320" font-size="15">Same aortic diastolic pressure.</text>
+    <text class="diagram-note" x="16" y="320" font-size="15">Same relaxation-phase aortic pressure.</text>
     <text class="diagram-note" x="16" y="342" font-size="15">Higher right atrial pressure.</text>
-    <text class="diagram-label" x="16" y="378" font-size="15">Aortic diastolic pressure</text>
+    <text class="diagram-label" x="16" y="378" font-size="15">Relaxation-phase aortic pressure</text>
     <rect class="diagram-gap" x="16" y="392" width="252" height="48"></rect>
     <text class="diagram-label" x="28" y="421" font-size="15">Gap</text>
     <line class="diagram-aortic" x1="16" y1="392" x2="268" y2="392"></line>
@@ -54,7 +54,7 @@ const descId = 'diagram-pressure-gradient-desc';
     <text class="diagram-note" x="16" y="660" font-size="15">No compressions.</text>
     <text class="diagram-note" x="16" y="682" font-size="15">Aortic pressure falls toward</text>
     <text class="diagram-note" x="16" y="704" font-size="15">right atrial pressure.</text>
-    <text class="diagram-label" x="16" y="740" font-size="15">Aortic diastolic pressure</text>
+    <text class="diagram-label" x="16" y="740" font-size="15">Relaxation-phase aortic pressure</text>
     <line class="diagram-prior" x1="16" y1="754" x2="268" y2="754"></line>
     <line class="diagram-prior" x1="16" y1="748" x2="16" y2="760"></line>
     <line class="diagram-prior" x1="268" y1="748" x2="268" y2="760"></line>
@@ -71,10 +71,10 @@ const descId = 'diagram-pressure-gradient-desc';
 
     <text class="diagram-kicker" x="16" y="998" font-size="14">Ineffective compressions</text>
     <text class="diagram-note" x="16" y="1026" font-size="15">Compressions continue.</text>
-    <text class="diagram-note" x="16" y="1048" font-size="15">Lower aortic relaxation pressure,</text>
+    <text class="diagram-note" x="16" y="1048" font-size="15">Lower relaxation-phase aortic pressure,</text>
     <text class="diagram-note" x="16" y="1070" font-size="15">higher right atrial pressure,</text>
     <text class="diagram-note" x="16" y="1092" font-size="15">or both.</text>
-    <text class="diagram-label" x="16" y="1128" font-size="15">Aortic diastolic pressure</text>
+    <text class="diagram-label" x="16" y="1128" font-size="15">Relaxation-phase aortic pressure</text>
     <line class="diagram-prior" x1="16" y1="1142" x2="268" y2="1142"></line>
     <line class="diagram-prior" x1="16" y1="1136" x2="16" y2="1148"></line>
     <line class="diagram-prior" x1="268" y1="1136" x2="268" y2="1148"></line>
@@ -104,7 +104,7 @@ const descId = 'diagram-pressure-gradient-desc';
   <svg class="diagram-print" viewBox="0 0 664 892" aria-hidden="true">
     <g>
       <text class="diagram-kicker" x="16" y="28" font-size="14">Open gradient</text>
-      <text class="diagram-label" x="16" y="58" font-size="15">Aortic diastolic pressure</text>
+      <text class="diagram-label" x="16" y="58" font-size="15">Relaxation-phase aortic pressure</text>
       <rect class="diagram-gap" x="16" y="72" width="252" height="128"></rect>
       <line class="diagram-aortic" x1="16" y1="72" x2="268" y2="72"></line>
       <line class="diagram-aortic" x1="16" y1="66" x2="16" y2="78"></line>
@@ -120,9 +120,9 @@ const descId = 'diagram-pressure-gradient-desc';
       <rect class="diagram-mark" x="16" y="258" width="48" height="2"></rect>
 
       <text class="diagram-kicker" x="16" y="292" font-size="14">Narrow gradient</text>
-      <text class="diagram-note" x="16" y="320" font-size="15">Same aortic diastolic pressure.</text>
+      <text class="diagram-note" x="16" y="320" font-size="15">Same relaxation-phase aortic pressure.</text>
       <text class="diagram-note" x="16" y="342" font-size="15">Higher right atrial pressure.</text>
-      <text class="diagram-label" x="16" y="378" font-size="15">Aortic diastolic pressure</text>
+      <text class="diagram-label" x="16" y="378" font-size="15">Relaxation-phase aortic pressure</text>
       <rect class="diagram-gap" x="16" y="392" width="252" height="48"></rect>
       <text class="diagram-label" x="28" y="421" font-size="15">Gap</text>
       <line class="diagram-aortic" x1="16" y1="392" x2="268" y2="392"></line>
@@ -142,7 +142,7 @@ const descId = 'diagram-pressure-gradient-desc';
       <text class="diagram-note" x="16" y="660" font-size="15">No compressions.</text>
       <text class="diagram-note" x="16" y="682" font-size="15">Aortic pressure falls toward</text>
       <text class="diagram-note" x="16" y="704" font-size="15">right atrial pressure.</text>
-      <text class="diagram-label" x="16" y="740" font-size="15">Aortic diastolic pressure</text>
+      <text class="diagram-label" x="16" y="740" font-size="15">Relaxation-phase aortic pressure</text>
       <line class="diagram-prior" x1="16" y1="754" x2="268" y2="754"></line>
       <line class="diagram-prior" x1="16" y1="748" x2="16" y2="760"></line>
       <line class="diagram-prior" x1="268" y1="748" x2="268" y2="760"></line>
@@ -159,10 +159,10 @@ const descId = 'diagram-pressure-gradient-desc';
 
       <text class="diagram-kicker" x="16" y="998" font-size="14">Ineffective compressions</text>
       <text class="diagram-note" x="16" y="1026" font-size="15">Compressions continue.</text>
-      <text class="diagram-note" x="16" y="1048" font-size="15">Lower aortic relaxation pressure,</text>
+      <text class="diagram-note" x="16" y="1048" font-size="15">Lower relaxation-phase aortic pressure,</text>
       <text class="diagram-note" x="16" y="1070" font-size="15">higher right atrial pressure,</text>
       <text class="diagram-note" x="16" y="1092" font-size="15">or both.</text>
-      <text class="diagram-label" x="16" y="1128" font-size="15">Aortic diastolic pressure</text>
+      <text class="diagram-label" x="16" y="1128" font-size="15">Relaxation-phase aortic pressure</text>
       <line class="diagram-prior" x1="16" y1="1142" x2="268" y2="1142"></line>
       <line class="diagram-prior" x1="16" y1="1136" x2="16" y2="1148"></line>
       <line class="diagram-prior" x1="268" y1="1136" x2="268" y2="1148"></line>
@@ -193,9 +193,9 @@ const descId = 'diagram-pressure-gradient-desc';
   <figcaption>
     <p class="kicker">Figure</p>
     <p>
-      Coronary perfusion pressure is the gap between aortic diastolic pressure and right atrial
-      pressure. When right atrial pressure is higher and aortic diastolic pressure is unchanged, the
-      gap is smaller. When compressions pause, aortic diastolic pressure falls toward right atrial
+      Coronary perfusion pressure is the gap between relaxation-phase aortic pressure and right atrial
+      pressure. When right atrial pressure is higher and relaxation-phase aortic pressure is unchanged, the
+      gap is smaller. When compressions pause, relaxation-phase aortic pressure falls toward right atrial
       pressure and the gap narrows quickly; the longer the pause, the closer it comes to closing. When compressions continue but are ineffective, a lower aortic
       relaxation pressure, a higher right atrial pressure, or both, can leave a gap narrower than the
       open gradient; how narrow depends on how ineffective they are. Flow depends on that pressure difference divided by
