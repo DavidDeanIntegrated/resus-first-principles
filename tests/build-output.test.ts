@@ -71,7 +71,7 @@ describe('static build output', () => {
     expect(gradient).toContain('<desc');
     expect(gradient).toContain('<figcaption');
     expect(gradient).toContain('Coronary perfusion pressure is the gap');
-    expect(gradient).toContain('Aortic diastolic pressure');
+    expect(gradient).toContain('Relaxation-phase aortic pressure');
     expect(gradient).toContain('Right atrial pressure');
     expect(gradient).toContain('>Pause<');
     expect(gradient).toContain('Ineffective compressions');
