@@ -43,18 +43,34 @@
 }
 
 :root {
+  color-scheme: light;
   --paper: #fbf6ee;
   --paper-deep: #f3eadb;
   --card: #fffdf8;
   --rule: #e2d5c1;
+  /* Meaningful borders. Same role as hatch; #9c8f82 was 2.93:1 on paper. */
+  --rule-strong: #918476;
   --ink: #2a211b;
   --ink-soft: #5e4f43;
   --accent: #8e2f22;
   --accent-tint: #f6e4dc;
   --sage: #2f5d50;
   --sage-tint: #e3ece5;
-  --hatch: #9c8f82;
+  --hatch: #918476;
   --focus: #1f4fa8;
+  --fig-canvas: #f7f5ef;
+  --fig-panel: #ffffff;
+  --fig-ink: #172d38;
+  --fig-muted: #526671;
+  --fig-teal: #077578;
+  --fig-red: #af4639;
+  --fig-gold: #996613;
+  --fig-rule: #d5dedc;
+  --fig-teal-tint: #ddedea;
+  --fig-red-tint: #f5e4df;
+  --fig-callout: #172d38;
+  --fig-on-callout: #ffffff;
+  --fig-on-callout-soft: #dae8e6;
 
   --f-display: "Fraunces", Georgia, serif;
   --f-text: "Literata", Georgia, serif;
@@ -102,7 +118,6 @@
 html {
   background: var(--paper);
   color: var(--ink);
-  color-scheme: light;
   font-optical-sizing: none;
   scroll-padding-top: calc(var(--toc-bar) + var(--s3));
 }
@@ -204,6 +219,68 @@ a {
 
 .site-nav a:hover {
   color: var(--accent);
+}
+
+.site-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-left: auto;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 2px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r);
+  min-inline-size: 0;
+}
+
+.theme-toggle label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding-inline: 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-family: var(--f-text);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  font-variation-settings: "opsz" 12, "wght" 600;
+}
+
+.theme-toggle input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.theme-toggle label:hover {
+  color: var(--ink);
+}
+
+.theme-toggle label:has(input:checked) {
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+.theme-toggle input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .site-footer {
@@ -754,7 +831,7 @@ h2 {
 
 .example {
   background: var(--card);
-  border: 1px solid var(--rule);
+  border: 1px solid var(--rule-strong);
   border-radius: var(--r);
   box-shadow: 0 1px 0 var(--rule);
   padding: var(--s4);
@@ -867,7 +944,7 @@ h2 {
 
 .q {
   background: var(--card);
-  border: 1px solid var(--rule);
+  border: 1px solid var(--rule-strong);
   border-radius: var(--r);
   margin: var(--s5) 0 0;
   box-shadow: 0 1px 0 var(--rule);
@@ -1247,7 +1324,7 @@ h2 {
   width: 100%;
   height: auto;
   background: var(--card);
-  border: 1px solid var(--rule);
+  border: 1px solid var(--rule-strong);
   border-radius: var(--r);
   overflow: hidden;
 }
@@ -1271,6 +1348,12 @@ h2 {
 
 .diagram-physiology {
   max-width: none;
+}
+
+/* Raster physiology fallbacks are drawn in the light palette and cannot follow the theme. */
+.diagram-physiology img {
+  background: #fffdf8;
+  color-scheme: light;
 }
 
 .diagram-frame {
@@ -2033,8 +2116,101 @@ h2 {
   }
 }
 
+/* Dark theme is screen-only, so print keeps the light tokens. */
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #1c1915;
+    --paper-deep: #2d2822;
+    --card: #25211c;
+    --rule: #4a4238;
+    --rule-strong: #7d7266;
+    --ink: #e8dfd0;
+    --ink-soft: #b3a897;
+    --accent: #d98a78;
+    --accent-tint: #43302a;
+    --sage: #8fbfae;
+    --sage-tint: #22302b;
+    --hatch: #7d7266;
+    --focus: #8fb3f0;
+    --fig-canvas: #25211c;
+    --fig-panel: #2d2822;
+    --fig-ink: #e8dfd0;
+    --fig-muted: #b3a897;
+    --fig-teal: #6fb8b0;
+    --fig-red: #e0907f;
+    --fig-gold: #d9a955;
+    --fig-rule: #4a4238;
+    --fig-teal-tint: #30443f;
+    --fig-red-tint: #43302a;
+    --fig-callout: #3a4a44;
+    --fig-on-callout: #f2ebdf;
+    --fig-on-callout-soft: #d7e3de;
+  }
+}
+
+@media screen {
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #1c1915;
+    --paper-deep: #2d2822;
+    --card: #25211c;
+    --rule: #4a4238;
+    --rule-strong: #7d7266;
+    --ink: #e8dfd0;
+    --ink-soft: #b3a897;
+    --accent: #d98a78;
+    --accent-tint: #43302a;
+    --sage: #8fbfae;
+    --sage-tint: #22302b;
+    --hatch: #7d7266;
+    --focus: #8fb3f0;
+    --fig-canvas: #25211c;
+    --fig-panel: #2d2822;
+    --fig-ink: #e8dfd0;
+    --fig-muted: #b3a897;
+    --fig-teal: #6fb8b0;
+    --fig-red: #e0907f;
+    --fig-gold: #d9a955;
+    --fig-rule: #4a4238;
+    --fig-teal-tint: #30443f;
+    --fig-red-tint: #43302a;
+    --fig-callout: #3a4a44;
+    --fig-on-callout: #f2ebdf;
+    --fig-on-callout-soft: #d7e3de;
+  }
+}
+
 @media print {
-  :root {
+  :root:not([data-theme]),
+  :root[data-theme] {
+    color-scheme: light;
+    --paper: #fbf6ee;
+    --paper-deep: #f3eadb;
+    --card: #fffdf8;
+    --rule: #e2d5c1;
+    --rule-strong: #918476;
+    --ink: #2a211b;
+    --ink-soft: #5e4f43;
+    --accent: #8e2f22;
+    --accent-tint: #f6e4dc;
+    --sage: #2f5d50;
+    --sage-tint: #e3ece5;
+    --hatch: #918476;
+    --focus: #1f4fa8;
+    --fig-canvas: #f7f5ef;
+    --fig-panel: #ffffff;
+    --fig-ink: #172d38;
+    --fig-muted: #526671;
+    --fig-teal: #077578;
+    --fig-red: #af4639;
+    --fig-gold: #996613;
+    --fig-rule: #d5dedc;
+    --fig-teal-tint: #ddedea;
+    --fig-red-tint: #f5e4df;
+    --fig-callout: #172d38;
+    --fig-on-callout: #ffffff;
+    --fig-on-callout-soft: #dae8e6;
     --toc-bar: 0px;
     --margin-toc-offset: 0px;
   }

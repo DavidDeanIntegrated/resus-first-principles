@@ -1,37 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="940" viewBox="0 0 1080 940" role="img" aria-labelledby="title desc"><title id="title">Oxygen delivery needs content and flow</title><desc id="desc">Three calculated oxygen-delivery bars: at hemoglobin 15 g/dL and saturation 100%, cardiac output 5 L/min with PaO2 100 mm Hg gives 1020 mL O2/min; 1.5 L/min gives 306; increasing PaO2 to 500 at the same low flow gives 324. Teal represents hemoglobin-bound oxygen, gold dissolved oxygen.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#526671"/></marker></defs>
-<rect x="0" y="0" width="1080" height="940" rx="0" fill="#F7F5EF"/>
-<text x="44" y="43" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#087F82" font-weight="600" text-anchor="start">RESUS FIRST PRINCIPLES  /  FIGURE 01</text>
-<text x="44" y="91" font-family="DejaVu Sans, sans-serif" font-size="34" fill="#172D38" font-weight="600" text-anchor="start">Oxygen delivery needs content and flow</text>
-<text x="44" y="127" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#526671" font-weight="400" text-anchor="start">Section II • What normal circulation accomplishes</text>
-<rect x="44" y="160" width="992" height="130" rx="12" fill="#172D38"/>
-<text x="70" y="206" font-family="DejaVu Sans, sans-serif" font-size="29" fill="#FFFFFF" font-weight="600" text-anchor="start">DO₂ = cardiac output × arterial O₂ content × 10</text>
-<text x="70" y="247" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#DAE8E6" font-weight="400" text-anchor="start">DO₂: mL O₂/min  ·  Cardiac output: L/min  ·  CaO₂: mL O₂/dL</text>
-<text x="70" y="274" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#DAE8E6" font-weight="400" text-anchor="start">The factor 10 converts liters to deciliters.</text>
-<text x="44" y="331" font-family="DejaVu Sans, sans-serif" font-size="27" fill="#172D38" font-weight="600" text-anchor="start">CaO₂ ≈ (1.34 × Hb × SaO₂) + (0.003 × PaO₂)</text>
-<text x="44" y="366" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">Hb in g/dL; SaO₂ as a fraction; PaO₂ in mm Hg. Normal hemoglobin species assumed.</text>
-<text x="44" y="416" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#087F82" font-weight="600" text-anchor="start">ILLUSTRATIVE CALCULATIONS — NOT PATIENT DATA OR CPR TARGETS</text>
-<text x="44" y="466" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="600" text-anchor="start">Reference flow</text>
-<text x="44" y="495" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">CO 5 L/min · PaO₂ 100 mm Hg</text>
-<rect x="444" y="443" width="462.3" height="31" rx="0" fill="#087F82"/>
-<rect x="906.3" y="443" width="6.9" height="31" rx="0" fill="#A16B14"/>
-<text x="990" y="466" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#172D38" font-weight="600" text-anchor="end">1020</text>
-<text x="44" y="574" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="600" text-anchor="start">Low flow</text>
-<text x="44" y="603" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">CO 1.5 L/min · PaO₂ 100 mm Hg</text>
-<rect x="444" y="551" width="138.69" height="31" rx="0" fill="#087F82"/>
-<rect x="582.69" y="551" width="2.0700000000000003" height="31" rx="0" fill="#A16B14"/>
-<text x="990" y="574" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#172D38" font-weight="600" text-anchor="end">306</text>
-<text x="44" y="682" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#172D38" font-weight="600" text-anchor="start">Same low flow, higher PaO₂</text>
-<text x="44" y="711" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">CO 1.5 L/min · PaO₂ 500 mm Hg</text>
-<rect x="444" y="659" width="138.69" height="31" rx="0" fill="#087F82"/>
-<rect x="582.69" y="659" width="10.350000000000001" height="31" rx="0" fill="#A16B14"/>
-<text x="990" y="682" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#172D38" font-weight="600" text-anchor="end">324</text>
-<text x="990" y="430" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="end">DO₂ · mL/min</text>
-<rect x="444" y="776" width="17" height="17" rx="0" fill="#087F82"/>
-<text x="470" y="791" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">Hb-bound O₂</text>
-<rect x="650" y="776" width="17" height="17" rx="0" fill="#A16B14"/>
-<text x="677" y="791" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#526671" font-weight="400" text-anchor="start">Dissolved O₂</text>
-<text x="44" y="831" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#172D38" font-weight="400" text-anchor="start">All rows: Hb 15 g/dL and SaO₂ 1.00. Raising PaO₂ adds little once Hb is saturated.</text>
-<text x="44" y="860" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#172D38" font-weight="400" text-anchor="start">Hypoxemia and anemia change the problem: restore oxygen content as well as flow.</text>
-<path d="M44 875 H1036" stroke="#D5DEDC" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="44" y="908" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#526671" font-weight="400" text-anchor="start">Quantitative illustration • Values calculated from the displayed equation; bars share a zero baseline.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="940" viewBox="0 0 1080 940" role="img" aria-labelledby="title desc"><title id="title">Oxygen delivery needs content and flow</title><desc id="desc">Three calculated oxygen-delivery bars: at hemoglobin 15 g/dL and saturation 100%, cardiac output 5 L/min with PaO2 100 mm Hg gives 1020 mL O2/min; 1.5 L/min gives 306; increasing PaO2 to 500 at the same low flow gives 324. Teal represents hemoglobin-bound oxygen, gold dissolved oxygen.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="var(--fig-muted)"/></marker></defs>
+<rect x="0" y="0" width="1080" height="940" rx="0" fill="var(--fig-canvas)"/>
+<text x="44" y="43" font-family="DejaVu Sans, sans-serif" font-size="16" fill="var(--fig-teal)" font-weight="600" text-anchor="start">RESUS FIRST PRINCIPLES  /  FIGURE 01</text>
+<text x="44" y="91" font-family="DejaVu Sans, sans-serif" font-size="34" fill="var(--fig-ink)" font-weight="600" text-anchor="start">Oxygen delivery needs content and flow</text>
+<text x="44" y="127" font-family="DejaVu Sans, sans-serif" font-size="19" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Section II • What normal circulation accomplishes</text>
+<rect x="44" y="160" width="992" height="130" rx="12" fill="var(--fig-callout)"/>
+<text x="70" y="206" font-family="DejaVu Sans, sans-serif" font-size="29" fill="var(--fig-on-callout)" font-weight="600" text-anchor="start">DO₂ = cardiac output × arterial O₂ content × 10</text>
+<text x="70" y="247" font-family="DejaVu Sans, sans-serif" font-size="21" fill="var(--fig-on-callout-soft)" font-weight="400" text-anchor="start">DO₂: mL O₂/min  ·  Cardiac output: L/min  ·  CaO₂: mL O₂/dL</text>
+<text x="70" y="274" font-family="DejaVu Sans, sans-serif" font-size="17" fill="var(--fig-on-callout-soft)" font-weight="400" text-anchor="start">The factor 10 converts liters to deciliters.</text>
+<text x="44" y="331" font-family="DejaVu Sans, sans-serif" font-size="27" fill="var(--fig-ink)" font-weight="600" text-anchor="start">CaO₂ ≈ (1.34 × Hb × SaO₂) + (0.003 × PaO₂)</text>
+<text x="44" y="366" font-family="DejaVu Sans, sans-serif" font-size="18" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Hb in g/dL; SaO₂ as a fraction; PaO₂ in mm Hg. Normal hemoglobin species assumed.</text>
+<text x="44" y="416" font-family="DejaVu Sans, sans-serif" font-size="16" fill="var(--fig-teal)" font-weight="600" text-anchor="start">ILLUSTRATIVE CALCULATIONS — NOT PATIENT DATA OR CPR TARGETS</text>
+<text x="44" y="466" font-family="DejaVu Sans, sans-serif" font-size="21" fill="var(--fig-ink)" font-weight="600" text-anchor="start">Reference flow</text>
+<text x="44" y="495" font-family="DejaVu Sans, sans-serif" font-size="18" fill="var(--fig-muted)" font-weight="400" text-anchor="start">CO 5 L/min · PaO₂ 100 mm Hg</text>
+<rect x="444" y="443" width="462.3" height="31" rx="0" fill="var(--fig-teal)"/>
+<rect x="906.3" y="443" width="6.9" height="31" rx="0" fill="var(--fig-gold)"/>
+<text x="990" y="466" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-ink)" font-weight="600" text-anchor="end">1020</text>
+<text x="44" y="574" font-family="DejaVu Sans, sans-serif" font-size="21" fill="var(--fig-ink)" font-weight="600" text-anchor="start">Low flow</text>
+<text x="44" y="603" font-family="DejaVu Sans, sans-serif" font-size="18" fill="var(--fig-muted)" font-weight="400" text-anchor="start">CO 1.5 L/min · PaO₂ 100 mm Hg</text>
+<rect x="444" y="551" width="138.69" height="31" rx="0" fill="var(--fig-teal)"/>
+<rect x="582.69" y="551" width="2.0700000000000003" height="31" rx="0" fill="var(--fig-gold)"/>
+<text x="990" y="574" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-ink)" font-weight="600" text-anchor="end">306</text>
+<text x="44" y="682" font-family="DejaVu Sans, sans-serif" font-size="21" fill="var(--fig-ink)" font-weight="600" text-anchor="start">Same low flow, higher PaO₂</text>
+<text x="44" y="711" font-family="DejaVu Sans, sans-serif" font-size="18" fill="var(--fig-muted)" font-weight="400" text-anchor="start">CO 1.5 L/min · PaO₂ 500 mm Hg</text>
+<rect x="444" y="659" width="138.69" height="31" rx="0" fill="var(--fig-teal)"/>
+<rect x="582.69" y="659" width="10.350000000000001" height="31" rx="0" fill="var(--fig-gold)"/>
+<text x="990" y="682" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-ink)" font-weight="600" text-anchor="end">324</text>
+<text x="990" y="430" font-family="DejaVu Sans, sans-serif" font-size="18" fill="var(--fig-muted)" font-weight="400" text-anchor="end">DO₂ · mL/min</text>
+<rect x="444" y="776" width="17" height="17" rx="0" fill="var(--fig-teal)"/>
+<text x="470" y="791" font-family="DejaVu Sans, sans-serif" font-size="18" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Hb-bound O₂</text>
+<rect x="650" y="776" width="17" height="17" rx="0" fill="var(--fig-gold)"/>
+<text x="677" y="791" font-family="DejaVu Sans, sans-serif" font-size="18" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Dissolved O₂</text>
+<text x="44" y="831" font-family="DejaVu Sans, sans-serif" font-size="19" fill="var(--fig-ink)" font-weight="400" text-anchor="start">All rows: Hb 15 g/dL and SaO₂ 1.00. Raising PaO₂ adds little once Hb is saturated.</text>
+<text x="44" y="860" font-family="DejaVu Sans, sans-serif" font-size="19" fill="var(--fig-ink)" font-weight="400" text-anchor="start">Hypoxemia and anemia change the problem: restore oxygen content as well as flow.</text>
+<path d="M44 875 H1036" stroke="var(--fig-rule)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="44" y="908" font-family="DejaVu Sans, sans-serif" font-size="16" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Quantitative illustration • Values calculated from the displayed equation; bars share a zero baseline.</text>
 </svg>

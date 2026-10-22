@@ -1,43 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="990" viewBox="0 0 1080 990" role="img" aria-labelledby="title desc"><title id="title">A capnography change is a question</title><desc id="desc">CO2 production, pulmonary transport, and excretion feed into measured end-tidal CO2. A sudden fall has competing flow, ventilation, airway, and sampling explanations. A sustained rise can accompany ROSC. Persistently low readings require context rather than an isolated stopping decision.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#526671"/></marker></defs>
-<rect x="0" y="0" width="1080" height="990" rx="0" fill="#F7F5EF"/>
-<text x="44" y="43" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#087F82" font-weight="600" text-anchor="start">RESUS FIRST PRINCIPLES  /  FIGURE 05</text>
-<text x="44" y="91" font-family="DejaVu Sans, sans-serif" font-size="34" fill="#172D38" font-weight="600" text-anchor="start">A capnography change is a question</text>
-<text x="44" y="127" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#526671" font-weight="400" text-anchor="start">Section VI • Interpret the signal before assigning the cause</text>
-<rect x="44" y="166" width="310" height="136" rx="12" fill="#FFFFFF" stroke="#D5DEDC"/>
-<rect x="44" y="166" width="5" height="136" rx="2" fill="#087F82"/>
-<text x="66" y="204" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#087F82" font-weight="600" text-anchor="start">CO₂ production</text>
-<text x="66" y="241" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">Metabolism and</text>
-<text x="66" y="271" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">CO₂ stores</text>
-<rect x="385" y="166" width="310" height="136" rx="12" fill="#FFFFFF" stroke="#D5DEDC"/>
-<rect x="385" y="166" width="5" height="136" rx="2" fill="#087F82"/>
-<text x="407" y="204" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#087F82" font-weight="600" text-anchor="start">CO₂ transport</text>
-<text x="407" y="241" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">Pulmonary blood flow</text>
-<text x="407" y="271" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">and perfusion distribution</text>
-<rect x="726" y="166" width="310" height="136" rx="12" fill="#FFFFFF" stroke="#D5DEDC"/>
-<rect x="726" y="166" width="5" height="136" rx="2" fill="#087F82"/>
-<text x="748" y="204" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#087F82" font-weight="600" text-anchor="start">CO₂ excretion</text>
-<text x="748" y="241" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">Alveolar ventilation</text>
-<text x="748" y="271" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">and airway / sampling</text>
-<path d="M199 306 L540 363" fill="none" stroke="#526671" stroke-width="2.5" marker-end="url(#arrow)"/>
-<path d="M540 306 L540 363" fill="none" stroke="#526671" stroke-width="2.5" marker-end="url(#arrow)"/>
-<path d="M881 306 L540 363" fill="none" stroke="#526671" stroke-width="2.5" marker-end="url(#arrow)"/>
-<rect x="335" y="371" width="410" height="74" rx="12" fill="#172D38"/>
-<text x="540" y="417" font-family="DejaVu Sans, sans-serif" font-size="26" fill="#FFFFFF" font-weight="600" text-anchor="middle">Measured end-tidal CO₂</text>
-<text x="44" y="490" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#087F82" font-weight="600" text-anchor="start">CHANGE OBSERVED</text>
-<text x="350" y="490" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#087F82" font-weight="600" text-anchor="start">COMPETING EXPLANATIONS TO ASSESS</text>
-<rect x="44" y="520" width="992" height="97" rx="10" fill="#FFFFFF" stroke="#D5DEDC"/>
-<text x="65" y="562" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#172D38" font-weight="600" text-anchor="start">Sudden fall</text>
-<text x="350" y="557" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">Reduced pulmonary flow; weaker compressions;</text>
-<text x="350" y="586" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">more ventilation; tube, circuit, or sampling problem.</text>
-<rect x="44" y="631" width="992" height="97" rx="10" fill="#FFFFFF" stroke="#D5DEDC"/>
-<text x="65" y="673" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#172D38" font-weight="600" text-anchor="start">Sustained rise</text>
-<text x="350" y="668" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">ROSC is possible. Correlate with rhythm and evidence</text>
-<text x="350" y="697" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">of circulation; altered ventilation can also raise the value.</text>
-<rect x="44" y="742" width="992" height="97" rx="10" fill="#FFFFFF" stroke="#D5DEDC"/>
-<text x="65" y="784" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#172D38" font-weight="600" text-anchor="start">Persistently low</text>
-<text x="350" y="779" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">Check CPR, airway, ventilation, and clinical context.</text>
-<text x="350" y="808" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#526671" font-weight="400" text-anchor="start">The value alone is not a stopping rule.</text>
-<text x="44" y="896" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#172D38" font-weight="400" text-anchor="start">Drug effects, including epinephrine, complicate the inference from a trend to flow.</text>
-<path d="M44 925 H1036" stroke="#D5DEDC" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="44" y="958" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#526671" font-weight="400" text-anchor="start">Interpretive framework • ETCO₂ is not arterial PaCO₂ and is not a direct cardiac-output measurement.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="990" viewBox="0 0 1080 990" role="img" aria-labelledby="title desc"><title id="title">A capnography change is a question</title><desc id="desc">CO2 production, pulmonary transport, and excretion feed into measured end-tidal CO2. A sudden fall has competing flow, ventilation, airway, and sampling explanations. A sustained rise can accompany ROSC. Persistently low readings require context rather than an isolated stopping decision.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="var(--fig-muted)"/></marker></defs>
+<rect x="0" y="0" width="1080" height="990" rx="0" fill="var(--fig-canvas)"/>
+<text x="44" y="43" font-family="DejaVu Sans, sans-serif" font-size="16" fill="var(--fig-teal)" font-weight="600" text-anchor="start">RESUS FIRST PRINCIPLES  /  FIGURE 05</text>
+<text x="44" y="91" font-family="DejaVu Sans, sans-serif" font-size="34" fill="var(--fig-ink)" font-weight="600" text-anchor="start">A capnography change is a question</text>
+<text x="44" y="127" font-family="DejaVu Sans, sans-serif" font-size="19" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Section VI • Interpret the signal before assigning the cause</text>
+<rect x="44" y="166" width="310" height="136" rx="12" fill="var(--fig-panel)" stroke="var(--fig-rule)"/>
+<rect x="44" y="166" width="5" height="136" rx="2" fill="var(--fig-teal)"/>
+<text x="66" y="204" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-teal)" font-weight="600" text-anchor="start">CO₂ production</text>
+<text x="66" y="241" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Metabolism and</text>
+<text x="66" y="271" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">CO₂ stores</text>
+<rect x="385" y="166" width="310" height="136" rx="12" fill="var(--fig-panel)" stroke="var(--fig-rule)"/>
+<rect x="385" y="166" width="5" height="136" rx="2" fill="var(--fig-teal)"/>
+<text x="407" y="204" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-teal)" font-weight="600" text-anchor="start">CO₂ transport</text>
+<text x="407" y="241" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Pulmonary blood flow</text>
+<text x="407" y="271" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">and perfusion distribution</text>
+<rect x="726" y="166" width="310" height="136" rx="12" fill="var(--fig-panel)" stroke="var(--fig-rule)"/>
+<rect x="726" y="166" width="5" height="136" rx="2" fill="var(--fig-teal)"/>
+<text x="748" y="204" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-teal)" font-weight="600" text-anchor="start">CO₂ excretion</text>
+<text x="748" y="241" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Alveolar ventilation</text>
+<text x="748" y="271" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">and airway / sampling</text>
+<path d="M199 306 L540 363" fill="none" stroke="var(--fig-muted)" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M540 306 L540 363" fill="none" stroke="var(--fig-muted)" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M881 306 L540 363" fill="none" stroke="var(--fig-muted)" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="335" y="371" width="410" height="74" rx="12" fill="var(--fig-callout)"/>
+<text x="540" y="417" font-family="DejaVu Sans, sans-serif" font-size="26" fill="var(--fig-on-callout)" font-weight="600" text-anchor="middle">Measured end-tidal CO₂</text>
+<text x="44" y="490" font-family="DejaVu Sans, sans-serif" font-size="16" fill="var(--fig-teal)" font-weight="600" text-anchor="start">CHANGE OBSERVED</text>
+<text x="350" y="490" font-family="DejaVu Sans, sans-serif" font-size="16" fill="var(--fig-teal)" font-weight="600" text-anchor="start">COMPETING EXPLANATIONS TO ASSESS</text>
+<rect x="44" y="520" width="992" height="97" rx="10" fill="var(--fig-panel)" stroke="var(--fig-rule)"/>
+<text x="65" y="562" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-ink)" font-weight="600" text-anchor="start">Sudden fall</text>
+<text x="350" y="557" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Reduced pulmonary flow; weaker compressions;</text>
+<text x="350" y="586" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">more ventilation; tube, circuit, or sampling problem.</text>
+<rect x="44" y="631" width="992" height="97" rx="10" fill="var(--fig-panel)" stroke="var(--fig-rule)"/>
+<text x="65" y="673" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-ink)" font-weight="600" text-anchor="start">Sustained rise</text>
+<text x="350" y="668" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">ROSC is possible. Correlate with rhythm and evidence</text>
+<text x="350" y="697" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">of circulation; altered ventilation can also raise the value.</text>
+<rect x="44" y="742" width="992" height="97" rx="10" fill="var(--fig-panel)" stroke="var(--fig-rule)"/>
+<text x="65" y="784" font-family="DejaVu Sans, sans-serif" font-size="23" fill="var(--fig-ink)" font-weight="600" text-anchor="start">Persistently low</text>
+<text x="350" y="779" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Check CPR, airway, ventilation, and clinical context.</text>
+<text x="350" y="808" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-muted)" font-weight="400" text-anchor="start">The value alone is not a stopping rule.</text>
+<text x="44" y="896" font-family="DejaVu Sans, sans-serif" font-size="20" fill="var(--fig-ink)" font-weight="400" text-anchor="start">Drug effects, including epinephrine, complicate the inference from a trend to flow.</text>
+<path d="M44 925 H1036" stroke="var(--fig-rule)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="44" y="958" font-family="DejaVu Sans, sans-serif" font-size="16" fill="var(--fig-muted)" font-weight="400" text-anchor="start">Interpretive framework • ETCO₂ is not arterial PaCO₂ and is not a direct cardiac-output measurement.</text>
 </svg>
