@@ -204,6 +204,10 @@ describe('static build output', () => {
     expect(coronary).toContain(
       'The coronary circuit. Blood enters the coronary arteries at the aortic root (①), crosses the heart muscle through progressively smaller vessels, and drains mostly through the coronary sinus into the right atrium (②). Coronary perfusion pressure is the difference between the pressures at ① and ②, read at the same moment in the release phase of compression. It is a pressure difference, not a pressure at any single point and not a measure of flow. Schematic, not to scale. In studies, these pressures are measured by catheters in or near these sites.',
     );
+    expect(coronary).toContain('Marker 1 at the aortic root shows aortic pressure here.');
+    expect(coronary).toContain('Marker 2 at the right atrium shows right atrial pressure here.');
+    expect(coronary).not.toContain('where aortic pressure is measured');
+    expect(coronary).not.toContain('where right atrial pressure is measured');
     expect(coronary).toContain(
       'the difference between the two, measured at the same moment, between compressions.',
     );
