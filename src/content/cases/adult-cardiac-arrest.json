@@ -197,7 +197,11 @@
       "title": "Electrical activity is not mechanical activity, and neither is perfusion",
       "explanation": [
         "Three different things can be true or false about the heart in arrest. It can have organized electrical activity. It can contract. And those contractions can produce enough flow to perfuse the body. A monitor shows only the first. VF and pulseless VT have electrical activity that does not produce effective contraction. PEA has organized electrical activity with too little mechanical output to make a pulse. Asystole has neither.",
-        "Shockable rhythms are electrical problems with an electrical treatment. A shock depolarizes a critical mass of myocardium at once, giving an organized rhythm a chance to take over. It works best early. In the ARREST registry of witnessed out-of-hospital arrest with an initial rhythm of VF, the first shock terminated VF about 93% of the time when it came within 6 minutes and about 75% of the time when it was delayed past 16 minutes. Each minute of delay to the first shock was associated with a relative reduction of about 6% in survival to discharge.",
+        "Each of the three has a location and a physical form. The electrical event begins in specialized tissue: normally the sinus node in the wall of the right atrium, then the atrioventricular node, the His bundle, the bundle branches, and the Purkinje fibers that spread the impulse through the ventricular muscle. Depolarization is a wave of change in the voltage across cell membranes, carried by ions moving through channels, and the surface ECG records the sum of those voltage changes from outside the body. Contraction is a separate, chemical and mechanical event inside each muscle cell: depolarization lets calcium enter and be released from internal stores, calcium allows the contractile proteins to bind and shorten, and the process consumes ATP. Flow is a third step again: shortening of the ventricular wall raises pressure in the chamber, and only when that pressure exceeds aortic pressure does the aortic valve open and blood leave. Each link can fail while the one before it survives. An ischemic, acidotic, or energy-depleted cell can depolarize without contracting usefully, and a heart that contracts can still eject little if it has nothing to fill it or something blocking its outflow.",
+        "VF and pulseless VT are shockable because their failure is in the first link. In VF, wavelets of depolarization circulate chaotically through the ventricles, usually by re-entry, so different regions are activated at different times and no coordinated contraction occurs. In pulseless VT, the rhythm is organized but too fast, or the myocardium too damaged, for the ventricles to fill and eject a pulse. A shock passes current through the heart and depolarizes enough of the myocardium at once that the circulating wavefronts have no excitable tissue left to enter, and they stop. What follows depends on whether the conduction system and myocardium can then generate and respond to an organized impulse. A shock does not make the heart contract, and a shock is not indicated for PEA or asystole, where there is no re-entrant rhythm to terminate.",
+        "PEA covers a range of mechanical states that the monitor cannot separate. At one end, organized depolarization produces no detectable contraction at all, true electromechanical dissociation. At the other, the ventricles contract, sometimes vigorously, but eject too little to make a palpable pulse, a state often called pseudo-PEA. The difference matters because it points to different causes. A heart contracting around little blood suggests a filling or obstruction problem such as hypovolemia, tamponade, tension pneumothorax, or massive pulmonary embolism; a heart that is barely moving suggests advanced ischemia, acidosis, or a metabolic or toxic cause. Point-of-care ultrasound can show cardiac motion, and an arterial line can show small pressure pulses that a finger cannot feel. Point-of-care ultrasound can be used by an experienced operator when it does not interrupt CPR, though its usefulness during arrest is not well established, and seeing motion on ultrasound is not the same as measuring flow. Asystole is the absence of detectable electrical activity, and with it the absence of contraction; before accepting it, it is standard practice to check that leads and gain are not hiding a fine VF.",
+        "For resuscitation, the practical rule is that each kind of observation answers only its own question. The monitor answers whether the heart is depolarizing in an organized way and whether a shock is indicated. Ultrasound answers whether it is moving, and sometimes why it is not filling. A pulse, an arterial waveform, or a sustained rise in end-tidal CO2 answers whether it is producing flow. Using one to answer another's question is where errors come from: an organized rhythm read as a perfusing heart, or visible cardiac motion read as adequate output. This is reasoning from physiology; the guideline treatment of PEA and asystole, compressions, epinephrine, and the search for a cause, does not change with the subtype, and no trial has tested whether treating PEA by subtype improves survival.",
+        "Shockable rhythms are electrical problems with an electrical treatment. In dog experiments, fibrillation stopped when a shock depolarized a critical mass of myocardium at once; that gives an organized rhythm a chance to take over. It works best early. In the ARREST registry of witnessed out-of-hospital arrest with an initial rhythm of VF, the first shock terminated VF about 93% of the time when it came within 6 minutes and about 75% of the time when it was delayed past 16 minutes. Each minute of delay to the first shock was associated with a relative reduction of about 6% in survival to discharge.",
         "Time changes the myocardium as well as the odds. As VF continues, the myocardium uses up its energy stores, and a shock is less likely to produce an organized rhythm that can contract. CPR before the shock can restore some of that substrate, which is why prolonged VF and freshly witnessed VF are not the same problem.",
         "The 2025 ALS guidelines prefer a single shock to stacked shocks, followed by immediate CPR for about 2 minutes. Whether stacked shocks are better in a monitored, witnessed arrest is unknown. Use a biphasic defibrillator when one is available, at the manufacturer's energy. If that energy is unknown, the maximal dose on that device may be used; the algorithm gives a typical biphasic initial range of 120 to 200 joules as an example. A monophasic device, if that is all you have, is set at 360 joules. Later shocks are at least that same energy, and a higher energy may be considered when the device can escalate and a perfusing rhythm has not returned.",
         "The limit of the model: an organized rhythm after a shock does not prove that the heart is perfusing. That question is answered by a pulse, an arterial line, or a sustained rise in end-tidal CO2, not by the monitor. The usefulness of pad vector change and double sequential defibrillation for VF still present after three or more shocks has not been established, so fix pad contact, pad position, and CPR quality before adding an unproven technique."
@@ -244,7 +248,10 @@
       "refs": [
         "aha-2025-als",
         "aha-2025-algorithm",
-        "stieglis-2025-arrest"
+        "stieglis-2025-arrest",
+        "zipes-1975",
+        "paradis-1992",
+        "bocka-1988"
       ],
       "parentId": "electrical-mechanical"
     },
@@ -1379,6 +1386,21 @@
       "id": "falk-1988",
       "label": "Falk JL, Rackow EC, Weil MH. End-tidal carbon dioxide concentration during cardiopulmonary resuscitation. N Engl J Med. 1988;318(10):607–611",
       "url": "https://doi.org/10.1056/NEJM198803103181005"
+    },
+    {
+      "id": "zipes-1975",
+      "label": "Zipes DP, Fischer J, King RM, Nicoll AdeB, Jolly WW. Termination of ventricular fibrillation in dogs by depolarizing a critical amount of myocardium. Am J Cardiol. 1975;36(1):37–44",
+      "url": "https://doi.org/10.1016/0002-9149(75)90865-6"
+    },
+    {
+      "id": "paradis-1992",
+      "label": "Paradis NA, Martin GB, Goetting MG, et al. Aortic pressure during human cardiac arrest. Identification of pseudo-electromechanical dissociation. Chest. 1992;101(1):123–128",
+      "url": "https://doi.org/10.1378/chest.101.1.123"
+    },
+    {
+      "id": "bocka-1988",
+      "label": "Bocka JJ, Overton DT, Hauser A. Electromechanical dissociation in human beings: an echocardiographic evaluation. Ann Emerg Med. 1988;17(5):450–452",
+      "url": "https://doi.org/10.1016/s0196-0644(88)80234-8"
     }
   ],
   "strict": true
