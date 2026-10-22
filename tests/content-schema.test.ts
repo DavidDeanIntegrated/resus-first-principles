@@ -706,6 +706,68 @@ describe('case schema', () => {
       expect(missingAnchor.error.issues.some((issue) => issue.message.includes('Unknown anchor'))).toBe(true);
     }
 
+    const linkedExplanation = caseSchema.safeParse(
+      chapter([
+        ...partIds.map((id) =>
+          section(
+            id,
+            id === 'cpr-circulation'
+              ? {
+                  explanation:
+                    'Compressions replace the pump. See [the mechanics](#principle-cpr-mechanics).',
+                }
+              : {},
+          ),
+        ),
+        section('cpr-mechanics', { parentId: 'cpr-circulation' }),
+      ]),
+    );
+    expect(linkedExplanation.success).toBe(true);
+
+    const missingExplanationAnchor = caseSchema.safeParse(
+      chapter([
+        section('orientation', {
+          explanation: ['See [a later part](#principle-missing).'],
+        }),
+      ]),
+    );
+    expect(missingExplanationAnchor.success).toBe(false);
+    if (!missingExplanationAnchor.success) {
+      expect(
+        missingExplanationAnchor.error.issues.some((issue) => issue.message.includes('Unknown anchor')),
+      ).toBe(true);
+    }
+
+    const missingExplanationString = caseSchema.safeParse(
+      chapter([
+        section('orientation', {
+          explanation: 'See [a later part](#principle-missing).',
+        }),
+      ]),
+    );
+    expect(missingExplanationString.success).toBe(false);
+    if (!missingExplanationString.success) {
+      expect(
+        missingExplanationString.error.issues.some((issue) => issue.message.includes('Unknown anchor')),
+      ).toBe(true);
+    }
+
+    const unsafeExplanationLink = caseSchema.safeParse(
+      chapter([
+        section('orientation', {
+          explanation: 'See [bad](javascript:alert(1)).',
+        }),
+      ]),
+    );
+    expect(unsafeExplanationLink.success).toBe(false);
+    if (!unsafeExplanationLink.success) {
+      expect(
+        unsafeExplanationLink.error.issues.some((issue) =>
+          issue.message.includes('must be an http(s) URL or a #anchor'),
+        ),
+      ).toBe(true);
+    }
+
     const noNarrative = caseSchema.safeParse(chapter([{ id: 'orientation', title: 'PLACEHOLDER orientation' }]));
     expect(noNarrative.success).toBe(false);
 

@@ -8,6 +8,7 @@ import Contents from '../src/components/Contents.astro';
 import ManagementOverview from '../src/components/ManagementOverview.astro';
 import QuestionCard from '../src/components/QuestionCard.astro';
 import ReferenceList from '../src/components/ReferenceList.astro';
+import SectionFrame from '../src/components/SectionFrame.astro';
 import SectionPart from '../src/components/SectionPart.astro';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
@@ -309,6 +310,80 @@ describe('question reveal and references', () => {
     expect(html).toContain('(1)');
     expect(html).toContain('Question 3.1');
     expect(html).toContain('PLACEHOLDER answer.');
+  });
+
+  it('renders principle explanation links with the same inline markdown as body', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(SectionFrame, {
+      props: {
+        principle: {
+          id: 'sample',
+          title: 'PLACEHOLDER principle',
+          explanation: [
+            'Plain lead with a "quote" and an apostrophe\'s mark.',
+            'Second paragraph stays plain and keeps its own paragraph.',
+            'It won\'t change the paragraph.',
+            'See [CPR mechanics](#principle-cpr-mechanics) and [bad](javascript:alert(1)).',
+          ],
+          questions: [],
+        },
+        numeral: 'I',
+        causeNames: {},
+        referenceNumbers: new Map(),
+      },
+    });
+
+    expect(html).toContain('<div class="prose">');
+    expect(html).toContain('Plain lead with a &quot;quote&quot; and an apostrophe');
+    expect(html).toContain('<p>Second paragraph stays plain and keeps its own paragraph.</p>');
+    expect(html).toContain("<p>It won't change the paragraph.</p>");
+    expect(html).toContain('<a href="#principle-cpr-mechanics">CPR mechanics</a>');
+    expect(html).not.toContain('href="javascript:');
+    expect(html).toContain('[bad](javascript:alert(1))');
+    expect(html).not.toContain('class="equation"');
+    expect(html).not.toContain('prose-subhead');
+    const plain = html.indexOf('Second paragraph stays plain and keeps its own paragraph.');
+    const link = html.indexOf('href="#principle-cpr-mechanics"');
+    expect(plain).toBeGreaterThan(-1);
+    expect(link).toBeGreaterThan(plain);
+  });
+
+  it('places explanation figures from the plain paragraph text when a link is present', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(SectionFrame, {
+      props: {
+        principle: {
+          id: 'coronary-cerebral-perfusion',
+          title: 'PLACEHOLDER perfusion',
+          explanation: [
+            'Lead sentence without a figure.',
+            'The heart is a muscle that never rests in health. See [CPR mechanics](#principle-cpr-mechanics).',
+            'With that picture in place, the equation is a short summary of it.',
+            'Phase matters for a second reason, which has to do with the vessels themselves.',
+            'For the heart, the gradient that matters is coronary perfusion pressure during release.',
+          ],
+          questions: [],
+        },
+        numeral: '3.1',
+        causeNames: {},
+        referenceNumbers: new Map(),
+      },
+    });
+
+    const heart = html.indexOf('The heart is a muscle that never rests in health');
+    const link = html.indexOf('<a href="#principle-cpr-mechanics">CPR mechanics</a>');
+    const circuit = html.indexOf('data-diagram="coronary-circuit"');
+    const equation = html.indexOf('With that picture in place, the equation is a short summary of it.');
+    const release = html.indexOf('data-diagram="compression-release"');
+    const gradient = html.indexOf('For the heart, the gradient that matters is coronary perfusion pressure');
+    const gradientFigure = html.indexOf('data-diagram="pressure-gradient"');
+    expect(heart).toBeGreaterThan(-1);
+    expect(heart).toBeLessThan(link);
+    expect(link).toBeLessThan(circuit);
+    expect(circuit).toBeLessThan(equation);
+    expect(equation).toBeLessThan(release);
+    expect(release).toBeLessThan(gradient);
+    expect(gradient).toBeLessThan(gradientFigure);
   });
 
   it('links the management overview at the same steps', async () => {
