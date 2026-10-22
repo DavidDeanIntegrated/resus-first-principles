@@ -1,12 +1,14 @@
 ---
 import CauseList from './CauseList.astro';
+import CycleArithmetic from './CycleArithmetic.astro';
 import MarkdownParagraphs from './MarkdownParagraphs.astro';
 import PrincipleDiagram from './PrincipleDiagram.astro';
 import PrincipleHeader from './PrincipleHeader.astro';
 import { figuresForPrinciple, groupParagraphs, inlineFiguresAfter, primerAnchorErrors } from '../lib/figure-placement.ts';
 import { physiologyAnchorErrors } from '../lib/physiology-figures.ts';
-import { stripInlineMarkdown } from '../lib/markdown.ts';
+import { inlineMarkdownToHtml, stripInlineMarkdown } from '../lib/markdown.ts';
 import { asParagraphs, splitLead } from '../lib/prose.ts';
+import { showsCycleArithmetic, subheadBefore } from '../lib/section-layout.ts';
 import type { ReferenceMark } from '../lib/references.ts';
 import type { Principle } from '../lib/schema.ts';
 
@@ -55,6 +57,7 @@ const inlineFigureIds = new Set<string>([
   ...explanationGroups.flatMap((group) => group.figures),
   ...markdownGroups.flatMap((group) => group.figures),
 ]);
+const leadSubhead = subheadBefore(principle.id, explanation[0] ?? narrative[0] ?? '');
 ---
 
 <PrincipleHeader
@@ -62,6 +65,7 @@ const inlineFigureIds = new Set<string>([
   numeral={numeral}
   title={principle.title}
   summary={lead}
+  subhead={leadSubhead}
   marks={marks}
 >
   {
@@ -85,7 +89,15 @@ const inlineFigureIds = new Set<string>([
       <>
         {group.paragraphs.length > 0 && (
           <div class="prose">
-            <MarkdownParagraphs paragraphs={group.paragraphs} />
+            {group.paragraphs.map((paragraph) => (
+              <>
+                {subheadBefore(principle.id, paragraph) && (
+                  <h3 class="prose-subhead">{subheadBefore(principle.id, paragraph)}</h3>
+                )}
+                <p set:html={inlineMarkdownToHtml(paragraph)} />
+                {showsCycleArithmetic(principle.id, paragraph) && <CycleArithmetic />}
+              </>
+            ))}
           </div>
         )}
         {group.figures.map((diagram) => (

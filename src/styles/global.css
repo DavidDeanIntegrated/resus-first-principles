@@ -803,6 +803,56 @@ h2 {
   margin-top: var(--s4);
 }
 
+.prose-subhead {
+  max-width: var(--measure);
+  margin: var(--s5) 0 0;
+  font-family: var(--f-text);
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  color: var(--sage);
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.principle-head .prose-subhead {
+  margin: 0 0 var(--s2);
+}
+
+.prose .prose-subhead + p {
+  margin-top: var(--s2);
+}
+
+.cycle-arithmetic {
+  margin: var(--s4) 0 0;
+  max-width: var(--measure);
+}
+
+.cycle-arithmetic table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.cycle-arithmetic caption {
+  caption-side: bottom;
+  padding-top: var(--s2);
+  text-align: left;
+  color: var(--ink-soft);
+}
+
+.cycle-arithmetic th,
+.cycle-arithmetic td {
+  padding: 0.45rem 0.75rem 0.45rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
 .q {
   background: var(--card);
   border: 1px solid var(--rule);
@@ -1420,22 +1470,22 @@ h2 {
   stroke-width: 3;
 }
 
-.diagram[data-diagram='coronary-circuit'] {
+.diagram[data-diagram="coronary-circuit"] {
   max-width: 40rem;
 }
 
-.diagram[data-diagram='coronary-circuit'] svg {
+.diagram[data-diagram="coronary-circuit"] svg {
   background: var(--paper);
 }
 
-.diagram[data-diagram='coronary-circuit'] svg.diagram-wide,
-.diagram[data-diagram='pressure-pairs'] svg.diagram-wide,
-.diagram[data-diagram='compression-release'] svg.diagram-wide {
+.diagram[data-diagram="coronary-circuit"] svg.diagram-wide,
+.diagram[data-diagram="pressure-pairs"] svg.diagram-wide,
+.diagram[data-diagram="compression-release"] svg.diagram-wide {
   display: none;
 }
 
-.diagram[data-diagram='pressure-pairs'],
-.diagram[data-diagram='compression-release'] {
+.diagram[data-diagram="pressure-pairs"],
+.diagram[data-diagram="compression-release"] {
   max-width: 40rem;
 }
 
@@ -1555,8 +1605,8 @@ h2 {
   overflow-wrap: anywhere;
 }
 
-.diagram[data-diagram='pressure-pairs'] svg,
-.diagram[data-diagram='compression-release'] svg {
+.diagram[data-diagram="pressure-pairs"] svg,
+.diagram[data-diagram="compression-release"] svg {
   background: var(--paper);
 }
 
@@ -1658,15 +1708,15 @@ h2 {
 }
 
 @media (min-width: 600px) {
-  .diagram[data-diagram='coronary-circuit'] svg.diagram-stack,
-  .diagram[data-diagram='pressure-pairs'] svg.diagram-stack,
-  .diagram[data-diagram='compression-release'] svg.diagram-stack {
+  .diagram[data-diagram="coronary-circuit"] svg.diagram-stack,
+  .diagram[data-diagram="pressure-pairs"] svg.diagram-stack,
+  .diagram[data-diagram="compression-release"] svg.diagram-stack {
     display: none;
   }
 
-  .diagram[data-diagram='coronary-circuit'] svg.diagram-wide,
-  .diagram[data-diagram='pressure-pairs'] svg.diagram-wide,
-  .diagram[data-diagram='compression-release'] svg.diagram-wide {
+  .diagram[data-diagram="coronary-circuit"] svg.diagram-wide,
+  .diagram[data-diagram="pressure-pairs"] svg.diagram-wide,
+  .diagram[data-diagram="compression-release"] svg.diagram-wide {
     display: block;
   }
 }
@@ -2028,19 +2078,19 @@ h2 {
     max-height: 6.6in;
   }
 
-  .diagram[data-diagram='pressure-gradient'] svg {
+  .diagram[data-diagram="pressure-gradient"] svg {
     max-height: 7.1in;
   }
 
-  .diagram[data-diagram='coronary-circuit'] svg.diagram-stack,
-  .diagram[data-diagram='pressure-pairs'] svg.diagram-stack,
-  .diagram[data-diagram='compression-release'] svg.diagram-stack {
+  .diagram[data-diagram="coronary-circuit"] svg.diagram-stack,
+  .diagram[data-diagram="pressure-pairs"] svg.diagram-stack,
+  .diagram[data-diagram="compression-release"] svg.diagram-stack {
     display: none !important;
   }
 
-  .diagram[data-diagram='coronary-circuit'] svg.diagram-wide,
-  .diagram[data-diagram='pressure-pairs'] svg.diagram-wide,
-  .diagram[data-diagram='compression-release'] svg.diagram-wide {
+  .diagram[data-diagram="coronary-circuit"] svg.diagram-wide,
+  .diagram[data-diagram="pressure-pairs"] svg.diagram-wide,
+  .diagram[data-diagram="compression-release"] svg.diagram-wide {
     display: block !important;
     max-height: 7.2in;
   }

@@ -266,6 +266,45 @@ describe('static build output', () => {
     expect(oxygen).toContain('>324<');
   });
 
+  it('adds CPR mechanics subheads and a cycle table without changing the prose', () => {
+    const casePage = readDist('cases/adult-cardiac-arrest/index.html');
+    const mechanics = section(casePage, 'principle-cpr-mechanics');
+    const how = mechanics.indexOf('<h3 class="prose-subhead">How a compression moves blood</h3>');
+    const release = mechanics.indexOf('<h3 class="prose-subhead">Release</h3>');
+    const five = mechanics.indexOf('<h3 class="prose-subhead">Five variables, one cycle</h3>');
+    const arithmetic = 'An illustrative calculation, from the guideline numbers rather than from measurement';
+    const caption =
+      'These figures show the arithmetic of the cycle, not targets, and they do not say how much flow occurs in each phase.';
+    expect(how).toBeGreaterThan(-1);
+    expect(how).toBeLessThan(mechanics.indexOf('A compression moves blood by raising pressure'));
+    expect(release).toBeGreaterThan(how);
+    expect(release).toBeLessThan(mechanics.indexOf('Release is the other half of the cycle'));
+    expect(five).toBeGreaterThan(release);
+    expect(five).toBeLessThan(mechanics.indexOf('The compression variables are not independent dials.'));
+    expect(mechanics.indexOf(arithmetic)).toBeLessThan(mechanics.indexOf('class="cycle-arithmetic"'));
+    expect(mechanics.indexOf('class="cycle-arithmetic"')).toBeLessThan(
+      mechanics.indexOf('Ventilation acts on the same chest.'),
+    );
+    expect(mechanics).toContain('At 100 compressions per minute each cycle lasts 0.6 seconds; at 120 per minute, 0.5 seconds.');
+    expect(mechanics).toContain(
+      'the release phase available for refilling and coronary filling is about 0.3 seconds at the lower rate and about 0.25 seconds at the upper.',
+    );
+    expect(mechanics.split(caption).length - 1).toBe(2);
+    const table = mechanics.slice(
+      mechanics.indexOf('class="cycle-arithmetic"'),
+      mechanics.indexOf('</figure>', mechanics.indexOf('class="cycle-arithmetic"')),
+    );
+    const css = readFileSync(join(repoRoot, 'src/styles/global.css'), 'utf8');
+    expect(css).toMatch(/\.cycle-arithmetic table\s*\{[^}]*font-variant-numeric:\s*tabular-nums/);
+    expect(table).toContain('>100/min<');
+    expect(table).toContain('>0.6 s<');
+    expect(table).toContain('>about 0.3 s<');
+    expect(table).toContain('>120/min<');
+    expect(table).toContain('>0.5 s<');
+    expect(table).toContain('>about 0.25 s<');
+    expect(table).toContain(caption);
+  });
+
   it('renders the reversible-cause figure beside its principle', () => {
     const casePage = readDist('cases/adult-cardiac-arrest/index.html');
     const source = readFileSync(join(repoRoot, 'src/content/cases/adult-cardiac-arrest.json'), 'utf8');

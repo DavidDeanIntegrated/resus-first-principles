@@ -7,10 +7,11 @@ interface Props {
   numeral: string;
   title: string;
   summary: string;
+  subhead?: string;
   marks?: readonly ReferenceMark[];
 }
 
-const { id, numeral, title, summary, marks } = Astro.props;
+const { id, numeral, title, summary, subhead, marks } = Astro.props;
 const titleId = `${id}-title`;
 ---
 
@@ -19,6 +20,7 @@ const titleId = `${id}-title`;
     <span class="num" aria-hidden="true">{numeral}</span>
     <p class="kicker">Principle</p>
     <h2 id={titleId}>{title}<RefMarks marks={marks} /></h2>
+    {subhead && <h3 class="prose-subhead">{subhead}</h3>}
     <p class="gist">{summary}</p>
   </header>
   <slot />
