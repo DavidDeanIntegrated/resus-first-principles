@@ -942,6 +942,52 @@ h2 {
   overflow-wrap: anywhere;
 }
 
+.data-table {
+  margin: var(--s5) 0 0;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.data-table-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  max-width: 100%;
+  min-width: 0;
+  scrollbar-color: var(--rule) transparent;
+}
+
+.data-table table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.data-table caption {
+  caption-side: top;
+  padding-bottom: var(--s3);
+  text-align: left;
+  font-family: var(--f-text);
+  font-weight: 600;
+  color: var(--ink);
+  font-variation-settings: "opsz" 14, "wght" 600;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.45rem 0.75rem 0.45rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+
+.data-table th {
+  font-weight: 600;
+}
+
 .q {
   background: var(--card);
   border: 1px solid var(--rule-strong);
@@ -2396,6 +2442,27 @@ h2 {
   .diagram-fall-head,
   .diagram-time-head {
     fill: #111;
+  }
+
+  .data-table-scroll {
+    overflow: visible;
+  }
+
+  .data-table table {
+    width: 100%;
+    min-width: 0;
+    background: var(--card);
+    color: var(--ink);
+  }
+
+  .data-table caption,
+  .data-table th,
+  .data-table td {
+    color: var(--ink);
+    border-bottom-color: var(--rule);
+    background: var(--card);
+    min-width: 0;
+    max-width: none;
   }
 
   .references a[href^='http']::after {

@@ -74,7 +74,49 @@ export const causeSchema = z.object({
   refs: refsSchema.optional(),
 });
 
-export const diagramIdSchema = z.enum(['pressure-gradient', 'compression-pause']);
+export const diagramIdSchema = z.enum([
+  'pressure-gradient',
+  'compression-pause',
+  'shock-circulation-gradients',
+  'shock-pressure-flow',
+  'shock-fluid-response',
+]);
+
+/** Diagrams whose caption lives in the component. Shock figures carry caption and alt in the module. */
+const legacyDiagramIdSchema = z.enum(['pressure-gradient', 'compression-pause']);
+
+export const shockDiagramIdSchema = z.enum([
+  'shock-circulation-gradients',
+  'shock-pressure-flow',
+  'shock-fluid-response',
+]);
+
+export const diagramEntrySchema = z.object({
+  id: shockDiagramIdSchema,
+  caption: textSchema,
+  alt: textSchema,
+});
+
+export const diagramFieldSchema = z.union([legacyDiagramIdSchema, diagramEntrySchema]);
+
+/** One header row and one or more body rows. Cells are plain text or inline markdown. */
+export const tableSchema = z
+  .object({
+    caption: textSchema,
+    header: z.array(textSchema).min(1),
+    rows: z.array(z.array(textSchema).min(1)).min(1),
+  })
+  .superRefine((table, ctx) => {
+    table.rows.forEach((row, index) => {
+      if (row.length !== table.header.length) {
+        ctx.addIssue({
+          code: 'custom',
+          message: `Table row ${index + 1} has ${row.length} cells; the header has ${table.header.length}`,
+          path: ['rows', index],
+        });
+      }
+    });
+  });
 
 export const workedExampleSchema = z.object({
   id: idSchema,
@@ -91,7 +133,8 @@ export const principleSchema = z.object({
   refs: refsSchema.optional(),
   questions: z.array(questionSchema).default([]),
   causes: z.array(causeSchema).min(1).optional(),
-  diagram: diagramIdSchema.optional(),
+  diagram: diagramFieldSchema.optional(),
+  table: tableSchema.optional(),
   workedExample: workedExampleSchema.optional(),
 });
 
@@ -526,6 +569,12 @@ export const caseSchema = z
       }
       checkLinks(principle.body, ['principles', index, 'body']);
       checkLinks(principle.workedExample?.body, ['principles', index, 'workedExample', 'body']);
+      if (principle.table) {
+        checkLinks(principle.table.header, ['principles', index, 'table', 'header']);
+        principle.table.rows.forEach((row, rowIndex) => {
+          checkLinks(row, ['principles', index, 'table', 'rows', rowIndex]);
+        });
+      }
     });
 
     if (value.strict) {
@@ -546,7 +595,15 @@ export type CauseCategory = z.infer<typeof causeCategorySchema>;
 export type CauseExample = z.infer<typeof causeExampleSchema>;
 export type Cause = z.infer<typeof causeSchema>;
 export type DiagramId = z.infer<typeof diagramIdSchema>;
+export type DiagramEntry = z.infer<typeof diagramEntrySchema>;
+export type DiagramField = z.infer<typeof diagramFieldSchema>;
+export type DataTable = z.infer<typeof tableSchema>;
 export type WorkedExample = z.infer<typeof workedExampleSchema>;
+
+export function diagramRefId(diagram: DiagramField | undefined): string | undefined {
+  if (!diagram) return undefined;
+  return typeof diagram === 'string' ? diagram : diagram.id;
+}
 export type Principle = z.infer<typeof principleSchema>;
 export type TreatmentStep = z.infer<typeof treatmentStepSchema>;
 export type Reference = z.infer<typeof referenceSchema>;

@@ -1,0 +1,12 @@
+---
+import ShockFigurePlaceholder from './ShockFigurePlaceholder.astro';
+
+interface Props {
+  caption: string;
+  alt: string;
+}
+
+const { caption, alt } = Astro.props;
+---
+
+<ShockFigurePlaceholder id="shock-fluid-response" title="Figure in progress." desc={alt} caption={caption} />

@@ -1,0 +1,12 @@
+---
+import ShockFigurePlaceholder from './ShockFigurePlaceholder.astro';
+
+interface Props {
+  caption: string;
+  alt: string;
+}
+
+const { caption, alt } = Astro.props;
+---
+
+<ShockFigurePlaceholder id="shock-pressure-flow" title="Figure in progress." desc={alt} caption={caption} />

@@ -1,0 +1,693 @@
+{
+  "schemaVersion": 1,
+  "id": "shock-pressure-flow",
+  "slug": "shock-pressure-flow",
+  "title": "Shock: Pressure, Flow, and the Failing Circulation",
+  "summary": "PLACEHOLDER draft (S4, not reviewed). Why pressure, flow, oxygen delivery, and congestion can tell different stories in adult shock, and how to use those differences to reason about resuscitation. Study material, not a protocol.",
+  "contentStatus": "placeholder",
+  "strict": true,
+  "reviewNote": "S4 draft by Science Editor on 9f9bb3c, integrated at S6 as a placeholder. Not yet through S7 review. Figure drawings are placeholders. Inline [source: ...] markers remain in the prose and are mapped to reference ids. One SOURCE NEEDED marker is unmapped.",
+  "references": [
+    {
+      "id": "cecconi-2014",
+      "label": "Cecconi M, De Backer D, Antonelli M, et al. Consensus on circulatory shock and hemodynamic monitoring. Task force of the ESICM. Intensive Care Med. 2014;40:1795–1815",
+      "url": "https://doi.org/10.1007/s00134-014-3525-z",
+      "note": "Access: full text; only extracted passages were read."
+    },
+    {
+      "id": "vincent-de-backer-2013",
+      "label": "Vincent JL, De Backer D. Circulatory shock. N Engl J Med. 2013;369:1726–1734",
+      "url": "https://doi.org/10.1056/NEJMra1208943",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "persichini-2022",
+      "label": "Persichini R, Lai C, Teboul JL, Adda I, Guérin L, Monnet X. Venous return and mean systemic filling pressure: physiology and clinical applications. Crit Care. 2022;26:150",
+      "url": "https://doi.org/10.1186/s13054-022-04024-x",
+      "note": "Access: full text; only extracted passages were read."
+    },
+    {
+      "id": "sunagawa-2017",
+      "label": "Sunagawa K. Guyton’s venous return curves should be taught at medical schools (complete English translation of Japanese version). J Physiol Sci. 2017;67(4):447–458",
+      "url": "https://doi.org/10.1007/s12576-017-0533-0",
+      "note": "Access: full text; only extracted passages were read. The S3 source note had not verified the author; the DOI record names Kenji Sunagawa."
+    },
+    {
+      "id": "ncbi-nbk54476",
+      "label": "NCBI Bookshelf. Control of Cardiac Output, chapter Venous Return (NBK54476).",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK54476/",
+      "note": "Access: full text; only extracted passages were read."
+    },
+    {
+      "id": "repesse-2015",
+      "label": "Repessé X, Charron C, Fink J, et al. Value and determinants of the mean systemic filling pressure in critically ill patients. Am J Physiol Heart Circ Physiol. 2015;309(5):H1003–H1007",
+      "url": "https://doi.org/10.1152/ajpheart.00413.2015",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "ssc-2026",
+      "label": "Prescott HC, Antonelli M, Rhodes A, Coopersmith CM, et al. Surviving Sepsis Campaign: international guidelines for management of sepsis and septic shock 2026. Intensive Care Med. 2026;52:863–936",
+      "url": "https://doi.org/10.1007/s00134-026-08361-1",
+      "note": "Access: full text."
+    },
+    {
+      "id": "monnet-teboul-2015-abstract",
+      "label": "Monnet X, Teboul JL. Passive leg raising for predicting fluid responsiveness: a systematic review and meta-analysis. Intensive Care Med Exp. 2015;3(Suppl 1):A587",
+      "url": "https://doi.org/10.1186/2197-425X-3-S1-A587",
+      "note": "Access: full text of the conference abstract; only extracted passages were read."
+    },
+    {
+      "id": "monnet-teboul-2015",
+      "label": "Monnet X, Teboul JL. Passive leg raising: five rules, not a drop of fluid! Crit Care. 2015;19:18",
+      "url": "https://doi.org/10.1186/s13054-014-0708-5",
+      "note": "Access: full text; only extracted passages were read."
+    },
+    {
+      "id": "monnet-marik-teboul-2016",
+      "label": "Monnet X, Marik P, Teboul JL. Passive leg raising for predicting fluid responsiveness: a systematic review and meta-analysis. Intensive Care Med. 2016;42:1935–1947",
+      "url": "https://doi.org/10.1007/s00134-015-4134-1",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "minini-2020",
+      "label": "Minini A, Abraham P, Malbrain MLNG. Predicting fluid responsiveness with the passive leg raising test: don’t be fooled by intra-abdominal hypertension! Ann Transl Med. 2020;8(12):799",
+      "url": "https://doi.org/10.21037/atm.2019.12.14",
+      "note": "Access: full text; only extracted passages were read. Identified in the S3 source note as PMC7333095."
+    },
+    {
+      "id": "de-backer-2005",
+      "label": "De Backer D, Heenen S, Piagnerelli M, Koch M, Vincent JL. Pulse pressure variations to predict fluid responsiveness: influence of tidal volume. Intensive Care Med. 2005;31:517–523",
+      "url": "https://doi.org/10.1007/s00134-005-2586-4",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "yang-du-2014",
+      "label": "Yang X, Du B. Does pulse pressure variation predict fluid responsiveness in critically ill patients? A systematic review and meta-analysis. Crit Care. 2014;18:650",
+      "url": "https://doi.org/10.1186/s13054-014-0650-6",
+      "note": "Access: full text; only extracted passages were read."
+    },
+    {
+      "id": "michard-2015",
+      "label": "Michard F, Chemla D, Teboul JL. Applicability of pulse pressure variation: how many shades of grey? Crit Care. 2015;19:144",
+      "url": "https://doi.org/10.1186/s13054-015-0869-x",
+      "note": "Access: full text; only extracted passages were read."
+    },
+    {
+      "id": "statpearls-oxygen-transport",
+      "label": "StatPearls. Physiology, Oxygen Transport (NBK538336).",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK538336/",
+      "note": "Access: full text; only extracted passages were read."
+    },
+    {
+      "id": "statpearls-partial-pressure-oxygen",
+      "label": "StatPearls. Partial Pressure of Oxygen (NBK493219).",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK493219/",
+      "note": "Access: full text; only extracted passages were read."
+    },
+    {
+      "id": "cain-1977",
+      "label": "Cain SM. Oxygen delivery and uptake in dogs during anemic and hypoxic hypoxia. J Appl Physiol. 1977;42(2):228–234",
+      "url": "https://doi.org/10.1152/jappl.1977.42.2.228"
+    },
+    {
+      "id": "ronco-1993",
+      "label": "Ronco JJ, Fenwick JC, Tweeddale MG, et al. Identification of the critical oxygen delivery for anaerobic metabolism in critically ill septic and nonseptic humans. JAMA. 1993;270(14):1724–1730",
+      "url": "https://doi.org/10.1001/jama.1993.03510140084034"
+    },
+    {
+      "id": "garcia-alvarez-2014",
+      "label": "Garcia-Alvarez M, Marik P, Bellomo R. Sepsis-associated hyperlactatemia. Crit Care. 2014;18:503",
+      "url": "https://doi.org/10.1186/s13054-014-0503-3",
+      "note": "Access: full text; only extracted passages were read."
+    },
+    {
+      "id": "suetrong-2016",
+      "label": "Suetrong B, Walley KR. Lactic acidosis in sepsis: it’s not all anaerobic. Chest. 2016;149:252–261",
+      "url": "https://doi.org/10.1378/chest.15-1703",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "kushimoto-2016",
+      "label": "Kushimoto S, et al. Lactate, a useful marker for disease mortality and severity but an unreliable marker of tissue hypoxia/hypoperfusion in critically ill patients. Acute Med Surg. 2016;3(4):293–297",
+      "url": "https://doi.org/10.1002/ams2.207",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "persichini-2012",
+      "label": "Persichini R, Silva S, Teboul JL, et al. Effects of norepinephrine on mean systemic pressure and venous return in human septic shock. Crit Care Med. 2012;40(12):3146–3153",
+      "url": "https://doi.org/10.1097/CCM.0b013e318260c6c3",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "foulon-2018",
+      "label": "Foulon P, De Backer D. The hemodynamic effects of norepinephrine: far more than an increase in blood pressure! Ann Transl Med. 2018",
+      "url": "https://doi.org/10.21037/atm.2018.09.27",
+      "note": "Access: full text; only extracted passages were read."
+    },
+    {
+      "id": "clovers-2023",
+      "label": "National Heart, Lung, and Blood Institute Prevention and Early Treatment of Acute Lung Injury Clinical Trials Network. Early restrictive or liberal fluid management for sepsis-induced hypotension. N Engl J Med. 2023;388:499–510",
+      "url": "https://doi.org/10.1056/NEJMoa2212663",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "classic-2022",
+      "label": "Meyhoff TS, et al. Restriction of intravenous fluid in ICU patients with septic shock. N Engl J Med. 2022;386:2459–2470",
+      "url": "https://doi.org/10.1056/NEJMoa2202707",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "sepsispam-2014",
+      "label": "Asfar P, et al. High versus low blood-pressure target in patients with septic shock. N Engl J Med. 2014;370:1583–1593",
+      "url": "https://doi.org/10.1056/NEJMoa1312173",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "lamontagne-2020",
+      "label": "Lamontagne F, et al. Effect of reduced exposure to vasopressors on 90-day mortality in older critically ill patients with vasodilatory hypotension: a randomized clinical trial. JAMA. 2020;323(10):938–949",
+      "url": "https://doi.org/10.1001/jama.2020.0930",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "andromeda-shock-2-2025",
+      "label": "Hernández G, Ospina-Tascón GA, Kattan E, et al. Personalized Hemodynamic Resuscitation Targeting Capillary Refill Time in Early Septic Shock. JAMA. 2025;334(22):1988–1999",
+      "url": "https://doi.org/10.1001/jama.2025.20402",
+      "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "esicm-2025",
+      "label": "Monnet X, Messina A, Greco M, et al. ESICM guidelines on circulatory shock and hemodynamic monitoring 2025. Intensive Care Med. 2025;51:1971–2012",
+      "url": "https://doi.org/10.1007/s00134-025-08137-z",
+      "note": "Access: abstract or summary only."
+    }
+  ],
+  "principles": [
+    {
+      "id": "same-pressure",
+      "title": "Part I. The same pressure, three different circulations",
+      "body": [
+        "Three adults arrive in the same emergency department within an hour of one another. All three are hypothetical, built for this chapter, and each will be revealed a little at a time. On the monitor they look like siblings: a mean arterial pressure (MAP) of 60 to 62 mm Hg and a heart rate in the 110s. If the monitor were the whole story, they would get the same treatment.",
+        "Patient A is a man in his sixties who felt faint at home and is now pale, cool to the touch, and quiet. His neck veins are flat when he lies back. Patient B is a woman in her seventies who has been febrile and increasingly confused for a day; her skin is warm and flushed, and her hands feel almost reassuring. Patient C is a man in his fifties with crushing chest pain since the early morning. He is sweaty and breathless, there are crackles at both lung bases, and his jugular venous pressure is visibly raised while he sits up.",
+        "Nothing here yet tells us why any of them is hypotensive. The flat neck veins in A, the warm hands in B, and the crackles in C each suggest a story, and each story can be wrong. Warm skin in particular is tempting to read as proof of a high cardiac output. It is not. Skin temperature reflects local vascular tone and the balance of heat production and loss as much as it reflects total flow, and a vasodilated patient can have warm peripheries with a cardiac output that is normal, high, or already failing. We will keep that possibility open for B until the evidence closes it."
+      ],
+      "questions": []
+    },
+    {
+      "id": "defining-shock",
+      "parentId": "same-pressure",
+      "title": "What shock is, and why a normal pressure cannot exclude it",
+      "body": [
+        "Shock is a failure of the circulation to meet the needs of the cells. The usual consensus wording describes it as a life-threatening, generalized form of acute circulatory failure associated with inadequate cellular oxygen utilization [source: Cecconi 2014; Vincent & De Backer 2013]. The definition is about tissue, not about a number on the monitor. Hypotension is common in shock and is usually how we first notice it, but it is a measurement of pressure in one place, the large arteries, and the cells live elsewhere.",
+        "This is why a normal arterial pressure cannot by itself exclude shock. Pressure is defended. When flow falls, baroreflexes tighten resistance vessels and raise heart rate, and the arterial pressure can hold near its usual value while cardiac output and organ blood flow have already fallen. A young patient bleeding briskly may look hemodynamically normal on the monitor for a surprisingly long time, and then lose pressure abruptly once compensation is exhausted. The reverse is also true: a low pressure in someone with ample flow and modest metabolic demand may be tolerated for a while. Pressure is one coordinate of a circulation, not its address.",
+        "Organs need several things from the blood. They need oxygen and substrates delivered, carbon dioxide, heat, and metabolic products carried away, and a perfusion pressure high enough for those organs that regulate their own flow within a pressure range. Oxygen is the most time-critical of these, which is why much of this chapter follows it, but oxygen transport is not the only job of the circulation, and inadequate delivery is not the only path to organ dysfunction. Inflammation, toxins, venous congestion, and cellular injury can all impair organs that are receiving what looks like enough blood.",
+        "We cannot measure each organ's needs at the bedside. Instead we read indirect signs: the state of mind, the skin, capillary refill, urine output, blood lactate, and what focused ultrasound shows of the heart and veins. Each signal is produced by its own physiology, changes on its own timescale, and has its own confounders. None of them is a verdict. A warm extremity, a single elevated lactate, or one ultrasound image is a clue that shifts probability, and the discipline of shock care is to keep collecting clues while treating what cannot wait.",
+        "To understand why the same pressure can conceal three different problems, we first have to separate pressure from movement."
+      ],
+      "questions": [],
+      "refs": [
+        "cecconi-2014",
+        "vincent-de-backer-2013"
+      ]
+    },
+    {
+      "id": "pressure-not-flow",
+      "title": "Part II. Pressure is not flow",
+      "body": [
+        "Pressure is force per unit area. In a blood vessel it is the push the blood exerts on the wall and on the blood ahead of it, conventionally measured in millimetres of mercury relative to atmospheric pressure. Blood does not flow because pressure is high. It flows because pressure is higher in one place than in another. A difference in pressure between two points, the pressure gradient, is what drives flow, and the size of the flow depends on that gradient and on how much the path between the points opposes movement."
+      ],
+      "questions": []
+    },
+    {
+      "id": "the-circuit",
+      "parentId": "pressure-not-flow",
+      "title": "Tracing one circulation",
+      "body": [
+        "Follow one red cell. The left ventricle ejects it into the aorta, where pressure is highest. It passes through the large conducting arteries with little loss of pressure, then into the small arteries and arterioles, the resistance vessels, where most of the pressure drop in the systemic circulation occurs. It crosses the capillaries of some tissue bed, exchanging oxygen and carbon dioxide, and enters the venules and veins, where pressure is low and the vessels are thin and distensible. It returns to the right atrium at a pressure of a few mm Hg, passes through the right ventricle into the pulmonary arteries, crosses the lung, and comes back through the pulmonary veins to the left atrium and left ventricle.",
+        "There are two driving gradients in series. The systemic gradient runs from the aorta to the right atrium; the pulmonary gradient runs from the pulmonary artery to the left atrium. Right atrial pressure (RAP) sits at the downstream end of the systemic circuit. It is not the same as pulmonary venous or left atrial pressure, which sit at the downstream end of the pulmonary circuit and are separated from the right atrium by the right ventricle and the lungs. Patient C's crackles are a consequence of high pressure on the left side; his raised jugular pressure is a reading from the right side. The two often move together in left heart failure, but they are different measurements of different chambers.",
+        "The arterial pressure waveform is produced by two things working together. Each ventricular ejection pushes a volume of blood into the aorta faster than it can run off through the resistance vessels, so the elastic arterial walls stretch and store part of that stroke as pressure. During diastole the walls recoil and keep blood moving forward while the aortic valve is closed. That is why diastolic pressure does not fall to zero between beats. Resistance and compliance are therefore different properties. Resistance describes how much the path opposes steady flow, largely set by the radius of the arterioles. Compliance describes how much volume a vessel accepts for a given rise in pressure, a property of the wall. Stiff arteries in an older patient produce a wide pulse pressure for the same stroke; constricted arterioles raise mean pressure for the same flow."
+      ],
+      "questions": [],
+      "diagram": {
+        "id": "shock-circulation-gradients",
+        "caption": "Figure 1. One circulation, several pressure gradients. A conceptual layout, not anatomy. The systemic circuit runs from the left ventricle through arteries, resistance vessels, capillaries, and veins to the right atrium; the pulmonary circuit runs from the right ventricle through the lungs to the left atrium. Each circuit has its own upstream and downstream pressure. Right atrial pressure is the downstream pressure of the systemic circuit and is not pulmonary venous pressure.",
+        "alt": "Schematic loop with two hearts drawn as separate pumps. Arrows run in one direction: left ventricle to aorta and systemic arteries, through a narrowed resistance segment and a capillary bed, into wide veins, to the right atrium, right ventricle, pulmonary arteries, lung capillaries, pulmonary veins, left atrium, and back to the left ventricle. Labels mark the systemic gradient from aorta to right atrium and the pulmonary gradient from pulmonary artery to left atrium, and a note states that right atrial pressure and pulmonary venous pressure are different locations."
+      }
+    },
+    {
+      "id": "lumped-model",
+      "parentId": "pressure-not-flow",
+      "title": "The lumped relationship and what it leaves out",
+      "body": [
+        "Two relationships organize the rest of the chapter. The first is the definition of cardiac output (CO), the volume of blood the heart pumps per minute: CO = HR × SV, where HR is heart rate in beats per minute and SV is stroke volume, the volume ejected per beat, in litres or millilitres. For illustration, Patient C's heart might beat at 115 per minute and eject 30 mL each time: 115 × 0.030 L = 3.45 L/min. The equation is exact by definition, which is its strength and its trap. It tells us that a fast heart rate can partly offset a small stroke, but nothing about why the stroke is small, and a faster rate shortens diastolic filling time, so HR and SV are not independent knobs.",
+        "The second is the systemic version of the pressure–flow–resistance relationship. Treating the whole systemic circulation as a single steady resistance, MAP − RAP = CO × SVR, where MAP and RAP are in mm Hg, CO is in L/min, and SVR, systemic vascular resistance, is in mm Hg·min/L (multiply by 80 to obtain the dyn·s·cm⁻⁵ units printed by many monitors). The physical meaning comes first: the pressure drop across the systemic circuit equals the flow through it times the opposition along the path. It is the circulatory version of Ohm's law.",
+        "Notice what the equation does not say. SVR is almost never measured; it is calculated from the other three. Rearranging it as CO = (MAP − RAP)/SVR does not mean that raising MAP with a drug will raise flow, because the drug may change SVR, the heart, and the veins all at once. The model also omits pulsatility, the fact that each organ has its own resistance and regulates it locally, and the fact that vessel properties change minute to minute. It is a bookkeeping identity for an average, not a mechanism.",
+        "Patient B shows why this matters. Suppose, for illustration, her MAP is 60 mm Hg and her RAP is 4 mm Hg, so the systemic gradient is 56 mm Hg. If her cardiac output were 7 L/min, her SVR would be 56 ÷ 7 = 8 mm Hg·min/L; if her output were only 3.5 L/min, it would be 56 ÷ 3.5 = 16 mm Hg·min/L. Both are compatible with the same pressure. Low resistance is the leading explanation for her hypotension, given the fever and warm skin, but the pressure alone cannot tell us whether her flow is high or already reduced."
+      ],
+      "questions": [],
+      "diagram": {
+        "id": "shock-pressure-flow",
+        "caption": "Figure 2. Similar pressure, different flow. Two hypothetical systems with the same 55 mm Hg pressure difference. In the left system, resistance is 11 mm Hg·min/L and flow is 5 L/min; in the right, resistance is 22 mm Hg·min/L and flow is 2.5 L/min. In each, gradient = flow × resistance. Illustrative values, not patient targets.",
+        "alt": "Two side-by-side tubes, each labelled with an inlet pressure, an outlet pressure, and a pressure difference of 55 millimetres of mercury. The left tube is wider, labelled resistance 11 mm Hg·min per litre, with a thick arrow labelled flow 5 litres per minute. The right tube is narrower, labelled resistance 22 mm Hg·min per litre, with a thin arrow labelled flow 2.5 litres per minute. Below each, the equation 55 = 5 × 11 and 55 = 2.5 × 22. Values are marked illustrative."
+      }
+    },
+    {
+      "id": "organ-gradients",
+      "parentId": "pressure-not-flow",
+      "title": "Systemic pressure is not every organ's perfusion pressure",
+      "body": [
+        "The cardiac-arrest chapter used a gradient of its own: coronary perfusion pressure, the difference between aortic diastolic pressure and right atrial pressure during the relaxation phase of chest compressions. That gradient matters because the left ventricle is perfused mainly in diastole, when the contracting muscle is not squeezing its own vessels, and because during CPR the right atrium becomes the outflow pressure for the coronary sinus. It is a specific gradient for a specific organ in a specific phase.",
+        "MAP − RAP is not a universal substitute for it. The brain, kidney, and gut each have their own inflow and outflow pressures; the kidney's outflow is renal venous pressure, which rises with venous congestion; the brain's effective outflow can be intracranial pressure when that is higher than venous pressure. Several organs also autoregulate, holding their flow near constant across a range of inflow pressures by adjusting their own resistance, and that range can shift with chronic hypertension or disease. A systemic MAP tells us the inlet pressure available to every organ; it does not tell us what each organ is doing with it.",
+        "An analogy may help. Think of the arterial tree as a city water main. The pressure in the main tells you whether every building could be supplied, but not how many taps are open, whether one building's pipes are blocked, or whether a basement is flooding back up the drains. Each building's supply depends on the main, its own valves, and its own drains. The analogy holds for the idea of a shared inlet with local resistances and outflows; it breaks down because blood vessels are living, actively regulated, and pulsatile, and because the circulation is a closed loop in which the drains feed back into the pump."
+      ],
+      "questions": [
+        {
+          "id": "q-pressure-rise",
+          "kind": "prediction",
+          "prompt": "After a vasopressor is started, Patient B's MAP rises from 60 to 70 mm Hg. What additional information would distinguish improved flow from increased resistance alone?",
+          "answer": "The pressure rise is compatible with either. Since MAP − RAP = CO × SVR, a 10 mm Hg rise could come from more flow, more resistance, or both, and a vasoconstrictor plausibly changes both, as well as altering venous return and the load on the ventricle. Distinguishing them requires an independent signal of flow or perfusion: a measured or estimated stroke volume or cardiac output, a change in capillary refill, mental status, urine output over time, or a lactate trend. If flow indices are unchanged or worse, the rise in pressure was bought with resistance.",
+          "causalChain": "Vasopressor raises arterial and venous tone; arterial constriction raises SVR and MAP; venous constriction may raise return; the ventricle faces a higher afterload; net flow depends on which effect dominates and on how the ventricle tolerates the load.",
+          "assumption": "That MAP and RAP are measured accurately, and that the change is not mostly from something else given at the same time, such as fluid.",
+          "misconception": "That a higher pressure means better perfusion. Pressure is the inlet, not the flow."
+        },
+        {
+          "id": "q-organ-gradient",
+          "kind": "transfer",
+          "prompt": "A patient with severe right heart failure has a MAP of 70 mm Hg and a very high central venous pressure. Why might the kidney be underperfused even though the MAP looks acceptable?",
+          "answer": "The kidney's perfusion gradient runs from renal arterial inflow to renal venous outflow, and the renal veins drain into a system whose pressure is set by the right heart. A high venous pressure narrows the renal gradient from the downstream end and can also raise pressure within the encapsulated kidney. A normal-looking MAP tells you about the inlet only. Assessing the kidney here means considering venous pressure and congestion, not just arterial pressure.",
+          "causalChain": "High right atrial pressure raises systemic venous pressure; renal venous pressure rises; the renal inflow–outflow difference shrinks; flow and filtration can fall despite unchanged MAP.",
+          "assumption": "That renal venous pressure tracks central venous pressure in this patient and that renal autoregulation cannot fully compensate.",
+          "misconception": "That MAP alone defines organ perfusion pressure."
+        }
+      ]
+    },
+    {
+      "id": "venous-return",
+      "title": "Part III. Why blood returns to the heart",
+      "body": [
+        "Patient A's neck veins are flat, and further history now arrives: he has passed black, tarry stools for two days, and his hemoglobin is lower than an outpatient value from last year. Melena points to bleeding in the upper gastrointestinal tract. It is natural to say that he is low on volume. To understand what that phrase means mechanically, and why Patient C, who is not low on volume, also has an abnormal venous pressure, we need to look at the part of the circulation that holds most of the blood."
+      ],
+      "questions": []
+    },
+    {
+      "id": "stressed-volume",
+      "parentId": "venous-return",
+      "title": "Capacitance, stressed volume, and mean systemic filling pressure",
+      "body": [
+        "Most of the blood volume sits in the systemic veins and venules. These vessels are highly compliant: they accept large changes in volume with small changes in pressure. A useful model divides the blood in them into two parts. Unstressed volume is the blood needed to fill the vessels to their resting shape without stretching their walls; it generates no elastic pressure. Stressed volume is everything beyond that, the blood that actually stretches the walls and therefore exerts pressure. The split is a model concept, not two separate pools, and it is not fixed. Venous smooth muscle tone shifts it: venoconstriction converts unstressed volume into stressed volume without adding a drop of blood, and venodilation does the reverse [source: Persichini 2022; Guyton's venous return curves (J Physiol Sci 2017)].",
+        "If the heart stopped and blood redistributed until pressure was equal everywhere in the systemic circulation, that common pressure would be the mean systemic filling pressure. It is set by the stressed volume and the compliance of the vessels holding it, and therefore by blood volume and venous tone together. It is the upstream pressure that drives blood back toward the heart. It is not the arterial pressure, and the arterial pressure does not set it; the causal arrow runs from volume and tone to filling pressure, and from there to return. In animal experiments the value is a few mm Hg [source: NCBI Bookshelf, Control of Cardiac Output, Venous Return]; measured in critically ill patients shortly after death, it averaged somewhat higher, and norepinephrine infusion was its main determinant [source: Repessé 2015]. Those numbers come from no-flow conditions. There is no routine bedside reading of mean systemic filling pressure, and the model treats a distributed network of vessels as if it were one elastic reservoir, which it is not.",
+        "Venous return, the flow back to the right atrium, is then driven by the difference between mean systemic filling pressure and RAP, opposed by the resistance to venous return: venous return = (mean systemic filling pressure − RAP) ÷ resistance to venous return, with pressures in mm Hg, flow in L/min, and resistance in mm Hg·min/L [source: Persichini 2022]. Raising filling pressure, lowering RAP, or lowering the resistance of the venous path all increase return.",
+        "An analogy: imagine an elastic bladder, partly stretched, emptying through a hose into a pump. How hard the bladder pushes depends on how full it is beyond its slack and on how stiff its wall is. The pump's inlet pressure pushes back. The bladder is the venous reservoir; its stretch is stressed volume; its wall stiffness is venous tone; the inlet pressure is RAP. The analogy fails in that the real reservoir is thousands of vessels in parallel with different properties, and the body can squeeze its bladder by changing tone in a way a rubber wall cannot."
+      ],
+      "questions": [],
+      "refs": [
+        "persichini-2022",
+        "sunagawa-2017",
+        "ncbi-nbk54476",
+        "repesse-2015"
+      ]
+    },
+    {
+      "id": "rap-meaning",
+      "parentId": "venous-return",
+      "title": "What right atrial pressure is",
+      "body": [
+        "Right atrial pressure is the pressure inside the right atrium, measured relative to a reference, conventionally atmospheric pressure at the level of the heart. It sits at a junction. For venous return it is the downstream pressure opposing the flow back from the body. For the right ventricle it reflects how full the chamber is and how stiff it is in diastole. And because the atrium lives inside the chest and pericardium, it is also pushed on by the pressures around it.",
+        "That last point needs the distinction between intracavitary and transmural pressure. Intracavitary pressure is what a catheter inside the chamber reads. Transmural pressure is the pressure inside minus the pressure outside; it is what actually distends the chamber wall and therefore relates to how full the chamber is. For venous return, the pressure that opposes blood arriving from outside the chest is the intracavitary one [source: Persichini 2022]. For filling of the heart, the distending pressure is transmural. When pressure around the heart rises, as with positive pressure ventilation or high intra-abdominal pressure transmitted upward, intracavitary RAP can rise while the atrium is no fuller or even less full.",
+        "So RAP is not a gauge of total blood volume or of fluid need. A given RAP can come from a full circulation with a normal heart, from a modest volume with a stiff or failing right ventricle, or from a normal atrium compressed by the chest around it. Patient C's raised jugular pressure, in the setting of an anterior infarction with crackles, is most plausibly a failing pump backing pressure upstream, not evidence that his circulation contains too much blood or too little.",
+        "Because the heart can only pump out what comes back, cardiac output and venous return must be equal when averaged over many beats in a steady state. They are two descriptions of one flow seen from opposite sides of the right atrium. The pump's performance sets how RAP responds to a given return, and the vasculature's properties set how return responds to a given RAP; the operating point is where both conditions are met. This is why the heart and the veins have to be considered together, and why changing one variable almost always changes the others.",
+        "The model also has a floor. Lowering RAP should, by the equation, increase return without limit. It does not. When pressure inside the great veins falls below the pressure around them, the veins collapse where they enter the chest, and further lowering of RAP produces no more flow. Return is capped by the filling pressure and the venous path, not by how hard the right heart can suck."
+      ],
+      "questions": [],
+      "workedExample": {
+        "id": "rap-worked-example",
+        "title": "Worked example: two high right atrial pressures",
+        "body": [
+          "Consider two illustrative patients, each with a measured RAP of 15 mm Hg. In the first, an acutely failing right ventricle cannot eject what it receives. Blood backs up, the chamber dilates, its diastolic pressure rises, and the high RAP is both a sign of pump failure and an obstacle to venous return. If mean systemic filling pressure has not risen to match, the gradient for return narrows and cardiac output falls.",
+          "In the second, a patient has just been placed on positive pressure ventilation with high airway pressures. Part of that pressure is transmitted to the pleural space and pericardium. The intracavitary RAP rises, but much of the rise is in the surrounding pressure, so the transmural distending pressure of the atrium has changed little, and the chamber may be no fuller than before. Return may still fall, because the downstream pressure that blood from outside the chest must overcome has risen.",
+          "The two readings are the same number with different meanings. Interpreting either requires context: what the right ventricle looks like, what the airway and abdominal pressures are, what changed and when. Neither high RAP is a universal instruction to give or withhold fluid."
+        ]
+      },
+      "refs": [
+        "persichini-2022"
+      ]
+    },
+    {
+      "id": "ventricular-filling",
+      "title": "Part IV. Filling a ventricle is not the same as measuring a pressure",
+      "body": [
+        "Patient C's echocardiogram, done at the bedside, shows an akinetic anterior wall and apex and a reduced ejection fraction. That fits the story, but it does not answer the question his clinicians most need answered, which is whether his circulation is delivering enough, and what would happen if they changed his loading conditions."
+      ],
+      "questions": []
+    },
+    {
+      "id": "loading-terms",
+      "parentId": "ventricular-filling",
+      "title": "Volume, pressure, stretch, and load",
+      "body": [
+        "Several terms are often used interchangeably that describe different things. End-diastolic volume is how much blood the ventricle holds just before it contracts. Filling pressure is the pressure inside it at that moment. Preload, in the physiological sense, is the stretch of the muscle fibres before contraction, which is most closely related to end-diastolic volume, not pressure. Compliance links the two: it is the change in volume per change in pressure. A stiff, hypertrophied, or ischemic ventricle has low compliance and reaches a high filling pressure at a modest volume; a dilated, compliant one may hold a large volume at a normal pressure. Two ventricles can therefore have similar volumes and very different filling pressures, or the reverse.",
+        "Contractility is the muscle's intrinsic ability to generate force at a given stretch, independent of loading. Afterload is the load the ventricle must overcome to eject, closely related to wall stress during ejection, which rises with arterial pressure and with chamber size. These three, preload, contractility, and afterload, together with heart rate, determine stroke volume.",
+        "Ejection fraction is the stroke volume divided by end-diastolic volume. It describes how completely the ventricle empties relative to how full it was, not how much it pumps. A small, stiff ventricle can have a normal ejection fraction and a low stroke volume; a dilated ventricle with a low ejection fraction can maintain a near-normal stroke volume. For Patient C, the reduced ejection fraction confirms injured muscle. Whether his forward flow is adequate needs a measure of flow and of perfusion, not the fraction alone.",
+        "The Frank–Starling relationship plots stroke volume on the vertical axis against preload, best represented as end-diastolic volume, on the horizontal axis. As filling increases, the stretched muscle generates more force and stroke volume rises, steeply at first, then less and less until the curve flattens. A depressed or ischemic ventricle sits on a lower, flatter curve. Plotting stroke volume against filling pressure instead is common at the bedside because pressure is easier to obtain, but that substitution folds compliance into the curve and changes its shape from patient to patient."
+      ],
+      "questions": []
+    },
+    {
+      "id": "fluid-responsiveness",
+      "parentId": "ventricular-filling",
+      "title": "Responsiveness, indication, and tolerance",
+      "body": [
+        "Fluid responsiveness is a flow response: an increase in stroke volume or cardiac output when preload is increased, measured under specified conditions. A patient is responsive if the ventricles are operating on the steep part of their Frank–Starling curves, so that extra filling produces extra output. Commonly used thresholds are an increase of about 10 to 15 percent in stroke volume or cardiac output after a fluid challenge or passive leg raise [source: SSC 2026, statement 49 rationale; Monnet & Teboul meta-analysis abstract].",
+        "Responsiveness is not an indication. Healthy people are usually fluid responsive; that is how a normal heart works, and it does not mean they need fluid. The indication comes from a different question: is perfusion inadequate, and is too little flow the likely reason? And neither of those questions addresses tolerance: what will the additional volume do to filling pressures and venous congestion? Responsiveness, indication, and tolerance are read from different places. The first comes from a stroke volume curve, the second from perfusion signs and a mechanistic explanation, the third from the pressure the ventricle reaches as it fills.",
+        "Patient C makes the separation concrete. His injured left ventricle may still be on the rising part of its curve, so a fluid challenge might increase his stroke volume modestly. But his ventricle is stiff and already near the steep part of its pressure–volume relationship. The same added volume that buys a small gain in output may produce a large rise in filling pressure, more fluid in the lungs, and worse oxygenation. He may be responsive, may have an indication, and may still not tolerate it."
+      ],
+      "questions": [],
+      "diagram": {
+        "id": "shock-fluid-response",
+        "caption": "Figure 3. A fluid response is not the whole decision. Schematic, not to scale. Left: stroke volume rises with preload (end-diastolic volume) steeply at first and then flattens, so equal added volumes produce progressively smaller gains. Right: filling pressure (end-diastolic) rises slowly at first and then steeply with the same preload, so equal added volumes produce progressively larger pressure rises, where congestion begins. Responsiveness is read from the left curve; tolerance from the right.",
+        "alt": "Two separate plots sharing the same horizontal axis label, Preload (end-diastolic volume), with no tick values. The left plot has vertical axis Stroke volume and a curve that rises steeply and then flattens; three equal steps along the horizontal axis produce shrinking vertical gains. The right plot has vertical axis Filling pressure (end-diastolic) and a curve that is flat at first and then turns sharply upward; the same three equal steps produce growing vertical rises, with the steep region marked as where congestion begins. Both plots carry the tag Schematic, not to scale."
+      },
+      "refs": [
+        "ssc-2026",
+        "monnet-teboul-2015-abstract"
+      ]
+    },
+    {
+      "id": "plr-dynamic",
+      "parentId": "ventricular-filling",
+      "title": "Passive leg raising and dynamic measures",
+      "body": [
+        "Passive leg raising tests responsiveness without giving fluid. Lifting the legs while lowering the trunk from a semi-recumbent position moves blood from the legs and splanchnic veins toward the chest, transiently raising venous return and preload. If stroke volume or cardiac output rises, the ventricles are responding to preload; when the legs come down, the effect reverses. The principle explains the practical requirements. The manoeuvre should start from a semi-recumbent rather than supine position, so that the splanchnic reservoir contributes. The response must be assessed with a direct, real-time measure of cardiac output or stroke volume, not arterial pressure, because the effect can fade within about a minute [source: Monnet & Teboul 2015, five rules]. In a meta-analysis, a PLR-induced rise in cardiac output of more than about 10 percent was the best-performing threshold, and accuracy was lower when pulse pressure was used instead of cardiac output [source: Monnet, Marik & Teboul 2016; Monnet & Teboul meta-analysis abstract]. Raised intra-abdominal pressure can blunt the transfer of blood and cause a false negative [source: PMC7333095].",
+        "Dynamic measures such as pulse pressure variation (PPV) and stroke volume variation (SVV) use the cyclic changes in intrathoracic pressure during mechanical ventilation as a repeated small preload challenge. They are only interpretable under specific conditions: the patient must be passively ventilated without spontaneous breathing efforts, in a regular rhythm, with tidal volumes large enough to produce a meaningful swing, generally cited as at least 8 mL/kg; low tidal volumes, arrhythmia, and spontaneous effort all degrade or invalidate the signal, and applicability depends heavily on the patient population [source: De Backer 2005; Yang & Du 2014; Michard, Chemla & Teboul 2015]. Many patients in an emergency department meet none of these conditions, so PPV is not a universal number."
+      ],
+      "questions": [
+        {
+          "id": "q-responsive-unknown",
+          "kind": "prediction",
+          "prompt": "During passive leg raising, Patient C's stroke volume rises by 12 percent. What is still unknown before deciding on further fluid?",
+          "answer": "The test says his ventricles are operating on a rising part of the Frank–Starling curve. It does not say he needs more flow, because we have not yet established that his perfusion is inadequate because of too little preload rather than pump failure. It also says nothing about tolerance: his stiff, ischemic left ventricle may reach high filling pressures with a small added volume, worsening pulmonary edema. Before giving fluid, the clinician needs evidence of hypoperfusion that more flow would correct, an assessment of congestion such as lung ultrasound and oxygenation, and a plan to reassess both flow and congestion afterwards.",
+          "causalChain": "Preload rises; stroke volume rises because the curve is not flat; whether that matters depends on whether flow is limiting and on how much filling pressure rises with the same volume.",
+          "assumption": "That the measurement method was valid for PLR, including a direct real-time stroke volume measure and no intra-abdominal hypertension.",
+          "misconception": "That fluid responsiveness is an indication for fluid."
+        },
+        {
+          "id": "q-ppv-conditions",
+          "kind": "transfer",
+          "prompt": "A spontaneously breathing patient in atrial fibrillation on a monitor shows a PPV of 18 percent. What can you conclude?",
+          "answer": "Very little about fluid responsiveness. PPV depends on a regular, passive ventilatory preload challenge and a regular rhythm. Spontaneous breaths produce irregular intrathoracic swings, and atrial fibrillation produces beat-to-beat variation in filling and stroke volume that has nothing to do with ventilation. The number is real but its usual interpretation is not valid here. A passive leg raise with a direct flow measurement, or a small fluid challenge with stroke volume measured, would be more informative.",
+          "causalChain": "PPV is meant to reflect ventilation-driven changes in preload; irregular rhythm and spontaneous breathing add variation from other causes; the variation no longer isolates preload dependence.",
+          "assumption": "That the waveform itself is technically adequate.",
+          "misconception": "That a dynamic index can be interpreted without checking its validity conditions."
+        }
+      ],
+      "refs": [
+        "monnet-teboul-2015",
+        "monnet-marik-teboul-2016",
+        "monnet-teboul-2015-abstract",
+        "minini-2020",
+        "de-backer-2005",
+        "yang-du-2014",
+        "michard-2015"
+      ]
+    },
+    {
+      "id": "oxygen-delivery",
+      "title": "Part V. Blood flow only helps if it carries usable oxygen",
+      "body": [
+        "Patient A's oxygen saturation by pulse oximetry is 98 percent. On a monitor full of alarming numbers, that one looks reassuring. It describes something real, but not the thing that matters most for him."
+      ],
+      "questions": []
+    },
+    {
+      "id": "content-delivery",
+      "parentId": "oxygen-delivery",
+      "title": "Saturation, content, and delivery",
+      "body": [
+        "Arterial blood carries oxygen in two forms: bound to hemoglobin and dissolved in plasma. PaO2, the arterial partial pressure of oxygen, reflects the dissolved oxygen and determines how fully hemoglobin is loaded. SaO2 is the fraction of hemoglobin binding sites that carry oxygen; SpO2 is the pulse oximeter's estimate of it. Neither is an amount. The amount of oxygen in each decilitre of blood is the arterial oxygen content: CaO2 = (1.34 × Hb × SaO2) + (0.003 × PaO2), with CaO2 in mL O2/dL, hemoglobin in g/dL, SaO2 as a fraction, and PaO2 in mm Hg [source: StatPearls, Oxygen Transport; StatPearls, Partial Pressure of Oxygen]. Here 1.34 is the empirical volume of oxygen, in mL, carried by each gram of fully saturated hemoglobin (a theoretical value of 1.39 is also quoted; this chapter uses 1.34 throughout), and 0.003 is the mL of oxygen dissolved per dL of blood per mm Hg. At ordinary PaO2 the dissolved term is small, so content is governed mostly by hemoglobin and saturation.",
+        "Content describes the blood, not the patient. Systemic oxygen delivery is how much oxygen leaves the left heart per minute: DO2 = CO × CaO2 × 10, with DO2 in mL O2/min, CO in L/min, and CaO2 in mL/dL. The factor of 10 converts decilitres to litres. The cardiac-arrest chapter's Figure 01 shows the same two forms of carriage and the same calculation.",
+        "An illustrative example with Patient A shows why his saturation does not settle anything. Imagine that before the bleed his hemoglobin was 14 g/dL, saturation 0.98, PaO2 95 mm Hg, and cardiac output 5.0 L/min. His content would be (1.34 × 14 × 0.98) + (0.003 × 95) = 18.38 + 0.29 ≈ 18.7 mL/dL, and his delivery 5.0 × 18.7 × 10 ≈ 930 mL/min. Now, after bleeding and some dilution, suppose his hemoglobin is 7 g/dL, his saturation still 0.98, his PaO2 still 95, and his cardiac output 4.1 L/min. Content is (1.34 × 7 × 0.98) + 0.29 = 9.19 + 0.29 ≈ 9.5 mL/dL, and delivery 4.1 × 9.5 × 10 ≈ 390 mL/min. The saturation has not moved. Delivery has fallen by more than half. Giving him enough supplemental oxygen to raise his saturation to 1.00 and his PaO2 to 400 mm Hg would raise content only to (1.34 × 7 × 1.00) + (0.003 × 400) = 9.38 + 1.20 ≈ 10.6 mL/dL, about 430 mL/min at the same output. All of these numbers are illustrative, not measured, and none is a transfusion threshold; they show which term in the equation has failed."
+      ],
+      "questions": [],
+      "refs": [
+        "statpearls-oxygen-transport",
+        "statpearls-partial-pressure-oxygen"
+      ]
+    },
+    {
+      "id": "extraction-lactate",
+      "parentId": "oxygen-delivery",
+      "title": "Extraction, distribution, and lactate",
+      "body": [
+        "Tissues do not use all the oxygen delivered. Oxygen consumption, VO2, is how much they take up per minute, and the extraction ratio is VO2 divided by DO2. At rest, tissues normally extract a minority of what arrives, so the venous blood returning to the heart still carries most of its oxygen. When delivery falls, extraction rises and consumption is maintained, until a point at which tissues cannot extract more and consumption begins to fall with delivery. In Patient A's illustrative numbers, if his consumption stayed at 250 mL/min, extraction would rise from about 27 percent (250 ÷ 930) to about 64 percent (250 ÷ 390). The existence of a critical delivery point is well supported in experimental and clinical physiology [source: cain-1977; ronco-1993, existing repo references], but its value varies between organs and patients, and no global number tells us where an individual is.",
+        "Global numbers are averages. Total delivery and consumption hide organs that are over-supplied and others that are starving, and in sepsis in particular, blood flow can be poorly distributed within the microcirculation even when total output is high. That microvascular maldistribution and impaired cellular oxygen use contribute to organ dysfunction in some patients is supported by observation, but how much each contributes, and whether treatments aimed at them help, remains uncertain. It is an attractive explanation of why some patients fail despite normal global numbers, not an established universal mechanism.",
+        "Lactate is often read as a direct measure of oxygen debt. It is not. Lactate rises when cells rely on glycolysis faster than lactate can be used, and that can happen with inadequate oxygen delivery, but also with adrenergic stimulation of aerobic glycolysis, with reduced clearance by a poorly perfused or diseased liver, and with some drugs [source: Garcia-Alvarez, Marik & Bellomo 2014; Suetrong & Walley 2016; Kushimoto 2016]. In some patients most of the lactate does reflect inadequate delivery; in others raising delivery will not lower it. A high lactate marks a sicker patient and a reason to look harder. Its trend, read alongside other signs, is more useful than one value, and it is not a direct reading of fluid need."
+      ],
+      "questions": [],
+      "refs": [
+        "cain-1977",
+        "ronco-1993",
+        "garcia-alvarez-2014",
+        "suetrong-2016",
+        "kushimoto-2016"
+      ]
+    },
+    {
+      "id": "mixed-failures",
+      "title": "Part VI. Different failures can coexist",
+      "body": [
+        "The classic division of shock into four mechanisms is useful because each points to a different first question. It is dangerous if it is treated as four boxes into which every patient must fit. The table organizes the mechanisms; the cases that follow show how they overlap."
+      ],
+      "questions": []
+    },
+    {
+      "id": "mechanisms-table",
+      "parentId": "mixed-failures",
+      "title": "Four mechanisms",
+      "body": [
+        "Each row describes a dominant disturbance, not a diagnosis. Expected findings are tendencies that are frequently absent or overridden, and the last column is often the most important."
+      ],
+      "questions": [],
+      "table": {
+        "caption": "Four mechanisms",
+        "header": [
+          "Mechanism",
+          "Dominant disturbance",
+          "Expected findings, with qualifications",
+          "Important unknowns"
+        ],
+        "rows": [
+          [
+            "Reduced circulating volume (hypovolemic, hemorrhagic)",
+            "Less stressed volume, so lower mean systemic filling pressure and less venous return; in hemorrhage, also less oxygen content",
+            "Cool skin, flat neck veins, small hyperdynamic ventricles on echo; tachycardia may be blunted by age, drugs, or pacing; early hemoglobin may not yet have fallen",
+            "Ongoing loss rate; how much is lost versus redistributed; tolerance of further volume"
+          ],
+          [
+            "Altered vascular tone and distribution (distributive)",
+            "Low arterial resistance and venodilation that moves volume into unstressed vessels; maldistributed microvascular flow",
+            "Warm skin and wide pulse pressure are common but not universal; output may be high, normal, or low; capillary leak can add true volume loss",
+            "Actual cardiac output; coexisting myocardial depression; how much of the problem is tone versus volume"
+          ],
+          [
+            "Impaired pump function (cardiogenic)",
+            "Ventricle cannot eject an adequate stroke volume at tolerable filling pressures",
+            "Raised venous pressure, crackles, cool peripheries are typical but not required; ejection fraction may be preserved in some forms",
+            "Which ventricle is limiting; ischemic versus other causes; tolerance of preload and afterload changes"
+          ],
+          [
+            "Obstruction",
+            "Flow is blocked in the circuit, outside the myocardium: pulmonary embolism, tamponade, tension pneumothorax",
+            "Raised venous pressure with small, underfilled left heart; a dilated right ventricle with pulmonary embolism; tamponade compresses the heart from outside the chambers",
+            "Degree of obstruction; how quickly it can be relieved; how much the right ventricle has failed"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "pe-vignette",
+      "parentId": "mixed-failures",
+      "title": "An obstructive example",
+      "body": [
+        "A different hypothetical patient, a woman in her forties a week after a long flight and a leg injury, arrives breathless with a MAP of 64 mm Hg and a heart rate of 120. Her jugular veins are distended, and bedside echocardiography shows a dilated right ventricle with a small, vigorously contracting left ventricle and a septum pushed toward the left. A large pulmonary embolism has raised the resistance of the pulmonary circuit. The right ventricle, a thin chamber built to pump into a low-pressure system, dilates and fails against the sudden load. Its output falls, so the left heart receives less blood; and as the right ventricle swells inside the pericardium, it pushes the septum leftward and further impedes left ventricular filling.",
+        "Her high RAP is the first example from Part III in another form: a failing right ventricle backing pressure upstream. It does not mean her circulation contains too much blood, and adding volume may distend the right ventricle further rather than raise output. Positive pressure ventilation, discussed in Part VII, may be especially poorly tolerated, because it raises pulmonary vascular resistance and the pressure the right heart must overcome. Pericardial tamponade produces a related picture by another route: fluid in the pericardium compresses the heart from outside, so the transmural filling pressure falls even as the measured intracavitary pressures rise."
+      ],
+      "questions": []
+    },
+    {
+      "id": "first-return",
+      "parentId": "mixed-failures",
+      "title": "Returning to the three patients",
+      "body": [
+        "With this framework, the three patients can be revisited. Patient A now has a coherent story: lost blood, falling stressed volume and venous return, and lost oxygen content, with an appropriate sympathetic response. The competing explanations have not vanished; a patient who bleeds can also become septic, and an older patient's ventricle may be less able to compensate.",
+        "Patient B's story has changed. Her urine shows signs of infection, and her presentation fits urosepsis, with low arterial resistance and venodilation as the leading mechanisms. But bedside echocardiography now shows a globally hypokinetic left ventricle that was not known before. Sepsis can depress myocardial function, and in her the warm skin had concealed a cardiac output that is probably not high. She has a mixed picture: distributive physiology, possibly some volume loss from capillary leak and poor intake, and a pump that is not as strong as her peripheries suggested. Whether the depression was pre-existing, septic, or ischemic is not yet known.",
+        "Patient C remains predominantly cardiogenic, with a failing left ventricle after anterior infarction and congestion behind it. Two questions remain open: whether his right ventricle is involved, and whether some of his tachycardia and hypotension reflect relative underfilling from poor intake and vomiting earlier in the day."
+      ],
+      "questions": []
+    },
+    {
+      "id": "interventions",
+      "title": "Part VII. Interventions change several variables at once",
+      "body": [
+        "Every intervention in shock acts on a system in which pressure, flow, volume, and congestion are coupled. It is tempting to give each a single job: fluids for volume, pressors for pressure, inotropes for pump. The physiology does not allow that tidiness. This part traces plausible effects. Whether to use an intervention, and how, is settled by clinical evidence and the patient in front of you, not by the equations."
+      ],
+      "questions": []
+    },
+    {
+      "id": "fluids-blood",
+      "parentId": "interventions",
+      "title": "Fluids and blood",
+      "body": [
+        "Giving fluid adds volume, part of which becomes stressed volume and raises mean systemic filling pressure. If RAP does not rise as much, the gradient for venous return widens, the ventricles fill more, and if they are on the rising part of their curves, stroke volume and output rise. The same volume also raises filling pressures, more so in a stiff ventricle, and some of it leaves the circulation, especially when capillaries are leaky, adding to tissue and lung edema. Crystalloid also dilutes hemoglobin. A fluid bolus is thus a deliberate experiment with an expected benefit and a predictable cost.",
+        "For Patient A, the dominant problems are lost stressed volume and lost oxygen content. Crystalloid can address the first and worsen the second. Blood addresses both: it restores volume and carrying capacity. In this hypothetical case, his pressure and heart rate improve after transfusion, his mentation clears, and his capillary refill shortens; each of these is a separate observation that the explanation predicted. The definitive treatment is stopping the bleeding, which no amount of resuscitation replaces."
+      ],
+      "questions": []
+    },
+    {
+      "id": "pressors-inotropes",
+      "parentId": "interventions",
+      "title": "Vasopressors and inotropes",
+      "body": [
+        "Vasopressors such as norepinephrine constrict arterioles, raising SVR and MAP. They also constrict veins, recruiting unstressed volume into stressed volume and raising mean systemic filling pressure, which can increase venous return; but venoconstriction may also increase resistance to venous return, and the higher arterial pressure raises afterload [source: Persichini 2012, existing repo reference; Foulon & De Backer 2018]. In a small physiological study in septic shock, lowering norepinephrine reduced mean systemic filling pressure and, to a lesser extent, resistance to venous return, with a small fall in cardiac output [source: Persichini 2012]. Whether output rises, falls, or stays the same depends on the balance of these effects and on how well the ventricle tolerates the added load.",
+        "For Patient B, a vasopressor raises her MAP. That is a pressure result. Given what Part VI revealed about her ventricle, whether her flow improved is unknown until it is measured or its signs are reassessed. A depressed ventricle facing a higher afterload may lose stroke volume, and the rise in pressure would then be purchased with resistance. Current sepsis guidance recommends an initial MAP target around 65 mm Hg for adults with septic shock, and suggests a range of 60 to 65 mm Hg for those aged 65 or older [source: SSC 2026, statements 13 and 14]. That target is a starting point from trials, not a statement that her flow is adequate once it is reached.",
+        "Inotropes increase contractility, shifting the ventricle to a higher Frank–Starling curve, so stroke volume rises at the same preload and filling pressure may fall. For Patient C, that is the attraction. The cost is that most inotropes also raise heart rate and myocardial oxygen consumption, may cause arrhythmia, and some dilate arterioles and lower pressure. In an ischemic heart, raising demand on muscle already short of supply is a real tradeoff. Relief of obstruction, such as reperfusion for C, clot-directed therapy for the pulmonary embolism, or drainage for tamponade, changes the system more fundamentally than any drug, which is why identifying the cause is part of resuscitation rather than something that follows it."
+      ],
+      "questions": [],
+      "refs": [
+        "persichini-2012",
+        "foulon-2018",
+        "ssc-2026"
+      ]
+    },
+    {
+      "id": "heart-lung",
+      "parentId": "interventions",
+      "title": "Positive pressure ventilation and the circulation",
+      "body": [
+        "Positive pressure ventilation raises pressure in the chest. That raises intracavitary RAP and can reduce the gradient for venous return, which tends to lower right heart filling. It raises pulmonary vascular resistance when lungs are overdistended, which loads the right ventricle. It also reduces the transmural pressure the left ventricle must generate to eject, effectively lowering left ventricular afterload, and it reduces the work of breathing, freeing cardiac output for other organs.",
+        "Which effects dominate depends on the patient. For Patient C, with a congested lung and a failing left ventricle, positive pressure may improve oxygenation and reduce left ventricular afterload, and so may help. For the patient with pulmonary embolism, the same intervention may reduce an already precarious right heart output further. For Patient A, still underfilled, the fall in venous return may unmask hypovolemia. A change in RAP after a ventilator change has to be read with all of this in mind, as the worked example in Part III showed.",
+        "Across these interventions the same rule applies. A mechanism tells you why something might help and what to watch for. Whether it does help, for which patients, and at what intensity, is a question for clinical evidence, and the trials of fluid strategies and pressure targets have often found less difference than the physiology predicted [source: CLOVERS 2023; CLASSIC 2022; SEPSISPAM 2014; 65 trial 2020]. An equation can generate a hypothesis but not a treatment target."
+      ],
+      "questions": [],
+      "refs": [
+        "clovers-2023",
+        "classic-2022",
+        "sepsispam-2014",
+        "lamontagne-2020"
+      ]
+    },
+    {
+      "id": "reassessment",
+      "title": "Part VIII. Reassessment is an update to the explanation",
+      "body": [
+        "Resuscitation proceeds as a loop, not a protocol. Recognize that perfusion is threatened. Identify the likely mechanisms and any urgent reversible cause. Gather information that will change management, without delaying treatment that cannot wait. Choose an intervention with an expected response, so that its result can be read. Reassess flow and perfusion, pressure, and adverse effects. Revise the explanation. Then repeat."
+      ],
+      "questions": []
+    },
+    {
+      "id": "signals",
+      "parentId": "reassessment",
+      "title": "What each signal can and cannot tell you",
+      "body": [
+        "Mental status is a direct readout of one organ's function and changes within minutes, but it is confounded by drugs, hypoxia, hypoglycemia, infection of the brain itself, and pre-existing impairment. Skin findings and capillary refill reflect peripheral perfusion and also change quickly; current sepsis guidance suggests capillary refill time as an adjunct to other measures of perfusion, with low certainty [source: SSC 2026, statement 52; ANDROMEDA-SHOCK-2 2025]. Temperature, ambient conditions, and vasoactive drugs alter them, and warm skin, as Patient B showed, does not establish high output. Urine output integrates renal perfusion and function over hours rather than minutes and is confounded by kidney injury and diuretics.",
+        "Lactate changes over hours and, as Part V explained, can rise for reasons other than hypoperfusion; serial measurements are suggested in sepsis to guide resuscitation, with low certainty, and the guidance warns against continuing fluid merely until lactate normalizes [source: SSC 2026, statement 51]. Arterial pressure changes within seconds and is reliably measured, which makes it the easiest signal to chase and the easiest to misread. Focused echocardiography can identify a failing or obstructed ventricle, an underfilled chamber, or a pericardial effusion, and is suggested as a first-line tool for assessing the type of shock [source: ESICM 2025, abstract]. A single image is a snapshot, operator-dependent, and needs to be interpreted with the rest of the patient. Assessments of venous congestion, from jugular venous pressure to ultrasound of the great veins and organ venous flow, indicate that pressure is backing up behind the right heart, but they do not on their own say whether more fluid would raise output, and their limits as a guide to treatment are not yet settled [SOURCE NEEDED: venous congestion ultrasound (VExUS) development and validation, e.g. Beaubien-Souligny 2020]."
+      ],
+      "questions": [],
+      "refs": [
+        "ssc-2026",
+        "andromeda-shock-2-2025",
+        "esicm-2025"
+      ]
+    },
+    {
+      "id": "final-return",
+      "parentId": "reassessment",
+      "title": "The three patients, once more",
+      "body": [
+        "Patient A's explanation predicted that blood would help, and it did, by restoring volume and carrying capacity at once. His reassessment now centres on whether bleeding has stopped, which endoscopy, not a monitor, will answer.",
+        "Patient B's explanation began as vasodilatory shock and was revised to mixed shock when echocardiography revealed a depressed ventricle. That revision changes what her reassessment must include. A rising MAP on a vasopressor is necessary but not enough; her capillary refill, mentation, urine output, lactate trend, and some measure of flow are needed to judge whether the pressure is being bought with flow or with resistance alone. If her flow is low, the question of inotropic support enters a conversation that began with vasoconstrictors.",
+        "Patient C's explanation, a failing pump with congestion, was the most stable of the three, but his treatment involves the sharpest tradeoffs. Reperfusion addresses the cause. Each change in loading, a fluid challenge, an inotrope, positive pressure ventilation, is an experiment to be read in both flow and congestion, because a gain in one can cost the other.",
+        "All three began at the same pressure. Their histories, examinations, images, and responses to treatment diverged because the pressure was the final common output of three different circulations."
+      ],
+      "questions": []
+    },
+    {
+      "id": "synthesis",
+      "parentId": "reassessment",
+      "title": "The framework in brief",
+      "body": [
+        "Pressure is the push; flow is the movement; resistance relates them along a path; compliance relates volume and pressure in a wall. Blood returns to the heart because mean systemic filling pressure exceeds right atrial pressure, and right atrial pressure is a junction reading that depends on the right heart and the chest as well as on volume. Ventricular filling is a volume, and what a pressure says about it depends on compliance. A fluid response describes the slope of a curve, not the need for or the safety of more fluid. Oxygen delivery is flow times content, and saturation is only part of content. Shock mechanisms overlap and change. Every intervention moves several variables at once, and reassessment is how the explanation keeps up with the patient."
+      ],
+      "questions": [
+        {
+          "id": "q-saturation-delivery",
+          "kind": "transfer",
+          "prompt": "Two patients have an SpO2 of 97 percent. How could their oxygen delivery differ substantially?",
+          "answer": "Saturation is one of three factors in delivery. Content also depends on hemoglobin concentration, and delivery depends on cardiac output. A patient with half the hemoglobin and two-thirds the cardiac output of another would, at the same saturation, have about a third of the delivery. Distinguishing them needs the hemoglobin and some assessment of flow and perfusion; the saturation cannot discriminate them.",
+          "causalChain": "DO2 = CO × CaO2 × 10; CaO2 ≈ 1.34 × Hb × SaO2 plus a small dissolved term; equal SaO2 leaves Hb and CO free to differ.",
+          "assumption": "That the oximeter reading is accurate, for example without poor perfusion or dyshemoglobins degrading the signal.",
+          "misconception": "That a normal saturation means adequate oxygen delivery."
+        },
+        {
+          "id": "q-new-rv",
+          "kind": "prediction",
+          "prompt": "Patient C becomes more hypotensive after positive pressure ventilation is started, and repeat echocardiography shows a newly dilated, poorly contracting right ventricle. How should the explanation change?",
+          "answer": "The explanation was left ventricular pump failure with congestion. A dilated failing right ventricle adds a second limitation: right ventricular infarction or a newly raised load on the right heart, possibly worsened by the rise in intrathoracic pressure and pulmonary vascular resistance with ventilation. The right ventricle now limits filling of the left. That shifts the questions to right-sided causes and loading, ventilation settings, and whether interventions that helped a failing left ventricle are harming the right. It also means a rising RAP after the ventilator change cannot be read as simply more volume.",
+          "causalChain": "Positive pressure raises intrathoracic pressure and may raise pulmonary vascular resistance; a failing right ventricle tolerates added afterload poorly; its output falls and it dilates; left ventricular filling falls; systemic output and pressure fall.",
+          "assumption": "That the new echocardiographic finding is real and not a change in view or operator.",
+          "misconception": "That a patient's shock mechanism, once named, does not change."
+        },
+        {
+          "id": "q-reconsider",
+          "kind": "insufficient-information",
+          "prompt": "After a fluid bolus, a patient's MAP rises slightly, but capillary refill and mental status are unchanged, and oxygenation worsens. What would make you reconsider your explanation, and what do you still need to know?",
+          "answer": "The intervention was chosen because insufficient preload was thought to limit flow. Unchanged perfusion signs with worse oxygenation suggest that either flow did not rise or a rise did not matter, and that filling pressures rose. That is evidence against a preload-limited explanation and in favour of pump failure, obstruction, or maldistribution. What is missing is a direct measure of flow before and after, an assessment of the ventricles and of congestion, and whether the perfusion signs have had time to change.",
+          "causalChain": "Fluid raises filling pressure; if the ventricle is on the flat part of its curve, stroke volume barely rises while pulmonary pressures rise; MAP may move a little from volume or tone; perfusion does not improve.",
+          "assumption": "That the perfusion signs were measured consistently and that their response time had been allowed.",
+          "misconception": "That a rising pressure confirms the initial diagnosis.",
+          "missingData": "A direct before-and-after measure of stroke volume or cardiac output; echocardiographic assessment of both ventricles; an assessment of pulmonary and venous congestion; and enough time for capillary refill, mental status, and lactate to respond."
+        }
+      ]
+    }
+  ],
+  "treatmentApproach": [
+    {
+      "id": "recognize",
+      "title": "Recognize threatened perfusion",
+      "action": "Look for hypoperfusion in mental status, skin, capillary refill, urine output, and lactate, not only arterial pressure.",
+      "why": "Shock is defined by tissue perfusion and a normal pressure cannot exclude it.",
+      "principleIds": [
+        "defining-shock"
+      ]
+    },
+    {
+      "id": "mechanism",
+      "title": "Name the likely mechanisms and urgent reversible causes",
+      "action": "Consider volume loss, altered tone, pump failure, and obstruction, alone or mixed, and look for a cause that must be treated now.",
+      "why": "Each mechanism points to a different first question and they frequently coexist.",
+      "principleIds": [
+        "mechanisms-table",
+        "first-return"
+      ]
+    },
+    {
+      "id": "intervene",
+      "title": "Choose an intervention with an expected response",
+      "action": "State what the intervention should change in flow, pressure, and congestion before giving it.",
+      "why": "Interventions move several coupled variables at once.",
+      "principleIds": [
+        "fluids-blood",
+        "pressors-inotropes",
+        "heart-lung"
+      ]
+    },
+    {
+      "id": "reassess",
+      "title": "Reassess and revise the explanation",
+      "action": "Read flow and perfusion, pressure, and adverse effects on their own timescales, and update the explanation.",
+      "why": "Signals differ in speed and confounders; reassessment is how the explanation keeps up with the patient.",
+      "principleIds": [
+        "signals",
+        "final-return"
+      ]
+    }
+  ]
+}
