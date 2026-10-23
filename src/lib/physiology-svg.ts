@@ -54,19 +54,26 @@ export function recolorPhysiologySvg(source: string): string {
 
 export function preparePhysiologySvg(source: string, idPrefix: string, alt: string): string {
   let svg = source.trim();
+  const descId = svg.match(/<desc\b[^>]*\bid="([^"]+)"/)?.[1];
+  const describedBy = descId ? `${idPrefix}-${descId}` : '';
+  // aria-label stays the accessible name. <title> is another name source, so keep it
+  // only when its text is not that name. aria-labelledby stays unset: it would override aria-label.
+  const titleText = (svg.match(/<title\b[^>]*>([\s\S]*?)<\/title>/)?.[1] ?? '').trim();
+  const keepTitle = titleText.length > 0 && titleText !== alt.trim();
   svg = svg.replace(/<svg\b([^>]*)>/, (_match, attrs: string) => {
     const next = attrs
       .replace(/\swidth="[^"]*"/g, '')
       .replace(/\sheight="[^"]*"/g, '')
       .replace(/\saria-labelledby="[^"]*"/g, '')
+      .replace(/\saria-describedby="[^"]*"/g, '')
       .replace(/\srole="[^"]*"/g, '');
     if (!/viewBox="[^"]+"/.test(next)) {
       throw new Error(`${idPrefix} is missing a viewBox`);
     }
-    return `<svg${next} role="img" aria-label="${escapeAttr(alt)}">`;
+    const description = describedBy ? ` aria-describedby="${describedBy}"` : '';
+    return `<svg${next} role="img" aria-label="${escapeAttr(alt)}"${description}>`;
   });
-  svg = svg.replace(/<title\b[^>]*>[\s\S]*?<\/title>/g, '');
-  svg = svg.replace(/<desc\b[^>]*>[\s\S]*?<\/desc>/g, '');
+  if (!keepTitle) svg = svg.replace(/<title\b[^>]*>[\s\S]*?<\/title>/g, '');
   svg = svg.replace(/<text\b[^>]*>/g, (tag) => {
     const size = Number(/font-size="([0-9.]+)"/.exec(tag)?.[1] ?? '0');
     const family = size >= DISPLAY_MIN_PX ? DISPLAY_FONT : TEXT_FONT;
