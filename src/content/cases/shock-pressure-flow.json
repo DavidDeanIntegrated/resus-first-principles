@@ -6,7 +6,7 @@
   "summary": "PLACEHOLDER draft (S4, not reviewed). Why pressure, flow, oxygen delivery, and congestion can tell different stories in adult shock, and how to use those differences to reason about resuscitation. Study material, not a protocol.",
   "contentStatus": "placeholder",
   "strict": true,
-  "reviewNote": "S4 draft by Science Editor on 9f9bb3c, integrated at S6 as a placeholder. Not yet through S7 review. Figure drawings are placeholders. Inline [source: ...] markers remain in the prose and are mapped to reference ids. One SOURCE NEEDED marker is unmapped.",
+  "reviewNote": "S4 draft by Science Editor on 9f9bb3c, integrated at S6 as a placeholder. Not yet through S7 review. Figure drawings are placeholders. Inline [source: ...] markers remain in the prose and are mapped to reference ids.",
   "references": [
     {
       "id": "cecconi-2014",
@@ -30,7 +30,7 @@
       "id": "sunagawa-2017",
       "label": "Sunagawa K. Guyton’s venous return curves should be taught at medical schools (complete English translation of Japanese version). J Physiol Sci. 2017;67(4):447–458",
       "url": "https://doi.org/10.1007/s12576-017-0533-0",
-      "note": "Access: full text; only extracted passages were read. The S3 source note had not verified the author; the DOI record names Kenji Sunagawa."
+      "note": "Access: full text; only extracted passages were read. Cited under Sunagawa as author per the DOI record."
     },
     {
       "id": "ncbi-nbk54476",
@@ -140,7 +140,7 @@
     },
     {
       "id": "foulon-2018",
-      "label": "Foulon P, De Backer D. The hemodynamic effects of norepinephrine: far more than an increase in blood pressure! Ann Transl Med. 2018",
+      "label": "Foulon P, De Backer D. The hemodynamic effects of norepinephrine: far more than an increase in blood pressure! Ann Transl Med. 2018;6(Suppl 1):S25",
       "url": "https://doi.org/10.21037/atm.2018.09.27",
       "note": "Access: full text; only extracted passages were read."
     },
@@ -179,6 +179,12 @@
       "label": "Monnet X, Messina A, Greco M, et al. ESICM guidelines on circulatory shock and hemodynamic monitoring 2025. Intensive Care Med. 2025;51:1971–2012",
       "url": "https://doi.org/10.1007/s00134-025-08137-z",
       "note": "Access: abstract or summary only."
+    },
+    {
+      "id": "beaubien-souligny-2020",
+      "label": "Beaubien-Souligny W, Rola P, Haycock K, et al. Quantifying systemic congestion with point-of-care ultrasound: development of the venous excess ultrasound grading system. Ultrasound J. 2020;12(1):16",
+      "url": "https://doi.org/10.1186/s13089-020-00163-w",
+      "note": "Access: bibliographic record only; the article was not read. Development of the grading system only."
     }
   ],
   "principles": [
@@ -588,13 +594,14 @@
       "title": "What each signal can and cannot tell you",
       "body": [
         "Mental status is a direct readout of one organ's function and changes within minutes, but it is confounded by drugs, hypoxia, hypoglycemia, infection of the brain itself, and pre-existing impairment. Skin findings and capillary refill reflect peripheral perfusion and also change quickly; current sepsis guidance suggests capillary refill time as an adjunct to other measures of perfusion, with low certainty [source: SSC 2026, statement 52; ANDROMEDA-SHOCK-2 2025]. Temperature, ambient conditions, and vasoactive drugs alter them, and warm skin, as Patient B showed, does not establish high output. Urine output integrates renal perfusion and function over hours rather than minutes and is confounded by kidney injury and diuretics.",
-        "Lactate changes over hours and, as Part V explained, can rise for reasons other than hypoperfusion; serial measurements are suggested in sepsis to guide resuscitation, with low certainty, and the guidance warns against continuing fluid merely until lactate normalizes [source: SSC 2026, statement 51]. Arterial pressure changes within seconds and is reliably measured, which makes it the easiest signal to chase and the easiest to misread. Focused echocardiography can identify a failing or obstructed ventricle, an underfilled chamber, or a pericardial effusion, and is suggested as a first-line tool for assessing the type of shock [source: ESICM 2025, abstract]. A single image is a snapshot, operator-dependent, and needs to be interpreted with the rest of the patient. Assessments of venous congestion, from jugular venous pressure to ultrasound of the great veins and organ venous flow, indicate that pressure is backing up behind the right heart, but they do not on their own say whether more fluid would raise output, and their limits as a guide to treatment are not yet settled [SOURCE NEEDED: venous congestion ultrasound (VExUS) development and validation, e.g. Beaubien-Souligny 2020]."
+        "Lactate changes over hours and, as Part V explained, can rise for reasons other than hypoperfusion; serial measurements are suggested in sepsis to guide resuscitation, with low certainty, and the guidance warns against continuing fluid merely until lactate normalizes [source: SSC 2026, statement 51]. Arterial pressure changes within seconds and is reliably measured, which makes it the easiest signal to chase and the easiest to misread. Focused echocardiography can identify a failing or obstructed ventricle, an underfilled chamber, or a pericardial effusion, and is suggested as a first-line tool for assessing the type of shock [source: ESICM 2025, abstract]. A single image is a snapshot, operator-dependent, and needs to be interpreted with the rest of the patient. Assessments of venous congestion, from jugular venous pressure to ultrasound of the great veins and organ venous flow, indicate that pressure is backing up behind the right heart, but they do not on their own say whether more fluid would raise output, and their limits as a guide to treatment are not yet settled [source: Beaubien-Souligny 2020, development of the venous excess ultrasound grading system]."
       ],
       "questions": [],
       "refs": [
         "ssc-2026",
         "andromeda-shock-2-2025",
-        "esicm-2025"
+        "esicm-2025",
+        "beaubien-souligny-2020"
       ]
     },
     {

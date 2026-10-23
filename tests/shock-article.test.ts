@@ -50,6 +50,9 @@ const markerRefs: Record<string, readonly string[]> = {
   'SSC 2026, statement 52; ANDROMEDA-SHOCK-2 2025': ['ssc-2026', 'andromeda-shock-2-2025'],
   'SSC 2026, statement 51': ['ssc-2026'],
   'ESICM 2025, abstract': ['esicm-2025'],
+  'Beaubien-Souligny 2020, development of the venous excess ultrasound grading system': [
+    'beaubien-souligny-2020',
+  ],
 };
 
 describe('shock article integration', () => {
@@ -122,7 +125,7 @@ describe('shock article integration', () => {
     expect(prose).not.toContain('[FIGURE:');
   });
 
-  it('maps every source marker except the unopened venous-congestion note', () => {
+  it('maps every source marker, including VExUS as development only', () => {
     if (!parsed.success) return;
     const referenceIds = new Set((parsed.data.references ?? []).map((reference) => reference.id));
     const cited = new Set<string>();
@@ -145,9 +148,20 @@ describe('shock article integration', () => {
         }
       }
     }
-    expect(unmapped).toEqual([
-      'SOURCE NEEDED: venous congestion ultrasound (VExUS) development and validation, e.g. Beaubien-Souligny 2020',
-    ]);
+    expect(unmapped).toEqual([]);
+    expect(JSON.stringify(parsed.data.principles)).not.toMatch(/validation/i);
+    const vexUs = parsed.data.references?.find((reference) => reference.id === 'beaubien-souligny-2020');
+    expect(vexUs?.label).toContain('development of the venous excess ultrasound grading system');
+    expect(vexUs?.label).not.toMatch(/validation/i);
+    expect(vexUs?.note ?? '').not.toMatch(/validation/i);
+    expect(vexUs?.url).toBe('https://doi.org/10.1186/s13089-020-00163-w');
+    const foulon = parsed.data.references?.find((reference) => reference.id === 'foulon-2018');
+    expect(foulon?.label).toContain('Ann Transl Med. 2018;6(Suppl 1):S25');
+    expect(foulon?.url).toBe('https://doi.org/10.21037/atm.2018.09.27');
+    const sunagawa = parsed.data.references?.find((reference) => reference.id === 'sunagawa-2017');
+    expect(sunagawa?.label.startsWith('Sunagawa K. ')).toBe(true);
+    expect(sunagawa?.url).toBe('https://doi.org/10.1007/s12576-017-0533-0');
+    expect(parsed.data.references?.some((reference) => reference.id.includes('guyton'))).toBe(false);
     expect([...(parsed.data.references ?? [])].every((reference) => cited.has(reference.id))).toBe(true);
     for (const reference of parsed.data.references ?? []) {
       if (reference.id === 'cain-1977' || reference.id === 'ronco-1993') {
