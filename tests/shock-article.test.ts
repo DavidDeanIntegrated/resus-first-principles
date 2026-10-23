@@ -50,9 +50,8 @@ const markerRefs: Record<string, readonly string[]> = {
   'SSC 2026, statement 52; ANDROMEDA-SHOCK-2 2025': ['ssc-2026', 'andromeda-shock-2-2025'],
   'SSC 2026, statement 51': ['ssc-2026'],
   'ESICM 2025, abstract': ['esicm-2025'],
-  'Beaubien-Souligny 2020, development of the venous excess ultrasound grading system': [
-    'beaubien-souligny-2020',
-  ],
+  'Beaubien-Souligny 2020': ['beaubien-souligny-2020'],
+  'acute heart failure review 2025, PMC12036827': ['antit-2025'],
 };
 
 describe('shock article integration', () => {
@@ -149,12 +148,32 @@ describe('shock article integration', () => {
       }
     }
     expect(unmapped).toEqual([]);
-    expect(JSON.stringify(parsed.data.principles)).not.toMatch(/validation/i);
+    const signals = parsed.data.principles.find((principle) => principle.id === 'signals');
+    const signalsText = (signals?.body ?? []).join('\n');
+    expect(signalsText).toContain(
+      'where severe grades were associated with later kidney injury [source: Beaubien-Souligny 2020];',
+    );
+    expect(signalsText).toContain(
+      'severe tricuspid regurgitation can distort its venous waveforms regardless of volume status [source: acute heart failure review 2025, PMC12036827].',
+    );
     const vexUs = parsed.data.references?.find((reference) => reference.id === 'beaubien-souligny-2020');
     expect(vexUs?.label).toContain('development of the venous excess ultrasound grading system');
     expect(vexUs?.label).not.toMatch(/validation/i);
-    expect(vexUs?.note ?? '').not.toMatch(/validation/i);
+    expect(vexUs?.note).toMatch(/Access: abstract or summary only/);
     expect(vexUs?.url).toBe('https://doi.org/10.1186/s13089-020-00163-w');
+    const antit = parsed.data.references?.find((reference) => reference.id === 'antit-2025');
+    expect(antit?.label).toBe(
+      'Antit S, Romdhane S, Mtiri I, Zakhama L. The Role of Venous Excess Ultrasound Score in Optimizing Acute Heart Failure Diagnosis and Prognosis. Journal of the Saudi Heart Association. 2025;37(1):10',
+    );
+    expect(antit?.url).toBe('https://doi.org/10.37616/2212-5043.1422');
+    expect(signals?.refs).toContain('antit-2025');
+    const fig2 = parsed.data.principles.find(
+      (principle) => principle.diagram && typeof principle.diagram !== 'string' && principle.diagram.id === 'shock-pressure-flow',
+    );
+    const fig2Alt = fig2?.diagram && typeof fig2.diagram !== 'string' ? fig2.diagram.alt : '';
+    expect(fig2Alt).toBe(
+      'Two side-by-side tubes, each labelled with the same pressure difference of 55 millimetres of mercury from inlet to outlet. The left tube is wider, labelled resistance 11 mm Hg·min per litre, with a thick arrow labelled flow 5 litres per minute. The right tube is narrower, labelled resistance 22 mm Hg·min per litre, with a thin arrow labelled flow 2.5 litres per minute. Below each, the equation 55 = 5 × 11 and 55 = 2.5 × 22. Values are marked illustrative.',
+    );
     const foulon = parsed.data.references?.find((reference) => reference.id === 'foulon-2018');
     expect(foulon?.label).toContain('Ann Transl Med. 2018;6(Suppl 1):S25');
     expect(foulon?.url).toBe('https://doi.org/10.21037/atm.2018.09.27');

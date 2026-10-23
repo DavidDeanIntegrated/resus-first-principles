@@ -184,7 +184,13 @@
       "id": "beaubien-souligny-2020",
       "label": "Beaubien-Souligny W, Rola P, Haycock K, et al. Quantifying systemic congestion with point-of-care ultrasound: development of the venous excess ultrasound grading system. Ultrasound J. 2020;12(1):16",
       "url": "https://doi.org/10.1186/s13089-020-00163-w",
-      "note": "Access: bibliographic record only; the article was not read. Development of the grading system only."
+      "note": "Access: abstract or summary only. Development of the grading system only."
+    },
+    {
+      "id": "antit-2025",
+      "label": "Antit S, Romdhane S, Mtiri I, Zakhama L. The Role of Venous Excess Ultrasound Score in Optimizing Acute Heart Failure Diagnosis and Prognosis. Journal of the Saudi Heart Association. 2025;37(1):10",
+      "url": "https://doi.org/10.37616/2212-5043.1422",
+      "note": "Access: bibliographic record only; the article was not read. PMC12036827. Supports only the tricuspid regurgitation clause."
     }
   ],
   "principles": [
@@ -253,7 +259,7 @@
       "diagram": {
         "id": "shock-pressure-flow",
         "caption": "Figure 2. Similar pressure, different flow. Two hypothetical systems with the same 55 mm Hg pressure difference. In the left system, resistance is 11 mm Hg·min/L and flow is 5 L/min; in the right, resistance is 22 mm Hg·min/L and flow is 2.5 L/min. In each, gradient = flow × resistance. Illustrative values, not patient targets.",
-        "alt": "Two side-by-side tubes, each labelled with an inlet pressure, an outlet pressure, and a pressure difference of 55 millimetres of mercury. The left tube is wider, labelled resistance 11 mm Hg·min per litre, with a thick arrow labelled flow 5 litres per minute. The right tube is narrower, labelled resistance 22 mm Hg·min per litre, with a thin arrow labelled flow 2.5 litres per minute. Below each, the equation 55 = 5 × 11 and 55 = 2.5 × 22. Values are marked illustrative."
+        "alt": "Two side-by-side tubes, each labelled with the same pressure difference of 55 millimetres of mercury from inlet to outlet. The left tube is wider, labelled resistance 11 mm Hg·min per litre, with a thick arrow labelled flow 5 litres per minute. The right tube is narrower, labelled resistance 22 mm Hg·min per litre, with a thin arrow labelled flow 2.5 litres per minute. Below each, the equation 55 = 5 × 11 and 55 = 2.5 × 22. Values are marked illustrative."
       }
     },
     {
@@ -594,14 +600,15 @@
       "title": "What each signal can and cannot tell you",
       "body": [
         "Mental status is a direct readout of one organ's function and changes within minutes, but it is confounded by drugs, hypoxia, hypoglycemia, infection of the brain itself, and pre-existing impairment. Skin findings and capillary refill reflect peripheral perfusion and also change quickly; current sepsis guidance suggests capillary refill time as an adjunct to other measures of perfusion, with low certainty [source: SSC 2026, statement 52; ANDROMEDA-SHOCK-2 2025]. Temperature, ambient conditions, and vasoactive drugs alter them, and warm skin, as Patient B showed, does not establish high output. Urine output integrates renal perfusion and function over hours rather than minutes and is confounded by kidney injury and diuretics.",
-        "Lactate changes over hours and, as Part V explained, can rise for reasons other than hypoperfusion; serial measurements are suggested in sepsis to guide resuscitation, with low certainty, and the guidance warns against continuing fluid merely until lactate normalizes [source: SSC 2026, statement 51]. Arterial pressure changes within seconds and is reliably measured, which makes it the easiest signal to chase and the easiest to misread. Focused echocardiography can identify a failing or obstructed ventricle, an underfilled chamber, or a pericardial effusion, and is suggested as a first-line tool for assessing the type of shock [source: ESICM 2025, abstract]. A single image is a snapshot, operator-dependent, and needs to be interpreted with the rest of the patient. Assessments of venous congestion, from jugular venous pressure to ultrasound of the great veins and organ venous flow, indicate that pressure is backing up behind the right heart, but they do not on their own say whether more fluid would raise output, and their limits as a guide to treatment are not yet settled [source: Beaubien-Souligny 2020, development of the venous excess ultrasound grading system]."
+        "Lactate changes over hours and, as Part V explained, can rise for reasons other than hypoperfusion; serial measurements are suggested in sepsis to guide resuscitation, with low certainty, and the guidance warns against continuing fluid merely until lactate normalizes [source: SSC 2026, statement 51]. Arterial pressure changes within seconds and is reliably measured, which makes it the easiest signal to chase and the easiest to misread. Focused echocardiography can identify a failing or obstructed ventricle, an underfilled chamber, or a pericardial effusion, and is suggested as a first-line tool for assessing the type of shock [source: ESICM 2025, abstract]. A single image is a snapshot, operator-dependent, and needs to be interpreted with the rest of the patient. Assessments of venous congestion, from jugular venous pressure to ultrasound of the great veins and organ venous flow, indicate that pressure is backing up behind the right heart, but they do not on their own say whether more fluid would raise output, and their limits are real. The best-known ultrasound congestion score was derived after the fact in one cardiac-surgery cohort, where severe grades were associated with later kidney injury [source: Beaubien-Souligny 2020]; it has not been validated in septic or emergency department shock or shown to guide treatment, and severe tricuspid regurgitation can distort its venous waveforms regardless of volume status [source: acute heart failure review 2025, PMC12036827]."
       ],
       "questions": [],
       "refs": [
         "ssc-2026",
         "andromeda-shock-2-2025",
         "esicm-2025",
-        "beaubien-souligny-2020"
+        "beaubien-souligny-2020",
+        "antit-2025"
       ]
     },
     {
