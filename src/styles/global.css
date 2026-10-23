@@ -1700,6 +1700,21 @@ h2 {
   stroke-linejoin: round;
 }
 
+/* Shock figures (S5) — tokens only */
+.diagram-flow { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: butt; }
+.diagram-flow-thick { stroke-width: 7; }
+.diagram-flow-thin { stroke-width: 3; }
+.diagram-flow-head { fill: var(--accent); }
+.diagram-box { fill: var(--card); stroke: var(--rule-strong); stroke-width: 1.5; }
+.diagram-pump { fill: var(--accent-tint); stroke: var(--accent); stroke-width: 2; }
+.diagram-eq { fill: var(--sage-tint); stroke: var(--sage); stroke-width: 1.5; }
+.diagram-bracket-line { fill: none; stroke: var(--ink-soft); stroke-width: 1.5; }
+.diagram-curve { fill: none; stroke: var(--sage); stroke-width: 2.5; stroke-linejoin: round; }
+.diagram-step { fill: none; stroke: var(--ink-soft); stroke-width: 1.5; stroke-dasharray: 6 4; }
+.diagram-gain { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+.diagram-point { fill: var(--ink); }
+.diagram-zone { fill: var(--accent-tint); }
+
 .diagram-data {
   max-width: var(--measure);
   margin-top: var(--s3);
@@ -2362,6 +2377,12 @@ h2 {
   .diagram-quiet {
     stroke: #111;
   }
+
+  .diagram-flow, .diagram-bracket-line, .diagram-curve, .diagram-step, .diagram-gain,
+  .diagram-box, .diagram-pump, .diagram-eq { stroke: #111; }
+  .diagram-flow-head, .diagram-point { fill: #111; }
+  .diagram-box, .diagram-pump, .diagram-eq { fill: #fff; }
+  .diagram-zone { fill: #eee; }
 
   .diagram-route-head {
     fill: #111;
