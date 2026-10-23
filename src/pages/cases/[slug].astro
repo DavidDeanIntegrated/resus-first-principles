@@ -32,7 +32,7 @@ const principleMeta = new Map(
     },
   ]),
 );
-const description = entry.data.summary;
+const description = entry.data.shareDescription ?? entry.data.summary;
 const causeNames: Record<string, string> = {};
 for (const principle of entry.data.principles) {
   for (const cause of principle.causes ?? []) causeNames[cause.id] = cause.name;
@@ -41,7 +41,7 @@ const parts = sectionTree(entry.data.principles);
 const numeralRecord = Object.fromEntries(numerals);
 ---
 
-<Base title={entry.data.title} description={description}>
+<Base title={entry.data.title} description={description} ogType="article">
   <div class="wrap">
     <Contents sections={entry.data.principles} />
     <div class="case-body">

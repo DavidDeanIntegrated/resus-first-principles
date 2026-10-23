@@ -33,7 +33,7 @@ Topic module files live in `src/content/cases/*.json`. The filename must be `{sl
 
 Each topic module has:
 
-- `schemaVersion` (`1`), `id`, `slug`, `title`, `summary`, and `contentStatus` (`placeholder` or `published`)
+- `schemaVersion` (`1`), `id`, `slug`, `title`, `summary`, optional `shareDescription` (share-card and meta description, at most 160 characters; the page still shows `summary`, and uses `summary` for the meta description when `shareDescription` is omitted), and `contentStatus` (`placeholder` or `published`)
 - optional `strict` (`true` turns on the stricter question rules below for that file)
 - optional `reviewNote` (string), rendered as a review line under the case title
 - optional `references`: `{ id, label, url, note? }`. `url` is an absolute URL. `note` is optional.

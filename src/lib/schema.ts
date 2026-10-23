@@ -332,6 +332,8 @@ export const caseSchema = z
     slug: idSchema,
     title: textSchema,
     summary: textSchema,
+    /** Share-card and meta description. Previews truncate near 160 characters. */
+    shareDescription: z.string().trim().min(1).max(160).optional(),
     contentStatus: z.enum(['placeholder', 'published']),
     strict: z.boolean().optional(),
     reviewNote: textSchema.optional(),

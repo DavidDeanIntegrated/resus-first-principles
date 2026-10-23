@@ -91,8 +91,6 @@ describe('physiology figure assets', () => {
       expect(root).not.toMatch(/\sheight="/);
       expect(root).toContain(`aria-label="${figure.alt}"`);
       expect(prepared).not.toContain('DejaVu');
-      expect(prepared).not.toContain('<title');
-      expect(prepared).not.toContain('<desc');
       expect(prepared).toContain("font-family=\"'Fraunces', Georgia, serif\"");
       expect(prepared).toContain("font-family=\"'Literata', Georgia, serif\"");
       expect(prepared).not.toContain('id="arrow"');
@@ -108,6 +106,32 @@ describe('physiology figure assets', () => {
     expect(oxygen).toContain('>306<');
     expect(oxygen).toContain('>324<');
     expect(oxygen).toContain('viewBox="0 0 1080 940"');
+  });
+
+  it('keeps a unique desc id referenced by aria-describedby on every physiology figure', () => {
+    const seen = new Set<string>();
+    for (const figure of physiologyFigures) {
+      const source = physiologySvgSource(figure.file);
+      const titleText = (source.match(/<title\b[^>]*>([\s\S]*?)<\/title>/)?.[1] ?? '').trim();
+      const titleRepeatsName = titleText.length > 0 && titleText === figure.alt.trim();
+      for (const prefix of [`fig-${figure.id}`, `fig-${figure.id}-wide`]) {
+        const prepared = preparePhysiologySvg(source, prefix, figure.alt);
+        const root = prepared.match(/<svg\b[^>]*>/)?.[0] ?? '';
+        const describedBy = /aria-describedby="([^"]+)"/.exec(root)?.[1] ?? '';
+        const descIds = [...prepared.matchAll(/<desc\b[^>]*\bid="([^"]+)"/g)].map((match) => match[1] ?? '');
+        expect(prepared.match(/<desc\b/g)?.length, figure.id).toBe(1);
+        expect(descIds, figure.id).toEqual([describedBy]);
+        expect(describedBy.startsWith(`${prefix}-`), figure.id).toBe(true);
+        expect(prepared.split(`id="${describedBy}"`).length - 1, figure.id).toBe(1);
+        expect(seen.has(describedBy), describedBy).toBe(false);
+        seen.add(describedBy);
+        const ids = [...prepared.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1] ?? '');
+        expect(new Set(ids).size, figure.id).toBe(ids.length);
+        expect(root, figure.id).not.toMatch(/\saria-labelledby="/);
+        expect(prepared.includes('<title'), figure.id).toBe(Boolean(titleText) && !titleRepeatsName);
+      }
+    }
+    expect(seen.size).toBe(physiologyFigures.length * 2);
   });
 
   it('paints physiology figures from element role, not from the hex alone', () => {
