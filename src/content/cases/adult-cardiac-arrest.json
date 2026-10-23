@@ -4,6 +4,7 @@
   "slug": "adult-cardiac-arrest",
   "title": "Adult cardiac arrest",
   "summary": "Adult cardiac arrest resuscitation from first principles, aligned with the 2025 American Heart Association adult basic life support, advanced life support, and post-cardiac arrest care guidelines. This is study material. Care follows the current guideline and local protocol.",
+  "shareDescription": "Why compressions create flow, what a pause costs, and how the coronary pressure gradient decides whether the arrested heart can recover.",
   "contentStatus": "published",
   "reviewNote": "Source-checked against AHA 2025; not yet independently physician-reviewed.",
   "principles": [

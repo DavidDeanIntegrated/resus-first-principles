@@ -76,6 +76,10 @@ describe('case schema', () => {
     const document = result.cases[0]?.document;
     expect(document?.slug).toBe('adult-cardiac-arrest');
     expect(document?.contentStatus).toBe('published');
+    expect(document?.shareDescription).toBe(
+      'Why compressions create flow, what a pause costs, and how the coronary pressure gradient decides whether the arrested heart can recover.',
+    );
+    expect(document?.shareDescription?.length).toBeLessThanOrEqual(160);
     expect(document?.title.toUpperCase()).not.toContain('PLACEHOLDER');
     expect(document?.principles.length).toBeGreaterThanOrEqual(5);
     for (const principle of document?.principles ?? []) {
@@ -135,6 +139,15 @@ describe('case schema', () => {
       }),
     );
     expect(parsed.success).toBe(true);
+  });
+
+  it('accepts a share description of 160 characters and rejects a longer one', () => {
+    expect(caseSchema.safeParse(placeholderCase()).success).toBe(true);
+    expect(caseSchema.safeParse(placeholderCase({ shareDescription: 'a'.repeat(160) })).success).toBe(true);
+    const parsed = caseSchema.safeParse(placeholderCase({ shareDescription: 'a'.repeat(161) }));
+    expect(parsed.success).toBe(false);
+    if (parsed.success) return;
+    expect(parsed.error.issues.some((issue) => issue.path[0] === 'shareDescription')).toBe(true);
   });
 
   it('rejects a missing question reasoning field', () => {
