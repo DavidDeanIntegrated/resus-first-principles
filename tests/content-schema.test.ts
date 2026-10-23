@@ -72,8 +72,11 @@ describe('case schema', () => {
     const result = validateContentDirectory(contentDirectory);
     expect(result.ok).toBe(true);
     if (!result.ok) return;
-    expect(result.cases).toHaveLength(1);
-    const document = result.cases[0]?.document;
+    expect(result.cases.map((entry) => entry.document.slug).sort()).toEqual([
+      'adult-cardiac-arrest',
+      'shock-pressure-flow',
+    ]);
+    const document = result.cases.find((entry) => entry.document.slug === 'adult-cardiac-arrest')?.document;
     expect(document?.slug).toBe('adult-cardiac-arrest');
     expect(document?.contentStatus).toBe('published');
     expect(document?.shareDescription).toBe(

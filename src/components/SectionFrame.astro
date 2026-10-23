@@ -1,5 +1,6 @@
 ---
 import CauseList from './CauseList.astro';
+import DataTable from './DataTable.astro';
 import MarkdownParagraphs from './MarkdownParagraphs.astro';
 import PrincipleDiagram from './PrincipleDiagram.astro';
 import PrincipleHeader from './PrincipleHeader.astro';
@@ -10,7 +11,7 @@ import { stripInlineMarkdown } from '../lib/markdown.ts';
 import { asParagraphs, splitLead } from '../lib/prose.ts';
 import { subheadBefore } from '../lib/section-layout.ts';
 import type { ReferenceMark } from '../lib/references.ts';
-import type { Principle } from '../lib/schema.ts';
+import { diagramRefId, type Principle } from '../lib/schema.ts';
 
 interface Props {
   principle: Principle;
@@ -57,6 +58,7 @@ const inlineFigureIds = new Set<string>([
   ...explanationGroups.flatMap((group) => group.figures),
   ...markdownGroups.flatMap((group) => group.figures),
 ]);
+const attachedDiagram = diagramRefId(principle.diagram);
 const leadSubhead = subheadBefore(principle.id, explanation[0] ?? narrative[0] ?? '');
 ---
 
@@ -96,6 +98,7 @@ const leadSubhead = subheadBefore(principle.id, explanation[0] ?? narrative[0] ?
       </>
     ))
   }
+  {principle.table && <DataTable table={principle.table} />}
   {
     principle.workedExample && (
       <aside class="worked-example" id={`worked-example-${principle.workedExample.id}`}>
@@ -107,7 +110,7 @@ const leadSubhead = subheadBefore(principle.id, explanation[0] ?? narrative[0] ?
     )
   }
   {
-    principle.diagram && !inlineFigureIds.has(principle.diagram) && (
+    principle.diagram && attachedDiagram && !inlineFigureIds.has(attachedDiagram) && (
       <PrincipleDiagram diagram={principle.diagram} causeNames={causeNames} />
     )
   }

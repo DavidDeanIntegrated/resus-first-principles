@@ -1,0 +1,34 @@
+---
+import { inlineMarkdownToHtml } from '../lib/markdown.ts';
+import type { DataTable } from '../lib/schema.ts';
+
+interface Props {
+  table: DataTable;
+}
+
+const { table } = Astro.props;
+---
+
+<div class="data-table">
+  <div class="data-table-scroll">
+    <table>
+      <caption>{table.caption}</caption>
+      <thead>
+        <tr>
+          {table.header.map((cell) => <th scope="col" set:html={inlineMarkdownToHtml(cell)} />)}
+        </tr>
+      </thead>
+      <tbody>
+        {
+          table.rows.map((row) => (
+            <tr>
+              {row.map((cell) => (
+                <td set:html={inlineMarkdownToHtml(cell)} />
+              ))}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
