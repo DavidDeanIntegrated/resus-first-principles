@@ -11,13 +11,20 @@ describe('shock article integration', () => {
   const raw = JSON.parse(readFileSync(join(repoRoot, 'src/content/cases/shock-pressure-flow.json'), 'utf8'));
   const parsed = caseSchema.safeParse(raw);
 
-  it('keeps the module a placeholder and validates', () => {
+  it('publishes the module and validates', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
-    expect(parsed.data.contentStatus).toBe('placeholder');
+    expect(parsed.data.contentStatus).toBe('published');
     expect(parsed.data.slug).toBe('shock-pressure-flow');
     expect(parsed.data.strict).toBe(true);
-    expect(`${parsed.data.title}\n${parsed.data.summary}`).toContain('PLACEHOLDER');
+    expect(parsed.data.summary).toBe(
+      'Why pressure, flow, oxygen delivery, and congestion can tell different stories in adult shock, and how to use those differences to reason about resuscitation. Study material, not a protocol.',
+    );
+    expect(parsed.data.shareDescription).toBe(
+      'Why pressure, flow, oxygen delivery and congestion can tell different stories, and how to reason about shock and its treatment.',
+    );
+    expect(parsed.data.reviewNote).toBe('Ready for physician review.');
+    expect(`${parsed.data.title}\n${parsed.data.summary}`.toUpperCase()).not.toContain('PLACEHOLDER');
   });
 
   it('stores the mechanisms table with the manuscript cell text', () => {
@@ -144,9 +151,23 @@ describe('shock article integration', () => {
 });
 
 describe('shock page build', () => {
-  it('renders the table and three placeholder figures without publishing the module', () => {
+  it('renders the published page, table, and three figures', () => {
     const html = readFileSync(join(repoRoot, 'dist/cases/shock-pressure-flow/index.html'), 'utf8');
-    expect(html).toContain('PLACEHOLDER FIXTURE');
+    expect(html).not.toContain('PLACEHOLDER FIXTURE');
+    expect(html).not.toContain('PLACEHOLDER');
+    expect(html).toContain('Ready for physician review.');
+    expect(html).toContain(
+      'Why pressure, flow, oxygen delivery, and congestion can tell different stories in adult shock, and how to use those differences to reason about resuscitation. Study material, not a protocol.',
+    );
+    const title = 'Shock: Pressure, Flow, and the Failing Circulation | Resus First Principles';
+    const description =
+      'Why pressure, flow, oxygen delivery and congestion can tell different stories, and how to reason about shock and its treatment.';
+    expect(html).toContain(`<title>${title}</title>`);
+    expect(html).toContain(`<meta name="description" content="${description}">`);
+    expect(html).toContain(`<meta property="og:title" content="${title}">`);
+    expect(html).toContain(`<meta property="og:description" content="${description}">`);
+    expect(html).toContain(`<meta name="twitter:title" content="${title}">`);
+    expect(html).toContain(`<meta name="twitter:description" content="${description}">`);
     expect(html).toContain('class="data-table-scroll"');
     expect(html).toContain('<caption>Four mechanisms</caption>');
     expect(html).toContain('Expected findings, with qualifications');

@@ -3,10 +3,11 @@
   "id": "shock-pressure-flow",
   "slug": "shock-pressure-flow",
   "title": "Shock: Pressure, Flow, and the Failing Circulation",
-  "summary": "PLACEHOLDER draft (S4, not reviewed). Why pressure, flow, oxygen delivery, and congestion can tell different stories in adult shock, and how to use those differences to reason about resuscitation. Study material, not a protocol.",
-  "contentStatus": "placeholder",
+  "summary": "Why pressure, flow, oxygen delivery, and congestion can tell different stories in adult shock, and how to use those differences to reason about resuscitation. Study material, not a protocol.",
+  "shareDescription": "Why pressure, flow, oxygen delivery and congestion can tell different stories, and how to reason about shock and its treatment.",
+  "contentStatus": "published",
   "strict": true,
-  "reviewNote": "Figures are drawn. Sources are mapped to numbered references. Still a placeholder pending acceptance.",
+  "reviewNote": "Ready for physician review.",
   "references": [
     {
       "id": "cecconi-2014",
