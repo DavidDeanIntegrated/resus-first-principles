@@ -1714,6 +1714,8 @@ h2 {
 .diagram-gain { fill: none; stroke: var(--accent); stroke-width: 2.5; }
 .diagram-point { fill: var(--ink); }
 .diagram-zone { fill: var(--accent-tint); }
+.diagram-zone-stop-0 { stop-color: var(--card); }
+.diagram-zone-stop-1 { stop-color: var(--accent-tint); }
 
 .diagram-data {
   max-width: var(--measure);
@@ -2383,6 +2385,8 @@ h2 {
   .diagram-flow-head, .diagram-point { fill: #111; }
   .diagram-box, .diagram-pump, .diagram-eq { fill: #fff; }
   .diagram-zone { fill: #eee; }
+  .diagram-zone-stop-0 { stop-color: #fff; }
+  .diagram-zone-stop-1 { stop-color: #eee; }
 
   .diagram-route-head {
     fill: #111;
