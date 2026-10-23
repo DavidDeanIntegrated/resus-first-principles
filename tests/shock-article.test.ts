@@ -183,16 +183,19 @@ describe('shock page build', () => {
     expect(html).toContain('data-diagram="shock-circulation-gradients"');
     expect(html).toContain('data-diagram="shock-pressure-flow"');
     expect(html).toContain('data-diagram="shock-fluid-response"');
-    expect(html).toContain('Figure in progress');
+    expect(html).not.toContain('Figure in progress');
+    expect(html).toContain('One circulation, several pressure gradients.</title>');
+    expect(html).toContain('Similar pressure, different flow.</title>');
+    expect(html).toContain('A fluid response is not the whole decision.</title>');
     for (const id of ['shock-circulation-gradients', 'shock-pressure-flow', 'shock-fluid-response']) {
       expect(html).toContain(`id="${id}-screen-title"`);
       expect(html).toContain(`id="${id}-screen-desc"`);
       expect(html).toContain(`id="${id}-print-title"`);
       expect(html).toContain(`id="${id}-print-desc"`);
-      expect(html).toContain(`id="${id}-screen-ah"`);
-      expect(html).toContain(`id="${id}-print-ah"`);
-      expect(html).toContain(`url(#${id}-screen-ah)`);
-      expect(html).toContain(`url(#${id}-print-ah)`);
+      if (id !== 'shock-fluid-response') expect(html).toContain(`id="${id}-screen-ah"`);
+      if (id !== 'shock-fluid-response') expect(html).toContain(`id="${id}-print-ah"`);
+      if (id !== 'shock-fluid-response') expect(html).toContain(`url(#${id}-screen-ah)`);
+      if (id !== 'shock-fluid-response') expect(html).toContain(`url(#${id}-print-ah)`);
     }
     expect(html).not.toMatch(/\b(?:fill|stroke)\s*=\s*["'][^"']*#[0-9A-Fa-f]{3,8}/i);
   });
