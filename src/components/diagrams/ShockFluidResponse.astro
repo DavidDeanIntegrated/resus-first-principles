@@ -1,6 +1,6 @@
 ---
 // S5 (Atelier): drawn figure; replaces the S6 placeholder. Caption comes from the module (prop);
-// title and desc are copied verbatim from s4/manuscript.md (sha 6c0f5c0a). Schematic; tokens only.
+// title and desc follow the S8 manuscript. Schematic; tokens only.
 interface Props {
   caption: string;
   alt: string;
@@ -8,7 +8,7 @@ interface Props {
 
 const { caption } = Astro.props;
 const title = "A fluid response is not the whole decision.";
-const desc = "Two separate plots sharing the same horizontal axis label, Preload (end-diastolic volume), with no tick values. The left plot has vertical axis Stroke volume and a curve that rises steeply and then flattens; three equal steps along the horizontal axis produce shrinking vertical gains. The right plot has vertical axis Filling pressure (end-diastolic) and a curve that is flat at first and then turns sharply upward; the same three equal steps produce growing vertical rises, with the steep region marked as where congestion begins. Both plots carry the tag Schematic, not to scale.";
+const desc = "Two separate plots sharing the same horizontal axis label, Preload (end-diastolic volume), with no tick values. The left plot has vertical axis Stroke volume and a curve that rises steeply and then flattens; three equal steps along the horizontal axis produce shrinking vertical gains. The right plot has vertical axis Filling pressure (end-diastolic) and a curve that is flat at first and then turns sharply upward; the same three equal steps produce growing vertical rises, over a background shading that deepens as the curve steepens, labelled Rising congestion risk. Both plots carry the tag Schematic, not to scale.";
 ---
 
 <figure class="diagram" data-diagram="shock-fluid-response">
