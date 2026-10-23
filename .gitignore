@@ -21,6 +21,7 @@ pnpm-debug.log*
 # test and tool output
 coverage/
 .vercel/
+.wrangler/
 
 # macOS-specific files
 .DS_Store

@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import manifestJson from '../assets/diagrams/physiology-manifest.json' with { type: 'json' };
 
 const assetDir = join(process.cwd(), 'src/assets/diagrams');
 
@@ -67,7 +68,7 @@ const placement: Record<
   },
 };
 
-const manifest = JSON.parse(readFileSync(join(assetDir, 'physiology-manifest.json'), 'utf8')) as ManifestEntry[];
+const manifest = manifestJson as ManifestEntry[];
 
 function manifestEntry(file: string): ManifestEntry {
   const entry = manifest.find((item) => item.file === file);
