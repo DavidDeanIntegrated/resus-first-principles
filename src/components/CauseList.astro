@@ -1,6 +1,8 @@
 ---
+import ListenButton from './ListenButton.astro';
 import Prose from './Prose.astro';
 import RefMarks from './RefMarks.astro';
+import { cardiacArrestAudio } from '../lib/cardiac-arrest-audio.ts';
 import type { Cause, CauseCategory } from '../lib/schema.ts';
 import { toRoman } from '../lib/roman.ts';
 import { marksFor, type ReferenceMark } from '../lib/references.ts';
@@ -39,6 +41,10 @@ const fieldsBefore: Array<{ key: 'failure' | 'rhythm' | 'causalChain' | 'compres
 function marks(refs: string[] | undefined): ReferenceMark[] {
   return marksFor(refs, referenceNumbers);
 }
+
+function causeNarration(id: string) {
+  return cardiacArrestAudio.find((track) => track.anchor === `cause-${id}`);
+}
 ---
 
 <section class="causes" aria-label="Causes">
@@ -66,7 +72,9 @@ function marks(refs: string[] | undefined): ReferenceMark[] {
   </nav>
   <div class="cause-stream">
     {
-      causes.map((cause) => (
+      causes.map((cause) => {
+        const narration = causeNarration(cause.id);
+        return (
         <article class="cause" id={`cause-${cause.id}`}>
           <header class="cause-head">
             <p class="kicker">{categoryLabels[cause.category]}</p>
@@ -74,6 +82,7 @@ function marks(refs: string[] | undefined): ReferenceMark[] {
               {cause.name}
               <RefMarks marks={marks(cause.refs)} />
             </h3>
+            {narration?.anchor && <ListenButton anchor={narration.anchor} title={narration.heading} />}
           </header>
           {fieldsBefore.map((field) => (
             <div class="cause-field">
@@ -135,7 +144,8 @@ function marks(refs: string[] | undefined): ReferenceMark[] {
             </ol>
           </div>
         </article>
-      ))
+        );
+      })
     }
   </div>
 </section>

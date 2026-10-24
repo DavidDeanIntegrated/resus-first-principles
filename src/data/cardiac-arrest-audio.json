@@ -52,32 +52,109 @@
     "index": 7,
     "heading": "The Hs and Ts are ways the circulation fails",
     "anchor": "principle-reversible-causes",
-    "filename": "07-reversible-causes.mp3",
-    "duration_seconds": 3002.7
+    "filename": "07-00-intro.mp3",
+    "duration_seconds": 453.1
   },
   {
     "index": 8,
+    "heading": "Hypovolemia",
+    "anchor": "cause-hypovolemia",
+    "filename": "07-01-hypovolemia.mp3",
+    "duration_seconds": 310.2
+  },
+  {
+    "index": 9,
+    "heading": "Hypoxia",
+    "anchor": "cause-hypoxia",
+    "filename": "07-02-hypoxia.mp3",
+    "duration_seconds": 230.8
+  },
+  {
+    "index": 10,
+    "heading": "Hydrogen ion (acidosis)",
+    "anchor": "cause-hydrogen-ion",
+    "filename": "07-03-hydrogen-ion.mp3",
+    "duration_seconds": 263.5
+  },
+  {
+    "index": 11,
+    "heading": "Hyperkalemia",
+    "anchor": "cause-hyperkalemia",
+    "filename": "07-04-hyperkalemia.mp3",
+    "duration_seconds": 228.8
+  },
+  {
+    "index": 12,
+    "heading": "Hypokalemia",
+    "anchor": "cause-hypokalemia",
+    "filename": "07-05-hypokalemia.mp3",
+    "duration_seconds": 173.8
+  },
+  {
+    "index": 13,
+    "heading": "Hypothermia",
+    "anchor": "cause-hypothermia",
+    "filename": "07-06-hypothermia.mp3",
+    "duration_seconds": 180.9
+  },
+  {
+    "index": 14,
+    "heading": "Tension pneumothorax",
+    "anchor": "cause-tension-pneumothorax",
+    "filename": "07-07-tension-pneumothorax.mp3",
+    "duration_seconds": 226.3
+  },
+  {
+    "index": 15,
+    "heading": "Cardiac tamponade",
+    "anchor": "cause-tamponade",
+    "filename": "07-08-tamponade.mp3",
+    "duration_seconds": 206.5
+  },
+  {
+    "index": 16,
+    "heading": "Pulmonary thrombosis (massive embolism)",
+    "anchor": "cause-pulmonary-thrombosis",
+    "filename": "07-09-pulmonary-thrombosis.mp3",
+    "duration_seconds": 250.4
+  },
+  {
+    "index": 17,
+    "heading": "Toxins",
+    "anchor": "cause-toxins",
+    "filename": "07-10-toxins.mp3",
+    "duration_seconds": 279.4
+  },
+  {
+    "index": 18,
+    "heading": "Coronary thrombosis",
+    "anchor": "cause-coronary-thrombosis",
+    "filename": "07-11-coronary-thrombosis.mp3",
+    "duration_seconds": 199.9
+  },
+  {
+    "index": 19,
     "heading": "Delivering and adapting treatment",
     "anchor": "principle-treatment",
     "filename": "08-treatment.mp3",
     "duration_seconds": 411.8
   },
   {
-    "index": 9,
+    "index": 20,
     "heading": "After ROSC",
     "anchor": "principle-after-rosc",
     "filename": "09-after-rosc.mp3",
     "duration_seconds": 838.1
   },
   {
-    "index": 10,
+    "index": 21,
     "heading": "Limits and stopping",
     "anchor": "principle-limits",
     "filename": "10-limits.mp3",
     "duration_seconds": 127.7
   },
   {
-    "index": 11,
+    "index": 22,
     "heading": "Approach to treatment",
     "anchor": "treatment-heading",
     "filename": "11-approach-to-treatment.mp3",
