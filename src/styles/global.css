@@ -2301,6 +2301,27 @@ html[data-audio-player="open"] body {
 .ap-bar-fill { position: absolute; inset: 0 auto 0 0; width: var(--ap-progress, 0%); background: var(--fig-teal); }
 .ap-note { margin: 6px 0 0; font: italic 400 0.8125rem/1.3 var(--f-text); color: var(--ink-soft); }
 
+
+/* SR4 (Atelier): worked-example steps and compact tables. CSS only; no schema change.
+   A worked-example paragraph that opens with **bold lead-in.** renders as a numbered step. */
+.worked-example .prose { counter-reset: we-step; }
+.worked-example .prose p:has(> strong:first-child) {
+  counter-increment: we-step;
+  position: relative;
+  padding-left: 2.75rem;
+}
+.worked-example .prose p:has(> strong:first-child)::before {
+  content: counter(we-step);
+  position: absolute; left: 0; top: 0.1em;
+  display: grid; place-items: center;
+  width: 1.85rem; height: 1.85rem; border-radius: 999px;
+  border: 1.5px solid var(--accent); color: var(--accent);
+  font: 600 0.875rem/1 var(--f-text); font-variant-numeric: lining-nums;
+}
+.worked-example .prose p:has(> strong:first-child) > strong:first-child { color: var(--ink); }
+/* Tables of three or fewer columns fit a phone without a sideways scroll. */
+.data-table table:not(:has(th:nth-child(4))) { min-width: 0; }
+
 @media print {
   .audio-player, .listen-from-here { display: none !important; }
   body { padding-bottom: 0 !important; }
