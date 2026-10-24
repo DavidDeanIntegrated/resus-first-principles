@@ -1383,7 +1383,9 @@ h2 {
 @media screen and (min-width: 701px) {
   html:root { --ap-h: 80px; }
   html .audio-player-inner { display: flex; align-items: center; gap: var(--s5); }
-  html .audio-player-row { flex: 1; }
+  html .audio-player-row { display: flex; flex-wrap: nowrap; flex: 1; }
+  html .ap-meta { order: 0; flex: 1 1 auto; min-width: 0; }
+  html .ap-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   html .ap-note { flex: none; max-width: 15rem; margin: 0; }
 
   .diagram svg.diagram-screen {
@@ -2263,7 +2265,7 @@ html[data-audio="available"] .listen-from-here {
 .listen-icon { width: 16px; height: 16px; flex: none; fill: currentColor; }
 .listen-icon .listen-wave { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
 
-:root { --ap-h: 104px; }
+:root { --ap-h: 146px; }
 .audio-player {
   position: fixed; inset: auto 0 0 0; z-index: 50;
   background: var(--card); color: var(--ink);
@@ -2277,7 +2279,7 @@ html[data-audio-player="open"] body {
   padding-bottom: calc(var(--ap-h) + env(safe-area-inset-bottom, 0px));
 }
 .audio-player-inner { max-width: var(--col-wide); margin-inline: auto; }
-.audio-player-row { display: flex; align-items: center; gap: var(--s2); }
+.audio-player-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
 .ap-btn {
   flex: none; display: inline-grid; place-items: center;
   width: 44px; height: 44px; padding: 0; border-radius: 999px; cursor: pointer;
@@ -2290,9 +2292,9 @@ html[data-audio-player="open"] body {
 .ap-icon .ap-stroke { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .ap-icon-pause, .audio-player[data-state="playing"] .ap-icon-play { display: none; }
 .audio-player[data-state="playing"] .ap-icon-pause { display: block; }
-.ap-meta { flex: 1; min-width: 0; }
+.ap-meta { flex: 1 0 100%; order: -1; min-width: 0; }
 .ap-kicker { margin: 0; font: 600 0.75rem/1.2 var(--f-text); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
-.ap-title { margin: 2px 0 0; font: 500 1rem/1.25 var(--f-display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ap-title { margin: 2px 0 0; font: 500 1rem/1.25 var(--f-display); white-space: normal; overflow: visible; }
 .ap-progress { display: flex; align-items: center; gap: var(--s2); margin-top: 4px; }
 .ap-time { flex: none; font: 400 0.8125rem/1 var(--f-text); font-variant-numeric: tabular-nums; color: var(--ink-soft); }
 .ap-bar { position: relative; flex: 1; height: 6px; border-radius: 3px; background: var(--paper-deep); box-shadow: inset 0 0 0 1px var(--rule-strong); overflow: hidden; }

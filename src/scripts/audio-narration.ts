@@ -178,6 +178,7 @@ function wirePlayer(
     player.hidden = true;
     document.documentElement.removeAttribute('data-audio-player');
     audio.pause();
+    render();
     persist();
     setPlaybackState('paused');
   }
@@ -227,6 +228,7 @@ function wirePlayer(
     updateMetadata();
     const pending = audio.play();
     pending.catch(() => {
+      if (player.dataset.state === 'closed' || player.hidden) return;
       openPlayer('paused');
       setPlaybackState('paused');
     });
@@ -243,6 +245,7 @@ function wirePlayer(
   function render(): void {
     const track = tracks[index];
     const duration = displayedDuration(track);
+    const headingChanged = title.textContent !== track.heading;
     title.textContent = track.heading;
     elapsed.textContent = formatClock(position);
     total.textContent = formatClock(duration);
@@ -250,13 +253,15 @@ function wirePlayer(
     progress.style.setProperty('--ap-progress', `${percent.toFixed(2)}%`);
     progress.setAttribute('aria-valuenow', String(Math.round(percent)));
     progress.setAttribute('aria-valuetext', `${formatClock(position)} of ${formatClock(duration)}`);
+    const closed = player.hidden || player.dataset.state === 'closed';
     for (const button of document.querySelectorAll<HTMLElement>('[data-audio-listen]')) {
-      if (track.anchor && button.getAttribute('data-audio-anchor') === track.anchor) {
+      if (!closed && track.anchor && button.getAttribute('data-audio-anchor') === track.anchor) {
         button.setAttribute('aria-current', 'true');
       } else {
         button.removeAttribute('aria-current');
       }
     }
+    if (headingChanged) syncBarHeight();
   }
 
   function displayedDuration(track: NarrationTrack): number {
