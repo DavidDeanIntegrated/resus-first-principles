@@ -1,15 +1,6 @@
 ---
-// V7.3 design (Atelier). Pinned bottom narration mini-player: markup and states only.
-// Engineering Lead's JS owns playback, auto-advance, Media Session and resume, and drives the hooks below.
-// Hooks: see /workspace/rfp/next/v73/pr/handoff.md.
-interface Props {
-  /** Demo-only values, used when the page is opened with ?audio-demo. */
-  demoTitle?: string;
-  demoElapsed?: string;
-  demoTotal?: string;
-  demoProgress?: number;
-}
-const { demoTitle = '', demoElapsed = '0:00', demoTotal = '0:00', demoProgress = 0 } = Astro.props;
+// V7.3 design (Atelier). Markup and styles are theirs.
+// Playback, resume, and Media Session use the hooks on this player.
 ---
 
 <aside
@@ -17,14 +8,14 @@ const { demoTitle = '', demoElapsed = '0:00', demoTotal = '0:00', demoProgress =
   aria-label="Audio narration"
   data-audio-player
   data-state="idle"
-  data-demo-title={demoTitle}
-  data-demo-elapsed={demoElapsed}
-  data-demo-total={demoTotal}
-  data-demo-progress={demoProgress}
   hidden
 >
+  <audio preload="none" hidden data-audio-element></audio>
   <div class="audio-player-inner">
     <div class="audio-player-row">
+      <button type="button" class="ap-btn ap-ghost" data-audio-action="previous" aria-label="Previous section">
+        <svg class="ap-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 4h2.5v12H4zM16 4l-8 6 8 6z"></path></svg>
+      </button>
       <button type="button" class="ap-btn ap-play" data-audio-action="toggle" aria-label="Play narration">
         <svg class="ap-icon ap-icon-play" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M6 4l10 6-10 6z"></path></svg>
         <svg class="ap-icon ap-icon-pause" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 4h3.5v12H5zM11.5 4H15v12h-3.5z"></path></svg>
@@ -59,21 +50,9 @@ const { demoTitle = '', demoElapsed = '0:00', demoTotal = '0:00', demoProgress =
   </div>
 </aside>
 
-<script is:inline>
-  // Demo state for design review only (?audio-demo). Not playback logic.
-  (function () {
-    if (!/[?&]audio-demo\b/.test(location.search)) return;
-    var p = document.querySelector('[data-audio-player]');
-    if (!p) return;
-    document.documentElement.setAttribute('data-audio', 'available');
-    p.querySelector('[data-audio-title]').textContent = p.dataset.demoTitle;
-    p.querySelector('[data-audio-elapsed]').textContent = p.dataset.demoElapsed;
-    p.querySelector('[data-audio-total]').textContent = p.dataset.demoTotal;
-    var bar = p.querySelector('[data-audio-progress]');
-    bar.setAttribute('aria-valuenow', p.dataset.demoProgress);
-    bar.style.setProperty('--ap-progress', p.dataset.demoProgress + '%');
-    p.querySelector('[data-audio-action="toggle"]').setAttribute('aria-label', 'Pause narration');
-    p.dataset.state = 'playing';
-    p.hidden = false;
-  })();
+<script>
+  import { mountCardiacArrestAudio } from '../scripts/audio-narration.ts';
+
+  const player = document.querySelector('aside[data-audio-player]');
+  if (player instanceof HTMLElement) mountCardiacArrestAudio(player);
 </script>

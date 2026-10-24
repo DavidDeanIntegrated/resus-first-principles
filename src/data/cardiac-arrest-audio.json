@@ -1,0 +1,86 @@
+[
+  {
+    "index": 0,
+    "heading": "Adult cardiac arrest",
+    "anchor": null,
+    "filename": "00-title-and-introduction.mp3",
+    "duration_seconds": 25.7
+  },
+  {
+    "index": 1,
+    "heading": "Orientation and first actions",
+    "anchor": "principle-orientation",
+    "filename": "01-orientation.mp3",
+    "duration_seconds": 21.8
+  },
+  {
+    "index": 2,
+    "heading": "What normal circulation accomplishes",
+    "anchor": "principle-normal-circulation",
+    "filename": "02-normal-circulation.mp3",
+    "duration_seconds": 374.5
+  },
+  {
+    "index": 3,
+    "heading": "The circulation CPR creates",
+    "anchor": "principle-cpr-circulation",
+    "filename": "03-cpr-circulation.mp3",
+    "duration_seconds": 1457.3
+  },
+  {
+    "index": 4,
+    "heading": "Electrical activity and mechanical output",
+    "anchor": "principle-electrical-mechanical",
+    "filename": "04-electrical-mechanical.mp3",
+    "duration_seconds": 584.3
+  },
+  {
+    "index": 5,
+    "heading": "Ventilation and heart-lung interaction",
+    "anchor": "principle-ventilation",
+    "filename": "05-ventilation.mp3",
+    "duration_seconds": 821.2
+  },
+  {
+    "index": 6,
+    "heading": "Reading the resuscitation",
+    "anchor": "principle-monitoring",
+    "filename": "06-monitoring.mp3",
+    "duration_seconds": 442.2
+  },
+  {
+    "index": 7,
+    "heading": "The Hs and Ts are ways the circulation fails",
+    "anchor": "principle-reversible-causes",
+    "filename": "07-reversible-causes.mp3",
+    "duration_seconds": 3002.7
+  },
+  {
+    "index": 8,
+    "heading": "Delivering and adapting treatment",
+    "anchor": "principle-treatment",
+    "filename": "08-treatment.mp3",
+    "duration_seconds": 411.8
+  },
+  {
+    "index": 9,
+    "heading": "After ROSC",
+    "anchor": "principle-after-rosc",
+    "filename": "09-after-rosc.mp3",
+    "duration_seconds": 838.1
+  },
+  {
+    "index": 10,
+    "heading": "Limits and stopping",
+    "anchor": "principle-limits",
+    "filename": "10-limits.mp3",
+    "duration_seconds": 127.7
+  },
+  {
+    "index": 11,
+    "heading": "Approach to treatment",
+    "anchor": "treatment-heading",
+    "filename": "11-approach-to-treatment.mp3",
+    "duration_seconds": 562.0
+  }
+]

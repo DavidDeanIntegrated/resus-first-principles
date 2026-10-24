@@ -6,9 +6,11 @@ interface Props {
   description: string;
   /** Home is a website. A case is an article. */
   ogType?: 'website' | 'article';
+  /** Adult cardiac arrest opts in so narration controls can show. */
+  audio?: boolean;
 }
 
-const { title, description, ogType = 'website' } = Astro.props;
+const { title, description, ogType = 'website', audio = false } = Astro.props;
 
 const SITE_NAME = 'Resus First Principles';
 const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
@@ -71,7 +73,7 @@ const themeChoiceTag = `<script>${themeChoice}</script>`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-audio={audio ? 'available' : undefined}>
   <head>
     <Fragment set:html={themeBootTag} />
     <meta charset="utf-8" />
