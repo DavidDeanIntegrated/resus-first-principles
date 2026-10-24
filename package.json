@@ -16,6 +16,7 @@
     "validate:strict": "node --experimental-strip-types scripts/validate-content.ts --strict",
     "check:no-models": "node scripts/check-no-model-calls.mjs",
     "check:types": "astro check",
+    "check:worker": "wrangler types && tsc -p tsconfig.worker.json --noEmit",
     "test": "vitest run"
   },
   "dependencies": {
