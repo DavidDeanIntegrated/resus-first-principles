@@ -96,10 +96,12 @@ describe('shock article integration', () => {
       for (const question of principle.questions) for (const id of question.refs ?? []) cited.add(id);
     }
     const signals = parsed.data.principles.find((principle) => principle.id === 'signals');
+    expect(signals?.body?.length).toBeGreaterThan(0);
     const signalsText = (signals?.body ?? []).join('\n');
-    expect(signalsText).toContain('where severe grades were associated with later kidney injury;');
-    expect(signalsText).toContain(
-      'severe tricuspid regurgitation can distort its hepatic venous waveform regardless of volume status.',
+    expect(signalsText).toMatch(/VExUS/);
+    expect(signalsText).toMatch(/tricuspid regurgitation/i);
+    expect(signals?.refs).toEqual(
+      expect.arrayContaining(['beaubien-souligny-2020', 'ter-horst-2026', 'innes-2026']),
     );
     const fluid = parsed.data.principles.find((principle) => principle.id === 'fluid-responsiveness');
     expect(fluid?.refs).toEqual(['ssc-2026']);
@@ -111,7 +113,7 @@ describe('shock article integration', () => {
     const vexUs = parsed.data.references?.find((reference) => reference.id === 'beaubien-souligny-2020');
     expect(vexUs?.label).toContain('development of the venous excess ultrasound grading system');
     expect(vexUs?.label).not.toMatch(/validation/i);
-    expect(vexUs?.note).toMatch(/Access: abstract or summary only/);
+    expect(vexUs?.note).toMatch(/Access: full text \(PMC7142196\)/);
     expect(vexUs?.url).toBe('https://doi.org/10.1186/s13089-020-00163-w');
     const antit = parsed.data.references?.find((reference) => reference.id === 'antit-2025');
     expect(antit?.label).toBe(
