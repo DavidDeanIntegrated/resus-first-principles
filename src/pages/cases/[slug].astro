@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import AudioPlayer from '../../components/AudioPlayer.astro';
 import Contents from '../../components/Contents.astro';
 import ManagementOverview from '../../components/ManagementOverview.astro';
 import ReferenceList from '../../components/ReferenceList.astro';
@@ -124,4 +125,9 @@ const numeralRecord = Object.fromEntries(numerals);
     </div>
   </section>
   {entry.data.references && <ReferenceList references={entry.data.references} />}
+  {
+    entry.data.slug === 'adult-cardiac-arrest' && (
+      <AudioPlayer demoTitle="The circulation CPR creates" demoElapsed="6:12" demoTotal="24:17" demoProgress={26} />
+    )
+  }
 </Base>
