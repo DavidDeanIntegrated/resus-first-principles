@@ -477,23 +477,23 @@
         "rows": [
           [
             "LVOT diameter, unchanged",
-            "2.0 cm",
-            "2.0 cm"
+            "2.0 cm",
+            "2.0 cm"
           ],
           [
             "LVOT area",
-            "About 3.14 cm²",
-            "About 3.14 cm²"
+            "About 3.14 cm²",
+            "About 3.14 cm²"
           ],
           [
             "VTI",
-            "14 cm",
-            "16 cm"
+            "14 cm",
+            "16 cm"
           ],
           [
             "Stroke volume",
-            "About 44 mL",
-            "About 50 mL"
+            "About 44 mL",
+            "About 50 mL"
           ],
           [
             "Heart rate, held stable",
@@ -502,8 +502,8 @@
           ],
           [
             "Cardiac output",
-            "About 4.4 L/min",
-            "About 5.0 L/min"
+            "About 4.4 L/min",
+            "About 5.0 L/min"
           ]
         ]
       },
