@@ -1,0 +1,24 @@
+---
+// V7.3 design (Atelier). Quiet "Listen from here" control for a section heading.
+// Sits after the heading as a sibling, never inside it, so heading text and hierarchy are unchanged.
+// Hidden until the page opts in with html[data-audio="available"] (set by Engineering Lead's JS).
+interface Props {
+  anchor: string;
+  title: string;
+}
+const { anchor, title } = Astro.props;
+---
+
+<button
+  type="button"
+  class="listen-from-here"
+  data-audio-listen
+  data-audio-anchor={anchor}
+  aria-label={`Listen from here: ${title}`}
+>
+  <svg class="listen-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+    <path d="M2 6h2.5L8 3v10L4.5 10H2z"></path>
+    <path class="listen-wave" d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.5 3.5a6.3 6.3 0 0 1 0 9"></path>
+  </svg>
+  <span>Listen from here</span>
+</button>

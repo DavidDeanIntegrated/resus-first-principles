@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "lib": ["ES2022"],
+    "types": [],
+    "skipLibCheck": true
+  },
+  "files": ["worker-configuration.d.ts", "src/worker.ts"],
+  "include": ["src/lib/byte-range.ts"]
+}
