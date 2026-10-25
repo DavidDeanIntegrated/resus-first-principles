@@ -101,7 +101,7 @@ describe('shock article integration', () => {
     expect(signalsText).toMatch(/VExUS/);
     expect(signalsText).toMatch(/tricuspid regurgitation/i);
     expect(signals?.refs).toEqual(
-      expect.arrayContaining(['beaubien-souligny-2020', 'ter-horst-2026', 'innes-2026']),
+      expect.arrayContaining(['beaubien-souligny-2020', 'ter-horst-2026', 'fattah-2025', 'innes-2026']),
     );
     const fluid = parsed.data.principles.find((principle) => principle.id === 'fluid-responsiveness');
     expect(fluid?.refs).toEqual(['ssc-2026']);
