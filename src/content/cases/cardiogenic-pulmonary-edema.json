@@ -10,6 +10,7 @@
   "reviewNote": "Ready for physician review.",
   "diagrams": [
     "r4-three-flooded-lungs",
+    "r4-pressure-chain",
     "r4-pressure-volume",
     "r4-pleural-pressure"
   ],
@@ -18,127 +19,132 @@
       "id": "esc-2026",
       "label": "Køber L, Adamo M, et al. 2026 ESC Guidelines for the management of heart failure. Eur Heart J. 2026;47(38):5346-5457",
       "url": "https://doi.org/10.1093/eurheartj/ehag100",
-      "note": "Checked by Search Bot against excerpts only, not the full text. Quoted passages only; recommendation classes not retrieved and not stated. Uses the term \"acute pulmonary oedema (APO)\"."
+      "note": "Recommendation classes are from its Recommendation Table 9. Uses the term \"acute pulmonary oedema (APO)\"."
     },
     {
       "id": "aha-2022",
       "label": "Heidenreich PA, Bozkurt B, Aguilar D, Allen LA, et al. 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure. Circulation. 2022;145(18):e895-e1032",
-      "url": "https://doi.org/10.1161/CIR.0000000000001063",
-      "note": "Citation metadata checked by Search Bot (Crossref); text not read. Cited for general framing only. Pages confirmed by Search Bot; acute-edema wording not read."
+      "url": "https://doi.org/10.1161/CIR.0000000000001063"
     },
     {
       "id": "udhf-2026",
       "label": "Walsh MN, Køber L, Sliwa K, Adamo M, et al. AHA/ACC/ESC/WHF Expert Consensus Document: Second Universal Definition of Heart Failure (2026). Circulation. 2026;154(7):e279-e293",
-      "url": "https://doi.org/10.1161/CIR.0000000000001455",
-      "note": "Checked by Search Bot against excerpts only, not the full text. Definition sentence read on the journal landing page."
+      "url": "https://doi.org/10.1161/CIR.0000000000001455"
     },
     {
       "id": "gaar-1967",
       "label": "Gaar KA Jr, Taylor AE, Owens LJ, Guyton AC. Pulmonary capillary pressure and filtration coefficient in the isolated perfused lung. Am J Physiol. 1967;213(4):910-914",
       "url": "https://doi.org/10.1152/ajplegacy.1967.213.4.910",
-      "note": "Citation metadata checked by Search Bot (Crossref); text not read. Cited for general framing only. Cited for the mechanism only (capillary pressure lies between pulmonary arterial and left atrial pressure). The 0.4 value in this chapter is illustrative and is not attributed to this paper."
+      "note": "Measurements in isolated, perfused dog lungs."
+    },
+    {
+      "id": "cope-1986",
+      "label": "Cope DK, Allison RC, Parmentier JL, Miller JN, Taylor AE. Measurement of effective pulmonary capillary pressure using the pressure profile after pulmonary artery occlusion. Crit Care Med. 1986;14(1):16-22",
+      "url": "https://doi.org/10.1097/00003246-198601000-00004"
+    },
+    {
+      "id": "souza-2005",
+      "label": "Souza R, Amato MB, Demarzo SE, et al. Pulmonary capillary pressure in pulmonary hypertension. Crit Care. 2005;9(2):R132-R138",
+      "url": "https://doi.org/10.1186/cc3038"
     },
     {
       "id": "staub-1974",
       "label": "Staub NC. Pulmonary edema. Physiol Rev. 1974;54(3):678-811",
-      "url": "https://doi.org/10.1152/physrev.1974.54.3.678",
-      "note": "Citation metadata checked by Search Bot (Crossref); text not read. Cited for general framing only."
+      "url": "https://doi.org/10.1152/physrev.1974.54.3.678"
     },
     {
       "id": "woodcock-2012",
       "label": "Woodcock TE, Woodcock TM. Revised Starling equation and the glycocalyx model of transvascular fluid exchange: an improved paradigm for prescribing intravenous fluid therapy. Br J Anaesth. 2012;108(3):384-394",
-      "url": "https://doi.org/10.1093/bja/aer515",
-      "note": "Checked by Search Bot against the full text for R3; used here as a cross-link only."
+      "url": "https://doi.org/10.1093/bja/aer515"
     },
     {
       "id": "fallick-2011",
       "label": "Fallick C, Sobotka PA, Dunlap ME. Sympathetically mediated changes in capacitance: redistribution of the venous reservoir as a cause of decompensation. Circ Heart Fail. 2011;4(5):669-675",
-      "url": "https://doi.org/10.1161/CIRCHEARTFAILURE.111.961789",
-      "note": "Citation metadata checked by Search Bot (Crossref); text not read. Cited for general framing only."
+      "url": "https://doi.org/10.1161/CIRCHEARTFAILURE.111.961789"
     },
     {
       "id": "cotter-2008",
       "label": "Cotter G, Metra M, Milo-Cotter O, Dittrich HC, et al. Fluid overload in acute heart failure — re-distribution and other mechanisms beyond fluid accumulation. Eur J Heart Fail. 2008;10(2):165-169",
-      "url": "https://doi.org/10.1016/j.ejheart.2008.01.007",
-      "note": "Checked by Search Bot against excerpts only, not the full text."
+      "url": "https://doi.org/10.1016/j.ejheart.2008.01.007"
     },
     {
       "id": "fudim-2017",
       "label": "Fudim M, Hernandez AF, Felker GM. Role of Volume Redistribution in the Congestion of Heart Failure. J Am Heart Assoc. 2017;6(8):e006817",
-      "url": "https://doi.org/10.1161/JAHA.117.006817",
-      "note": "Citation metadata checked by Search Bot (Crossref); text not read. Cited for general framing only."
+      "url": "https://doi.org/10.1161/JAHA.117.006817"
     },
     {
       "id": "paone-2018",
       "label": "Paone S, Clarkson L, Sin B, Punnapuzha S, et al. Recognition of Sympathetic Crashing Acute Pulmonary Edema (SCAPE) and use of high-dose nitroglycerin infusion. Am J Emerg Med. 2018;36:1526.e5-1526.e7",
       "url": "https://doi.org/10.1016/j.ajem.2018.05.013",
-      "note": "Citation metadata checked by Search Bot (Crossref); text not read. Cited for general framing only. Case report; cited for the term only. No regimen taken from it."
+      "note": "Case report; cited for the term."
     },
     {
       "id": "frontphys-2023",
       "label": "Alvarado AC, Pinsky MR. Cardiopulmonary interactions in left heart failure. Front Physiol. 2023;14:1237741",
       "url": "https://doi.org/10.3389/fphys.2023.1237741",
-      "note": "Checked by Search Bot against excerpts only, not the full text. Supports the direction of the pleural pressure effect, not any magnitude."
+      "note": "Supports the direction of the pleural pressure effect, not its size."
     },
     {
       "id": "pinsky-2018",
       "label": "Pinsky MR. Cardiopulmonary interactions: physiologic basis and clinical applications. Ann Am Thorac Soc. 2018;15(Suppl 1):S45-S48",
-      "url": "https://doi.org/10.1513/AnnalsATS.201704-339FR",
-      "note": "Citation metadata checked by Search Bot (Crossref); text not read. Cited for general framing only."
+      "url": "https://doi.org/10.1513/AnnalsATS.201704-339FR"
     },
     {
       "id": "gray-2008",
       "label": "Gray A, Goodacre S, Newby DE, Masson M, et al. Noninvasive ventilation in acute cardiogenic pulmonary edema. N Engl J Med. 2008;359(2):142-151",
       "url": "https://doi.org/10.1056/NEJMoa0707992",
-      "note": "Checked by Search Bot against the abstract only. Settings not reproduced."
+      "note": "The 3CPO trial."
     },
     {
       "id": "berbenetz-2019",
       "label": "Berbenetz N, Wang Y, Brown J, Godfrey C, et al. Non-invasive positive pressure ventilation (CPAP or bilevel NPPV) for cardiogenic pulmonary oedema. Cochrane Database Syst Rev. 2019;(4):CD005351",
       "url": "https://doi.org/10.1002/14651858.CD005351.pub4",
-      "note": "Citation metadata checked by Search Bot (Crossref); text not read. Cited for general framing only. No numbers quoted."
+      "note": "Cochrane review of 24 randomized trials; certainty ratings are the review's own."
     },
     {
       "id": "cotter-1998",
       "label": "Cotter G, Metzkor E, Kaluski E, Faigenberg Z, et al. Randomised trial of high-dose isosorbide dinitrate plus low-dose furosemide versus high-dose furosemide plus low-dose isosorbide dinitrate in severe pulmonary oedema. Lancet. 1998;351(9100):389-393",
-      "url": "https://doi.org/10.1016/S0140-6736(97)08417-1",
-      "note": "Citation metadata checked by Search Bot (Crossref); text not read. Cited for general framing only. Cited for the comparison tested only; no doses or results quoted."
+      "url": "https://doi.org/10.1016/S0140-6736(97)08417-1"
     },
     {
       "id": "felker-2011",
       "label": "Felker GM, Lee KL, Bull DA, Redfield MM, et al. Diuretic strategies in patients with acute decompensated heart failure. N Engl J Med. 2011;364(9):797-805",
       "url": "https://doi.org/10.1056/NEJMoa1005419",
-      "note": "Citation metadata checked by Search Bot (Crossref); text not read. Cited for general framing only. Result stated from the 2026 ESC summary (excerpt)."
+      "note": "The DOSE trial."
     },
     {
       "id": "peacock-2008",
       "label": "Peacock WF, Hollander JE, Diercks DB, Lopatin M, et al. Morphine and outcomes in acute decompensated heart failure: an ADHERE analysis. Emerg Med J. 2008;25(4):205-209",
       "url": "https://doi.org/10.1136/emj.2007.050419",
-      "note": "Checked by Search Bot against the abstract only. No odds ratio quoted."
+      "note": "Registry analysis (ADHERE)."
     },
     {
       "id": "zhang-2021",
       "label": "Zhang D, Lai W, Liu X, Shen Y, Hong K. The safety of morphine in patients with acute heart failure: a systematic review and meta-analysis. Clin Cardiol. 2021;44(9):1216-1224",
-      "url": "https://doi.org/10.1002/clc.23691",
-      "note": "Checked by Search Bot against the abstract only."
+      "url": "https://doi.org/10.1002/clc.23691"
     },
     {
       "id": "gao-2021",
       "label": "Gao D, David C, Rosa MM, Costa J, Pinto FJ, Caldeira D. The Risk of Mortality Associated With Opioid Use in Patients With Acute Heart Failure: Systematic Review and Meta-analysis. J Cardiovasc Pharmacol. 2021;77(2):123-129",
       "url": "https://doi.org/10.1097/FJC.0000000000000954",
-      "note": "Checked by Search Bot against the abstract only. Source of the very low certainty rating."
+      "note": "Source of the very low certainty rating."
     },
     {
       "id": "chaudhry-2007",
       "label": "Chaudhry SI, Wang Y, Concato J, Gill TM, Krumholz HM. Patterns of Weight Change Preceding Hospitalization for Heart Failure. Circulation. 2007;116(14):1549-1554",
       "url": "https://doi.org/10.1161/CIRCULATIONAHA.107.690768",
-      "note": "Checked by Search Bot against the abstract only. Source for weight gain beginning days to weeks before admission."
+      "note": "Case-control study of weight change before hospitalization."
     },
     {
       "id": "lus-2026",
       "label": "Volpicelli G, Gargani L, Zieleskiewicz L, Tuinman PR, et al. International evidence-based recommendations for point-of-care lung ultrasound (2025 focused update of the 2012 recommendations). Intensive Care Med. 2026;52:1415-1446",
-      "url": "https://doi.org/10.1007/s00134-026-08487-2",
-      "note": "Checked by Search Bot against excerpts only, not the full text. Landing page only; B-line wording not read, so no count or accuracy figure is given."
+      "url": "https://doi.org/10.1007/s00134-026-08487-2"
+    },
+    {
+      "id": "rao-2025",
+      "label": "Rao SV, O'Donoghue ML, Ruel M, et al. 2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the management of patients with acute coronary syndromes. Circulation. 2025;151(13)",
+      "url": "https://doi.org/10.1161/CIR.0000000000001309",
+      "note": "Nitrate cautions from Table 6."
     }
   ],
   "principles": [
@@ -146,7 +152,7 @@
       "id": "three-flooded",
       "title": "Part I. Three flooded lungs, one picture",
       "body": [
-        "Three adults arrive breathless, upright and crackling to the mid zones of both lungs. Like the patients in the earlier chapters they are hypothetical, built for teaching, and each weighs about 80 kg at baseline. Their numbers are illustrative and internally consistent, and every calculation is shown where it is used. Echocardiography findings are given as if they had been measured; this chapter does not teach how to obtain them.",
+        "Three adults arrive breathless, upright and crackling to the mid zones of both lungs. Like the patients in the earlier chapters they are hypothetical, built for teaching, and each weighs about 80 kg at baseline. Their numbers are illustrative and internally consistent, and every calculation is shown where it is used. Echocardiography findings are given as if they had been measured; how to obtain them is covered elsewhere.",
         "Patient S is 68 and has long-standing hypertension. Her breathlessness began about 30 minutes ago. Her heart rate is 122, her blood pressure 210/120 and her respiratory rate 34, and her oxygen saturation is 84 percent on room air. She is sweating and cannot lie back. Her weight is the same as at a clinic visit last week and she has no leg edema. Echocardiography shows a normal-sized left ventricle with thick walls and a preserved ejection fraction.",
         "Patient F is 74 and has a known reduced ejection fraction. He stopped taking his diuretic ten days ago and has become steadily more breathless, now sleeping in a chair. He weighs 86 kg against his usual 80. His heart rate is 96, his blood pressure 132/78, his respiratory rate 26 and his saturation 89 percent on room air. His jugular venous pressure is raised and he has pitting edema to the knees.",
         "Patient K is 62 and had an anterior myocardial infarction eight hours ago. His heart rate is 115, his blood pressure 84/60, his respiratory rate 30 and his saturation 88 percent on room air. His knees are cool and mottled and his lactate is 5.0 mmol/L. He has gained no weight.",
@@ -159,7 +165,7 @@
       "parentId": "three-flooded",
       "title": "What cardiogenic pulmonary edema is",
       "body": [
-        "Cardiogenic, or hydrostatic, pulmonary edema is fluid in the lung that has been pushed out of the pulmonary capillaries by a high pressure behind the left side of the heart. The capillary wall is intact; the force across it is too high. That separates it from permeability edema, where the wall itself leaks at a normal pressure.",
+        "Cardiogenic, or hydrostatic, pulmonary edema is fluid in the lung that has been pushed out of the pulmonary capillaries by a high pressure behind the left side of the heart. It is predominantly pressure-driven: the force across the capillary wall is too high. That separates it from permeability edema, where an injured wall leaks at a normal pressure. The distinction is about the dominant mechanism, not proof of a perfectly normal barrier; high pressure can coexist with injury to the capillary wall or the alveolar lining, and the two mechanisms can occur together.",
         "Heart failure is defined as a syndrome of symptoms and signs caused by a structural or functional cardiac abnormality, not by a single hemodynamic state. The 2026 ESC guideline describes four presentations of decompensated heart failure, \"decompensated left-sided HF, decompensated right-sided HF, acute pulmonary oedema (APO), and cardiogenic shock (CS)\", and adds that \"possible overlaps exist.\" Patients S, F and K map loosely onto acute pulmonary edema, decompensated left-sided failure and cardiogenic shock, with overlap, which is the point of meeting them together."
       ],
       "questions": [
@@ -167,8 +173,8 @@
           "id": "q-define-transfer",
           "kind": "transfer",
           "prompt": "A patient develops crackles and hypoxemia within hours of receiving several units of blood. What do you need to know before calling this cardiogenic pulmonary edema?",
-          "answer": "You need evidence about the pressure behind the left heart and about the capillary wall. Signs of a high filling pressure, such as a raised jugular venous pressure, a rising blood pressure, a known weak or stiff ventricle and a positive fluid balance, point to a hydrostatic cause. Fever, a normal heart and a normal filling pressure point to a permeability cause. The picture of fluid in the lung is the same; the force that put it there is not.",
-          "causalChain": "Fluid leaves the capillary through high pressure or a leaking wall; the image cannot tell which; filling pressure, heart function and the time course separate them.",
+          "answer": "You need evidence about the pressure behind the left heart and about the capillary wall, and no single sign settles it. Transfusion can cause hydrostatic overload (transfusion-associated circulatory overload) or lung injury that raises permeability (transfusion-related acute lung injury), and the two can overlap. Signs of a high filling pressure, such as a raised jugular venous pressure, a rising blood pressure, a known weak or stiff ventricle, a positive fluid balance and echocardiographic signs of raised filling pressure, favor overload. Fever can occur in either, and a normal-sized heart does not exclude overload in a stiff ventricle. Useful information includes the volume and rate of transfusion, the fluid balance, baseline heart and kidney function, the time course, and the response to unloading or fluid removal. The picture of fluid in the lung can be the same; the force that put it there may not be.",
+          "causalChain": "Fluid leaves the capillary through high pressure or a leaking wall; the image cannot tell which; filling pressure, heart function, fluid balance and the time course help separate them, and both can be present.",
           "assumption": "That the transfusion volume and the patient's baseline heart function can be found out.",
           "misconception": "That fluid in the lung after a transfusion is always circulatory overload."
         }
@@ -192,7 +198,7 @@
           "id": "q-same-xray",
           "kind": "prediction",
           "prompt": "Patients S and F have identical chest radiographs. Predict whether a loop diuretic will help them to the same degree, and why.",
-          "answer": "No. F has gained about 6 L of water over ten days, so removing salt and water treats what put fluid in his lungs, although it takes hours. S has gained nothing; her lungs flooded because pressure behind the left heart surged with the same body water. A diuretic would remove water she did not gain and would act more slowly than her problem developed. Lowering her afterload and venous tone, and supporting her breathing, act on what changed.",
+          "answer": "No. F has gained about 6 L of water over ten days, so removing salt and water treats what put fluid in his lungs, although net decongestion takes hours. S has gained no weight recently; her lungs flooded mainly because pressure behind the left heart surged, with little change in body water. A diuretic does not address that immediate problem and acts more slowly than it developed, although she may still need some decongestion if she also carries chronic excess fluid, which a stable weight and no leg edema do not rule out. Lowering her afterload and venous tone, and supporting her breathing, act on what changed.",
           "causalChain": "Same image; different cause of the high filling pressure; accumulation responds to volume removal over hours; redistribution responds to unloading over minutes.",
           "assumption": "That the weights and the time course are accurate.",
           "misconception": "That the same radiograph means the same treatment."
@@ -209,8 +215,8 @@
       },
       "diagram": {
         "id": "r4-three-flooded-lungs",
-        "caption": "Figure 1 (proposal). Same lungs, three circulations. Patients S, F and K as three small circuits. S: MAP 150, weight change 0 kg, shock index 0.58. F: MAP 96, weight change +6 kg. K: MAP 68, shock index 1.37, lactate 5.0. Illustrative teaching numbers.",
-        "alt": "Three simple circuit diagrams side by side, each with a heart, lungs and body. All three lungs are shaded to show fluid. The left circuit, Patient S, shows narrowed arteries and labels MAP 150, weight change 0 kg and shock index 0.58. The middle circuit, Patient F, shows swollen legs and labels MAP 96 and weight change plus 6 kg. The right circuit, Patient K, shows a small heart output and labels MAP 68, shock index 1.37 and lactate 5.0."
+        "caption": "Figure 1. Same lungs, three circulations, and the ground between them. Patients S, F and K as overlapping circles: redistribution (S), accumulation (F) and pump failure (K). S: MAP 150, weight change 0 kg, shock index 0.58. F: MAP 96, weight change +6 kg. K: MAP 68, shock index 1.37, lactate 5.0. S and F overlap where excess water and a pressure surge occur together; S and K overlap where flooded lungs and high afterload meet low forward flow. F and K do not overlap. Illustrative teaching numbers.",
+        "alt": "Three overlapping circles, each drawn with a different outline style. The middle circle is labeled redistribution, Patient S, with MAP 150, weight change 0 kg and shock index 0.58, and the words sudden onset, high pressure, no recent weight gain. The left circle, labeled accumulation, Patient F, shows MAP 96 and weight change plus 6 kg, and overlaps the middle circle in a region labeled excess water plus a pressure surge. The right circle, labeled pump failure, Patient K, shows MAP 68, shock index 1.37 and lactate 5.0, and overlaps the middle circle in a region labeled flooded lungs and high afterload, with low forward flow. The left and right circles do not touch. Below the circles, a line says which problem dominates now is a bedside judgment, not a number, and a note says no recent weight gain does not prove normal body water, and a quick response to nitrates or CPAP does not prove redistribution alone. A tag says B-lines are a pattern consistent with increased density of the lung interstitium, from fluid or from thickening, and do not measure left atrial pressure or identify the cause. A footer says all three lungs hold fluid and the image cannot tell them apart."
       }
     },
     {
@@ -218,8 +224,8 @@
       "parentId": "three-flooded",
       "title": "Not every patient has a weak heart or too much water",
       "body": [
-        "Two common assumptions fail in these three patients. The first is that pulmonary edema means a weak, low ejection fraction ventricle. Patient S has a preserved ejection fraction; her ventricle is stiff, not weak, and she floods because its pressure rises steeply with a small change in volume. The second is that pulmonary edema means too much body water. S and K have gained none. Only F fits both assumptions.",
-        "The 2026 ESC guideline describes acute pulmonary edema as often showing \"a predominant fluid redistribution that implies pulmonary congestion without total volume overload, primarily due to blood shift into the pulmonary circulation.\" The rest of this chapter follows that idea through the capillary, the left heart and the treatment."
+        "Two common assumptions fail in these three patients. The first is that pulmonary edema means a weak, low ejection fraction ventricle. Patient S has a preserved ejection fraction; her ventricle is stiff, not weak, and she floods because its pressure rises steeply with a small change in volume. The second is that pulmonary edema means too much body water. S and K have gained no weight recently, although that alone does not prove their total body water is normal. Only F clearly fits both assumptions.",
+        "The 2026 ESC guideline describes acute pulmonary edema as often showing \"a predominant fluid redistribution that implies pulmonary congestion without total volume overload, primarily due to blood shift into the pulmonary circulation.\" The sections that follow trace that idea through the capillary, the left heart and the treatment."
       ],
       "questions": [],
       "refs": [
@@ -240,7 +246,7 @@
       "title": "The forces across the wall",
       "body": [
         "Two kinds of pressure act across the capillary wall. Hydrostatic pressure inside the capillary pushes fluid out, and hydrostatic pressure in the surrounding interstitium pushes back. Oncotic pressure, the pull of proteins that cannot easily cross the wall, holds fluid in the plasma. Net filtration depends on the balance of these forces, scaled by how permeable the wall is to water and how well it holds back protein.",
-        "The [Septic Shock chapter](https://www.resusfirstprinciples.io/cases/septic-shock#principle-glycocalyx-starling) described the revised version of this principle, in which the effective oncotic gradient is set across the endothelial glycocalyx rather than across the whole interstitium. That chapter dealt with a wall that leaks at normal pressure. This chapter deals with the opposite case: an intact wall and a high pressure. In cardiogenic edema the capillary hydrostatic pressure is the term that has changed, so lowering that pressure is the most direct way to reverse it.",
+        "The [Septic Shock chapter](https://www.resusfirstprinciples.io/cases/septic-shock#principle-glycocalyx-starling) described the revised version of this principle, in which the effective oncotic gradient is set across the endothelial glycocalyx rather than across the whole interstitium. That chapter dealt mainly with a wall that leaks. Cardiogenic edema is the mirror case: the dominant change is a high capillary hydrostatic pressure, usually across a wall that is largely intact, so lowering that pressure is the most direct lever. The same model applies in both: when capillary pressure falls, reabsorption across the capillary wall is at most brief, and most filtered fluid returns to the circulation through the lymphatics.",
         "Because filtration rises with capillary pressure, anything that raises left atrial pressure raises the force pushing fluid out across every capillary in both lungs at once. That is why hydrostatic edema is usually bilateral, and why it tends to gather first where hydrostatic pressure is greatest."
       ],
       "questions": [],
@@ -278,8 +284,8 @@
       "parentId": "starling",
       "title": "From interstitium to alveolus",
       "body": [
-        "The sequence matters at the bedside. Interstitial fluid stiffens the lung and compresses small airways before it reaches the alveoli: breathing feels harder, the respiratory rate rises and oxygenation falls modestly. Once alveoli fill, they stop taking part in gas exchange, the blood passing them is not oxygenated, and hypoxemia worsens quickly.",
-        "Different observations catch different stages. Lung ultrasound and imaging see interstitial fluid early, while gas exchange changes more once alveoli flood. Clearance runs the other way. A falling pressure first stops new filtration, alveolar fluid is then removed by active transport and the lymphatics, and the interstitium dries last. That is why a patient can breathe much better before the image looks clear."
+        "The sequence matters at the bedside. Interstitial fluid stiffens the lung and compresses small airways before it reaches the alveoli: breathing feels harder, the respiratory rate rises and oxygenation falls modestly. Once alveoli fill, they receive blood but no gas, which is shunt, and partly filled units add low ventilation-perfusion mismatch, so hypoxemia worsens quickly.",
+        "Different observations catch different stages. Lung ultrasound and imaging see interstitial fluid early, while gas exchange changes more once alveoli flood. Clearance is not simply formation in reverse. A falling pressure reduces new filtration. The alveolar epithelium transports salt, and water follows, out of the airspaces into the interstitium, from where the lymphatics and the circulation remove it. The order and speed vary between patients. The useful principle is that a patient can breathe much better before lung water has fully cleared or the image looks clear."
       ],
       "questions": [],
       "refs": [
@@ -291,7 +297,7 @@
       "parentId": "starling",
       "title": "A contrast: edema at low pressure",
       "body": [
-        "Consider a patient with pneumonia who develops acute respiratory distress syndrome. Her heart is normal in size and contracts well, and nothing suggests a high left atrial pressure. Her lungs fill because the alveolar-capillary barrier is injured and leaks protein-rich fluid at a normal pressure. Her radiograph and ultrasound can look like Patient S's. The [respiratory failure chapter](https://www.resusfirstprinciples.io/cases/acute-respiratory-failure#principle-vq-shunt) explains the resulting shunt, and the [Septic Shock chapter](https://www.resusfirstprinciples.io/cases/septic-shock#principle-where-fluid-goes) explains leak in the systemic circulation. Lowering left atrial pressure helps her less, because pressure is not the term that changed. This chapter goes no further into her care."
+        "Consider a patient with pneumonia who develops acute respiratory distress syndrome. Her heart is normal in size and contracts well, and nothing suggests a high left atrial pressure. Her lungs fill because the alveolar-capillary barrier is injured and leaks protein-rich fluid at a normal pressure. Her radiograph and ultrasound can look like Patient S's. The [respiratory failure chapter](https://www.resusfirstprinciples.io/cases/acute-respiratory-failure#principle-vq-shunt) explains the resulting shunt, and the [Septic Shock chapter](https://www.resusfirstprinciples.io/cases/septic-shock#principle-where-fluid-goes) explains leak in the systemic circulation. Lowering left atrial pressure helps her less, because pressure is not the term that changed. Her care is not followed further here."
       ],
       "questions": [
         {
@@ -318,22 +324,29 @@
       "parentId": "left-pressures",
       "title": "From ventricle to capillary",
       "body": [
-        "During diastole, with the mitral valve open, the left ventricle, the left atrium and the pulmonary veins behave as one chamber. Left ventricular end-diastolic pressure is therefore close to left atrial pressure, and pulmonary capillary pressure must be higher still, because blood flows from the capillaries toward the atrium. Capillary pressure lies between pulmonary arterial pressure and left atrial pressure, closer to the left atrial end; this was estimated in isolated perfused lungs. The wedge pressure obtained with a pulmonary artery catheter estimates left atrial pressure, not capillary pressure, which is somewhat higher.",
+        "Several different pressures lie along this chain. Left ventricular end-diastolic pressure (LVEDP) is the pressure in the ventricle at the end of filling. Left atrial pressure changes through the cardiac cycle, with one wave from atrial contraction and another as the atrium fills while the mitral valve is closed. Pulmonary venous pressure lies just upstream of the atrium, and pulmonary capillary pressure lies further upstream, between pulmonary arterial and pulmonary venous pressure, because blood flows only down a pressure gradient. When the mitral valve opens in diastole the atrium and ventricle connect, and with a normal valve, an organized atrial rhythm and a normally compliant atrium, mean left atrial pressure and LVEDP track each other reasonably closely.",
+        "They separate when the mitral valve is narrowed, so that left atrial pressure stays above ventricular pressure through diastole; when the valve leaks substantially; when the atrium is stiff or enlarged; when atrial rhythm is lost; and depending on when in the cardiac cycle the pressure is read. In acute severe mitral regurgitation, for example, blood driven back into a small, unadapted atrium during systole can produce a large pressure wave, so left atrial pressure, and the pressures upstream of it, can exceed LVEDP. The wedge pressure obtained with a pulmonary artery catheter estimates left atrial pressure, downstream of the capillaries, when it is measured under the right conditions. It is not a direct measurement of capillary pressure, which is higher, and it is not interchangeable with LVEDP.",
         "The practical conclusion is that left atrial pressure is the main lever on capillary filtration. Raise it and every capillary filters more; lower it and filtration falls everywhere at once. The [Shock chapter](https://www.resusfirstprinciples.io/cases/shock-pressure-flow#principle-loading-terms) explained why a filling pressure is not the same as a filling volume, which is the subject of the next section."
       ],
       "questions": [],
       "refs": [
-        "gaar-1967"
+        "gaar-1967",
+        "cope-1986",
+        "souza-2005"
       ],
       "workedExample": {
         "id": "we-capillary-pressure",
-        "title": "Worked example: an illustrative capillary pressure estimate",
+        "title": "Worked example: where capillary pressure sits",
         "body": [
-          "A teaching approximation places capillary pressure a fixed fraction of the way from left atrial pressure up to mean pulmonary arterial pressure: capillary pressure = left atrial pressure + k x (mean pulmonary arterial pressure - left atrial pressure). This chapter uses k = 0.4 as an illustrative value only. It is not drawn from a verified source, and how well any single value holds at high left atrial pressure is unknown.",
-          "Normal-range example, illustrative values: left atrial pressure 10 mm Hg, mean pulmonary arterial pressure 15 mm Hg. Capillary pressure = 10 + 0.4 x (15 - 10) = 10 + 2 = 12 mm Hg.",
-          "Patient S, illustrative values: left atrial pressure 28 mm Hg, mean pulmonary arterial pressure 38 mm Hg. Capillary pressure = 28 + 0.4 x (38 - 28) = 28 + 4 = 32 mm Hg.",
-          "Whatever value k takes, capillary pressure tracks left atrial pressure closely, so most of S's rise in filtration force comes from the rise in her left atrial pressure."
+          "Measurements in isolated, perfused dog lungs by Gaar and colleagues in 1967 placed capillary pressure part of the way from left atrial pressure up to mean pulmonary arterial pressure, closer to the left atrial end, because part of the resistance of the lung's vessels lies downstream of the capillaries. That picture explains why capillary pressure sits above the wedge pressure.",
+          "It is not a bedside calculation. The share of resistance beyond the capillaries changes when the lung's arteries or veins constrict. In one study in dogs, serotonin raised pulmonary artery pressure much more than capillary pressure, while histamine raised capillary pressure more than pulmonary artery pressure, with the wedge pressure unchanged in both; in thoracic surgery patients capillary pressure was not consistently related to wedge pressure (Cope and colleagues, 1986). Later work on capillary pressure in pulmonary hypertension treats the fixed-fraction (Gaar) equation as inaccurate and relies instead on the pressure decay after arterial occlusion (Souza and colleagues, 2005).",
+          "For Patient S the teaching point holds without a number. While the split of resistance stays roughly the same, capillary pressure rises with left atrial pressure and sits above it, so most of her rise in filtration force comes from the rise in her left atrial pressure."
         ]
+      },
+      "diagram": {
+        "id": "r4-pressure-chain",
+        "caption": "Figure 2. From ventricle to capillary. A rise in filling pressure is transmitted back from the left ventricle through the left atrium and pulmonary veins to the lung capillaries, where filtration rises with capillary pressure. Lymph flow rises to match filtration up to a limit; beyond it, fluid collects around the bronchovascular bundles, then in the alveolar walls, then in the alveoli. The wedge pressure estimates left atrial pressure, not capillary pressure, and is not interchangeable with LVEDP. Schematic; no values.",
+        "alt": "A schematic chain of boxes from the left ventricle to the lung capillaries, with no values. A dashed line labeled pressure runs from the left ventricle toward the capillaries, and a separate thin solid line labeled blood flow runs the other way. Left ventricle: LVEDP, the pressure at the end of filling; a filling pressure is not a filling volume. A strip says mean left atrial pressure and LVEDP track reasonably closely with a normal valve, an organized atrial rhythm and a normally compliant atrium, and separate with a narrowed or substantially leaking mitral valve, a stiff or enlarged atrium, lost atrial rhythm, and the point in the cardiac cycle when the pressure is read. Left atrium: left atrial pressure changes through the cardiac cycle; a dashed marker says the wedge pressure estimates left atrial pressure under the right conditions, is not a direct measure of capillary pressure and is not interchangeable with LVEDP. Pulmonary veins: pressure just upstream of the atrium. Lung capillaries: pressure between pulmonary arterial and venous pressure, higher than left atrial pressure. An arrow says filtration rises with capillary pressure and leads to the interstitium, where lymph flow rises to match filtration, up to a limit. When filtration exceeds lymph capacity, fluid collects in three numbered stages: around the bronchovascular bundles, in the alveolar walls, and in the alveoli. A dotted box says the alveolar epithelium transports salt, water follows, and the lymphatics and the circulation remove it. A key says the wedge pressure estimates left atrial pressure, lung ultrasound and imaging see interstitial fluid, and neither measures capillary pressure directly."
       }
     },
     {
@@ -347,7 +360,7 @@
       "questions": [],
       "diagram": {
         "id": "r4-pressure-volume",
-        "caption": "Figure 2 (proposal). Diastolic pressure-volume curves for a compliant and a stiff ventricle. The same small increase in volume produces a small rise in pressure on the compliant curve and a large rise on the stiff curve. Schematic; no numeric axes.",
+        "caption": "Figure 3. Diastolic pressure-volume curves for a compliant and a stiff ventricle. The same small increase in volume produces a small rise in pressure on the compliant curve and a large rise on the stiff curve. Schematic; no numeric axes.",
         "alt": "A graph with ventricular volume on the horizontal axis and diastolic pressure on the vertical axis, without numbers. Two curves rise from left to right. The lower, flatter curve is labeled compliant ventricle. The upper, steeper curve is labeled stiff ventricle. On each curve, a short horizontal arrow shows the same small increase in volume, and a vertical arrow shows the resulting rise in pressure, which is small on the compliant curve and large on the stiff curve."
       }
     },
@@ -373,7 +386,7 @@
           "id": "q-stiff-transfer",
           "kind": "transfer",
           "prompt": "A patient with severe aortic stenosis develops atrial fibrillation at 150 per minute and acute pulmonary edema. Which part of the chain is now limiting, and how does that change the reasoning used for Patient S?",
-          "answer": "Two links are limiting. Filling is limited because the fast rate shortens diastole and the atrial contribution is gone, so a stiff, hypertrophied ventricle needs a high pressure to fill. Ejection is limited by a fixed valve rather than by arterial pressure, so lowering systemic pressure unloads the ventricle less than it did for S and can reduce coronary perfusion of a thick ventricle. Restoring filling time by controlling the rate becomes central, and unloading by lowering arterial pressure needs more care.",
+          "answer": "Two links are limiting. Filling is limited because the fast rate shortens diastole and the atrial contribution is gone, so a stiff, hypertrophied ventricle needs a high pressure to fill. Ejection is limited by a fixed valve rather than by arterial pressure, so lowering systemic pressure unloads the ventricle less than it did for S and can reduce coronary perfusion of a thick ventricle. Restoring filling time becomes central. If the patient is unstable, with low blood pressure, poor perfusion or worsening respiratory failure, the fast rhythm is itself an emergency that needs urgent rhythm and hemodynamic assessment and specialist help, not only gradual rate control. Unloading by lowering arterial pressure needs more care.",
           "causalChain": "Fast rate shortens diastole; loss of atrial contraction impairs filling; a stiff ventricle needs a high filling pressure; fixed outflow obstruction limits the benefit of lowering arterial pressure.",
           "assumption": "That the stenosis is severe and the rhythm is new.",
           "misconception": "That every patient with hypertensive-looking pulmonary edema responds to afterload reduction in the same way."
@@ -394,7 +407,7 @@
       "title": "Moving blood without adding any",
       "body": [
         "The [Shock chapter](https://www.resusfirstprinciples.io/cases/shock-pressure-flow#principle-stressed-volume) explained that much of the blood sits in compliant veins as unstressed volume, which fills the vessels without stretching them, and that venoconstriction can convert unstressed volume into stressed volume and raise the pressure that drives venous return. The splanchnic veins hold a large reservoir of this blood and respond strongly to sympathetic stimulation.",
-        "In a sympathetic surge, splanchnic venoconstriction moves blood from that reservoir toward the heart, and venous return rises with no change in total body water. A healthy heart passes the extra return forward. A stiff or weak left ventricle cannot, so the blood gathers in the pulmonary circulation and raises left atrial pressure. Weight gain can start days to weeks before admission, but some patients flood quickly with little change in weight. Redistribution floods the lungs with the body's own blood."
+        "In a sympathetic surge, splanchnic venoconstriction moves blood from that reservoir toward the heart, and venous return rises with no change in total body water. A healthy heart passes the extra return forward. A stiff or weak left ventricle cannot, so the blood gathers in the pulmonary circulation and raises left atrial pressure. Weight gain can start days to weeks before admission, but some patients flood quickly with little change in weight. Redistribution moves the body's own blood into the chest. The edema is the fluid that the raised pressure then filters out of the vessels into lung tissue and alveoli, not blood in the airspaces."
       ],
       "questions": [],
       "refs": [
@@ -410,7 +423,7 @@
       "title": "Sympathetic crashing acute pulmonary edema",
       "body": [
         "Patient S shows the pattern called sympathetic crashing acute pulmonary edema, or SCAPE. Onset is abrupt, blood pressure is very high, the patient is sweating, anxious and upright, and the ejection fraction is often preserved. The term comes mainly from emergency medicine case reports and reviews, and its boundaries have not been formally defined.",
-        "The pattern is commonly described as a loop. Rising left atrial pressure floods alveoli. Hypoxemia and breathlessness drive sympathetic activity. Catecholamines constrict arteries, raising afterload, and constrict veins, moving more blood into the chest, and both raise left atrial pressure further. Each turn of the loop makes the next worse. This is a reasonable reading of the physiology, but its support is low grade. What it predicts is still useful: breaking the loop at any point, by lowering afterload, reducing venous return or easing hypoxemia and the work of breathing, should help, and quickly."
+        "The pattern is commonly described as a loop. Rising left atrial pressure floods alveoli. Hypoxemia and breathlessness drive sympathetic activity. Catecholamines constrict arteries, raising afterload, and constrict veins, moving more blood into the chest, and both raise left atrial pressure further. Unless something interrupts it, the loop can sustain itself. This is a reasonable reading of the physiology, but its support is low grade. What it predicts is still useful: breaking the loop at any point, by lowering afterload, reducing venous return or easing hypoxemia and the work of breathing, should help, and quickly."
       ],
       "questions": [],
       "refs": [
@@ -423,7 +436,7 @@
       "title": "Patient F: weeks of water",
       "body": [
         "Patient F's course is different. Without his diuretic, his kidneys retained salt and water over days. His blood volume and interstitial volume both rose, his venous pressure climbed, as his raised jugular venous pressure and leg edema show, and his left atrial pressure rose with them until the lung's reserves were overwhelmed. His 6 kg gain is a rough measure of the excess.",
-        "For F, removing water treats the cause. It takes hours to days, because the kidneys must excrete it and fluid must move from the tissues back into the vessels before it can be removed. In the meantime his breathing and his left atrial pressure can be helped by the tools that help S, since positive pressure and venodilation reduce the volume in the chest while the excess is removed."
+        "For F, removing water treats the cause. A loop diuretic starts to act soon after an intravenous dose, but substantial net decongestion takes hours to days, because the kidneys must excrete the excess and fluid must move from the tissues back into the vessels before it can be removed. In the meantime his breathing and his left atrial pressure can be helped by the tools that help S, since positive pressure and venodilation reduce the volume in the chest while the excess is removed."
       ],
       "questions": []
     },
@@ -432,15 +445,16 @@
       "parentId": "redistribution",
       "title": "Most patients sit between the two",
       "body": [
-        "S and F are the ends of a range. Many patients have some excess water and a superimposed surge in pressure. History, weight change, blood pressure, venous pressure and peripheral edema each point one way or the other. A high blood pressure, sudden onset and no weight gain point to redistribution. Weeks of breathlessness, weight gain and edema point to accumulation. How often each pattern occurs has not been measured in a way this chapter can cite, so the distinction is a bedside judgment, not a number."
+        "S and F are the ends of a range. Many patients have some excess water and a superimposed surge in pressure. History, weight change, blood pressure, venous pressure and peripheral edema each point one way or the other. A high blood pressure, sudden onset and no weight gain point to redistribution. Weeks of breathlessness, weight gain and edema point to accumulation. No recent weight gain does not prove that total body water is normal, no leg edema does not rule out excess fluid, and a quick response to nitrates or CPAP does not prove that redistribution was the only mechanism. The distinction is a bedside judgment about which problem dominates now, not a number.",
+        "Consider a patient with long-standing heart failure who has been slowly gaining fluid for weeks, with a raised venous pressure and leg edema, and who then has a sudden hypertensive surge and abrupt breathlessness. Two problems are present at once. The surge has moved blood into the chest and raised the afterload on a ventricle already near the steep part of its pressure-volume curve, and that is the problem that threatens the next hour. Unloading with a vasodilator, if the blood pressure allows, and positive pressure for the work of breathing act on it within minutes. The accumulated excess is still there once the surge has been reversed, and it will bring the edema back, so decongestion with a loop diuretic over the following hours and days is also appropriate. A quick response to unloading does not show that the excess fluid was absent, and the need for later decongestion does not make unloading the wrong first step."
       ],
       "questions": [
         {
           "id": "q-f-vs-s",
           "kind": "prediction",
           "prompt": "Patients S and F each receive the same intravenous loop diuretic, with no other treatment. Predict whose breathing improves first, and whose urine output tells you more.",
-          "answer": "Neither may improve quickly from the diuretic alone, and the reasons differ. F's urine output matters more: he holds about 6 L of excess water, and removing it treats his cause, although his breathing will improve over hours. S has no excess water. She may pass urine, but that removes water she did not gain, and her breathing depends on whether her afterload and venous tone fall. If S improves within minutes, something other than diuresis, such as falling sympathetic drive or a fall in pressure, is the more likely reason.",
-          "causalChain": "F's problem is total volume, so volume removal is the cause-directed treatment and takes hours; S's problem is redistribution and afterload, which volume removal does not address.",
+          "answer": "Neither may improve quickly from the diuretic alone, and the reasons differ. F's urine output matters more: he holds about 6 L of excess water, and removing it treats his cause, although his breathing will improve over hours. S has gained no weight recently. She may pass urine, but removing water does not address the surge that flooded her lungs, and her breathing depends on whether her afterload and venous tone fall. If S improves within minutes, something other than diuresis, such as falling sympathetic drive or a fall in pressure, is the more likely reason.",
+          "causalChain": "F's problem is total volume, so volume removal is the cause-directed treatment and takes hours; S's immediate problem is redistribution and afterload, which volume removal does not address directly.",
           "assumption": "That both patients have adequate kidney function.",
           "misconception": "That urine output is a direct measure of how quickly the lungs are clearing."
         },
@@ -448,9 +462,9 @@
           "id": "q-redistribution-transfer",
           "kind": "transfer",
           "prompt": "A patient using cocaine develops sudden pulmonary edema with a blood pressure of 220/130 and no weight gain. Which parts of Patient S's reasoning carry over?",
-          "answer": "Most of it. A large catecholamine effect constricts arteries and veins, raising afterload and moving blood into the chest, so the mechanism is redistribution and afterload mismatch, not accumulation. Lowering afterload and venous return should help, and volume removal is not the main lever. The cause does not carry over automatically. Drug toxicity, ischemia and the specific risks of particular drugs in that setting need their own assessment, which this chapter does not cover.",
-          "causalChain": "Sympathetic surge; arterial and venous constriction; afterload mismatch and redistribution; rise in left atrial pressure without a gain in total volume.",
-          "assumption": "That the patient's ventricle and valves were near normal and that ischemia is not the main driver.",
+          "answer": "Some of it, as a hypothesis rather than a diagnosis. A catecholamine surge that constricts arteries and veins, raising afterload and moving blood into the chest, is plausible, and if it is the main mechanism, lowering afterload and venous return would act on it while volume removal would not be the main lever. But cocaine can also cause myocardial ischemia or infarction, direct injury to heart muscle, and, less often, noncardiogenic edema from injury to the lung's capillaries, and the facts given do not separate these. An ECG, cardiac biomarkers, echocardiography and the response to treatment are needed before the mechanism is settled, and drug toxicity has its own specific risks that need separate assessment.",
+          "causalChain": "A sympathetic surge with arterial and venous constriction, afterload mismatch and redistribution is one plausible chain; ischemia, myocardial injury and capillary injury are others; the presentation alone does not choose between them.",
+          "assumption": "That an ECG, cardiac biomarkers and echocardiography can be obtained.",
           "misconception": "That pulmonary edema always means the patient has gained fluid."
         }
       ]
@@ -497,14 +511,14 @@
       "parentId": "gas-exchange",
       "title": "What carbon dioxide does",
       "body": [
-        "Early on, the stiff, wet lung and the hypoxemia drive breathing hard, and PaCO2 is usually normal or low, as in Patient S. A PaCO2 that rises later means alveolar ventilation is no longer keeping up with carbon dioxide production. That can happen because the pump is tiring under a high load, as the [respiratory failure chapter](https://www.resusfirstprinciples.io/cases/acute-respiratory-failure#principle-load-capacity) describes, or because a patient with chronic lung disease has less reserve. A rising PaCO2, even one still within the normal range, is a warning in a patient who should be blowing it off. This chapter gives no threshold."
+        "Early on, the stiff, wet lung and the hypoxemia drive breathing hard, and PaCO2 is usually normal or low, as in Patient S. A PaCO2 that rises later means alveolar ventilation is no longer keeping up with carbon dioxide production. That can happen because the pump is tiring under a high load, as the [respiratory failure chapter](https://www.resusfirstprinciples.io/cases/acute-respiratory-failure#principle-load-capacity) describes, or because a patient with chronic lung disease has less reserve. A rising PaCO2, even one still within the normal range, is a warning in a patient who should be blowing it off. No threshold is given here."
       ],
       "questions": [
         {
           "id": "q-s-oxygen",
           "kind": "prediction",
           "prompt": "Patient S is moved from room air to a high-concentration oxygen mask, with nothing else changed. Predict her saturation, and why it does not normalize.",
-          "answer": "Her saturation should rise, but probably not to normal. Added oxygen raises alveolar PO2 in low ventilation-perfusion units and partly open alveoli, so their blood is better oxygenated. Blood passing flooded alveoli never meets the added oxygen and keeps lowering arterial oxygen. The more of her hypoxemia that comes from shunt, the less oxygen alone can correct. Reopening flooded alveoli and lowering the pressure that floods them does more.",
+          "answer": "Her saturation should rise, but probably not to normal. Added oxygen raises alveolar PO2 in low ventilation-perfusion units and partly open alveoli, so their blood is better oxygenated. Blood passing flooded alveoli never meets the added oxygen and keeps lowering arterial oxygen. The more of her hypoxemia that comes from shunt, the less oxygen alone can correct. Recruiting collapsed alveoli and lowering the pressure that floods them does more.",
           "causalChain": "Low ventilation-perfusion units respond to added oxygen; shunted blood does not; the response is partial in proportion to the shunt.",
           "assumption": "That her mask delivers a high inspired fraction and that her pressure and effort are unchanged.",
           "misconception": "That a patient whose saturation rises with oxygen has been treated."
@@ -533,7 +547,7 @@
       "parentId": "breathing-pressure",
       "title": "How breathing hard loads the left ventricle",
       "body": [
-        "The left ventricle has to raise its pressure above the pressure around it to eject. What matters to the muscle is transmural pressure, the pressure inside minus the pressure outside. During a forceful breath in, pleural pressure falls well below atmospheric. The ventricle sits in that falling pressure, so to deliver the same arterial pressure to the body it must generate a larger transmural pressure. Strong inspiratory effort adds afterload to the left ventricle.",
+        "The left ventricle has to raise its pressure above the pressure around it to eject. What matters to the muscle is transmural pressure, the pressure inside minus the pressure outside, both taken at the same moment. The pressure outside the heart is close to pleural pressure. During a forceful breath in, pleural pressure falls well below atmospheric. The ventricle sits in that falling pressure, so to deliver the same arterial pressure to the body it must generate a larger transmural pressure. Strong inspiratory effort adds afterload to the left ventricle. Using arterial pressure for the pressure inside the ventricle during ejection is an approximation, and transmural pressure is only part of the load on the muscle, not a complete measure of wall stress, which also depends on the size and wall thickness of the ventricle.",
         "The same negative swings draw more blood into the chest, raising venous return, and they widen the pressure difference that pulls fluid from the pulmonary capillaries into the interstitium. Meanwhile the respiratory muscles consume more oxygen. A wet, stiff lung therefore loads the heart three ways: more afterload, more preload and more demand. Reviews of heart-lung interaction describe how these swings grow when compliance falls or resistance rises, and how they can contribute to left ventricular failure and pulmonary edema."
       ],
       "questions": [],
@@ -545,16 +559,16 @@
         "id": "we-transmural",
         "title": "Worked example: transmural pressure in Patient S (illustrative)",
         "body": [
-          "The pleural pressures here are assumed for teaching; they are not measured or sourced values. Conversion: 1 cm H2O is about 0.74 mm Hg.",
-          "Breathing hard: suppose her pleural pressure reaches -20 cm H2O during inspiration. -20 x 0.74 = -14.8, about -15 mm Hg. With a systolic pressure of 210 mm Hg, left ventricular transmural pressure at peak systole = 210 - (-15) = 225 mm Hg.",
-          "With positive pressure: suppose her mean pleural pressure becomes slightly positive, about +4 mm Hg. This is an illustrative pleural pressure, not a device setting. Transmural pressure = 210 - 4 = 206 mm Hg.",
-          "Difference: 225 - 206 = 19 mm Hg less load on the ventricle at the same arterial pressure. The size is chosen for illustration; the direction is the point."
+          "The pleural pressures here are assumed for teaching; they are not measured or sourced values. Conversion: 1 cm H2O is about 0.74 mm Hg. Both cases are compared at the same instant, peak systole during inspiration, and her systolic pressure is assumed to stay at 210 mm Hg in both; in reality large pleural swings make systolic pressure itself vary.",
+          "Labored breathing: suppose her pleural pressure at that point in inspiration is -20 cm H2O, an illustrative value. -20 x 0.74 = -14.8, about -15 mm Hg. Left ventricular transmural pressure = 210 - (-14.8) = 224.8, about 225 mm Hg.",
+          "On CPAP: suppose her pleural pressure at the same point in the breath is about 0 mm Hg, because the positive airway pressure offsets the now smaller inspiratory fall. This is an illustrative pleural pressure, not a device setting. Transmural pressure = 210 - 0 = 210 mm Hg.",
+          "Difference: 225 - 210 = 15 mm Hg less transmural pressure at that moment, at the same assumed systolic pressure. The size is chosen for illustration; it is not a measured fall in total left ventricular afterload, and the direction is the point."
         ]
       },
       "diagram": {
         "id": "r4-pleural-pressure",
-        "caption": "Figure 3 (proposal). Left ventricular transmural pressure during labored spontaneous breathing and during positive pressure, at the same arterial pressure. Transmural pressure is higher with labored breathing and lower with positive pressure. Direction only; no values are shown.",
-        "alt": "Two side-by-side drawings of a heart inside the chest. In the left drawing, labeled labored breathing, arrows point outward from the heart to show pleural pressure falling well below atmospheric; a label says the ventricle must generate more transmural pressure, so its load rises. In the right drawing, labeled positive pressure, arrows point inward toward the heart to show slightly positive pleural pressure; a label says the gap between inside and outside is smaller, so the load falls. Arterial pressure is the same in both. No values are shown."
+        "caption": "Figure 4. Left ventricular transmural pressure during labored spontaneous breathing and during positive pressure, compared at the same instant, peak systole during inspiration, and at the same assumed systolic pressure. Pleural pressure falls well below atmospheric with labored breathing and is near atmospheric with positive pressure at the same point in the breath, so transmural pressure is higher with labored breathing and lower with positive pressure. Direction only; not a measure of total afterload; no values are shown.",
+        "alt": "Two side-by-side drawings of a heart inside the chest, both at peak systole during inspiration and with the same systolic pressure. In the left drawing, labeled labored breathing, arrows point outward from the heart to show pleural pressure falling well below atmospheric, and a label reads higher transmural pressure. In the right drawing, labeled positive pressure, a flat baseline marked approximately zero shows pleural pressure near atmospheric at the same point in the breath, and a label reads lower transmural pressure. No values are shown."
       }
     },
     {
@@ -562,8 +576,8 @@
       "parentId": "breathing-pressure",
       "title": "What positive pressure does",
       "body": [
-        "Positive pressure reverses these effects. Raising pressure in the chest lowers venous return, so less volume reaches the left heart. It narrows the gap between the pressure inside the left ventricle and the pressure around it, which lowers afterload. It also reduces or abolishes the large negative swings of labored breathing. In the lung, it reopens flooded and collapsed alveoli, improves compliance and reduces shunt, and it takes over part of the work of breathing. The 2026 ESC guideline states the circulatory side directly: \"the increase in intrathoracic pressure with non-invasive positive pressure ventilation decreases venous return and right and left ventricular preload.\"",
-        "Whether this helps depends on the heart. A failing left ventricle on the flat part of its function curve is limited by afterload rather than preload, so lowering preload costs little stroke volume and lowering afterload can raise it. A patient who depends on preload, because they are underfilled or have a right ventricle that cannot tolerate a higher pressure, loses stroke volume when venous return falls. The [airway chapter](https://www.resusfirstprinciples.io/cases/physiologically-difficult-airway#principle-hypotension) explained how this fall in venous return can cause collapse at intubation. The same physics that helps Patient S can harm another patient."
+        "Positive pressure reverses these effects. Raising pressure in the chest lowers venous return, so less volume reaches the left heart. It narrows the gap between the pressure inside the left ventricle and the pressure around it, which lowers afterload. It also reduces or abolishes the large negative swings of labored breathing. In the lung, it recruits collapsed and partly flooded alveoli, improves compliance and reduces shunt, and it takes over part of the work of breathing. It does not simply push alveolar fluid back into the capillaries; much of the early benefit comes from recruitment, changed pressure gradients, unloading of the heart and less effort, before much fluid has cleared. The 2026 ESC guideline states the circulatory side directly: \"the increase in intrathoracic pressure with non-invasive positive pressure ventilation decreases venous return and right and left ventricular preload.\"",
+        "Whether this helps depends on the heart. A failing left ventricle on the flat part of its function curve is limited by afterload rather than preload, so lowering preload costs little stroke volume and lowering afterload can raise it; in such patients positive pressure can improve forward output. A patient who depends on preload, because they are underfilled or have a right ventricle that cannot tolerate a higher pressure, loses stroke volume when venous return falls, and positive pressure can also raise the resistance the right ventricle pumps against. The net response depends on loading conditions, how recruitable the lung is, right ventricular function, systemic pressure and the underlying lesion. The [airway chapter](https://www.resusfirstprinciples.io/cases/physiologically-difficult-airway#principle-hypotension) explained how this fall in venous return can cause collapse at intubation. The same physics that helps Patient S can harm another patient."
       ],
       "questions": [],
       "refs": [
@@ -576,8 +590,9 @@
       "parentId": "breathing-pressure",
       "title": "CPAP and noninvasive ventilation",
       "body": [
-        "Continuous positive airway pressure (CPAP) applies one constant pressure throughout the breath. Bilevel noninvasive ventilation adds extra pressure during inspiration, which further supports the work of breathing. Both act through the mechanisms above. The [respiratory failure chapter](https://www.resusfirstprinciples.io/cases/acute-respiratory-failure#principle-niv) covers the devices and how patients tolerate them; this chapter gives no settings.",
-        "The 2026 ESC guideline states that noninvasive ventilation \"is recommended in patients with APO or CS and respiratory failure to improve oxygenation and reduce the need for intubation as shown by multiple trials and meta analyses.\" The 3CPO trial randomized 1069 patients with acute cardiogenic pulmonary edema to standard oxygen, CPAP or bilevel noninvasive ventilation. It found no difference in 7-day mortality between standard oxygen, 9.8 percent, and noninvasive ventilation, 9.5 percent, and no difference in death or intubation at 7 days between CPAP and bilevel ventilation. The physiology predicts this pattern. Positive pressure helps patients breathe and can avoid intubation, but it treats the consequences of a high left atrial pressure rather than its cause, and the trials have not shown that it changes mortality."
+        "Continuous positive airway pressure (CPAP) applies one constant pressure throughout the breath. Bilevel noninvasive ventilation adds extra pressure during inspiration, which further supports the work of breathing. Both act through the mechanisms above. The [respiratory failure chapter](https://www.resusfirstprinciples.io/cases/acute-respiratory-failure#principle-niv) covers the devices and how patients tolerate them; no settings are given here.",
+        "Oxygen is given when it is needed, not routinely. The 2026 ESC guideline recommends oxygen (Class I, Level C) when SpO2 is below 90 percent or PaO2 below 60 mm Hg, and notes that \"indiscriminate oxygen administration in non-hypoxaemic patients may be harmful.\" For noninvasive ventilation its recommendation is weaker (Class IIa, Level B): noninvasive positive pressure ventilation \"should be considered in patients with respiratory distress (respiratory rate >25 breaths/min, SpO2 <90%) and started as soon as possible in order to decrease respiratory distress and reduce the risk of endotracheal intubation.\" The 3CPO trial randomized 1069 patients with acute cardiogenic pulmonary edema to standard oxygen, CPAP or bilevel noninvasive ventilation. It found no difference in 7-day mortality between standard oxygen, 9.8 percent, and noninvasive ventilation, 9.5 percent, and no difference in death or intubation at 7 days between CPAP and bilevel ventilation, although noninvasive ventilation relieved breathlessness and acidosis faster. The 2019 Cochrane review, which pooled 24 randomized trials, found that noninvasive ventilation may reduce hospital mortality compared with standard care (risk ratio 0.65, low-certainty evidence) and probably reduces intubation (risk ratio 0.49, moderate-certainty evidence).",
+        "A large neutral trial and a pooled estimate suggesting benefit can both be true. The pooled estimate combines many smaller and older trials, with different patients, designs, precision and risk of bias, while one large trial measures one population and one endpoint. Possible reasons for the difference include sicker patients in some smaller trials, crossover between the arms of 3CPO and its short-term endpoint. Whether a treatment helps a patient breathe and whether it changes survival are separate questions, answered by different evidence."
       ],
       "questions": [],
       "refs": [
@@ -598,7 +613,7 @@
           "id": "q-k-cpap",
           "kind": "prediction",
           "prompt": "Patient K is started on CPAP. Predict the effect on his blood pressure and his saturation, and say what would make it worse rather than better.",
-          "answer": "His saturation should improve as flooded alveoli reopen and shunt falls, and his work of breathing should fall. His blood pressure could go either way. Lower afterload can help a failing ventricle eject more, but lower venous return reduces filling, and K has a low pressure and little reserve. If his ventricle is limited mainly by afterload, output may hold or rise. If he is underfilled or his right ventricle is involved in the infarction, output and pressure can fall. A falling pressure or worsening perfusion after starting CPAP points to preload dependence and calls for reassessment.",
+          "answer": "His saturation should improve as collapsed and partly flooded alveoli are recruited and shunt falls, and his work of breathing should fall. His blood pressure could go either way. Lower afterload can help a failing ventricle eject more, but lower venous return reduces filling, and K has a low pressure and little reserve. If his ventricle is limited mainly by afterload, output may hold or rise. If he is underfilled or his right ventricle is involved in the infarction, output and pressure can fall. A falling pressure or worsening perfusion after starting CPAP can mean preload dependence, but it can also reflect right ventricular strain, worsening ischemia, an arrhythmia, a mechanical complication or loss of sympathetic drive as breathing eases, so it calls for reassessment of the whole circulation.",
           "causalChain": "Positive pressure lowers venous return and left ventricular afterload and improves gas exchange; the net effect on output depends on whether the ventricle is limited by afterload or by preload.",
           "assumption": "That K can tolerate a mask and that his right ventricular function is not yet known.",
           "misconception": "That positive pressure always lowers blood pressure, or always raises cardiac output in heart failure."
@@ -627,17 +642,17 @@
       "parentId": "unloading",
       "title": "Nitrates",
       "body": [
-        "Nitrates such as nitroglycerin and isosorbide dinitrate release nitric oxide in vascular smooth muscle and relax it. Dilating veins raises venous capacitance, so blood moves back into the venous reservoir and venous return and left atrial pressure fall. Dilating arteries lowers afterload. In Patient S both effects act directly on her problem, since venodilation reverses her redistribution and afterload reduction relieves her afterload mismatch. That is the reasoning behind the high-dose nitrate strategies described in sympathetic crashing acute pulmonary edema. This chapter gives no regimen.",
-        "The evidence is limited. A small randomized trial published in 1998 compared a strategy based mainly on a nitrate with one based mainly on a loop diuretic in severe pulmonary edema. The 2026 ESC guideline summarizes the wider picture. In acute pulmonary edema, \"where increased cardiac filling pressures and elevated systemic blood pressures occur in the absence of, or with minimal, systemic fluid accumulation, vasodilators can reduce pulmonary congestion,\" but \"none of the large-scale RCTs have shown a clear clinical benefit of vasodilatation on hard endpoints,\" and a meta-analysis found vasodilators \"associated with a lower risk of tracheal intubation in DHF with no effect on death or length of hospital stay.\" Physiology explains why they can help S quickly; the trials have not shown that they change mortality.",
-        "The limit is blood pressure and flow. A vasodilator lowers pressure, which S needs and K cannot afford."
+        "Nitrates such as nitroglycerin and isosorbide dinitrate release nitric oxide in vascular smooth muscle and relax it. Dilating veins raises venous capacitance, so blood moves back into the venous reservoir and venous return and left atrial pressure fall. Dilating arteries lowers afterload. The balance between venous and arterial effects varies with the dose and with the patient. In Patient S both effects act directly on her problem, since venodilation reverses her redistribution and afterload reduction relieves her afterload mismatch. That is the reasoning behind the high-dose nitrate strategies described in sympathetic crashing acute pulmonary edema; no regimen is given here.",
+        "The evidence is limited. A small randomized trial published in 1998 compared a strategy based mainly on a nitrate with one based mainly on a loop diuretic in severe pulmonary edema. The 2026 ESC guideline summarizes the wider picture. In acute pulmonary edema, \"where increased cardiac filling pressures and elevated systemic blood pressures occur in the absence of, or with minimal, systemic fluid accumulation, vasodilators can reduce pulmonary congestion,\" but \"none of the large-scale RCTs have shown a clear clinical benefit of vasodilatation on hard endpoints,\" and a meta-analysis found vasodilators \"associated with a lower risk of tracheal intubation in DHF with no effect on death or length of hospital stay.\" Its recommendation is correspondingly weak (Class IIb, Level C): intravenous vasodilators \"may be considered as initial therapy in patients with DHF and systolic blood pressure >110 mmHg to improve symptoms and reduce congestion,\" with close monitoring of blood pressure. Physiology explains why they can help S quickly; the trials have not shown that they change mortality.",
+        "The limit is blood pressure and flow. A vasodilator lowers pressure, which S needs and K cannot afford. The 2025 ACC/AHA acute coronary syndrome guideline advises avoiding nitrates when systolic pressure is below 90 mm Hg or more than 30 mm Hg below baseline, when right ventricular infarction is suspected, and after recent use of a PDE5 inhibitor: within 12 hours of avanafil, 24 hours of sildenafil or vardenafil, or 48 hours of tadalafil."
       ],
       "questions": [
         {
           "id": "q-s-nitrate",
           "kind": "prediction",
           "prompt": "Patient S receives a nitrate and CPAP but no diuretic. Predict her oxygenation and blood pressure at 30 minutes, and what the result says about why she flooded.",
-          "answer": "Her blood pressure should fall and her oxygenation should improve substantially within that time. Venodilation moves blood back into the venous reservoir, arterial dilation lowers afterload, and CPAP lowers venous return and left ventricular afterload while reopening alveoli. Left atrial pressure and filtration fall. Because no water has been removed, an improvement of this size and speed supports the idea that her edema came from redistribution and afterload mismatch rather than accumulation.",
-          "causalChain": "Venodilation and afterload reduction lower left atrial pressure; positive pressure adds to both and reopens alveoli; filtration falls; oxygenation improves without any change in body water.",
+          "answer": "Her blood pressure should fall and her oxygenation should improve substantially within that time. Venodilation moves blood back into the venous reservoir, arterial dilation lowers afterload, and CPAP lowers venous return and left ventricular afterload while recruiting alveoli. Left atrial pressure and filtration fall. Because no water has been removed, an improvement of this size and speed supports the idea that her edema came from redistribution and afterload mismatch rather than accumulation.",
+          "causalChain": "Venodilation and afterload reduction lower left atrial pressure; positive pressure adds to both and recruits alveoli; filtration falls; oxygenation improves without any change in body water.",
           "assumption": "That her blood pressure falls in a controlled way and that ischemia or a new valve lesion is not driving the episode.",
           "misconception": "That improvement before diuresis means no patient needs a diuretic."
         }
@@ -645,7 +660,8 @@
       "refs": [
         "cotter-1998",
         "esc-2026",
-        "paone-2018"
+        "paone-2018",
+        "rao-2025"
       ]
     },
     {
@@ -653,18 +669,18 @@
       "parentId": "unloading",
       "title": "Loop diuretics",
       "body": [
-        "Loop diuretics such as furosemide block sodium and chloride reabsorption in the thick ascending limb of the loop of Henle and cause a large loss of salt and water. Removing excess volume lowers venous pressure and, over time, left atrial pressure. In Patient F this is the treatment directed at the cause. It takes hours, because the drug must reach the kidney and water must be drawn back from the tissues into the vessels before it is excreted.",
-        "An early venodilator effect of loop diuretics, before any diuresis, has been described in some studies and not found in others. This chapter treats it as contested and does not rely on it.",
-        "The 2026 ESC guideline states that \"intravenous loop diuretics remain the cornerstone of decongestion in DHF,\" and that in the DOSE trial \"no difference in the primary efficacy outcome of patients' symptom global assessment was shown with a high-dose regimen compared with a low-dose regimen of furosemide.\" It also notes that patients with acute pulmonary edema from redistribution \"usually do not need high doses of diuretics, but they may need vasodilators.\" Other diuretics used alongside loop diuretics are beyond the scope of this chapter."
+        "Loop diuretics such as furosemide block sodium and chloride reabsorption in the thick ascending limb of the loop of Henle and cause a large loss of salt and water. Removing excess volume lowers venous pressure and, over time, left atrial pressure. In Patient F this is the treatment directed at the cause. It starts to act soon after an intravenous dose, but substantial net decongestion takes hours to days, because water must be drawn back from the tissues into the vessels before it is excreted. Relieving congestion can be useful even when total body water has not recently increased, but rapid redistribution is usually better addressed first by unloading and respiratory support.",
+        "An early venodilator effect of loop diuretics, before any diuresis, has been described in some studies and not found in others. It is treated here as contested, and nothing that follows relies on it.",
+        "The 2026 ESC guideline states that \"intravenous loop diuretics remain the cornerstone of decongestion in DHF,\" and that in the DOSE trial \"no difference in the primary efficacy outcome of patients' symptom global assessment was shown with a high-dose regimen compared with a low-dose regimen of furosemide.\" It also notes that patients with acute pulmonary edema from redistribution \"usually do not need high doses of diuretics, but they may need vasodilators.\" Other diuretics used alongside loop diuretics are not covered here."
       ],
       "questions": [
         {
           "id": "q-diuretic-boundary",
           "kind": "evidence-boundary",
           "prompt": "A colleague says a loop diuretic should be the first drug in every case of acute pulmonary edema. What do the physiology and the evidence show?",
-          "answer": "The physiology says a diuretic acts on total body water, over hours. That treats the cause in Patient F but not in Patient S, whose water is unchanged, or in Patient K, whose problem is forward flow. The 2026 ESC guideline calls loop diuretics the cornerstone of decongestion in decompensated heart failure, and it also says that patients with acute pulmonary edema from redistribution usually do not need high doses of diuretics and may need vasodilators. DOSE compared diuretic strategies in decompensated heart failure; it did not test a diuretic against none, and it found no difference between high-dose and low-dose regimens in its primary outcome. The evidence supports diuretics where there is fluid to remove, not as the first step for everyone.",
+          "answer": "The physiology says a diuretic acts on total body water, over hours. That treats the cause in Patient F but not the immediate problem in Patient S, whose weight is unchanged and whose lungs flooded through redistribution, or in Patient K, whose problem is forward flow. The 2026 ESC guideline calls loop diuretics the cornerstone of decongestion in decompensated heart failure, and it also says that patients with acute pulmonary edema from redistribution usually do not need high doses of diuretics and may need vasodilators. DOSE compared diuretic strategies in decompensated heart failure; it did not test a diuretic against none, and it found no difference between high-dose and low-dose regimens in its primary outcome. The evidence supports diuretics where there is fluid to remove, not as the first step for everyone.",
           "causalChain": "Diuretics remove water; benefit depends on how much excess water there is; redistribution and pump failure are not treated by removing water; the trials compared strategies rather than testing which drug should come first.",
-          "assumption": "That the guideline excerpts reflect the full guideline wording.",
+          "assumption": "That the guideline wording quoted applies to the patient being treated.",
           "misconception": "That a widely used first drug must be the right first drug for every presentation."
         }
       ],
@@ -678,7 +694,7 @@
       "parentId": "unloading",
       "title": "Morphine",
       "body": [
-        "Observational studies associate morphine in acute heart failure with more mechanical ventilation and higher mortality, although meta-analyses of these studies disagree on short-term mortality, the certainty of the evidence is very low, and no randomized trial has shown benefit."
+        "Observational studies associate morphine in acute heart failure with more mechanical ventilation and higher mortality, although meta-analyses of these studies disagree on short-term mortality, the certainty of the evidence is very low, and no randomized trial has shown benefit. An observational association does not prove that morphine caused the harm, but with no established benefit and a possible harm, morphine is not a routine treatment for acute pulmonary edema; if it is considered for a particular patient, that possible harm has to be weighed against the reason for giving it."
       ],
       "questions": [],
       "refs": [
@@ -699,9 +715,9 @@
           "id": "q-unloading-transfer",
           "kind": "transfer",
           "prompt": "A woman with severe pre-eclampsia develops acute pulmonary edema with a blood pressure of 180/110. Which parts of the reasoning for Patient S carry over, and what needs specialist input?",
-          "answer": "The mechanism carries over. A high afterload, possibly with a stressed ventricle and a lower oncotic pressure, raises left atrial pressure and floods the lung, and lowering afterload and supporting breathing act on that mechanism. What does not carry over directly is the choice of drugs, the blood pressure targets, the effects on the placenta and fetus, and the treatment of the underlying condition. All of these need obstetric and specialist input that this chapter does not provide.",
-          "causalChain": "High afterload and possibly reduced oncotic pressure raise filtration; unloading lowers it; pregnancy changes the acceptable drugs and targets.",
-          "assumption": "That the edema is hydrostatic and that the heart is not the primary problem.",
+          "answer": "Only part of it. A high afterload can raise left atrial pressure as in S, and lowering afterload and supporting breathing act on that part. But pre-eclampsia can also injure the endothelium and raise permeability, lower oncotic pressure, impair cardiac function, and coincide with intravenous fluid given during treatment, so the edema may be mixed rather than purely hydrostatic, and each of these needs its own assessment. The choice of drugs, the blood pressure targets, the effects on the placenta and fetus, and the treatment of the underlying condition all need obstetric and specialist input.",
+          "causalChain": "Afterload, permeability, oncotic pressure, cardiac function and administered fluid can each contribute to edema; unloading acts on only some of these; pregnancy changes the acceptable drugs and targets.",
+          "assumption": "That her cardiac function, fluid balance and plasma protein levels can be assessed.",
           "misconception": "That pulmonary edema in pregnancy can be managed exactly like any other hypertensive pulmonary edema."
         }
       ]
@@ -720,7 +736,7 @@
       "title": "Patient K: high pressure behind, low flow forward",
       "body": [
         "Patient K's infarction has damaged enough of his left ventricle that it cannot raise its stroke volume. His left atrial pressure is high, so his lungs flood, but his forward flow is low. Intense vasoconstriction holds his MAP at 68 mm Hg, while his cool, mottled skin and lactate of 5.0 mmol/L show that his tissues are underperfused. His shock index of 1.37 is more than twice S's 0.58.",
-        "Every tool in Parts VI and VII has a cost in K. Vasodilators lower a pressure that is already marginal, positive pressure lowers venous return, and diuretics remove volume his ventricle may need to fill, although his total body water is not high. Each can still help, because his lungs are flooded and his ventricle faces the high afterload of his vasoconstriction, but none of them restores forward flow. The [Shock chapter](https://www.resusfirstprinciples.io/cases/shock-pressure-flow#principle-pressors-inotropes) explains how vasopressors and inotropes change pressure and flow. That discussion applies to K and is not repeated here."
+        "Every tool in Parts VI and VII has a cost in K. Vasodilators lower a pressure that is already marginal, positive pressure lowers venous return, and diuretics remove volume his ventricle may need to fill, although his total body water is not high. Each can still help, because his lungs are flooded and his ventricle faces the high afterload of his vasoconstriction, and careful unloading can sometimes improve his forward flow, but none of them treats the cause of his pump failure. The [Shock chapter](https://www.resusfirstprinciples.io/cases/shock-pressure-flow#principle-pressors-inotropes) explains how vasopressors and inotropes change pressure and flow. That discussion applies to K and is not repeated here."
       ],
       "questions": []
     },
@@ -729,7 +745,7 @@
       "parentId": "shock-overlap",
       "title": "What changes for K",
       "body": [
-        "For K the questions change. What caused the pump to fail, and can it be reversed? His infarction needs reperfusion, and that decision belongs to cardiology. How can flow be supported until then, and which measurement will show whether flow is improving? Which treatment for his lungs will he tolerate? This chapter stops there. Treatment of cardiogenic shock belongs to the Shock chapter and to specialist care."
+        "For K the questions change, and the first is urgent. What caused the pump to fail, and can it be reversed? An anterior infarction with shock calls for immediate cardiology involvement and urgent reperfusion of the blocked artery, which is the treatment directed at the cause. Echocardiography should look early for a mechanical complication, such as acute mitral regurgitation from a ruptured papillary muscle, a ruptured ventricular septum or a ruptured free wall, because these need urgent surgical or interventional repair. Until then, how can flow be supported, which measurement will show whether it is improving, and which treatment for his lungs will he tolerate? Invasive support of cardiogenic shock is taught in the [Shock chapter](https://www.resusfirstprinciples.io/cases/shock-pressure-flow#principle-pressors-inotropes) and belongs with specialist care; the bridge here is to recognize it early and escalate."
       ],
       "questions": [
         {
@@ -750,6 +766,9 @@
           "assumption": "That the regurgitation is acute and the left atrium is normal in size.",
           "misconception": "That pulmonary edema in shock means the patient has too much fluid."
         }
+      ],
+      "refs": [
+        "rao-2025"
       ]
     },
     {
@@ -765,8 +784,8 @@
       "parentId": "reassessment",
       "title": "B-lines as an observation",
       "body": [
-        "On lung ultrasound, fluid in the interstitium and alveolar walls produces vertical artifacts called B-lines. They show that the interstitium contains fluid or is otherwise thickened. They do not measure left atrial pressure and they do not identify the cause, since cardiogenic edema, ARDS, pneumonia and fibrosis can all produce them. Their distribution, together with the heart, the pleura and the clinical picture, helps separate causes. The 2026 ESC guideline states that \"lung ultrasound identifies patients with pulmonary congestion and has utility in serial assessments.\"",
-        "Because B-lines follow interstitial fluid, they change as fluid moves, which makes them useful for repeated observation. They can lag behind breathing: a patient whose left atrial pressure has fallen may breathe much better while interstitial fluid is still clearing. This chapter gives no B-line count or threshold. The 2026 international lung ultrasound recommendations are the reference for performing and interpreting the examination."
+        "On lung ultrasound, fluid in the interstitium and alveolar walls produces vertical artifacts called B-lines. They are a pattern consistent with increased density of the lung interstitium, from fluid or from thickening. They do not measure left atrial pressure and they do not identify the cause, since cardiogenic edema, ARDS, pneumonia and fibrosis can all produce them. Their distribution, together with the heart, the pleura and the clinical picture, helps separate causes. The 2026 ESC guideline states that \"lung ultrasound identifies patients with pulmonary congestion and has utility in serial assessments.\"",
+        "Because B-lines follow interstitial fluid, they change as fluid moves, which makes them useful for repeated observation. They can lag behind breathing: a patient whose left atrial pressure has fallen may breathe much better while interstitial fluid is still clearing. No B-line count or threshold is given here; the 2026 international lung ultrasound recommendations are the reference for performing and interpreting the examination."
       ],
       "questions": [],
       "refs": [
@@ -779,7 +798,7 @@
       "parentId": "reassessment",
       "title": "What the inferior vena cava can and cannot show",
       "body": [
-        "The size of the inferior vena cava and how much it collapses with breathing reflect right atrial pressure and the swings in intrathoracic and abdominal pressure. The [Shock chapter](https://www.resusfirstprinciples.io/cases/shock-pressure-flow#principle-rap-meaning) explained what right atrial pressure does and does not mean. Right atrial pressure is not left atrial pressure. Patient S can have a flooded lung and a modest right atrial pressure, because her problem is on the left side and recent. Labored breathing changes how much the vein collapses, and positive pressure changes it again, so a view taken before CPAP cannot be compared with one taken after. A full inferior vena cava fits Patient F's accumulation; it does not tell you how high S's left atrial pressure is."
+        "The size of the inferior vena cava and how much it collapses with breathing reflect right atrial pressure and the swings in intrathoracic and abdominal pressure. The [Shock chapter](https://www.resusfirstprinciples.io/cases/shock-pressure-flow#principle-rap-meaning) explained what right atrial pressure does and does not mean. Right atrial pressure is not left atrial pressure. Patient S can have a flooded lung and a modest right atrial pressure, because her problem is on the left side and recent. Labored breathing changes how much the vein collapses, and positive pressure changes it again, so a change between views taken before and after CPAP cannot be read as a pure change in volume; the views can be compared if the change in breathing pressures is taken into account. A full inferior vena cava fits Patient F's accumulation; it does not tell you how high S's left atrial pressure is."
       ],
       "questions": []
     },
@@ -788,15 +807,15 @@
       "parentId": "reassessment",
       "title": "What should change, and when",
       "body": [
-        "Different signals answer different questions on different timescales. Work of breathing, respiratory rate, saturation and mental state should change within minutes if left atrial pressure is falling, because filtration falls and flooded alveoli begin to reopen as soon as the pressure drops. Blood pressure responds within minutes to vasodilators and positive pressure. Urine output and weight answer the volume question over hours and days, and matter most in F. Lactate, skin temperature, capillary refill and mental state answer the flow question in K, and lactate changes more slowly than the rest.",
-        "Each signal has its own failure mode. A falling saturation after starting CPAP may mean the mask is not sealing or the patient is tiring. A falling blood pressure in K may mean he depends on preload. A good urine output in S does not show why she got better."
+        "Different signals answer different questions on different timescales. Work of breathing, respiratory rate, saturation and mental state should change within minutes if left atrial pressure is falling, because filtration falls as soon as the pressure drops and collapsed alveoli can then reopen. Blood pressure responds within minutes to vasodilators and positive pressure. Urine output and weight answer the volume question over hours and days, and matter most in F. Lactate, skin temperature, capillary refill and mental state answer the flow question in K, and lactate changes more slowly than the rest.",
+        "Each signal has its own failure mode. A falling saturation after starting CPAP may mean the mask is not sealing or the patient is tiring. A falling blood pressure in K may mean he depends on preload, or that something else has changed, such as worsening ischemia, right ventricular failure or a mechanical complication. A good urine output in S does not show why she got better."
       ],
       "questions": [
         {
           "id": "q-blines-predict",
           "kind": "prediction",
           "prompt": "Patient S improves greatly within an hour of CPAP and a nitrate. Predict her B-lines and her weight at that time, and explain the difference from her breathing.",
-          "answer": "Her weight should be unchanged, because no significant water has left her body. Her B-lines may be fewer but are likely still present, because interstitial fluid clears more slowly than alveolar flooding reverses, and more slowly than her breathing improves. Her breathing improved first because lowering left atrial pressure stops new filtration and lets alveoli reopen at once, while drying the interstitium takes longer.",
+          "answer": "Her weight should be unchanged, because no significant water has left her body. Her B-lines may be fewer but are likely still present, because lung water usually clears more slowly than her breathing improves. Her breathing improved first because lowering left atrial pressure reduces new filtration and lets collapsed alveoli reopen quickly, while clearing the fluid already in the lung takes longer.",
           "causalChain": "Unloading lowers filtration within minutes; alveoli reopen and gas exchange improves; interstitial fluid clears over hours; total body water was never raised.",
           "assumption": "That nothing else, such as a large diuresis, has happened in that hour.",
           "misconception": "That persistent B-lines mean the treatment has failed."
@@ -817,7 +836,7 @@
       "parentId": "reassessment",
       "title": "Back to the three patients",
       "body": [
-        "Patient S flooded through redistribution and afterload mismatch. Her body water did not change. A sympathetic surge moved blood into her chest and raised the load on a stiff ventricle, and the loop fed itself; lowering afterload and venous tone and supporting her breathing with positive pressure broke it within minutes. Patient F flooded through accumulation. Days of retained salt and water raised all his venous pressures. Positive pressure and venodilation relieved his lungs, and removing the water over hours and days treated the cause. Patient K flooded because his pump failed. His lungs needed the same relief, but every tool that lowered pressure behind his heart risked lowering flow out of it, and only treating the cause of his pump failure could restore that flow.",
+        "Patient S flooded through redistribution and afterload mismatch. Her weight had not changed. A sympathetic surge moved blood into her chest and raised the load on a stiff ventricle, and the loop fed itself; lowering afterload and venous tone and supporting her breathing with positive pressure broke it within minutes. Patient F flooded through accumulation. Days of retained salt and water raised all his venous pressures. Positive pressure and venodilation relieved his lungs, and removing the water over hours and days treated the cause. Patient K flooded because his pump failed. His lungs needed the same relief, but every tool that lowered pressure behind his heart could lower flow out of it as well as help it, and lasting recovery of flow depended on reperfusion and urgent specialist care for the cause of his pump failure.",
         "Their lungs looked the same. The circulation behind each pair of lungs decided what to do first."
       ],
       "questions": []
@@ -827,7 +846,7 @@
       "parentId": "reassessment",
       "title": "Synthesis",
       "body": [
-        "Cardiogenic pulmonary edema forms when left atrial pressure raises pulmonary capillary pressure enough that filtration outruns the lymphatic reserve. The pressure can come from added volume, from blood redistributed into the chest, from a stiff ventricle, from a ventricle that cannot meet its afterload, or from a pump that has failed. Positive pressure and vasodilators lower it within minutes by reducing venous return and afterload. Diuretics lower it over hours by removing water, and they matter most when water has been gained. When forward flow is failing as well, the problem is cardiogenic shock, and lowering pressure is no longer enough. The trials show where these treatments help and where they have not changed mortality. The physiology tells a clinician which pressure has risen, why, and which treatment acts on it."
+        "Cardiogenic pulmonary edema forms when left atrial pressure raises pulmonary capillary pressure enough that filtration outruns the lymphatic reserve. The pressure can come from added volume, from blood redistributed into the chest, from a stiff ventricle, from a ventricle that cannot meet its afterload, or from a pump that has failed. Positive pressure and vasodilators lower it within minutes by reducing venous return and afterload. Diuretics lower it over hours by removing water, and they matter most when net decongestion is needed, which can be true even without recent weight gain. When forward flow is failing as well, the problem is cardiogenic shock, and lowering pressure is no longer enough. Trials and pooled reviews show where these treatments relieve breathing or avoid intubation; their effect on survival is less certain, and that is a separate question from the physiology. The physiology tells a clinician which pressure has risen, why, and which treatment acts on it."
       ],
       "questions": []
     }
@@ -835,8 +854,8 @@
   "treatmentApproach": [
     {
       "id": "sit-oxygen",
-      "title": "Sit the patient up, give oxygen and judge the work of breathing",
-      "action": "Sit the patient upright, give oxygen, and judge how hard they are working to breathe and how alert they are.",
+      "title": "Sit the patient up, give oxygen for hypoxemia and judge the work of breathing",
+      "action": "Sit the patient upright, give oxygen if SpO2 is below 90 percent or PaO2 below 60 mm Hg and titrate it to oxygenation rather than giving it routinely, and judge how hard they are working to breathe and how alert they are.",
       "why": "Flooded alveoli cause shunt and a stiff lung; effort and drowsiness show how close the patient is to tiring.",
       "principleIds": [
         "edema-shunt",
@@ -856,8 +875,8 @@
     {
       "id": "early-ppv",
       "title": "Start positive pressure early when breathing is labored",
-      "action": "Start CPAP or noninvasive ventilation early when the work of breathing is high and the circulation allows it.",
-      "why": "Positive pressure reopens alveoli, reduces the work of breathing, and lowers left ventricular preload and afterload.",
+      "action": "Consider CPAP or noninvasive ventilation early when the work of breathing is high and the circulation allows it; the 2026 ESC guideline says it should be considered (Class IIa).",
+      "why": "Positive pressure recruits collapsed alveoli, reduces the work of breathing, and lowers left ventricular preload and afterload.",
       "principleIds": [
         "ppv-effects",
         "cpap-niv"
@@ -866,8 +885,8 @@
     {
       "id": "unload-high",
       "title": "When pressure is high, unload first",
-      "action": "When blood pressure is high, lower afterload and venous tone first with a vasodilator; remove volume afterward if there is volume to remove.",
-      "why": "Redistribution and afterload mismatch are reversed by lowering pressure, not by removing water the patient did not gain.",
+      "action": "When systolic pressure is above 110 mm Hg and no nitrate caution applies, consider lowering afterload and venous tone first with a vasodilator; remove volume afterward if there is volume to remove.",
+      "why": "Redistribution and afterload mismatch are reversed fastest by lowering pressure; removing water acts more slowly, and decongestion can follow if there is also excess fluid.",
       "principleIds": [
         "nitrates",
         "scape"
@@ -875,9 +894,9 @@
     },
     {
       "id": "remove-water",
-      "title": "When water has been gained, remove it and expect hours",
-      "action": "When weight, edema and history show fluid accumulation, start a loop diuretic and expect it to take hours.",
-      "why": "Diuretics act on total body water, which is the cause in accumulation but not in redistribution.",
+      "title": "When water has accumulated, remove it over hours to days",
+      "action": "When weight, edema and history show fluid accumulation, start a loop diuretic; it starts to act soon, but net decongestion takes hours to days.",
+      "why": "Diuretics act on total body water, which is the main cause in accumulation and at most part of the problem in redistribution.",
       "principleIds": [
         "diuretics",
         "accumulation"
@@ -886,7 +905,7 @@
     {
       "id": "low-flow",
       "title": "When flow is low, treat it as cardiogenic shock",
-      "action": "When perfusion is failing, treat the patient as having cardiogenic shock, look for the cause, and get specialist help early.",
+      "action": "When perfusion is failing, treat the patient as having cardiogenic shock, look urgently for the cause, including infarction needing reperfusion and mechanical complications, and get specialist help early.",
       "why": "Every tool that lowers pressure behind the heart can lower flow out of it when the pump has failed.",
       "principleIds": [
         "edema-vs-shock",

@@ -24,39 +24,50 @@ import { caseSchema, declaredDiagramIds } from '../src/lib/schema.ts';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
-/** Accepted draft (sha256). The chapter file differs only by the three diagram ids and the Figure 3 alt. */
-const acceptedDraftSha256 = '950d2026136f77650992322f1e2a50d61179833124782b7980aa3f50ef5296f5';
+/** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
+const acceptedDraftSha256 = '436949dec208771cb384acbcf68f687fc340618ab71d34010fc73c6332113b4a';
 
-const pleuralPressureAlt =
-  'Two side-by-side drawings of a heart inside the chest. In the left drawing, labeled labored breathing, arrows point outward from the heart to show pleural pressure falling well below atmospheric; a label says the ventricle must generate more transmural pressure, so its load rises. In the right drawing, labeled positive pressure, arrows point inward toward the heart to show slightly positive pleural pressure; a label says the gap between inside and outside is smaller, so the load falls. Arterial pressure is the same in both. No values are shown.';
-
-const pleuralPressureAltInDraft =
-  'Two side-by-side drawings of a heart inside the chest. In the left drawing, labeled labored breathing, arrows point outward from the heart to show negative pressure around it, and an upward arrow marks higher transmural pressure. In the right drawing, labeled positive pressure, small arrows point inward toward the heart, and a downward arrow marks lower transmural pressure. Arterial pressure is the same in both. No values are shown.';
-
-const idRemap: Record<CardiogenicFigureId, string> = {
+const figureStems: Record<CardiogenicFigureId, string> = {
   'r4-three-flooded-lungs': 'fig-r4-01-three-flooded-lungs',
+  'r4-pressure-chain': 'fig-r4-02a-pressure-chain',
   'r4-pressure-volume': 'fig-r4-02-pressure-volume',
   'r4-pleural-pressure': 'fig-r4-03-pleural-pressure',
 };
 
 /** sha256 of the Atelier attachments, in chapter-id file names. */
 const attachmentSha256: Record<string, string> = {
-  'r4-three-flooded-lungs.svg': 'fb4e7efa3d0abe575589a3e9ad98556d3e0725ea22cc4f625d959f788a330fd1',
-  'r4-three-flooded-lungs-print.svg': 'c3826a9f0f32558425fe763a31a7425059b2a5d8418dd0d3be599c7f4278a71d',
-  'r4-three-flooded-lungs.inline.html': '7772e6cdf10fe6eda2e8432ea7d4b9bf42b6f0eb7729391b6fc7e2945f0f2817',
-  'r4-pressure-volume.svg': '364ac4b5697f8c78dd14fd56cc7bc312ecb8388c9064121743f1ba91b4437757',
-  'r4-pressure-volume-print.svg': 'ff10ad11ffdd0f85d7461f92e9099e8d5a3447cbf94301737d2a37c44e1bc4a5',
-  'r4-pressure-volume.inline.html': 'b906b58f8ac12dd9c091b8055854a9fecf37439d9f5f1f44e4a0b8f5343c1a47',
-  'r4-pleural-pressure.svg': 'f8d5a9a22fde2af6d1f51b663c3a5c3cd4f862f3ea4c41578869b846422d28a6',
-  'r4-pleural-pressure-print.svg': '02886d5fc79676006c5035f8be70b083aadc0e56343a1ec93e51ad818eaa8378',
-  'r4-pleural-pressure.inline.html': '5fe757686f65eb62b321900cb2ce2f403dd8e1772d96b0afd67b4f7391ff3ac5',
+  'r4-three-flooded-lungs.svg': 'c7f9224f1f96865e5a22a62916fe901de57b866f497000c96bae970ac7c5f322',
+  'r4-three-flooded-lungs-print.svg': '940eafbf691ec5b1fc8fe3f860d37b7aa41eb86ee7968b4501aff27e7f611265',
+  'r4-three-flooded-lungs.inline.html': '27a373beb4af0f7a8492251fa285f9d67507c9d32a69afadf9d5d2e13bc50e92',
+  'r4-pressure-chain.svg': '2a4b6d7ef1fed44115801c903be301387b3c74fd39b899a2e8291c734007c319',
+  'r4-pressure-chain-print.svg': 'a66b042e685b3e752f3ac5ad48f9609a3045629ae07f7c5955fc4ee9f11d340c',
+  'r4-pressure-chain.inline.html': 'd55bab5b16e49f37ef2e4d61fc2940b0659305faa19869c2eae93fe9360caa4e',
+  'r4-pressure-volume.svg': '7d12767502fa91a517d158b7b9ed3ac7256be126880dec44d4f775b2e33715c8',
+  'r4-pressure-volume-print.svg': 'a008227c93b8c12012ea5a83d08cb05cb1d34308320ce3776580d97501f0ff15',
+  'r4-pressure-volume.inline.html': 'e0892b9dc518cb98b4f69153ac65450b00196f6861e960706b78853aff1c3475',
+  'r4-pleural-pressure.svg': 'dedaea5131deba000a2965ed54f847a6c618bc1a6f43c07322a99bc5384b2c75',
+  'r4-pleural-pressure-print.svg': 'edab0f8bec31493cc3cf76ffb0b9a1b5c477997d6ca608c51a4e10c56508d330',
+  'r4-pleural-pressure.inline.html': '43a50ab6f1526e3dda0a705dd6a83317c73e4f4a1107b9746e7b5b1d2e659417',
 };
 
 const placements: Record<string, string> = {
   'r4-three-flooded-lungs': 'three-profiles',
+  'r4-pressure-chain': 'lap-pcap',
   'r4-pressure-volume': 'diastolic-stiffness',
   'r4-pleural-pressure': 'work-of-breathing',
 };
+
+const floodedLungsAlt =
+  'Three overlapping circles, each drawn with a different outline style. The middle circle is labeled redistribution, Patient S, with MAP 150, weight change 0 kg and shock index 0.58, and the words sudden onset, high pressure, no recent weight gain. The left circle, labeled accumulation, Patient F, shows MAP 96 and weight change plus 6 kg, and overlaps the middle circle in a region labeled excess water plus a pressure surge. The right circle, labeled pump failure, Patient K, shows MAP 68, shock index 1.37 and lactate 5.0, and overlaps the middle circle in a region labeled flooded lungs and high afterload, with low forward flow. The left and right circles do not touch. Below the circles, a line says which problem dominates now is a bedside judgment, not a number, and a note says no recent weight gain does not prove normal body water, and a quick response to nitrates or CPAP does not prove redistribution alone. A tag says B-lines are a pattern consistent with increased density of the lung interstitium, from fluid or from thickening, and do not measure left atrial pressure or identify the cause. A footer says all three lungs hold fluid and the image cannot tell them apart.';
+
+const pressureChainAlt =
+  'A schematic chain of boxes from the left ventricle to the lung capillaries, with no values. A dashed line labeled pressure runs from the left ventricle toward the capillaries, and a separate thin solid line labeled blood flow runs the other way. Left ventricle: LVEDP, the pressure at the end of filling; a filling pressure is not a filling volume. A strip says mean left atrial pressure and LVEDP track reasonably closely with a normal valve, an organized atrial rhythm and a normally compliant atrium, and separate with a narrowed or substantially leaking mitral valve, a stiff or enlarged atrium, lost atrial rhythm, and the point in the cardiac cycle when the pressure is read. Left atrium: left atrial pressure changes through the cardiac cycle; a dashed marker says the wedge pressure estimates left atrial pressure under the right conditions, is not a direct measure of capillary pressure and is not interchangeable with LVEDP. Pulmonary veins: pressure just upstream of the atrium. Lung capillaries: pressure between pulmonary arterial and venous pressure, higher than left atrial pressure. An arrow says filtration rises with capillary pressure and leads to the interstitium, where lymph flow rises to match filtration, up to a limit. When filtration exceeds lymph capacity, fluid collects in three numbered stages: around the bronchovascular bundles, in the alveolar walls, and in the alveoli. A dotted box says the alveolar epithelium transports salt, water follows, and the lymphatics and the circulation remove it. A key says the wedge pressure estimates left atrial pressure, lung ultrasound and imaging see interstitial fluid, and neither measures capillary pressure directly.';
+
+const pressureVolumeAlt =
+  'A graph with ventricular volume on the horizontal axis and diastolic pressure on the vertical axis, without numbers. Two curves rise from left to right. The lower, flatter curve is labeled compliant ventricle. The upper, steeper curve is labeled stiff ventricle. On each curve, a short horizontal arrow shows the same small increase in volume, and a vertical arrow shows the resulting rise in pressure, which is small on the compliant curve and large on the stiff curve.';
+
+const pleuralPressureAlt =
+  'Two side-by-side drawings of a heart inside the chest, both at peak systole during inspiration and with the same systolic pressure. In the left drawing, labeled labored breathing, arrows point outward from the heart to show pleural pressure falling well below atmospheric, and a label reads higher transmural pressure. In the right drawing, labeled positive pressure, a flat baseline marked approximately zero shows pleural pressure near atmospheric at the same point in the breath, and a label reads lower transmural pressure. No values are shown.';
 
 function sha256(bytes: Buffer | string): string {
   return createHash('sha256').update(bytes).digest('hex');
@@ -78,6 +89,7 @@ describe('cardiogenic pulmonary edema chapter', () => {
     expect(document.strict).toBe(true);
     expect(document.diagrams).toEqual([
       'r4-three-flooded-lungs',
+      'r4-pressure-chain',
       'r4-pressure-volume',
       'r4-pleural-pressure',
     ]);
@@ -87,17 +99,14 @@ describe('cardiogenic pulmonary edema chapter', () => {
     expect(rawText).not.toContain('audio');
   });
 
-  it('keeps the accepted draft wording, with only the three figure ids and the Figure 3 alt changed', () => {
-    expect(rawText.split(pleuralPressureAlt)).toHaveLength(2);
-    expect(rawText).not.toContain(pleuralPressureAltInDraft);
-    let restored = rawText.replaceAll(pleuralPressureAlt, pleuralPressureAltInDraft);
+  it('matches the accepted draft byte for byte', () => {
+    expect(sha256(rawText)).toBe(acceptedDraftSha256);
+    expect(rawText).not.toContain('Search Bot');
+    expect(rawText).not.toContain('(proposal)');
     for (const id of cardiogenicFigureIds) {
-      const stem = idRemap[id];
-      expect(cardiogenicFigureStem(id)).toBe(stem);
+      expect(cardiogenicFigureStem(id)).toBe(figureStems[id]);
       expect(rawText.split(id)).toHaveLength(3);
-      restored = restored.replaceAll(id, stem);
     }
-    expect(sha256(restored)).toBe(acceptedDraftSha256);
   });
 
   it('places each declared figure on the section named in the chapter', () => {
@@ -116,24 +125,40 @@ describe('cardiogenic pulmonary edema chapter', () => {
     });
     expect(attached.map(({ section, id }) => ({ section, id }))).toEqual([
       { section: 'three-profiles', id: 'r4-three-flooded-lungs' },
+      { section: 'lap-pcap', id: 'r4-pressure-chain' },
       { section: 'diastolic-stiffness', id: 'r4-pressure-volume' },
       { section: 'work-of-breathing', id: 'r4-pleural-pressure' },
     ]);
     for (const figure of attached) expect(placements[figure.id]).toBe(figure.section);
-    expect(attached[0]?.caption.startsWith('Figure 1 (proposal). Same lungs, three circulations.')).toBe(true);
-    expect(
-      attached[1]?.caption.startsWith(
-        'Figure 2 (proposal). Diastolic pressure-volume curves for a compliant and a stiff ventricle.',
-      ),
-    ).toBe(true);
+    expect(attached[0]?.caption.startsWith('Figure 1. Same lungs, three circulations, and the ground between them.')).toBe(
+      true,
+    );
+    expect(attached[1]?.caption.startsWith('Figure 2. From ventricle to capillary.')).toBe(true);
     expect(
       attached[2]?.caption.startsWith(
-        'Figure 3 (proposal). Left ventricular transmural pressure during labored spontaneous breathing',
+        'Figure 3. Diastolic pressure-volume curves for a compliant and a stiff ventricle.',
       ),
     ).toBe(true);
-    expect(attached[2]?.alt).toBe(pleuralPressureAlt);
+    expect(
+      attached[3]?.caption.startsWith(
+        'Figure 4. Left ventricular transmural pressure during labored spontaneous breathing',
+      ),
+    ).toBe(true);
+    expect(attached.map((figure) => figure.alt)).toEqual([
+      floodedLungsAlt,
+      pressureChainAlt,
+      pressureVolumeAlt,
+      pleuralPressureAlt,
+    ]);
+    for (const reference of parsed.data.references) {
+      const note = reference.note ?? '';
+      expect(note).not.toMatch(/Search Bot/i);
+      expect(note).not.toMatch(/check/i);
+    }
     const opening = parsed.data.principles.find((principle) => principle.id === 'three-profiles');
     expect(opening?.title).toBe('The three patients side by side');
+    const chain = parsed.data.principles.find((principle) => principle.id === 'lap-pcap');
+    expect(chain?.title).toBe('From ventricle to capillary');
     const stiffness = parsed.data.principles.find((principle) => principle.id === 'diastolic-stiffness');
     expect(stiffness?.title).toBe('A stiff ventricle');
     const breathing = parsed.data.principles.find((principle) => principle.id === 'work-of-breathing');

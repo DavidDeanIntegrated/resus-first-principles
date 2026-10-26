@@ -12,6 +12,7 @@ import { join } from 'node:path';
  */
 export const cardiogenicFigureIds = [
   'r4-three-flooded-lungs',
+  'r4-pressure-chain',
   'r4-pressure-volume',
   'r4-pleural-pressure',
 ] as const;
@@ -23,6 +24,7 @@ export type CardiogenicFigureVariant = 'screen' | 'print';
 /** Ids already written into the drawing. The chapter id is the shorter name. */
 const figureStem: Record<CardiogenicFigureId, string> = {
   'r4-three-flooded-lungs': 'fig-r4-01-three-flooded-lungs',
+  'r4-pressure-chain': 'fig-r4-02a-pressure-chain',
   'r4-pressure-volume': 'fig-r4-02-pressure-volume',
   'r4-pleural-pressure': 'fig-r4-03-pleural-pressure',
 };
