@@ -9,6 +9,7 @@ import SectionPart from '../../components/SectionPart.astro';
 import TreatmentStep from '../../components/TreatmentStep.astro';
 import { hasNarration, narrationFor } from '../../lib/narration.ts';
 import { loadCases } from '../../lib/cases.ts';
+import { chapterRobots } from '../../lib/publish.ts';
 import { marksFor, referenceNumbers } from '../../lib/references.ts';
 import { sectionNumerals } from '../../lib/roman.ts';
 import { sectionTree } from '../../lib/sections.ts';
@@ -49,6 +50,7 @@ const numeralRecord = Object.fromEntries(numerals);
   description={description}
   ogType="article"
   audio={hasNarration(entry.data.slug)}
+  noindex={chapterRobots(entry.data.contentStatus) != null}
 >
   <div class="wrap">
     <Contents sections={entry.data.principles} />

@@ -74,6 +74,13 @@ export const causeSchema = z.object({
   refs: refsSchema.optional(),
 });
 
+/**
+ * Built-in diagram component ids. This enum is not the allow-list for a chapter.
+ * Each chapter declares the ids its sections may use. The two published chapters
+ * declare theirs in `chapterDiagramRegistry` (their files have no `diagrams` field).
+ * Any other chapter sets `diagrams` to its own ids. A section diagram that is not
+ * in that chapter's list fails validation.
+ */
 export const diagramIdSchema = z.enum([
   'pressure-gradient',
   'compression-pause',
@@ -91,13 +98,35 @@ export const shockDiagramIdSchema = z.enum([
   'shock-fluid-response',
 ]);
 
+/** Ids already in use. Kept here so those chapters stay valid without a `diagrams` field. */
+export const chapterDiagramRegistry = {
+  'adult-cardiac-arrest': ['pressure-gradient', 'compression-pause'],
+  'shock-pressure-flow': [
+    'shock-circulation-gradients',
+    'shock-pressure-flow',
+    'shock-fluid-response',
+  ],
+} as const;
+
+const legacyDiagramIds = new Set<string>(legacyDiagramIdSchema.options);
+const shockDiagramIds = new Set<string>(shockDiagramIdSchema.options);
+
+export function declaredDiagramIds(chapter: {
+  slug: string;
+  diagrams?: readonly string[];
+}): readonly string[] {
+  if (chapter.diagrams) return chapter.diagrams;
+  return chapterDiagramRegistry[chapter.slug as keyof typeof chapterDiagramRegistry] ?? [];
+}
+
 export const diagramEntrySchema = z.object({
-  id: shockDiagramIdSchema,
+  id: idSchema,
   caption: textSchema,
   alt: textSchema,
 });
 
-export const diagramFieldSchema = z.union([legacyDiagramIdSchema, diagramEntrySchema]);
+/** A string id, or an id whose caption and alt live in the module. */
+export const diagramFieldSchema = z.union([idSchema, diagramEntrySchema]);
 
 /** One header row and one or more body rows. Cells are plain text or inline markdown. */
 export const tableSchema = z
@@ -325,6 +354,10 @@ export function deprecatedConclusionWarnings(value: {
   return issues;
 }
 
+export const contentStatusSchema = z.enum(['placeholder', 'draft', 'published']);
+
+export type ContentStatus = z.infer<typeof contentStatusSchema>;
+
 export const caseSchema = z
   .object({
     schemaVersion: z.literal(1),
@@ -334,7 +367,12 @@ export const caseSchema = z
     summary: textSchema,
     /** Share-card and meta description. Previews truncate near 160 characters. */
     shareDescription: z.string().trim().min(1).max(160).optional(),
-    contentStatus: z.enum(['placeholder', 'published']),
+    contentStatus: contentStatusSchema,
+    /**
+     * Diagram ids this chapter's sections may use. Omit to use `chapterDiagramRegistry`
+     * for a published chapter that already has one. An id that is not declared fails.
+     */
+    diagrams: z.array(idSchema).optional(),
     strict: z.boolean().optional(),
     reviewNote: textSchema.optional(),
     references: z.array(referenceSchema).min(1).optional(),
@@ -360,6 +398,51 @@ export const caseSchema = z
         path: ['summary'],
       });
     }
+
+    if (value.diagrams) {
+      const seenDiagrams = new Set<string>();
+      value.diagrams.forEach((diagramId, index) => {
+        if (seenDiagrams.has(diagramId)) {
+          ctx.addIssue({
+            code: 'custom',
+            message: `Duplicate diagram id "${diagramId}"`,
+            path: ['diagrams', index],
+          });
+        }
+        seenDiagrams.add(diagramId);
+      });
+    }
+
+    const declaredDiagrams = new Set(declaredDiagramIds(value));
+    value.principles.forEach((principle, index) => {
+      if (!principle.diagram) return;
+      const diagramId = typeof principle.diagram === 'string' ? principle.diagram : principle.diagram.id;
+      const diagramPath =
+        typeof principle.diagram === 'string'
+          ? ['principles', index, 'diagram']
+          : ['principles', index, 'diagram', 'id'];
+      if (!declaredDiagrams.has(diagramId)) {
+        ctx.addIssue({
+          code: 'custom',
+          message: `Diagram "${diagramId}" is not declared for chapter "${value.slug}"`,
+          path: diagramPath,
+        });
+      }
+      if (shockDiagramIds.has(diagramId) && typeof principle.diagram === 'string') {
+        ctx.addIssue({
+          code: 'custom',
+          message: `Diagram "${diagramId}" must include caption and alt`,
+          path: ['principles', index, 'diagram'],
+        });
+      }
+      if (legacyDiagramIds.has(diagramId) && typeof principle.diagram !== 'string') {
+        ctx.addIssue({
+          code: 'custom',
+          message: `Diagram "${diagramId}" caption lives in the component`,
+          path: ['principles', index, 'diagram'],
+        });
+      }
+    });
 
     const principleIds = new Set<string>();
     const questionIds = new Set<string>();
