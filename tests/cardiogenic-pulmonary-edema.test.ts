@@ -150,7 +150,7 @@ describe('cardiogenic pulmonary edema chapter', () => {
       pressureVolumeAlt,
       pleuralPressureAlt,
     ]);
-    for (const reference of parsed.data.references) {
+    for (const reference of parsed.data.references ?? []) {
       const note = reference.note ?? '';
       expect(note).not.toMatch(/Search Bot/i);
       expect(note).not.toMatch(/check/i);
