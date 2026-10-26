@@ -82,18 +82,55 @@ describe('acute respiratory failure chapter', () => {
         expect(svg).toContain('role="img"');
         expect(svg).not.toContain('DejaVu');
         expect(svg).toContain('var(--f-text)');
+        expect(svg.match(/<svg\b[^>]*>/)?.[0]).not.toContain('width=');
       }
       expect(screen).toContain('class="diagram-screen"');
       expect(print).toContain('class="diagram-print"');
-      expect(screen).toContain(`aria-labelledby="${id}-screen-`);
-      expect(screen).toContain(`aria-describedby="${id}-screen-`);
-      expect(print).toContain(`aria-labelledby="${id}-print-`);
-      expect(print).toContain(`aria-describedby="${id}-print-`);
+      const screenTitle = screen.match(/\bid="([^"]*screen[^"]*)"/)?.[1];
+      expect(screenTitle).toBeTruthy();
       const screenIds = [...screen.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
       const printIds = [...print.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
       expect(new Set(screenIds).size).toBe(screenIds.length);
       expect(new Set([...screenIds, ...printIds]).size).toBe(screenIds.length + printIds.length);
+      expect(screenIds.some((elementId) => elementId.includes('-screen-'))).toBe(true);
+      expect(printIds.some((elementId) => elementId.includes('-print-'))).toBe(true);
+      if (id === 'r1-four-mechanisms') {
+        const screenLabel = `${id}-screen-rf1-title ${id}-screen-rf1-desc`;
+        const printLabel = `${id}-print-rf1p-title ${id}-print-rf1p-desc`;
+        expect(screen).toContain(`aria-labelledby="${screenLabel}"`);
+        expect(print).toContain(`aria-labelledby="${printLabel}"`);
+        expect(screen).not.toContain('aria-describedby');
+        expect(print).not.toContain('aria-describedby');
+        expect(screen).toContain(`id="${id}-screen-rf1-ah"`);
+        expect(print).toContain(`id="${id}-print-rf1p-ah"`);
+        expect(print).toContain('viewBox="0 0 700 766"');
+        expect(screen).toContain('viewBox="0 0 360 1092"');
+        expect(print).toContain('fill:#172d38');
+        expect(print).toContain('fill:#ffffff');
+        expect(print).not.toContain('var(--fig-');
+        expect(print).not.toContain('prefers-color-scheme');
+        expect(screen).toContain('var(--fig-ink');
+        expect(screen).toContain('prefers-color-scheme:dark');
+      } else {
+        expect(screen).toContain(`aria-labelledby="${id}-screen-`);
+        expect(screen).toContain(`aria-describedby="${id}-screen-`);
+        expect(print).toContain(`aria-labelledby="${id}-print-`);
+        expect(print).toContain(`aria-describedby="${id}-print-`);
+      }
     }
+  });
+
+  it('relaxes print max-height only for the load-capacity figure', () => {
+    const css = readFileSync(join(repoRoot, 'src/styles/global.css'), 'utf8');
+    expect(css).toContain(`  .diagram svg.diagram-print {
+    display: block !important;
+    max-height: 7.6in;
+  }`);
+    expect(css).toContain(`.diagram[data-diagram="r1-load-capacity"] svg.diagram-print {
+    max-height: 9.2in;
+  }`);
+    expect(css).not.toMatch(/data-diagram="shock-[^"]+"\] svg\.diagram-print/);
+    expect(css).not.toMatch(/data-diagram="(?:coronary-circuit|pressure-pairs|compression-release|pressure-gradient)"\] svg\.diagram-print/);
   });
 
   it('is excluded from the production build', () => {
