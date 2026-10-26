@@ -554,7 +554,7 @@
       "diagram": {
         "id": "r4-pleural-pressure",
         "caption": "Figure 3 (proposal). Left ventricular transmural pressure during labored spontaneous breathing and during positive pressure, at the same arterial pressure. Transmural pressure is higher with labored breathing and lower with positive pressure. Direction only; no values are shown.",
-        "alt": "Two side-by-side drawings of a heart inside the chest. In the left drawing, labeled labored breathing, arrows point outward from the heart to show negative pressure around it, and an upward arrow marks higher transmural pressure. In the right drawing, labeled positive pressure, small arrows point inward toward the heart, and a downward arrow marks lower transmural pressure. Arterial pressure is the same in both. No values are shown."
+        "alt": "Two side-by-side drawings of a heart inside the chest. In the left drawing, labeled labored breathing, arrows point outward from the heart to show pleural pressure falling well below atmospheric; a label says the ventricle must generate more transmural pressure, so its load rises. In the right drawing, labeled positive pressure, arrows point inward toward the heart to show slightly positive pleural pressure; a label says the gap between inside and outside is smaller, so the load falls. Arterial pressure is the same in both. No values are shown."
       }
     },
     {

@@ -24,8 +24,14 @@ import { caseSchema, declaredDiagramIds } from '../src/lib/schema.ts';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
-/** Accepted draft (sha256). The chapter file differs only by the three diagram ids below. */
+/** Accepted draft (sha256). The chapter file differs only by the three diagram ids and the Figure 3 alt. */
 const acceptedDraftSha256 = '950d2026136f77650992322f1e2a50d61179833124782b7980aa3f50ef5296f5';
+
+const pleuralPressureAlt =
+  'Two side-by-side drawings of a heart inside the chest. In the left drawing, labeled labored breathing, arrows point outward from the heart to show pleural pressure falling well below atmospheric; a label says the ventricle must generate more transmural pressure, so its load rises. In the right drawing, labeled positive pressure, arrows point inward toward the heart to show slightly positive pleural pressure; a label says the gap between inside and outside is smaller, so the load falls. Arterial pressure is the same in both. No values are shown.';
+
+const pleuralPressureAltInDraft =
+  'Two side-by-side drawings of a heart inside the chest. In the left drawing, labeled labored breathing, arrows point outward from the heart to show negative pressure around it, and an upward arrow marks higher transmural pressure. In the right drawing, labeled positive pressure, small arrows point inward toward the heart, and a downward arrow marks lower transmural pressure. Arterial pressure is the same in both. No values are shown.';
 
 const idRemap: Record<CardiogenicFigureId, string> = {
   'r4-three-flooded-lungs': 'fig-r4-01-three-flooded-lungs',
@@ -81,8 +87,10 @@ describe('cardiogenic pulmonary edema chapter', () => {
     expect(rawText).not.toContain('audio');
   });
 
-  it('keeps the accepted draft wording, with only the three figure ids renamed', () => {
-    let restored = rawText;
+  it('keeps the accepted draft wording, with only the three figure ids and the Figure 3 alt changed', () => {
+    expect(rawText.split(pleuralPressureAlt)).toHaveLength(2);
+    expect(rawText).not.toContain(pleuralPressureAltInDraft);
+    let restored = rawText.replaceAll(pleuralPressureAlt, pleuralPressureAltInDraft);
     for (const id of cardiogenicFigureIds) {
       const stem = idRemap[id];
       expect(cardiogenicFigureStem(id)).toBe(stem);
@@ -97,7 +105,14 @@ describe('cardiogenic pulmonary edema chapter', () => {
     if (!parsed.success) return;
     const attached = parsed.data.principles.flatMap((principle) => {
       if (!principle.diagram || typeof principle.diagram === 'string') return [];
-      return [{ section: principle.id, id: principle.diagram.id, caption: principle.diagram.caption }];
+      return [
+        {
+          section: principle.id,
+          id: principle.diagram.id,
+          caption: principle.diagram.caption,
+          alt: principle.diagram.alt,
+        },
+      ];
     });
     expect(attached.map(({ section, id }) => ({ section, id }))).toEqual([
       { section: 'three-profiles', id: 'r4-three-flooded-lungs' },
@@ -116,6 +131,7 @@ describe('cardiogenic pulmonary edema chapter', () => {
         'Figure 3 (proposal). Left ventricular transmural pressure during labored spontaneous breathing',
       ),
     ).toBe(true);
+    expect(attached[2]?.alt).toBe(pleuralPressureAlt);
     const opening = parsed.data.principles.find((principle) => principle.id === 'three-profiles');
     expect(opening?.title).toBe('The three patients side by side');
     const stiffness = parsed.data.principles.find((principle) => principle.id === 'diastolic-stiffness');
