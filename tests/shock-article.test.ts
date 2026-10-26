@@ -126,14 +126,14 @@ describe('shock article integration', () => {
     expect(signals?.refs).toContain('antit-2025');
     const fig3 = parsed.data.principles.find((principle) => principle.id === 'fluid-responsiveness');
     const fig3Alt = fig3?.diagram && typeof fig3.diagram !== 'string' ? fig3.diagram.alt : '';
-    expect(fig3Alt).toContain('labelled Rising congestion risk');
+    expect(fig3Alt).toContain('labeled Rising congestion risk');
     expect(fig3Alt).not.toContain('where congestion begins');
     const fig2 = parsed.data.principles.find(
       (principle) => principle.diagram && typeof principle.diagram !== 'string' && principle.diagram.id === 'shock-pressure-flow',
     );
     const fig2Alt = fig2?.diagram && typeof fig2.diagram !== 'string' ? fig2.diagram.alt : '';
     expect(fig2Alt).toBe(
-      'Two side-by-side tubes, each labelled with the same pressure difference of 55 millimetres of mercury from inlet to outlet. The left tube is wider, labelled resistance 11 mm Hg·min per litre, with a thick arrow labelled flow 5 litres per minute. The right tube is narrower, labelled resistance 22 mm Hg·min per litre, with a thin arrow labelled flow 2.5 litres per minute. Below each, the equation 55 = 5 × 11 and 55 = 2.5 × 22. Values are marked illustrative.',
+      'Two side-by-side tubes, each labeled with the same pressure difference of 55 millimeters of mercury from inlet to outlet. The left tube is wider, labeled resistance 11 mm Hg·min per liter, with a thick arrow labeled flow 5 liters per minute. The right tube is narrower, labeled resistance 22 mm Hg·min per liter, with a thin arrow labeled flow 2.5 liters per minute. Below each, the equation 55 = 5 × 11 and 55 = 2.5 × 22. Values are marked illustrative.',
     );
     const foulon = parsed.data.references?.find((reference) => reference.id === 'foulon-2018');
     expect(foulon?.label).toContain('Ann Transl Med. 2018;6(Suppl 1):S25');
@@ -179,7 +179,7 @@ describe('shock page build', () => {
     expect(html).not.toContain('Figure in progress');
     expect(html).not.toContain('[source:');
     expect(html).not.toContain('SOURCE NEEDED');
-    expect(html).toContain('labelled Rising congestion risk');
+    expect(html).toContain('labeled Rising congestion risk');
     expect(html).toContain('One circulation, several pressure gradients.</title>');
     expect(html).toContain('Similar pressure, different flow.</title>');
     expect(html).toContain('A fluid response is not the whole decision.</title>');
