@@ -19,28 +19,21 @@ import {
   septicInlineFile,
   septicSvg,
   septicSvgSource,
-  type SepticFigureId,
 } from '../src/lib/septic-figures.ts';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
-/** Accepted draft (sha256). The chapter file differs only by the three diagram ids below. */
-const acceptedDraftSha256 = '1c00de12afcd4d52c72a240da8fef1f130add9285aeead928150d5c422dd5b62';
-
-const idRemap: Record<SepticFigureId, string> = {
-  'r3-three-septic-circulations': 'fig-r3-01-three-septic-circulations',
-  'r3-where-fluid-goes': 'fig-r3-02-where-fluid-goes',
-  'r3-coherence': 'fig-r3-03-coherence',
-};
+/** Accepted draft (sha256). The chapter file is that draft, including its diagram ids. */
+const acceptedDraftSha256 = '751585e4c48568b082427ef4780f55ebba0103c5df741113754056924e05390f';
 
 /** sha256 of the Atelier attachments, in chapter-id file names. */
 const attachmentSha256: Record<string, string> = {
-  'r3-three-septic-circulations.svg': '3a53a68a5cd3b07a27ba6b6f59c6ea64df181ecd8986849e973aed5c1d06e968',
-  'r3-three-septic-circulations-print.svg': 'fa082c353867c5f6a712cd15743cb883579471cff32f568f4d5aa72119639b99',
-  'r3-three-septic-circulations.inline.html': '9b54f3de70552b0867bf7adf24ca9db854d5bea0952a52c4116dd94a5a4dec84',
-  'r3-where-fluid-goes.svg': 'e60ed494d778fb5bcf4094510454606c7ebda66034d9a049ab475d00934dd3e3',
-  'r3-where-fluid-goes-print.svg': '975c41804c5460d22ed5a29bc4c047954e007ed969ccb20389f927c22ff22a32',
-  'r3-where-fluid-goes.inline.html': '90a9744092eef55acd10583a9aad1efd19014e11c1b22760bea9fb0eeb6d8eaf',
+  'r3-three-septic-circulations.svg': '586c4039ed797269f283b744b31008747d2162c07b7339338a07c7d71c296b4f',
+  'r3-three-septic-circulations-print.svg': 'fb2b4267d6b6b8ad3c2507adc446a3bdbe2d04e1d27f29d78bf0dfd036f15dc5',
+  'r3-three-septic-circulations.inline.html': 'fa174d705b64d07cd18a1e611237cc3609603efcddbc63a4e1f1c412341a6ea3',
+  'r3-where-fluid-goes.svg': '91125d22e76630be960de94f5fbd9bf49c7f2a22d6619809bc61c692e89797e5',
+  'r3-where-fluid-goes-print.svg': '9614f1dc14eb0ed6060032e3d14fee16dc264e73a285680933392996a9e61f15',
+  'r3-where-fluid-goes.inline.html': '31e60606e5eff87fc54a98fc5fcd306d32025072f0431a3039c9f175f7fec7cd',
   'r3-coherence.svg': '92a67218d792394965ffd692be549fef5d63869f22944e3ded9090a8a1e600c3',
   'r3-coherence-print.svg': '2f65f7307506dab7bc2b0b55cb469b90c156492e9a94549707ad275e7f265c3f',
   'r3-coherence.inline.html': '417e49c4ed6ccd69ff9f1a8c661352cd76c597a6f827a2866889fac226524ea3',
@@ -83,15 +76,18 @@ describe('septic shock chapter', () => {
     expect(rawText).not.toContain('audio');
   });
 
-  it('keeps the accepted draft wording, with only the three figure ids renamed', () => {
-    let restored = rawText;
-    for (const id of septicFigureIds) {
-      const stem = idRemap[id];
-      expect(septicFigureStem(id)).toBe(stem);
-      expect(rawText.split(id)).toHaveLength(3);
-      restored = restored.replaceAll(id, stem);
+  it('matches the accepted draft byte for byte', () => {
+    expect(sha256(rawText)).toBe(acceptedDraftSha256);
+    expect(rawText).not.toMatch(/Search Bot/i);
+    expect(rawText).not.toMatch(/checking process/i);
+    expect(parsed.success).toBe(true);
+    if (!parsed.success) return;
+    for (const reference of parsed.data.references ?? []) {
+      const note = reference.note ?? '';
+      expect(note, reference.id).not.toMatch(/search bot/i);
+      expect(note, reference.id).not.toMatch(/checked by/i);
+      expect(note, reference.id).not.toMatch(/checking process/i);
     }
-    expect(sha256(restored)).toBe(acceptedDraftSha256);
   });
 
   it('places each declared figure on the section named in the chapter', () => {
