@@ -33,11 +33,12 @@ Topic module files live in `src/content/cases/*.json`. The filename must be `{sl
 
 Each topic module has:
 
-- `schemaVersion` (`1`), `id`, `slug`, `title`, `summary`, optional `shareDescription` (share-card and meta description, at most 160 characters; the page still shows `summary`, and uses `summary` for the meta description when `shareDescription` is omitted), and `contentStatus` (`placeholder` or `published`)
+- `schemaVersion` (`1`), `id`, `slug`, `title`, `summary`, optional `shareDescription` (share-card and meta description, at most 160 characters; the page still shows `summary`, and uses `summary` for the meta description when `shareDescription` is omitted), and `contentStatus` (`placeholder`, `draft`, or `published`)
 - optional `strict` (`true` turns on the stricter question rules below for that file)
 - optional `reviewNote` (string), rendered as a review line under the case title
 - optional `references`: `{ id, label, url, note? }`. `url` is an absolute URL. `note` is optional.
-- `principles`: `id`, `title`, optional `parentId` (another principle id; only one level of nesting), optional `explanation`, optional `body` (an array of paragraphs; inline markdown is allowed), optional `diagram` (`pressure-gradient` or `compression-pause`), optional `refs` (reference ids), optional `questions`, optional `causes`, and optional `workedExample`
+- optional `diagrams`: the diagram ids this chapter's sections may use. Omit it on adult cardiac arrest and shock; those two chapters already declare their ids in `chapterDiagramRegistry` (`src/lib/schema.ts`)
+- `principles`: `id`, `title`, optional `parentId` (another principle id; only one level of nesting), optional `explanation`, optional `body` (an array of paragraphs; inline markdown is allowed), optional `diagram` (a string id, or `{ id, caption, alt }`, and the id must be declared for this chapter), optional `refs` (reference ids), optional `questions`, optional `causes`, and optional `workedExample`
 - a section needs `explanation` or `body` (or both)
 - each question: `id`, `prompt`, `answer`, optional `reasoning`, optional `kind` (`prediction`, `transfer`, `evidence-boundary`, or `insufficient-information`), deprecated optional `conclusion`, optional `causalChain`, `assumption`, `misconception`, optional `missingData`, and optional `refs`
 - each worked example: `id` (anchor `#worked-example-{id}`), `title`, and `body` (an array of paragraphs; inline markdown is allowed)
@@ -52,6 +53,12 @@ Each topic module has:
 `refs` on a principle, question, cause, or step must name ids from that topic module's `references`. The page renders them as superscript links to a References list at the bottom. The list items link out to `url`.
 
 A placeholder topic module must include the word `PLACEHOLDER` in the title or summary. Published topic modules set `contentStatus` to `published`. The adult cardiac arrest file is published study content.
+
+A `draft` is valid content that is not part of the public site. Preview builds include it in the chapter routes and the home listing, and the page is `noindex`. Production builds omit it from routes and the listing. A draft is also omitted from any sitemap, feed, or search index. This site does not emit those three; `includeChapter` in `src/lib/publish.ts` is the gate.
+
+The gate runs at build time, and an unclear signal is production. Vercel sets `VERCEL_ENV` to `preview` or `production` (production deploys from `main`; this repo has no `vercel.json`). Cloudflare Workers Builds injects `WORKERS_CI=1` and `WORKERS_CI_BRANCH`, not an environment name. `wrangler.jsonc` enables Worker Previews with an empty `previews` block, and the production branch is `main`. A Workers build is a preview only when that branch is set and is not `main`. Local builds and GitHub Actions set neither variable, so they are production builds. If the signals disagree, the build is production.
+
+Adult cardiac arrest declares `pressure-gradient` and `compression-pause` (plain strings; the caption lives in the component). Shock declares `shock-circulation-gradients`, `shock-pressure-flow`, and `shock-fluid-response` (each section entry keeps `caption` and `alt`). A section whose diagram id is not declared for its chapter fails validation. Another chapter sets `diagrams` to its own ids instead of extending the shared enum.
 
 `src/lib/schema.ts` is the Zod schema. `npm run validate` checks every topic module against it, including principle links and reference ids. `astro build` runs that check first (`prebuild`) and the Astro content collection validates the same schema again, so a malformed file fails the build and CI.
 

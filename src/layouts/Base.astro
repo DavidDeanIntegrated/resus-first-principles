@@ -8,9 +8,11 @@ interface Props {
   ogType?: 'website' | 'article';
   /** Adult cardiac arrest opts in so narration controls can show. */
   audio?: boolean;
+  /** Draft chapters are noindex wherever they render. */
+  noindex?: boolean;
 }
 
-const { title, description, ogType = 'website', audio = false } = Astro.props;
+const { title, description, ogType = 'website', audio = false, noindex = false } = Astro.props;
 
 const SITE_NAME = 'Resus First Principles';
 const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
@@ -79,6 +81,7 @@ const themeChoiceTag = `<script>${themeChoice}</script>`;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content={ogType} />

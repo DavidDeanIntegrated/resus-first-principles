@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { loadCases } from '../lib/cases.ts';
+import { listingRobots } from '../lib/publish.ts';
 
 const cases = await loadCases();
 ---
@@ -9,6 +10,7 @@ const cases = await loadCases();
   title="Resus First Principles"
   description="Resuscitation explained from the physiology up: why pressure, flow and oxygen delivery behave as they do, and what that tells you at the bedside."
   ogType="website"
+  noindex={listingRobots(cases.map((entry) => entry.data.contentStatus)) != null}
 >
   <div class="page">
     <h1>Resus First Principles</h1>

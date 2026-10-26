@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import { join } from 'node:path';
+import { isBuiltChapter } from './publish.ts';
 import { validateContentDirectory } from './validate-content.ts';
 
 export async function loadCases() {
@@ -21,5 +22,8 @@ export async function loadCases() {
     }
   }
 
-  return cases.sort((a, b) => a.data.title.localeCompare(b.data.title));
+  // Routes and the home listing both use this list. Drafts stay out of a production build.
+  return cases
+    .filter((entry) => isBuiltChapter(entry.data.contentStatus))
+    .sort((a, b) => a.data.title.localeCompare(b.data.title));
 }
