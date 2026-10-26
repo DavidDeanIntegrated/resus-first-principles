@@ -1,12 +1,17 @@
 ---
 // V7.3 design (Atelier). Markup and styles are theirs.
 // Playback, resume, and Media Session use the hooks on this player.
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
 ---
 
 <aside
   class="audio-player"
   aria-label="Audio narration"
   data-audio-player
+  data-audio-slug={slug}
   data-state="idle"
   hidden
 >
@@ -51,8 +56,8 @@
 </aside>
 
 <script>
-  import { mountCardiacArrestAudio } from '../scripts/audio-narration.ts';
+  import { mountNarration } from '../scripts/audio-narration.ts';
 
   const player = document.querySelector('aside[data-audio-player]');
-  if (player instanceof HTMLElement) mountCardiacArrestAudio(player);
+  if (player instanceof HTMLElement) mountNarration(player);
 </script>

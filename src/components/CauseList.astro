@@ -2,7 +2,7 @@
 import ListenButton from './ListenButton.astro';
 import Prose from './Prose.astro';
 import RefMarks from './RefMarks.astro';
-import { cardiacArrestAudio } from '../lib/cardiac-arrest-audio.ts';
+import { narrationTrack } from '../lib/narration.ts';
 import type { Cause, CauseCategory } from '../lib/schema.ts';
 import { toRoman } from '../lib/roman.ts';
 import { marksFor, type ReferenceMark } from '../lib/references.ts';
@@ -43,7 +43,7 @@ function marks(refs: string[] | undefined): ReferenceMark[] {
 }
 
 function causeNarration(id: string) {
-  return cardiacArrestAudio.find((track) => track.anchor === `cause-${id}`);
+  return narrationTrack(Astro.params.slug, `cause-${id}`);
 }
 ---
 

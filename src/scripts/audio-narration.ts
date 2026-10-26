@@ -1,11 +1,5 @@
-import {
-  cardiacArrestAudio,
-  narrationArtist,
-  narrationSrc,
-  type NarrationTrack,
-} from '../lib/cardiac-arrest-audio.ts';
+import { narrationFor, narrationSrc, type Narration, type NarrationTrack } from '../lib/narration.ts';
 
-const STORAGE_KEY = 'rfp-audio-cardiac-arrest';
 const SEEK_STEP = 10;
 
 interface ResumePoint {
@@ -17,7 +11,9 @@ interface ResumePoint {
  * Drives Atelier's mini-player. Nothing is fetched until the listener presses play
  * or a control that continues playback. Section and position are restored from localStorage.
  */
-export function mountCardiacArrestAudio(player: HTMLElement): void {
+export function mountNarration(player: HTMLElement): void {
+  const narration = narrationFor(player.dataset.audioSlug);
+  if (!narration) return;
   const audio = player.querySelector<HTMLAudioElement>('[data-audio-element]');
   const title = player.querySelector<HTMLElement>('[data-audio-title]');
   const elapsed = player.querySelector<HTMLElement>('[data-audio-elapsed]');
@@ -25,10 +21,11 @@ export function mountCardiacArrestAudio(player: HTMLElement): void {
   const progress = player.querySelector<HTMLElement>('[data-audio-progress]');
   const toggle = player.querySelector<HTMLButtonElement>('[data-audio-action="toggle"]');
   if (!audio || !title || !elapsed || !total || !progress || !toggle) return;
-  wirePlayer(player, audio, title, elapsed, total, progress, toggle);
+  wirePlayer(narration, player, audio, title, elapsed, total, progress, toggle);
 }
 
 function wirePlayer(
+  narration: Narration,
   player: HTMLElement,
   audio: HTMLAudioElement,
   title: HTMLElement,
@@ -37,7 +34,7 @@ function wirePlayer(
   progress: HTMLElement,
   toggle: HTMLButtonElement,
 ): void {
-  const tracks = cardiacArrestAudio;
+  const tracks = narration.tracks;
   audio.preload = 'none';
 
   let index = 0;
@@ -46,7 +43,7 @@ function wirePlayer(
   let advancing = false;
   let lastPersist = 0;
 
-  const saved = readResume(tracks);
+  const saved = readResume(narration);
   if (saved) {
     index = saved.index;
     position = saved.position;
@@ -215,7 +212,7 @@ function wirePlayer(
   }
 
   function beginPlayback(): void {
-    const url = absoluteSrc(tracks[index].filename);
+    const url = absoluteSrc(narration, tracks[index].filename);
     if (audio.currentSrc !== url) {
       advancing = true;
       audio.src = url;
@@ -270,7 +267,7 @@ function wirePlayer(
   }
 
   function srcMatches(): boolean {
-    return audio.currentSrc === absoluteSrc(tracks[index].filename);
+    return audio.currentSrc === absoluteSrc(narration, tracks[index].filename);
   }
 
   function persist(): void {
@@ -279,7 +276,7 @@ function wirePlayer(
       position: Math.round(Math.max(0, position) * 10) / 10,
     };
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(point));
+      localStorage.setItem(narration.storageKey, JSON.stringify(point));
     } catch {
       /* Private browsing can reject storage; playback still works for this view. */
     }
@@ -297,7 +294,7 @@ function wirePlayer(
     const track = tracks[index];
     session.metadata = new MediaMetadata({
       title: track.heading,
-      artist: narrationArtist,
+      artist: narration.artist,
       artwork: siteArtwork(),
     });
   }
@@ -376,9 +373,10 @@ function wirePlayer(
   }
 }
 
-function readResume(tracks: readonly NarrationTrack[]): ResumePoint | null {
+function readResume(narration: Narration): ResumePoint | null {
+  const tracks = narration.tracks;
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(narration.storageKey);
     if (!raw) return null;
     const parsed = JSON.parse(raw) as { index?: unknown; position?: unknown };
     if (typeof parsed.index !== 'number' || !Number.isInteger(parsed.index)) return null;
@@ -400,8 +398,8 @@ function formatClock(seconds: number): string {
   return `${minutes}:${secs.toString().padStart(2, '0')}`;
 }
 
-function absoluteSrc(filename: string): string {
-  return new URL(narrationSrc(filename), document.baseURI).href;
+function absoluteSrc(narration: Narration, filename: string): string {
+  return new URL(narrationSrc(narration, filename), document.baseURI).href;
 }
 
 function siteArtwork(): MediaImage[] {

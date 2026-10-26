@@ -86,10 +86,8 @@ describe('cardiac arrest narration audio', () => {
     expect(page).toContain('AI-narrated audio. The written text is authoritative.');
     expect(page).not.toContain('audio-demo');
     expect(page).not.toContain('<audio preload="none" hidden data-audio-element src=');
-    expect(shock).not.toContain('data-audio="available"');
-    expect(shock).not.toContain('data-audio-player');
-    expect(shock).not.toContain('data-audio-listen');
-    expect(shock).not.toContain('listen-from-here');
+    expect(page).toContain('data-audio-slug="adult-cardiac-arrest"');
+    expect(shock).not.toContain('data-audio-slug="adult-cardiac-arrest"');
     expect(shock).not.toContain('audio-demo');
   });
 });
