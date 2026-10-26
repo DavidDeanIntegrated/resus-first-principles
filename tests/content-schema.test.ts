@@ -74,6 +74,7 @@ describe('case schema', () => {
     if (!result.ok) return;
     expect(result.cases.map((entry) => entry.document.slug).sort()).toEqual([
       'adult-cardiac-arrest',
+      'cardiogenic-pulmonary-edema',
       'shock-pressure-flow',
     ]);
     const document = result.cases.find((entry) => entry.document.slug === 'adult-cardiac-arrest')?.document;
@@ -209,7 +210,7 @@ describe('case schema', () => {
     const result = validateContentDirectory(contentDirectory);
     expect(result.ok).toBe(true);
     if (!result.ok) return;
-    const document = result.cases[0]?.document;
+    const document = result.cases.find((entry) => entry.document.slug === 'adult-cardiac-arrest')?.document;
     const diagrams = new Map(document?.principles.map((principle) => [principle.id, principle.diagram]));
     expect(diagrams.get('coronary-cerebral-perfusion')).toBe('pressure-gradient');
     expect(diagrams.get('minimize-interruptions')).toBe('compression-pause');
