@@ -114,6 +114,7 @@ def main():
     ap.add_argument('--model'); ap.add_argument('--voices')
     ap.add_argument('--text-dir', default=os.path.join(tempfile.gettempdir(), 'shock-narration-text'))
     ap.add_argument('--text-only', action='store_true')
+    ap.add_argument('--only', nargs='*', help='filenames to re-render; other manifest entries are kept')
     args = ap.parse_args()
     case = json.load(open(CASE))
     plan = clips(case)
@@ -127,8 +128,13 @@ def main():
     from kokoro_onnx import Kokoro
     kokoro = Kokoro(args.model, args.voices)
     os.makedirs(OUT, exist_ok=True)
+    only = set(args.only or [])
+    old = {t['filename']: t for t in json.load(open(MANIFEST))} if only else {}
     manifest = []
     for i, c in enumerate(plan):
+        if only and c['filename'] not in only:
+            manifest.append(old[c['filename']])
+            continue
         chunks = []
         for p in c['spoken']:
             audio, sr = kokoro.create(p, voice=VOICE, speed=1.0, lang=LANG)
