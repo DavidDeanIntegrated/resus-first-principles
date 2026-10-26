@@ -66,7 +66,7 @@ describe('acute respiratory failure chapter', () => {
     }
     const mechanisms = parsed.data.principles.find((principle) => principle.id === 'other-mechanisms');
     expect(mechanisms?.title).toBe('Diffusion limitation and low inspired oxygen');
-    expect(mechanisms?.table?.caption).toContain('four mechanisms of hypoxaemia');
+    expect(mechanisms?.table?.caption).toContain('four mechanisms of hypoxemia');
     const ventilation = parsed.data.principles.find((principle) => principle.id === 'alveolar-ventilation');
     expect(ventilation?.workedExample?.id).toBe('same-ve-example');
   });
