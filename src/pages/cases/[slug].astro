@@ -7,6 +7,7 @@ import ManagementOverview from '../../components/ManagementOverview.astro';
 import ReferenceList from '../../components/ReferenceList.astro';
 import SectionPart from '../../components/SectionPart.astro';
 import TreatmentStep from '../../components/TreatmentStep.astro';
+import { hasNarration, narrationFor } from '../../lib/narration.ts';
 import { loadCases } from '../../lib/cases.ts';
 import { marksFor, referenceNumbers } from '../../lib/references.ts';
 import { sectionNumerals } from '../../lib/roman.ts';
@@ -47,7 +48,7 @@ const numeralRecord = Object.fromEntries(numerals);
   title={entry.data.title}
   description={description}
   ogType="article"
-  audio={entry.data.slug === 'adult-cardiac-arrest'}
+  audio={hasNarration(entry.data.slug)}
 >
   <div class="wrap">
     <Contents sections={entry.data.principles} />
@@ -105,7 +106,7 @@ const numeralRecord = Object.fromEntries(numerals);
         <p class="kicker">Putting it together</p>
         <h2 id="treatment-heading">Approach to treatment</h2>
         {
-          entry.data.slug === 'adult-cardiac-arrest' && (
+          narrationFor(entry.data.slug)?.tracks.some((track) => track.anchor === 'treatment-heading') && (
             <ListenButton anchor="treatment-heading" title="Approach to treatment" />
           )
         }
@@ -137,8 +138,8 @@ const numeralRecord = Object.fromEntries(numerals);
   </section>
   {entry.data.references && <ReferenceList references={entry.data.references} />}
   {
-    entry.data.slug === 'adult-cardiac-arrest' && (
-      <AudioPlayer />
+    hasNarration(entry.data.slug) && (
+      <AudioPlayer slug={entry.data.slug} />
     )
   }
 </Base>

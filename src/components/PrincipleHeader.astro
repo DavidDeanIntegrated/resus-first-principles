@@ -1,7 +1,7 @@
 ---
 import ListenButton from './ListenButton.astro';
 import RefMarks from './RefMarks.astro';
-import { cardiacArrestAudio } from '../lib/cardiac-arrest-audio.ts';
+import { narrationTrack } from '../lib/narration.ts';
 import type { ReferenceMark } from '../lib/references.ts';
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 
 const { id, numeral, title, summary, subhead, marks } = Astro.props;
 const titleId = `${id}-title`;
-const listenAnchor = cardiacArrestAudio.find((track) => track.anchor === id)?.anchor;
+const listenAnchor = narrationTrack(Astro.params.slug, id)?.anchor;
 ---
 
 <section class="principle" id={id} aria-labelledby={titleId}>

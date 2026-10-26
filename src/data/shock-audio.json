@@ -1,0 +1,72 @@
+[
+  {
+    "index": 0,
+    "heading": "Shock: Pressure, Flow, and the Failing Circulation",
+    "anchor": null,
+    "filename": "00-title-and-introduction.mp3",
+    "duration_seconds": 16.2
+  },
+  {
+    "index": 1,
+    "heading": "Part I. The same pressure, three different circulations",
+    "anchor": "principle-same-pressure",
+    "filename": "01-same-pressure.mp3",
+    "duration_seconds": 235.2
+  },
+  {
+    "index": 2,
+    "heading": "Part II. Pressure is not flow",
+    "anchor": "principle-pressure-not-flow",
+    "filename": "02-pressure-not-flow.mp3",
+    "duration_seconds": 427.3
+  },
+  {
+    "index": 3,
+    "heading": "Part III. Why blood returns to the heart",
+    "anchor": "principle-venous-return",
+    "filename": "03-venous-return.mp3",
+    "duration_seconds": 463.4
+  },
+  {
+    "index": 4,
+    "heading": "Part IV. Filling a ventricle is not the same as measuring a pressure",
+    "anchor": "principle-ventricular-filling",
+    "filename": "04-ventricular-filling.mp3",
+    "duration_seconds": 566.8
+  },
+  {
+    "index": 5,
+    "heading": "Part V. Blood flow only helps if it carries usable oxygen",
+    "anchor": "principle-oxygen-delivery",
+    "filename": "05-oxygen-delivery.mp3",
+    "duration_seconds": 387.4
+  },
+  {
+    "index": 6,
+    "heading": "Part VI. Different failures can coexist",
+    "anchor": "principle-mixed-failures",
+    "filename": "06-mixed-failures.mp3",
+    "duration_seconds": 226.7
+  },
+  {
+    "index": 7,
+    "heading": "Part VII. Interventions change several variables at once",
+    "anchor": "principle-interventions",
+    "filename": "07-interventions.mp3",
+    "duration_seconds": 438.3
+  },
+  {
+    "index": 8,
+    "heading": "Part VIII. Reassessment is an update to the explanation",
+    "anchor": "principle-reassessment",
+    "filename": "08-reassessment.mp3",
+    "duration_seconds": 307.4
+  },
+  {
+    "index": 9,
+    "heading": "Approach to treatment",
+    "anchor": "treatment-heading",
+    "filename": "09-approach-to-treatment.mp3",
+    "duration_seconds": 68.4
+  }
+]

@@ -1,18 +1,14 @@
-import tracks from '../data/cardiac-arrest-audio.json' with { type: 'json' };
+import { narrationFor, narrationSrc as srcFor, type Narration, type NarrationTrack } from './narration.ts';
 
-export interface NarrationTrack {
-  index: number;
-  heading: string;
-  anchor: string | null;
-  filename: string;
-  duration_seconds: number;
-}
+export type { NarrationTrack } from './narration.ts';
+
+const cardiacArrest = narrationFor('adult-cardiac-arrest') as Narration;
 
 /** Narration for the adult cardiac arrest case. Files are served from `/audio/cardiac-arrest/`. */
-export const cardiacArrestAudio = tracks as readonly NarrationTrack[];
+export const cardiacArrestAudio: readonly NarrationTrack[] = cardiacArrest.tracks;
 
-export const narrationArtist = 'Adult Cardiac Arrest — Resus First Principles';
+export const narrationArtist = cardiacArrest.artist;
 
 export function narrationSrc(filename: string): string {
-  return `/audio/cardiac-arrest/${filename}`;
+  return srcFor(cardiacArrest, filename);
 }
