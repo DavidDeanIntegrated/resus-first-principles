@@ -1,0 +1,783 @@
+{
+  "schemaVersion": 1,
+  "id": "physiologically-difficult-airway",
+  "slug": "physiologically-difficult-airway",
+  "title": "The Physiologically Difficult Airway: Why Intubation Can Precipitate Collapse",
+  "summary": "Why four patients with easy anatomy can still collapse around intubation, through a small oxygen store, failing venous return, lost compensatory ventilation, or a right ventricle with no reserve. Study material, not a protocol.",
+  "shareDescription": "Why patients with easy anatomy can still collapse during intubation, and how oxygen stores, venous return, acidosis and the right ventricle explain it.",
+  "contentStatus": "draft",
+  "strict": true,
+  "reviewNote": "Ready for physician review.",
+  "diagrams": [
+    "fig-r2-02-what-intubation-removes",
+    "fig-r2-01-apnoea-clock",
+    "shock-circulation-gradients",
+    "fig-r2-03-rv-spiral"
+  ],
+  "references": [
+    {
+      "id": "mosier-2015",
+      "label": "Mosier JM, Joshi R, Hypes C, Pacheco G, Valenzuela T, Sakles JC. The physiologically difficult airway. West J Emerg Med. 2015;16(7):1109-1117",
+      "url": "https://doi.org/10.5811/westjem.2015.8.27467",
+      "note": "Checked by Search Bot against the full text (definition and four types)."
+    },
+    {
+      "id": "kornas-2021",
+      "label": "Kornas RL, Owyang CG, Sakles JC, Foley LJ, Mosier JM. Evaluation and management of the physiologically difficult airway: consensus recommendations from Society for Airway Management. Anesth Analg. 2021;132(2):395-405",
+      "url": "https://doi.org/10.1213/ANE.0000000000005233",
+      "note": "Citation metadata checked by Search Bot; cited for general framing only."
+    },
+    {
+      "id": "benumof-1997",
+      "label": "Benumof JL, Dagg R, Benumof R. Critical hemoglobin desaturation will occur before return to an unparalyzed state following 1 mg/kg intravenous succinylcholine. Anesthesiology. 1997;87(4):979-982",
+      "url": "https://doi.org/10.1097/00000542-199710000-00034",
+      "note": "Citation metadata checked by Search Bot; cited for general framing only."
+    },
+    {
+      "id": "farmery-1996",
+      "label": "Farmery AD, Roe PG. A model to describe the rate of oxyhaemoglobin desaturation during apnoea. Br J Anaesth. 1996;76(2):284-291",
+      "url": "https://doi.org/10.1093/bja/76.2.284",
+      "note": "Citation metadata checked by Search Bot; cited for general framing only."
+    },
+    {
+      "id": "weingart-2012",
+      "label": "Weingart SD, Levitan RM. Preoxygenation and prevention of desaturation during emergency airway management. Ann Emerg Med. 2012;59(3):165-175.e1",
+      "url": "https://doi.org/10.1016/j.annemergmed.2011.10.002",
+      "note": "Checked by Search Bot against the full text."
+    },
+    {
+      "id": "patel-2015",
+      "label": "Patel A, Nouraei SAR. Transnasal Humidified Rapid-Insufflation Ventilatory Exchange (THRIVE): a physiological method of increasing apnoea time in patients with difficult airways. Anaesthesia. 2015;70(3):323-329",
+      "url": "https://doi.org/10.1111/anae.12923",
+      "note": "Checked by Search Bot against the abstract only."
+    },
+    {
+      "id": "semler-2016",
+      "label": "Semler MW, Janz DR, Lentz RJ, et al. Randomized trial of apneic oxygenation during endotracheal intubation of the critically ill (FELLOW). Am J Respir Crit Care Med. 2016;193(3):273-280",
+      "url": "https://doi.org/10.1164/rccm.201507-1294OC",
+      "note": "Checked by Search Bot against the abstract only."
+    },
+    {
+      "id": "casey-2019",
+      "label": "Casey JD, Janz DR, Russell DW, et al. Bag-mask ventilation during tracheal intubation of critically ill adults (PreVent). N Engl J Med. 2019;380(9):811-821",
+      "url": "https://doi.org/10.1056/NEJMoa1812405",
+      "note": "Checked by Search Bot against the full text; supplement not read."
+    },
+    {
+      "id": "gibbs-2024",
+      "label": "Gibbs KW, Semler MW, Driver BE, et al. Noninvasive ventilation for preoxygenation during emergency intubation (PREOXI). N Engl J Med. 2024;390(23):2165-2177",
+      "url": "https://doi.org/10.1056/NEJMoa2313680",
+      "note": "Checked by Search Bot against the full text; supplement not read."
+    },
+    {
+      "id": "russell-2022",
+      "label": "Russell DW, Casey JD, Gibbs KW, et al. Effect of fluid bolus administration on cardiovascular collapse among critically ill patients undergoing tracheal intubation (PREPARE II). JAMA. 2022;328(3):270-279",
+      "url": "https://doi.org/10.1001/jama.2022.9792",
+      "note": "Checked by Search Bot against the full text; supplement not read."
+    },
+    {
+      "id": "russotto-2021",
+      "label": "Russotto V, Myatra SN, Laffey JG, et al. Intubation practices and adverse peri-intubation events in critically ill patients from 29 countries (INTUBE). JAMA. 2021;325(12):1164-1172",
+      "url": "https://doi.org/10.1001/jama.2021.1727",
+      "note": "Checked by Search Bot against the abstract only."
+    },
+    {
+      "id": "heffner-2013",
+      "label": "Heffner AC, Swords DS, Neale MN, Jones AE. Incidence and factors associated with cardiac arrest complicating emergency airway management. Resuscitation. 2013;84(11):1500-1504",
+      "url": "https://doi.org/10.1016/j.resuscitation.2013.07.022",
+      "note": "Checked by Search Bot against the abstract only."
+    },
+    {
+      "id": "harjola-2016",
+      "label": "Harjola VP, Mebazaa A, Celutkiene J, et al. Contemporary management of acute right ventricular failure: a statement from the Heart Failure Association and the Working Group on Pulmonary Circulation and Right Ventricular Function of the European Society of Cardiology. Eur J Heart Fail. 2016;18(3):226-241",
+      "url": "https://doi.org/10.1002/ejhf.478",
+      "note": "Checked by Search Bot against the full text."
+    },
+    {
+      "id": "kimmoun-2015",
+      "label": "Kimmoun A, Novy E, Auchet T, Ducrocq N, Levy B. Hemodynamic consequences of severe lactic acidosis in shock states: from bench to bedside. Crit Care. 2015;19",
+      "url": "https://doi.org/10.1186/s13054-015-0896-7",
+      "note": "Checked by Search Bot against the full text."
+    },
+    {
+      "id": "albert-1967",
+      "label": "Albert MS, Dell RB, Winters RW. Quantitative displacement of acid-base equilibrium in metabolic acidosis. Ann Intern Med. 1967;66(2):312-322",
+      "url": "https://doi.org/10.7326/0003-4819-66-2-312",
+      "note": "Citation metadata checked by Search Bot; cited for Winter's formula only."
+    },
+    {
+      "id": "west-luks-2021",
+      "label": "West JB, Luks AM. West's Respiratory Physiology: The Essentials. 11th ed. Philadelphia: Wolters Kluwer; 2021 (ISBN 9781975139186)",
+      "url": "https://shop.lww.com/West-s-Respiratory-Physiology/p/9781975139186",
+      "note": "Citation record checked by Search Bot; text not read (paywalled)."
+    }
+  ],
+  "principles": [
+    {
+      "id": "four-patients",
+      "title": "Part I. Four patients, one procedure",
+      "body": [
+        "Four adults in the same resuscitation room need a tracheal tube. Like the patients in the earlier chapters, they are hypothetical, built for teaching, and each weighs about 80 kg. None of them has an anatomically hard airway. A laryngoscopist would see the cords easily in all four. Each of them can still die during the next ten minutes, and for a different reason.",
+        "Patient H has pneumonia in several lobes. She is breathing 34 times a minute and her saturation is 88 percent on a non-rebreather mask. Patient P has been vomiting blood; his heart rate is 120, his blood pressure 90/50, and he is pale and slow to answer. Patient M has diabetic ketoacidosis. Her pH is 7.15, her bicarbonate 5 mmol/L, her PaCO2 15 mm Hg, and she is taking deep, rapid breaths at about 36 a minute. Patient R has a large pulmonary embolus. His heart rate is 115, his blood pressure 92/60, his central venous pressure 18 mm Hg, and his saturation 90 percent on oxygen.",
+        "The tube itself is not the danger. The danger is what happens to each patient's physiology between the moment we induce anaesthesia and the moment we have restored, through the ventilator, what the patient was doing alone. This chapter follows those four patients through that interval, using the venous return model from the [Shock chapter](https://www.resusfirstprinciples.io/cases/shock-pressure-flow) and the gas-exchange physiology of the Acute Respiratory Failure chapter. It does not cover anatomy, devices, laryngoscopy, or the choice and dosing of drugs."
+      ],
+      "questions": []
+    },
+    {
+      "id": "pda-defining",
+      "parentId": "four-patients",
+      "title": "What makes an airway physiologically difficult",
+      "body": [
+        "An airway is called anatomically difficult when it is hard to see the larynx, place a tube, or ventilate with a mask. An airway is physiologically difficult when the patient's own physiology makes collapse likely around intubation, however easy the mechanics. The term was set out for emergency medicine by Mosier and colleagues, and the Society for Airway Management later published consensus recommendations around it. The two kinds of difficulty are independent. A patient can have either, both, or neither, and planning for one does nothing for the other.",
+        "Collapse here has three faces: oxygen saturation falling to a dangerous level, blood pressure falling to a level that cannot sustain organ perfusion, and cardiac arrest. They are linked. Profound hypoxaemia can stop the heart, and a failing circulation delivers less oxygen and empties the oxygen store faster. In the four patients, one face of collapse is likely to arrive first, and knowing which one is the point of the next six parts."
+      ],
+      "questions": [],
+      "refs": [
+        "mosier-2015",
+        "kornas-2021"
+      ]
+    },
+    {
+      "id": "pda-what-changes",
+      "parentId": "four-patients",
+      "title": "What intubation takes away and what it adds",
+      "body": [
+        "It helps to think of intubation as removing three things and adding two. The first thing removed is spontaneous breathing. While a patient breathes, every breath both brings in oxygen and carries out carbon dioxide, and the pattern of breathing is often doing compensatory work, as in Patient M. The second is sympathetic tone. A patient in shock is held up by high sympathetic activity that narrows arterioles, tightens veins and drives the heart. Induction agents, as a class, lower that tone, and so does relief of distress. The third is negative intrathoracic pressure. Each spontaneous breath lowers the pressure around the heart and helps blood return to it.",
+        "The first thing added is apnoea. Between induction and the first effective ventilation, oxygen is consumed from a fixed store and carbon dioxide accumulates. The second is positive pressure. Once ventilation starts through the tube, intrathoracic pressure rises with every breath instead of falling, which raises right atrial pressure, and lung inflation stretches the pulmonary vessels.",
+        "Each of the four patients depends heavily on one of the things that is taken away or is badly hurt by one of the things that is added. Patient H has almost no oxygen store and needs her own breathing to keep refilling it. Patient P needs sympathetic tone and the help that negative pressure gives venous return. Patient M needs her very high ventilation, because it is holding her pH up. Patient R needs a low pulmonary vascular resistance and a systemic pressure high enough to perfuse his right ventricle, and apnoea and positive pressure threaten both."
+      ],
+      "questions": [
+        {
+          "id": "q-pregnant-transfer",
+          "kind": "transfer",
+          "prompt": "A woman at 38 weeks of pregnancy with pre-eclampsia and no lung disease needs intubation. Which of the three things removed and two things added would you expect to matter most for her, and why?",
+          "answer": "Apnoea matters most for oxygen. Late pregnancy shrinks her FRC, because the uterus pushes the diaphragm up, and raises her oxygen consumption, so her oxygen store is small and used quickly, much as in Patient H though for a different reason. Loss of spontaneous breathing also matters, because pregnancy normally lowers PaCO2, and an ordinary ventilator setting may let it rise. Positive pressure and loss of tone matter for pressure, particularly if she lies flat and the uterus compresses the great veins, which lowers venous return as in Patient P.",
+          "causalChain": "Pregnancy reduces FRC and raises consumption; the apnoea clock is short; physiological hyperventilation is lost with apnoea; supine caval compression plus positive pressure and lower tone reduce venous return.",
+          "assumption": "That she has no lung disease and that her blood pressure is not severely raised or falling at the time.",
+          "misconception": "That a patient with healthy lungs has a long safe apnoea time."
+        }
+      ],
+      "diagram": {
+        "id": "fig-r2-02-what-intubation-removes",
+        "caption": "Figure 1. What intubation takes away and adds. Three things removed (spontaneous breathing, sympathetic tone, negative intrathoracic pressure) and two added (apnoea, positive pressure), each linked to the patient it threatens most: H, P, M and R. Conceptual, not a timeline.",
+        "alt": "Two columns. The left column, labelled removed, lists spontaneous breathing, sympathetic tone, and negative intrathoracic pressure. The right column, labelled added, lists apnoea and positive pressure. Lines connect spontaneous breathing to Patients M and H, sympathetic tone to Patients P and R, negative intrathoracic pressure to Patient P, apnoea to Patients H, M and R, and positive pressure to Patients P and R."
+      }
+    },
+    {
+      "id": "pda-scale",
+      "parentId": "four-patients",
+      "title": "How often collapse happens",
+      "body": [
+        "Peri-intubation collapse is common in critically ill adults. INTUBE, a prospective observational study of 2,964 intubations at 197 sites in 29 countries, recorded at least one major adverse event within 30 minutes in 45.2 percent. Cardiovascular instability was the commonest, in 42.6 percent, defined broadly as a systolic pressure below 65 mm Hg once, below 90 mm Hg for more than 30 minutes, new or increased vasopressor use, or a large fluid requirement. Severe hypoxaemia, a saturation below 80 percent, occurred in 9.3 percent, and cardiac arrest in 3.1 percent.",
+        "Single-centre data tell a similar story. In a retrospective study of 410 emergency department intubations, Heffner and colleagues found cardiac arrest in 4.2 percent, at a median of 6 minutes after intubation. Arrest was more common in patients who were hypotensive before intubation (12 vs 3 percent), and the pre-intubation shock index was independently associated with arrest. These are associations from observational data. They describe which patients are at risk, not what would prevent the event."
+      ],
+      "questions": [
+        {
+          "id": "q-four-first-threat",
+          "kind": "prediction",
+          "prompt": "Before any drug is given, predict which form of collapse is most likely to come first in each of the four patients.",
+          "answer": "Patient H is most likely to desaturate first, because her oxygen store is small and her shunt prevents it from being filled. Patient P is most likely to become hypotensive first, as sympathetic tone falls and positive pressure reduces venous return. Patient M is at risk of a fall in pH that can cause haemodynamic collapse and arrest, because apnoea and an ordinary ventilator setting remove her respiratory compensation. Patient R is at risk of right ventricular failure spiralling into arrest, because hypoxaemia and hypercapnia during apnoea raise pulmonary vascular resistance while induction lowers the pressure that perfuses his right ventricle.",
+          "causalChain": "Each patient depends on something intubation removes or is harmed by something it adds: H on her own breathing to refill a small store; P on sympathetic tone and negative intrathoracic pressure; M on very high ventilation; R on low pulmonary vascular resistance and adequate systemic pressure.",
+          "assumption": "That none of the four has an anatomically difficult airway, so the timing is set by physiology rather than by a long attempt.",
+          "misconception": "That an easy view of the larynx means a safe intubation."
+        }
+      ],
+      "refs": [
+        "russotto-2021",
+        "heffner-2013"
+      ]
+    },
+    {
+      "id": "oxygen-reserve",
+      "title": "Part II. Oxygen reserve and the clock during apnoea",
+      "body": [
+        "Once a patient stops breathing, the body runs on stored oxygen. How long that store lasts before the saturation starts to fall steeply is the safe apnoea time. It is set by two quantities: how much oxygen is stored and how fast it is consumed. Both can be estimated, and both vary a great deal between patients."
+      ],
+      "questions": []
+    },
+    {
+      "id": "o2-stores",
+      "parentId": "oxygen-reserve",
+      "title": "Where oxygen is stored",
+      "body": [
+        "The body holds oxygen in three places. The largest adjustable store is the gas in the lungs at the end of a normal breath out, the functional residual capacity (FRC). In a healthy adult lying flat it is roughly 2.5 litres. The second store is the blood, mostly bound to haemoglobin. The third, small for our purposes, is oxygen dissolved in tissue and bound to myoglobin.",
+        "The blood store cannot be enlarged much. Haemoglobin in arterial blood is already nearly saturated on room air, so breathing pure oxygen adds only the small dissolved fraction. The lung store is different. On room air, the alveolar gas is mostly nitrogen and holds only about 14 percent oxygen. Replace that nitrogen with oxygen and the same volume of gas holds about six times as much. That replacement is what preoxygenation does, and it is why FRC is the store that matters most for apnoea.",
+        "Several common conditions shrink the FRC. Lying flat lets the abdominal contents push the diaphragm up. Obesity and late pregnancy do the same more strongly. Consolidation, oedema and collapse take whole regions of lung out of the store, as in Patient H. At the same time, fever, sepsis, high work of breathing and agitation raise oxygen consumption. A small store and a fast rate of use together shorten the clock from both ends."
+      ],
+      "questions": [],
+      "refs": [
+        "west-luks-2021",
+        "weingart-2012"
+      ]
+    },
+    {
+      "id": "o2-clock",
+      "parentId": "oxygen-reserve",
+      "title": "The clock: store divided by consumption",
+      "body": [
+        "Dividing the oxygen in the lungs by the rate of oxygen consumption gives a rough ceiling on how long apnoea can continue before that store runs out. It is a ceiling, not a prediction, because the saturation does not wait for the lung store to empty before it falls. As alveolar oxygen falls, arterial oxygen tension falls with it, and once it reaches the steep part of the dissociation curve, the saturation drops quickly while plenty of oxygen remains in the lungs. Modelling studies by Farmery and Roe, and by Benumof and colleagues, describe how desaturation unfolds over time in different kinds of patients. This draft does not quote times from them, because their full text has not yet been checked.",
+        "The worked example shows the arithmetic for a healthy adult after good preoxygenation, for the same adult on room air, and for Patient H. The difference between the first two is the whole case for preoxygenation. The difference between the healthy adult and Patient H is the reason preoxygenation alone may not protect her."
+      ],
+      "questions": [
+        {
+          "id": "q-clock-two",
+          "kind": "prediction",
+          "prompt": "A healthy adult and Patient H begin apnoea at the same moment, both after the best preoxygenation each can achieve. Predict whose saturation falls first and explain it in terms of store and consumption.",
+          "answer": "Patient H's saturation falls first, and probably much sooner. Her store is smaller because consolidated lung is not part of the FRC, and it is filled less completely because shunted blood never meets alveolar gas. Her consumption is likely higher because of fever and work of breathing. And she starts at 88 percent, on the steep part of the curve, so even a small fall in PaO2 produces a large fall in saturation. The healthy adult starts with a store of about 2.2 litres, at a saturation near 100 percent, on the flat part of the curve.",
+          "causalChain": "Smaller FRC and incomplete filling give a smaller store; higher consumption empties it faster; a starting point on the steep part of the curve converts a small fall in PaO2 into a large fall in saturation.",
+          "assumption": "That both have similar haemoglobin and that neither receives any ventilation or apnoeic oxygen during the interval.",
+          "misconception": "That the time to desaturation is the same for everyone who has been preoxygenated."
+        }
+      ],
+      "refs": [
+        "farmery-1996",
+        "benumof-1997",
+        "west-luks-2021"
+      ],
+      "diagram": {
+        "id": "fig-r2-01-apnoea-clock",
+        "caption": "Figure 2. The apnoea clock. Lung oxygen store against time for three cases: a healthy adult after preoxygenation (about 2.2 L, ceiling about 8.7 minutes at 250 mL/min), the same adult on room air (about 0.35 L, ceiling about 1.4 minutes), and Patient H, whose store is smaller and whose saturation is already near the steep part of the curve. Ceilings are store divided by consumption, not modelled times to desaturation. Schematic.",
+        "alt": "Three downward-sloping lines showing lung oxygen store falling over time. The top line starts at about 2.2 litres and reaches zero near 8.7 minutes. The middle line starts at about 0.35 litres and reaches zero near 1.4 minutes. A third line for Patient H starts lower than the top line and is marked early with a shaded band showing where saturation begins to fall steeply."
+      },
+      "workedExample": {
+        "id": "apnoea-clock-example",
+        "title": "Worked example: three oxygen stores",
+        "body": [
+          "These numbers are illustrative and assume an adult of about 80 kg at sea level, oxygen consumption 250 mL/min, and no ventilation at all during apnoea. They are ceilings on the lung store, not times to a saturation of 90 percent.",
+          "**Healthy adult, preoxygenated.** FRC about 2.5 L. After good preoxygenation, alveolar oxygen fraction about 0.87 (below the theoretical maximum, which is deliberately conservative). Lung oxygen = 2.5 × 0.87 ≈ 2.2 L. Ceiling = 2.2 / 0.25 ≈ 8.7 minutes.",
+          "**Same adult, room air.** Alveolar oxygen fraction about 0.14 (a PAO2 of about 100 mm Hg out of 713). Lung oxygen = 2.5 × 0.14 = 0.35 L. Ceiling = 0.35 / 0.25 = 1.4 minutes.",
+          "**Patient H.** FRC reduced to about 1.5 L by consolidation. Even if her ventilated alveoli reached an oxygen fraction of 0.8, the store would be about 1.5 × 0.8 = 1.2 L, and her consumption is likely to be higher than 250 mL/min. More important, her saturation is 88 percent before apnoea begins, which at a normal pH means a PaO2 of roughly 55 to 60 mm Hg. She is already at the shoulder of the dissociation curve, so the saturation can fall steeply almost as soon as apnoea starts. No single number of seconds is given here, because it depends on her shunt fraction, consumption and haemoglobin, none of which is known precisely.",
+          "**What the comparison shows.** Preoxygenation multiplies the ceiling about sixfold in a healthy lung. In Patient H the store is smaller, harder to fill, and drawn down from a starting point where the curve is already steep."
+        ]
+      }
+    },
+    {
+      "id": "o2-curve",
+      "parentId": "oxygen-reserve",
+      "title": "Why the fall speeds up",
+      "body": [
+        "The oxyhaemoglobin dissociation curve is flat at the top and steep in the middle. Above a PaO2 of about 60 mm Hg, large falls in tension produce small falls in saturation, so a patient can lose much of the lung store while the monitor barely changes. Below that point, each further fall in PaO2 removes much more oxygen from haemoglobin. The saturation then drops quickly, and the oximeter, which averages over several seconds and sits on a finger downstream of the lungs, reports the fall late.",
+        "Acidaemia and a rising PaCO2 shift the curve to the right, as described in the Acute Respiratory Failure chapter. During apnoea PaCO2 rises steadily, so the curve moves rightward while PaO2 falls, and saturation drops further for any given tension. In Patient M, who starts severely acidaemic, and in Patient R, who has little reserve, this matters more."
+      ],
+      "questions": [
+        {
+          "id": "q-curve-speed",
+          "kind": "transfer",
+          "prompt": "During an intubation attempt, the saturation reads 93 percent and has been stable for a minute. Thirty seconds later it reads 78 percent. Explain why the fall seemed sudden.",
+          "answer": "The fall was not sudden in the lungs. Alveolar and arterial oxygen tension had been falling steadily throughout apnoea, but while PaO2 stayed above about 60 mm Hg the flat upper part of the curve kept saturation high. Once PaO2 crossed onto the steep part, each further fall removed a large amount of oxygen from haemoglobin. The oximeter's averaging delay and its position downstream of the lungs make the visible drop appear later and steeper still. Rising PaCO2 during apnoea shifts the curve rightward and adds to the effect.",
+          "causalChain": "Steady fall in PaO2; flat curve hides the early fall; steep curve below about 60 mm Hg; rightward shift from rising PaCO2; oximeter lag; apparent sudden drop.",
+          "assumption": "That the probe has a good signal and that no other event, such as a new pneumothorax, occurred in those 30 seconds.",
+          "misconception": "That a stable saturation means the oxygen store is stable."
+        }
+      ],
+      "refs": [
+        "west-luks-2021"
+      ]
+    },
+    {
+      "id": "o2-shunt",
+      "parentId": "oxygen-reserve",
+      "title": "Why preoxygenation fails in shunt",
+      "body": [
+        "Preoxygenation works by washing nitrogen out of ventilated alveoli. Blood that passes through ventilated alveoli leaves fully saturated whatever the inspired oxygen, so the gain from preoxygenation is in the store, not in the arterial blood. Blood that passes through consolidated, unventilated lung never meets the inspired gas at all. It returns to the left heart with the saturation of mixed venous blood and dilutes the well-oxygenated blood from healthy lung. That is true shunt, and as the Acute Respiratory Failure chapter explains, it responds poorly to added oxygen.",
+        "For Patient H this has two consequences. Her saturation barely rises with preoxygenation, which removes the margin that a healthy patient gains. And her saturation depends partly on her mixed venous saturation. When apnoea starts and her consumption continues, mixed venous oxygen falls, the shunted blood is more desaturated, and her arterial saturation falls faster than the lung store alone would predict. The way to change this is not more oxygen but more ventilated lung, which is the reason positive pressure appears in the next part."
+      ],
+      "questions": [],
+      "refs": [
+        "west-luks-2021"
+      ]
+    },
+    {
+      "id": "preoxygenation",
+      "title": "Part III. Filling the store",
+      "body": [
+        "Preoxygenation has one job: to replace nitrogen in the lungs with oxygen so that the store at the start of apnoea is as large as it can be. How well that works depends on the inspired oxygen fraction actually reaching the alveoli, the time allowed, and whether the lung being filled is open."
+      ],
+      "questions": []
+    },
+    {
+      "id": "preox-denitrogenation",
+      "parentId": "preoxygenation",
+      "title": "Denitrogenation and what limits it",
+      "body": [
+        "Nitrogen leaves the lungs only as fast as it is breathed out. With each breath of pure oxygen, a fraction of the remaining nitrogen is replaced, so the alveolar oxygen fraction rises quickly at first and then levels off. Any entrained room air keeps bringing nitrogen back. A face mask that does not seal, or a non-rebreather whose flow cannot meet a patient's very high inspiratory flow, delivers far less oxygen than the setting implies. A distressed patient like Patient H, breathing at 34 a minute with large breaths, can easily draw room air around a loose mask.",
+        "Expired oxygen fraction measured at the mouth shows how far denitrogenation has gone. Weingart and Levitan describe its use in emergency preoxygenation. This draft does not give a target value, because the threshold and its source have not yet been checked."
+      ],
+      "questions": [],
+      "refs": [
+        "weingart-2012"
+      ]
+    },
+    {
+      "id": "preox-pressure",
+      "parentId": "preoxygenation",
+      "title": "Positive pressure before apnoea",
+      "body": [
+        "When shunt limits preoxygenation, the remedy is to open more lung before apnoea begins. Positive pressure through a tight-fitting mask, as non-invasive ventilation, does three things. The seal stops room air entering, so the inspired fraction is close to that set. Positive end-expiratory pressure recruits some of the collapsed or flooded alveoli, enlarging the FRC and moving blood from true shunt into ventilated lung. And pressure support on each breath reduces the work of breathing, which lowers oxygen consumption.",
+        "PREOXI tested this in critically ill adults undergoing tracheal intubation at 24 sites in the United States. Of 1,301 patients enrolled, 624 received non-invasive ventilation and 637 an oxygen mask for preoxygenation in the primary analysis. The primary outcome, hypoxaemia defined as a saturation below 85 percent between induction and 2 minutes after intubation, occurred in 9.1 percent with non-invasive ventilation and 18.5 percent with an oxygen mask. Cardiac arrest occurred in 0.2 percent and 1.1 percent. Aspiration occurred in 0.9 percent and 1.4 percent, a difference that was not statistically significant.",
+        "The trial supports non-invasive ventilation over an oxygen mask for preoxygenating critically ill adults in that kind of setting. It does not show that every patient benefits equally, it was not designed to define which patients should not receive it, and the aspiration result does not prove safety, because the trial was not powered for that outcome."
+      ],
+      "questions": [
+        {
+          "id": "q-h-niv",
+          "kind": "prediction",
+          "prompt": "Patient H is changed from a non-rebreather mask to non-invasive ventilation with positive end-expiratory pressure for several minutes before induction. Predict what happens to her saturation and to her safe apnoea time, and explain why.",
+          "answer": "Her saturation is likely to rise, and her safe apnoea time is likely to lengthen. The tight seal raises the inspired fraction close to that set. PEEP recruits some flooded or collapsed alveoli, which enlarges her FRC and converts some true shunt into ventilated lung, so arterial oxygen rises and more of the store can be filled. Pressure support lowers her work of breathing and so her oxygen consumption. A larger, fuller store drawn down more slowly, starting from a higher point on the curve, gives a longer interval before saturation falls steeply. The effect will be partial if much of her consolidated lung cannot be recruited.",
+          "causalChain": "Seal raises inspired fraction; PEEP recruits alveoli and reduces shunt; larger FRC holds more oxygen; less work lowers consumption; higher starting saturation moves her off the steep part of the curve.",
+          "assumption": "That some of her consolidated lung is recruitable and that she tolerates the mask.",
+          "misconception": "That a non-rebreather mask delivers nearly pure oxygen to a patient with high inspiratory flow."
+        },
+        {
+          "id": "q-preoxi-read",
+          "kind": "evidence-boundary",
+          "prompt": "A colleague says PREOXI proves non-invasive ventilation is safe for preoxygenation in all critically ill patients, including those at high risk of aspiration. What does the trial show, and what does it not show?",
+          "answer": "PREOXI shows that in critically ill adults undergoing intubation at 24 US sites, non-invasive ventilation reduced hypoxaemia below 85 percent from 18.5 percent to 9.1 percent compared with an oxygen mask. It does not prove safety for aspiration: aspiration was 0.9 percent with non-invasive ventilation and 1.4 percent with a mask, a difference that was not statistically significant, and the trial was not designed or powered to show that aspiration risk was equal. Patients with vomiting, haematemesis, haemoptysis or epistaxis, and those clinicians judged at very high aspiration risk, were excluded, and the authors state that the results do not inform the safety or effectiveness of non-invasive ventilation in such patients.",
+          "causalChain": "Primary outcome is hypoxaemia, not aspiration; a non-significant difference in a secondary safety outcome is not proof of no difference; generalisation depends on who was enrolled.",
+          "assumption": "That the aspiration figures are from all randomized patients (645 and 656).",
+          "misconception": "That absence of a statistically significant difference means proven equivalence."
+        }
+      ],
+      "refs": [
+        "gibbs-2024"
+      ]
+    },
+    {
+      "id": "apnoeic-oxygenation",
+      "parentId": "preoxygenation",
+      "title": "Oxygen during apnoea",
+      "body": [
+        "Oxygen continues to leave the alveoli during apnoea, at about 250 mL/min in a resting adult, but carbon dioxide enters them much more slowly, because most of it stays dissolved and buffered in blood and tissue. That mismatch lowers alveolar pressure slightly and draws gas inward through an open airway. If the gas at the top of the airway is oxygen, delivered by nasal cannula, the store can be partly topped up without any breaths. This is apnoeic oxygenation. Patel and Nouraei described a high-flow nasal technique, THRIVE, in patients with difficult airways undergoing surgery.",
+        "In critically ill patients, the evidence is less encouraging. FELLOW, a single-centre randomized trial in a medical intensive care unit, enrolled 150 adults. The intervention was high-flow nasal oxygen at 15 L/min during laryngoscopy only. The lowest saturation was 92 percent with apnoeic oxygenation and 90 percent without it, a difference that was not statistically significant. The trial was small and the intervention was applied only during laryngoscopy, so it does not settle whether apnoeic oxygenation helps in patients like Patient H, whose shunt limits any oxygen reaching the blood.",
+        "Apnoeic oxygenation does nothing for carbon dioxide. Without breaths, carbon dioxide is not removed, and PaCO2 rises throughout apnoea. This draft does not give a rate of rise, because the figure in common use has not been traced to a checked source. The direction is enough to matter for Patient M and Patient R."
+      ],
+      "questions": [
+        {
+          "id": "q-apnoeic-co2",
+          "kind": "transfer",
+          "prompt": "A patient with severe chronic obstructive pulmonary disease and a PaCO2 of 70 mm Hg is preoxygenated and given nasal oxygen during a prolonged intubation attempt. His saturation stays at 95 percent throughout. Why might he still be in danger?",
+          "answer": "Apnoeic oxygenation can keep his saturation up while doing nothing to remove carbon dioxide. Throughout the attempt PaCO2 keeps rising from an already high starting point, so his pH falls further. Severe acidaemia can depress myocardial function, cause arrhythmia, raise pulmonary vascular resistance and strain his right ventricle, and lower his conscious level after the procedure. The monitor shows oxygen only, so a reassuring saturation hides a worsening problem.",
+          "causalChain": "Oxygen uptake continues by mass flow; carbon dioxide is not removed without ventilation; PaCO2 rises; pH falls; acidaemia harms the heart and pulmonary circulation; saturation does not show it.",
+          "assumption": "That he receives no effective ventilation during the attempt.",
+          "misconception": "That a normal saturation means gas exchange is adequate."
+        }
+      ],
+      "refs": [
+        "patel-2015",
+        "semler-2016"
+      ]
+    },
+    {
+      "id": "bag-mask-apnoea",
+      "parentId": "preoxygenation",
+      "title": "Breaths between induction and laryngoscopy",
+      "body": [
+        "Traditionally, patients were not ventilated with a bag and mask between induction and laryngoscopy, for fear of inflating the stomach and causing aspiration. Ventilating during that interval does three things: it adds oxygen to the store, removes some carbon dioxide, and may hold some recruited alveoli open.",
+        "PreVent randomized 401 critically ill adults in 7 intensive care units to bag-mask ventilation or no ventilation between induction and laryngoscopy. The lowest saturation was a median of 96 percent with ventilation and 93 percent without it. Severe hypoxaemia, a secondary outcome defined as a saturation below 80 percent, occurred in 10.9 percent with ventilation and 22.8 percent without. Aspiration was 2.5 percent and 4.0 percent, and a new opacity on chest radiograph was 16.4 percent and 14.8 percent, neither difference statistically significant. The trial supports ventilation in that interval for patients like those enrolled. It was not powered to prove that aspiration risk was unchanged. Most enrolled patients had at least one risk factor for aspiration, but patients whose clinicians judged ventilation contraindicated because of ongoing vomiting, haematemesis or haemoptysis were excluded, so the result does not extend to them. Patient P, who is vomiting blood, may be exactly that kind of patient."
+      ],
+      "questions": [],
+      "refs": [
+        "casey-2019"
+      ]
+    },
+    {
+      "id": "hypotension",
+      "title": "Part IV. Why pressure falls after induction",
+      "body": [
+        "Hypotension after intubation is the commonest form of peri-intubation collapse. It is not one mechanism but the sum of several, all acting within the first minutes: loss of sympathetic tone, the direct effects of induction drugs on vessels and heart, and the change from negative to positive intrathoracic pressure. Patient P shows all three most clearly. The venous return model from the [Shock chapter](https://www.resusfirstprinciples.io/cases/shock-pressure-flow#principle-venous-return) is the way to see how they combine."
+      ],
+      "questions": [],
+      "diagram": {
+        "id": "shock-circulation-gradients",
+        "caption": "Figure 3. One circulation, several pressure gradients (reused from the Shock chapter, Figure 1). Venous return depends on the gap between mean systemic filling pressure and right atrial pressure. Induction lowers the upstream pressure by relaxing veins; positive pressure raises right atrial pressure and narrows that gap.",
+        "alt": "Schematic loop with two hearts drawn as separate pumps. Arrows run in one direction: left ventricle to aorta and systemic arteries, through a narrowed resistance segment and a capillary bed, into wide veins, to the right atrium, right ventricle, pulmonary arteries, lung capillaries, pulmonary veins, left atrium, and back to the left ventricle. Labels mark the systemic gradient from aorta to right atrium and the pulmonary gradient from pulmonary artery to left atrium."
+      }
+    },
+    {
+      "id": "hypo-sympathetic",
+      "parentId": "hypotension",
+      "title": "Sympathetic tone and what induction removes",
+      "body": [
+        "A patient in shock maintains blood pressure through a strong sympathetic response. Arterioles constrict, raising resistance. Veins constrict, which moves blood from the stressed and unstressed venous reservoirs toward the heart and raises mean systemic filling pressure. Heart rate and contractility rise. In Patient P, who has lost blood, that response is holding his pressure at 90/50 despite a much reduced circulating volume.",
+        "Induction agents, as a class, reduce sympathetic outflow, and many also relax vascular smooth muscle or depress the myocardium directly. Analgesic and sedative agents do the same in varying degree. Relief of pain, distress and the work of breathing removes part of the stimulus that was driving the sympathetic response. Any one of these lowers resistance, venous tone, or cardiac output. A patient whose pressure depends on high tone loses more of it than a patient who started calm. This draft discusses drug classes by their physiological effects only and does not give agents or doses."
+      ],
+      "questions": [],
+      "refs": [
+        "mosier-2015"
+      ]
+    },
+    {
+      "id": "hypo-venous-return",
+      "parentId": "hypotension",
+      "title": "Venous return and positive pressure",
+      "body": [
+        "As the Shock chapter explains, venous return is driven by the difference between mean systemic filling pressure, the pressure in the veins that pushes blood back, and right atrial pressure, the pressure against which it returns. Cardiac output cannot exceed venous return for long. Anything that lowers the upstream pressure or raises the downstream pressure reduces the flow back to the heart.",
+        "Intubation does both. Venodilation from induction and loss of sympathetic tone moves blood into the unstressed venous volume, lowering mean systemic filling pressure. Then positive pressure ventilation raises intrathoracic pressure on every breath, which raises right atrial pressure. With a full circulation, the gradient narrows but stays large enough. With a depleted one, as in Patient P, the upstream pressure is low to begin with, and a small rise in right atrial pressure can remove a large share of the remaining gradient. Large tidal volumes, fast rates, high PEEP and gas trapping all raise mean intrathoracic pressure and so worsen this effect.",
+        "Spontaneous breathing worked the other way. Each breath lowered intrathoracic pressure and widened the gradient slightly. Paralysis and positive pressure remove that help at the same moment as induction lowers the upstream pressure."
+      ],
+      "questions": [
+        {
+          "id": "q-p-breaths",
+          "kind": "prediction",
+          "prompt": "After Patient P is intubated, he is bagged rapidly with large breaths at about 30 a minute. Predict what happens to his blood pressure, using venous return.",
+          "answer": "His blood pressure is likely to fall, possibly steeply. Rapid, large breaths raise mean intrathoracic pressure and may not allow full exhalation, so right atrial pressure rises. His mean systemic filling pressure is already low from blood loss and has been lowered further by induction. With a low upstream pressure, a rise in the downstream pressure removes a large share of the gradient, venous return falls, and cardiac output and blood pressure fall with it. Slower, smaller breaths would reduce the effect.",
+          "causalChain": "Large rapid breaths raise mean intrathoracic pressure; right atrial pressure rises; mean systemic filling pressure is low; venous return gradient narrows; venous return and cardiac output fall; pressure falls.",
+          "assumption": "That his lungs are not obstructed and that no other cause, such as tension pneumothorax, appears.",
+          "misconception": "That more ventilation is always better for a patient who has just been intubated."
+        }
+      ],
+      "refs": [
+        "mosier-2015"
+      ]
+    },
+    {
+      "id": "hypo-shock-index",
+      "parentId": "hypotension",
+      "title": "The shock index as a warning",
+      "body": [
+        "The shock index is heart rate divided by systolic pressure. A higher value suggests that the circulation is relying more on compensation. In observational studies of emergency intubation, including Heffner's, a higher pre-intubation shock index was associated with post-intubation arrest. It is a crude measure: it is affected by medications, pain and the patient's usual pressure, and it cannot say which mechanism is failing.",
+        "Patient P has a heart rate of 120 and a systolic pressure of 90, a shock index of 1.33, and a mean arterial pressure of about 63 mm Hg. Patient R has a heart rate of 115 and a systolic pressure of 92, a shock index of 1.25, and a mean pressure of about 71 mm Hg. Both values are high, but for different reasons. Patient P's circulation is underfilled. Patient R's is held back by a right ventricle that cannot push blood through his lungs, and his central venous pressure of 18 mm Hg shows the downstream pressure is already high. The same number points to different dangers."
+      ],
+      "questions": [
+        {
+          "id": "q-si-transfer",
+          "kind": "transfer",
+          "prompt": "A man with sepsis from a urinary source has a heart rate of 110 and a blood pressure of 140/80 before intubation. He takes a beta-blocker at home. What does his shock index tell you, and what might it miss?",
+          "answer": "His shock index is about 0.79, which looks reassuring. It might miss a great deal. His beta-blocker limits how high his heart rate can rise, so the numerator understates his sympathetic response. If his usual blood pressure is much higher, as in long-standing hypertension, a systolic of 140 may already be low for him. Sepsis lowers vascular tone, and induction and positive pressure may remove the compensation that remains. The index is a screening sign, not a measure of reserve.",
+          "causalChain": "Shock index = heart rate / systolic pressure; a drug that limits heart rate lowers the index without improving reserve; a high usual pressure makes a normal reading relatively low; sepsis reduces tone.",
+          "assumption": "That his blood pressure reading is accurate and that he has taken his usual beta-blocker dose.",
+          "misconception": "That a normal shock index rules out post-intubation hypotension."
+        }
+      ],
+      "refs": [
+        "heffner-2013"
+      ]
+    },
+    {
+      "id": "hypo-fluids",
+      "parentId": "hypotension",
+      "title": "Fluid before induction",
+      "body": [
+        "If low mean systemic filling pressure is part of the problem, it seems natural to give fluid before induction to raise it. PREPARE II tested this. In 11 intensive care units, 1,067 critically ill adults undergoing intubation with positive pressure ventilation were randomized, and 1,065 were analysed, to a 500 mL crystalloid bolus or no fluid bolus. Cardiovascular collapse occurred in 21.0 percent with the bolus and 18.2 percent without it, a difference that was not statistically significant.",
+        "The trial shows that a routine 500 mL crystalloid bolus did not prevent collapse in the critically ill adults it enrolled. About one in ten had gastrointestinal bleeding, but patients whose clinician judged that a fluid bolus was required, or contraindicated, were excluded, as were intubations too urgent for the trial procedures. So it does not answer whether a patient who is clearly underfilled and needs volume benefits from restoring it. For Patient P, the useful question is the one from the Shock chapter: is his circulation underfilled, and will added volume raise his output? Blood loss makes the answer more likely to be yes, and blood is the volume he has lost."
+      ],
+      "questions": [
+        {
+          "id": "q-prepare-p",
+          "kind": "evidence-boundary",
+          "prompt": "A colleague cites PREPARE II and says Patient P should receive no fluid before induction. What does the trial show, and does it apply to him?",
+          "answer": "PREPARE II randomized 1,067 critically ill adults in 11 ICUs to a fluid bolus or none before intubation, and found cardiovascular collapse in 21.0 percent and 18.2 percent, not a significant difference. It shows that a routine 500 mL crystalloid bolus did not prevent collapse in the patients it enrolled, about one in ten of whom had gastrointestinal bleeding. It excluded patients whose clinician judged that fluid was required. It does not show that fluid is useless in a patient whose circulation is clearly underfilled. Patient P is bleeding, so his mean systemic filling pressure is low because volume is missing. Restoring volume, ideally with blood, addresses that cause. The trial result does not answer his question, which is whether he is volume-responsive and what volume he has lost.",
+          "causalChain": "Patients judged to need fluid were excluded; benefit of fluid depends on volume responsiveness; a haemorrhaging patient is more likely to be underfilled; the evidence does not extend to him directly.",
+          "assumption": "That Patient P's clinicians would judge fluid to be required, which would have excluded him from the trial.",
+          "misconception": "That a neutral trial in a general population answers the question for every patient within it."
+        }
+      ],
+      "refs": [
+        "russell-2022"
+      ]
+    },
+    {
+      "id": "acidosis",
+      "title": "Part V. When breathing is the treatment",
+      "body": [
+        "Patient M is not short of oxygen. Her lungs are normal. Her danger is that her breathing is doing essential work that intubation will interrupt. Her pH of 7.15 is not a sign that her compensation has failed. It is the result of her compensation succeeding: without her very high ventilation, her pH would be far lower."
+      ],
+      "questions": []
+    },
+    {
+      "id": "acid-compensation",
+      "parentId": "acidosis",
+      "title": "Respiratory compensation for metabolic acidosis",
+      "body": [
+        "In ketoacidosis, the accumulation of acids consumes bicarbonate. The body defends pH by lowering PaCO2, because pH depends on the ratio of bicarbonate to dissolved carbon dioxide. Chemoreceptors sense the acidaemia and drive ventilation up, often with the deep, rapid pattern described by Kussmaul. Lower PaCO2 partly restores the ratio.",
+        "The expected degree of compensation was described by Albert, Dell and Winters in 1967 and is known as Winter's formula: expected PaCO2 is about 1.5 × bicarbonate + 8, plus or minus 2. For Patient M, with a bicarbonate of 5 mmol/L, that gives 15.5 mm Hg, with a range of 13.5 to 17.5. Her measured PaCO2 of 15 lies within it, so her compensation is as complete as can be expected. Using the Henderson-Hasselbalch relation, her pH is 6.1 + log(5 / (0.03 × 15)), which is about 7.15, matching the measured value."
+      ],
+      "questions": [
+        {
+          "id": "q-winters",
+          "kind": "prediction",
+          "prompt": "Patient M's bicarbonate stays at 5 mmol/L but her PaCO2 is measured at 25 mm Hg rather than 15. Predict her pH, and say what the higher PaCO2 would mean.",
+          "answer": "Her pH would be about 6.92, because 6.1 + log(5 / (0.03 × 25)) is 6.1 + log(6.67), about 6.92. Winter's formula predicts a PaCO2 of 13.5 to 17.5 for her bicarbonate, so a PaCO2 of 25 means her ventilation is falling short of what her acidosis demands. That points to an additional problem, such as fatigue, reduced drive from sedation or cerebral oedema, or a lung or chest wall problem. Either way it is a sign of reduced reserve, not of improvement.",
+          "causalChain": "pH depends on the ratio of bicarbonate to dissolved CO2; with fixed bicarbonate, a higher PaCO2 lowers pH; Winter's formula sets the expected PaCO2; a value above the range means inadequate compensation.",
+          "assumption": "That her bicarbonate is unchanged and that the measurement is from an arterial sample.",
+          "misconception": "That a higher PaCO2 is reassuring because it is closer to normal."
+        }
+      ],
+      "refs": [
+        "albert-1967",
+        "west-luks-2021"
+      ]
+    },
+    {
+      "id": "acid-apnoea",
+      "parentId": "acidosis",
+      "title": "What apnoea and an ordinary ventilator do to her",
+      "body": [
+        "During apnoea, carbon dioxide is no longer removed. Her PaCO2 starts to rise from 15 mm Hg, and with a bicarbonate of 5 mmol/L there is almost no buffer to absorb the change, so each rise in PaCO2 lowers her pH sharply. This draft does not give a rate of rise. The direction is the point: every second of apnoea moves her pH downward from an already dangerous level.",
+        "After intubation, the ventilator sets her alveolar ventilation. An ordinary initial setting, designed for a patient with a normal PaCO2, delivers far less ventilation than she was producing on her own. The worked example shows the consequence. Severe acidaemia depresses myocardial contractility, reduces vascular responsiveness to catecholamines, and predisposes to arrhythmia, as reviewed by Kimmoun and colleagues. That review does not give a single pH threshold below which collapse becomes inevitable, and this draft does not either. The risk rises as pH falls, and Patient M starts low."
+      ],
+      "questions": [],
+      "refs": [
+        "kimmoun-2015",
+        "west-luks-2021"
+      ],
+      "workedExample": {
+        "id": "m-ventilator-example",
+        "title": "Worked example: Patient M on an ordinary ventilator setting",
+        "body": [
+          "These numbers are illustrative. They assume a carbon dioxide production of about 200 mL/min, an anatomical dead space of 150 mL, and a bicarbonate that stays at 5 mmol/L over the short interval shown.",
+          "**What she needs.** To hold PaCO2 at 15 mm Hg she needs an alveolar ventilation of about 11.5 L/min. With a dead-space fraction of 0.3, that is a minute ventilation of about 16 L/min.",
+          "**What an ordinary setting gives.** A tidal volume of 450 mL at 16 breaths a minute gives 7.2 L/min of minute ventilation. Subtracting 150 mL of dead space from each breath leaves 300 mL × 16 = 4.8 L/min of alveolar ventilation, less than half of what she needs.",
+          "**Where her PaCO2 settles.** At that alveolar ventilation her PaCO2 would rise toward about 36 mm Hg. Her pH would be 6.1 + log(5 / (0.03 × 36)), about 6.77.",
+          "**Along the way.** At a PaCO2 of 25 mm Hg her pH would be about 6.92, and at 40 mm Hg about 6.72. A PaCO2 that would be normal in a healthy patient is, for her, one of the most dangerous values on the page.",
+          "**What the comparison shows.** The ventilator setting that suits most patients would remove most of her compensation. Matching her own minute ventilation is part of resuscitating her, not an afterthought."
+        ]
+      }
+    },
+    {
+      "id": "acid-matching",
+      "parentId": "acidosis",
+      "title": "Matching her ventilation",
+      "body": [
+        "The principle for Patient M is to keep the interval without ventilation as short as possible and then to set the ventilator to match the minute ventilation she was achieving herself, checked by a blood gas soon after. Matching requires both a higher rate and an adequate tidal volume, and it is limited by the risk of gas trapping at very high rates, so the result must be measured, not assumed. Her end-tidal carbon dioxide can help trend the change between gases but does not replace an arterial or venous measurement.",
+        "This principle applies whenever spontaneous ventilation is compensating for a metabolic acidosis, whatever its cause. It also explains why some clinicians try to avoid intubating these patients when their consciousness and airway allow it. That judgement is outside the scope of this chapter, which describes the physiology that makes intubation dangerous when it is needed."
+      ],
+      "questions": [
+        {
+          "id": "q-m-transfer",
+          "kind": "transfer",
+          "prompt": "A woman with salicylate poisoning has a pH of 7.38, a PaCO2 of 22 mm Hg, and is breathing very fast. She becomes drowsy and needs intubation. What does Patient M's case predict for her, and what extra concern does salicylate add?",
+          "answer": "Like Patient M, her very high ventilation is holding her pH up, and an ordinary ventilator setting would let her PaCO2 rise and her pH fall. With salicylate, a fall in pH has an extra consequence. More of the drug is in its non-ionised form at lower pH, so more crosses into the brain and other tissues, worsening toxicity. Keeping the interval without ventilation short and matching her pre-intubation ventilation, checked by early gases, is therefore even more important.",
+          "causalChain": "High spontaneous ventilation compensates for metabolic acidosis; loss of ventilation raises PaCO2 and lowers pH; lower pH increases the non-ionised salicylate fraction; more drug enters tissue; toxicity worsens.",
+          "assumption": "That her acidosis is predominantly metabolic and that the high ventilation is partly compensatory rather than solely a direct drug effect.",
+          "misconception": "That a near-normal pH means there is little to lose during intubation."
+        }
+      ],
+      "refs": [
+        "west-luks-2021"
+      ]
+    },
+    {
+      "id": "right-ventricle",
+      "title": "Part VI. The right ventricle under load",
+      "body": [
+        "Patient R's danger is the most self-reinforcing of the four. His right ventricle is already struggling against a pulmonary circulation obstructed by clot. Several things that happen during intubation make that load heavier at the moment the ventricle's own blood supply is reduced. The contemporary European statement on acute right ventricular failure by Harjola and colleagues describes how hypoxia, hypercapnia and acidosis raise right ventricular afterload, and why positive pressure and the sedation needed for intubation are hazardous; the perfusion-pressure approximation used below is this chapter's own simplification."
+      ],
+      "questions": []
+    },
+    {
+      "id": "rv-loading",
+      "parentId": "right-ventricle",
+      "title": "A ventricle built for low pressure",
+      "body": [
+        "The right ventricle is thin-walled and pumps into a circulation that is normally low in pressure and resistance. It tolerates increases in volume far better than increases in pressure. When pulmonary vascular resistance rises suddenly, as with a large embolus, the ventricle dilates, its wall stress rises, and its stroke volume falls. Less blood reaches the left heart, so left ventricular filling and systemic output fall.",
+        "A dilated right ventricle also pushes the septum toward the left, which reduces left ventricular filling further. That interdependence is why Patient R's high central venous pressure of 18 mm Hg sits alongside a low systemic pressure: the right side is congested, while the left side is underfilled. Giving more volume can make this worse by dilating the right ventricle further."
+      ],
+      "questions": [],
+      "refs": [
+        "harjola-2016"
+      ]
+    },
+    {
+      "id": "rv-triggers",
+      "parentId": "right-ventricle",
+      "title": "What intubation does to the pulmonary circulation",
+      "body": [
+        "Hypoxaemia constricts pulmonary arterioles. So does hypercapnia and acidaemia. During apnoea, both oxygen and carbon dioxide move in the wrong direction, so pulmonary vascular resistance rises at a time when Patient R has no reserve. Positive pressure adds a mechanical load. Inflating the lungs stretches the alveolar vessels, and high tidal volumes or high PEEP raise resistance further. Positive pressure also raises right atrial pressure and so reduces venous return to a ventricle that is already working at the limit of its function.",
+        "At the same time, the drug classes used for induction reduce systemic vascular tone and may depress contractility. Each of these effects is modest on its own. Together, and in a patient with no reserve, they can be enough to tip the balance."
+      ],
+      "questions": [],
+      "refs": [
+        "harjola-2016"
+      ]
+    },
+    {
+      "id": "rv-perfusion",
+      "parentId": "right-ventricle",
+      "title": "Perfusion pressure and the spiral",
+      "body": [
+        "The right ventricle receives its blood supply from the right coronary artery. Its perfusion depends on the difference between aortic pressure and the pressure inside the ventricle wall, which rises as the ventricle dilates and its filling pressure rises. A simple bedside approximation, used here for teaching, is mean arterial pressure minus central venous pressure. This is a simplification: the true driving pressure varies through the cardiac cycle and is affected by wall tension.",
+        "For Patient R, mean arterial pressure is about 71 mm Hg and central venous pressure 18 mm Hg, a difference of about 53 mm Hg. If induction lowers his mean pressure to 55 mm Hg with no change in central venous pressure, the difference falls to about 37 mm Hg. A ventricle that is working harder now receives less blood. Its contractility falls, its output falls, systemic pressure falls further, and perfusion falls again. This is the spiral that turns a stable but strained patient into a cardiac arrest within minutes. Hypoxaemia, hypercapnia, and positive pressure all push the same loop from the other side by raising pulmonary vascular resistance."
+      ],
+      "questions": [
+        {
+          "id": "q-r-spiral",
+          "kind": "prediction",
+          "prompt": "Immediately after induction, Patient R's mean arterial pressure falls from 71 to 55 mm Hg and his saturation falls during a prolonged attempt. Predict what happens to his right ventricle and why it may not recover on its own.",
+          "answer": "His right ventricular perfusion, approximated by MAP minus CVP, falls from about 53 to about 37 mm Hg, so the ventricle receives less blood just as its workload rises. Falling saturation and rising PaCO2 during apnoea raise pulmonary vascular resistance and add to that workload. The ventricle weakens, its output falls, left ventricular filling falls, and systemic pressure falls further, which lowers its perfusion again. Each step worsens the next, so the loop tends to continue unless something interrupts it, by raising systemic pressure or lowering pulmonary vascular resistance.",
+          "causalChain": "Lower MAP reduces RV perfusion; hypoxaemia and hypercapnia raise PVR; RV demand rises while supply falls; RV output falls; LV filling and systemic pressure fall; perfusion falls again.",
+          "assumption": "That his central venous pressure stays near 18 mm Hg and that the clot burden does not change.",
+          "misconception": "That a fall in pressure after induction in this patient is a transient drug effect that will correct itself."
+        },
+        {
+          "id": "q-peep-hr",
+          "kind": "transfer",
+          "prompt": "A patient with severe pulmonary hypertension from chronic lung disease needs intubation. Using Patient R's case, which ventilator choices after intubation would you expect to worsen her right ventricular function?",
+          "answer": "High PEEP, large tidal volumes and high plateau pressures would stretch the alveolar vessels and raise pulmonary vascular resistance, adding load to her right ventricle. High mean intrathoracic pressure would also raise right atrial pressure and reduce venous return. Too little ventilation would allow hypercapnia and acidaemia, which constrict the pulmonary vessels. Too little oxygen would add hypoxic vasoconstriction. The aim is to avoid all of these together, which usually means modest pressures with enough ventilation and oxygen, checked by measurement.",
+          "causalChain": "Lung overdistension raises PVR; high intrathoracic pressure lowers venous return; hypercapnia, acidaemia and hypoxaemia constrict pulmonary vessels; RV afterload rises; RV failure follows.",
+          "assumption": "That her pulmonary hypertension is fixed in part but still responsive to these changes.",
+          "misconception": "That the same ventilator settings suit every patient after intubation."
+        }
+      ],
+      "refs": [
+        "harjola-2016"
+      ],
+      "diagram": {
+        "id": "fig-r2-03-rv-spiral",
+        "caption": "Figure 4. The right ventricular spiral. Lower systemic pressure reduces right coronary perfusion (approximated as MAP minus CVP, 53 falling to 37 mm Hg in Patient R); the ventricle weakens, output falls, and pressure falls further. Hypoxaemia, hypercapnia and positive pressure raise pulmonary vascular resistance and add load to the same loop. Simplified teaching model.",
+        "alt": "A circular loop of arrows with four boxes: lower systemic pressure, reduced right coronary perfusion, weaker right ventricle, lower cardiac output, returning to lower systemic pressure. A side panel shows Patient R's numbers: mean arterial pressure 71 minus central venous pressure 18 equals 53, and mean arterial pressure 55 minus 18 equals 37. Three arrows feed into the weaker right ventricle box from outside the loop, labelled hypoxaemia, hypercapnia, and positive pressure, all marked raised pulmonary vascular resistance."
+      }
+    },
+    {
+      "id": "rv-alternatives",
+      "parentId": "right-ventricle",
+      "title": "Does Patient R need a tube?",
+      "body": [
+        "Because each step of intubation threatens his right ventricle, the first question for Patient R is whether he needs a tube at all. If he is awake, protecting his airway, and his saturation can be held with oxygen or high-flow support, the danger of intubation may be greater than the danger of continued spontaneous breathing while the embolus is treated. If he is tiring, unable to protect his airway, or developing worsening hypoxaemia despite support, the balance shifts. That judgement depends on the treatment available for the clot, on how quickly it can be given, and on local expertise, and is for the treating team. This chapter only makes clear what intubation would cost him."
+      ],
+      "questions": [],
+      "refs": [
+        "harjola-2016"
+      ]
+    },
+    {
+      "id": "after-tube",
+      "title": "Part VII. After the tube",
+      "body": [
+        "Placing the tube does not end the danger. In one series, Heffner and colleagues found a median time to arrest of about 6 minutes after intubation. The minutes after placement are when positive pressure is newly established and when attention tends to move to the next task."
+      ],
+      "questions": []
+    },
+    {
+      "id": "reassess-timeline",
+      "parentId": "after-tube",
+      "title": "What to check first",
+      "body": [
+        "Each patient's main threat tells us what to check first. For Patient H, it is oxygenation, and whether positive pressure through the tube is recruiting lung or whether her shunt persists. For Patient P, it is pressure, and whether venous return has fallen as positive pressure was established. For Patient M, it is a blood gas soon after intubation, to compare her PaCO2 with the 13.5 to 17.5 mm Hg that her compensation required. For Patient R, it is systemic pressure, right ventricular function and saturation together, because a fall in any of them can start the spiral.",
+        "In every case the first check is a measurement, not an assumption. The ventilator setting, the pressure after induction and the saturation all have to be confirmed, because the physiology has changed and the starting values no longer apply."
+      ],
+      "questions": [
+        {
+          "id": "q-first-check",
+          "kind": "prediction",
+          "prompt": "Fifteen minutes after intubation, Patient M's repeat gas shows a PaCO2 of 24 mm Hg and her bicarbonate is still 5 mmol/L. Predict her pH and say what it means for the ventilator.",
+          "answer": "Her pH would be about 6.94, because 6.1 + log(5 / (0.03 × 24)) is 6.1 + log(6.94), about 6.94. Her PaCO2 is well above the 13.5 to 17.5 mm Hg that her compensation required before intubation, so the ventilator is not yet matching her own ventilation, and her pH is much lower than her pre-intubation 7.15. Her alveolar ventilation needs to rise, by increasing rate or tidal volume or both, while watching for gas trapping, and the gas should be repeated.",
+          "causalChain": "pH depends on bicarbonate and PaCO2; her bicarbonate is fixed over this interval; a higher PaCO2 lowers pH; the target is her own pre-intubation PaCO2 range.",
+          "assumption": "That her bicarbonate has not changed and that the sample is arterial.",
+          "misconception": "That a PaCO2 of 24 is low enough because it is below normal."
+        },
+        {
+          "id": "q-after-transfer",
+          "kind": "transfer",
+          "prompt": "A man with severe asthma is intubated, and his pressure falls over the next few minutes as he is ventilated at a fast rate. Using Patients P and R, explain what may be happening.",
+          "answer": "Fast ventilation in a patient with obstructed airways may not allow full exhalation, so gas is trapped and intrinsic PEEP builds up. Rising intrathoracic pressure raises right atrial pressure and reduces venous return, as in Patient P. Hyperinflated lung also stretches the pulmonary vessels and raises pulmonary vascular resistance, adding load to the right ventricle, as in Patient R. Together, these can cause hypotension and, if unchecked, arrest. Reducing the rate and allowing longer exhalation lowers the trapped volume and usually improves pressure.",
+          "causalChain": "Fast rate in obstruction leads to incomplete exhalation; gas trapping and intrinsic PEEP rise; intrathoracic pressure rises; venous return falls; PVR rises; right ventricular load rises; pressure falls.",
+          "assumption": "That there is no pneumothorax and that his circulating volume is not the main problem.",
+          "misconception": "That falling pressure after intubation is always caused by drugs."
+        }
+      ],
+      "refs": [
+        "heffner-2013"
+      ]
+    },
+    {
+      "id": "final-return",
+      "parentId": "after-tube",
+      "title": "Back to the four patients",
+      "body": [
+        "Patient H's danger was a small oxygen store that her shunt prevented from filling. Positive pressure before apnoea was the most direct way to change that, and the measure of success was her saturation and its stability after the tube. Patient P's danger was a circulation that depended on high tone and negative intrathoracic pressure. Restoring lost volume, avoiding excessive breaths and watching his pressure after induction addressed that mechanism. Patient M's danger was the loss of her ventilation, and the remedy was to keep apnoea short and match her ventilation, checked by gas. Patient R's danger was a right ventricle that could not tolerate any extra load, and the first question was whether a tube was needed at all.",
+        "None of these depends on a single drug, device, or technique. Each depends on naming the threat before induction and thinking about how intubation will change it."
+      ],
+      "questions": []
+    },
+    {
+      "id": "synthesis",
+      "parentId": "after-tube",
+      "title": "Synthesis",
+      "body": [
+        "The physiologically difficult airway is not one condition but four kinds of dependence: on a small oxygen store, on sympathetic tone and venous return, on compensatory ventilation, and on a right ventricle with no reserve. Intubation removes spontaneous breathing, sympathetic tone and negative intrathoracic pressure, and adds apnoea and positive pressure. Each patient is endangered by the part of that change that their physiology cannot absorb.",
+        "The evidence covered here, from PREOXI, PreVent, PREPARE II and FELLOW, answers specific questions in specific populations. It supports positive pressure preoxygenation and ventilation between induction and laryngoscopy for many critically ill adults, it does not support a routine fluid bolus for the critically ill adults studied, and it leaves the value of apnoeic oxygenation in critical illness uncertain. It does not replace the physiology, which is what lets a clinician decide which part of the evidence applies to the patient in front of them."
+      ],
+      "questions": [],
+      "refs": [
+        "gibbs-2024",
+        "casey-2019",
+        "russell-2022",
+        "semler-2016"
+      ]
+    }
+  ],
+  "treatmentApproach": [
+    {
+      "id": "name-threat",
+      "title": "Name the main threat before induction",
+      "action": "Decide which form of collapse is most likely for this patient: desaturation, hypotension, worsening acidaemia, or right ventricular failure. Say it aloud to the team.",
+      "why": "Each patient depends on something intubation removes or is harmed by something it adds. Naming the threat sets what to prepare and what to watch first.",
+      "principleIds": [
+        "four-patients",
+        "pda-what-changes"
+      ]
+    },
+    {
+      "id": "fill-store",
+      "title": "Fill the oxygen store",
+      "action": "Preoxygenate with a tight seal and enough time. Where shunt limits it, consider positive pressure before apnoea.",
+      "why": "The lung store at the start of apnoea sets the safe apnoea time; open, denitrogenated lung holds far more oxygen.",
+      "principleIds": [
+        "oxygen-reserve",
+        "preox-pressure"
+      ]
+    },
+    {
+      "id": "oxygen-apnoea",
+      "title": "Keep apnoea short and supported",
+      "action": "Keep the interval without ventilation short. Consider oxygen during apnoea and gentle breaths between induction and laryngoscopy, weighing aspiration risk.",
+      "why": "Oxygen is consumed and carbon dioxide accumulates during apnoea; saturation falls steeply once PaO2 reaches the steep part of the curve.",
+      "principleIds": [
+        "apnoeic-oxygenation",
+        "bag-mask-apnoea"
+      ]
+    },
+    {
+      "id": "support-pressure",
+      "title": "Prepare for the fall in pressure",
+      "action": "Assess whether the circulation is underfilled, restore lost volume where it is, and have support for pressure ready before induction. Ventilate with modest breaths after the tube.",
+      "why": "Induction lowers tone and mean systemic filling pressure; positive pressure raises right atrial pressure; together they reduce venous return.",
+      "principleIds": [
+        "hypotension",
+        "hypo-venous-return",
+        "hypo-fluids"
+      ]
+    },
+    {
+      "id": "match-ventilation",
+      "title": "Match compensatory ventilation",
+      "action": "If breathing is compensating for metabolic acidosis, set ventilation to match it after the tube and confirm with an early blood gas.",
+      "why": "An ordinary setting removes the compensation and lets PaCO2 rise and pH fall sharply.",
+      "principleIds": [
+        "acidosis",
+        "acid-matching"
+      ]
+    },
+    {
+      "id": "protect-rv",
+      "title": "Protect the right ventricle",
+      "action": "Ask first whether a tube is needed. If it is, avoid hypoxaemia, hypercapnia, high intrathoracic pressure and falls in systemic pressure.",
+      "why": "RV perfusion falls with systemic pressure while its load rises with pulmonary vascular resistance, which can start a self-reinforcing spiral.",
+      "principleIds": [
+        "right-ventricle",
+        "rv-perfusion",
+        "rv-alternatives"
+      ]
+    },
+    {
+      "id": "reassess",
+      "title": "Reassess in the first minutes",
+      "action": "Recheck saturation, pressure and ventilation soon after the tube, and act on each against the threat you named.",
+      "why": "Collapse often occurs in the minutes after placement; in one series (Heffner and colleagues), the median time to cardiac arrest was about 6 minutes.",
+      "principleIds": [
+        "after-tube",
+        "reassess-timeline"
+      ]
+    }
+  ]
+}

@@ -74,6 +74,7 @@ describe('case schema', () => {
     if (!result.ok) return;
     expect(result.cases.map((entry) => entry.document.slug).sort()).toEqual([
       'adult-cardiac-arrest',
+      'physiologically-difficult-airway',
       'shock-pressure-flow',
     ]);
     const document = result.cases.find((entry) => entry.document.slug === 'adult-cardiac-arrest')?.document;
