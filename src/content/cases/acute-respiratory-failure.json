@@ -18,85 +18,85 @@
       "id": "rochwerg-2017",
       "label": "Rochwerg B, Brochard L, Elliott MW, et al. Official ERS/ATS clinical practice guidelines: noninvasive ventilation for acute respiratory failure. Eur Respir J. 2017;50:1602426",
       "url": "https://doi.org/10.1183/13993003.02426-2016",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "note": "Joint ERS/ATS guideline; recommendations graded by strength and certainty of evidence."
     },
     {
       "id": "oczkowski-2022",
       "label": "Oczkowski S, Ergan B, Bos L, et al. ERS clinical practice guidelines: high-flow nasal cannula in acute respiratory failure. Eur Respir J. 2022;59:2101574",
       "url": "https://doi.org/10.1183/13993003.01574-2021",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "note": "ERS guideline; its recommendations on high-flow oxygen are conditional."
     },
     {
       "id": "odriscoll-2017",
       "label": "O'Driscoll BR, Howard LS, Earis J, Mak V. BTS guideline for oxygen use in adults in healthcare and emergency settings. Thorax. 2017;72:ii1–ii90",
       "url": "https://doi.org/10.1136/thoraxjnl-2016-209729",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "note": "British Thoracic Society guideline; source of the 94 to 98 percent and 88 to 92 percent target ranges."
     },
     {
       "id": "austin-2010",
       "label": "Austin MA, Wills KE, Blizzard L, Walters EH, Wood-Baker R. Effect of high flow oxygen on mortality in chronic obstructive pulmonary disease patients in prehospital setting: randomised controlled trial. BMJ. 2010;341:c5462",
       "url": "https://doi.org/10.1136/bmj.c5462",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "note": "Prehospital randomized trial in patients with suspected COPD exacerbation."
     },
     {
       "id": "frat-2015",
       "label": "Frat JP, Thille AW, Mercat A, et al. High-flow oxygen through nasal cannula in acute hypoxemic respiratory failure. N Engl J Med. 2015;372:2185–2196",
       "url": "https://doi.org/10.1056/NEJMoa1503326",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "note": "FLORALI trial; primary outcome was intubation, and 90-day mortality was a secondary outcome."
     },
     {
       "id": "patel-2016",
       "label": "Patel BK, Wolfe KS, Pohlman AS, Hall JB, Kress JP. Effect of noninvasive ventilation delivered by helmet vs face mask on the rate of endotracheal intubation in patients with acute respiratory distress syndrome. JAMA. 2016;315:2435–2441",
-      "url": "https://doi.org/10.1001/jama.2016.6338",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "url": "https://doi.org/10.1001/jama.2016.6338"
     },
     {
       "id": "roca-2019",
       "label": "Roca O, Caralt B, Messika J, et al. An index combining respiratory rate and oxygenation to predict outcome of nasal high-flow therapy. Am J Respir Crit Care Med. 2019;199:1368–1376",
       "url": "https://doi.org/10.1164/rccm.201803-0589OC",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "note": "Derived in patients with pneumonia treated with high-flow nasal oxygen."
     },
     {
       "id": "sjoding-2020",
       "label": "Sjoding MW, Dickson RP, Iwashyna TJ, Gay SE, Valley TS. Racial bias in pulse oximetry measurement. N Engl J Med. 2020;383:2477–2478",
       "url": "https://doi.org/10.1056/NEJMc2029240",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "note": "Research letter analyzing paired oximeter and arterial measurements."
     },
     {
       "id": "grasselli-2023",
       "label": "Grasselli G, Calfee CS, Camporota L, et al. ESICM guidelines on acute respiratory distress syndrome: definition, phenotyping and respiratory support strategies. Intensive Care Med. 2023;49:727–759",
-      "url": "https://doi.org/10.1007/s00134-023-07050-7",
-      "note": "full text read"
+      "url": "https://doi.org/10.1007/s00134-023-07050-7"
     },
     {
       "id": "qadir-2024",
       "label": "Qadir N, Sahetya S, Munshi L, et al. An update on management of adult patients with acute respiratory distress syndrome: an official American Thoracic Society clinical practice guideline. Am J Respir Crit Care Med. 2024;209:24–36",
-      "url": "https://doi.org/10.1164/rccm.202311-2011ST",
-      "note": "full text read"
+      "url": "https://doi.org/10.1164/rccm.202311-2011ST"
     },
     {
       "id": "kang-2015",
       "label": "Kang BJ, Koh Y, Lim CM, et al. Failure of high-flow nasal cannula therapy may delay intubation and increase mortality. Intensive Care Med. 2015;41:623–632",
       "url": "https://doi.org/10.1007/s00134-015-3693-5",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "note": "Observational study; it shows an association, not the effect of timing itself."
     },
     {
       "id": "laghi-tobin-2003",
       "label": "Laghi F, Tobin MJ. Disorders of the respiratory muscles. Am J Respir Crit Care Med. 2003;168:10–48",
-      "url": "https://doi.org/10.1164/rccm.2206020",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "url": "https://doi.org/10.1164/rccm.2206020"
     },
     {
       "id": "west-luks-2021",
       "label": "West JB, Luks AM. West's Respiratory Physiology: The Essentials. 11th ed. Philadelphia: Wolters Kluwer; 2021 (ISBN 9781975139186)",
-      "url": "https://shop.lww.com/West-s-Respiratory-Physiology/p/9781975139186",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "url": "https://shop.lww.com/West-s-Respiratory-Physiology/p/9781975139186"
     },
     {
       "id": "matthay-2024",
       "label": "Matthay MA, Arabi Y, Arroliga AC, et al. A new global definition of acute respiratory distress syndrome. Am J Respir Crit Care Med. 2024;209:37–47",
-      "url": "https://doi.org/10.1164/rccm.202303-0558WS",
-      "note": "Needs Search Bot verification. Not yet read by Science Editor; content, currency and recommendation wording unconfirmed."
+      "url": "https://doi.org/10.1164/rccm.202303-0558WS"
+    },
+    {
+      "id": "stein-1995",
+      "label": "Stein PD, Goldhaber SZ, Henry JW. Alveolar-arterial oxygen gradient in the assessment of acute pulmonary embolism. Chest. 1995;107:139–143",
+      "url": "https://doi.org/10.1378/chest.107.1.139",
+      "note": "Compared three definitions of a normal gradient, including the age/4 + 4 rule, in patients with suspected pulmonary embolism."
     }
   ],
   "principles": [
@@ -107,7 +107,7 @@
         "Three adults arrive in the same emergency department on the same evening. Like the patients in the Shock chapter, they are hypothetical, built for teaching, and revealed a little at a time. On the monitor they share one number: a peripheral oxygen saturation (SpO2) in the 80s, breathing room air. If that number were the whole story, each would get the same mask and the same plan.",
         "Patient A is a woman in her fifties with three days of fever, cough, and pleuritic pain on the right. She is breathing fast, about 30 times a minute, and speaks in short phrases. There are bronchial breath sounds over the right lower chest. Patient B is a man in his thirties found drowsy at home beside an empty pill bottle. His pupils are small, his breathing is slow and shallow, and his chest sounds clear. Patient C is a man in his late sixties with chronic obstructive pulmonary disease (COPD) who has been more breathless for four days. He sits forward with his hands on his knees, his neck muscles tighten with each breath, he breathes out through pursed lips, and the expiration seems never to finish before the next breath begins.",
         "The shared saturation tells us that the hemoglobin passing the probe carries less oxygen than usual. It does not tell us why. In A, blood is crossing lung that has filled with inflammatory fluid and receives no fresh gas. In B, the lungs are probably normal, but too little air is moving through them. In C, a lung with narrowed airways and lost elastic recoil is placing a load on breathing muscles that may be near the limit of what they can sustain. Three different mechanisms, three different responses to oxygen, and three different dangers that oxygen alone could hide.",
-        "This chapter follows them through the physiology needed to tell those mechanisms apart: how carbon dioxide leaves the body, the four ways oxygen fails to reach arterial blood, the mechanics and endurance of the respiratory pump, what bedside measurements can and cannot show, and how support should be matched to the failing part. It explains principles of support. It is not a ventilator handbook or an airway manual."
+        "This chapter follows them through the physiology needed to tell those mechanisms apart: how carbon dioxide leaves the body, the five ways arterial blood ends up short of oxygen, the mechanics and endurance of the respiratory pump, what bedside measurements can and cannot show, and how support should be matched to the failing part. It explains principles of support. It is not a ventilator handbook or an airway manual."
       ],
       "questions": []
     },
@@ -143,7 +143,7 @@
       "body": [
         "Only part of each breath reaches gas-exchanging alveoli. The rest fills the conducting airways, the trachea and bronchi, and leaves again unchanged. That wasted volume is the anatomic dead space, about 150 mL in an average adult, and it is roughly fixed for a given person regardless of how large each breath is. Some gas that does reach alveoli is also wasted, because it arrives at units with little or no blood flow. Anatomic and this alveolar dead space together make up the physiological dead space, usually expressed as a fraction of the tidal volume, VD/VT.",
         "Minute ventilation (VE), the respiratory rate multiplied by the tidal volume, is what a spirometer or ventilator reports. Alveolar ventilation (VA) is the part that does useful work: VA = VE × (1 − VD/VT). At steady state, PaCO2 is proportional to carbon dioxide production divided by alveolar ventilation: PaCO2 = 0.863 × VCO2 / VA, with VCO2 in mL/min at standard conditions, VA in L/min at body conditions, and 0.863 the constant that reconciles those units. The equation says something simple. If production is unchanged, halving alveolar ventilation doubles PaCO2, and doubling it halves PaCO2. Nothing in the equation mentions effort.",
-        "This is why a patient can breathe very fast and still retain carbon dioxide. Rapid shallow breathing spends a larger share of each breath on the fixed anatomic dead space. Two patients can move the same six liters a minute and achieve very different alveolar ventilation, as the worked example shows. The trap at the bedside is to look at a high respiratory rate, see a lot of work, and assume a lot of ventilation.",
+        "This is why a patient can breathe very fast and still retain carbon dioxide. Rapid shallow breathing spends a larger share of each breath on the fixed anatomic dead space, and lung disease can raise the alveolar part of the dead space as well. Respiratory rate alone therefore says nothing about effective ventilation: it has to be read together with the size of each breath and the share of each breath that is wasted. Two patients can move the same six liters a minute and achieve very different alveolar ventilation, as the worked example shows. The trap at the bedside is to look at a high respiratory rate, see a lot of work, and assume a lot of ventilation.",
         "The equation describes a steady state. When ventilation changes abruptly, PaCO2 moves toward its new level over minutes, not instantly, because the body holds a large store of carbon dioxide, much of it as bicarbonate, that must fill or empty. A patient who has just become apneic does not reach a high PaCO2 within seconds, and a patient who has just been ventilated more vigorously does not normalize at once. Blood-gas values drawn shortly after a change sit somewhere along that path."
       ],
       "questions": [
@@ -197,9 +197,9 @@
     },
     {
       "id": "oxygen-in",
-      "title": "Part III. Getting oxygen in: the four mechanisms of hypoxemia",
+      "title": "Part III. Getting oxygen in: the five mechanisms of hypoxemia",
       "body": [
-        "Oxygen has a harder journey than carbon dioxide. It must be brought to the alveolus, cross into capillary blood, and leave the lung in blood that has actually passed ventilated alveoli. Failure at each of those points produces hypoxemia, and the mechanisms differ in a way that matters at the bedside: they respond differently to supplemental oxygen, and they leave different fingerprints in the relation between alveolar and arterial oxygen. That relation begins with an estimate of what the alveolus contains."
+        "Oxygen has a harder journey than carbon dioxide, and it helps to name each stage. The inspired partial pressure (PIO2) is set by the gas we breathe and the barometric pressure. The alveolar partial pressure (PAO2) is what remains after that gas is humidified and mixed with the carbon dioxide arriving from the blood. The arterial partial pressure (PaO2) is the tension of oxygen dissolved in blood leaving the lung. Saturation (SaO2) is the fraction of hemoglobin carrying oxygen, and oxygen content (CaO2) is the total amount carried per deciliter, almost all of it on hemoglobin: about 1.34 × hemoglobin × SaO2, plus a small dissolved part of 0.003 × PaO2. Hypoxemia can arise at five points: too little oxygen inspired, too little ventilation of the alveoli, ventilation and blood flow poorly matched, blood bypassing ventilated alveoli altogether, and oxygen failing to cross the alveolar wall in time. These mechanisms respond differently to supplemental oxygen and leave different fingerprints in the relation between alveolar and arterial oxygen. That relation begins with an estimate of what the alveolus contains."
       ],
       "questions": []
     },
@@ -210,8 +210,8 @@
       "body": [
         "Inspired gas is warmed and saturated with water vapor on its way down, so the partial pressure of oxygen entering the alveoli is the inspired fraction (FiO2) multiplied by barometric pressure (PB) less water vapor pressure (PH2O): FiO2 × (PB − PH2O). In the alveolus, oxygen is continuously removed and carbon dioxide added. The simplified alveolar gas equation accounts for this: PAO2 = FiO2 × (PB − PH2O) − PaCO2/R, where R, the respiratory quotient, is the ratio of carbon dioxide produced to oxygen consumed. The usual working assumptions are PB 760 mm Hg at sea level, PH2O 47 mm Hg at body temperature, and R 0.8. At altitude PB is lower, and the whole calculation shifts.",
         "The equation carries one of the most important ideas in this chapter. Alveolar carbon dioxide displaces alveolar oxygen. If ventilation falls and PaCO2 rises, PAO2 must fall even when the lung itself is perfectly healthy. Hypoxemia can therefore be pure arithmetic.",
-        "The difference between the calculated alveolar PAO2 and the measured arterial PaO2 is the alveolar-arterial (A–a) gradient. In healthy young adults breathing room air it is small, usually under about 10 to 15 mm Hg, and it rises with age. A normal gradient in a hypoxemic patient says that the lung is transferring oxygen as it should and that the problem lies upstream, in how much oxygen reaches the alveolus. A widened gradient says that the lung itself is failing to pass on what the alveolus holds.",
-        "The gradient has real limits. It is a calculation built on assumptions about R and PB, so small values should not be read too precisely. It widens with FiO2 even when the lung has not changed, because the same degree of mismatch produces a larger absolute difference when alveolar oxygen is high, so a gradient measured on supplemental oxygen cannot be compared with a room-air reference. Exactly how much it rises with age is described by several approximate formulas, and this draft does not adopt one. The ratio of PaO2 to FiO2, widely used as a severity measure, has related problems: it varies with FiO2 and with positive end-expiratory pressure (PEEP) for the same lung, so it describes a patient on a particular level of support rather than the lung in isolation."
+        "The difference between the calculated alveolar PAO2 and the measured arterial PaO2 is the alveolar-arterial (A–a) gradient. In healthy young adults breathing room air it is small, usually under about 10 to 15 mm Hg, and it rises with age. One common rule of thumb puts the upper limit of normal at about age/4 + 4 mm Hg, roughly 21 mm Hg at 68, but this is an approximate population range and not a value to subtract from an individual patient's result as if it were measured. A clearly widened gradient in a hypoxemic patient says that the lung is failing to pass on what the alveolus holds. A normal gradient says that the hypoxemia can be explained without a gas-transfer defect, so the problem probably lies upstream, in how much oxygen reaches the alveolus. It does not say the lungs are healthy: in a study of patients with suspected pulmonary embolism, a gradient inside the normal range did not exclude the diagnosis.",
+        "The gradient has real limits. The calculated PAO2 is an idealized average for a lung imagined as one uniform unit; a diseased lung contains units with very different alveolar oxygen, and no single number describes them all. Because the calculation rests on assumed values for R and PB, small gradients should not be read too precisely. The gradient also widens with FiO2 even when the lung has not changed, because the same degree of mismatch produces a larger absolute difference when alveolar oxygen is high, so a gradient measured on supplemental oxygen cannot be compared with a room-air reference. The ratio of PaO2 to FiO2, widely used as a severity measure, has related problems: it varies with FiO2 and with positive end-expiratory pressure (PEEP) for the same lung, so it describes a patient on a particular level of support rather than the lung in isolation."
       ],
       "questions": [
         {
@@ -223,20 +223,31 @@
           "assumption": "That his lungs are otherwise normal, as his clear chest and normal gradient suggest, and that no aspiration has occurred.",
           "misconception": "That a normal saturation on oxygen means adequate breathing.",
           "missingData": "Respiratory rate and depth, mental status, a blood gas or capnography for carbon dioxide, and whether reversible drug effect has been treated."
+        },
+        {
+          "id": "q-c-gradient",
+          "kind": "evidence-boundary",
+          "prompt": "A resident looks at Patient C's room-air gas (PaCO2 62, PaO2 56 mm Hg, A–a gradient about 16 mm Hg) and says: \"The gradient proves V/Q mismatch on top of his hypoventilation.\" Is that conclusion supported?",
+          "answer": "No. At 68, a gradient of about 16 mm Hg falls within the rough age-expected range, and it is under 20 mm Hg even without adjustment. The calculation also rests on assumed values for R and barometric pressure, so a difference of a few mm Hg carries little weight. What the gas shows strongly is hypoventilation: his raised PaCO2 accounts for nearly all of the fall in alveolar and arterial oxygen. He very likely does have mismatched units, given his COPD, his air trapping, and his work of breathing, but that belief rests on the history and examination, not on this gradient. The opposite error is also possible: a normal gradient does not show that his lungs are healthy.",
+          "causalChain": "PaCO2 62 lowers PAO2 to about 72 mm Hg; PaO2 56 leaves a gradient of about 16 mm Hg; the age-expected upper limit is roughly 21 mm Hg; the gas is explained by hypoventilation without needing a transfer defect; the gradient neither proves nor excludes mismatch.",
+          "assumption": "That the sample is arterial, on room air, at sea level, and that R is close to 0.8.",
+          "misconception": "That a single A–a value establishes the mechanism, in either direction."
         }
       ],
       "refs": [
-        "west-luks-2021"
+        "west-luks-2021",
+        "stein-1995"
       ],
       "workedExample": {
         "id": "aa-gradient-example",
-        "title": "Worked example: three gradients",
+        "title": "Worked example: the three patients' gradients",
         "body": [
-          "All values assume sea level (PB 760 mm Hg), PH2O 47 mm Hg, and R 0.8, so FiO2 × (PB − PH2O) on room air is 0.21 × 713 ≈ 150 mm Hg. They are illustrative.",
+          "All values assume sea level (PB 760 mm Hg), PH2O 47 mm Hg, and R 0.8, so FiO2 × (PB − PH2O) on room air is 0.21 × 713 ≈ 150 mm Hg. The patients' values are illustrative.",
           "**A healthy reference.** Room air, PaCO2 40 mm Hg: PAO2 = 150 − 40/0.8 = 150 − 50 = 100 mm Hg. A PaO2 of 90 mm Hg gives an A–a gradient of about 10 mm Hg.",
-          "**Patient B, opioid hypoventilation, on room air.** PaCO2 70 mm Hg: PAO2 = 0.21 × (760 − 47) − 70/0.8 = 149.7 − 87.5 ≈ 62 mm Hg. His measured PaO2 is about 56 mm Hg, so the A–a gradient is about 6 mm Hg, which is normal. All of his hypoxemia is explained by the carbon dioxide occupying his alveoli. On the standard oxyhemoglobin dissociation curve, a PaO2 of 56 mm Hg would correspond to about 88 percent at pH 7.40, but at his pH of about 7.21 the rightward shift brings it to about 80 percent (see Part V).",
+          "**Patient B, opioid hypoventilation, on room air.** PaCO2 70 mm Hg: PAO2 = 0.21 × (760 − 47) − 70/0.8 = 149.7 − 87.5 ≈ 62 mm Hg. His measured PaO2 is about 56 mm Hg, so the A–a gradient is about 6 mm Hg, which is normal. All of his hypoxemia is explained by the carbon dioxide occupying his alveoli. A PaO2 of 56 mm Hg corresponds to a saturation of about 88 percent on a standard curve at pH 7.40. At his pH of about 7.21, the rightward shift brings the predicted value to roughly 80 percent (see Part V).",
           "**Patient A, pneumonia, on room air.** PaCO2 32 mm Hg, because she is breathing fast: PAO2 = 150 − 32/0.8 = 150 − 40 = 110 mm Hg. Her PaO2 is 55 mm Hg, so the gradient is about 55 mm Hg. Her alveolar oxygen is higher than normal, and her blood still leaves the lung poorly oxygenated: the lung is failing to transfer it.",
-          "**Patient A after a change to FiO2 1.0.** At FiO2 1.0 the respiratory-quotient correction barely matters: about 680 without it and 673 with it. If her PaO2 rises only to about 70 mm Hg, the gradient is now about 610 mm Hg. The large number reflects both the high FiO2 and the shunt, and it cannot be compared with her room-air value. The useful observation is the small change in PaO2 for a large change in inspired oxygen."
+          "**Patient A after a change to FiO2 1.0.** At FiO2 1.0, and assuming her PaCO2 stays at 32 mm Hg, PAO2 is about 713 − 32/0.8 ≈ 673 mm Hg. If her PaO2 rises only to about 70 mm Hg, the gradient is now about 600 mm Hg. The large number reflects both the high FiO2 and the shunt, and it cannot be compared with her room-air value. The useful observation is the small change in PaO2 for a large change in inspired oxygen.",
+          "**Patient C, COPD exacerbation, on room air.** PaCO2 62 mm Hg: PAO2 = 149.7 − 62/0.8 = 149.7 − 77.5 ≈ 72 mm Hg. His PaO2 is 56 mm Hg, so the gradient is about 16 mm Hg. For a man of 68 that sits inside the rough age-expected range of about 21 mm Hg, and it is under 20 mm Hg even before any age adjustment. His gas is explained almost entirely by hypoventilation. His history and his mechanics make abnormal ventilation-perfusion matching very likely, but this gradient does not by itself prove it."
         ]
       }
     },
@@ -245,20 +256,22 @@
       "parentId": "oxygen-in",
       "title": "Ventilation-perfusion mismatch and shunt",
       "body": [
-        "In a healthy lung, ventilation and blood flow are not perfectly matched, but they are close: the ratio of ventilation to perfusion (V/Q) clusters around one across most units. In disease the distribution spreads. Units with high V/Q waste ventilation and behave as dead space. Units with low V/Q receive some fresh gas, but not enough for the blood flowing past them, so that blood leaves only partly oxygenated. At the extreme are units with no ventilation at all, through which blood passes unchanged. That extreme is shunt.",
-        "The distinction between low V/Q and true shunt is the reason Patient A matters. In a low V/Q unit, adding oxygen raises the alveolar oxygen tension even though the gas arrives slowly, and the blood passing that unit eventually becomes well saturated. Low V/Q hypoxemia therefore corrects with modest supplemental oxygen. In a shunting unit, filled with pus, fluid, or collapsed, no inspired gas arrives. Blood passing it never meets the added oxygen, and when it rejoins blood from healthy units it lowers the mixed arterial content. Raising FiO2 cannot fix this, because the healthy units already saturate their hemoglobin nearly fully on room air, and dissolved oxygen adds little. As the shunt fraction grows, the arterial PaO2 becomes progressively less responsive to oxygen, which is the pattern of consolidated pneumonia, extensive atelectasis, and severe pulmonary edema.",
+        "In a healthy lung, ventilation and blood flow are not perfectly matched, but they are close: the ratio of ventilation to perfusion (V/Q) clusters around one across most units. In disease the distribution spreads. Units with high V/Q waste ventilation and behave as dead space. Units with low V/Q receive some fresh gas, but not enough for the blood flowing past them, so that blood leaves only partly oxygenated. At the extreme are units with no ventilation at all, through which blood passes unchanged. That extreme is shunt. Shunt is the zero-ventilation end of the same spectrum, and it is counted as a separate mechanism because it responds to oxygen so differently.",
+        "That difference is the reason Patient A matters. In a low V/Q unit, adding oxygen raises the alveolar oxygen tension even though the gas arrives slowly, and the blood passing that unit eventually becomes well saturated. Low V/Q hypoxemia therefore usually responds to modest supplemental oxygen. In a shunting unit, filled with pus or fluid or collapsed, no inspired gas arrives. Blood passing it never meets the added oxygen. When it rejoins blood from healthy units, what mixes is oxygen content, not partial pressure, and the healthy units cannot make up the shortfall: their hemoglobin is already nearly saturated on room air, and extra oxygen in solution adds very little.",
+        "A rough calculation shows the size of the effect. Assume a hemoglobin of 15 g/dL, a mixed venous saturation of 70 percent, and that 30 percent of pulmonary blood flow passes through unventilated lung while the rest meets healthy units. Blood from the shunt carries about 14 mL of oxygen per deciliter. On room air, blood from the healthy units carries about 20 mL/dL. The mixture carries about 18 mL/dL, which corresponds to a PaO2 near 58 mm Hg. On 100 percent oxygen the healthy units' PO2 rises to about 660 mm Hg, but their content rises only to about 22 mL/dL. The mixture reaches about 19.7 mL/dL, a PaO2 in the high 80s if mixed venous content stays fixed, and higher, though still under 150 mm Hg, at a normal steady state where venous content rises. Both are far below the more than 400 mm Hg that averaging the partial pressures would predict. Oxygen helped, but far less than the alveolar numbers suggest, and the response shrinks as the shunt fraction grows. These numbers depend on the stated assumptions and are illustrative.",
         "The lung defends itself against low V/Q in part through hypoxic pulmonary vasoconstriction: small pulmonary arteries supplying poorly ventilated regions constrict in response to low alveolar oxygen, diverting blood toward better-ventilated lung. The response is real but partial, and its strength varies between people and conditions. Anything that relaxes it can worsen matching. High inspired oxygen can raise alveolar oxygen in poorly ventilated units enough to release the constriction, and systemic vasodilators can blunt it. In patients whose gas exchange depends on that diversion, such as Patient C, this is one way oxygen can worsen carbon dioxide retention, a subject we return to in Part VI.",
-        "One further amplifier links this chapter to the Shock chapter, Part V. Shunted blood leaves the lung with the oxygen content it arrived with, the mixed venous content. If cardiac output falls or oxygen consumption rises, tissues extract more, mixed venous content falls, and the shunted blood is even less oxygenated when it rejoins the arterial stream. The same shunt fraction can then produce a lower PaO2. A falling PaO2 in a patient with a fixed shunt is not necessarily a worsening lung; it can be a failing circulation. How large this effect is depends on the shunt fraction and the circumstances, and the claim is flagged for review."
+        "One further amplifier links this chapter to the Shock chapter, Part V. Shunted blood leaves the lung with the oxygen content it arrived with, the mixed venous content. If cardiac output falls or oxygen consumption rises, tissues extract more, mixed venous content falls, and the shunted blood is even less oxygenated when it rejoins the arterial stream. The same shunt fraction can then produce a lower PaO2. A falling PaO2 in a patient with a fixed shunt is not necessarily a worsening lung; it can be a failing circulation. How large the effect is depends on the shunt fraction, being greatest when the shunt is large.",
+        "Real patients rarely have pure shunt or pure mismatch. Pneumonia, atelectasis, and edema usually produce both, so the response to oxygen is graded rather than all or nothing. It depends on the shunt fraction, the FiO2 actually delivered, whether collapsed lung can be recruited, the mixed venous oxygen content, and a circulation that may be changing at the same time. A poor response points toward shunt, and a brisk one argues against a large shunt, but the response informs the reasoning about mechanism. It is not a diagnostic test on its own."
       ],
       "questions": [
         {
           "id": "q-a-fio2",
           "kind": "prediction",
           "prompt": "Patient A's FiO2 is increased from 0.4 to 1.0, and her PaO2 rises only from 62 to 70 mm Hg. What does that suggest?",
-          "answer": "That a large part of her hypoxemia comes from shunt rather than from low V/Q. If poorly ventilated but still ventilated units were the main problem, raising FiO2 would raise their alveolar oxygen and her PaO2 would rise substantially. Blood crossing consolidated lung never meets the added oxygen, and the well-ventilated units were already near full saturation, so more oxygen changes little. The next useful moves are those that address the shunt itself, such as recruiting or clearing affected lung where that is possible, rather than ever-higher FiO2. A small response can also be exaggerated by a falling mixed venous content, so her circulation is worth checking.",
+          "answer": "That a large part of her hypoxemia probably comes from shunt rather than from low V/Q. If poorly ventilated but still ventilated units were the main problem, raising FiO2 would raise their alveolar oxygen and her PaO2 would rise substantially. Blood crossing consolidated lung never meets the added oxygen, and the well-ventilated units were already near full saturation, so more oxygen changes arterial content little. This is an inference, not a measurement: a falling mixed venous content or a delivered FiO2 lower than the set value could produce the same small response. If those are reasonable, the next useful moves are those that address the shunt itself, such as recruiting or clearing affected lung where that is possible, rather than ever-higher FiO2.",
           "causalChain": "Consolidation leaves units perfused but unventilated; blood crossing them is not exposed to inspired oxygen; added FiO2 raises PAO2 only in ventilated units, which were already near saturation; arterial content and PaO2 change little.",
           "assumption": "That her mixed venous oxygen content and cardiac output did not change meaningfully between the two measurements, and that the FiO2 delivered was close to the FiO2 set.",
-          "misconception": "That a poor response to oxygen means not enough oxygen is being given. It means the oxygen is not reaching the blood that needs it."
+          "misconception": "That a poor response to oxygen means not enough oxygen is being given, or that it proves shunt by itself. It suggests the oxygen is not reaching the blood that needs it."
         }
       ],
       "refs": [
@@ -270,9 +283,9 @@
       "parentId": "oxygen-in",
       "title": "Diffusion limitation and low inspired oxygen",
       "body": [
-        "Two other mechanisms complete the list. Diffusion limitation occurs when oxygen cannot equilibrate across the alveolar-capillary barrier during the time a red cell spends in the capillary. At rest in most diseases the healthy reserve is large enough that equilibration is still reached, which is why diffusion limitation is thought to be rarely the dominant cause of resting hypoxemia. It becomes important during exercise, when transit time shortens, at altitude, when the driving pressure is low, and in some interstitial diseases. It widens the A–a gradient and generally corrects with oxygen. The claim about its limited role at rest is flagged for review.",
+        "Two further mechanisms complete the list. Diffusion limitation occurs when oxygen cannot equilibrate across the alveolar-capillary barrier during the time a red cell spends in the capillary. At rest the healthy reserve is usually large enough that equilibration is still reached, so diffusion limitation is rarely the dominant cause of resting hypoxemia. It becomes important during exercise, when transit time shortens, at altitude, when the driving pressure is low, and in some interstitial diseases. It widens the A–a gradient and generally corrects with oxygen.",
         "Low inspired oxygen is the simplest mechanism of all: at altitude, or in an enclosed space where oxygen has been consumed or displaced, the inspired partial pressure is low. The A–a gradient is normal, PaCO2 is often low as breathing increases, and oxygen corrects it.",
-        "Hypoventilation, which we met in Patient B, is the fourth. It is the only mechanism in which the main abnormality is in PaCO2, and the gradient stays normal unless lung disease is also present. The table brings the four together. Real patients mix them, so the table describes dominant patterns rather than exclusive categories."
+        "Hypoventilation, which we met in Patient B, and the two ends of the V/Q spectrum, low V/Q mismatch and shunt, make up the other three. Hypoventilation is the only mechanism in which the main abnormality is in PaCO2, and the gradient stays normal unless lung disease is also present. The table brings the five together. Real patients mix them, so the table describes dominant patterns rather than exclusive categories."
       ],
       "questions": [
         {
@@ -289,7 +302,7 @@
         "west-luks-2021"
       ],
       "table": {
-        "caption": "The four mechanisms of hypoxemia: dominant patterns, with qualifications",
+        "caption": "The five mechanisms of hypoxemia: dominant patterns, with qualifications",
         "header": [
           "Mechanism",
           "A–a gradient on room air",
@@ -306,13 +319,13 @@
           [
             "Low V/Q mismatch",
             "Widened",
-            "Usually corrects with modest oxygen",
+            "Usually responds to modest oxygen",
             "Normal or low; can rise in advanced disease"
           ],
           [
             "Shunt",
             "Widened, often greatly",
-            "Poor, and poorer as shunt fraction grows",
+            "Limited, and smaller as shunt fraction grows",
             "Normal or low; rises if the pump fails"
           ],
           [
@@ -331,8 +344,8 @@
       },
       "diagram": {
         "id": "r1-four-mechanisms",
-        "caption": "Four mechanisms of hypoxemia, and how each responds to oxygen",
-        "alt": "Four schematic lung units compared. Hypoventilation: normal A–a gradient unless lung disease coexists; corrects easily with oxygen, which does not correct the hypoventilation; PaCO2 high. Low V/Q mismatch: widened gradient; usually corrects with modest oxygen; PaCO2 normal or low, can rise in advanced disease. Shunt: gradient widened, often greatly; poor response to oxygen, poorer as shunt fraction grows; PaCO2 normal or low, rises if the pump fails. Diffusion limitation: widened gradient; usually corrects; PaCO2 normal or low. Low inspired oxygen, an environmental cause: normal gradient, corrects, PaCO2 often low. The three illustrative patients on room air: A, pneumonia, PaO2 55 and PaCO2 32 mm Hg, A–a about 55. B, opioid hypoventilation, PaCO2 70, PAO2 about 62, PaO2 56, A–a about 6 which is normal, pH about 7.21, SpO2 about 80 percent. C, COPD, PaCO2 62, pH 7.31, PaO2 56, A–a about 16, SpO2 about 85 percent; mechanism: V/Q mismatch + hypoventilation."
+        "caption": "Five mechanisms of hypoxemia, and how each responds to oxygen",
+        "alt": "Five schematic lung units, each with its A–a gradient on room air, response to supplemental oxygen, and typical PaCO2. Hypoventilation, drawn as a dashed alveolus with a normal lung: A–a normal, unless lung disease coexists; oxygen corrects easily but does not correct the hypoventilation; PaCO2 high. Low V/Q mismatch: a thin gas arrow reaches the alveolus, but the blood leaving it is drawn tinted, incompletely oxygenated; A–a widened; usually responds to modest oxygen; PaCO2 normal or low, can rise in advanced disease. Shunt: the alveolus is filled and crossed out, no gas arrow reaches it, and the blood passes through unchanged, drawn the same color entering and leaving; A–a widened, often greatly; response to oxygen limited, and smaller as shunt fraction grows; PaCO2 normal or low, rises if the pump fails. Under the shunt row: 30% shunt, illustrative: PaO2 about 58 on room air, under 150 on 100% O2, not over 400. Diffusion limitation, a thickened alveolar wall: A–a widened; usually corrects; PaCO2 normal or low. Low inspired oxygen, environmental, not a lung mechanism, drawn as a normal alveolus with low-oxygen gas: A–a normal; corrects; PaCO2 often low. The three illustrative patients on room air: A, pneumonia, PaO2 55 and PaCO2 32 mm Hg, A–a about 55, the lung fails to transfer. B, opioid hypoventilation, PaCO2 70, PAO2 about 62, PaO2 56, A–a about 6, normal, pH about 7.21, SpO2 about 80 percent. C, COPD, PaCO2 62, pH 7.31, PaO2 56, hypoventilation dominant; A–a about 16, inside the rough age-expected range of about 21. Schematic units, not anatomy."
       }
     },
     {
@@ -371,7 +384,7 @@
       "title": "Air trapping, intrinsic PEEP, and the asthma contrast",
       "body": [
         "Patient C's narrowed airways and lost elastic recoil mean that, during expiration, flow is limited: beyond a certain point, pushing harder does not empty the lung faster, because the airways collapse further. If the next breath begins before expiration is complete, some gas stays behind. Over successive breaths the end-expiratory lung volume climbs until a new balance is reached at a higher volume. This is dynamic hyperinflation. The alveolar pressure at the end of expiration is now above atmospheric pressure. That trapped pressure is intrinsic PEEP, sometimes called auto-PEEP.",
-        "Intrinsic PEEP imposes a threshold load. Before any air can flow in, the inspiratory muscles must lower alveolar pressure below the mouth pressure, which means first overcoming the trapped pressure. Each breath begins with work that moves no gas. Hyperinflation also places the diaphragm at a mechanical disadvantage: flattened and shortened, it generates less pressure for the same activation. A faster respiratory rate, driven by distress or hypoxemia, shortens expiratory time and worsens the trapping. The loop is self-reinforcing, and it is the reason a patient like C can deteriorate quickly once it starts.",
+        "Intrinsic PEEP imposes a threshold load. Air flows in only when alveolar pressure falls below the pressure at the airway opening, so each inspiratory effort must first lower alveolar pressure by the amount of the trapped pressure before any gas moves. Each breath begins with work that moves no gas. Hyperinflation also places the diaphragm at a mechanical disadvantage: flattened and shortened, it generates less pressure for the same activation. A faster respiratory rate, driven by distress or hypoxemia, shortens expiratory time, and because expiratory flow is already limited, the trapping worsens. The loop is self-reinforcing, and it is the reason a patient like C can deteriorate quickly once it starts.",
         "Raised intrathoracic pressure has circulatory consequences too. As the Shock chapter describes in Part VII, a rise in pleural pressure impedes venous return. In severe air trapping, especially once positive-pressure ventilation is started, hypotension can follow, and allowing longer expiratory time can restore it. That interaction belongs to both chapters.",
         "Acute severe asthma shares this mechanism: air trapping, intrinsic PEEP, threshold loading, and the same circulatory risk. It differs in what the carbon dioxide usually shows. Early in an asthma attack, the patient typically hyperventilates and PaCO2 is low. A PaCO2 that is normal, or rising, in someone who is still working hard to breathe is therefore not reassuring. It suggests that ventilation is failing to keep up with demand, through tiring, worsening obstruction, or both, and it calls for closer attention rather than relief. In COPD, by contrast, a raised PaCO2 may be chronic, and the pH and the trend carry more information than the absolute value."
       ],
@@ -413,7 +426,7 @@
       "diagram": {
         "id": "r1-load-capacity",
         "caption": "The respiratory pump: load against capacity",
-        "alt": "A balance with load on one side and capacity on the other, tipped toward load: the pump fails when load persistently exceeds its capacity. Load rises with stiffer lungs, narrower airways, intrinsic PEEP, ventilatory demand from fever, acidosis or sepsis, and dead space that forces more ventilation. Capacity falls with hyperinflation, which weakens the diaphragm, electrolyte disturbance, malnutrition, shock limiting muscle blood flow, and neuromuscular disease. Drive is the third element: too low, as in Patient B, or very high, with muscles near their maximum. Rapid shallow breathing reduces the work of each breath but raises the dead-space fraction. A rising PaCO2 often comes late; waiting for it can mean waiting too long."
+        "alt": "One causal loop, read clockwise, under the statement that the pump fails when load persistently exceeds its capacity to meet that load. Load rises, so effort increases; sustained high effort fatigues the muscles; capacity falls; PaCO2 rises; and an arrow labeled acidosis raises ventilatory demand returns to rising load. Load and effort are drawn as solid red boxes, fatigue and falling capacity as dashed teal boxes, and rising PaCO2 as a gold box. Notes accompanying the loop: load rises with stiffer lungs, narrower airways, intrinsic PEEP, ventilatory demand from fever, acidosis or sepsis, and dead space forcing more ventilation. Rapid shallow breathing reduces the work of each breath but raises the dead-space fraction. A rising PaCO2 often comes late; waiting for it can mean waiting too long. Conceptual loop; no scale."
       }
     },
     {
@@ -422,7 +435,7 @@
       "title": "Vignette: pump failure with clear lungs",
       "body": [
         "A woman in her forties presents with four days of ascending weakness in the legs, now affecting her arms, and a soft voice. Her oxygen saturation is normal on room air, her chest is clear, and her blood gas is unremarkable. A rapidly progressive neuropathy such as Guillain-Barré syndrome is suspected.",
-        "Her lungs are normal, and that is the trap. The gas exchange looks reassuring because the failing part is the pump, and pump weakness may show nothing in SpO2 or PaCO2 until it is advanced. The useful measurements are of the pump's strength: forced vital capacity and maximal inspiratory and expiratory pressures measured at the bedside, followed as a trend over hours, together with her ability to cough, swallow, and protect her airway. A falling vital capacity is a warning that comes earlier than any blood gas. Numerical thresholds for escalation are widely taught; this draft does not state one until a source is confirmed."
+        "Her lungs are normal, and that is the trap. The gas exchange looks reassuring because the failing part is the pump, and pump weakness may show nothing in SpO2 or PaCO2 until it is advanced. The useful measurements are of the pump's strength: forced vital capacity and maximal inspiratory and expiratory pressures measured at the bedside, followed as a trend over hours, together with her ability to cough, swallow, and protect her airway. A falling vital capacity is a warning that comes earlier than any blood gas, and the direction and speed of the fall matter more than any single value."
       ],
       "questions": []
     },
@@ -440,8 +453,8 @@
       "title": "Pulse oximetry: saturation is not tension, and tension is not content",
       "body": [
         "An oximeter estimates the fraction of hemoglobin that carries oxygen in arterial blood. It does not measure PaO2, and it does not measure oxygen content, which also depends on the hemoglobin concentration. The relation between saturation and tension is the sigmoid oxyhemoglobin dissociation curve. On its flat upper part, large changes in PaO2 produce small changes in saturation: a patient whose PaO2 falls from 150 to 90 mm Hg loses almost no saturation, so the oximeter cannot show the loss of that reserve. On the steep part, below roughly 60 mm Hg, small falls in tension produce large falls in saturation, which is why patients near 88 to 90 percent can desaturate rapidly.",
-        "The curve also moves. Acidemia, a raised PaCO2, fever, and higher concentrations of 2,3-diphosphoglycerate shift it to the right, so the same PaO2 gives a lower saturation. Alkalemia and hypothermia shift it to the left. This matters for Patient B. His PaO2 of about 56 mm Hg would correspond to about 88 percent at pH 7.40, but at his pH of about 7.21 the rightward shift brings it to about 80 percent. Patient C, with the same PaO2 at a pH of 7.31, reads about 85 percent.",
-        "Oximeters have measurement error, and it is not evenly distributed. A widely cited 2020 analysis of paired oximeter and arterial measurements reported that occult hypoxemia, defined as an arterial saturation (SaO2) below 88 percent despite an SpO2 of 92 to 96 percent, was detected more often in Black patients than in White patients. The size of this bias, and how it varies between devices, is under continuing study and is flagged for review. The practical lesson does not depend on the exact figure: an oximeter reading at the lower end of a target range may conceal a lower true saturation, and a blood gas is the check when decisions depend on it. Poor perfusion, motion, nail polish, and carboxyhemoglobin and methemoglobin can also mislead.",
+        "The curve also moves. Acidemia, a raised PaCO2, fever, and higher concentrations of 2,3-diphosphoglycerate shift it to the right, so the same PaO2 gives a lower saturation. Alkalemia and hypothermia shift it to the left. This matters for Patients B and C. A PaO2 of about 56 mm Hg corresponds to about 88 percent on a standard curve at pH 7.40. Correcting a standard curve model for pH and carbon dioxide predicts roughly 80 percent for B, at pH 7.21 and PaCO2 70 mm Hg, and the mid 80s for C, at pH 7.31 and PaCO2 62 mm Hg. These are estimates from an average curve, not unique values: temperature, 2,3-diphosphoglycerate, and the individual's hemoglobin also shift it, and pH alone does not fix a saturation.",
+        "Oximeters have measurement error, and it is not evenly distributed. A widely cited 2020 analysis of paired oximeter and arterial measurements reported that occult hypoxemia, defined as an arterial saturation (SaO2) below 88 percent despite an SpO2 of 92 to 96 percent, was detected more often in Black patients than in White patients. Its size varies between devices and remains under study. The practical lesson does not depend on the exact figure: an oximeter reading at the lower end of a target range may conceal a lower true saturation, and an arterial sample is the check when decisions depend on it. Note that the saturation printed on many blood-gas reports is calculated from PaO2 and pH using a standard curve; only co-oximetry measures the hemoglobin species directly. Poor perfusion, motion, nail polish, and carboxyhemoglobin and methemoglobin can also mislead.",
         "Finally, oxygen masks hypoventilation. Once Patient B is breathing supplemental oxygen, his saturation can be normal while his PaCO2 rises. An oximeter cannot see carbon dioxide."
       ],
       "questions": [
@@ -464,7 +477,7 @@
       "parentId": "bedside-measures",
       "title": "Blood gases and capnography",
       "body": [
-        "An arterial blood gas gives PaO2, PaCO2, and pH at one moment. A venous gas is less invasive and is often used to screen for hypercapnia and to follow pH, but venous PaCO2 runs somewhat higher than arterial and the relation between them varies, especially in shock. How closely the two agree is a matter for the sources, and this draft does not give a number. A venous gas tells us nothing reliable about arterial oxygen.",
+        "An arterial blood gas gives PaO2, PaCO2, and pH at one moment. A venous gas is less invasive and is often used to screen for hypercapnia and to follow pH. Venous carbon dioxide (PvCO2) normally runs a few mm Hg above arterial PaCO2, but the two are not interchangeable: the gap depends on how much carbon dioxide each tissue adds and how fast blood flows through it, so in shock or poor regional perfusion it can widen unpredictably. A normal venous value makes significant arterial hypercapnia less likely; a raised one needs an arterial sample when the decision depends on the exact level. A venous gas tells us nothing reliable about arterial oxygen.",
         "The pH places the carbon dioxide in time. When PaCO2 rises acutely, bicarbonate rises only a little, and pH falls considerably. When it has been high for days, the kidneys retain bicarbonate and pH returns toward normal. Patient C, with a PaCO2 of 62 mm Hg, a bicarbonate of 30 mmol/L, and a pH of 7.31, has an acute rise on top of chronic retention. Patient B, with a PaCO2 of 70 mm Hg, a bicarbonate of 27 mmol/L, and a pH near 7.21, has an acute problem. The same PaCO2 in each would carry different meanings.",
         "Capnography measures carbon dioxide at the airway, continuously and breath by breath. Its waveform shows that a patient is breathing, its rate, and, in airway obstruction, a characteristic sloping shape. End-tidal carbon dioxide approximates arterial PaCO2 only when dead space is small. As alveolar dead space rises, end-tidal values fall below arterial ones by a widening and variable margin. A falling end-tidal value can therefore mean better ventilation, worse dead space, or a falling cardiac output, and the trend needs to be anchored to an arterial value."
       ],
@@ -476,7 +489,7 @@
       "title": "Indices of oxygenation and the ROX index",
       "body": [
         "Several indices compress oxygenation and effort into one number. The PaO2/FiO2 ratio and its non-invasive counterpart, the SpO2/FiO2 ratio, describe how much oxygen is getting through for the oxygen given. Both depend on the level of support and on FiO2, as noted in Part III, and the SpO2-based version loses meaning once saturation reaches the flat top of the curve.",
-        "The ROX index, described in patients with pneumonia treated with high-flow nasal oxygen, combines oxygenation and breathing pattern: it is the SpO2/FiO2 ratio divided by the respiratory rate. It is best understood as a way of following a patient on high-flow oxygen over time. A falling index means that oxygenation is worsening relative to the oxygen given, that breathing is becoming faster, or both, and a rising index means the reverse. The original work reported thresholds at specific times after starting high-flow therapy that were associated with success or failure. Those thresholds belong to the population and timing in which they were derived, they are not stated here until checked against the source, and in this chapter the index is a trend to watch, not a rule for when to intubate."
+        "The ROX index, described in patients with pneumonia treated with high-flow nasal oxygen, combines oxygenation and breathing pattern: it is the SpO2/FiO2 ratio divided by the respiratory rate. It is best understood as a way of following a patient on high-flow oxygen over time. A falling index means that oxygenation is worsening relative to the oxygen given, that breathing is becoming faster, or both. Consider a patient whose SpO2 stays at 93 percent on an FiO2 of 0.6 while her rate rises from 26 to 36/min: her ROX falls from about 6.0 to about 4.3 with no change on the oximeter (illustrative numbers). In the original cohort, a ROX of 4.88 or more at 2, 6, or 12 hours was associated with avoiding intubation, and the index predicted better as time on high-flow oxygen passed. That anchor belongs to one population and to those time points. The index is a trend to watch, and it cannot override worsening consciousness, effort, or perfusion."
       ],
       "questions": [
         {
@@ -560,7 +573,7 @@
       "title": "Oxygen: devices, targets, and oxygen-induced hypercapnia",
       "body": [
         "Oxygen devices fall into two families. Variable-performance devices, such as nasal cannulas, simple face masks, and masks with reservoir bags, deliver oxygen at a flow that is often lower than the patient's peak inspiratory flow. The patient draws in room air to make up the difference, so the FiO2 actually reaching the alveoli depends on how hard and fast the patient is breathing. A distressed patient breathing fast gets a lower FiO2 from the same device than a calm one. Fixed-performance devices, such as Venturi masks, entrain air at a set ratio and deliver a flow high enough to meet most inspiratory demand, so FiO2 is more predictable.",
-        "Oxygen is a drug with a target. Guidelines recommend titrating to a saturation range rather than giving as much as possible, with a lower range for patients at risk of hypercapnic respiratory failure, such as those with COPD, obesity hypoventilation, or neuromuscular disease. The British Thoracic Society guideline sets a target of 94 to 98 percent for most acutely ill patients and 88 to 92 percent for those at risk of hypercapnic respiratory failure. A randomized prehospital trial in patients with suspected COPD exacerbation reported lower mortality with titrated oxygen than with high-flow oxygen, which is part of the evidence behind those lower targets.",
+        "Oxygen is a drug with a target. Guidelines recommend titrating to a saturation range rather than giving as much as possible. The British Thoracic Society guideline sets a target of 94 to 98 percent for most acutely ill adults and 88 to 92 percent, or a patient-specific range, for those at risk of hypercapnic respiratory failure, such as people with COPD, obesity hypoventilation, or neuromuscular disease. The lower range is not a reason to withhold oxygen from a critically hypoxemic patient. The same guideline gives critically ill patients with these risk factors the usual initial target until a blood gas is available, and only then narrows the range or moves to supported ventilation. Initial resuscitation and ongoing titration are separate steps. A randomized prehospital trial in patients with suspected COPD exacerbation reported lower mortality with titrated oxygen than with high-flow oxygen, which is part of the evidence behind the lower target.",
         "Why can oxygen raise PaCO2 in a patient like C? Several mechanisms contribute, and their relative weight is debated. First, high inspired oxygen releases hypoxic pulmonary vasoconstriction in poorly ventilated units, sending more blood to regions that clear carbon dioxide poorly and increasing effective dead space. Second, the Haldane effect: oxygenated hemoglobin carries less carbon dioxide, so as saturation rises, carbon dioxide is released into the plasma. Third, in some patients the drive to breathe falls a little when hypoxemia is relieved. The older teaching that the third mechanism dominates, that such patients breathe only because they are hypoxic, is now thought to overstate it. The consequence is the same whichever dominates: aiming for a normal saturation in Patient C can make his acidosis worse.",
         "For Patient B the logic is different. Oxygen will correct his saturation easily and safely in the short term, but it treats a consequence. The cause, depressed drive from an opioid, needs its own treatment, and his ventilation must be watched through carbon dioxide and clinical signs rather than the oximeter."
       ],
@@ -576,7 +589,7 @@
       "title": "High-flow nasal oxygen",
       "body": [
         "High-flow nasal oxygen delivers warmed, humidified gas at flows that can match or exceed a distressed patient's inspiratory flow. Several effects follow. Less room air is entrained, so the delivered FiO2 is closer to the set FiO2. The high flow washes carbon dioxide out of the nasopharynx at the end of each breath, reducing effective dead space and so the minute ventilation needed for a given PaCO2. A small positive pressure is generated in the airway, though its size depends on flow and on whether the mouth is open, and it is modest and variable. Warmth and humidity make the therapy tolerable for long periods, and many patients find it more comfortable than a mask.",
-        "For hypoxemic respiratory failure, a large randomized trial compared high-flow oxygen with standard oxygen and non-invasive ventilation. It did not show a significant difference in its primary outcome, the rate of intubation, but reported lower mortality at 90 days with high-flow oxygen, a secondary outcome, in patients without hypercapnia, and its findings in subgroups have been influential. A later European guideline made conditional recommendations about high-flow oxygen in several populations. The trial outcomes and the guideline's exact recommendations and their strength are flagged for review.",
+        "For hypoxemic respiratory failure, the FLORALI trial compared high-flow oxygen with standard oxygen and with non-invasive ventilation in patients without hypercapnia. It found no significant difference in its primary outcome, the rate of intubation. Mortality at 90 days, a secondary outcome, was lower with high-flow oxygen, a finding that generates a hypothesis rather than settling the question. The 2022 European Respiratory Society guideline suggests high-flow oxygen over conventional oxygen, and over non-invasive ventilation, in hypoxemic respiratory failure. Both are conditional recommendations, meaning that the balance favors high-flow oxygen for most patients but the evidence leaves room for judgment.",
         "For Patient A, high-flow oxygen can deliver a reliable FiO2 and reduce work through dead-space washout. It cannot open her consolidated lung to any great degree. Its success depends on whether her pneumonia improves before her effort becomes unsustainable, which is why the trajectory of her rate, effort, and oxygenation over hours matters more than the first reading."
       ],
       "questions": [
@@ -601,8 +614,8 @@
       "parentId": "support",
       "title": "Non-invasive ventilation",
       "body": [
-        "Non-invasive ventilation applies positive pressure through a mask. Continuous positive airway pressure (CPAP) holds one pressure throughout the breath. Bilevel ventilation adds a higher inspiratory pressure to a lower expiratory one. The two pressures do different things. The inspiratory pressure assists each breath, taking over part of the work, which can increase tidal volume and alveolar ventilation and so lower PaCO2. The expiratory pressure can recruit collapsed alveoli in some hypoxemic patients and, in patients with intrinsic PEEP, can reduce the threshold load by narrowing the difference between trapped alveolar pressure and the airway pressure the muscles must overcome.",
-        "Patient C is the patient for whom the evidence is strongest. In COPD exacerbations with hypercapnic acidosis, non-invasive ventilation unloads tiring muscles, offsets intrinsic PEEP, and raises alveolar ventilation, and an international guideline makes a strong recommendation for its use. The same guideline also makes a strong recommendation in cardiogenic pulmonary edema, a condition covered in the later chapter on acute cardiogenic pulmonary edema. In de novo hypoxemic respiratory failure, the evidence is weaker and the role uncertain. One single-center trial in patients with acute respiratory distress syndrome reported fewer intubations with a helmet than with a face mask, but it was small and stopped early for efficacy, and its findings need confirmation. The recommendation strengths and populations are flagged for review.",
+        "Non-invasive ventilation applies positive pressure through a mask. Continuous positive airway pressure (CPAP) holds one pressure throughout the breath. Bilevel ventilation adds a higher inspiratory pressure to a lower expiratory one, and the two pressures do different things. The assistance to each breath comes mainly from the difference between them, the inspiratory pressure above the expiratory level. That difference takes over part of the work, increases tidal volume and alveolar ventilation, and so lowers PaCO2. The expiratory pressure has other jobs. In some hypoxemic patients it can recruit collapsed alveoli and improve oxygenation, an effect separate from unloading and carbon dioxide clearance. In a patient with intrinsic PEEP and expiratory flow limitation, a modest expiratory pressure set below the trapped pressure can reduce the effort needed to start each breath, because the muscles no longer have to overcome the whole threshold themselves. It is not a simple subtraction from intrinsic PEEP. Without flow limitation, or when set too high, external pressure can add to hyperinflation. Detailed titration is outside this chapter.",
+        "Patient C is the patient for whom the evidence is strongest. In COPD exacerbations with hypercapnic acidosis, non-invasive ventilation unloads tiring muscles, offsets intrinsic PEEP, and raises alveolar ventilation. The ERS/ATS guideline strongly recommends bilevel non-invasive ventilation when a COPD exacerbation causes respiratory acidosis with a pH of 7.35 or less, and recommends a trial of it even in a patient thought to need intubation, unless he is deteriorating immediately. The same guideline strongly recommends either bilevel non-invasive ventilation or CPAP for respiratory failure due to cardiogenic pulmonary edema (moderate certainty; patients in cardiogenic shock were excluded), a condition covered in the later chapter on acute cardiogenic pulmonary edema. In de novo hypoxemic respiratory failure, the evidence is weaker and the role uncertain. One single-center trial in patients with acute respiratory distress syndrome reported fewer intubations with a helmet than with a face mask, but it was small and stopped early for efficacy, and its findings need confirmation.",
         "Non-invasive ventilation needs a cooperative patient who can protect the airway, and it can fail silently in the hypoxemic patient, who may generate large tidal volumes and high transpulmonary pressures through the mask. It also has its own circulatory consequences, as positive pressure raises intrathoracic pressure. Applying it is a trial with a question: is the expected improvement happening?"
       ],
       "questions": [
@@ -627,7 +640,7 @@
       "title": "Deciding to intubate, and where this chapter stops",
       "body": [
         "The decision to intubate is a judgment about trajectory, not a threshold on one number. The questions are whether the patient can protect the airway, whether mental state is falling, whether effort is sustainable, whether the expected improvement on high-flow oxygen or non-invasive ventilation has happened in the window that was set when it began, and whether there is concurrent shock that the work of breathing is making worse. An improving patient with poor numbers may be on the right path, and a patient with acceptable numbers bought by escalating effort may not be.",
-        "Some observational studies have associated later intubation, after failure of high-flow oxygen or non-invasive ventilation, with worse outcomes. One observational study of patients on high-flow oxygen reported ICU mortality of 39.2 percent in those intubated early and 66.7 percent in those intubated late. These are associations. Sicker patients both fail non-invasive support and do worse, and the studies cannot fully separate the effect of delay from the effect of severity. The finding supports a clear plan for what would count as failure, set in advance, rather than a rule for intubating earlier. It is flagged for review.",
+        "Some observational studies have associated later intubation, after failure of high-flow oxygen or non-invasive ventilation, with worse outcomes. One retrospective single-center study of 175 patients in whom high-flow oxygen failed reported ICU mortality of 39.2 percent when intubation came within 48 hours and 66.7 percent when it came later. These are associations. Sicker patients both fail non-invasive support and do worse, and the studies cannot fully separate the effect of delay from the effect of severity. The finding supports a clear plan for what would count as failure, set in advance, rather than a rule for intubating earlier.",
         "The physiology of intubating a patient in respiratory failure, including desaturation during apnea and the collapse of the circulation after induction and positive pressure, is the subject of the chapter on the physiologically difficult airway.",
         "Acute respiratory distress syndrome (ARDS) is a boundary for this chapter. It describes acute, diffuse, inflammatory lung injury with permeability edema, shunt, and stiff lungs, from causes such as pneumonia, sepsis, aspiration, or trauma. Patient A may meet its criteria if her disease spreads. A 2024 global definition broadened the criteria, including patients treated with high-flow oxygen and oxygenation assessed by oximetry, and European and American guidelines from 2023 and 2024 address its respiratory support. Its management, including lung-protective ventilation, prone positioning, and the use of PEEP, deserves a chapter of its own and is not covered here."
       ],
@@ -652,8 +665,8 @@
       "parentId": "reassessment",
       "title": "What should improve, and when",
       "body": [
-        "After oxygen, saturation should rise within minutes. If it rises easily, the cause is unlikely to be a large shunt. If it barely rises, shunt is likely. Either way, the oximeter's response says nothing about carbon dioxide.",
-        "After high-flow oxygen or non-invasive ventilation, the respiratory rate and visible effort should begin to settle, and saturation should hold on the same or lower FiO2. In hypercapnic patients a repeat blood gas after a short period of non-invasive ventilation should show PaCO2 and pH moving in the right direction. Persistent tachypnea, rising effort, worsening mental state, or a pH that is not improving are signs that the chosen support is not enough. The time windows for these judgments vary between sources and patient groups, and this draft gives none as fixed.",
+        "After oxygen, saturation should rise within minutes. A brisk rise argues against a large shunt; a small rise suggests one, though a low delivered FiO2 or a falling mixed venous content can blunt the response too. Either way, the oximeter's response says nothing about carbon dioxide.",
+        "After high-flow oxygen or non-invasive ventilation, the respiratory rate and visible effort should begin to settle, and saturation should hold on the same or lower FiO2. In a hypercapnic patient on non-invasive ventilation, pH, PaCO2, respiratory rate, and work of breathing should start to improve within about the first hour or two; the ERS/ATS guideline lists failure to improve after an hour among the early predictors that the trial will fail. Some signs do not wait for a scheduled check. Worsening consciousness, rising effort, inability to tolerate the mask, or hemodynamic instability mean the trial is failing now, and intubation should be considered now. A flat trajectory with stable mental state allows a short search for a correctable cause, such as a mask leak or poor synchrony, but not an open-ended wait.",
         "After reversal of a drug or treatment of a mechanical cause, such as relief of a pneumothorax, the improvement should be prompt. If it is not, the diagnosis needs revisiting. The thread through all of these is the same as in shock: escalate on trajectory rather than on a single value, and be ready to change your view of the mechanism when the response does not fit."
       ],
       "questions": [
@@ -661,7 +674,7 @@
           "id": "q-niv-reconsider",
           "kind": "evidence-boundary",
           "prompt": "Patient C has been on non-invasive ventilation for an hour, with oxygen titrated to his target range. His PaCO2 has gone from 62 to 61 mm Hg, his pH is unchanged at 7.31, and he is drowsier than on arrival. What would make you reconsider the mechanism or the plan?",
-          "answer": "The lack of meaningful change in PaCO2 and pH, with a worsening mental state, after an hour argues that ventilation is not being effectively supported. Before concluding that the mechanism is wrong, look for practical failures: a large mask leak, poor synchrony between the ventilator and his breathing, insufficient inspiratory support, or an expiratory pressure poorly matched to his trapped pressure. Then reconsider the diagnosis: a pneumothorax, a large secretion load, a pneumonia or pulmonary embolism adding shunt or dead space, or drowsiness from a cause other than carbon dioxide, such as a sedative. If none is correctable and the trajectory is flat or worsening, invasive ventilation should be considered. The guideline evidence supports a trial of non-invasive ventilation in this population; this chapter does not state a universal time by which it must work.",
+          "answer": "The lack of meaningful change in PaCO2 and pH after an hour, together with a worsening mental state, argues that ventilation is not being effectively supported. Failure to improve after an hour is itself an early predictor of NIV failure, and the drowsiness makes this urgent rather than something to recheck later. Look quickly for practical failures: a large mask leak, poor synchrony between the ventilator and his breathing, too little inspiratory pressure above the expiratory level, or an expiratory pressure poorly matched to his trapped pressure. At the same time, reconsider the diagnosis: a pneumothorax, a large secretion load, a pneumonia or pulmonary embolism adding shunt or dead space, or drowsiness from a cause other than carbon dioxide, such as a sedative. If nothing is quickly correctable, or his consciousness falls further, invasive ventilation should be considered now.",
           "causalChain": "Non-invasive ventilation should raise alveolar ventilation and offset intrinsic PEEP; PaCO2 should fall and pH rise; an absent response means support is not reaching the alveoli, the load has grown, or the diagnosis is incomplete.",
           "assumption": "That the blood gases are arterial and comparable and that the settings and interface were assessed before judging failure.",
           "misconception": "That a small fall in PaCO2 means the treatment is working. A response that does not change pH or mental state is not yet a response."
@@ -686,8 +699,8 @@
       "title": "Back to the three patients",
       "body": [
         "Patient A had a widened A–a gradient and a weak response to oxygen: shunt through consolidated lung. Oxygen alone was never going to correct her, and her danger was rising effort. She needed a reliable FiO2, support for her work of breathing, treatment of the pneumonia, and close watch on her trajectory, with a decision about intubation made on that trajectory rather than on her saturation.",
-        "Patient B had a normal A–a gradient and a high PaCO2: hypoventilation from depressed drive, in normal lungs. His saturation, about 80 percent on room air, corrected easily with oxygen, and that was the risk, because it could have hidden a rising PaCO2. He needed treatment of the drug effect, airway protection, and monitoring of ventilation, through carbon dioxide and clinical signs, rather than through the oximeter.",
-        "Patient C had high airway resistance, air trapping, intrinsic PEEP, and an overloaded pump. On arrival his PaCO2 was 62 mm Hg with a PaO2 of 56 mm Hg on room air, so his PAO2 was about 150 − 62/0.8 ≈ 72 mm Hg and his A–a gradient about 16 mm Hg, with a saturation of about 85 percent. His mechanism is V/Q mismatch plus hypoventilation: the raised PaCO2 shows the hypoventilation, and a gradient of about 16 mm Hg is wider than hypoventilation alone explains. This sits on a background of chronic retention. Too much oxygen made him worse. He needed oxygen titrated to a lower target, non-invasive ventilation to unload his muscles and offset his trapped pressure, treatment of the exacerbation, and a planned reassessment of whether it was working."
+        "Patient B had a normal A–a gradient and a high PaCO2: hypoventilation from depressed drive, in normal lungs. His saturation, roughly 80 percent on room air, corrected easily with oxygen, and that was the risk, because it could have hidden a rising PaCO2. He needed treatment of the drug effect, airway protection, and monitoring of ventilation, through carbon dioxide and clinical signs, rather than through the oximeter.",
+        "Patient C had high airway resistance, air trapping, intrinsic PEEP, and an overloaded pump. On arrival his PaCO2 was 62 mm Hg with a PaO2 of 56 mm Hg on room air, so his PAO2 was about 150 − 62/0.8 ≈ 72 mm Hg and his A–a gradient about 16 mm Hg, with a saturation in the mid 80s. That gradient is inside the rough range expected at his age, so his gas is explained almost entirely by hypoventilation on a background of chronic retention. His COPD makes mismatched lung units very likely, but the gas alone does not prove them. Too much oxygen made him worse. He needed oxygen titrated to 88 to 92 percent, non-invasive ventilation to unload his muscles and offset his trapped pressure, treatment of the exacerbation, and reassessment within the first hour or two, sooner if his consciousness or effort worsened."
       ],
       "questions": [
         {
@@ -706,7 +719,7 @@
       "parentId": "reassessment",
       "title": "Synthesis",
       "body": [
-        "The same saturation hid three failures. The A–a gradient separates a failing lung from a failing pump; the response to oxygen separates shunt from mismatch; the pattern and effort of breathing show load and capacity; and carbon dioxide, never seen by the oximeter, reports on ventilation. Support works best when it is chosen for the part that has failed, and it is judged by whether the predicted changes happen."
+        "The same saturation hid three failures. Carbon dioxide, never seen by the oximeter, reports on ventilation, and the alveolar gas equation shows how much of the hypoxemia that ventilation explains. A clearly widened A–a gradient points to the lung; a normal one points away from a transfer defect without proving healthy lungs. The response to oxygen grades how much shunt is present rather than sorting patients into categories. The pattern and effort of breathing show load and capacity. Support works best when it is chosen for the part that has failed, and it is judged by whether the predicted changes happen, on a timescale set in advance and cut short when mental state or effort worsens."
       ],
       "questions": []
     }
@@ -736,7 +749,7 @@
     {
       "id": "oxygen",
       "title": "Give oxygen to a target range",
-      "action": "Give oxygen titrated to a stated saturation range, lower for patients at risk of hypercapnia, and remember it does not treat hypoventilation.",
+      "action": "Give oxygen titrated to a saturation range: 94 to 98 percent for most patients, 88 to 92 percent for those at risk of hypercapnia once a blood gas confirms it. Never withhold oxygen from a critically hypoxemic patient, and remember it does not treat hypoventilation.",
       "why": "Oxygen corrects hypoxemia from most causes but can mask rising carbon dioxide and can worsen hypercapnia in at-risk patients.",
       "principleIds": [
         "oxygen-therapy",
@@ -758,7 +771,7 @@
     {
       "id": "reassess",
       "title": "Reassess on trajectory",
-      "action": "Recheck effort, rate, mental status, oxygenation for the FiO2 given, and carbon dioxide and pH on a defined timescale, and escalate on the trend rather than a single number.",
+      "action": "Recheck effort, rate, mental status, oxygenation for the FiO2 given, and carbon dioxide and pH within about the first hour of non-invasive support. Escalate on the trend, and at once if consciousness or effort is worsening.",
       "why": "Saturation can be stable while load outpaces capacity, and PaCO2 can rise late.",
       "principleIds": [
         "reassess-signals",

@@ -26,6 +26,44 @@ const placements: Record<RespiratoryFigureId, string> = {
   'r1-load-capacity': 'load-capacity',
 };
 
+/** Figures whose print SVG is a separate light-palette drawing, not a copy of the screen SVG. */
+const dedicatedPrintDrawings: Partial<
+  Record<
+    RespiratoryFigureId,
+    {
+      screenTitle: string;
+      screenDesc: string;
+      printTitle: string;
+      printDesc: string;
+      screenMarker: string;
+      printMarker: string;
+      screenViewBox: string;
+      printViewBox: string;
+    }
+  >
+> = {
+  'r1-four-mechanisms': {
+    screenTitle: 'rf1-title',
+    screenDesc: 'rf1-desc',
+    printTitle: 'rf1p-title',
+    printDesc: 'rf1p-desc',
+    screenMarker: 'rf1-ah',
+    printMarker: 'rf1p-ah',
+    screenViewBox: '0 0 360 1231.5',
+    printViewBox: '0 0 700 766',
+  },
+  'r1-load-capacity': {
+    screenTitle: 'rf3-title',
+    screenDesc: 'rf3-desc',
+    printTitle: 'rf3p-title',
+    printDesc: 'rf3p-desc',
+    screenMarker: 'rf3-ah',
+    printMarker: 'rf3p-ah',
+    screenViewBox: '0 0 360 645.0',
+    printViewBox: '0 0 700 400',
+  },
+};
+
 describe('acute respiratory failure chapter', () => {
   const raw = JSON.parse(
     readFileSync(join(repoRoot, 'src/content/cases/acute-respiratory-failure.json'), 'utf8'),
@@ -66,7 +104,9 @@ describe('acute respiratory failure chapter', () => {
     }
     const mechanisms = parsed.data.principles.find((principle) => principle.id === 'other-mechanisms');
     expect(mechanisms?.title).toBe('Diffusion limitation and low inspired oxygen');
-    expect(mechanisms?.table?.caption).toContain('four mechanisms of hypoxemia');
+    expect(mechanisms?.table?.caption).toContain('five mechanisms of hypoxemia');
+    const notes = (parsed.data.references ?? []).map((reference) => reference.note ?? '');
+    expect(notes.join('\n')).not.toMatch(/Search Bot|Science Editor|checking process|Not yet read/i);
     const ventilation = parsed.data.principles.find((principle) => principle.id === 'alveolar-ventilation');
     expect(ventilation?.workedExample?.id).toBe('same-ve-example');
   });
@@ -94,17 +134,18 @@ describe('acute respiratory failure chapter', () => {
       expect(new Set([...screenIds, ...printIds]).size).toBe(screenIds.length + printIds.length);
       expect(screenIds.some((elementId) => elementId.includes('-screen-'))).toBe(true);
       expect(printIds.some((elementId) => elementId.includes('-print-'))).toBe(true);
-      if (id === 'r1-four-mechanisms') {
-        const screenLabel = `${id}-screen-rf1-title ${id}-screen-rf1-desc`;
-        const printLabel = `${id}-print-rf1p-title ${id}-print-rf1p-desc`;
+      const dedicated = dedicatedPrintDrawings[id];
+      if (dedicated) {
+        const screenLabel = `${id}-screen-${dedicated.screenTitle} ${id}-screen-${dedicated.screenDesc}`;
+        const printLabel = `${id}-print-${dedicated.printTitle} ${id}-print-${dedicated.printDesc}`;
         expect(screen).toContain(`aria-labelledby="${screenLabel}"`);
         expect(print).toContain(`aria-labelledby="${printLabel}"`);
         expect(screen).not.toContain('aria-describedby');
         expect(print).not.toContain('aria-describedby');
-        expect(screen).toContain(`id="${id}-screen-rf1-ah"`);
-        expect(print).toContain(`id="${id}-print-rf1p-ah"`);
-        expect(print).toContain('viewBox="0 0 700 766"');
-        expect(screen).toContain('viewBox="0 0 360 1092"');
+        expect(screen).toContain(`id="${id}-screen-${dedicated.screenMarker}"`);
+        expect(print).toContain(`id="${id}-print-${dedicated.printMarker}"`);
+        expect(screen).toContain(`viewBox="${dedicated.screenViewBox}"`);
+        expect(print).toContain(`viewBox="${dedicated.printViewBox}"`);
         expect(print).toContain('fill:#172d38');
         expect(print).toContain('fill:#ffffff');
         expect(print).not.toContain('var(--fig-');

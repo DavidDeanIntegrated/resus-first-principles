@@ -4,7 +4,8 @@ import { join } from 'node:path';
 /**
  * Acute respiratory failure figures. The drawing, title, and description stay
  * in the SVG. The chapter module supplies the figcaption, as the Shock figures do.
- * r1-four-mechanisms has a separate wide print drawing with fixed light colours.
+ * r1-four-mechanisms and r1-load-capacity each have a separate wide print
+ * drawing with fixed light colours.
  */
 export const respiratoryFigureIds = [
   'r1-four-mechanisms',
@@ -21,8 +22,8 @@ const assetDir = join(process.cwd(), 'src/assets/diagrams');
 const fontFace = "font-family:'DejaVu Sans',system-ui,sans-serif";
 const siteFace = 'font-family:var(--f-text), Georgia, serif';
 
-/** Print drawing that is not a copy of the screen SVG. Colours stay as authored. */
-const dedicatedPrint = new Set<RespiratoryFigureId>(['r1-four-mechanisms']);
+/** Print drawings that are not copies of the screen SVG. Colours stay as authored. */
+const dedicatedPrint = new Set<RespiratoryFigureId>(['r1-four-mechanisms', 'r1-load-capacity']);
 
 export function isRespiratoryFigureId(id: string): id is RespiratoryFigureId {
   return (respiratoryFigureIds as readonly string[]).includes(id);
@@ -61,7 +62,7 @@ export function respiratorySvg(id: RespiratoryFigureId, variant: RespiratoryFigu
   let svg = source.replaceAll(fontFace, siteFace);
   svg = svg.replace(/\bid="([^"]+)"/g, (_match, elementId: string) => `id="${prefix}-${elementId}"`);
   svg = svg.replace(/url\(#([^)]+)\)/g, (_match, elementId: string) => `url(#${prefix}-${elementId})`);
-  // The four-mechanisms copies name both their own title and description, as the source drawings do.
+  // Dedicated print drawings name both their own title and description, as the source drawings do.
   const labelledBy = dedicatedPrint.has(id)
     ? `${ownTitleId} ${ownDescId}`
     : ownTitleId;
