@@ -45,8 +45,8 @@ DEFS = r' \((?:MAP|RAP|CO|PPV|SVV|LVOT|VTI|VExUS|PLR)\)'
 WORDS = [  # whole-word readings, order matters
     (r'mm Hg·min/L', 'millimeters of mercury minutes per litre'),
     (r'mL O2/dL', 'millilitres of oxygen per decilitre'), (r'mL O2/min', 'millilitres of oxygen per minute'),
-    (r'mm Hg', 'millimeters of mercury'), (r'L/min', 'litres per minute'), (r'mL/kg', 'millilitres per kilogram'),
-    (r'mL/dL', 'millilitres per decilitre'), (r'g/dL', 'grams per decilitre'), (r'mL/min', 'millilitres per minute'),
+    (r'mL/min', 'millilitres per minute'), (r'mm Hg', 'millimeters of mercury'), (r'L/min', 'litres per minute'),
+    (r'mL/kg', 'millilitres per kilogram'), (r'mL/dL', 'millilitres per decilitre'), (r'g/dL', 'grams per decilitre'),
     (r'(?<=\d) mL\b', ' millilitres'), (r'\bmL\b', 'millilitres'), (r'\bdL\b', 'decilitre'),
     (r'(?<=\d) cm\b', ' centimetres'), (r'(?<=\d) L\b', ' litres'),
     (r'\b110s\b', 'one-hundred-and-tens'),
@@ -60,10 +60,27 @@ WORDS = [  # whole-word readings, order matters
     (r'–', '-'), (r'\u00a0', ' '), (r'\*\*', ''), (r'(?<=\d),(?=\d{3}\b)', ''),
 ]
 
+DIGITS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+TEENS = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+
+def integer_words(n: int) -> str:
+    if n < 10: return DIGITS[n]
+    if n < 20: return TEENS[n - 10]
+    if n < 100: return TENS[n // 10] + ('' if n % 10 == 0 else '-' + DIGITS[n % 10])
+    if n < 1000: return DIGITS[n // 100] + ' hundred' + ('' if n % 100 == 0 else ' ' + integer_words(n % 100))
+    raise ValueError(n)
+
+def decimal_words(m: re.Match) -> str:
+    """Kokoro splits '4.4' into two sentences, so decimals are spoken in words."""
+    whole, frac = m.group(1), m.group(2)
+    return integer_words(int(whole)) + ' point ' + ' '.join(DIGITS[int(d)] for d in frac)
+
 def speak(text: str) -> str:
     for a, b in EXACT:
         text = text.replace(a, b)
     text = re.sub(DEFS, '', text)
+    text = re.sub(r'(?<![\d.])(\d+)\.(\d+)(?![\d.])', decimal_words, text)
     for a, b in WORDS:
         text = re.sub(a, b, text)
     text = re.sub(r'\s+', ' ', text).strip()
@@ -97,6 +114,7 @@ def main():
     ap.add_argument('--model'); ap.add_argument('--voices')
     ap.add_argument('--text-dir', default=os.path.join(tempfile.gettempdir(), 'shock-narration-text'))
     ap.add_argument('--text-only', action='store_true')
+    ap.add_argument('--only', nargs='*', help='filenames to re-render; other manifest entries are kept')
     args = ap.parse_args()
     case = json.load(open(CASE))
     plan = clips(case)
@@ -110,8 +128,13 @@ def main():
     from kokoro_onnx import Kokoro
     kokoro = Kokoro(args.model, args.voices)
     os.makedirs(OUT, exist_ok=True)
+    only = set(args.only or [])
+    old = {t['filename']: t for t in json.load(open(MANIFEST))} if only else {}
     manifest = []
     for i, c in enumerate(plan):
+        if only and c['filename'] not in only:
+            manifest.append(old[c['filename']])
+            continue
         chunks = []
         for p in c['spoken']:
             audio, sr = kokoro.create(p, voice=VOICE, speed=1.0, lang=LANG)
