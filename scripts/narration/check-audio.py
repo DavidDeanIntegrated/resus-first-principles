@@ -16,7 +16,7 @@ Exits non-zero if any check fails.
 import argparse, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from extract import ROOT, build, lock_path  # noqa: E402
+from extract import ROOT, build, lock_path, manifest_path, read_manifest  # noqa: E402
 
 REGISTRY = os.path.join(ROOT, 'src/data/narration/elevenlabs-voices.json')
 # Spoken English narration runs at roughly 12-18 characters a second; allow a wide margin.
@@ -60,7 +60,7 @@ def main():
 
     narration_map = json.load(open(args.map))
     slug = os.path.splitext(os.path.basename(narration_map['case']))[0]
-    manifest = json.load(open(os.path.join(ROOT, 'src/data', f'{slug}-audio.json')))
+    manifest = read_manifest(manifest_path(narration_map), slug)
     registry = json.load(open(REGISTRY))['voices']
     lock, plan = build(args.map)
     committed_lock = json.load(open(lock_path(args.map)))
@@ -96,7 +96,10 @@ def main():
            sum(s['verbatimChars'] for s in lock['sections']) + 2 * (len(plan) - 1) == len(verbatim)
            and len(paragraphs) == sum(s['paragraphs'] for s in lock['sections']))
 
-    # 3. Audio exists, decodes, and has a plausible duration for its text.
+    # 3. Audio exists in the map's own folder, decodes, and has a plausible duration for its text.
+    expected_dir = narration_map.get('audioDir', slug)
+    record('manifest serves the map\'s audio folder', manifest['dir'] == expected_dir,
+           '' if manifest['dir'] == expected_dir else f"{manifest['dir']} != {expected_dir}")
     audio_dir = os.path.join(ROOT, 'public/audio', manifest['dir'])
     bad = []
     for t in tracks:

@@ -113,6 +113,24 @@ def lock_path(map_path: str) -> str:
     return re.sub(r'\.map\.json$', '', map_path) + '.lock.json'
 
 
+def manifest_path(narration_map: dict) -> str:
+    """The map's own track manifest, or src/data/<case>-audio.json when it names none."""
+    slug = os.path.splitext(os.path.basename(narration_map['case']))[0]
+    return os.path.join(ROOT, narration_map.get('manifest') or f'src/data/{slug}-audio.json')
+
+
+def read_manifest(path: str, slug: str) -> dict:
+    """A track manifest in either format: the structured object (dir, tracks, hashes) written by
+    elevenlabs.py, or the older plain array of tracks written by case-narration.py, whose audio
+    lives in public/audio/<slug>/. Returns an object with at least dir and tracks."""
+    data = json.load(open(path))
+    if isinstance(data, list):
+        return dict(dir=slug, tracks=data)
+    if not isinstance(data, dict) or not isinstance(data.get('tracks'), list):
+        sys.exit(f'{path} is neither a track array nor an object with a tracks array')
+    return dict(data, dir=data.get('dir') or slug)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('map')

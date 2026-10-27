@@ -13,8 +13,9 @@ check     confirms every registry voice exists and its name matches the characte
 estimate  counts synthesis characters and requests for the whole chapter (no paid calls).
 sample    synthesizes the first sentences of the narrator's first section, up to --chars.
 generate  synthesizes every section (or --only), writes public/audio/<audioDir>/<key>.mp3 and the
-          track manifest src/data/<case>-audio.json. Failed requests are retried; finished ones stay
-          cached, so a rerun pays only for what failed. It refuses to run without --confirm and stops before spending if a
+          track manifest named by the map's "manifest" (default src/data/<case>-audio.json). An existing
+          manifest may be the structured object or an older plain array of tracks. Failed requests are
+          retried; finished ones stay cached, so a rerun pays only for what failed. It refuses to run without --confirm and stops before spending if a
           voice fails the check or the balance does not cover the uncached characters.
 
 Each request is cached by the SHA-256 of model, voice, output format and text under --cache
@@ -24,7 +25,7 @@ Voices are used with their saved settings; nothing is cloned, edited or substitu
 import argparse, hashlib, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from extract import ROOT, build, sha256  # noqa: E402
+from extract import ROOT, build, manifest_path, read_manifest, sha256  # noqa: E402
 
 API = 'https://api.elevenlabs.io'
 REGISTRY = os.path.join(ROOT, 'src/data/narration/elevenlabs-voices.json')
@@ -283,9 +284,11 @@ def cmd_generate(args, narration_map, plan):
     print(f'{uncached} uncached characters to synthesize', flush=True)
     audio_dir = narration_map.get('audioDir', slug)
     out_dir = os.path.join(ROOT, 'public/audio', audio_dir)
-    manifest_path = os.path.join(ROOT, 'src/data', f'{slug}-audio.json')
-    old = json.load(open(manifest_path))['tracks'] if os.path.exists(manifest_path) else []
-    old = {t['filename']: t for t in old}
+    out_manifest = manifest_path(narration_map)
+    # Either manifest format can be read; only tracks already in this audio folder are kept, so an
+    # older plain-array (Kokoro) manifest never lends its tracks to the new narration.
+    previous = read_manifest(out_manifest, slug) if os.path.exists(out_manifest) else dict(dir=audio_dir, tracks=[])
+    old = {t['filename']: t for t in previous['tracks']} if previous['dir'] == audio_dir else {}
     registry = json.load(open(REGISTRY))['voices']
     hashes = {s['key']: s for s in lock['sections']}
     before = status['subscription']['character_count']
@@ -328,7 +331,7 @@ def cmd_generate(args, narration_map, plan):
         'pronunciationSha256': lock['pronunciationSha256'], 'dir': audio_dir, 'model_id': model_id,
         'tracks': tracks,
     }
-    open(manifest_path, 'w').write(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n')
+    open(out_manifest, 'w').write(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n')
     print(f"billed {billed_total} characters by response header; subscription character_count "
           f"{before} -> {subscription()['character_count']} (the account count can lag by a minute)")
     if blocked or failed:

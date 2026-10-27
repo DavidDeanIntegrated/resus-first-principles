@@ -1,0 +1,127 @@
+{
+  "case": "src/content/cases/cardiogenic-pulmonary-edema.json",
+  "caseSha256": "79e0d7aa6e72cdac2b93874524ab9400c4cd879fd200f9c0aa962af15b7ff618",
+  "pronunciationSha256": "fc8f824c4fde21706ecc86e8e0bc5d4ab149fd6557a5fd2c14cd9fbb89afdb3d",
+  "sections": [
+    {
+      "key": "00-title-and-introduction",
+      "narrator": "silas-mercer",
+      "anchor": null,
+      "paragraphs": 2,
+      "verbatimChars": 368,
+      "verbatimSha256": "e22d42b838a5564a9301c23fcfddb08d60bc186303dc0b10c3e0397434c9d66a",
+      "synthesisChars": 367,
+      "synthesisSha256": "14957abe150a5394928354f5a17a659e348a6496055bb8190d50e90072fee726"
+    },
+    {
+      "key": "01-three-flooded",
+      "narrator": "mags-callahan",
+      "anchor": "principle-three-flooded",
+      "paragraphs": 19,
+      "verbatimChars": 5295,
+      "verbatimSha256": "040221b10b6787784cbdd4c2647628f842b520ed2038e433c6e9f1ca4ae38f11",
+      "synthesisChars": 5552,
+      "synthesisSha256": "938e77c5ff32095e1efbc9e8307a8cfce9a293ae794624a5051fd9479d81e59c"
+    },
+    {
+      "key": "02-starling",
+      "narrator": "amara-bennett",
+      "anchor": "principle-starling",
+      "paragraphs": 15,
+      "verbatimChars": 4730,
+      "verbatimSha256": "62fac37ef8c95ee79af96925f4ec34fda3aec498cc414561de71b4fe8f8dfea3",
+      "synthesisChars": 4708,
+      "synthesisSha256": "f43bad6f63dddc6cfe2aa48aab86b7192e1c8e9592ba6028aa2edb1e664dd976"
+    },
+    {
+      "key": "03-left-pressures",
+      "narrator": "elias-voss",
+      "anchor": "principle-left-pressures",
+      "paragraphs": 16,
+      "verbatimChars": 5562,
+      "verbatimSha256": "1cbc29c32a9019cc0efa92646b78f0ad0e02e26ccec522d16572766c9ec1ebbc",
+      "synthesisChars": 5539,
+      "synthesisSha256": "11b26207ea62ac6ef99d5d8830684bb75e52282223fa348d0aaea279c6b687e5"
+    },
+    {
+      "key": "04-redistribution",
+      "narrator": "elias-voss",
+      "anchor": "principle-redistribution",
+      "paragraphs": 14,
+      "verbatimChars": 4904,
+      "verbatimSha256": "daa67dc490f2d9209e81baac597062ad65b5b3af46d79365b8fcfda58de8f688",
+      "synthesisChars": 4892,
+      "synthesisSha256": "a4768c9f209c439367a3e43ae39d3c7ef0df0eb6c2c3ecf1d80ceb77b78343b9"
+    },
+    {
+      "key": "05-gas-exchange",
+      "narrator": "amara-bennett",
+      "anchor": "principle-gas-exchange",
+      "paragraphs": 14,
+      "verbatimChars": 2990,
+      "verbatimSha256": "780342dfe8390c07299fa16510a5c2468b0b944f5a7250192e599e69f3baf91c",
+      "synthesisChars": 3225,
+      "synthesisSha256": "4cdccaa16e499d6d0acbf80ec0d248a968e7440c7ef80be5e650c3e56256c6ac"
+    },
+    {
+      "key": "06-breathing-pressure",
+      "narrator": "rebecca-sterling",
+      "anchor": "principle-breathing-pressure",
+      "paragraphs": 19,
+      "verbatimChars": 7971,
+      "verbatimSha256": "631eaecef24c9ba6bfbffbdc60a4f69eff91ae693e78965c36b70766652d02e2",
+      "synthesisChars": 8196,
+      "synthesisSha256": "8aca96a3a1ecbeee0da86e4099965f63aa5c4ed94c2c6ee790af62ad617c84e5"
+    },
+    {
+      "key": "07-unloading",
+      "narrator": "rebecca-sterling",
+      "anchor": "principle-unloading",
+      "paragraphs": 14,
+      "verbatimChars": 5157,
+      "verbatimSha256": "854781a7d51a66e5538eda5bff2e784340ebaa88b39802d8ec54ffce6f4804c4",
+      "synthesisChars": 5212,
+      "synthesisSha256": "34d0739d32bf52c343cfd47a3bd6e74c1ca2277711e02a025351236f5a71ce9d"
+    },
+    {
+      "key": "08-shock-overlap",
+      "narrator": "elias-voss",
+      "anchor": "principle-shock-overlap",
+      "paragraphs": 7,
+      "verbatimChars": 2267,
+      "verbatimSha256": "8c2b2217058a946c80b986dfe8217e8860c88fc3d80933ebe931a33b8fa09642",
+      "synthesisChars": 2293,
+      "synthesisSha256": "b3a61bd937c4dfb6695948be0c0f063464600aa56a9e2c89cdd14ff0a21a0736"
+    },
+    {
+      "key": "09-reassessment",
+      "narrator": "mags-callahan",
+      "anchor": "principle-reassessment",
+      "paragraphs": 13,
+      "verbatimChars": 4805,
+      "verbatimSha256": "170081fe56aa1778ab9f7c244dbaf918ea00551c540528e3f01d792d4085677e",
+      "synthesisChars": 4789,
+      "synthesisSha256": "bbca5c71c48ae1153236d866b504568479a144adccd0d7594224fae61620010b"
+    },
+    {
+      "key": "10-synthesis",
+      "narrator": "silas-mercer",
+      "anchor": "principle-synthesis",
+      "paragraphs": 2,
+      "verbatimChars": 1000,
+      "verbatimSha256": "ca869b5ae0939b3ad3a1154ab4119feef46279ea952cf00649576576a0a9cbdf",
+      "synthesisChars": 999,
+      "synthesisSha256": "a1d832d039d8a8ec214831959b22aa31448136c3e2057b673a2bdab47a98f727"
+    },
+    {
+      "key": "11-approach-to-treatment",
+      "narrator": "rebecca-sterling",
+      "anchor": "treatment-heading",
+      "paragraphs": 8,
+      "verbatimChars": 2680,
+      "verbatimSha256": "fd69e3092fb61deec003ab5ddb895ad3c06562474bd266e30c9f6cd22fd07bce",
+      "synthesisChars": 2694,
+      "synthesisSha256": "1983968a0d2d7df2037b400d5ad37db0593433ef5603c2917557110880c286ca"
+    }
+  ]
+}
