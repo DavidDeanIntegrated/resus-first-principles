@@ -23,7 +23,7 @@ import { caseSchema, declaredDiagramIds } from '../src/lib/schema.ts';
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
 /** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
-const acceptedDraftSha256 = 'b98c2b533d52a903b7d180644cfffb11d1e023caa8466fa2b53260ceb18149cd';
+const acceptedDraftSha256 = '9e508a4a7a78a8ba64aa4347a77106822722774d8172b8fa036662d7765e1155';
 
 /** sha256 of the Atelier attachments. The chapter id is the Atelier stem. */
 const attachmentSha256: Record<string, string> = {
@@ -119,7 +119,7 @@ describe('acid-base physiology chapter', () => {
     ]);
     for (const figure of attached) expect(placements[figure.id]).toBe(figure.section);
     expect(attached.map((figure) => figure.caption)).toEqual([
-      "Where acid comes from, where it is held, and how it leaves (a simplification: metabolism of lactate and ketone anions is not drawn)",
+      "Buffers hold acid reversibly; the lungs and kidneys set the balance; metabolism can undo organic acids.",
       "Reclaiming filtered bicarbonate prevents loss; only acid leaving on urinary buffers adds new bicarbonate",
       "The same pH, different states: compare compensation with what is expected (illustrative values; the pH of 6.92 holds bicarbonate at 8 by assumption)",
       "The anion gap is bookkeeping, and albumin fills most of it",

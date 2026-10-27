@@ -181,7 +181,7 @@
       "questions": [],
       "diagram": {
         "id": "fig-r8-01-two-routes",
-        "caption": "Where acid comes from, where it is held, and how it leaves (a simplification: metabolism of lactate and ketone anions is not drawn)",
+        "caption": "Buffers hold acid reversibly; the lungs and kidneys set the balance; metabolism can undo organic acids.",
         "alt": "Schematic of acid handling, not to scale. Carbon dioxide from metabolism, about 15,000 millimoles a day, and nonvolatile acid, about 50 to 100 millimoles of hydrogen ion a day, enter the extracellular fluid. Inside, two reversible reactions drawn with two-way arrows: carbon dioxide and water forming carbonic acid, hydrogen ion and bicarbonate; and hydrogen ion binding to hemoglobin, proteins and phosphate. A note says buffering binds hydrogen ions reversibly, the acid stays in the body and buffer base is used up. A red-cell inset shows carbon dioxide entering, hydrogen ion binding to hemoglobin and bicarbonate leaving in exchange for chloride. A note shows lactate and ketoacid anions being metabolized back to bicarbonate. Only two arrows leave the body: carbon dioxide exhaled by the lungs in minutes, and ammonium and titratable acid in urine over hours to days, drawn dashed, with new bicarbonate returned to the blood. A corner note reads: pH 7.40 to 7.10 doubles hydrogen ion concentration, from about 40 to about 80 nanomoles per liter."
       }
     },
@@ -263,7 +263,7 @@
         {
           "id": "q-four-defenses",
           "kind": "transfer",
-          "prompt": "Patient 1's acid load has been buffered, her breathing has lowered her PaCO2, and her proximal tubules are reabsorbing nearly all filtered bicarbonate. Which of these four processes, if any, has actually restored the bicarbonate she has lost? Explain what each one does.",
+          "prompt": "Which of these three processes, if any, has actually restored the bicarbonate she has lost? What fourth process would, and how quickly? Explain what each one does.",
           "answer": "None of them. Buffering has bound the hydrogen ions and limited the fall in pH, at the cost of consuming bicarbonate. Respiratory compensation has lowered carbon dioxide, which raises the ratio of bicarbonate to carbon dioxide and so the pH, without adding bicarbonate. Reclamation in the proximal tubule prevents further loss of filtered bicarbonate, but each hydrogen ion it secretes is recycled, so it makes no new base. Only net acid excretion, hydrogen ion leaving in urine as ammonium and titratable acid, adds new bicarbonate to the blood, and that takes days. In her case, removing the toxic acids and their anions by dialysis and stopping their production is faster than waiting for the kidney.",
           "causalChain": "Buffering limits free H+ but consumes base → ventilation changes CO2, not HCO3− → reclamation prevents loss but recycles H+ (no net excretion) → net acid excretion (NH4+ + titratable acid − urinary HCO3−) generates new HCO3− over days.",
           "assumption": "Kidney function adequate; illustrative case.",
