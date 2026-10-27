@@ -9,6 +9,8 @@ The verbatim text is the published prose: titles, body paragraphs and worked exa
 title and summary, and the treatment steps. Questions, tables, figures and reference lists are
 not read. Markdown links keep their text and bold markers are dropped; nothing else changes.
 The pronunciation dictionary is applied only to the synthesis text, never to the verbatim text.
+A map section may also list "spoken" overrides ({paragraph, match, say}) that change only the
+synthesis text of one of its own paragraphs, for a fix that must not apply anywhere else.
 
 The lock file (<map>.lock.json, committed) records the case file hash and a hash of each
 section's verbatim and synthesis text, so a later run can prove it read the published version.
@@ -93,8 +95,16 @@ def build(map_path: str) -> tuple[dict, list[dict]]:
         sys.exit(f"{narration_map['case']} is not published (contentStatus={case.get('contentStatus')!r})")
     rules = load_rules()
     plan = sections(narration_map, case)
+    overrides = {s['key']: s.get('spoken', []) for s in narration_map['sections']}
     for s in plan:
         s['synthesis'] = [speak(p, rules) for p in s['verbatim']]
+        for o in overrides[s['key']]:
+            # A section's own spoken override, for one paragraph only (e.g. a title respelling).
+            i = o['paragraph']
+            said, n = re.subn(o['match'], o['say'], s['synthesis'][i])
+            if not n:
+                sys.exit(f"spoken override {o['match']!r} matched nothing in {s['key']} paragraph {i}")
+            s['synthesis'][i] = said
     lock = dict(
         case=narration_map['case'],
         caseSha256=sha256(case_bytes),

@@ -5,7 +5,8 @@
   "audioDir": "cardiogenic-pulmonary-edema-elevenlabs",
   "manifest": "src/data/cardiogenic-pulmonary-edema-elevenlabs-audio.json",
   "sections": [
-    { "key": "00-title-and-introduction", "label": "Article title and introductory summary", "narrator": "silas-mercer", "anchor": null, "intro": true, "principles": [] },
+    { "key": "00-title-and-introduction", "label": "Article title and introductory summary", "narrator": "silas-mercer", "anchor": null, "intro": true, "principles": [],
+      "spoken": [{ "paragraph": 0, "match": "\\bPulmonary Edema\\b", "say": "pulmonary edema" }] },
     { "key": "01-three-flooded", "label": "Part I — Three flooded lungs, one picture", "narrator": "mags-callahan", "anchor": "principle-three-flooded",
       "principles": ["three-flooded", "defining-acpe", "three-profiles", "not-every-patient"] },
     { "key": "02-starling", "label": "Part II — Why water leaves the capillary", "narrator": "amara-bennett", "anchor": "principle-starling",
