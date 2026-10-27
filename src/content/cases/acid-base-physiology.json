@@ -263,7 +263,7 @@
         {
           "id": "q-four-defenses",
           "kind": "transfer",
-          "prompt": "Which of these three processes, if any, has actually restored the bicarbonate she has lost? What fourth process would, and how quickly? Explain what each one does.",
+          "prompt": "Patient 1's acid load has been buffered, her breathing has lowered her PaCO2, and her proximal tubules are reabsorbing nearly all filtered bicarbonate. Which of these three processes, if any, has actually restored the bicarbonate she has lost? What fourth process would, and how quickly? Explain what each one does.",
           "answer": "None of them. Buffering has bound the hydrogen ions and limited the fall in pH, at the cost of consuming bicarbonate. Respiratory compensation has lowered carbon dioxide, which raises the ratio of bicarbonate to carbon dioxide and so the pH, without adding bicarbonate. Reclamation in the proximal tubule prevents further loss of filtered bicarbonate, but each hydrogen ion it secretes is recycled, so it makes no new base. Only net acid excretion, hydrogen ion leaving in urine as ammonium and titratable acid, adds new bicarbonate to the blood, and that takes days. In her case, removing the toxic acids and their anions by dialysis and stopping their production is faster than waiting for the kidney.",
           "causalChain": "Buffering limits free H+ but consumes base → ventilation changes CO2, not HCO3− → reclamation prevents loss but recycles H+ (no net excretion) → net acid excretion (NH4+ + titratable acid − urinary HCO3−) generates new HCO3− over days.",
           "assumption": "Kidney function adequate; illustrative case.",

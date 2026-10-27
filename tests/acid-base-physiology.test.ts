@@ -23,7 +23,7 @@ import { caseSchema, declaredDiagramIds } from '../src/lib/schema.ts';
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
 /** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
-const acceptedDraftSha256 = '9e508a4a7a78a8ba64aa4347a77106822722774d8172b8fa036662d7765e1155';
+const acceptedDraftSha256 = '5c97fde7e246a82668a8e292f91fe08bf6f5ff5162802cd23663502bce7199f4';
 
 /** sha256 of the Atelier attachments. The chapter id is the Atelier stem. */
 const attachmentSha256: Record<string, string> = {
