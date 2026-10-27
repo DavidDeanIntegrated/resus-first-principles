@@ -79,13 +79,13 @@ describe('cardiogenic pulmonary edema chapter', () => {
   const raw = JSON.parse(rawText);
   const parsed = caseSchema.safeParse(raw);
 
-  it('is a draft chapter with its own diagram ids and no narration', () => {
+  it('is a published chapter with its own diagram ids and no narration', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
     const document = parsed.data;
     expect(document.slug).toBe('cardiogenic-pulmonary-edema');
     expect(document.title).toBe('Acute Cardiogenic Pulmonary Edema: Pressure Behind the Failing Left Heart');
-    expect(document.contentStatus).toBe('draft');
+    expect(document.contentStatus).toBe('published');
     expect(document.strict).toBe(true);
     expect(document.diagrams).toEqual([
       'r4-three-flooded-lungs',
@@ -94,13 +94,15 @@ describe('cardiogenic pulmonary edema chapter', () => {
       'r4-pleural-pressure',
     ]);
     expect([...declaredDiagramIds(document)]).toEqual(document.diagrams);
-    expect(chapterRobots(document.contentStatus)).toBe('noindex');
+    expect(chapterRobots(document.contentStatus)).toBeNull();
     expect(hasNarration(document.slug)).toBe(false);
     expect(rawText).not.toContain('audio');
   });
 
   it('matches the accepted draft byte for byte', () => {
-    expect(sha256(rawText)).toBe(acceptedDraftSha256);
+    // The accepted draft, with only contentStatus flipped from "draft" to "published" at Ship.
+    expect(rawText.match(/"contentStatus": "[a-z]+"/g)).toEqual(['"contentStatus": "published"']);
+    expect(sha256(rawText.replace('"contentStatus": "published"', '"contentStatus": "draft"'))).toBe(acceptedDraftSha256);
     expect(rawText).not.toContain('Search Bot');
     expect(rawText).not.toContain('(proposal)');
     for (const id of cardiogenicFigureIds) {
@@ -227,32 +229,24 @@ describe('cardiogenic pulmonary edema chapter', () => {
     expect(diagram).toContain('<CardiogenicFigure id={diagramId} caption={caption} alt={alt} />');
   });
 
-  it('is excluded from the production build', () => {
+  it('is included in the production build', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
     const document = parsed.data;
-    const chapters = [{ slug: document.slug, contentStatus: document.contentStatus }];
-    expect(isBuiltChapter(document.contentStatus, {})).toBe(false);
-    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'production' })).toBe(false);
-    expect(isBuiltChapter(document.contentStatus, { WORKERS_CI: '1', WORKERS_CI_BRANCH: 'main' })).toBe(false);
-    expect(includeChapter(document.contentStatus, 'route', {})).toBe(false);
-    expect(includeChapter(document.contentStatus, 'index', {})).toBe(false);
-    expect(includeChapter(document.contentStatus, 'sitemap', { VERCEL_ENV: 'preview' })).toBe(false);
-    expect(chaptersForBuild(chapters, {}).map((entry) => entry.slug)).toEqual([]);
-    expect(chaptersForDiscovery(chapters)).toEqual([]);
-    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'preview' })).toBe(true);
-    expect(
-      isBuiltChapter(document.contentStatus, {
-        WORKERS_CI: '1',
-        WORKERS_CI_BRANCH: 'cursor/cardiogenic-pulmonary-edema-d884',
-      }),
-    ).toBe(true);
+    const production = [{ slug: document.slug, contentStatus: document.contentStatus }];
+    expect(isBuiltChapter(document.contentStatus, {})).toBe(true);
+    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'production' })).toBe(true);
+    expect(isBuiltChapter(document.contentStatus, { WORKERS_CI: '1', WORKERS_CI_BRANCH: 'main' })).toBe(true);
+    expect(includeChapter(document.contentStatus, 'route', {})).toBe(true);
+    expect(includeChapter(document.contentStatus, 'index', {})).toBe(true);
+    expect(includeChapter(document.contentStatus, 'sitemap', { VERCEL_ENV: 'preview' })).toBe(true);
+    expect(chaptersForBuild(production, {}).map((entry) => entry.slug)).toEqual(['cardiogenic-pulmonary-edema']);
+    expect(chaptersForDiscovery(production).map((entry) => entry.slug)).toEqual(['cardiogenic-pulmonary-edema']);
 
     const page = join(repoRoot, 'dist/cases/cardiogenic-pulmonary-edema/index.html');
-    expect(existsSync(page)).toBe(false);
+    expect(existsSync(page)).toBe(true);
     const index = readFileSync(join(repoRoot, 'dist/index.html'), 'utf8');
-    expect(index).not.toContain('/cases/cardiogenic-pulmonary-edema');
-    expect(index).not.toContain('Acute Cardiogenic Pulmonary Edema');
+    expect(index).toContain('/cases/cardiogenic-pulmonary-edema');
     expect(index).toContain('href="/cases/adult-cardiac-arrest"');
     expect(index).toContain('href="/cases/shock-pressure-flow"');
   });
