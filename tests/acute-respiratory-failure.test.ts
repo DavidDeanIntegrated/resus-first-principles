@@ -49,8 +49,8 @@ const dedicatedPrintDrawings: Partial<
     printDesc: 'rf1p-desc',
     screenMarker: 'rf1-ah',
     printMarker: 'rf1p-ah',
-    screenViewBox: '0 0 360 1231.5',
-    printViewBox: '0 0 700 766',
+    screenViewBox: '0 0 360 1249.5',
+    printViewBox: '0 0 700 784',
   },
   'r1-load-capacity': {
     screenTitle: 'rf3-title',
