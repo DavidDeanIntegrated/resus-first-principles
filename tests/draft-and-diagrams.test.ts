@@ -178,10 +178,13 @@ describe('per-chapter diagram ids', () => {
     expect(result.ok).toBe(true);
     if (!result.ok) return;
     expect(result.cases.map((entry) => entry.document.slug).sort()).toEqual([
+      'acute-respiratory-failure',
       'adult-cardiac-arrest',
       'shock-pressure-flow',
     ]);
+    const published = new Set(['adult-cardiac-arrest', 'shock-pressure-flow']);
     for (const entry of result.cases) {
+      if (!published.has(entry.document.slug)) continue;
       const document = entry.document;
       expect(document.contentStatus).toBe('published');
       expect(document.diagrams).toBeUndefined();

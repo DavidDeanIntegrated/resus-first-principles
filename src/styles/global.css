@@ -2436,6 +2436,11 @@ html[data-audio-player="open"] body {
     max-height: 7.6in;
   }
 
+  /* Tall pump drawing. Shock and cardiac arrest stay on the 7.6in rule above. */
+  .diagram[data-diagram="r1-load-capacity"] svg.diagram-print {
+    max-height: 9.2in;
+  }
+
   .diagram-kicker,
   .diagram-caps,
   .diagram-schematic,
