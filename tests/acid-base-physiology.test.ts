@@ -23,35 +23,42 @@ import { caseSchema, declaredDiagramIds } from '../src/lib/schema.ts';
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
 /** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
-const acceptedDraftSha256 = 'd7059a6bad40ac53d3337f305cf3a59f5829cb4555bcdd0634a2479a8cdd43dc';
+const acceptedDraftSha256 = 'b98c2b533d52a903b7d180644cfffb11d1e023caa8466fa2b53260ceb18149cd';
 
 /** sha256 of the Atelier attachments. The chapter id is the Atelier stem. */
 const attachmentSha256: Record<string, string> = {
-  'fig-r8-01-two-routes.svg': '645e34bddf916d50657f30462aa682e03bdcf0865edbb25d435cfb8e9b474474',
-  'fig-r8-01-two-routes-print.svg': 'dfab26be9dab98e8e45d44ce9ac10d1710ccfe3a1691157f76cf81f52c28b3fa',
-  'fig-r8-01-two-routes.inline.html': '92f517285da6eaba51a8a9ba00eafa21e342b063b92c0f78da72c3f1031524d6',
-  'fig-r8-02-expected-vs-observed.svg': '077af7865e4a65bc7e92a03fb72c5c39fc8921c96e0c6ecf8b6e5d659fee903f',
-  'fig-r8-02-expected-vs-observed-print.svg': 'da5480037c4c47a4d6015225a3310df6902e7c0618456336c95b1108ca455c60',
-  'fig-r8-02-expected-vs-observed.inline.html': 'a38543986ea4e30820dab7916cb8c224e0ae4abc75a2360881aad2d2ff04ad1e',
-  'fig-r8-03-anion-gap-bookkeeping.svg': '5561968e675b3504fdaceefc099af8623e7646a047dbfcd7fd1673e39af59358',
-  'fig-r8-03-anion-gap-bookkeeping-print.svg': '0116b2fc4a4eafbd1b753e5dd09dd6863b38549d3d74a3e0a016ca225e40ce27',
-  'fig-r8-03-anion-gap-bookkeeping.inline.html': '65092a9127c25dceb972641f04c6e3cd3e9e1669c84df82f8a720e46713ded31',
+  'fig-r8-01-two-routes.svg': '8e00c8be14c3de03c0d961047850a3fcfa580665ac7ec3be483957491226e564',
+  'fig-r8-01-two-routes-print.svg': '9eac7885ae22cd0ba89e595c4849935c1f98ebb4cd443e83b21a66174f6a8cd8',
+  'fig-r8-01-two-routes.inline.html': 'a6cc0491bc47d43e605883aa4bec2977eead51ade6351e87beb5a63228aadc7e',
+  'fig-r8-02-expected-vs-observed.svg': '03ce2ebef720bc2b5bf94b835b6768a172db62dc85ce10b0904881a6f5c02f10',
+  'fig-r8-02-expected-vs-observed-print.svg': '475e81d9a852adbf205e551725a38a0f692c881468c3fb5937a8afd1c23a9a01',
+  'fig-r8-02-expected-vs-observed.inline.html': '38197f925416286fe925f7adf86f940f7f972d621a9ec4518b699084483d56d3',
+  'fig-r8-03-anion-gap-bookkeeping.svg': '33ea9095deb75781f2376c0bdded0897e0c625a311071880199a1178ceb24a7e',
+  'fig-r8-03-anion-gap-bookkeeping-print.svg': '1a885bc9a94cec1868cae85913b304f4cd4a5e4db22612758ded5864986ce504',
+  'fig-r8-03-anion-gap-bookkeeping.inline.html': '6a5a6dbb93abd1c748fbcbe3db8287ac3290b605e53b0344565b0c8feb471570',
+  'fig-r8-04-renal-bicarbonate.svg': '95c1a84d0cc2dadfd89cd3ee52c3f7abe34647b971233b70f22ca0b5c15b5042',
+  'fig-r8-04-renal-bicarbonate-print.svg': 'eb34ce2134b42f1f322e6303b430a74ee456f646f452dab9d8ca0f1824cc5191',
+  'fig-r8-04-renal-bicarbonate.inline.html': '58aea352ca791b55da54a3ed058760146e9870f1f292028ac7984117b871d8d8',
 };
 
 const placements: Record<string, string> = {
   'fig-r8-01-two-routes': 'acid-sources',
   'fig-r8-02-expected-vs-observed': 'expected-compensation',
   'fig-r8-03-anion-gap-bookkeeping': 'anion-gap',
+  'fig-r8-04-renal-bicarbonate': 'reclamation',
 };
 
 const twoRoutesAlt =
-  'Two acid sources, carbon dioxide from metabolism as a large daily load and nonvolatile acid from diet and metabolism as a small daily load, flow into a buffer pool of bicarbonate, proteins including hemoglobin, and phosphate, labeled as holding hydrogen ions without removing them. Two exits leave the pool: the lungs, as carbon dioxide, in minutes, drawn as a solid arrow; and the kidneys, as ammonium and titratable acid with new bicarbonate generated, in hours to days, drawn as a dashed arrow. Beneath the pool, the reaction carbon dioxide plus water to carbonic acid to hydrogen ion plus bicarbonate, with the note that the lungs remove the carbon dioxide end. A corner note reads: 7.4 to 7.1 roughly doubles [H+], from 40 to about 80 nmol/L.';
+  "Schematic of acid handling, not to scale. Carbon dioxide from metabolism, about 15,000 millimoles a day, and nonvolatile acid, about 50 to 100 millimoles of hydrogen ion a day, enter the extracellular fluid. Inside, two reversible reactions drawn with two-way arrows: carbon dioxide and water forming carbonic acid, hydrogen ion and bicarbonate; and hydrogen ion binding to hemoglobin, proteins and phosphate. A note says buffering binds hydrogen ions reversibly, the acid stays in the body and buffer base is used up. A red-cell inset shows carbon dioxide entering, hydrogen ion binding to hemoglobin and bicarbonate leaving in exchange for chloride. A note shows lactate and ketoacid anions being metabolized back to bicarbonate. Only two arrows leave the body: carbon dioxide exhaled by the lungs in minutes, and ammonium and titratable acid in urine over hours to days, drawn dashed, with new bicarbonate returned to the blood. A corner note reads: pH 7.40 to 7.10 doubles hydrogen ion concentration, from about 40 to about 80 nanomoles per liter.";
 
 const expectedVsObservedAlt =
-  'Three patient cards in one format, each with a primary change bar, an expected compensation bracket and an observed marker. Patient 1, toxic alcohol: low bicarbonate, carbon dioxide driven low by deep fast breathing, observed within expected, with the note that this breathing is keeping pH survivable. Patient 2, acute carbon dioxide retention after an opioid: carbon dioxide up in minutes, bicarbonate barely moved, because the kidneys have not had time. Patient 3, vomiting with an added acidosis: pH near normal, but the observed values do not match a single process, marked as a mismatch that signals a second disorder.';
+  "Illustrative values. Two compact cards and one main panel. Patient 1, toxic alcohol: bicarbonate 8; Winter's formula expects a PaCO2 of 18 to 22; observed 20 is inside; pH about 7.22. A second marker shows that at a PaCO2 of 40, holding bicarbonate at 8 by assumption, pH would be about 6.92, or about 7.02 allowing a little acute buffering. Patient 2, opioid: PaCO2 rose from 40 to 70 over minutes; the acute rule expects bicarbonate about 27 and the chronic rule about 34.5; observed 27, consistent with an acute rise but not excluding chronic retention with a new metabolic acidosis; pH about 7.21. Patient 3, in five steps: pH 7.40, PaCO2 40 and bicarbonate 24 are all in range; the anion gap without potassium is 24 against an assumed baseline of 10, a rise of 14; one-for-one, bicarbonate would have fallen to about 10, but it is 24, so bicarbonate has been added; low chloride and low potassium fit vomiting; on a pH axis, the ketoacidosis alone would give about 7.26 and the alkalosis alone about 7.52, and together they give the observed 7.40.";
+
+const renalBicarbonateAlt =
+  "Two tubule-cell panels, urine side on the left and blood on the right, illustrative values. Panel 1, reclamation: about 4,300 millimoles of bicarbonate are filtered daily. The cell secretes a hydrogen ion in exchange for sodium; in the lumen it combines with filtered bicarbonate to form carbonic acid, then carbon dioxide and water; carbon dioxide enters the cell and re-forms hydrogen ion and bicarbonate; bicarbonate crosses to the blood and the hydrogen ion is secreted again, drawn as a loop labeled recycled. Nothing leaves in urine; net acid excreted is zero. Panel 2, new bicarbonate: secreted hydrogen ion binds filtered phosphate, leaving in urine as titratable acid, and glutamine metabolism yields ammonium, which leaves in urine, each with a new bicarbonate sent to the blood. A note says ammonium counts only if excreted. A box notes that free hydrogen ion at urine pH 4.5 is only about 0.03 millimoles per liter, about 0.05 millimoles a day, roughly one fifteen-hundredth of a 70 millimole load. A footer reads: net acid excretion equals ammonium plus titratable acid minus urinary bicarbonate, and develops over days.";
 
 const anionGapAlt =
-  'Paired stacked columns of cations and anions, schematic and not to scale. Sodium stands against chloride, bicarbonate and unmeasured anions, with albumin the largest part of the unmeasured block. Four variants: normal; low albumin, where the baseline gap shrinks and can hide an added acid; gap acidosis, where bicarbonate is replaced by lactate, ketones or toxic alcohol acids and the gap widens; and hyperchloremic acidosis, where bicarbonate is replaced by chloride and the gap is unchanged. Renal dysfunction is noted as both. A small timeline shows the osmolar gap high early and the anion gap rising later in toxic alcohol poisoning.';
+  "Paired stacked columns of cations and anions, schematic and not to scale, under the formula gap equals sodium minus chloride plus bicarbonate, calculated without potassium. Sodium stands against chloride, bicarbonate and unmeasured anions, with albumin the largest part of the unmeasured block. Four variants: normal; low albumin, where the baseline gap shrinks and can hide an added acid, with the example of a gap of 10 at albumin 2.0 against a normal 4.0 adjusting to 15; gap acidosis, where lactate, ketones or toxic alcohol acids take the place of bicarbonate and the gap widens; and chloride gain or bicarbonate loss, labeled gap normal: bicarbonate lost or diluted, chloride takes its place in the arithmetic. In that panel, bicarbonate is lost or diluted and chloride takes its place in the arithmetic; chloride does not push bicarbonate out. Renal dysfunction is noted as able to do both. A small timeline shows the osmolar gap high early and the anion gap rising later in toxic alcohol poisoning. The albumin adjustment corrects the baseline only.";
 
 function sha256(bytes: Buffer | string): string {
   return createHash('sha256').update(bytes).digest('hex');
@@ -106,16 +113,18 @@ describe('acid-base physiology chapter', () => {
     });
     expect(attached.map(({ section, id }) => ({ section, id }))).toEqual([
       { section: 'acid-sources', id: 'fig-r8-01-two-routes' },
+      { section: 'reclamation', id: 'fig-r8-04-renal-bicarbonate' },
       { section: 'expected-compensation', id: 'fig-r8-02-expected-vs-observed' },
       { section: 'anion-gap', id: 'fig-r8-03-anion-gap-bookkeeping' },
     ]);
     for (const figure of attached) expect(placements[figure.id]).toBe(figure.section);
     expect(attached.map((figure) => figure.caption)).toEqual([
-      'Where acid comes from, where it is held, and how it leaves',
-      'The same pH, different states: compare compensation with what is expected',
-      'The anion gap is bookkeeping, and albumin fills most of it',
+      "Where acid comes from, where it is held, and how it leaves (a simplification: metabolism of lactate and ketone anions is not drawn)",
+      "Reclaiming filtered bicarbonate prevents loss; only acid leaving on urinary buffers adds new bicarbonate",
+      "The same pH, different states: compare compensation with what is expected (illustrative values; the pH of 6.92 holds bicarbonate at 8 by assumption)",
+      "The anion gap is bookkeeping, and albumin fills most of it",
     ]);
-    expect(attached.map((figure) => figure.alt)).toEqual([twoRoutesAlt, expectedVsObservedAlt, anionGapAlt]);
+    expect(attached.map((figure) => figure.alt)).toEqual([twoRoutesAlt, renalBicarbonateAlt, expectedVsObservedAlt, anionGapAlt]);
     for (const reference of parsed.data.references ?? []) {
       const note = reference.note ?? '';
       expect(note).not.toMatch(/Search Bot/i);

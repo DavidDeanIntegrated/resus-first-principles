@@ -22,6 +22,7 @@ export const acidBaseFigureIds = [
   'fig-r8-01-two-routes',
   'fig-r8-02-expected-vs-observed',
   'fig-r8-03-anion-gap-bookkeeping',
+  'fig-r8-04-renal-bicarbonate',
 ] as const;
 
 export type AcidBaseFigureId = (typeof acidBaseFigureIds)[number];
