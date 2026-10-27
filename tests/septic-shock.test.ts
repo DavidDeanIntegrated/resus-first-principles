@@ -24,16 +24,16 @@ import {
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
 /** Accepted draft (sha256). The chapter file is that draft, including its diagram ids. */
-const acceptedDraftSha256 = '3e3e1f472f14ec65fbcc68f74f2b1a821eab2d349b502563a627a051d1f2543b';
+const acceptedDraftSha256 = 'a53a0c60925d31873e6ee58ef899557dc2a70f65f94f05386f038a897598cc3d';
 
 /** sha256 of the Atelier attachments, in chapter-id file names. */
 const attachmentSha256: Record<string, string> = {
   'r3-three-septic-circulations.svg': '1cf507277d0ad7e912ff16a824f8336afe19f9b839230c8f3c2f9f5addb75339',
   'r3-three-septic-circulations-print.svg': '6e97b4fd7ac325c17ef76500d3d3d5c932b5058ac245a5bce65ccc97d5be4d71',
   'r3-three-septic-circulations.inline.html': 'b918d7ba9b609bf368e551fbae190c82ba1a37c39d7bcb4438b0d358a03124b9',
-  'r3-where-fluid-goes.svg': '4ac76486e3f3fe771f90be72074b82a5e6d240dcd8b337a87180cc8166ce157f',
-  'r3-where-fluid-goes-print.svg': 'eb9a8f6eb2d4c497d1ef6db0b451a138993b665a1f988faf44af5d20ba8d0827',
-  'r3-where-fluid-goes.inline.html': 'f089c159de266016f987fff11ab5a760815f9e42053d69b8a8170f5b8fb04af2',
+  'r3-where-fluid-goes.svg': '139b8d1e673ed0eb3323ec4fee9b6b322f57feffa896017fac72b9824235c1c3',
+  'r3-where-fluid-goes-print.svg': 'b2fcdca881ed2e68d1d049efc371efdda7dd0df2c677b35ae849306e365265bd',
+  'r3-where-fluid-goes.inline.html': '0d882b5f8e82e1b5f3abcec26837eecf7873eabd4af43e2aac6999c2b86affb3',
   'r3-coherence.svg': '92a67218d792394965ffd692be549fef5d63869f22944e3ded9090a8a1e600c3',
   'r3-coherence-print.svg': '2f65f7307506dab7bc2b0b55cb469b90c156492e9a94549707ad275e7f265c3f',
   'r3-coherence.inline.html': '417e49c4ed6ccd69ff9f1a8c661352cd76c597a6f827a2866889fac226524ea3',
@@ -106,7 +106,7 @@ describe('septic shock chapter', () => {
     for (const figure of attached) expect(placements[figure.id]).toBe(figure.section);
     expect(attached[0]?.caption.startsWith('Figure 1. One diagnosis, three circulations.')).toBe(true);
     expect(attached[1]?.caption.startsWith('Figure 2. Reused from the Shock chapter.')).toBe(true);
-    expect(attached[2]?.caption.startsWith('Figure 3. Where fluid goes when the capillary leaks.')).toBe(true);
+    expect(attached[2]?.caption.startsWith('Figure 3. Where given fluid goes in sepsis.')).toBe(true);
     expect(attached[3]?.caption.startsWith('Figure 4. Loss of hemodynamic coherence')).toBe(true);
     const opening = parsed.data.principles.find((principle) => principle.id === 'three-profiles');
     expect(opening?.title).toBe('One diagnosis, three circulations');
