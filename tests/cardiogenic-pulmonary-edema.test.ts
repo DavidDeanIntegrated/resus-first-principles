@@ -79,7 +79,7 @@ describe('cardiogenic pulmonary edema chapter', () => {
   const raw = JSON.parse(rawText);
   const parsed = caseSchema.safeParse(raw);
 
-  it('is a published chapter with its own diagram ids and no narration', () => {
+  it('is a published chapter with its own diagram ids and narration', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
     const document = parsed.data;
@@ -95,7 +95,7 @@ describe('cardiogenic pulmonary edema chapter', () => {
     ]);
     expect([...declaredDiagramIds(document)]).toEqual(document.diagrams);
     expect(chapterRobots(document.contentStatus)).toBeNull();
-    expect(hasNarration(document.slug)).toBe(false);
+    expect(hasNarration(document.slug)).toBe(true);
     expect(rawText).not.toContain('audio');
   });
 
