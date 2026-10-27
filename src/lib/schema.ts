@@ -637,7 +637,7 @@ export const caseSchema = z
             }
             return;
           }
-          if (!/^https?:\/\//.test(href)) {
+          if (!/^https?:\/\//.test(href) && !/^\/cases\/[a-z0-9-]+\/?(#[A-Za-z0-9-]+)?$/.test(href)) {
             ctx.addIssue({
               code: 'custom',
               message: `Link "${href}" must be an http(s) URL or a #anchor`,
