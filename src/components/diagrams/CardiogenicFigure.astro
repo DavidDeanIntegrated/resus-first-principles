@@ -1,0 +1,24 @@
+---
+// Same wrapper as the Shock figures: a screen SVG, a print SVG, and a figcaption
+// whose caption comes from the chapter module. Title and description stay in the SVG.
+import { cardiogenicSvg, type CardiogenicFigureId } from '../../lib/cardiogenic-figures.ts';
+
+interface Props {
+  id: CardiogenicFigureId;
+  caption: string;
+  alt: string;
+}
+
+const { id, caption } = Astro.props;
+const screen = cardiogenicSvg(id, 'screen');
+const print = cardiogenicSvg(id, 'print');
+---
+
+<figure class="diagram" data-diagram={id}>
+  <Fragment set:html={screen} />
+  <Fragment set:html={print} />
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>{caption}</p>
+  </figcaption>
+</figure>

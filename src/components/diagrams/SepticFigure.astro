@@ -1,0 +1,24 @@
+---
+// Same wrapper as the Shock figures: a screen SVG, a print SVG, and a figcaption
+// whose caption comes from the chapter module. Title and description stay in the SVG.
+import { septicSvg, type SepticFigureId } from '../../lib/septic-figures.ts';
+
+interface Props {
+  id: SepticFigureId;
+  caption: string;
+  alt: string;
+}
+
+const { id, caption } = Astro.props;
+const screen = septicSvg(id, 'screen');
+const print = septicSvg(id, 'print');
+---
+
+<figure class="diagram" data-diagram={id}>
+  <Fragment set:html={screen} />
+  <Fragment set:html={print} />
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>{caption}</p>
+  </figcaption>
+</figure>

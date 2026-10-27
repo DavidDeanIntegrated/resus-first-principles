@@ -1,4 +1,6 @@
 ---
+import AirwayFigure from './diagrams/AirwayFigure.astro';
+import CardiogenicFigure from './diagrams/CardiogenicFigure.astro';
 import CompressionPause from './diagrams/CompressionPause.astro';
 import CompressionRelease from './diagrams/CompressionRelease.astro';
 import CoronaryCircuit from './diagrams/CoronaryCircuit.astro';
@@ -6,10 +8,16 @@ import PhysiologyFigure from './diagrams/PhysiologyFigure.astro';
 import PressureGradient from './diagrams/PressureGradient.astro';
 import PressurePairs from './diagrams/PressurePairs.astro';
 import ReversibleCauseOverlap from './diagrams/ReversibleCauseOverlap.astro';
+import RespiratoryFigure from './diagrams/RespiratoryFigure.astro';
+import SepticFigure from './diagrams/SepticFigure.astro';
 import ShockCirculationGradients from './diagrams/ShockCirculationGradients.astro';
 import ShockFluidResponse from './diagrams/ShockFluidResponse.astro';
 import ShockPressureFlow from './diagrams/ShockPressureFlow.astro';
+import { isAirwayFigureId } from '../lib/airway-figures.ts';
+import { isCardiogenicFigureId } from '../lib/cardiogenic-figures.ts';
 import { isPhysiologyFigureId } from '../lib/physiology-figures.ts';
+import { isRespiratoryFigureId } from '../lib/respiratory-figures.ts';
+import { isSepticFigureId } from '../lib/septic-figures.ts';
 import type { PlacedFigureId } from '../lib/figure-placement.ts';
 import type { DiagramEntry, DiagramField, DiagramId } from '../lib/schema.ts';
 
@@ -58,6 +66,14 @@ const Shock = isShockDiagramId(diagramId) ? shockDiagrams[diagramId] : null;
     <ReversibleCauseOverlap causeNames={causeNames} />
   ) : Shock ? (
     <Shock caption={caption} alt={alt} />
+  ) : isAirwayFigureId(diagramId) ? (
+    <AirwayFigure id={diagramId} caption={caption} alt={alt} />
+  ) : isCardiogenicFigureId(diagramId) ? (
+    <CardiogenicFigure id={diagramId} caption={caption} alt={alt} />
+  ) : isRespiratoryFigureId(diagramId) ? (
+    <RespiratoryFigure id={diagramId} caption={caption} alt={alt} />
+  ) : isSepticFigureId(diagramId) ? (
+    <SepticFigure id={diagramId} caption={caption} alt={alt} />
   ) : (
     Diagram && <Diagram />
   )
