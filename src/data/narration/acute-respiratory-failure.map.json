@@ -5,7 +5,8 @@
   "audioDir": "acute-respiratory-failure-elevenlabs",
   "manifest": "src/data/acute-respiratory-failure-elevenlabs-audio.json",
   "sections": [
-    { "key": "00-title-and-introduction", "label": "Article title and introductory summary", "narrator": "silas-mercer", "anchor": null, "intro": true, "principles": [] },
+    { "key": "00-title-and-introduction", "label": "Article title and introductory summary", "narrator": "silas-mercer", "anchor": null, "intro": true, "principles": [],
+      "spoken": [{ "paragraph": 0, "match": "\\bRespiratory\\b", "say": "Resspruhtory" }] },
     { "key": "01-same-saturation", "label": "Part I — The same saturation, three different failures", "narrator": "rosa-vega", "anchor": "principle-same-saturation",
       "principles": ["same-saturation", "defining-arf"] },
     { "key": "02-co2-out", "label": "Part II — Getting carbon dioxide out", "narrator": "amara-bennett", "anchor": "principle-co2-out",

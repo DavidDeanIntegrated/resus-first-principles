@@ -7,7 +7,7 @@ Usage (from repo root; ffmpeg and ffprobe on PATH; the key comes only from the e
   python3 scripts/narration/elevenlabs.py estimate MAP [--balance]
   python3 scripts/narration/elevenlabs.py balance  MAP
   python3 scripts/narration/elevenlabs.py sample   MAP --narrator KEY --out FILE.mp3 [--chars 450] [--balance-floor N]
-  python3 scripts/narration/elevenlabs.py generate MAP --confirm [--only KEY ...] [--balance-floor N]
+  python3 scripts/narration/elevenlabs.py generate MAP --confirm [--only KEY ...] [--balance-floor N [--floor-rate R]]
 
 check     confirms every registry voice exists and its name matches the character, that the map's
           model is available for text to speech, and reports the subscription balance.
@@ -25,14 +25,17 @@ and the request is refused if the remaining credits, less the request's full cha
 worst case of one credit per character), would fall below N. The remaining credits used are the lower
 of the account's figure and the starting balance less everything this run has sent (billed header, or
 the character count when no header comes back), so a lagging account figure cannot let a request
-through. A refused generate keeps every finished track and cached request, writes the manifest with
+through. --floor-rate R (default 1) is the credits per character that check assumes; a lower value
+(e.g. 0.44, the measured eleven_multilingual_v2 rate) turns it into an expected-cost check. Use it only
+for a single, owner-approved request whose worst case would cross the floor but whose expected cost
+would not. A refused generate keeps every finished track and cached request, writes the manifest with
 what is complete, and exits non-zero; rerunning resumes from the cache.
 
 Each request is cached by the SHA-256 of model, voice, output format and text under --cache
 (outside the repository by default), so re-running never pays twice for unchanged text.
 Voices are used with their saved settings; nothing is cloned, edited or substituted.
 """
-import argparse, hashlib, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request
+import argparse, hashlib, json, math, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from extract import ROOT, build, manifest_path, read_manifest, sha256  # noqa: E402
@@ -162,8 +165,8 @@ class FloorReached(Exception):
 class Guard:
     """Refuses any paid request that could leave fewer than `floor` credits (None: no floor)."""
 
-    def __init__(self, floor: int | None):
-        self.floor, self.start, self.spent = floor, None, 0
+    def __init__(self, floor: int | None, rate: float = 1.0):
+        self.floor, self.rate, self.start, self.spent = floor, rate, None, 0
 
     def allow(self, chars: int):
         if self.floor is None:
@@ -172,8 +175,9 @@ class Guard:
         if self.start is None:
             self.start = remaining
         remaining = min(remaining, self.start - self.spent)
-        if remaining - chars < self.floor:
-            raise FloorReached(f'refused a {chars}-character request: {remaining} remaining - {chars} '
+        cost = math.ceil(chars * self.rate)
+        if remaining - cost < self.floor:
+            raise FloorReached(f'refused a {chars}-character request: {remaining} remaining - {cost} '
                                f'< floor {self.floor}')
 
     def charge(self, billed: int | None, chars: int):
@@ -311,7 +315,7 @@ def cmd_sample(args, narration_map, plan):
         sys.exit(f'voice {args.narrator} is not accessible ({status}); not substituting')
     try:
         part, billed, hit = synthesize(narration_map['model'], voice_for(args.narrator), text, args.cache,
-                                       Guard(args.balance_floor))
+                                       Guard(args.balance_floor, args.floor_rate))
     except FloorReached as err:
         sys.exit(f'STOP {args.narrator}: {err}')
     render([part], args.out)
@@ -335,7 +339,7 @@ def cmd_generate(args, narration_map, plan):
     if uncached > status['subscription']['remaining']:
         sys.exit(f"{uncached} uncached characters exceed the {status['subscription']['remaining']} remaining")
     print(f'{uncached} uncached characters to synthesize', flush=True)
-    guard = Guard(args.balance_floor)
+    guard = Guard(args.balance_floor, args.floor_rate)
     stopped = None
     audio_dir = narration_map.get('audioDir', slug)
     out_dir = os.path.join(ROOT, 'public/audio', audio_dir)
@@ -415,6 +419,8 @@ def main():
     ap.add_argument('--only', nargs='*', help='generate: section keys to render; others keep their manifest entries')
     ap.add_argument('--balance-floor', type=int, default=None,
                     help='sample, generate: refuse any request that could leave fewer remaining credits than this')
+    ap.add_argument('--floor-rate', type=float, default=1.0,
+                    help='sample, generate: credits per character the floor check assumes (default 1, the worst case)')
     ap.add_argument('--cache', default=DEFAULT_CACHE)
     args = ap.parse_args()
     _, plan = build(args.map)
