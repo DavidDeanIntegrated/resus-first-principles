@@ -1,0 +1,79 @@
+[
+  {
+    "index": 0,
+    "heading": "Acute Cardiogenic Pulmonary Edema: Pressure Behind the Failing Left Heart",
+    "anchor": null,
+    "filename": "00-title-and-introduction.mp3",
+    "duration_seconds": 23.8
+  },
+  {
+    "index": 1,
+    "heading": "Part I. Three flooded lungs, one picture",
+    "anchor": "principle-three-flooded",
+    "filename": "01-three-flooded.mp3",
+    "duration_seconds": 396.6
+  },
+  {
+    "index": 2,
+    "heading": "Part II. Why water leaves the capillary",
+    "anchor": "principle-starling",
+    "filename": "02-starling.mp3",
+    "duration_seconds": 301.0
+  },
+  {
+    "index": 3,
+    "heading": "Part III. The pressure behind the left heart",
+    "anchor": "principle-left-pressures",
+    "filename": "03-left-pressures.mp3",
+    "duration_seconds": 354.5
+  },
+  {
+    "index": 4,
+    "heading": "Part IV. Redistribution versus accumulation",
+    "anchor": "principle-redistribution",
+    "filename": "04-redistribution.mp3",
+    "duration_seconds": 311.6
+  },
+  {
+    "index": 5,
+    "heading": "Part V. Hypoxemia, shunt and the stiff lung",
+    "anchor": "principle-gas-exchange",
+    "filename": "05-gas-exchange.mp3",
+    "duration_seconds": 232.0
+  },
+  {
+    "index": 6,
+    "heading": "Part VI. Breathing hard and positive pressure",
+    "anchor": "principle-breathing-pressure",
+    "filename": "06-breathing-pressure.mp3",
+    "duration_seconds": 544.1
+  },
+  {
+    "index": 7,
+    "heading": "Part VII. Drugs that lower the pressure",
+    "anchor": "principle-unloading",
+    "filename": "07-unloading.mp3",
+    "duration_seconds": 348.0
+  },
+  {
+    "index": 8,
+    "heading": "Part VIII. When the pump cannot keep up",
+    "anchor": "principle-shock-overlap",
+    "filename": "08-shock-overlap.mp3",
+    "duration_seconds": 151.8
+  },
+  {
+    "index": 9,
+    "heading": "Part IX. Observation and reassessment",
+    "anchor": "principle-reassessment",
+    "filename": "09-reassessment.mp3",
+    "duration_seconds": 367.0
+  },
+  {
+    "index": 10,
+    "heading": "Approach to treatment",
+    "anchor": "treatment-heading",
+    "filename": "10-approach-to-treatment.mp3",
+    "duration_seconds": 172.6
+  }
+]
