@@ -56,13 +56,13 @@ describe('septic shock chapter', () => {
   const raw = JSON.parse(rawText);
   const parsed = caseSchema.safeParse(raw);
 
-  it('is a draft chapter with its own diagram ids and no narration', () => {
+  it('is a published chapter with its own diagram ids and no narration', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
     const document = parsed.data;
     expect(document.slug).toBe('septic-shock');
     expect(document.title).toBe('Septic Shock: Vascular Tone, Blood Distribution, and Cellular Dysfunction');
-    expect(document.contentStatus).toBe('draft');
+    expect(document.contentStatus).toBe('published');
     expect(document.strict).toBe(true);
     expect(document.diagrams).toEqual([
       'r3-three-septic-circulations',
@@ -71,13 +71,15 @@ describe('septic shock chapter', () => {
       'r3-coherence',
     ]);
     expect([...declaredDiagramIds(document)]).toEqual(document.diagrams);
-    expect(chapterRobots(document.contentStatus)).toBe('noindex');
+    expect(chapterRobots(document.contentStatus)).toBeNull();
     expect(hasNarration(document.slug)).toBe(false);
     expect(rawText).not.toContain('audio');
   });
 
   it('matches the accepted draft byte for byte', () => {
-    expect(sha256(rawText)).toBe(acceptedDraftSha256);
+    // The accepted draft, with only contentStatus flipped from "draft" to "published" at Ship.
+    expect(rawText.match(/"contentStatus": "[a-z]+"/g)).toEqual(['"contentStatus": "published"']);
+    expect(sha256(rawText.replace('"contentStatus": "published"', '"contentStatus": "draft"'))).toBe(acceptedDraftSha256);
     expect(rawText).not.toMatch(/Search Bot/i);
     expect(rawText).not.toMatch(/checking process/i);
     expect(parsed.success).toBe(true);
@@ -194,32 +196,24 @@ describe('septic shock chapter', () => {
     expect((septicFigureIds as readonly string[]).includes('shock-fluid-response')).toBe(false);
   });
 
-  it('is excluded from the production build', () => {
+  it('is included in the production build', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
     const document = parsed.data;
-    const chapters = [{ slug: document.slug, contentStatus: document.contentStatus }];
-    expect(isBuiltChapter(document.contentStatus, {})).toBe(false);
-    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'production' })).toBe(false);
-    expect(isBuiltChapter(document.contentStatus, { WORKERS_CI: '1', WORKERS_CI_BRANCH: 'main' })).toBe(false);
-    expect(includeChapter(document.contentStatus, 'route', {})).toBe(false);
-    expect(includeChapter(document.contentStatus, 'index', {})).toBe(false);
-    expect(includeChapter(document.contentStatus, 'sitemap', { VERCEL_ENV: 'preview' })).toBe(false);
-    expect(chaptersForBuild(chapters, {}).map((entry) => entry.slug)).toEqual([]);
-    expect(chaptersForDiscovery(chapters)).toEqual([]);
-    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'preview' })).toBe(true);
-    expect(
-      isBuiltChapter(document.contentStatus, {
-        WORKERS_CI: '1',
-        WORKERS_CI_BRANCH: 'cursor/septic-shock-f25f',
-      }),
-    ).toBe(true);
+    const production = [{ slug: document.slug, contentStatus: document.contentStatus }];
+    expect(isBuiltChapter(document.contentStatus, {})).toBe(true);
+    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'production' })).toBe(true);
+    expect(isBuiltChapter(document.contentStatus, { WORKERS_CI: '1', WORKERS_CI_BRANCH: 'main' })).toBe(true);
+    expect(includeChapter(document.contentStatus, 'route', {})).toBe(true);
+    expect(includeChapter(document.contentStatus, 'index', {})).toBe(true);
+    expect(includeChapter(document.contentStatus, 'sitemap', { VERCEL_ENV: 'preview' })).toBe(true);
+    expect(chaptersForBuild(production, {}).map((entry) => entry.slug)).toEqual(['septic-shock']);
+    expect(chaptersForDiscovery(production).map((entry) => entry.slug)).toEqual(['septic-shock']);
 
     const page = join(repoRoot, 'dist/cases/septic-shock/index.html');
-    expect(existsSync(page)).toBe(false);
+    expect(existsSync(page)).toBe(true);
     const index = readFileSync(join(repoRoot, 'dist/index.html'), 'utf8');
-    expect(index).not.toContain('/cases/septic-shock');
-    expect(index).not.toContain('Septic Shock');
+    expect(index).toContain('/cases/septic-shock');
     expect(index).toContain('href="/cases/adult-cardiac-arrest"');
     expect(index).toContain('href="/cases/shock-pressure-flow"');
   });
