@@ -1,9 +1,32 @@
 ---
 import Base from '../layouts/Base.astro';
 import { loadCases } from '../lib/cases.ts';
+import { hasNarration } from '../lib/narration.ts';
 import { listingRobots } from '../lib/publish.ts';
+import { readingMinutes, systemLabel, systemOrder } from '../lib/reading-time.ts';
 
 const cases = await loadCases();
+
+const chapters = cases.map((entry) => ({
+  slug: entry.data.slug,
+  title: entry.data.title,
+  system: systemLabel(entry.data.slug),
+  minutes: readingMinutes(entry.data),
+  audio: hasNarration(entry.data.slug),
+}));
+
+// Group the index by system (airway, breathing, circulation, arrest); unlabeled chapters go last.
+const rank = (system: string | undefined) => {
+  const index = systemOrder.indexOf(system as (typeof systemOrder)[number]);
+  return index === -1 ? systemOrder.length : index;
+};
+const indexed = [...chapters].sort((a, b) => rank(a.system) - rank(b.system));
+
+// The first-visit path: circulation, then gas exchange, then the two meeting at intubation.
+const startSlugs = ['shock-pressure-flow', 'acute-respiratory-failure', 'physiologically-difficult-airway'];
+const startPath = startSlugs.flatMap((slug) => chapters.filter((chapter) => chapter.slug === slug));
+
+const upcoming = ['Asthma', 'Acid–Base'];
 ---
 
 <Base
@@ -12,28 +35,71 @@ const cases = await loadCases();
   ogType="website"
   noindex={listingRobots(cases.map((entry) => entry.data.contentStatus)) != null}
 >
-  <div class="page">
+  <div class="page home">
     <h1>Resus First Principles</h1>
     <p class="lede">
-      Each resuscitation case is split into pathophysiology principles, questions on those principles
-      (with the reasoning behind each answer), and a treatment approach whose steps point back at the
-      principles they depend on. Pages are generated ahead of time from committed files.
+      Resuscitation explained from the physiology up: why pressure, flow and oxygen delivery behave as
+      they do, and what that tells you at the bedside.
     </p>
-    <p>
-      Version 1 is adult cardiac arrest, written for study against the 2025 American Heart Association
-      adult guidelines. It is not a substitute for the current guideline or a local protocol.
-    </p>
-    <h2>Cases</h2>
-    <ul class="case-list">
+
+    {
+      startPath.length > 0 && (
+        <section class="start-path" aria-labelledby="start-heading">
+          <p class="kicker">New here? Start here</p>
+          <h2 id="start-heading">Three chapters, in order</h2>
+          <p class="start-note">
+            Pressure and flow first, then gas exchange, then the moment they collide at intubation.
+          </p>
+          <ol class="start-steps">
+            {startPath.map((chapter, index) => (
+              <li>
+                <a class="start-card" href={`/cases/${chapter.slug}`}>
+                  <span class="kicker">Step {index + 1}</span>
+                  <span class="start-title">{chapter.title}</span>
+                  <span class="chapter-meta">
+                    <span>{chapter.minutes} min read</span>
+                    {chapter.audio && <span class="audio-mark">Audio narration</span>}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )
+    }
+
+    <h2 id="all-chapters">All chapters</h2>
+    <ul class="chapter-index" aria-labelledby="all-chapters">
       {
-        cases.map((entry) => (
+        indexed.map((chapter) => (
           <li>
-            <a href={`/cases/${entry.data.slug}`}>{entry.data.title}</a>
-            <span class="status">{entry.data.contentStatus}</span>
-            <p>{entry.data.summary}</p>
+            <a class="chapter-row" href={`/cases/${chapter.slug}`}>
+              <span class="chapter-title">{chapter.title}</span>
+              <span class="chapter-meta">
+                {chapter.system && <span>{chapter.system}</span>}
+                <span>{chapter.minutes} min</span>
+                {chapter.audio && <span class="audio-mark">Audio</span>}
+              </span>
+            </a>
           </li>
         ))
       }
     </ul>
+
+    <h2 id="upcoming">Upcoming</h2>
+    <ul class="upcoming" aria-labelledby="upcoming">
+      {
+        upcoming.map((title) => (
+          <li>
+            <span class="upcoming-title">{title}</span>
+            <span class="upcoming-tag">Not yet published</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="home-note">
+      Study material, not a protocol. Care follows the current guideline and local protocol.
+    </p>
   </div>
 </Base>
