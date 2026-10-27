@@ -28,12 +28,12 @@ describe('physiologically difficult airway chapter', () => {
   );
   const parsed = caseSchema.safeParse(raw);
 
-  it('is a draft chapter with its own diagram ids and no narration', () => {
+  it('is a published chapter with its own diagram ids and no narration', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
     const document = parsed.data;
     expect(document.slug).toBe('physiologically-difficult-airway');
-    expect(document.contentStatus).toBe('draft');
+    expect(document.contentStatus).toBe('published');
     expect(document.strict).toBe(true);
     expect(document.diagrams).toEqual([
       'fig-r2-02-what-intubation-removes',
@@ -42,7 +42,7 @@ describe('physiologically difficult airway chapter', () => {
       'fig-r2-03-rv-spiral',
     ]);
     expect([...declaredDiagramIds(document)]).toEqual(document.diagrams);
-    expect(chapterRobots(document.contentStatus)).toBe('noindex');
+    expect(chapterRobots(document.contentStatus)).toBeNull();
     expect(hasNarration(document.slug)).toBe(false);
   });
 
@@ -123,32 +123,29 @@ describe('physiologically difficult airway chapter', () => {
     expect((airwayFigureIds as readonly string[]).includes('shock-circulation-gradients')).toBe(false);
   });
 
-  it('is excluded from the production build', () => {
+  it('is included in the production build', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
     const document = parsed.data;
-    const chapters = [{ slug: document.slug, contentStatus: document.contentStatus }];
-    expect(isBuiltChapter(document.contentStatus, {})).toBe(false);
-    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'production' })).toBe(false);
-    expect(isBuiltChapter(document.contentStatus, { WORKERS_CI: '1', WORKERS_CI_BRANCH: 'main' })).toBe(false);
-    expect(includeChapter(document.contentStatus, 'route', {})).toBe(false);
-    expect(includeChapter(document.contentStatus, 'index', {})).toBe(false);
-    expect(includeChapter(document.contentStatus, 'sitemap', { VERCEL_ENV: 'preview' })).toBe(false);
-    expect(chaptersForBuild(chapters, {}).map((entry) => entry.slug)).toEqual([]);
-    expect(chaptersForDiscovery(chapters)).toEqual([]);
-    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'preview' })).toBe(true);
-    expect(
-      isBuiltChapter(document.contentStatus, {
-        WORKERS_CI: '1',
-        WORKERS_CI_BRANCH: 'cursor/physiologically-difficult-airway-ecac',
-      }),
-    ).toBe(true);
+    const status = document.contentStatus;
+    const production = [{ slug: document.slug, contentStatus: document.contentStatus }];
+    expect(isBuiltChapter(status, {})).toBe(true);
+    expect(isBuiltChapter(status, { VERCEL_ENV: 'production' })).toBe(true);
+    expect(isBuiltChapter(status, { WORKERS_CI: '1', WORKERS_CI_BRANCH: 'main' })).toBe(true);
+    expect(includeChapter(status, 'route', {})).toBe(true);
+    expect(includeChapter(status, 'index', {})).toBe(true);
+    expect(includeChapter(status, 'sitemap', { VERCEL_ENV: 'preview' })).toBe(true);
+    expect(chaptersForBuild(production, {}).map((entry) => entry.slug)).toEqual([
+      'physiologically-difficult-airway',
+    ]);
+    expect(chaptersForDiscovery(production).map((entry) => entry.slug)).toEqual([
+      'physiologically-difficult-airway',
+    ]);
 
     const page = join(repoRoot, 'dist/cases/physiologically-difficult-airway/index.html');
-    expect(existsSync(page)).toBe(false);
+    expect(existsSync(page)).toBe(true);
     const index = readFileSync(join(repoRoot, 'dist/index.html'), 'utf8');
-    expect(index).not.toContain('/cases/physiologically-difficult-airway');
-    expect(index).not.toContain('Physiologically Difficult Airway');
+    expect(index).toContain('/cases/physiologically-difficult-airway');
     expect(index).toContain('href="/cases/adult-cardiac-arrest"');
     expect(index).toContain('href="/cases/shock-pressure-flow"');
   });
