@@ -24,19 +24,19 @@ const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const contentDirectory = join(repoRoot, 'src/content/cases');
 
 /** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
-const acceptedDraftSha256 = '1dd41f99658edbb70460017f48054231d5bae3dad06fccdc837d3958f050af8e';
+const acceptedDraftSha256 = 'fe7289bb913a666d11f74971928b39a6df463a764ec872e964140f802bd80c9d';
 
 /** sha256 of the Atelier attachments. The chapter id is the Atelier stem. */
 const attachmentSha256: Record<string, string> = {
-  'fig-r7-01-equal-pressure-point.svg': 'abc412ee899a56db12a898c32e142e0def8ec1b4626a276f1f053ed6bfcff561',
-  'fig-r7-01-equal-pressure-point-print.svg': 'e0ac0207461721e8f915b15111d60c9fc18fdd3948f8d900ef27536e964ce28b',
-  'fig-r7-01-equal-pressure-point.inline.html': '2c19d160f2398368b8c8316328f76c29ba00a2d5f4383c18d606c7183b4ed621',
-  'fig-r7-02-breath-stacking.svg': '88634c23d0805ffdb414c96e040b67d66bc3fd432fadc165b5a07b681646ca41',
-  'fig-r7-02-breath-stacking-print.svg': '61f43ed199aba0b9da26c314a7bacebbdbe09a894af1dc8e16a9eed433af0c0f',
-  'fig-r7-02-breath-stacking.inline.html': '557023fb6847711fb3bd6ef8de1f0de56c0882b4622fbdc115e55f629feeda40',
-  'fig-r7-03-more-time-to-exhale.svg': 'f19061e94d66e5eeda025d5d55e8508536b20492326b379c263027c610787a6b',
-  'fig-r7-03-more-time-to-exhale-print.svg': '035c115eab0a6f14a33f143878f5577f44cd00c531fe395f0f5ecdaf63d8ca2e',
-  'fig-r7-03-more-time-to-exhale.inline.html': '0a5da4badab3f6d7d2f5fdbbe6c6c6830459a1713b8254e43a19505bf466f14b',
+  'fig-r7-01-equal-pressure-point.svg': 'f92d9784de0d2fb102f5042e64beae7ce4183b4c20fe25d5c24b3afeccf6071c',
+  'fig-r7-01-equal-pressure-point-print.svg': '76021ae04176df9927ec83765933ad2438b1bb86158a7ec6fd286c5f1650593f',
+  'fig-r7-01-equal-pressure-point.inline.html': 'ea301d01e6afd9aa8b028496907e5b3eb46806a3e7acaf5c2dd6eeafe4a65368',
+  'fig-r7-02-breath-stacking.svg': 'eefbac9f4b967a348c3160fca454773a9bdbe3a25f1c6147cf1ebd9330ed5d3d',
+  'fig-r7-02-breath-stacking-print.svg': '76cbfeb8e5a233a6cfa2664bff7801ee3ee65d18a439e37b134164705085a864',
+  'fig-r7-02-breath-stacking.inline.html': 'c322a1ad73aa66c97ac8a89d02a412ab7126ccab7e58270d7d2487a215910884',
+  'fig-r7-03-more-time-to-exhale.svg': '021bd455dfbc703003ad583012664c51db466fccbf91545321425575bcd80361',
+  'fig-r7-03-more-time-to-exhale-print.svg': 'fe86f09f6c3b95ec993d7b4fdfd30d271002ca307403ed5a4a9a906bdb3f23f7',
+  'fig-r7-03-more-time-to-exhale.inline.html': '49e627171e2ea54ce3c6deb77f1522d1221e7ad1b25311377f92644f5a5b4c56',
 };
 
 const placements: Record<string, string> = {
