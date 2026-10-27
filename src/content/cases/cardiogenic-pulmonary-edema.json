@@ -378,7 +378,7 @@
           "kind": "prediction",
           "prompt": "Patient S's blood pressure falls from 210/120 to 150/85 over 20 minutes with no change in her body water. Predict what happens to her left atrial pressure and her oxygenation, and why.",
           "answer": "Her left atrial pressure should fall and her oxygenation should improve. Lower afterload lets her stiff ventricle eject more completely, so end-diastolic volume and pressure fall, less blood is left behind to raise atrial pressure, capillary filtration falls, and alveolar flooding begins to reverse. Her breathing can improve before any fluid has left her body, because the problem was pressure, not volume. Her new MAP is (150 + 2 x 85) / 3 = 320 / 3, about 107 mm Hg.",
-          "causalChain": "Afterload falls; stroke volume rises; end-diastolic pressure falls; left atrial and capillary pressure fall; filtration falls; alveolar fluid clears and oxygenation improves.",
+          "causalChain": "Afterload falls; stroke volume rises; end-diastolic pressure falls; left atrial and capillary pressure fall; filtration falls; alveoli can reopen and oxygenation improves; existing lung water clears more slowly.",
           "assumption": "That her coronary perfusion and heart rate allow the ventricle to respond, and that nothing else, such as acute mitral regurgitation from ischemia, has changed.",
           "misconception": "That breathing can only improve once fluid has been removed."
         },
@@ -454,7 +454,7 @@
           "kind": "prediction",
           "prompt": "Patients S and F each receive the same intravenous loop diuretic, with no other treatment. Predict whose breathing improves first, and whose urine output tells you more.",
           "answer": "Neither may improve quickly from the diuretic alone, and the reasons differ. F's urine output matters more: he holds about 6 L of excess water, and removing it treats his cause, although his breathing will improve over hours. S has gained no weight recently. She may pass urine, but removing water does not address the surge that flooded her lungs, and her breathing depends on whether her afterload and venous tone fall. If S improves within minutes, something other than diuresis, such as falling sympathetic drive or a fall in pressure, is the more likely reason.",
-          "causalChain": "F's problem is total volume, so volume removal is the cause-directed treatment and takes hours; S's immediate problem is redistribution and afterload, which volume removal does not address directly.",
+          "causalChain": "F's problem is total volume, so volume removal is the cause-directed treatment and takes hours; S's immediate problem is redistribution and afterload, which volume removal does not address directly, although decongestion can help if she also carries excess fluid.",
           "assumption": "That both patients have adequate kidney function.",
           "misconception": "That urine output is a direct measure of how quickly the lungs are clearing."
         },
@@ -527,7 +527,7 @@
           "id": "q-gas-transfer",
           "kind": "transfer",
           "prompt": "A patient with severe COPD develops cardiogenic pulmonary edema. Which signal becomes harder to interpret, and why?",
-          "answer": "PaCO2 becomes harder to read. A patient with COPD may have a chronically raised PaCO2 with metabolic compensation, so a value that would alarm in Patient S may be that patient's baseline. The change from baseline, the pH and the trend matter more than one number. Wheeze is also ambiguous, because it can come from the airway disease, from interstitial fluid around small airways, or from both. Saturation targets may also differ in chronic hypercapnia, which the respiratory failure chapter covers.",
+          "answer": "PaCO2 becomes harder to read. A patient with COPD may have a chronically raised PaCO2 with metabolic compensation, so a value that would alarm in Patient S may be that patient's baseline. The change from baseline, the pH and the trend matter more than one number. Wheeze is also ambiguous, because it can come from the airway disease, from interstitial fluid around small airways, or from both. If the patient is at risk of hypercapnic respiratory failure, the saturation target is lower while urgent blood gases are pending, as the respiratory failure chapter explains.",
           "causalChain": "COPD alters the baseline PaCO2 and pH; edema adds load and wheeze; overlapping causes make single values less informative; trends and pH separate acute change from chronic state.",
           "assumption": "That the patient's baseline blood gas is known.",
           "misconception": "That wheeze always means the problem is in the airways."
@@ -567,7 +567,7 @@
       },
       "diagram": {
         "id": "r4-pleural-pressure",
-        "caption": "Figure 4. Left ventricular transmural pressure during labored spontaneous breathing and during positive pressure, compared at the same instant, peak systole during inspiration, and at the same assumed systolic pressure. Pleural pressure falls well below atmospheric with labored breathing and is near atmospheric with positive pressure at the same point in the breath, so transmural pressure is higher with labored breathing and lower with positive pressure. Direction only; not a measure of total afterload; the only value shown is pleural pressure near zero.",
+        "caption": "Figure 4. Left ventricular transmural pressure during labored spontaneous breathing and during positive pressure, compared at the same instant, peak systole during inspiration, and at the same assumed systolic pressure. Pleural pressure falls well below atmospheric with labored breathing and is near atmospheric with positive pressure at the same point in the breath, so transmural pressure is higher with labored breathing and lower with positive pressure. Direction only; not a measure of total afterload; the pressure set on the device is not the pleural pressure; the only value shown is pleural pressure near zero.",
         "alt": "Two side-by-side drawings of a heart inside the chest, both at peak systole during inspiration and with the same systolic pressure. In the left drawing, labeled labored breathing, arrows point outward from the heart to show pleural pressure falling well below atmospheric, and a label reads higher transmural pressure. In the right drawing, labeled positive pressure, a flat baseline marked approximately zero shows pleural pressure near atmospheric at the same point in the breath, and a label reads lower transmural pressure. No other values are shown."
       }
     },
@@ -651,7 +651,7 @@
           "id": "q-s-nitrate",
           "kind": "prediction",
           "prompt": "Patient S receives a nitrate and CPAP but no diuretic. Predict her oxygenation and blood pressure at 30 minutes, and what the result says about why she flooded.",
-          "answer": "Her blood pressure should fall and her oxygenation should improve substantially within that time. Venodilation moves blood back into the venous reservoir, arterial dilation lowers afterload, and CPAP lowers venous return and left ventricular afterload while recruiting alveoli. Left atrial pressure and filtration fall. Because no water has been removed, an improvement of this size and speed supports the idea that her edema came from redistribution and afterload mismatch rather than accumulation.",
+          "answer": "Her blood pressure should fall and her oxygenation should improve substantially within that time. Venodilation moves blood back into the venous reservoir, arterial dilation lowers afterload, and CPAP lowers venous return and left ventricular afterload while recruiting alveoli. Left atrial pressure and filtration fall. Because no water has been removed, a response of this size and speed supports pressure reduction and respiratory support as effective immediate interventions; it does not establish that excess total body fluid was absent.",
           "causalChain": "Venodilation and afterload reduction lower left atrial pressure; positive pressure adds to both and recruits alveoli; filtration falls; oxygenation improves without any change in body water.",
           "assumption": "That her blood pressure falls in a controlled way and that ischemia or a new valve lesion is not driving the episode.",
           "misconception": "That improvement before diuresis means no patient needs a diuretic."
@@ -678,8 +678,8 @@
           "id": "q-diuretic-boundary",
           "kind": "evidence-boundary",
           "prompt": "A colleague says a loop diuretic should be the first drug in every case of acute pulmonary edema. What do the physiology and the evidence show?",
-          "answer": "The physiology says a diuretic acts on total body water, over hours. That treats the cause in Patient F but not the immediate problem in Patient S, whose weight is unchanged and whose lungs flooded through redistribution, or in Patient K, whose problem is forward flow. The 2026 ESC guideline calls loop diuretics the cornerstone of decongestion in decompensated heart failure, and it also says that patients with acute pulmonary edema from redistribution usually do not need high doses of diuretics and may need vasodilators. DOSE compared diuretic strategies in decompensated heart failure; it did not test a diuretic against none, and it found no difference between high-dose and low-dose regimens in its primary outcome. The evidence supports diuretics where there is fluid to remove, not as the first step for everyone.",
-          "causalChain": "Diuretics remove water; benefit depends on how much excess water there is; redistribution and pump failure are not treated by removing water; the trials compared strategies rather than testing which drug should come first.",
+          "answer": "The physiology says a diuretic acts on total body water, over hours. That treats the cause in Patient F but not the immediate problem in Patient S, whose weight is unchanged and whose lungs flooded mainly through redistribution, or in Patient K, whose problem is forward flow. Diuresis does not reverse S's sympathetic surge or repair K's infarct, though decongestion may still help either if excess filling pressure and fluid accumulation coexist. The 2026 ESC guideline calls loop diuretics the cornerstone of decongestion in decompensated heart failure, and it also says that patients with acute pulmonary edema from redistribution usually do not need high doses of diuretics and may need vasodilators. DOSE compared diuretic strategies in decompensated heart failure; it did not test a diuretic against none, and it found no difference between high-dose and low-dose regimens in its primary outcome. The evidence supports diuretics where there is fluid to remove, not as the first step for everyone.",
+          "causalChain": "Diuretics remove water; benefit depends on how much excess water there is; removing water does not reverse a surge or repair a failing pump, but can still help where excess filling pressure and fluid coexist; the trials compared strategies rather than testing which drug should come first.",
           "assumption": "That the guideline wording quoted applies to the patient being treated.",
           "misconception": "That a widely used first drug must be the right first drug for every presentation."
         }
@@ -807,7 +807,7 @@
       "parentId": "reassessment",
       "title": "What should change, and when",
       "body": [
-        "Different signals answer different questions on different timescales. Work of breathing, respiratory rate, saturation and mental state should change within minutes if left atrial pressure is falling, because filtration falls as soon as the pressure drops and collapsed alveoli can then reopen. Blood pressure responds within minutes to vasodilators and positive pressure. Urine output and weight answer the volume question over hours and days, and matter most in F. Lactate, skin temperature, capillary refill and mental state answer the flow question in K, and lactate changes more slowly than the rest.",
+        "Different signals answer different questions on different timescales, and three kinds of improvement need to be kept apart. Reduced effort comes first: positive pressure and falling filtration can let the patient breathe more comfortably within minutes, which shows in work of breathing, respiratory rate and mental state. Improved gas exchange can follow quickly too, as collapsed alveoli reopen and ventilation and perfusion are better matched, which shows in saturation; it does not mean the lung water has gone, and it is not always a sign that left atrial pressure has fallen. Reduced lung water, the clearance of fluid already in the lung, takes hours and shows in B-lines and imaging. Blood pressure responds within minutes to vasodilators and positive pressure. Urine output and weight answer the volume question over hours and days, and matter most in F. Lactate, skin temperature, capillary refill and mental state answer the flow question in K, and lactate changes more slowly than the rest.",
         "Each signal has its own failure mode. A falling saturation after starting CPAP may mean the mask is not sealing or the patient is tiring. A falling blood pressure in K may mean he depends on preload, or that something else has changed, such as worsening ischemia, right ventricular failure or a mechanical complication. A good urine output in S does not show why she got better."
       ],
       "questions": [
@@ -816,7 +816,7 @@
           "kind": "prediction",
           "prompt": "Patient S improves greatly within an hour of CPAP and a nitrate. Predict her B-lines and her weight at that time, and explain the difference from her breathing.",
           "answer": "Her weight should be unchanged, because no significant water has left her body. Her B-lines may be fewer but are likely still present, because lung water usually clears more slowly than her breathing improves. Her breathing improved first because lowering left atrial pressure reduces new filtration and lets collapsed alveoli reopen quickly, while clearing the fluid already in the lung takes longer.",
-          "causalChain": "Unloading lowers filtration within minutes; alveoli reopen and gas exchange improves; interstitial fluid clears over hours; total body water was never raised.",
+          "causalChain": "Unloading lowers filtration within minutes; alveoli reopen and gas exchange improves; interstitial fluid clears over hours; her weight did not change, so no significant water was removed in that hour.",
           "assumption": "That nothing else, such as a large diuresis, has happened in that hour.",
           "misconception": "That persistent B-lines mean the treatment has failed."
         },
@@ -836,7 +836,7 @@
       "parentId": "reassessment",
       "title": "Back to the three patients",
       "body": [
-        "Patient S flooded through redistribution and afterload mismatch. Her weight had not changed. A sympathetic surge moved blood into her chest and raised the load on a stiff ventricle, and the loop fed itself; lowering afterload and venous tone and supporting her breathing with positive pressure broke it within minutes. Patient F flooded through accumulation. Days of retained salt and water raised all his venous pressures. Positive pressure and venodilation relieved his lungs, and removing the water over hours and days treated the cause. Patient K flooded because his pump failed. His lungs needed the same relief, but every tool that lowered pressure behind his heart could lower flow out of it as well as help it, and lasting recovery of flow depended on reperfusion and urgent specialist care for the cause of his pump failure.",
+        "Patient S flooded through redistribution and afterload mismatch. Her weight had not changed. A sympathetic surge moved blood into her chest and raised the load on a stiff ventricle, and the loop fed itself; lowering afterload and venous tone and supporting her breathing with positive pressure broke it within minutes. Patient F flooded through accumulation. Days of retained salt and water raised all his venous pressures. Positive pressure and venodilation relieved his lungs, and removing the water over hours and days treated the cause. Patient K flooded because his pump failed, and the first treatment was directed at that cause: urgent reperfusion of the blocked artery and early echocardiography for a mechanical complication. His lungs needed the same relief, but every tool that lowered pressure behind his heart could lower flow out of it as well as help it, and lasting recovery of flow depended on reperfusion and urgent specialist care for the cause of his pump failure.",
         "Their lungs looked the same. The circulation behind each pair of lungs decided what to do first."
       ],
       "questions": []
@@ -885,7 +885,7 @@
     {
       "id": "unload-high",
       "title": "When pressure is high, unload first",
-      "action": "When systolic pressure is above 110 mm Hg and no nitrate caution applies, consider lowering afterload and venous tone first with a vasodilator; remove volume afterward if there is volume to remove.",
+      "action": "In hypertensive pulmonary edema where redistribution and afterload mismatch appear dominant, consider early vasodilation alongside respiratory support, provided blood pressure and contraindications permit. Treat coexisting fluid accumulation with decongestion.",
       "why": "Redistribution and afterload mismatch are reversed fastest by lowering pressure; removing water acts more slowly, and decongestion can follow if there is also excess fluid.",
       "principleIds": [
         "nitrates",
@@ -896,7 +896,7 @@
       "id": "remove-water",
       "title": "When water has accumulated, remove it over hours to days",
       "action": "When weight, edema and history show fluid accumulation, start a loop diuretic; it starts to act soon, but net decongestion takes hours to days.",
-      "why": "Diuretics act on total body water, which is the main cause in accumulation and at most part of the problem in redistribution.",
+      "why": "Diuretics act on total body water, which is the main cause in accumulation; they do not reverse a sympathetic surge, but decongestion can help when excess fluid coexists with redistribution.",
       "principleIds": [
         "diuretics",
         "accumulation"

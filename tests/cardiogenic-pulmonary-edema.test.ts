@@ -25,7 +25,7 @@ import { caseSchema, declaredDiagramIds } from '../src/lib/schema.ts';
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
 /** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
-const acceptedDraftSha256 = 'ba4d6b1247f513b057ac54460d56153898dd2ced9a458bc6b606459ae78e3b23';
+const acceptedDraftSha256 = '69609810dd820cbf31779f6c18dd5927add0658d5280fe1d084b379a69e817dd';
 
 const figureStems: Record<CardiogenicFigureId, string> = {
   'r4-three-flooded-lungs': 'fig-r4-01-three-flooded-lungs',
