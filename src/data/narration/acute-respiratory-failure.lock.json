@@ -1,0 +1,107 @@
+{
+  "case": "src/content/cases/acute-respiratory-failure.json",
+  "caseSha256": "4ed6d3060911d750de482acf28a9affffd107ec780c38b34b5380ac34c0480e7",
+  "pronunciationSha256": "fc8f824c4fde21706ecc86e8e0bc5d4ab149fd6557a5fd2c14cd9fbb89afdb3d",
+  "sections": [
+    {
+      "key": "00-title-and-introduction",
+      "narrator": "silas-mercer",
+      "anchor": null,
+      "paragraphs": 2,
+      "verbatimChars": 281,
+      "verbatimSha256": "2f5d27f136c9f9443f744837bf46b696d766770fcd6a48d5bdd66a17a7bfcc34",
+      "synthesisChars": 280,
+      "synthesisSha256": "ba82da42e70ace1d3cf8f7f6c15818773626e3af0d9e00498a1d5bdc3d12689a"
+    },
+    {
+      "key": "01-same-saturation",
+      "narrator": "rosa-vega",
+      "anchor": "principle-same-saturation",
+      "paragraphs": 11,
+      "verbatimChars": 4672,
+      "verbatimSha256": "277ef40fdfdab73ed82df17d038770cfc18fa78fc7a00ca20245b51afa937f9d",
+      "synthesisChars": 4787,
+      "synthesisSha256": "93418fa5887824528dc283fd7aaa1a922aeec540b95b49af1947fe8eab580c9e"
+    },
+    {
+      "key": "02-co2-out",
+      "narrator": "amara-bennett",
+      "anchor": "principle-co2-out",
+      "paragraphs": 17,
+      "verbatimChars": 5910,
+      "verbatimSha256": "5dc228e70f1710dd4d5562f5ceeedea5f9f3923d40fbaff7c243e3c8e34d62b4",
+      "synthesisChars": 6429,
+      "synthesisSha256": "21b27331633dcba928703cdb3a4a063564f815bff32e33cfff7d7fba0f58fd1f"
+    },
+    {
+      "key": "03-oxygen-in",
+      "narrator": "amara-bennett",
+      "anchor": "principle-oxygen-in",
+      "paragraphs": 25,
+      "verbatimChars": 11691,
+      "verbatimSha256": "535b670214c84e5d950551dcf2228685b32a5f27674c0ec4b5e85499a23af991",
+      "synthesisChars": 12929,
+      "synthesisSha256": "0a39851b6aae78dc27583391991b671a3e7da98a7528459b111c14cb100453c1"
+    },
+    {
+      "key": "04-pump",
+      "narrator": "frank-delaney",
+      "anchor": "principle-pump",
+      "paragraphs": 25,
+      "verbatimChars": 8838,
+      "verbatimSha256": "24593eb732b0e3a7a2bfda3d1e65b2a1fa6fcab773baa6303a678bd26cd05668",
+      "synthesisChars": 9006,
+      "synthesisSha256": "82b7144f0084b716a53c7701ca764e17b1ef0bc101d595d246dda62cddf29cb8"
+    },
+    {
+      "key": "05-bedside-measures",
+      "narrator": "daniel-brooks",
+      "anchor": "principle-bedside-measures",
+      "paragraphs": 14,
+      "verbatimChars": 6814,
+      "verbatimSha256": "93e30a5a99d3e9982bc5febb27c91e19590fbee900bf14b7172dc6ef3493310a",
+      "synthesisChars": 7181,
+      "synthesisSha256": "56a4b70db8a0b256a62e6ebd9d3fb149b7a4338f3d4260f9e2f5ee4db1f12259"
+    },
+    {
+      "key": "06-support",
+      "narrator": "rebecca-sterling",
+      "anchor": "principle-support",
+      "paragraphs": 20,
+      "verbatimChars": 9984,
+      "verbatimSha256": "040345225d716f62b02bb05caeabd5b7c00b7cc92392841e0a3d4cd5d1bb1c97",
+      "synthesisChars": 10012,
+      "synthesisSha256": "89cd390d4aa5a1e0762da886c5700082219a8320e15f3a130993509f9cd5a786"
+    },
+    {
+      "key": "07-reassessment",
+      "narrator": "rebecca-sterling",
+      "anchor": "principle-reassessment",
+      "paragraphs": 10,
+      "verbatimChars": 3557,
+      "verbatimSha256": "f7e759b9820e5f7fee86c041b3671885f6fce330c661dc897c0a484960d9abbb",
+      "synthesisChars": 3686,
+      "synthesisSha256": "da085ce6742ceb0d47f2c869588ba263c195698d69879a20a71b31dab70a6a27"
+    },
+    {
+      "key": "08-synthesis",
+      "narrator": "silas-mercer",
+      "anchor": "principle-synthesis",
+      "paragraphs": 2,
+      "verbatimChars": 790,
+      "verbatimSha256": "24b90a923de8bfa29f82ab8cccaf0d82489f710f257c43061ea73fa6008f1a09",
+      "synthesisChars": 794,
+      "synthesisSha256": "7fdc245166da3efd9701c9006174cadae8d273b0061aa71883bdce5e0b86af5d"
+    },
+    {
+      "key": "09-approach-to-treatment",
+      "narrator": "rebecca-sterling",
+      "anchor": "treatment-heading",
+      "paragraphs": 6,
+      "verbatimChars": 1876,
+      "verbatimSha256": "6e53cd475c3ec6c2e169dfad3cbb5e27394876a84a072bbca52eb608a79fb973",
+      "synthesisChars": 1884,
+      "synthesisSha256": "504376087df5458de161e8c415ee90c40bff0eaa62b34e15aba5d915a41d23ce"
+    }
+  ]
+}

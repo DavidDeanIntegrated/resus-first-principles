@@ -1,0 +1,117 @@
+{
+  "case": "src/content/cases/septic-shock.json",
+  "caseSha256": "27f3af49551857f8b432dff4fd3b49b84877d151d6781ca963c8ee86758b397d",
+  "pronunciationSha256": "fc8f824c4fde21706ecc86e8e0bc5d4ab149fd6557a5fd2c14cd9fbb89afdb3d",
+  "sections": [
+    {
+      "key": "00-title-and-introduction",
+      "narrator": "silas-mercer",
+      "anchor": null,
+      "paragraphs": 2,
+      "verbatimChars": 330,
+      "verbatimSha256": "d2f9987b284299a5905370a5c0fd78778a4bf7af806189dd6e39225e73833103",
+      "synthesisChars": 329,
+      "synthesisSha256": "e6e513d0fe305e76e32e57b1845d6e966d4154435b9b691ee8dce512cecb0614"
+    },
+    {
+      "key": "01-three-septic",
+      "narrator": "mags-callahan",
+      "anchor": "principle-three-septic",
+      "paragraphs": 15,
+      "verbatimChars": 6986,
+      "verbatimSha256": "26cb086f3888b84c7432192e9b6ace3a852d6a28fb6d43eb050431a2515f99f3",
+      "synthesisChars": 7394,
+      "synthesisSha256": "ec083f8cfd1d34b403a4b6f2ff72482391b886ad8d39b4bc31750128b6b4e9ae"
+    },
+    {
+      "key": "02-vascular-tone",
+      "narrator": "elias-voss",
+      "anchor": "principle-vascular-tone",
+      "paragraphs": 16,
+      "verbatimChars": 5072,
+      "verbatimSha256": "10553b25ebbd06281bef776eac8b68708dba41bee15c06a1c2452e69dda30bea",
+      "synthesisChars": 5268,
+      "synthesisSha256": "0ad0ecc7ed5b1aef420b895e8a29348e050beafd0043ff3e89722d0493997afe"
+    },
+    {
+      "key": "03-venous-capacitance",
+      "narrator": "elias-voss",
+      "anchor": "principle-venous-capacitance",
+      "paragraphs": 9,
+      "verbatimChars": 2726,
+      "verbatimSha256": "bacd6d2b8a27dc2a9f09258abc439e287555b0cf0ffba6cc3850e680573ff5fd",
+      "synthesisChars": 2717,
+      "synthesisSha256": "30f416d0ac7ac5bd1f4cc2e4298f6245cd1d0e4d718d8e743982552159bf2a09"
+    },
+    {
+      "key": "04-permeability",
+      "narrator": "amara-bennett",
+      "anchor": "principle-permeability",
+      "paragraphs": 16,
+      "verbatimChars": 6611,
+      "verbatimSha256": "73df86eea53962ff42a85c697f5720e606b7f745c83eb1111099f3fc11b51f30",
+      "synthesisChars": 6705,
+      "synthesisSha256": "b2405ff3e899a2d5d53b12c3cb7afbccabca9d800182eddf86147c63deaeefb0"
+    },
+    {
+      "key": "05-micro-cellular",
+      "narrator": "amara-bennett",
+      "anchor": "principle-micro-cellular",
+      "paragraphs": 14,
+      "verbatimChars": 4832,
+      "verbatimSha256": "4402880a274ce7dbc0638c6c3208cbe9596f2cc5c62d3da814bdd580a2e8b315",
+      "synthesisChars": 4902,
+      "synthesisSha256": "49bfdb8f42470fe2d026905e3d1c1c04a2d66caf0bc15399a34a93e8aa76368a"
+    },
+    {
+      "key": "06-septic-heart",
+      "narrator": "elias-voss",
+      "anchor": "principle-septic-heart",
+      "paragraphs": 17,
+      "verbatimChars": 5586,
+      "verbatimSha256": "0a5cda25787e208567c9641e255e8ef9c97e2f5f401fe98cf2acbacf89f4f522",
+      "synthesisChars": 5872,
+      "synthesisSha256": "e97858a5dbed2e26ee708a5564b9644294d1690ea5cc0f761ab105ff48d2359b"
+    },
+    {
+      "key": "07-source-control",
+      "narrator": "rebecca-sterling",
+      "anchor": "principle-source-control",
+      "paragraphs": 8,
+      "verbatimChars": 3133,
+      "verbatimSha256": "609108e23c13fb9e7527d6961450303ea8c501b3ac183a79a03fd157bfc720ef",
+      "synthesisChars": 3128,
+      "synthesisSha256": "9bad558be58286926bb4fad793c554907d3b09a4029e013a26368bf125ec0800"
+    },
+    {
+      "key": "08-support-limits",
+      "narrator": "rebecca-sterling",
+      "anchor": "principle-support-limits",
+      "paragraphs": 17,
+      "verbatimChars": 6902,
+      "verbatimSha256": "a29285cb1098475a96896acd681e77782246245d4d3ce4f8100bc16c19e639ae",
+      "synthesisChars": 6919,
+      "synthesisSha256": "87dbb2e015758267fe8396f3a41521045d2c7bf3d2ec1a364992ae970fafc88b"
+    },
+    {
+      "key": "09-synthesis",
+      "narrator": "silas-mercer",
+      "anchor": "principle-synthesis",
+      "paragraphs": 2,
+      "verbatimChars": 725,
+      "verbatimSha256": "c5a1753d29700f114ab2244e0a64bc1de89b48097b5d2ddae017ff3fc348a069",
+      "synthesisChars": 724,
+      "synthesisSha256": "a72ff6afdd72cb8c5f1b609622180a9840d8238b0ffb89063cbc792c5d6b6201"
+    },
+    {
+      "key": "10-approach-to-treatment",
+      "narrator": "rebecca-sterling",
+      "anchor": "treatment-heading",
+      "paragraphs": 7,
+      "verbatimChars": 2169,
+      "verbatimSha256": "a1998f64f2873ebc96743cce6b80db1c2400b7026cf4e104c2e47b8964c7858b",
+      "synthesisChars": 2158,
+      "synthesisSha256": "a894d9f682d5f9c57f186353c5e7d054fd7b720ae51967a4aed70533976ae720"
+    }
+  ]
+}

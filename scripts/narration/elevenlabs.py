@@ -5,26 +5,40 @@ Usage (from repo root; ffmpeg and ffprobe on PATH; the key comes only from the e
   export ELEVENLABS_API_KEY=...            # never pass it as an argument or write it to a file
   python3 scripts/narration/elevenlabs.py check    MAP [--json OUT]
   python3 scripts/narration/elevenlabs.py estimate MAP [--balance]
-  python3 scripts/narration/elevenlabs.py sample   MAP --narrator KEY --out FILE.mp3 [--chars 450]
-  python3 scripts/narration/elevenlabs.py generate MAP --confirm [--only KEY ...]
+  python3 scripts/narration/elevenlabs.py balance  MAP
+  python3 scripts/narration/elevenlabs.py sample   MAP --narrator KEY --out FILE.mp3 [--chars 450] [--balance-floor N]
+  python3 scripts/narration/elevenlabs.py generate MAP --confirm [--only KEY ...] [--balance-floor N [--floor-rate R]]
 
 check     confirms every registry voice exists and its name matches the character, that the map's
           model is available for text to speech, and reports the subscription balance.
 estimate  counts synthesis characters and requests for the whole chapter (no paid calls).
+balance   prints the subscription balance as JSON (character_count, character_limit, remaining).
 sample    synthesizes the first sentences of the narrator's first section, up to --chars.
 generate  synthesizes every section (or --only), writes public/audio/<audioDir>/<key>.mp3 and the
-          track manifest src/data/<case>-audio.json. Failed requests are retried; finished ones stay
-          cached, so a rerun pays only for what failed. It refuses to run without --confirm and stops before spending if a
+          track manifest named by the map's "manifest" (default src/data/<case>-audio.json). An existing
+          manifest may be the structured object or an older plain array of tracks. Failed requests are
+          retried; finished ones stay cached, so a rerun pays only for what failed. It refuses to run without --confirm and stops before spending if a
           voice fails the check or the balance does not cover the uncached characters.
+
+--balance-floor N is a hard spending floor. Before every uncached request the balance is read again,
+and the request is refused if the remaining credits, less the request's full character count (the
+worst case of one credit per character), would fall below N. The remaining credits used are the lower
+of the account's figure and the starting balance less everything this run has sent (billed header, or
+the character count when no header comes back), so a lagging account figure cannot let a request
+through. --floor-rate R (default 1) is the credits per character that check assumes; a lower value
+(e.g. 0.44, the measured eleven_multilingual_v2 rate) turns it into an expected-cost check. Use it only
+for a single, owner-approved request whose worst case would cross the floor but whose expected cost
+would not. A refused generate keeps every finished track and cached request, writes the manifest with
+what is complete, and exits non-zero; rerunning resumes from the cache.
 
 Each request is cached by the SHA-256 of model, voice, output format and text under --cache
 (outside the repository by default), so re-running never pays twice for unchanged text.
 Voices are used with their saved settings; nothing is cloned, edited or substituted.
 """
-import argparse, hashlib, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request
+import argparse, hashlib, json, math, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from extract import ROOT, build, sha256  # noqa: E402
+from extract import ROOT, build, manifest_path, read_manifest, sha256  # noqa: E402
 
 API = 'https://api.elevenlabs.io'
 REGISTRY = os.path.join(ROOT, 'src/data/narration/elevenlabs-voices.json')
@@ -144,15 +158,50 @@ def cache_key(model_id: str, voice_id: str, text: str) -> str:
     return hashlib.sha256(json.dumps([model_id, voice_id, OUTPUT_FORMAT, 'saved-settings', text]).encode()).hexdigest()
 
 
-def synthesize(model_id: str, voice_id: str, text: str, cache_dir: str) -> tuple[str, int | None, bool]:
+class FloorReached(Exception):
+    """A paid request was refused because it could take the balance below --balance-floor."""
+
+
+class Guard:
+    """Refuses any paid request that could leave fewer than `floor` credits (None: no floor)."""
+
+    def __init__(self, floor: int | None, rate: float = 1.0):
+        self.floor, self.rate, self.start, self.spent = floor, rate, None, 0
+
+    def allow(self, chars: int):
+        if self.floor is None:
+            return
+        remaining = subscription()['remaining']
+        if self.start is None:
+            self.start = remaining
+        remaining = min(remaining, self.start - self.spent)
+        cost = math.ceil(chars * self.rate)
+        if remaining - cost < self.floor:
+            raise FloorReached(f'refused a {chars}-character request: {remaining} remaining - {cost} '
+                               f'< floor {self.floor}')
+
+    def charge(self, billed: int | None, chars: int):
+        self.spent += billed if billed is not None else chars
+
+
+def synthesize(model_id: str, voice_id: str, text: str, cache_dir: str,
+               guard: Guard | None = None) -> tuple[str, int | None, bool]:
     """Path to the cached MP3 for text, the billed character count, and whether it was a cache hit."""
     os.makedirs(cache_dir, exist_ok=True)
     path = os.path.join(cache_dir, cache_key(model_id, voice_id, text) + '.mp3')
     if os.path.exists(path) and os.path.getsize(path) > 0:
         return path, None, True
+    if guard:
+        guard.allow(len(text))
     for attempt in range(1, RETRIES + 1):
+        if guard and attempt > 1:
+            guard.allow(len(text))  # a failed attempt may still have been billed
         status, headers, raw = request('POST', f'/v1/text-to-speech/{voice_id}?output_format={OUTPUT_FORMAT}',
                                        dict(text=text, model_id=model_id))
+        if guard:
+            billed = headers.get('x-character-count') or headers.get('character-cost')
+            # Count a failed attempt at full length: it may have been billed without saying so.
+            guard.charge(int(billed) if status == 200 and billed else None, len(text))
         if status == 200 and raw.startswith((b'ID3', b'\xff\xfb', b'\xff\xf3', b'\xff\xf2')):
             break
         # Only rate limits, server errors and network failures are worth retrying.
@@ -238,6 +287,11 @@ def cmd_estimate(args, narration_map, plan):
               f"{'covers' if sub['remaining'] >= total else 'DOES NOT cover'} {total}")
 
 
+def cmd_balance(args, narration_map, plan):
+    sub = subscription()
+    print(json.dumps({k: sub[k] for k in ('character_count', 'character_limit', 'remaining')}))
+
+
 def voice_for(narrator: str) -> str:
     return json.load(open(REGISTRY))['voices'][narrator]['voiceId']
 
@@ -259,7 +313,11 @@ def cmd_sample(args, narration_map, plan):
     status, body = get_json(f'/v1/voices/{voice_for(args.narrator)}')
     if status != 200:
         sys.exit(f'voice {args.narrator} is not accessible ({status}); not substituting')
-    part, billed, hit = synthesize(narration_map['model'], voice_for(args.narrator), text, args.cache)
+    try:
+        part, billed, hit = synthesize(narration_map['model'], voice_for(args.narrator), text, args.cache,
+                                       Guard(args.balance_floor, args.floor_rate))
+    except FloorReached as err:
+        sys.exit(f'STOP {args.narrator}: {err}')
     render([part], args.out)
     print(json.dumps(dict(narrator=args.narrator, section=section['key'], chars=len(text), billed=billed,
                           cached=hit, seconds=round(duration(args.out), 1), out=args.out, text=text)))
@@ -281,18 +339,22 @@ def cmd_generate(args, narration_map, plan):
     if uncached > status['subscription']['remaining']:
         sys.exit(f"{uncached} uncached characters exceed the {status['subscription']['remaining']} remaining")
     print(f'{uncached} uncached characters to synthesize', flush=True)
+    guard = Guard(args.balance_floor, args.floor_rate)
+    stopped = None
     audio_dir = narration_map.get('audioDir', slug)
     out_dir = os.path.join(ROOT, 'public/audio', audio_dir)
-    manifest_path = os.path.join(ROOT, 'src/data', f'{slug}-audio.json')
-    old = json.load(open(manifest_path))['tracks'] if os.path.exists(manifest_path) else []
-    old = {t['filename']: t for t in old}
+    out_manifest = manifest_path(narration_map)
+    # Either manifest format can be read; only tracks already in this audio folder are kept, so an
+    # older plain-array (Kokoro) manifest never lends its tracks to the new narration.
+    previous = read_manifest(out_manifest, slug) if os.path.exists(out_manifest) else dict(dir=audio_dir, tracks=[])
+    old = {t['filename']: t for t in previous['tracks']} if previous['dir'] == audio_dir else {}
     registry = json.load(open(REGISTRY))['voices']
     hashes = {s['key']: s for s in lock['sections']}
     before = status['subscription']['character_count']
     tracks, failed, billed_total = [], [], 0
     for i, (s, req) in enumerate(zip(plan, plan_requests(plan))):
         filename = f"{s['key']}.mp3"
-        if req not in todo or s['narrator'] in blocked:
+        if req not in todo or s['narrator'] in blocked or stopped:
             if s['narrator'] in blocked:
                 print(f"HOLD {s['key']}: voice {s['narrator']} failed the check; not substituting", flush=True)
             if filename in old:
@@ -301,9 +363,16 @@ def cmd_generate(args, narration_map, plan):
         parts = []
         try:
             for text in req['requests']:
-                part, billed, _ = synthesize(model_id, voice_for(s['narrator']), text, args.cache)
+                part, billed, _ = synthesize(model_id, voice_for(s['narrator']), text, args.cache, guard)
                 billed_total += billed or 0
                 parts.append(part)
+        except FloorReached as err:
+            # Spend nothing more; finished tracks and cached requests are kept for a later run.
+            print(f"STOP {s['key']}: {err}", flush=True)
+            stopped = s['key']
+            if filename in old:
+                tracks.append(old[filename])
+            continue
         except RuntimeError as err:
             # Finished requests stay cached, so a rerun pays only for what failed.
             print(f"FAIL {s['key']}: {err}", flush=True)
@@ -328,16 +397,18 @@ def cmd_generate(args, narration_map, plan):
         'pronunciationSha256': lock['pronunciationSha256'], 'dir': audio_dir, 'model_id': model_id,
         'tracks': tracks,
     }
-    open(manifest_path, 'w').write(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n')
+    open(out_manifest, 'w').write(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n')
     print(f"billed {billed_total} characters by response header; subscription character_count "
           f"{before} -> {subscription()['character_count']} (the account count can lag by a minute)")
+    if stopped:
+        sys.exit(f'stopped at {stopped} by --balance-floor {args.balance_floor}; finished tracks kept (rerun resumes)')
     if blocked or failed:
         sys.exit(f'held sections for voices {sorted(blocked)}; failed sections {failed} (rerun to retry)')
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('command', choices=['check', 'estimate', 'sample', 'generate'])
+    ap.add_argument('command', choices=['check', 'estimate', 'balance', 'sample', 'generate'])
     ap.add_argument('map')
     ap.add_argument('--json', help='check: write the full result here')
     ap.add_argument('--balance', action='store_true', help='estimate: compare with the subscription balance')
@@ -346,11 +417,15 @@ def main():
     ap.add_argument('--out', help='sample: output MP3')
     ap.add_argument('--confirm', action='store_true', help='generate: spend credits on the whole chapter')
     ap.add_argument('--only', nargs='*', help='generate: section keys to render; others keep their manifest entries')
+    ap.add_argument('--balance-floor', type=int, default=None,
+                    help='sample, generate: refuse any request that could leave fewer remaining credits than this')
+    ap.add_argument('--floor-rate', type=float, default=1.0,
+                    help='sample, generate: credits per character the floor check assumes (default 1, the worst case)')
     ap.add_argument('--cache', default=DEFAULT_CACHE)
     args = ap.parse_args()
     _, plan = build(args.map)
     narration_map = json.load(open(args.map))
-    dict(check=cmd_check, estimate=cmd_estimate, sample=cmd_sample, generate=cmd_generate)[args.command](
+    dict(check=cmd_check, estimate=cmd_estimate, balance=cmd_balance, sample=cmd_sample, generate=cmd_generate)[args.command](
         args, narration_map, plan)
 
 

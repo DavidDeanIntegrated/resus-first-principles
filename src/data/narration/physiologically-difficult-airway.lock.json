@@ -1,7 +1,7 @@
 {
   "case": "src/content/cases/physiologically-difficult-airway.json",
   "caseSha256": "3eac626736956e8883b62bee958c13e189095ecd18c758efe6d7ea9e2b4bbaa2",
-  "pronunciationSha256": "c0280cb0d20fe6921ef71f095e9893c34e69d5993f995ce9acd761389c25e407",
+  "pronunciationSha256": "fc8f824c4fde21706ecc86e8e0bc5d4ab149fd6557a5fd2c14cd9fbb89afdb3d",
   "sections": [
     {
       "key": "00-title-and-introduction",

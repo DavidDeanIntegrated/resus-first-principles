@@ -1,0 +1,29 @@
+{
+  "$comment": "Narrator assignments for the Septic Shock chapter (three-chapter multi-voice directive). Narrators change only at these section boundaries. Every principle in the chapter must appear in exactly one section, in document order. Synthesis is nested in Part VIII and is split out at its existing subsection boundary. Audio is generated into its own folder and manifest so the Kokoro recording stays live until every track is complete.",
+  "case": "src/content/cases/septic-shock.json",
+  "model": "eleven_multilingual_v2",
+  "audioDir": "septic-shock-elevenlabs",
+  "manifest": "src/data/septic-shock-elevenlabs-audio.json",
+  "sections": [
+    { "key": "00-title-and-introduction", "label": "Article title and introductory summary", "narrator": "silas-mercer", "anchor": null, "intro": true, "principles": [] },
+    { "key": "01-three-septic", "label": "Part I — Three septic patients, one label", "narrator": "mags-callahan", "anchor": "principle-three-septic",
+      "principles": ["three-septic", "sepsis-defining", "three-profiles", "four-levels"] },
+    { "key": "02-vascular-tone", "label": "Part II — Lost arterial tone", "narrator": "elias-voss", "anchor": "principle-vascular-tone",
+      "principles": ["vascular-tone", "tone-mechanisms", "tone-numbers", "tone-pressor-response"] },
+    { "key": "03-venous-capacitance", "label": "Part III — The veins: capacitance and stressed volume", "narrator": "elias-voss", "anchor": "principle-venous-capacitance",
+      "principles": ["venous-capacitance", "capacitance-shift", "venoconstriction"] },
+    { "key": "04-permeability", "label": "Part IV — The leaking capillary and where fluid goes", "narrator": "amara-bennett", "anchor": "principle-permeability",
+      "principles": ["permeability", "glycocalyx-starling", "where-fluid-goes", "fluid-evidence"] },
+    { "key": "05-micro-cellular", "label": "Part V — Heterogeneous flow and cellular dysfunction", "narrator": "amara-bennett", "anchor": "principle-micro-cellular",
+      "principles": ["micro-cellular", "micro-flow", "cellular-oxygen-use", "lactate-in-sepsis", "perfusion-targets"] },
+    { "key": "06-septic-heart", "label": "Part VI — The septic heart", "narrator": "elias-voss", "anchor": "principle-septic-heart",
+      "principles": ["septic-heart", "cardiomyopathy", "c-numbers", "afterload-cost"] },
+    { "key": "07-source-control", "label": "Part VII — Treating the cause: source and time", "narrator": "rebecca-sterling", "anchor": "principle-source-control",
+      "principles": ["source-control", "antimicrobial-timing", "source-control-principle"] },
+    { "key": "08-support-limits", "label": "Part VIII — Support, its limits, and reassessment", "narrator": "rebecca-sterling", "anchor": "principle-support-limits",
+      "principles": ["support-limits", "pressure-targets", "adjuncts", "reassess-three-questions", "final-return"] },
+    { "key": "09-synthesis", "label": "Final synthesis", "narrator": "silas-mercer", "anchor": "principle-synthesis",
+      "principles": ["synthesis"] },
+    { "key": "10-approach-to-treatment", "label": "Approach to treatment", "narrator": "rebecca-sterling", "anchor": "treatment-heading", "treatment": true, "principles": [] }
+  ]
+}

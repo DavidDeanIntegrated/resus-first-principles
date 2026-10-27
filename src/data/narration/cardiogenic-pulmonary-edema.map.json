@@ -1,0 +1,32 @@
+{
+  "$comment": "Narrator assignments for the Acute Cardiogenic Pulmonary Edema chapter (three-chapter multi-voice directive). Narrators change only at these section boundaries. Every principle in the chapter must appear in exactly one section, in document order. Synthesis is nested in Part IX and is split out at its existing subsection boundary. Audio is generated into its own folder and manifest so the Kokoro recording stays live until every track is complete.",
+  "case": "src/content/cases/cardiogenic-pulmonary-edema.json",
+  "model": "eleven_multilingual_v2",
+  "audioDir": "cardiogenic-pulmonary-edema-elevenlabs",
+  "manifest": "src/data/cardiogenic-pulmonary-edema-elevenlabs-audio.json",
+  "sections": [
+    { "key": "00-title-and-introduction", "label": "Article title and introductory summary", "narrator": "silas-mercer", "anchor": null, "intro": true, "principles": [],
+      "spoken": [{ "paragraph": 0, "match": "\\bPulmonary Edema\\b", "say": "pulmonary edema" }] },
+    { "key": "01-three-flooded", "label": "Part I — Three flooded lungs, one picture", "narrator": "mags-callahan", "anchor": "principle-three-flooded",
+      "principles": ["three-flooded", "defining-acpe", "three-profiles", "not-every-patient"] },
+    { "key": "02-starling", "label": "Part II — Why water leaves the capillary", "narrator": "amara-bennett", "anchor": "principle-starling",
+      "principles": ["starling", "starling-forces", "lymphatic-reserve", "interstitial-to-alveolar", "permeability-contrast"] },
+    { "key": "03-left-pressures", "label": "Part III — The pressure behind the left heart", "narrator": "elias-voss", "anchor": "principle-left-pressures",
+      "principles": ["left-pressures", "lap-pcap", "diastolic-stiffness", "forward-failure"] },
+    { "key": "04-redistribution", "label": "Part IV — Redistribution versus accumulation", "narrator": "elias-voss", "anchor": "principle-redistribution",
+      "principles": ["redistribution", "venous-redistribution", "scape", "accumulation", "mixed-reality"] },
+    { "key": "05-gas-exchange", "label": "Part V — Hypoxemia, shunt and the stiff lung", "narrator": "amara-bennett", "anchor": "principle-gas-exchange",
+      "principles": ["gas-exchange", "edema-shunt", "compliance-loss", "co2-in-edema"] },
+    { "key": "06-breathing-pressure", "label": "Part VI — Breathing hard and positive pressure", "narrator": "rebecca-sterling", "anchor": "principle-breathing-pressure",
+      "principles": ["breathing-pressure", "work-of-breathing", "ppv-effects", "cpap-niv", "when-to-intubate"] },
+    { "key": "07-unloading", "label": "Part VII — Drugs that lower the pressure", "narrator": "rebecca-sterling", "anchor": "principle-unloading",
+      "principles": ["unloading", "nitrates", "diuretics", "what-not-to-give", "hypotension-limit"] },
+    { "key": "08-shock-overlap", "label": "Part VIII — When the pump cannot keep up", "narrator": "elias-voss", "anchor": "principle-shock-overlap",
+      "principles": ["shock-overlap", "edema-vs-shock", "k-reasoning"] },
+    { "key": "09-reassessment", "label": "Part IX — Observation and reassessment", "narrator": "mags-callahan", "anchor": "principle-reassessment",
+      "principles": ["reassessment", "b-lines", "ivc-limits", "reassess-signals", "final-return"] },
+    { "key": "10-synthesis", "label": "Final synthesis", "narrator": "silas-mercer", "anchor": "principle-synthesis",
+      "principles": ["synthesis"] },
+    { "key": "11-approach-to-treatment", "label": "Approach to treatment", "narrator": "rebecca-sterling", "anchor": "treatment-heading", "treatment": true, "principles": [] }
+  ]
+}

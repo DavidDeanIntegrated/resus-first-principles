@@ -9,6 +9,8 @@ The verbatim text is the published prose: titles, body paragraphs and worked exa
 title and summary, and the treatment steps. Questions, tables, figures and reference lists are
 not read. Markdown links keep their text and bold markers are dropped; nothing else changes.
 The pronunciation dictionary is applied only to the synthesis text, never to the verbatim text.
+A map section may also list "spoken" overrides ({paragraph, match, say}) that change only the
+synthesis text of one of its own paragraphs, for a fix that must not apply anywhere else.
 
 The lock file (<map>.lock.json, committed) records the case file hash and a hash of each
 section's verbatim and synthesis text, so a later run can prove it read the published version.
@@ -93,8 +95,16 @@ def build(map_path: str) -> tuple[dict, list[dict]]:
         sys.exit(f"{narration_map['case']} is not published (contentStatus={case.get('contentStatus')!r})")
     rules = load_rules()
     plan = sections(narration_map, case)
+    overrides = {s['key']: s.get('spoken', []) for s in narration_map['sections']}
     for s in plan:
         s['synthesis'] = [speak(p, rules) for p in s['verbatim']]
+        for o in overrides[s['key']]:
+            # A section's own spoken override, for one paragraph only (e.g. a title respelling).
+            i = o['paragraph']
+            said, n = re.subn(o['match'], o['say'], s['synthesis'][i])
+            if not n:
+                sys.exit(f"spoken override {o['match']!r} matched nothing in {s['key']} paragraph {i}")
+            s['synthesis'][i] = said
     lock = dict(
         case=narration_map['case'],
         caseSha256=sha256(case_bytes),
@@ -111,6 +121,24 @@ def build(map_path: str) -> tuple[dict, list[dict]]:
 
 def lock_path(map_path: str) -> str:
     return re.sub(r'\.map\.json$', '', map_path) + '.lock.json'
+
+
+def manifest_path(narration_map: dict) -> str:
+    """The map's own track manifest, or src/data/<case>-audio.json when it names none."""
+    slug = os.path.splitext(os.path.basename(narration_map['case']))[0]
+    return os.path.join(ROOT, narration_map.get('manifest') or f'src/data/{slug}-audio.json')
+
+
+def read_manifest(path: str, slug: str) -> dict:
+    """A track manifest in either format: the structured object (dir, tracks, hashes) written by
+    elevenlabs.py, or the older plain array of tracks written by case-narration.py, whose audio
+    lives in public/audio/<slug>/. Returns an object with at least dir and tracks."""
+    data = json.load(open(path))
+    if isinstance(data, list):
+        return dict(dir=slug, tracks=data)
+    if not isinstance(data, dict) or not isinstance(data.get('tracks'), list):
+        sys.exit(f'{path} is neither a track array nor an object with a tracks array')
+    return dict(data, dir=data.get('dir') or slug)
 
 
 def main():

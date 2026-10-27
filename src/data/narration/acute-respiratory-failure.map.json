@@ -1,0 +1,27 @@
+{
+  "$comment": "Narrator assignments for the Acute Respiratory Failure chapter (three-chapter multi-voice directive). Narrators change only at these section boundaries. Every principle in the chapter must appear in exactly one section, in document order. Synthesis is nested in Part VII and is split out at its existing subsection boundary. Audio is generated into its own folder and manifest so the Kokoro recording stays live until every track is complete.",
+  "case": "src/content/cases/acute-respiratory-failure.json",
+  "model": "eleven_multilingual_v2",
+  "audioDir": "acute-respiratory-failure-elevenlabs",
+  "manifest": "src/data/acute-respiratory-failure-elevenlabs-audio.json",
+  "sections": [
+    { "key": "00-title-and-introduction", "label": "Article title and introductory summary", "narrator": "silas-mercer", "anchor": null, "intro": true, "principles": [] },
+    { "key": "01-same-saturation", "label": "Part I — The same saturation, three different failures", "narrator": "rosa-vega", "anchor": "principle-same-saturation",
+      "principles": ["same-saturation", "defining-arf"] },
+    { "key": "02-co2-out", "label": "Part II — Getting carbon dioxide out", "narrator": "amara-bennett", "anchor": "principle-co2-out",
+      "principles": ["co2-out", "alveolar-ventilation", "dead-space"] },
+    { "key": "03-oxygen-in", "label": "Part III — Getting oxygen in: the five mechanisms of hypoxemia", "narrator": "amara-bennett", "anchor": "principle-oxygen-in",
+      "principles": ["oxygen-in", "alveolar-gas", "vq-shunt", "other-mechanisms"] },
+    { "key": "04-pump", "label": "Part IV — The pump: mechanics, work of breathing, and fatigue", "narrator": "frank-delaney", "anchor": "principle-pump",
+      "principles": ["pump", "mechanics", "hyperinflation", "load-capacity", "neuromuscular-vignette"] },
+    { "key": "05-bedside-measures", "label": "Part V — What bedside measurements can and cannot tell you", "narrator": "daniel-brooks", "anchor": "principle-bedside-measures",
+      "principles": ["bedside-measures", "pulse-oximetry", "blood-gas-capnography", "indices"] },
+    { "key": "06-support", "label": "Part VI — Support matched to the mechanism", "narrator": "rebecca-sterling", "anchor": "principle-support",
+      "principles": ["support", "oxygen-therapy", "hfnc", "niv", "intubation-decision"] },
+    { "key": "07-reassessment", "label": "Part VII — Reassessment and synthesis", "narrator": "rebecca-sterling", "anchor": "principle-reassessment",
+      "principles": ["reassessment", "reassess-signals", "final-return"] },
+    { "key": "08-synthesis", "label": "Final synthesis", "narrator": "silas-mercer", "anchor": "principle-synthesis",
+      "principles": ["synthesis"] },
+    { "key": "09-approach-to-treatment", "label": "Approach to treatment", "narrator": "rebecca-sterling", "anchor": "treatment-heading", "treatment": true, "principles": [] }
+  ]
+}
