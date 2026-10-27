@@ -24,7 +24,7 @@ const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const contentDirectory = join(repoRoot, 'src/content/cases');
 
 /** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
-const acceptedDraftSha256 = 'fe7289bb913a666d11f74971928b39a6df463a764ec872e964140f802bd80c9d';
+const acceptedDraftSha256 = '2f59213d150a97b410fd09eadcdc909fc0963690cf6ee815178f4f1b1ff079fe';
 
 /** sha256 of the Atelier attachments. The chapter id is the Atelier stem. */
 const attachmentSha256: Record<string, string> = {
