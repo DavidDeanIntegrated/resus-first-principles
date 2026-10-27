@@ -12,6 +12,7 @@ export function markdownHrefs(text: string): string[] {
 export function safeHref(href: string): string | null {
   if (/^#[A-Za-z0-9-]+$/.test(href)) return href;
   if (/^https?:\/\/[^\s"'<>]+$/.test(href)) return href;
+  if (/^\/cases\/[a-z0-9-]+\/?(#[A-Za-z0-9-]+)?$/.test(href)) return href;
   return null;
 }
 

@@ -25,7 +25,7 @@ import { caseSchema, declaredDiagramIds } from '../src/lib/schema.ts';
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
 /** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
-const acceptedDraftSha256 = '436949dec208771cb384acbcf68f687fc340618ab71d34010fc73c6332113b4a';
+const acceptedDraftSha256 = 'ba4d6b1247f513b057ac54460d56153898dd2ced9a458bc6b606459ae78e3b23';
 
 const figureStems: Record<CardiogenicFigureId, string> = {
   'r4-three-flooded-lungs': 'fig-r4-01-three-flooded-lungs',
@@ -45,9 +45,9 @@ const attachmentSha256: Record<string, string> = {
   'r4-pressure-volume.svg': '7d12767502fa91a517d158b7b9ed3ac7256be126880dec44d4f775b2e33715c8',
   'r4-pressure-volume-print.svg': 'a008227c93b8c12012ea5a83d08cb05cb1d34308320ce3776580d97501f0ff15',
   'r4-pressure-volume.inline.html': 'e0892b9dc518cb98b4f69153ac65450b00196f6861e960706b78853aff1c3475',
-  'r4-pleural-pressure.svg': 'dedaea5131deba000a2965ed54f847a6c618bc1a6f43c07322a99bc5384b2c75',
-  'r4-pleural-pressure-print.svg': 'edab0f8bec31493cc3cf76ffb0b9a1b5c477997d6ca608c51a4e10c56508d330',
-  'r4-pleural-pressure.inline.html': '43a50ab6f1526e3dda0a705dd6a83317c73e4f4a1107b9746e7b5b1d2e659417',
+  'r4-pleural-pressure.svg': 'f9385371c4778c6f88ee4f1b5f8a6f57998e6f1aca064a8a8fde3048c6b85c84',
+  'r4-pleural-pressure-print.svg': '3518e75ce62c1c9ace6f658c2a279b789c682f754387bc5a664946bd9a668f30',
+  'r4-pleural-pressure.inline.html': 'd5be60ecafbb88255b6ec9983e48868f765bcb353e2a73924c66942cdcfcba2c',
 };
 
 const placements: Record<string, string> = {
@@ -67,7 +67,7 @@ const pressureVolumeAlt =
   'A graph with ventricular volume on the horizontal axis and diastolic pressure on the vertical axis, without numbers. Two curves rise from left to right. The lower, flatter curve is labeled compliant ventricle. The upper, steeper curve is labeled stiff ventricle. On each curve, a short horizontal arrow shows the same small increase in volume, and a vertical arrow shows the resulting rise in pressure, which is small on the compliant curve and large on the stiff curve.';
 
 const pleuralPressureAlt =
-  'Two side-by-side drawings of a heart inside the chest, both at peak systole during inspiration and with the same systolic pressure. In the left drawing, labeled labored breathing, arrows point outward from the heart to show pleural pressure falling well below atmospheric, and a label reads higher transmural pressure. In the right drawing, labeled positive pressure, a flat baseline marked approximately zero shows pleural pressure near atmospheric at the same point in the breath, and a label reads lower transmural pressure. No values are shown.';
+  'Two side-by-side drawings of a heart inside the chest, both at peak systole during inspiration and with the same systolic pressure. In the left drawing, labeled labored breathing, arrows point outward from the heart to show pleural pressure falling well below atmospheric, and a label reads higher transmural pressure. In the right drawing, labeled positive pressure, a flat baseline marked approximately zero shows pleural pressure near atmospheric at the same point in the breath, and a label reads lower transmural pressure. No other values are shown.';
 
 function sha256(bytes: Buffer | string): string {
   return createHash('sha256').update(bytes).digest('hex');
