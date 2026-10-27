@@ -1,5 +1,6 @@
 import cardiacArrestTracks from '../data/cardiac-arrest-audio.json' with { type: 'json' };
 import shockTracks from '../data/shock-audio.json' with { type: 'json' };
+import airwayAudio from '../data/physiologically-difficult-airway-audio.json' with { type: 'json' };
 
 export interface NarrationTrack {
   index: number;
@@ -7,6 +8,8 @@ export interface NarrationTrack {
   anchor: string | null;
   filename: string;
   duration_seconds: number;
+  /** Character voice reading this track, for multi-voice chapters. Shown as "Now narrating". */
+  narrator?: string;
 }
 
 export interface Narration {
@@ -30,6 +33,12 @@ const narrations: Readonly<Record<string, Narration>> = {
     artist: 'Shock — Resus First Principles',
     storageKey: 'rfp-audio-shock',
     tracks: shockTracks as readonly NarrationTrack[],
+  },
+  'physiologically-difficult-airway': {
+    dir: airwayAudio.dir,
+    artist: 'The Physiologically Difficult Airway — Resus First Principles',
+    storageKey: 'rfp-audio-difficult-airway',
+    tracks: airwayAudio.tracks as readonly NarrationTrack[],
   },
 };
 

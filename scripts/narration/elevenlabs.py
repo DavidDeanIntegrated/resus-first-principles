@@ -12,24 +12,30 @@ check     confirms every registry voice exists and its name matches the characte
           model is available for text to speech, and reports the subscription balance.
 estimate  counts synthesis characters and requests for the whole chapter (no paid calls).
 sample    synthesizes the first sentences of the narrator's first section, up to --chars.
-generate  synthesizes every section (or --only), writes public/audio/<slug>/<key>.mp3 and the
-          track manifest. It refuses to run without --confirm and stops before spending if a
+generate  synthesizes every section (or --only), writes public/audio/<audioDir>/<key>.mp3 and the
+          track manifest src/data/<case>-audio.json. Failed requests are retried; finished ones stay
+          cached, so a rerun pays only for what failed. It refuses to run without --confirm and stops before spending if a
           voice fails the check or the balance does not cover the uncached characters.
 
 Each request is cached by the SHA-256 of model, voice, output format and text under --cache
 (outside the repository by default), so re-running never pays twice for unchanged text.
 Voices are used with their saved settings; nothing is cloned, edited or substituted.
 """
-import argparse, hashlib, json, os, re, subprocess, sys, tempfile, urllib.error, urllib.request
+import argparse, hashlib, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from extract import ROOT, build  # noqa: E402
+from extract import ROOT, build, sha256  # noqa: E402
 
 API = 'https://api.elevenlabs.io'
 REGISTRY = os.path.join(ROOT, 'src/data/narration/elevenlabs-voices.json')
 OUTPUT_FORMAT = 'mp3_44100_128'
 MAX_REQUEST_CHARS = 2500  # well under the model's per-request limit, and short enough to hold prosody
 PAUSE_SECONDS = 0.8  # silence between requests within one section
+LEAD_SECONDS, TAIL_SECONDS = 0.4, 0.9  # padding at the start and end of each track: the pause between sections
+LOUDNESS = dict(I=-17, TP=-1.5, LRA=11)  # matches the existing cardiac-arrest and shock tracks (about -17 to -19 LUFS)
+DEESS = 'deesser=i=0.35:m=0.4:f=0.5'  # gentle; synthetic voices can be bright on sibilants
+TRIM = 'silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.05'
+RETRIES = 3
 DEFAULT_CACHE = os.path.join(os.path.expanduser('~'), '.cache', 'rfp-narration', 'elevenlabs')
 
 
@@ -49,6 +55,8 @@ def request(method: str, path: str, body: dict | None = None) -> tuple[int, dict
             return resp.status, {k.lower(): v for k, v in resp.headers.items()}, resp.read()
     except urllib.error.HTTPError as err:
         return err.code, {k.lower(): v for k, v in err.headers.items()}, err.read()
+    except (urllib.error.URLError, TimeoutError, ConnectionError) as err:
+        return 0, {}, str(err).encode()
 
 
 def get_json(path: str) -> tuple[int, dict | list]:
@@ -142,10 +150,15 @@ def synthesize(model_id: str, voice_id: str, text: str, cache_dir: str) -> tuple
     path = os.path.join(cache_dir, cache_key(model_id, voice_id, text) + '.mp3')
     if os.path.exists(path) and os.path.getsize(path) > 0:
         return path, None, True
-    status, headers, raw = request('POST', f'/v1/text-to-speech/{voice_id}?output_format={OUTPUT_FORMAT}',
-                                   dict(text=text, model_id=model_id))
-    if status != 200 or not raw.startswith((b'ID3', b'\xff\xfb', b'\xff\xf3', b'\xff\xf2')):
-        sys.exit(f'text-to-speech failed for voice {voice_id}: {status} {raw[:300].decode(errors="replace")}')
+    for attempt in range(1, RETRIES + 1):
+        status, headers, raw = request('POST', f'/v1/text-to-speech/{voice_id}?output_format={OUTPUT_FORMAT}',
+                                       dict(text=text, model_id=model_id))
+        if status == 200 and raw.startswith((b'ID3', b'\xff\xfb', b'\xff\xf3', b'\xff\xf2')):
+            break
+        # Only rate limits, server errors and network failures are worth retrying.
+        if attempt == RETRIES or not (status == 0 or status == 429 or status >= 500):
+            raise RuntimeError(f'text-to-speech failed for voice {voice_id}: {status} {raw[:300].decode(errors="replace")}')
+        time.sleep(5 * attempt)
     tmp = path + '.part'
     open(tmp, 'wb').write(raw)
     os.replace(tmp, path)
@@ -158,22 +171,41 @@ def duration(path: str) -> float:
                                 capture_output=True, text=True, check=True).stdout)
 
 
+def ffmpeg(*args: str) -> str:
+    return subprocess.run(['ffmpeg', '-hide_banner', '-nostats', '-y', *args], capture_output=True, text=True,
+                          check=True).stderr
+
+
 def render(parts: list[str], out: str):
-    """Join request MP3s with short pauses, normalize loudness, and write a mono MP3."""
+    """Join request MP3s into one track and write a mono MP3.
+
+    Each request is trimmed of leading and trailing silence and joined with a short pause. The track is
+    gently de-essed, padded so consecutive sections have a short pause between them, and loudness
+    normalized in two passes (measure, then apply linearly) so every narrator plays at the same level.
+    """
     with tempfile.TemporaryDirectory() as tmp:
         inputs, filters = [], []
         for i, part in enumerate(parts):
             inputs += ['-i', part]
-            filters.append(f'[{i}:a]aresample=44100,aformat=channel_layouts=mono[a{i}]')
+            filters.append(f'[{i}:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=mono,'
+                           f'{TRIM},areverse,{TRIM},areverse[a{i}]')
         n = len(parts)
         silence = f'anullsrc=r=44100:cl=mono,atrim=duration={PAUSE_SECONDS}'
         joined = ''.join(f'[a{i}]' + (f'[s{i}]' if i < n - 1 else '') for i in range(n))
         filters += [f'{silence}[s{i}]' for i in range(n - 1)]
-        filters.append(f'{joined}concat=n={2 * n - 1}:v=0:a=1,loudnorm=I=-17:TP=-1.5[out]')
+        filters.append(f'{joined}concat=n={2 * n - 1}:v=0:a=1,{DEESS},'
+                       f'adelay={int(LEAD_SECONDS * 1000)}:all=1,apad=pad_dur={TAIL_SECONDS}[out]')
+        joined_wav = os.path.join(tmp, 'joined.wav')
+        ffmpeg(*inputs, '-filter_complex', ';'.join(filters), '-map', '[out]', '-ac', '1', joined_wav)
+        target = ':'.join(f'{k}={v}' for k, v in LOUDNESS.items())
+        log = ffmpeg('-i', joined_wav, '-af', f'loudnorm={target}:print_format=json', '-f', 'null', '-')
+        m = json.loads(log[log.rindex('{'):log.rindex('}') + 1])
+        second = (f"loudnorm={target}:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+                  f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:"
+                  f"offset={m['target_offset']}:linear=true")
         os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
-        subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', *inputs, '-filter_complex', ';'.join(filters),
-                        '-map', '[out]', '-ac', '1', '-ar', '44100', '-b:a', '96k', '-map_metadata', '-1',
-                        os.path.join(tmp, 'out.mp3')], check=True)
+        ffmpeg('-i', joined_wav, '-af', second, '-ar', '44100', '-ac', '1', '-b:a', '96k', '-map_metadata', '-1',
+               os.path.join(tmp, 'out.mp3'))
         os.replace(os.path.join(tmp, 'out.mp3'), out)
 
 
@@ -236,6 +268,7 @@ def cmd_sample(args, narration_map, plan):
 def cmd_generate(args, narration_map, plan):
     if not args.confirm:
         sys.exit('generate synthesizes the whole chapter and spends credits; rerun with --confirm')
+    lock, _ = build(args.map)
     slug = os.path.splitext(os.path.basename(narration_map['case']))[0]
     model_id = narration_map['model']
     status = check(model_id, {s['narrator'] for s in plan})
@@ -247,36 +280,59 @@ def cmd_generate(args, narration_map, plan):
                    if not os.path.exists(os.path.join(args.cache, cache_key(model_id, voice_for(s['narrator']), r) + '.mp3')))
     if uncached > status['subscription']['remaining']:
         sys.exit(f"{uncached} uncached characters exceed the {status['subscription']['remaining']} remaining")
-    out_dir = os.path.join(ROOT, 'public/audio', slug)
+    print(f'{uncached} uncached characters to synthesize', flush=True)
+    audio_dir = narration_map.get('audioDir', slug)
+    out_dir = os.path.join(ROOT, 'public/audio', audio_dir)
     manifest_path = os.path.join(ROOT, 'src/data', f'{slug}-audio.json')
-    old = {t['filename']: t for t in json.load(open(manifest_path))} if os.path.exists(manifest_path) else {}
+    old = json.load(open(manifest_path))['tracks'] if os.path.exists(manifest_path) else []
+    old = {t['filename']: t for t in old}
     registry = json.load(open(REGISTRY))['voices']
-    before = subscription()['character_count']
-    manifest, billed_total = [], 0
+    hashes = {s['key']: s for s in lock['sections']}
+    before = status['subscription']['character_count']
+    tracks, failed, billed_total = [], [], 0
     for i, (s, req) in enumerate(zip(plan, plan_requests(plan))):
         filename = f"{s['key']}.mp3"
-        heading = s['verbatim'][0]
         if req not in todo or s['narrator'] in blocked:
             if s['narrator'] in blocked:
                 print(f"HOLD {s['key']}: voice {s['narrator']} failed the check; not substituting", flush=True)
             if filename in old:
-                manifest.append(old[filename])
+                tracks.append(old[filename])
             continue
         parts = []
-        for text in req['requests']:
-            part, billed, _ = synthesize(model_id, voice_for(s['narrator']), text, args.cache)
-            billed_total += billed or 0
-            parts.append(part)
+        try:
+            for text in req['requests']:
+                part, billed, _ = synthesize(model_id, voice_for(s['narrator']), text, args.cache)
+                billed_total += billed or 0
+                parts.append(part)
+        except RuntimeError as err:
+            # Finished requests stay cached, so a rerun pays only for what failed.
+            print(f"FAIL {s['key']}: {err}", flush=True)
+            failed.append(s['key'])
+            if filename in old:
+                tracks.append(old[filename])
+            continue
         out = os.path.join(out_dir, filename)
         render(parts, out)
-        manifest.append(dict(index=i, heading=heading, anchor=s['anchor'], filename=filename,
-                             duration_seconds=round(duration(out), 1), narrator=registry[s['narrator']]['character']))
-        print(filename, manifest[-1]['duration_seconds'], flush=True)
+        voice = registry[s['narrator']]
+        tracks.append(dict(index=i, heading=s['verbatim'][0], anchor=s['anchor'], filename=filename,
+                           duration_seconds=round(duration(out), 1), narrator=voice['character'],
+                           narrator_key=s['narrator'], voice_id=voice['voiceId'], model_id=model_id,
+                           source_sha256=hashes[s['key']]['verbatimSha256'],
+                           synthesis_sha256=hashes[s['key']]['synthesisSha256'],
+                           requests=len(parts)))
+        print(filename, tracks[-1]['duration_seconds'], flush=True)
+    manifest = {
+        '$comment': 'Generated offline by scripts/narration/elevenlabs.py from the published chapter. '
+                    'source_sha256 is the SHA-256 of the section\'s verbatim text (see the narration lock file).',
+        'case': narration_map['case'], 'caseSha256': lock['caseSha256'],
+        'pronunciationSha256': lock['pronunciationSha256'], 'dir': audio_dir, 'model_id': model_id,
+        'tracks': tracks,
+    }
     open(manifest_path, 'w').write(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n')
     print(f"billed {billed_total} characters by response header; subscription character_count "
           f"{before} -> {subscription()['character_count']} (the account count can lag by a minute)")
-    if blocked:
-        sys.exit(f'held sections for voices {sorted(blocked)}')
+    if blocked or failed:
+        sys.exit(f'held sections for voices {sorted(blocked)}; failed sections {failed} (rerun to retry)')
 
 
 def main():

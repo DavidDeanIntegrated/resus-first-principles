@@ -28,7 +28,7 @@ describe('physiologically difficult airway chapter', () => {
   );
   const parsed = caseSchema.safeParse(raw);
 
-  it('is a published chapter with its own diagram ids and no narration', () => {
+  it('is a published chapter with its own diagram ids and narration', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
     const document = parsed.data;
@@ -43,7 +43,7 @@ describe('physiologically difficult airway chapter', () => {
     ]);
     expect([...declaredDiagramIds(document)]).toEqual(document.diagrams);
     expect(chapterRobots(document.contentStatus)).toBeNull();
-    expect(hasNarration(document.slug)).toBe(false);
+    expect(hasNarration(document.slug)).toBe(true);
   });
 
   it('places each declared figure on the section named in the chapter', () => {

@@ -16,12 +16,13 @@ export function mountNarration(player: HTMLElement): void {
   if (!narration) return;
   const audio = player.querySelector<HTMLAudioElement>('[data-audio-element]');
   const title = player.querySelector<HTMLElement>('[data-audio-title]');
+  const narrator = player.querySelector<HTMLElement>('[data-audio-narrator]');
   const elapsed = player.querySelector<HTMLElement>('[data-audio-elapsed]');
   const total = player.querySelector<HTMLElement>('[data-audio-total]');
   const progress = player.querySelector<HTMLElement>('[data-audio-progress]');
   const toggle = player.querySelector<HTMLButtonElement>('[data-audio-action="toggle"]');
   if (!audio || !title || !elapsed || !total || !progress || !toggle) return;
-  wirePlayer(narration, player, audio, title, elapsed, total, progress, toggle);
+  wirePlayer(narration, player, audio, title, narrator, elapsed, total, progress, toggle);
 }
 
 function wirePlayer(
@@ -29,6 +30,7 @@ function wirePlayer(
   player: HTMLElement,
   audio: HTMLAudioElement,
   title: HTMLElement,
+  narrator: HTMLElement | null,
   elapsed: HTMLElement,
   total: HTMLElement,
   progress: HTMLElement,
@@ -244,6 +246,11 @@ function wirePlayer(
     const duration = displayedDuration(track);
     const headingChanged = title.textContent !== track.heading;
     title.textContent = track.heading;
+    if (narrator) {
+      const label = track.narrator ? `Now narrating: ${track.narrator}` : '';
+      if (narrator.textContent !== label) narrator.textContent = label;
+      narrator.hidden = !label;
+    }
     elapsed.textContent = formatClock(position);
     total.textContent = formatClock(duration);
     const percent = duration > 0 ? Math.min(100, Math.max(0, (position / duration) * 100)) : 0;
