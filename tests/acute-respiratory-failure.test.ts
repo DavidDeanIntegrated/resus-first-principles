@@ -81,7 +81,7 @@ describe('acute respiratory failure chapter', () => {
     expect(document.diagrams).toEqual([...respiratoryFigureIds]);
     expect([...declaredDiagramIds(document)]).toEqual([...respiratoryFigureIds]);
     expect(chapterRobots(document.contentStatus)).toBeNull();
-    expect(hasNarration(document.slug)).toBe(false);
+    expect(hasNarration(document.slug)).toBe(true);
   });
 
   it('attaches each figure to the section its drawing belongs to, keeping the SVG title and description', () => {
