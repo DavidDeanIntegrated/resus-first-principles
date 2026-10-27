@@ -1,0 +1,509 @@
+{
+ "schemaVersion": 1,
+ "id": "acid-base-physiology",
+ "slug": "acid-base-physiology",
+ "title": "Acid–Base Physiology: What pH Reveals and What It Hides",
+ "summary": "What determines pH, why the same pH can represent very different physiological states, and how expected compensation and the anion gap expose disorders that pH hides. Study material, not a protocol.",
+ "shareDescription": "What sets pH, why the same pH can hide different states, and how to find the disorder behind the number.",
+ "contentStatus": "draft",
+ "diagrams": [
+  "fig-r8-01-two-routes",
+  "fig-r8-02-expected-vs-observed",
+  "fig-r8-03-anion-gap-bookkeeping"
+ ],
+ "strict": true,
+ "reviewNote": "Draft for physician review.",
+ "references": [
+  {
+   "id": "albert-1967",
+   "label": "Albert MS, Dell RB, Winters RW. Ann Intern Med. 1967;66:312–22",
+   "url": "https://doi.org/10.7326/0003-4819-66-2-312",
+   "note": "Original Winter's formula paper."
+  },
+  {
+   "id": "jung-2019",
+   "label": "Jung B, et al. Diagnosis and management of metabolic acidosis: French expert panel guidelines. Ann Intensive Care. 2019;9:92",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6695455",
+   "note": "Predates BICARICU-2."
+  },
+  {
+   "id": "statpearls-pco2",
+   "label": "Castro D, et al. Partial Pressure of Carbon Dioxide. StatPearls (NBK551648)",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK551648/",
+   "note": "Secondary source for the 8 to 12 mm Hg floor and compensation rules."
+  },
+  {
+   "id": "sood-2010",
+   "label": "Sood P, et al. Interpretation of arterial blood gas. Indian J Crit Care Med. 2010",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2936733"
+  },
+  {
+   "id": "pubmed-6184",
+   "label": "The ventilatory response in severe metabolic acidosis (PubMed 6184)",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/6184/"
+  },
+  {
+   "id": "figge-1998",
+   "label": "Figge J, Jabor A, Kazda A, Fencl V. Anion gap and hypoalbuminemia. Crit Care Med. 1998;26:1807–10",
+   "url": "https://doi.org/10.1097/00003246-199811000-00019"
+  },
+  {
+   "id": "kidney-dis-2017",
+   "label": "Review of the Diagnostic Evaluation of Normal Anion Gap Metabolic Acidosis. Kidney Dis. 2017;3:149–59",
+   "url": "https://doi.org/10.1159/000479279"
+  },
+  {
+   "id": "ccjm-2023",
+   "label": "Cleveland Clinic Journal of Medicine. 2023;90:619",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37783490/"
+  },
+  {
+   "id": "nejm-2009",
+   "label": "N Engl J Med. 2009;361:1213–4 (letter)",
+   "url": "https://doi.org/10.1056/NEJMc091309"
+  },
+  {
+   "id": "kraut-2015",
+   "label": "Kraut JA. Clin Toxicol. 2015;53:589–95",
+   "url": "https://doi.org/10.3109/15563650.2015.1056880"
+  },
+  {
+   "id": "toxic-review",
+   "label": "The Diagnosis and Management of Toxic Alcohol Poisoning in the Emergency Department: A Review Article",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6683589"
+  },
+  {
+   "id": "fomepizole-review",
+   "label": "Treatment of patients with ethylene glycol or methanol poisoning: focus on fomepizole",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4806829"
+  },
+  {
+   "id": "toxic-mech",
+   "label": "A Systematic Review of Ethanol and Fomepizole Use in Toxic Alcohol Ingestions",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3574646"
+  },
+  {
+   "id": "extrip-methanol",
+   "label": "Roberts DM, Yates C, Megarbane B, et al.; EXTRIP Work Group. Recommendations for the role of extracorporeal treatments in the management of acute methanol poisoning: a systematic review and consensus statement. Crit Care Med. 2015;43(2):461–472",
+   "url": "https://doi.org/10.1097/CCM.0000000000000708"
+  },
+  {
+   "id": "jaber-2018",
+   "label": "Jaber S, Paugam C, Futier E, et al. Sodium bicarbonate therapy for patients with severe metabolic acidaemia in the intensive care unit (BICAR-ICU): a multicentre, open-label, randomised controlled, phase 3 trial. Lancet. 2018;392(10141):31–40",
+   "url": "https://doi.org/10.1016/S0140-6736(18)31080-8"
+  },
+  {
+   "id": "jung-2025",
+   "label": "Jung B, Jabaudon M, et al. Sodium Bicarbonate for Severe Metabolic Acidemia and Acute Kidney Injury: The BICARICU-2 Randomized Clinical Trial. JAMA. 2025;334(22):2000–2010",
+   "url": "https://doi.org/10.1001/jama.2025.20231"
+  },
+  {
+   "id": "brandis-acid-base",
+   "label": "Brandis K. Acid-Base Physiology, section 2.2: Buffering (LibreTexts edition)",
+   "url": "https://med.libretexts.org/Bookshelves/Anatomy_and_Physiology/Book:_Acid-base_Physiology_(Brandis)/02:_Control_of_Acid-Base_Balance/2.02:_Buffering"
+  },
+  {
+   "id": "statpearls-acid-base",
+   "label": "Hopkins E, Sanvictores T, Sharma S. Physiology, Acid Base Balance. StatPearls (NBK507807), updated 2022",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK507807/"
+  },
+  {
+   "id": "ghannoum-2023",
+   "label": "Ghannoum M, Gosselin S, Hoffman RS, et al.; EXTRIP Workgroup. Extracorporeal treatment for ethylene glycol poisoning: systematic review and recommendations from the EXTRIP workgroup. Crit Care. 2023;27:56",
+   "url": "https://doi.org/10.1186/s13054-022-04227-2"
+  }
+ ],
+ "principles": [
+  {
+   "id": "three-patients",
+   "title": "Part I. Three patients, three meanings of pH",
+   "body": [
+    "Three adults arrive with abnormal blood gases. They are hypothetical, and their values are illustrative. Patient 1 drank an unknown liquid hours ago and is breathing fast and deep; her bicarbonate is very low, and that breathing has driven her carbon dioxide low. Patient 2 was found unresponsive after an opioid overdose, breathing slowly; his carbon dioxide has risen within minutes. Patient 3 has been vomiting for days after heavy drinking and has barely eaten; her pH is close to normal.",
+    "This chapter asks what determines pH, and why the same pH can represent very different physiological states. Patient 3's near-normal pH hides two serious disorders pulling in opposite directions. Patient 1's pH is survivable only because of her breathing. To see why, start with what pH measures and where acid goes."
+   ],
+   "questions": []
+  },
+  {
+   "id": "normal",
+   "title": "Part II. Acid, buffers and the two exits",
+   "body": [
+    "pH reports hydrogen ion activity, and the body defends it closely. Acid arrives in two forms and leaves by two routes: the lungs remove carbon dioxide and the kidneys excrete nonvolatile acid. Buffers, above all the open bicarbonate system, blunt the change in pH until those routes clear the acid."
+   ],
+   "questions": []
+  },
+  {
+   "id": "what-ph-measures",
+   "parentId": "normal",
+   "title": "What pH measures",
+   "body": [
+    "pH reports hydrogen ion activity on a logarithmic scale, so a small change in pH is a large proportional change in hydrogen ion concentration. A fall in pH from 7.4 to 7.1 roughly doubles [H+], from about 40 to about 79 nmol/L. Proteins and enzymes change shape and charge as [H+] changes, which is why the body defends it closely."
+   ],
+   "questions": []
+  },
+  {
+   "id": "acid-sources",
+   "parentId": "normal",
+   "title": "Two kinds of acid, two routes out, two time scales",
+   "body": [
+    "The body makes acid in two forms. Metabolism produces carbon dioxide, a volatile acid, as a large daily load, and the lungs remove it within minutes. Diet and metabolism also produce nonvolatile acid, a much smaller load that the lungs cannot remove; the kidneys excrete it over hours to days. These two routes, working on two time scales, frame the rest of the chapter."
+   ],
+   "questions": [],
+   "diagram": {
+    "id": "fig-r8-01-two-routes",
+    "caption": "Where acid comes from, where it is held, and how it leaves",
+    "alt": "Two acid sources, carbon dioxide from metabolism as a large daily load and nonvolatile acid from diet and metabolism as a small daily load, flow into a buffer pool of bicarbonate, proteins including hemoglobin, and phosphate, labeled as holding hydrogen ions without removing them. Two exits leave the pool: the lungs, as carbon dioxide, in minutes, drawn as a solid arrow; and the kidneys, as ammonium and titratable acid with new bicarbonate generated, in hours to days, drawn as a dashed arrow. Beneath the pool, the reaction carbon dioxide plus water to carbonic acid to hydrogen ion plus bicarbonate, with the note that the lungs remove the carbon dioxide end. A corner note reads: 7.4 to 7.1 roughly doubles [H+], from 40 to about 80 nmol/L."
+   }
+  },
+  {
+   "id": "buffering",
+   "parentId": "normal",
+   "title": "Buffering buys time; it does not remove acid",
+   "body": [
+    "Buffers bind hydrogen ions and blunt the change in pH. The main ones are bicarbonate, proteins including hemoglobin, and phosphate. Buffering does not remove acid. The hydrogen ion is still in the body, now held by a buffer, and the buffer that was used up must eventually be restored. Only two organs remove acid. The lungs remove it as carbon dioxide. The kidneys remove it by excreting hydrogen ion, and in doing so they generate new bicarbonate to replace what buffering consumed.",
+    "The kidney does this in two main ways. First, tubular cells make ammonia from glutamine; the ammonia traps secreted hydrogen ion as ammonium, which is excreted in the urine, and each ammonium excreted corresponds to a new bicarbonate returned to the blood. Second, the tubule secretes hydrogen ion onto filtered buffers, mainly phosphate, which leave in the urine as titratable acid, again with a new bicarbonate returned to the blood."
+   ],
+   "questions": []
+  },
+  {
+   "id": "open-system",
+   "parentId": "normal",
+   "title": "Why the bicarbonate buffer is special",
+   "body": [
+    "Carbon dioxide and water form carbonic acid, which dissociates into a hydrogen ion and bicarbonate: CO2 + H2O ⇌ H2CO3 ⇌ H+ + HCO3−. When acid is added, bicarbonate takes up the hydrogen ion and the reaction shifts toward carbon dioxide. In a closed container that carbon dioxide would accumulate and push the reaction back. In the body it does not, because the lungs remove it. The bicarbonate buffer is an open system: the lungs control one end of the reaction. That is what makes it so effective, and it is also why its effectiveness depends on ventilation."
+   ],
+   "questions": []
+  },
+  {
+   "id": "disturbance",
+   "title": "Part III. Three ways to disturb the balance",
+   "body": [
+    "Patient 1 has a toxic alcohol ingestion. The parent alcohol is relatively nontoxic. Liver alcohol dehydrogenase, then aldehyde dehydrogenase, convert it into organic acids: glycolate from ethylene glycol and formate from methanol. Bicarbonate buffers their hydrogen ions and falls, while their anions accumulate. Formate inhibits mitochondrial cytochrome oxidase, which injures the retina, optic nerve and basal ganglia; with ethylene glycol, oxalate precipitates as calcium oxalate in the kidney. Timing matters. Early after ingestion, the parent alcohol raises measured osmolality before any acid has formed. Later, as the alcohol is metabolized, osmolality falls back and the acid rises. The osmolar gap and the anion gap, the two measures used to detect the poisoning, can therefore move in opposite directions.",
+    "Patient 2 has acute carbon dioxide retention. Alveolar ventilation falls, so carbon dioxide rises and pH falls within minutes. No new nonvolatile acid is being made, and the kidneys have not had time to respond, so bicarbonate rises only a little, through buffering by non-bicarbonate buffers such as hemoglobin.",
+    "Patient 3 has two processes. Vomiting removes hydrochloric acid from the stomach, and each hydrogen ion lost leaves a bicarbonate behind in the blood, producing a metabolic alkalosis. At the same time, alcohol combined with starvation has produced a ketoacidosis, which adds acid. Both can be severe and still leave the pH near normal."
+   ],
+   "questions": [],
+   "refs": [
+    "toxic-mech"
+   ]
+  },
+  {
+   "id": "compensation",
+   "title": "Part IV. Compensation, and its limits",
+   "body": [
+    "Each organ compensates for a disturbance in the other's variable, the lungs within minutes and the kidneys over hours to days. Compensation follows predictable rules and has limits, so comparing the expected value with the observed one shows whether a second disorder is present."
+   ],
+   "questions": []
+  },
+  {
+   "id": "lungs-kidneys",
+   "parentId": "compensation",
+   "title": "Lungs in minutes, kidneys in days",
+   "body": [
+    "Each organ compensates for a disturbance in the other's variable. The lungs adjust carbon dioxide within minutes; the kidneys adjust bicarbonate and acid excretion over hours to days. In a metabolic acidosis, chemoreceptors drive ventilation up, carbon dioxide falls, and the pH moves back toward normal. In a respiratory acidosis, the kidneys retain bicarbonate, but this takes days, so an acute rise in carbon dioxide arrives with little renal help. Compensation moves pH toward normal but does not normally overshoot it; a French expert panel notes that it cannot correct the pH beyond 7.40.",
+    "Respiratory compensation has limits. Breathing hard enough to hold carbon dioxide very low takes work, and carbon dioxide typically cannot fall below about 8 to 12 mm Hg; sustaining the minute ventilation needed to approach that level usually causes rapid respiratory fatigue. In one series of patients with very severe metabolic acidosis, hyperventilation was usually sustained, but shock and tissue hypoxia produced less hypocapnia than expected.",
+    "For Patient 1, this breathing is what keeps the pH survivable. Anything that removes it (sedation, or intubation followed by ventilation at a normal minute volume) removes the compensation at once while the acid remains. That is the root of the hazard described in the [Difficult Airway chapter](/cases/physiologically-difficult-airway)."
+   ],
+   "questions": [],
+   "refs": [
+    "jung-2019",
+    "statpearls-pco2",
+    "pubmed-6184"
+   ]
+  },
+  {
+   "id": "expected-compensation",
+   "parentId": "compensation",
+   "title": "Expected compensation, and how a second disorder shows itself",
+   "body": [
+    "Because compensation follows predictable rules, the expected value can be compared with the observed one, and a mismatch means a second disorder. This chapter uses one rule set. In metabolic acidosis, Winter's formula gives the expected PaCO2 as 1.5 × HCO3− + 8, plus or minus 2 mm Hg. In metabolic alkalosis, PaCO2 rises about 0.7 mm Hg for each 1 mEq/L rise in HCO3−. In respiratory acidosis, HCO3− rises about 1 mEq/L for each 10 mm Hg rise in PaCO2 when acute, and about 3.5 when chronic; published chronic figures vary. In respiratory alkalosis, HCO3− falls about 2 per 10 mm Hg when acute and about 5 per 10 when chronic."
+   ],
+   "questions": [],
+   "refs": [
+    "albert-1967",
+    "jung-2019",
+    "statpearls-pco2",
+    "sood-2010",
+    "statpearls-acid-base"
+   ],
+   "diagram": {
+    "id": "fig-r8-02-expected-vs-observed",
+    "caption": "The same pH, different states: compare compensation with what is expected",
+    "alt": "Three patient cards in one format, each with a primary change bar, an expected compensation bracket and an observed marker. Patient 1, toxic alcohol: low bicarbonate, carbon dioxide driven low by deep fast breathing, observed within expected, with the note that this breathing is keeping pH survivable. Patient 2, acute carbon dioxide retention after an opioid: carbon dioxide up in minutes, bicarbonate barely moved, because the kidneys have not had time. Patient 3, vomiting with an added acidosis: pH near normal, but the observed values do not match a single process, marked as a mismatch that signals a second disorder."
+   },
+   "table": {
+    "caption": "Expected compensation (one rule set; sources vary for chronic values)",
+    "header": [
+     "Primary disorder",
+     "Compensating change",
+     "Expected size",
+     "Time to develop"
+    ],
+    "rows": [
+     [
+      "Metabolic acidosis",
+      "PaCO2 falls",
+      "PaCO2 = 1.5 × HCO3− + 8 ± 2 mm Hg",
+      "Minutes to hours"
+     ],
+     [
+      "Metabolic alkalosis",
+      "PaCO2 rises",
+      "About 0.7 mm Hg per 1 mEq/L rise in HCO3−",
+      "Minutes to hours"
+     ],
+     [
+      "Acute respiratory acidosis",
+      "HCO3− rises",
+      "About 1 mEq/L per 10 mm Hg rise in PaCO2",
+      "Minutes"
+     ],
+     [
+      "Chronic respiratory acidosis",
+      "HCO3− rises",
+      "About 3.5 mEq/L per 10 mm Hg",
+      "Days"
+     ],
+     [
+      "Acute respiratory alkalosis",
+      "HCO3− falls",
+      "About 2 mEq/L per 10 mm Hg fall in PaCO2",
+      "Minutes"
+     ],
+     [
+      "Chronic respiratory alkalosis",
+      "HCO3− falls",
+      "About 5 mEq/L per 10 mm Hg",
+      "Days"
+     ]
+    ]
+   },
+   "workedExample": {
+    "id": "compensation-example",
+    "title": "Worked example: checking the three patients",
+    "body": [
+     "All values are illustrative. Normal values are taken as the midpoints of the usual arterial ranges: pH 7.40 (7.35 to 7.45), PaCO2 40 mm Hg (35 to 45) and HCO3− 24 mEq/L (22 to 26).",
+     "**Patient 1.** HCO3− is 8 mEq/L and PaCO2 is 20 mm Hg. Winter's formula predicts 1.5 × 8 + 8 = 20, with a range of 18 to 22. The observed value falls inside the range, so the respiratory compensation is appropriate and no second respiratory disorder is present. The pH is about 7.22.",
+     "**Patient 2.** PaCO2 has risen acutely from 40 to 70 mm Hg, a rise of 30. The acute rule predicts that HCO3− will rise about 3, to about 27, and it is 27. Had the same carbon dioxide been present for days, the chronic rule would predict a rise of about 10.5, to about 34 or 35. The small bicarbonate rise dates the problem as acute. The pH is about 7.21.",
+     "**Patient 3.** pH is 7.40, PaCO2 40 mm Hg, HCO3− 24 mEq/L. Taken alone, these values look normal. The anion gap, below, shows that they are not."
+    ]
+   }
+  },
+  {
+   "id": "failure",
+   "title": "Part V. Recognizing more than one disturbance",
+   "body": [
+    "A single pH can hide more than one disorder. The anion gap is bookkeeping for the anions the panel does not report, and with albumin and the osmolar gap it helps sort out which acids have been added. Each of these tools has limits, and this part sets them out alongside what each one shows."
+   ],
+   "questions": []
+  },
+  {
+   "id": "anion-gap",
+   "parentId": "failure",
+   "title": "The anion gap is bookkeeping",
+   "body": [
+    "Blood is electrically neutral, so total cations equal total anions. Routine chemistry measures sodium, chloride and bicarbonate, but not every anion. The anion gap, Na+ − (Cl− + HCO3−), is the measured cation left unmatched by the measured anions. It is not a substance. It is the share of anions the panel does not report, and in health the largest of these is albumin, which carries a net negative charge at body pH.",
+    "When an acid such as lactic acid is added, bicarbonate buffers its hydrogen ion and falls, and its anion, lactate, goes unmeasured. A measured anion has been swapped for an unmeasured one, so the gap widens. When bicarbonate is lost and replaced by chloride, as in diarrhea or after large volumes of saline, both changes are measured and the gap stays normal: a hyperchloremic acidosis.",
+    "Because albumin makes up most of the normal gap, a low albumin lowers the baseline, and a patient with low albumin and an added acid can have a gap that looks normal. Each 1 g/dL fall in albumin lowers the gap by about 2.5 mEq/L, so the adjusted gap is the observed gap plus 2.5 × (normal albumin − observed albumin), with albumin in g/dL. Sources take normal albumin as 4.0 or 4.4 g/dL. The normal gap itself depends on the analyzer, and reported normal ranges have shifted downward with newer assays, so use the local laboratory's reference range."
+   ],
+   "questions": [],
+   "refs": [
+    "figge-1998",
+    "kidney-dis-2017",
+    "ccjm-2023"
+   ],
+   "diagram": {
+    "id": "fig-r8-03-anion-gap-bookkeeping",
+    "caption": "The anion gap is bookkeeping, and albumin fills most of it",
+    "alt": "Paired stacked columns of cations and anions, schematic and not to scale. Sodium stands against chloride, bicarbonate and unmeasured anions, with albumin the largest part of the unmeasured block. Four variants: normal; low albumin, where the baseline gap shrinks and can hide an added acid; gap acidosis, where bicarbonate is replaced by lactate, ketones or toxic alcohol acids and the gap widens; and hyperchloremic acidosis, where bicarbonate is replaced by chloride and the gap is unchanged. Renal dysfunction is noted as both. A small timeline shows the osmolar gap high early and the anion gap rising later in toxic alcohol poisoning."
+   },
+   "workedExample": {
+    "id": "gap-example",
+    "title": "Worked example: albumin, and Patient 3's hidden disorders",
+    "body": [
+     "All values are illustrative, and a baseline anion gap of about 10 mEq/L is assumed for the arithmetic; the real baseline is the local laboratory's.",
+     "**Low albumin.** A patient has an observed gap of 10 mEq/L and an albumin of 2.0 g/dL. Taking normal albumin as 4.0, the adjusted gap is 10 + 2.5 × (4.0 − 2.0) = 15 mEq/L. A gap that looked normal is in fact raised.",
+     "**Patient 3.** Na+ 136, Cl− 88, HCO3− 24 mEq/L, albumin normal. The gap is 136 − (88 + 24) = 24 mEq/L, about 14 above the assumed baseline, so an anion gap acidosis is present. As a usable rule, each unmeasured anion added consumes roughly one bicarbonate. Starting from 24, a rise of 14 in the gap would leave a bicarbonate of about 10. The observed value is 24, about 14 higher than the acidosis alone would allow, so a second process has added bicarbonate. The low chloride fits vomiting, and the resulting metabolic alkalosis has hidden the ketoacidosis behind a normal pH."
+    ]
+   }
+  },
+  {
+   "id": "where-they-fit",
+   "parentId": "failure",
+   "title": "Where lactate, ketones, toxic alcohols, chloride and the kidney fit",
+   "body": [
+    "Lactate and ketones each add an acid whose anion is unmeasured, so they widen the gap. Toxic alcohols widen the anion gap once their acids form. Before that, they raise the osmolar gap, the difference between measured and calculated osmolality, because the parent alcohol is an unmeasured osmole. Chloride gain from saline, or bicarbonate loss in diarrhea, produces a normal-gap acidosis. Renal dysfunction can do both: the failing kidney retains anions such as phosphate and sulfate, which widen the gap, and it excretes less acid, so bicarbonate is not regenerated.",
+    "The osmolar gap has real limits. Its sensitivity and specificity are low, its normal range varies between sources, and the baseline spread between people is wide, so a normal gap does not exclude toxic levels. A gap above 20 is suspicious. Late presenters may have a normal osmolar gap because the alcohol has already been converted to acid, and a rise in the osmolar or anion gap is not always present. When suspicion is high, treatment may need to start before confirmation."
+   ],
+   "questions": [],
+   "refs": [
+    "nejm-2009",
+    "kraut-2015",
+    "toxic-review",
+    "fomepizole-review"
+   ]
+  },
+  {
+   "id": "stewart",
+   "parentId": "failure",
+   "title": "A note on the physicochemical view",
+   "body": [
+    "The physicochemical, or Stewart, approach treats three independent variables as the determinants of [H+]: the strong ion difference (largely sodium against chloride), total weak acids (largely albumin) and carbon dioxide. Bicarbonate is a dependent result. The approach's main contribution is to make chloride and albumin explicit causes rather than corrections. This chapter uses the conventional bicarbonate-centered approach because it maps onto the bedside panel and the compensation rules, and because the adjusted anion gap already captures albumin's effect."
+   ],
+   "questions": []
+  },
+  {
+   "id": "intervention",
+   "title": "Part VI. Three different actions",
+   "body": [
+    "Treating an acid–base disorder involves three separate actions: fixing the cause, supporting compensation, and changing the measured pH. Each can help or harm depending on the state. Specific therapies belong to the condition chapters; this part states the principles."
+   ],
+   "questions": []
+  },
+  {
+   "id": "fix-cause",
+   "parentId": "intervention",
+   "title": "Fixing the cause",
+   "body": [
+    "For Patient 1, fixing the cause means stopping further acid production and removing what is already there. Blocking alcohol dehydrogenase, with fomepizole as the first-line agent and ethanol as the alternative, stops the parent alcohol from being converted to toxic acids, and it should start before the diagnosis is confirmed if suspicion is high. Hemodialysis removes both the parent alcohol and its acids and corrects the acidosis. Cofactors, folate for methanol and thiamine and pyridoxine for ethylene glycol, are adjuncts. The EXTRIP workgroup has published recommendations on dialysis for methanol (2015) and ethylene glycol (2023) poisoning. Details belong to the Poisoned Patient chapter."
+   ],
+   "questions": [],
+   "refs": [
+    "fomepizole-review",
+    "toxic-mech",
+    "extrip-methanol",
+    "ghannoum-2023"
+   ]
+  },
+  {
+   "id": "support-compensation",
+   "parentId": "intervention",
+   "title": "Supporting compensation",
+   "body": [
+    "Supporting compensation means not taking away what the patient is already doing. For Patient 1, ventilation is the compensation. If she must be intubated, the ventilator has to match her own high minute ventilation; otherwise carbon dioxide rises against a fixed, very low bicarbonate and pH falls sharply. With illustrative numbers: at a bicarbonate of 8 mEq/L, letting PaCO2 rise from 20 to 40 mm Hg would take pH from about 7.22 to about 6.92."
+   ],
+   "questions": []
+  },
+  {
+   "id": "change-ph",
+   "parentId": "intervention",
+   "title": "Changing the measured pH: bicarbonate",
+   "body": [
+    "Bicarbonate raises the measured pH, but it does not remove acid. It combines with hydrogen ion to form carbon dioxide and water, and that carbon dioxide must leave through the lungs. In a patient who cannot raise ventilation, the added carbon dioxide can offset part of the effect. Bicarbonate's mechanism is therefore separate from its benefit, and benefit has to be shown in trials.",
+    "In BICAR-ICU, a trial of 389 critically ill patients with pH 7.20 or below, bicarbonate did not change the primary composite of death by day 28 or organ failure at day 7 (71% vs 66%, p=0.24). In the prespecified subgroup with moderate to severe acute kidney injury, day-28 mortality was lower with bicarbonate (survival 54% vs 37%). The follow-up trial, BICARICU-2 (JAMA, 2025), tested that subgroup directly. In 43 French intensive care units, 640 patients with pH 7.20 or below and moderate to severe acute kidney injury were randomized (627 analyzed) to bicarbonate titrated to a pH of at least 7.30 or to no bicarbonate. Day-90 mortality was 62% in both groups (195 of 314 and 193 of 313), with no difference at day 28 or day 180. Kidney replacement therapy, a secondary outcome, was used less with bicarbonate, 35% against 50%, and adverse events were not increased. The subgroup signal did not hold up: bicarbonate did not reduce mortality, though it did reduce dialysis use. The 2019 French expert panel guidance that suggested bicarbonate for this group was based on BICAR-ICU and predates BICARICU-2."
+   ],
+   "questions": [],
+   "refs": [
+    "jaber-2018",
+    "jung-2025",
+    "jung-2019"
+   ]
+  },
+  {
+   "id": "reassessment",
+   "title": "Part VII. Reassessment and Henderson–Hasselbalch",
+   "body": [
+    "Reassessment asks why the pH is moving, not only whether it has moved. The Henderson–Hasselbalch equation then summarizes the chapter in one line: pH depends on the ratio of bicarbonate to dissolved carbon dioxide, not on either alone."
+   ],
+   "questions": []
+  },
+  {
+   "id": "trends",
+   "parentId": "reassessment",
+   "title": "What should change, and why",
+   "body": [
+    "Reassessment asks why the pH is moving. A closing anion gap, with carbon dioxide following the expected compensation, means the cause is improving. A pH that rises because bicarbonate was given, while the gap stays wide, means a number was treated. Patient 3 is the reminder that pH can be normal while the disorders behind it are not."
+   ],
+   "questions": [
+    {
+     "id": "q-intubate-acidosis",
+     "kind": "prediction",
+     "prompt": "Patient 1 (HCO3− 8 mEq/L, PaCO2 20 mm Hg) is intubated and ventilated at a minute volume that gives a PaCO2 of 40 mm Hg. Predict the pH and explain.",
+     "answer": "About 6.92. Bicarbonate cannot change in minutes, so doubling the carbon dioxide halves the ratio of bicarbonate to dissolved carbon dioxide, and pH falls by about 0.3. Her breathing was the compensation.",
+     "causalChain": "pH depends on HCO3−/(0.03 × PaCO2); HCO3− is fixed acutely; PaCO2 doubles; the ratio halves; pH falls by log 2, about 0.3.",
+     "assumption": "Illustrative values, with bicarbonate unchanged over minutes.",
+     "misconception": "That a normal PaCO2 is the right target in metabolic acidosis."
+    },
+    {
+     "id": "q-normal-ph",
+     "kind": "transfer",
+     "prompt": "Patient 3 has pH 7.40, PaCO2 40 and HCO3− 24. Why is this not reassuring?",
+     "answer": "Her anion gap is raised, so an acid has been added, and on its own that acid would have lowered her bicarbonate. A metabolic alkalosis from vomiting has added back about as much bicarbonate as the ketoacidosis consumed, so pH looks normal while both disorders are present.",
+     "causalChain": "Added ketoacid consumes bicarbonate and widens the gap; vomiting adds bicarbonate; the two offset in pH but not in the gap.",
+     "assumption": "Albumin is normal and the baseline gap is about 10 mEq/L (illustrative).",
+     "misconception": "That a normal pH means no acid-base disorder is present."
+    }
+   ]
+  },
+  {
+   "id": "henderson-hasselbalch",
+   "parentId": "reassessment",
+   "title": "Henderson–Hasselbalch as a summary",
+   "body": [
+    "Everything above can be written in one line. The Henderson–Hasselbalch equation states that pH = 6.1 + log[HCO3− / (0.03 × PaCO2)], with PaCO2 in mm Hg and 0.03 converting it to dissolved carbon dioxide in mmol/L. The 6.1 is the pKa of the bicarbonate system, 6.099 at 37 °C and a plasma pH of 7.4. pH depends on the ratio of bicarbonate to dissolved carbon dioxide, not on either alone. That is why compensation works, why Patient 1's breathing protects her, and why the same pH can come from very different states.",
+    "With Patient 1's illustrative values, HCO3− 8 and PaCO2 20: 0.03 × 20 = 0.6, 8 / 0.6 ≈ 13.3, log 13.3 ≈ 1.12, and pH ≈ 7.22. With Patient 3's values, 24 / (0.03 × 40) = 20, log 20 ≈ 1.30, and pH ≈ 7.40. The equation reproduces the bedside reasoning; it does not replace it."
+   ],
+   "questions": [],
+   "refs": [
+    "brandis-acid-base"
+   ]
+  },
+  {
+   "id": "synthesis",
+   "title": "Synthesis",
+   "body": [
+    "pH reports [H+] on a log scale. Acid arrives as carbon dioxide, which the lungs clear in minutes, and as nonvolatile acid, which the kidneys clear over hours to days while regenerating bicarbonate. Buffers only hold acid. Compensation moves pH toward normal by changing the other variable, within limits and on each organ's time scale, and the expected size of that change exposes a second disorder. The adjusted anion gap reveals acid that pH and bicarbonate can hide. Treatment separates fixing the cause, supporting compensation and changing the number, and only the first removes the problem."
+   ],
+   "questions": []
+  }
+ ],
+ "treatmentApproach": [
+  {
+   "id": "compare",
+   "title": "Compare observed with expected compensation",
+   "action": "Identify the primary disorder, calculate the expected compensation with one rule set, and treat a mismatch as a second disorder.",
+   "why": "Compensation is predictable; a value outside it means another process.",
+   "principleIds": [
+    "expected-compensation"
+   ]
+  },
+  {
+   "id": "gap",
+   "title": "Calculate and adjust the anion gap",
+   "action": "Calculate Na+ − (Cl− + HCO3−), adjust for albumin, interpret against the local reference range, and compare the rise in gap with the fall in bicarbonate.",
+   "why": "Low albumin hides a gap, and a coexisting alkalosis can hide an acidosis.",
+   "principleIds": [
+    "anion-gap",
+    "where-they-fit"
+   ]
+  },
+  {
+   "id": "osmolar",
+   "title": "Suspect toxic alcohols early",
+   "action": "In an unexplained gap acidosis, check the osmolar gap, remember that a normal one does not exclude poisoning, and block alcohol dehydrogenase before confirmation if suspicion is high.",
+   "why": "The osmolar gap falls as the acid forms, and the gap is insensitive.",
+   "principleIds": [
+    "where-they-fit",
+    "fix-cause"
+   ]
+  },
+  {
+   "id": "protect-compensation",
+   "title": "Protect the patient's compensation",
+   "action": "Avoid removing respiratory compensation; if intubation is needed, match the patient's prior minute ventilation.",
+   "why": "With a fixed low bicarbonate, a rise in carbon dioxide drops pH sharply.",
+   "principleIds": [
+    "lungs-kidneys",
+    "support-compensation"
+   ]
+  },
+  {
+   "id": "bicarbonate",
+   "title": "Keep bicarbonate separate from cure",
+   "action": "Treat the cause; if bicarbonate is considered, recognize that it changes the number, needs ventilation to clear its carbon dioxide, and did not reduce mortality in BICARICU-2.",
+   "why": "Changing pH is not removing acid.",
+   "principleIds": [
+    "change-ph"
+   ]
+  }
+ ]
+}

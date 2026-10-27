@@ -73,6 +73,7 @@ describe('case schema', () => {
     expect(result.ok).toBe(true);
     if (!result.ok) return;
     expect(result.cases.map((entry) => entry.document.slug).sort()).toEqual([
+      'acid-base-physiology',
       'acute-respiratory-failure',
       'adult-cardiac-arrest',
       'cardiogenic-pulmonary-edema',

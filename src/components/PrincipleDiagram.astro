@@ -1,4 +1,5 @@
 ---
+import AcidBaseFigure from './diagrams/AcidBaseFigure.astro';
 import AirwayFigure from './diagrams/AirwayFigure.astro';
 import CardiogenicFigure from './diagrams/CardiogenicFigure.astro';
 import CompressionPause from './diagrams/CompressionPause.astro';
@@ -13,6 +14,7 @@ import SepticFigure from './diagrams/SepticFigure.astro';
 import ShockCirculationGradients from './diagrams/ShockCirculationGradients.astro';
 import ShockFluidResponse from './diagrams/ShockFluidResponse.astro';
 import ShockPressureFlow from './diagrams/ShockPressureFlow.astro';
+import { isAcidBaseFigureId } from '../lib/acid-base-figures.ts';
 import { isAirwayFigureId } from '../lib/airway-figures.ts';
 import { isCardiogenicFigureId } from '../lib/cardiogenic-figures.ts';
 import { isPhysiologyFigureId } from '../lib/physiology-figures.ts';
@@ -70,6 +72,8 @@ const Shock = isShockDiagramId(diagramId) ? shockDiagrams[diagramId] : null;
     <AirwayFigure id={diagramId} caption={caption} alt={alt} />
   ) : isCardiogenicFigureId(diagramId) ? (
     <CardiogenicFigure id={diagramId} caption={caption} alt={alt} />
+  ) : isAcidBaseFigureId(diagramId) ? (
+    <AcidBaseFigure id={diagramId} caption={caption} alt={alt} />
   ) : isRespiratoryFigureId(diagramId) ? (
     <RespiratoryFigure id={diagramId} caption={caption} alt={alt} />
   ) : isSepticFigureId(diagramId) ? (
