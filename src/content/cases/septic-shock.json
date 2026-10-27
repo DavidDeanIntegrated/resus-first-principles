@@ -1,0 +1,951 @@
+{
+  "schemaVersion": 1,
+  "id": "septic-shock",
+  "slug": "septic-shock",
+  "title": "Septic Shock: Vascular Tone, Blood Distribution, and Cellular Dysfunction",
+  "summary": "Why three patients with the same diagnosis have different circulations, how sepsis attacks arterial tone, venous capacitance, the capillary wall and the heart, and where fluids, vasopressors and source control stop working. Study material, not a protocol.",
+  "shareDescription": "How sepsis attacks vessel tone, veins, capillaries and the heart, and why fluids and vasopressors help some septic patients and not others.",
+  "contentStatus": "published",
+  "strict": true,
+  "reviewNote": "Ready for physician review.",
+  "diagrams": [
+    "r3-three-septic-circulations",
+    "shock-fluid-response",
+    "r3-where-fluid-goes",
+    "r3-coherence"
+  ],
+  "references": [
+    {
+      "id": "singer-2016",
+      "label": "Singer M, Deutschman CS, Seymour CW, et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA. 2016;315(8):801-810",
+      "url": "https://doi.org/10.1001/jama.2016.0287"
+    },
+    {
+      "id": "landry-oliver-2001",
+      "label": "Landry DW, Oliver JA. The pathogenesis of vasodilatory shock. N Engl J Med. 2001;345(8):588-595",
+      "url": "https://doi.org/10.1056/NEJMra002709",
+      "note": "Review of vasodilatory shock; cited for general framing."
+    },
+    {
+      "id": "lambden-2018",
+      "label": "Lambden S, Creagh-Brown BC, Hunt J, Summers C, Forni LG. Definitions and pathophysiology of vasoplegic shock. Crit Care. 2018;22(1):174",
+      "url": "https://doi.org/10.1186/s13054-018-2102-1",
+      "note": "Review; source of the grading of human evidence for each vasoplegia mechanism."
+    },
+    {
+      "id": "woodcock-2012",
+      "label": "Woodcock TE, Woodcock TM. Revised Starling equation and the glycocalyx model of transvascular fluid exchange: an improved paradigm for prescribing intravenous fluid therapy. Br J Anaesth. 2012;108(3):384-394",
+      "url": "https://doi.org/10.1093/bja/aer515"
+    },
+    {
+      "id": "uchimido-2019",
+      "label": "Uchimido R, Schmidt EP, Shapiro NI. The glycocalyx: a novel diagnostic and therapeutic target in sepsis. Crit Care. 2019;23(1):16",
+      "url": "https://doi.org/10.1186/s13054-018-2292-6"
+    },
+    {
+      "id": "de-backer-2002",
+      "label": "De Backer D, Creteur J, Preiser JC, Dubois MJ, Vincent JL. Microvascular blood flow is altered in patients with sepsis. Am J Respir Crit Care Med. 2002;166(1):98-104",
+      "url": "https://doi.org/10.1164/rccm.200109-016OC"
+    },
+    {
+      "id": "ince-2015",
+      "label": "Ince C. Hemodynamic coherence and the rationale for monitoring the microcirculation. Crit Care. 2015;19(Suppl 3):S8",
+      "url": "https://doi.org/10.1186/cc14726",
+      "note": "Described by its author as a personal viewpoint."
+    },
+    {
+      "id": "singer-2008",
+      "label": "Singer M. Cellular dysfunction in sepsis. Clin Chest Med. 2008;29(4):655-660",
+      "url": "https://doi.org/10.1016/j.ccm.2008.06.003"
+    },
+    {
+      "id": "singer-2014",
+      "label": "Singer M. The role of mitochondrial dysfunction in sepsis-induced multi-organ failure. Virulence. 2014;5(1):66-72",
+      "url": "https://doi.org/10.4161/viru.26907",
+      "note": "Published online in 2013."
+    },
+    {
+      "id": "hollenberg-singer-2021",
+      "label": "Hollenberg SM, Singer M. Pathophysiology of sepsis-induced cardiomyopathy. Nat Rev Cardiol. 2021;18(6):424-434",
+      "url": "https://doi.org/10.1038/s41569-020-00492-2"
+    },
+    {
+      "id": "kumar-2006",
+      "label": "Kumar A, Roberts D, Wood KE, et al. Duration of hypotension before initiation of effective antimicrobial therapy is the critical determinant of survival in human septic shock. Crit Care Med. 2006;34(6):1589-1596",
+      "url": "https://doi.org/10.1097/01.CCM.0000217961.75225.E9"
+    },
+    {
+      "id": "seymour-2017",
+      "label": "Seymour CW, Gesten F, Prescott HC, et al. Time to treatment and mortality during mandated emergency care for sepsis. N Engl J Med. 2017;376(23):2235-2244",
+      "url": "https://doi.org/10.1056/NEJMoa1703058"
+    },
+    {
+      "id": "russell-2008",
+      "label": "Russell JA, Walley KR, Singer J, et al. Vasopressin versus norepinephrine infusion in patients with septic shock (VASST). N Engl J Med. 2008;358(9):877-887",
+      "url": "https://doi.org/10.1056/NEJMoa067373"
+    },
+    {
+      "id": "venkatesh-2018",
+      "label": "Venkatesh B, Finfer S, Cohen J, et al. Adjunctive glucocorticoid therapy in patients with septic shock (ADRENAL). N Engl J Med. 2018;378(9):797-808",
+      "url": "https://doi.org/10.1056/NEJMoa1705835"
+    },
+    {
+      "id": "annane-2018",
+      "label": "Annane D, Renault A, Brun-Buisson C, et al. Hydrocortisone plus fludrocortisone for adults with septic shock (APROCCHSS). N Engl J Med. 2018;378(9):809-818",
+      "url": "https://doi.org/10.1056/NEJMoa1705716"
+    },
+    {
+      "id": "annane-2010",
+      "label": "Annane D, Cariou A, Maxime V, et al. Corticosteroid treatment and intensive insulin therapy for septic shock in adults: a randomized controlled trial (COIITSS). JAMA. 2010;303(4):341-348",
+      "url": "https://doi.org/10.1001/jama.2010.2"
+    },
+    {
+      "id": "khanna-2017",
+      "label": "Khanna A, English SW, Wang XS, et al. Angiotensin II for the treatment of vasodilatory shock (ATHOS-3). N Engl J Med. 2017;377(5):419-430",
+      "url": "https://doi.org/10.1056/NEJMoa1704154"
+    },
+    {
+      "id": "hernandez-2019",
+      "label": "Hernández G, Ospina-Tascón GA, Damiani LP, et al. Effect of a resuscitation strategy targeting peripheral perfusion status vs serum lactate levels on 28-day mortality among patients with septic shock (ANDROMEDA-SHOCK). JAMA. 2019;321(7):654-664",
+      "url": "https://doi.org/10.1001/jama.2019.0071"
+    },
+    {
+      "id": "ssc-2026",
+      "label": "Prescott HC, Antonelli M, Alhazzani W, et al. Surviving Sepsis Campaign: international guidelines for management of sepsis and septic shock 2026. Intensive Care Med. 2026;52(5):863-936",
+      "url": "https://doi.org/10.1007/s00134-026-08361-1",
+      "note": "Publisher Correction, 5 May 2026: https://doi.org/10.1007/s00134-026-08410-9"
+    },
+    {
+      "id": "classic-2022",
+      "label": "Meyhoff TS, Hjortrup PB, Wetterslev J, et al. Restriction of intravenous fluid in ICU patients with septic shock (CLASSIC). N Engl J Med. 2022;386(26):2459-2470",
+      "url": "https://doi.org/10.1056/NEJMoa2202707"
+    },
+    {
+      "id": "clovers-2023",
+      "label": "National Heart, Lung, and Blood Institute Prevention and Early Treatment of Acute Lung Injury (PETAL) Clinical Trials Network. Early restrictive or liberal fluid management for sepsis-induced hypotension (CLOVERS). N Engl J Med. 2023;388(6):499-510",
+      "url": "https://doi.org/10.1056/NEJMoa2212663"
+    },
+    {
+      "id": "sepsispam-2014",
+      "label": "Asfar P, Meziani F, Hamel JF, et al. High versus low blood-pressure target in patients with septic shock. N Engl J Med. 2014;370(17):1583-1593",
+      "url": "https://doi.org/10.1056/NEJMoa1312173"
+    },
+    {
+      "id": "lamontagne-2020",
+      "label": "Lamontagne F, Richards-Belle A, Thomas K, et al. Effect of reduced exposure to vasopressors on 90-day mortality in older critically ill patients with vasodilatory hypotension: a randomized clinical trial. JAMA. 2020;323(10):938-949",
+      "url": "https://doi.org/10.1001/jama.2020.0930",
+      "note": "Trial in patients aged 65 and over."
+    },
+    {
+      "id": "andromeda-shock-2-2025",
+      "label": "ANDROMEDA-SHOCK-2 Investigators. Personalized hemodynamic resuscitation targeting capillary refill time in early septic shock. JAMA. 2025;334(22):1988-1999",
+      "url": "https://doi.org/10.1001/jama.2025.20402"
+    },
+    {
+      "id": "persichini-2012",
+      "label": "Persichini R, Silva S, Teboul JL, et al. Effects of norepinephrine on mean systemic pressure and venous return in human septic shock. Crit Care Med. 2012;40(12):3146-3153",
+      "url": "https://doi.org/10.1097/CCM.0b013e318260c6c3"
+    },
+    {
+      "id": "magder-2016",
+      "label": "Magder S. Volume and its relationship to cardiac output and venous return. Crit Care. 2016;20:271",
+      "url": "https://doi.org/10.1186/s13054-016-1438-7"
+    },
+    {
+      "id": "ospina-tascon-2020",
+      "label": "Ospina-Tascón GA, Teboul JL, Hernandez G, et al. Diastolic shock index and clinical outcomes in patients with septic shock. Ann Intensive Care. 2020;10:41",
+      "url": "https://doi.org/10.1186/s13613-020-00658-8",
+      "note": "Observational analysis; shows an association with outcome."
+    },
+    {
+      "id": "hahn-2020",
+      "label": "Hahn RG. Understanding volume kinetics. Acta Anaesthesiol Scand. 2020;64(5):570-578",
+      "url": "https://doi.org/10.1111/aas.13533",
+      "note": "Volume kinetic data mostly from people without sepsis; cited for comparison only."
+    },
+    {
+      "id": "gordon-2016",
+      "label": "Gordon AC, Perkins GD, Singer M, et al. Levosimendan for the prevention of acute organ dysfunction in sepsis (LeoPARDS). N Engl J Med. 2016;375(17):1638-1648",
+      "url": "https://doi.org/10.1056/NEJMoa1609409"
+    },
+    {
+      "id": "garcia-alvarez-2014",
+      "label": "Garcia-Alvarez M, Marik P, Bellomo R. Sepsis-associated hyperlactatemia. Crit Care. 2014;18(5):503",
+      "url": "https://doi.org/10.1186/s13054-014-0503-3"
+    },
+    {
+      "id": "suetrong-2016",
+      "label": "Suetrong B, Walley KR. Lactic acidosis in sepsis: it's not all anaerobic. Chest. 2016;149(1):252-261",
+      "url": "https://doi.org/10.1378/chest.15-1703"
+    }
+  ],
+  "principles": [
+    {
+      "id": "three-septic",
+      "title": "Part I. Three septic patients, one label",
+      "body": [
+        "Three adults with septic shock arrive on the same shift. Like the patients in the earlier chapters, they are hypothetical, built for teaching, and each weighs about 80 kg. Their numbers are illustrative and internally consistent, and every calculation is shown where it is used. Cardiac output values are given as if they had been measured; how to measure them is covered elsewhere.",
+        "Patient V is 58 and has had pneumonia with fever for six hours. Her heart rate is 118 and her blood pressure 82/38, a mean arterial pressure (MAP) of about 53 mm Hg. Her hands are warm, her capillary refill takes 3 seconds, her lactate is 4.2 mmol/L, her central venous pressure (CVP) is 6 mm Hg and her cardiac output is 7.5 L/min. Her hemoglobin is 12 g/dL, her arterial oxygen saturation 94 percent and her PaO2 70 mm Hg. These numbers are taken before any vasopressor. Patient L is 66 and is on his second day of treatment for a urinary source. On arrival he received about 2.5 L of crystalloid over 3 hours; after that he still needed a norepinephrine infusion to hold a MAP of 65, and his lactate was 3.4 mmol/L. Since then he has received a net positive fluid balance of 6 L in 24 hours, his weight has gone from 80 to 86 kg, and his hemoglobin has fallen from 13 to 10.5 g/dL without bleeding. He is edematous, needs more oxygen than yesterday, and holds a MAP of 66 on the same norepinephrine infusion, with a lactate of 2.6 mmol/L. Patient C is 71 and has biliary sepsis from a gallbladder that has not yet been drained. His heart rate is 125, his blood pressure 88/52 (MAP 64), his CVP 14 and his cardiac output 3.2 L/min, all measured before any vasopressor. His peripheries are cold, his capillary refill takes 5 seconds, his lactate is 6.0, his hemoglobin 11 g/dL, his arterial saturation 95 percent with a PaO2 of 80 mm Hg, and his central venous oxygen saturation (ScvO2) is 55 percent. Echocardiography shows a globally weak left ventricle.",
+        "None of what follows has to wait for the physiology. For each of them, blood cultures, antimicrobials and an assessment for a source that needs control start at once, alongside the first look at the circulation. The order in which this chapter explains things is not the order of care.",
+        "The [Shock chapter](/cases/shock-pressure-flow#principle-pressure-not-flow) showed that blood pressure is the final common output of a circulation and that the same pressure can come from very different combinations of flow and resistance. This chapter asks what sepsis does to each part of that circulation, and why the treatments that help one of these three patients can fail or harm another."
+      ],
+      "questions": []
+    },
+    {
+      "id": "sepsis-defining",
+      "parentId": "three-septic",
+      "title": "What the label means",
+      "body": [
+        "The current consensus definition, Sepsis-3, states that sepsis \"should be defined as life-threatening organ dysfunction caused by a dysregulated host response to infection.\" For clinical use it is operationalized as an acute rise in the Sequential Organ Failure Assessment (SOFA) score of 2 points or more. Septic shock is the subset of sepsis in which circulatory, cellular and metabolic abnormalities are severe enough to raise mortality substantially, identified by a \"vasopressor requirement to maintain a mean arterial pressure of 65 mm Hg or greater and serum lactate level greater than 2 mmol/L (>18 mg/dL) in the absence of hypovolemia.\"",
+        "The definition is built on organ dysfunction and on a combined pressure and lactate threshold. It says nothing about cardiac output, vascular resistance or filling. That is deliberate: it identifies patients at high risk of death, not a hemodynamic type. All three patients here meet the septic shock criteria, and the data that support it are given: Patient L needed norepinephrine after about 2.5 L of crystalloid, with a lactate of 3.4. Patients V and C, with lactates of 4.2 and 6.0, meet them once they still need a vasopressor after initial fluid, which is stipulated here rather than shown by their first numbers. Yet their circulations are failing for different reasons."
+      ],
+      "questions": [
+        {
+          "id": "q-sepsis3-transfer",
+          "kind": "transfer",
+          "prompt": "A woman with pyelonephritis has a MAP of 70 mm Hg without any vasopressor, a lactate of 3.5 mmol/L and new confusion. By Sepsis-3, does she have sepsis, septic shock, or neither, and what does the label tell you about her circulation?",
+          "answer": "She has sepsis if her new confusion and any other organ dysfunction together represent an acute SOFA rise of 2 or more from her baseline; the confusion alone may or may not reach that, depending on its depth. If she has no known preexisting organ dysfunction, Sepsis-3 allows her baseline SOFA to be taken as zero. She does not meet the septic shock criteria, because she needs no vasopressor to keep MAP at 65 or above, even though her lactate is above 2. The label tells you her risk, not her hemodynamics: she could have high flow and low tone, as in Patient V, or a weak heart, as in Patient C, and only further assessment would say which.",
+          "causalChain": "Sepsis-3 requires infection plus organ dysfunction; septic shock adds both a vasopressor need for MAP 65 or more and lactate above 2 in the absence of hypovolemia; her pressure is held without a vasopressor; the definition does not specify a hemodynamic pattern.",
+          "assumption": "That the infection is confirmed and the confusion is new and not explained by anything else.",
+          "misconception": "That a lactate above 2 alone means septic shock."
+        }
+      ],
+      "refs": [
+        "singer-2016"
+      ]
+    },
+    {
+      "id": "three-profiles",
+      "parentId": "three-septic",
+      "title": "One diagnosis, three circulations",
+      "body": [
+        "Placing the three patients side by side shows how little the diagnosis says about the circulation. Systemic vascular resistance (SVR) can be estimated as 80 times the difference between MAP and CVP, divided by cardiac output, in dyn·s·cm-5. For Patient V that is 80 x (53 - 6) / 7.5, about 500. For Patient C it is 80 x (64 - 14) / 3.2, about 1250. The same diagnosis gives a resistance that differs two and a half times between them. Patient C's value is at or just above the upper limit of the range usually quoted for adults (about 800 to 1200), not an extreme one, and it does not show that sepsis has spared his vessels: compensatory constriction can sit on top of septic vascular dysfunction.",
+        "Stroke volume tells the same story from the heart's side. Patient V's is 7500 / 118, about 64 mL. Patient C's is 3200 / 125, about 26 mL. Patient V's heart is producing a high output at the moment, into vessels that have lost their tone. That describes her flow under these loading conditions; it does not prove that her heart muscle is normal, because output and ejection fraction both depend on load and neither is a direct measure of contractility. Patient C's heart is producing a low output into vessels that are constricting to hold pressure. Patient L sits between them, and his problem is mainly where his fluid has gone, which Part IV examines. These are dominant patterns at one moment. They overlap, and the same patient can move from one to another, as Patient V does in Part VI.",
+        "Simple bedside ratios do not separate them. The shock index, heart rate divided by systolic pressure, is 118 / 82, about 1.44, for Patient V and 125 / 88, about 1.42, for Patient C. Two almost identical indices describe opposite circulations. The index flags that something is wrong; it does not say what."
+      ],
+      "questions": [
+        {
+          "id": "q-same-index",
+          "kind": "prediction",
+          "prompt": "You are told only that Patient V's shock index is 1.44 and Patient C's is 1.42. Predict whether they share a hemodynamic mechanism.",
+          "answer": "They do not. Patient V has a high cardiac output of 7.5 L/min, a stroke volume of about 64 mL and an SVR of about 500: high flow under low afterload, with lost arterial tone; that does not prove her heart muscle is normal. Patient C has a cardiac output of 3.2 L/min, a stroke volume of about 26 mL and an SVR of about 1250: low flow with a weak ventricle on echocardiography and a resistance much higher than hers, which can still hide septic vascular dysfunction. The two indices agree because each is a ratio of a fast heart rate to a low systolic pressure, and very different combinations of flow and resistance can produce that ratio.",
+          "causalChain": "Shock index is heart rate over systolic pressure; systolic pressure depends on stroke volume and arterial tone together; a high flow, low resistance circulation and a low flow, high resistance circulation can give the same pressure and heart rate.",
+          "assumption": "That the cardiac output figures are accurate and that both patients are assessed at the same stage of illness.",
+          "misconception": "That septic shock is always warm, high-output shock."
+        }
+      ],
+      "diagram": {
+        "id": "r3-three-septic-circulations",
+        "caption": "Figure 1. One diagnosis, three circulations. Patients V, L and C shown as three small circuits, each a snapshot at one moment. MAP, CVP and cardiac output are given values; SVR and stroke volume are calculated from them; the arteriolar width drawn is inferred, not observed. V: MAP 53, cardiac output 7.5 L/min, SVR about 500, stroke volume 64 mL. C: MAP 64, cardiac output 3.2 L/min, SVR about 1250, stroke volume 26 mL. L: MAP 66 on a vasopressor, edema. V and C have almost the same shock index. Illustrative teaching numbers.",
+        "alt": "Three simple circuit diagrams side by side, each with a heart, arteries, capillaries and veins. The left circuit, Patient V, shows a large heart output with wide arterioles and labels MAP 53, cardiac output 7.5, SVR about 500 and stroke volume 64. The middle circuit, Patient L, shows fluid leaving the capillaries into surrounding tissue, with labels MAP 66 on a vasopressor. The right circuit, Patient C, shows a small heart output with narrowed arterioles and labels MAP 64, cardiac output 3.2, SVR about 1250 and stroke volume 26. A note under V and C reads shock index 1.44 and 1.42."
+      }
+    },
+    {
+      "id": "four-levels",
+      "parentId": "three-septic",
+      "title": "Four levels of attack",
+      "body": [
+        "Sepsis attacks the circulation at four levels at once. At the arterioles it removes tone, so the same flow produces less pressure. At the veins it lowers capacitance tone, so blood pools in the unstressed reservoir and less of it drives venous return. At the capillary wall it increases leak, so less of the fluid given into the vessels stays there than in health. At the heart and in the cells it depresses contraction and may impair the use of oxygen.",
+        "At presentation each of the three patients is dominated by a different level, though none is affected at only one. Patient V's problem is mainly arteriolar and venous tone, Patient L's mainly the capillary wall, and Patient C's mainly the heart. Vasoplegia, a weak heart and fluid intolerance are not mutually exclusive diagnoses, and the dominant one can change with treatment and time. Fluids, vasopressors and source control each act on only some of these levels, which is why each helps up to a point and then stops. Part II takes the arterioles, Part III the veins, Part IV the capillary wall, Part V the microcirculation and cells, Part VI the heart, Part VII the cause, and Part VIII the limits of support."
+      ],
+      "questions": []
+    },
+    {
+      "id": "vascular-tone",
+      "title": "Part II. Lost arterial tone",
+      "body": [
+        "Arteriolar smooth muscle sets most of the resistance in the systemic circulation. Its tone is a balance between constricting signals, such as sympathetic noradrenaline, angiotensin II and vasopressin, and relaxing signals, such as nitric oxide. In septic shock that balance moves toward relaxation, and the vessels also become less able to respond to constricting signals. The result is vasoplegia: wide arterioles that let pressure fall even when flow is high.",
+        "Calling this simply low SVR misses the point. SVR is a calculated number that falls whenever flow rises relative to pressure. Vasoplegia is a property of the vessel wall: the muscle is not contracting, and it responds poorly when asked to."
+      ],
+      "questions": []
+    },
+    {
+      "id": "tone-mechanisms",
+      "parentId": "vascular-tone",
+      "title": "Why septic arterioles stop constricting",
+      "body": [
+        "Several mechanisms have been proposed, and reviews of vasodilatory shock bring them together. Inflammatory signaling induces nitric oxide production in the vessel wall, and nitric oxide relaxes smooth muscle directly. ATP-sensitive potassium channels in the smooth muscle membrane open, which hyperpolarizes the cell and closes the voltage-gated calcium channels that contraction depends on. Circulating vasopressin, after an early rise, can fall to levels lower than expected for the degree of hypotension, a relative deficiency. And adrenergic receptors and their signaling become less responsive, so the same catecholamine concentration produces less constriction.",
+        "These mechanisms are not supported equally, and the review by Lambden and colleagues allows a rough grading. Nitric oxide has the strongest human support, though it is indirect: in patients with septic shock, drugs that block nitric oxide production raised blood pressure but increased mortality. Opening of ATP-sensitive potassium channels rests mainly on animal work; blocking the channels improved hemodynamics in animal models, but phase 2 trials in humans showed no benefit. Relative vasopressin deficiency has been observed in patients, whose levels rise early in shock and then fall to subnormal levels after about 24 hours, but that this causes the loss of tone is still described as possible rather than proven. Reduced adrenergic receptor responsiveness has only limited human data, which suggest that the pattern seen in rodents may also occur in patients. What can be said is that more than one pathway is involved, which is why no single treatment restores tone completely."
+      ],
+      "questions": [],
+      "refs": [
+        "lambden-2018",
+        "landry-oliver-2001"
+      ]
+    },
+    {
+      "id": "tone-numbers",
+      "parentId": "vascular-tone",
+      "title": "Patient V in numbers",
+      "body": [
+        "Patient V has a MAP of 53, a CVP of 6 and a cardiac output of 7.5 L/min, an SVR of about 500. Her heart is delivering more blood than normal, and her pressure is still low, because the arterioles are offering little resistance to it. Her diastolic pressure of 38 mm Hg is the most striking part of her reading. Between beats, arterial pressure decays as blood runs off through the arterioles, and when they are wide it runs off quickly.",
+        "Low diastolic pressure is commonly read as a sign of low arterial tone. In patients with septic shock, Ospina-Tascón and colleagues found that low diastolic pressure combined with a fast heart rate was associated with worse outcomes, while neither value alone clearly identified that risk. That is an association, not proof that diastolic pressure measures tone, and other conditions, such as a slow heart rate or a leaking aortic valve, can also lower it. No threshold is given here; Patient V's diastolic pressure serves only as a reason to suspect lost tone and then check the other numbers, not as a measurement of tone."
+      ],
+      "questions": [
+        {
+          "id": "q-v-pressor",
+          "kind": "prediction",
+          "prompt": "Soon after a vasopressor is started, before her day-2 values in Part VI, Patient V's MAP rises from 53 to 67, her CVP from 6 to 8, and her cardiac output falls from 7.5 to 7.0 L/min. Predict her new SVR, and say what the pressure gain proved and did not prove.",
+          "answer": "Her SVR rises from about 500 to about 670. The vasopressor restored some arteriolar tone, so the same heart now produces a higher perfusion pressure, which matters for organs whose flow depends on pressure, such as the kidney and the brain when autoregulation is impaired. It did not prove that her organs receive more flow or oxygen: total flow fell slightly, and the pressure gain says nothing about how flow is distributed between and within organs. That needs separate signals, such as capillary refill, urine output, mental state and lactate trend.",
+          "causalChain": "Vasopressor raises arteriolar resistance and venous tone; MAP rises; cardiac output may rise, stay level or fall depending on venous return and the heart's response to afterload; organ flow depends on both pressure and local resistance.",
+          "assumption": "That the measurements were made at steady state and the cardiac output figures are accurate.",
+          "misconception": "That a higher blood pressure means better perfusion."
+        }
+      ],
+      "refs": [
+        "ospina-tascon-2020"
+      ],
+      "workedExample": {
+        "id": "we-v-svr",
+        "title": "Worked example: Patient V before and after a vasopressor",
+        "body": [
+          "Before: MAP 53, CVP 6, cardiac output 7.5 L/min. SVR = 80 x (53 - 6) / 7.5 = 80 x 47 / 7.5, about 500 dyn·s·cm-5.",
+          "After a vasopressor: blood pressure 100/50, so MAP = (100 + 2 x 50) / 3, about 67. CVP 8, cardiac output 7.0 L/min. SVR = 80 x (67 - 8) / 7.0 = 80 x 59 / 7.0, about 670.",
+          "Pressure rose by 14 mm Hg while flow fell slightly, by 0.5 L/min. These are illustrative numbers; the direction of the change in flow differs between patients and is not claimed as typical."
+        ]
+      }
+    },
+    {
+      "id": "tone-pressor-response",
+      "parentId": "vascular-tone",
+      "title": "Why tone can resist catecholamines, and the case for other vasopressors",
+      "body": [
+        "If receptor signaling is blunted and smooth muscle is hyperpolarized, giving more of a catecholamine produces progressively smaller gains in pressure. This is one reason septic vasoplegia can need very high catecholamine exposure. The [Shock chapter](/cases/shock-pressure-flow#principle-pressors-inotropes) already covers how vasopressors and inotropes act on pressure and flow; the sepsis-specific point is about mechanism.",
+        "Vasopressin acts through its own receptors, not through adrenergic ones, so it bypasses the blunted adrenergic pathway. If part of the problem is a relative vasopressin deficiency, giving it replaces a missing hormone rather than simply adding more constriction. That was the physiological rationale for the VASST trial, which compared vasopressin with norepinephrine in septic shock. Its result is discussed in Part VIII, where the adjunct trials are taken together. The rationale is physiological; whether it changes outcomes is a separate question that only trials can answer."
+      ],
+      "questions": [
+        {
+          "id": "q-vasoplegia-transfer",
+          "kind": "transfer",
+          "prompt": "A patient is profoundly hypotensive with warm peripheries after cardiopulmonary bypass, and another after anaphylaxis. Which of the septic vasoplegia mechanisms would you expect to overlap with these states, and what differs?",
+          "answer": "Both are forms of vasodilatory shock, so the final pathway is similar: smooth muscle that is relaxed and responds poorly to catecholamines, with nitric oxide and potassium channel opening as plausible shared mechanisms. After bypass there is a systemic inflammatory response to the circuit, so the overlap with sepsis may be substantial, but there is no ongoing infection to remove. In anaphylaxis the main driver is mast cell mediators such as histamine, which act quickly and also cause marked capillary leak, so the onset is abrupt and the treatment of the cause is different. The reasoning about tone carries over; the reasoning about the cause does not.",
+          "causalChain": "Vasodilatory shock shares a final pathway of relaxed, poorly responsive smooth muscle; the trigger differs (infection, extracorporeal circuit, mast cell mediators); the trigger determines duration, leak and cause-directed treatment.",
+          "assumption": "That cardiac function is preserved in both cases.",
+          "misconception": "That all warm, hypotensive shock is septic."
+        }
+      ],
+      "refs": [
+        "lambden-2018",
+        "russell-2008"
+      ]
+    },
+    {
+      "id": "venous-capacitance",
+      "title": "Part III. The veins: capacitance and stressed volume",
+      "body": [
+        "The [Shock chapter](/cases/shock-pressure-flow#principle-stressed-volume) showed that only part of the blood in the veins stretches their walls and creates mean systemic filling pressure, the pressure that drives venous return. That part is the stressed volume; the rest, which merely fills the veins without stretching them, is the unstressed volume. Venous tone decides how blood is divided between the two.",
+        "Sepsis lowers venous tone as well as arterial tone. When the veins relax, the same total blood volume holds a larger unstressed share and a smaller stressed share. Mean systemic filling pressure falls, venous return falls, and the circulation behaves as though it were empty even though no blood has been lost. This is sometimes called relative hypovolemia. Magder estimates that the stressed share is usually about 30 percent of total blood volume, a figure based on physiological estimates."
+      ],
+      "questions": [],
+      "refs": [
+        "magder-2016"
+      ]
+    },
+    {
+      "id": "capacitance-shift",
+      "parentId": "venous-capacitance",
+      "title": "Why fluid fills a bigger container",
+      "body": [
+        "When the veins have relaxed, a fluid bolus first has to fill a container that has become larger. Some of the bolus raises stressed volume and mean systemic filling pressure, and venous return and stroke volume can rise. But two things then work against the gain. Part of the added volume settles into the relaxed, unstressed reservoir, and part leaves the circulation through a leaking capillary wall, which is the subject of Part IV.",
+        "So in sepsis a positive response to fluid is often partly transient. Stroke volume rises after the bolus and then drifts back as the extra volume redistributes. The fluid was not wrong, and the measured response was real, but the response alone does not show that the patient's problem was a lack of volume. In a patient whose main problem is lost venous tone, restoring tone addresses the cause, while fluid only fills the space the lost tone created."
+      ],
+      "questions": [
+        {
+          "id": "q-capacitance-predict",
+          "kind": "prediction",
+          "prompt": "Patient V receives a fluid bolus. Her stroke volume rises, then falls back toward its starting value over the next hour. Predict why, using capacitance and leak.",
+          "answer": "The bolus raised her stressed volume and mean systemic filling pressure, so venous return and stroke volume rose. Over the next hour two things undid part of that. Her veins have lost tone, so some of the added volume settled into the enlarged unstressed reservoir without raising filling pressure. And her capillaries are leaking, so some of the fluid left the circulation into the tissues. Both lower stressed volume back toward where it was, and stroke volume follows.",
+          "causalChain": "Bolus raises stressed volume; mean systemic filling pressure and venous return rise; relaxed veins absorb volume into unstressed reservoir; capillary leak moves fluid out of the vessels; stressed volume falls back; stroke volume falls back.",
+          "assumption": "That her heart function and heart rate are stable over the hour.",
+          "misconception": "That a positive fluid response means more fluid will keep helping."
+        }
+      ],
+      "diagram": {
+        "id": "shock-fluid-response",
+        "caption": "Figure 2. Reused from the Shock chapter. In septic shock a positive stroke volume response to fluid can fade over the following hour, as volume moves into relaxed veins and out through leaking capillaries. A response shows that the heart can use the extra preload at that moment; it does not show how long the gain will last.",
+        "alt": "The Shock chapter's fluid response figure, showing a curve of stroke volume against preload, with a steep part where added volume raises stroke volume and a flat part where it does not. In this chapter the caption adds that in sepsis the gain on the steep part can be temporary."
+      }
+    },
+    {
+      "id": "venoconstriction",
+      "parentId": "venous-capacitance",
+      "title": "How a vasopressor recruits unstressed volume",
+      "body": [
+        "A vasopressor that constricts veins as well as arterioles moves blood from the unstressed to the stressed reservoir. In patients with septic shock, Persichini and colleagues found that norepinephrine raised mean systemic filling pressure, the effect summarized in the Shock chapter. The sepsis-specific consequence is that a vasopressor can do part of what fluid does, by restoring the venous tone that sepsis removed, without adding volume that could leak.",
+        "This also means that what looks like fluid responsiveness can sometimes be produced, or abolished, by a change in venous tone. A patient who responds to a bolus before a vasopressor is started may stop responding afterwards, because the vasopressor has already raised stressed volume. The response describes where the heart is on its curve at that moment, not a fixed property of the patient."
+      ],
+      "questions": [
+        {
+          "id": "q-capacitance-transfer",
+          "kind": "transfer",
+          "prompt": "A patient becomes hypotensive after spinal anesthesia, which blocks sympathetic outflow to the veins and arterioles of the lower body. Which part of septic physiology applies, and why might fluid behave differently?",
+          "answer": "The capacitance mechanism applies: loss of venous tone moves blood into the unstressed reservoir, lowers mean systemic filling pressure and reduces venous return, as in Patient V. What differs is the barrier. Even with an intact capillary wall, crystalloid does not stay in the vessels: over time it distributes across the whole extracellular space, most of which lies outside them, and the kidneys excrete part of it. In sepsis an injured barrier adds to that loss. So a crystalloid bolus is expected to hold its effect somewhat longer after a spinal block than in sepsis, though not entirely, and the vasodilation wears off as the block recedes. Restoring tone with a vasoconstrictor addresses the cause directly.",
+          "causalChain": "Sympathetic block lowers venous tone; stressed volume and filling pressure fall; venous return falls; crystalloid still distributes into the extracellular space, but without inflammatory leak; the cause is temporary.",
+          "assumption": "That the patient is otherwise well, with a normal heart and no blood loss.",
+          "misconception": "That all hypotension caused by vasodilation behaves the same way when fluid is given."
+        }
+      ],
+      "refs": [
+        "persichini-2012"
+      ]
+    },
+    {
+      "id": "permeability",
+      "title": "Part IV. The leaking capillary and where fluid goes",
+      "body": [
+        "Fluid given into a vein is only useful to the circulation while it stays in the vessels. Even in health a crystalloid does not stay there: it distributes over time across the extracellular space, most of which is outside the vessels, and the kidneys excrete or retain it. Sepsis changes several separate things at once. Relaxed veins enlarge the container (Part III). An injured endothelial barrier lets more fluid and protein out. Higher capillary pressure, from any cause, increases filtration. And the kidneys under stress tend to retain salt and water. Together these move a larger share of each bolus into the tissues, where it adds weight and edema rather than stressed volume. That is why, in sepsis, more fluid given is not the same as more circulating volume."
+      ],
+      "questions": []
+    },
+    {
+      "id": "glycocalyx-starling",
+      "parentId": "permeability",
+      "title": "The revised Starling principle and the glycocalyx",
+      "body": [
+        "The classic Starling description had fluid filtered out at the arterial end of a capillary and reabsorbed at the venous end, driven by the balance of hydrostatic and oncotic pressures. The revised Starling principle, set out by Woodcock and Woodcock among others, moves the key barrier to the endothelial glycocalyx, a gel-like layer of proteins and sugar chains lining the inner surface of the vessel. The oncotic pressure that matters is the one just beneath that layer, not the one in the surrounding tissue. One consequence of the revised model is what Woodcock and Woodcock call the no-absorption rule: in continuous capillaries, the type found in most tissues, the oncotic pressure difference opposes filtration but does not reverse it at steady state, so filtered fluid returns to the circulation mainly through the lymphatics. That is not an absolute ban: after a sudden fall in capillary pressure, such as after hemorrhage, absorption can occur for a short time before filtration resumes. Some specialized capillaries, such as those of the kidney and gut, can absorb fluid continuously. Lymphatic return is the main route by which filtered fluid gets back.",
+        "In sepsis the glycocalyx is shed by enzymes activated by reactive oxygen species and inflammatory cytokines, and fragments of it can be measured in the blood, where they may serve as biomarkers. That shedding is observed. How much of septic capillary leak it explains in humans, and whether any treatment protects or restores it, are uncertain. Glycocalyx shedding is best seen as one well-supported component of septic endothelial dysfunction, not the whole explanation for fluid escape and not a target for any therapy."
+      ],
+      "questions": [],
+      "refs": [
+        "woodcock-2012",
+        "uchimido-2019"
+      ]
+    },
+    {
+      "id": "where-fluid-goes",
+      "parentId": "permeability",
+      "title": "Patient L: where 6 liters went",
+      "body": [
+        "Patient L shows the cost of fluid that does not stay. Over 24 hours he received a net positive balance of 6 L, his weight rose by 6 kg, and his hemoglobin fell from 13 to 10.5 g/dL without bleeding. The fall in hemoglobin is dilution: his red cells are spread through a larger plasma volume. Working backwards from that dilution gives a rough sense of his net intravascular expansion.",
+        "The estimate in the worked example suggests that about 1.3 L, roughly 22 percent of the 6 L, is still circulating. That figure is an illustrative teaching estimate built on stated assumptions. It is not a measured value. It does not locate the rest of the fluid, does not measure capillary leak, does not predict how much of a new bolus would stay, and is not the amount that leaks in sepsis generally. For comparison only, Hahn reports from volume kinetic studies, mostly in people without sepsis, that crystalloid expands plasma by about 15 to 20 percent of the infused volume within 30 minutes after an infusion ends. The two figures are similar in size, but Hahn's is not the source of Patient L's estimate. The rest of the fluid is mostly outside his vessels, by normal extracellular distribution and by leak together, which this calculation cannot separate. There it carries organ costs. In the lungs, interstitial edema stiffens the lung and lengthens the path oxygen must cross; once alveoli flood or collapse, the worsening hypoxemia comes mainly from low ventilation-perfusion units and shunt, as the [acute respiratory failure chapter](/cases/acute-respiratory-failure#principle-vq-shunt) explains. In the gut wall it raises interstitial pressure, and in a kidney enclosed by its capsule it can raise tissue pressure. Patient L's rising oxygen need is the clearest of these costs at the bedside."
+      ],
+      "questions": [],
+      "diagram": {
+        "id": "r3-where-fluid-goes",
+        "caption": "Figure 3. Where given fluid goes in sepsis. Schematic of fluid given into the circulation, with part staying in the vessels and much moving into the interstitium of lung, gut and kidney, partly by normal distribution and partly through a leaking wall, and an inset of an intact and a shed glycocalyx. Normal filtration that returns through the lymphatics is shown separately from leak, because not all fluid outside the vessels is pathological. Schematic only; no proportions are shown.",
+        "alt": "Titled where given fluid goes in sepsis. A schematic of a blood vessel with fluid entering from an intravenous line. Arrows show some fluid remaining in the vessel and more fluid passing through the vessel wall into the surrounding tissue, labeled lung, gut and kidney; the label leaking wall appears only beside the leak arrow, and normal filtration returning through the lymphatics is shown separately. An inset shows two magnified sections of vessel lining, one with a thick intact glycocalyx layer and one with a thin, patchy layer. No numbers or proportions are shown."
+      },
+      "workedExample": {
+        "id": "we-l-dilution",
+        "title": "Worked example: Patient L's dilution estimate (illustrative teaching estimate)",
+        "body": [
+          "Starting blood volume: 70 mL/kg x 80 kg = 5.6 L.",
+          "If red cell mass is unchanged, hemoglobin falls in proportion to the rise in blood volume. New blood volume = 5.6 x 13 / 10.5, about 6.93 L. The rise is about 1.3 L.",
+          "Fraction of the 6 L net balance still intravascular: 1.3 / 6, about 22 percent.",
+          "Assumptions: no bleeding, no blood sampling loss, unchanged red cell mass, a single well-mixed compartment, and an assumed starting blood volume. Each assumption is uncertain, so this is an illustrative estimate of net intravascular expansion only. It is not a measurement of leak, it does not say what fraction of a new bolus would stay, and it is not used in any figure."
+        ]
+      },
+      "refs": [
+        "hahn-2020"
+      ]
+    },
+    {
+      "id": "fluid-evidence",
+      "parentId": "permeability",
+      "title": "What the fluid trials show",
+      "body": [
+        "Two trials already cited in the Shock chapter tested how much fluid to give. CLASSIC compared restrictive with standard intravenous fluid in adults in intensive care with septic shock who had already received at least 1 liter of fluid, enrolled within 12 hours of the onset of shock. CLOVERS compared a restrictive strategy, relying earlier on vasopressors, with a more liberal fluid strategy in adults with sepsis-induced hypotension that persisted after 1 to 3 liters of initial fluid, most of them enrolled in the emergency department. In each, no statistically significant difference was detected in the primary outcome: death at 90 days in CLASSIC (42.3% vs 42.1%), and death before discharge home by day 90 in CLOVERS (14.0% vs 14.9%).",
+        "A result with no significant difference is not proof that the strategies are equivalent. CLASSIC's confidence interval for the mortality difference ran from about 5 points in one direction to about 5 in the other, which leaves room for a real difference either way. The trials do not show that fluid is harmful, that every bolus is safe, that any single bolus is harmful, or that fluid should be withheld from a patient who is clearly underfilled, and they apply to patients who had already received initial fluid. They tested strategies across populations, not the response of one patient to one bolus. The [Shock chapter's](/cases/shock-pressure-flow#principle-fluid-responsiveness) distinction between fluid responsiveness and fluid tolerance is what lets a clinician apply them to the patient in front of them."
+      ],
+      "questions": [
+        {
+          "id": "q-l-plr",
+          "kind": "prediction",
+          "prompt": "Patient L has no rise in stroke volume with a passive leg raise. Predict the effect of another fluid bolus on his cardiac output and on his oxygenation.",
+          "answer": "A technically reliable negative passive leg raise makes an increase in cardiac output from additional fluid less likely: his heart is probably on the flat part of its curve, where extra preload is not converted into more output. In a patient with pulmonary edema, further fluid may worsen congestion, because part of any bolus distributes out of the vessels, more so where capillaries leak; assess that risk alongside the expected benefit. A single negative test is still read against its quality and the clinical picture, not as a fixed property of the patient: a positive response would not by itself justify repeated boluses either, because responding to fluid, needing it and tolerating it are separate questions.",
+          "causalChain": "No leg-raise response suggests a flat Starling curve; added preload does not raise stroke volume; distribution and leak move part of the bolus into tissue; lung water may rise; gas exchange may worsen.",
+          "assumption": "That the leg raise was done correctly and stroke volume was measured accurately, and that his abdominal pressure is not high enough to make the test unreliable.",
+          "misconception": "That a patient on a vasopressor always needs more fluid."
+        },
+        {
+          "id": "q-fluid-evidence",
+          "kind": "evidence-boundary",
+          "prompt": "A colleague says CLASSIC proves that fluids are harmful in septic shock. What does the trial show, and what does it not show?",
+          "answer": "CLASSIC compared restrictive with standard fluid in adults in intensive care with septic shock who had already received at least 1 liter, and no statistically significant difference in 90-day mortality was detected. That makes a restrictive approach a reasonable option in that population, at that stage, but it does not prove the two approaches are equally safe: the confidence interval allowed a difference of about 5 points either way. It does not show that fluid is harmful, because the standard arm did not do worse in a statistically significant way. It also does not apply directly to the first hours of resuscitation, to a patient who is clearly underfilled, or to the effect of a single bolus given as a test.",
+          "causalChain": "Trial compared two strategies after initial resuscitation; no significant mortality difference; a null result does not show harm from either arm; population and timing limit how far it applies.",
+          "assumption": "That the patients in front of you resemble the trial population: adults in intensive care with septic shock who had already received initial fluid.",
+          "misconception": "That a trial without a significant difference proves one arm is harmful."
+        },
+        {
+          "id": "q-leak-transfer",
+          "kind": "transfer",
+          "prompt": "A patient has severe burns, and another severe acute pancreatitis. What from Patient L carries over, and what differs?",
+          "answer": "Both conditions cause a systemic inflammatory response with increased capillary permeability, so the central point carries over: fluid given into the vessels leaves them, edema carries organ costs, and the fraction that stays is smaller than in health. In burns, large volumes are also lost directly from the damaged skin, and fluid needs in the early hours are driven by that loss as well as by leak. In pancreatitis, fluid collects in the abdomen and can raise abdominal pressure, which compresses veins and organs. The leak reasoning applies; the sources of loss and where the fluid collects differ.",
+          "causalChain": "Inflammation raises permeability; infused fluid moves into tissue; edema raises interstitial pressure in organs; burns add direct surface loss; pancreatitis adds abdominal collection and pressure.",
+          "assumption": "That neither patient has ongoing bleeding.",
+          "misconception": "That large fluid needs always mean that more fluid is still helping."
+        }
+      ],
+      "refs": [
+        "classic-2022",
+        "clovers-2023"
+      ]
+    },
+    {
+      "id": "micro-cellular",
+      "title": "Part V. Heterogeneous flow and cellular dysfunction",
+      "body": [
+        "Parts II to IV dealt with mechanisms that are well established: lost arterial tone, lost venous tone and capillary leak. This Part moves to the microcirculation and the cells, where the evidence is weaker and the explanations are less settled. The table gives how firmly each claim is supported. Nothing in this Part is presented as a treatment target."
+      ],
+      "questions": [],
+      "table": {
+        "caption": "How firmly the claims in Parts V and VI are supported",
+        "header": [
+          "Claim",
+          "Strength of support"
+        ],
+        "rows": [
+          [
+            "Heterogeneous microvascular flow in septic patients",
+            "Observed directly in patients; its causal role in organ failure is not proven"
+          ],
+          [
+            "Loss of hemodynamic coherence",
+            "A framework for reading monitoring, proposed as a personal viewpoint; not an established finding"
+          ],
+          [
+            "Impaired mitochondrial oxygen use",
+            "Hypothesis, from experimental models and observational patient data"
+          ],
+          [
+            "Lactate in sepsis is not explained by hypoxia alone",
+            "Established; the share of each contributor in a given patient is uncertain"
+          ],
+          [
+            "Capillary refill-targeted resuscitation",
+            "Tested in trials; no mortality reduction shown"
+          ],
+          [
+            "Sepsis-induced cardiomyopathy occurs and usually recovers",
+            "Established; its mechanisms are partly established and partly hypothesis"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "micro-flow",
+      "parentId": "micro-cellular",
+      "title": "Heterogeneous microvascular flow (observed)",
+      "body": [
+        "Using orthogonal polarization spectral imaging of the small vessels under the tongue, De Backer and colleagues found that microvascular flow in 50 patients with what was then called severe sepsis, a pre-Sepsis-3 category, was altered, with fewer perfused small vessels and more vessels with stopped or intermittent flow than in controls. Flow was heterogeneous: some capillaries were well perfused while their neighbors were not. In that study, the alterations were more severe in patients who died. That is an association with outcome, not proof that the alterations caused death.",
+        "Ince has described, in what he calls a personal viewpoint, the idea of hemodynamic coherence: in health, restoring pressure and cardiac output restores flow in the small vessels, but in sepsis that link can break, so that the large-vessel numbers are corrected while the microcirculation stays disordered. Whether loss of coherence causes organ failure, and whether any treatment aimed at the microcirculation improves outcome, are uncertain."
+      ],
+      "questions": [],
+      "refs": [
+        "de-backer-2002",
+        "ince-2015"
+      ],
+      "diagram": {
+        "id": "r3-coherence",
+        "caption": "Figure 4. Loss of hemodynamic coherence (observed association, not a causal model). Large-vessel variables such as MAP and cardiac output are restored, while flow in the small vessels stays heterogeneous, with some capillaries perfused and others not. Conceptual only, not measured data for the patients in this chapter.",
+        "alt": "Two panels. The left panel shows a gauge for MAP and cardiac output moving into the normal range. The right panel shows a network of capillaries in which some are filled with moving red cells and others are empty or show stopped flow. A label reads observed association, not a causal model."
+      }
+    },
+    {
+      "id": "cellular-oxygen-use",
+      "parentId": "micro-cellular",
+      "title": "Impaired cellular oxygen use (hypothesis)",
+      "body": [
+        "Singer and others have proposed that in sepsis the mitochondria in some cells use oxygen less effectively, so that organs fail even when enough oxygen reaches them. Supporting data come from experimental models and from observational studies in patients. The idea would explain why organ dysfunction can persist after the circulation is restored, and why organs that fail in sepsis often recover with little lasting damage, which has been interpreted as a protective shutdown rather than cell death.",
+        "This remains a hypothesis. It is not established in human septic shock as a cause of organ failure, and it is not a treatment target. It is included because it offers one possible explanation for findings that the circulation alone does not fully explain. A raised lactate does not diagnose it."
+      ],
+      "questions": [],
+      "refs": [
+        "singer-2008",
+        "singer-2014"
+      ]
+    },
+    {
+      "id": "lactate-in-sepsis",
+      "parentId": "micro-cellular",
+      "title": "Lactate in sepsis: more than oxygen shortage",
+      "body": [
+        "The [Shock chapter](/cases/shock-pressure-flow#principle-extraction-lactate) showed that lactate rises when oxygen delivery falls below what the tissues need, but that it can also rise for other reasons. Sepsis is the clearest case. Patient V has a lactate of 4.2 mmol/L while her global oxygen delivery is high.",
+        "Her arterial oxygen content is 1.34 x 12 x 0.94 + 0.003 x 70, about 15.3 mL/dL, and her delivery is 75 dL/min x 15.3, about 1150 mL/min, well above the usual resting value. That makes a simple shortage of global delivery unlikely, but it does not settle adequacy, which depends on demand, and a high global figure cannot exclude flow that is badly distributed between or within organs, or tissue that extracts oxygen poorly. Reviews by Garcia-Alvarez and colleagues and by Suetrong and Walley describe other contributors in sepsis: adrenergic stimulation of glycolysis in well-oxygenated cells, particularly muscle, and reduced lactate clearance by the liver. These are distinct from two other possibilities: regional underperfusion, which the heterogeneous flow described above suggests, and altered cellular oxygen use, which remains a hypothesis. Lactate cannot tell these apart, it does not diagnose mitochondrial failure, and a lactate that stays high does not by itself call for more fluid."
+      ],
+      "questions": [],
+      "refs": [
+        "garcia-alvarez-2014",
+        "suetrong-2016"
+      ]
+    },
+    {
+      "id": "perfusion-targets",
+      "parentId": "micro-cellular",
+      "title": "Capillary refill as a perfusion signal",
+      "body": [
+        "ANDROMEDA-SHOCK compared a resuscitation strategy aimed at normalizing capillary refill time with one aimed at normalizing lactate in early septic shock. Its primary outcome, 28-day mortality, did not differ significantly between the groups. ANDROMEDA-SHOCK-2, already cited in the Shock chapter, tested personalized resuscitation guided by capillary refill time against usual care. It found the capillary refill-guided strategy superior to usual care on a hierarchical combined outcome, ranking death, then duration of vital organ support, then length of hospital stay (win ratio 1.16, 95% CI 1.02 to 1.33, P = .04), driven mainly by shorter organ support. Mortality alone at 28 days was 26.5% vs 26.6% (hazard ratio 0.99, 95% CI 0.81 to 1.21), and the trial was unblinded. Neither trial shows that capillary refill-guided resuscitation saves lives.",
+        "The physiological point is narrower than the trials. Capillary refill is a bedside signal of skin perfusion that changes within minutes, while lactate is a whole-body signal that changes over hours and has several sources, as Patient V shows. The two can disagree, and when they do, each is answering a different question."
+      ],
+      "questions": [
+        {
+          "id": "q-v-lactate",
+          "kind": "prediction",
+          "prompt": "Patient V's MAP and cardiac output have been restored and her capillary refill has normalized, but over 2 hours her lactate rises from 4.2 to 4.8 mmol/L. Predict the possible explanations, in order of likelihood, and say what would separate them.",
+          "answer": "First, ongoing adrenergic stimulation of glycolysis, from her illness and any catecholamine she is receiving, in tissue that is not short of oxygen. Second, reduced clearance by the liver. Third, regional underperfusion that the skin does not reveal, for example in the gut, or heterogeneous microvascular flow. Less likely, an undrained source of infection or a new complication. A falling vasopressor requirement and improving organ function would favor the first two; a worsening abdomen, rising vasopressor need, or a new source on imaging would favor regional hypoperfusion or an uncontrolled source. A single lactate value cannot separate them; its trend alongside the other signals can.",
+          "causalChain": "Lactate has several sources in sepsis; restored global flow and normal skin perfusion make global oxygen shortage unlikely; adrenergic glycolysis and reduced clearance can raise lactate in well-oxygenated tissue; regional hypoperfusion remains possible.",
+          "assumption": "That the lactate measurements are accurate and from the same type of sample.",
+          "misconception": "That a rising lactate always means that oxygen delivery is too low."
+        },
+        {
+          "id": "q-micro-transfer",
+          "kind": "transfer",
+          "prompt": "A patient after cardiac arrest has a normal MAP but slow capillary refill. Which of this Part's septic concepts apply, and which do not?",
+          "answer": "Loss of coherence may apply: after cardiac arrest the large-vessel numbers can be restored while small-vessel flow remains disordered, and the post-arrest state includes a systemic inflammatory response. Lactate interpretation also carries over, because a rising lactate after arrest can have several sources. What does not carry over directly is the septic cause: there is no infection to treat, and the post-arrest heart is often stunned, so slow refill may reflect low cardiac output or vasoconstriction rather than heterogeneous flow. None of these is established as a treatment target after arrest.",
+          "causalChain": "Normal pressure does not guarantee skin perfusion; coherence can be lost after any severe inflammatory insult; slow refill can reflect low flow, high tone or microcirculatory disorder; causes differ between arrest and sepsis.",
+          "assumption": "That the patient is normothermic, since cold skin slows capillary refill on its own.",
+          "misconception": "That a normal MAP means the tissues are well perfused."
+        }
+      ],
+      "refs": [
+        "hernandez-2019",
+        "andromeda-shock-2-2025"
+      ]
+    },
+    {
+      "id": "septic-heart",
+      "title": "Part VI. The septic heart",
+      "body": [
+        "Patient B in the Shock chapter showed that warm skin can hide a weak heart. Patient C shows the same thing further along. His peripheries are cold and his capillary refill is slow, but the decisive finding is on echocardiography: a globally hypokinetic left ventricle in a man whose septic shock might otherwise have been treated as a problem of tone and volume alone. Patient V shows that the pattern can change. On her second day (illustrative numbers), with her MAP held at 67 on norepinephrine and her CVP 8 mm Hg, her cardiac output has fallen to 4.8 L/min, her capillary refill has lengthened to 4 seconds, and echocardiography now shows a moderately reduced left ventricle. Her SVR is now 80 x (67 - 8) / 4.8, about 980. Her heart may well have been depressed from the start, with the low afterload of vasoplegia hiding it; restoring tone made it visible. She has moved part of the way toward Patient C's pattern."
+      ],
+      "questions": []
+    },
+    {
+      "id": "cardiomyopathy",
+      "parentId": "septic-heart",
+      "title": "Sepsis-induced cardiomyopathy",
+      "body": [
+        "Sepsis can depress contraction of both ventricles, and in survivors the depression usually recovers over days to weeks. Hollenberg and Singer review its features and proposed mechanisms. It is common, but published estimates of how common vary too much with the definition, the imaging and the population studied for a single figure to mean much.",
+        "The proposed mechanisms include circulating inflammatory mediators that depress contraction, nitric oxide acting on the heart muscle, disordered calcium handling inside the cells, and mitochondrial dysfunction of the kind described in Part V. Some of these have direct support in patients and some rest mainly on experimental work. The working picture is of a heart that is not dead but temporarily switched down, which is consistent with its usual recovery. Because output and ejection fraction depend on loading, the depression can be hidden while afterload is low and become visible once tone is restored."
+      ],
+      "questions": [],
+      "refs": [
+        "hollenberg-singer-2021"
+      ]
+    },
+    {
+      "id": "c-numbers",
+      "parentId": "septic-heart",
+      "title": "Patient C in numbers",
+      "body": [
+        "Patient C's numbers contrast with Patient V's at every step. His stroke volume is 26 mL against her 64, his SVR about 1250 against her 500, and his oxygen delivery about 455 mL/min against her 1150. His tissues are compensating by extracting a larger share of the oxygen they receive, which is why his ScvO2 is low.",
+        "These numbers place Patient C's main problem in the pump, not in the vessels. His SVR, about 1250 before any vasopressor, fits arterioles constricting to hold pressure against a low output. It is high compared with Patient V's, not extreme, and it does not show that his vessels are free of septic dysfunction; compensatory constriction can mask it. Adding more constriction would ask a weak ventricle to pump against more resistance, which is the risk Part VI weighs next."
+      ],
+      "questions": [],
+      "workedExample": {
+        "id": "we-c-delivery",
+        "title": "Worked example: Patient C's oxygen delivery and extraction",
+        "body": [
+          "Arterial content: CaO2 = 1.34 x 11 x 0.95 + 0.003 x 80 = 14.0 + 0.24, about 14.2 mL/dL.",
+          "Delivery: DO2 = 32 dL/min x 14.2, about 455 mL/min.",
+          "Venous content, using ScvO2 as a stand-in for mixed venous saturation and ignoring dissolved oxygen: CvO2 = 1.34 x 11 x 0.55, about 8.1 mL/dL.",
+          "Consumption: VO2 = 32 x (14.2 - 8.1), about 195 mL/min. Extraction = 195 / 455, about 43 percent. This is an approximate teaching calculation, not a validated measurement of whole-body oxygen consumption.",
+          "For comparison, Patient V: CaO2 about 15.3 mL/dL and DO2 about 1150 mL/min. These are illustrative numbers, and central venous saturation is only an approximation of mixed venous saturation."
+        ]
+      }
+    },
+    {
+      "id": "afterload-cost",
+      "parentId": "septic-heart",
+      "title": "The cost of raising pressure in a weak heart",
+      "body": [
+        "A healthy ventricle can maintain its stroke volume when afterload rises. A weak one often cannot: as the pressure it must pump against rises, its stroke volume falls. The [Shock chapter](/cases/shock-pressure-flow#principle-pressors-inotropes) describes this interaction. In Patient C it means that raising MAP with a vasoconstrictor may raise pressure while lowering flow. Other effects pull the other way: a higher pressure improves perfusion pressure for the heart itself and for other organs, venoconstriction recruits unstressed volume and can raise venous return (Part III), and some agents also stimulate contraction. So a vasopressor can raise, maintain or lower output in a weak heart. A weak ventricle is not a reason to avoid vasopressors, and an inotrope does not automatically fix a low output. The answer comes from assessing loading, pressure, flow and perfusion together.",
+        "The Surviving Sepsis Campaign 2026 guideline gives an orientation, all as conditional suggestions on very low certainty evidence, except the suggestion against levosimendan, which rests on low certainty evidence. For septic shock with cardiac dysfunction it suggests either norepinephrine or epinephrine as the first vasopressor. For cardiac dysfunction with persistent hypoperfusion despite adequate fluid status and arterial pressure, it suggests inotropes over none, either dobutamine added to norepinephrine or epinephrine alone, and it states that inotropes are used in addition to vasopressors when vasopressors are needed to hold the MAP target, not instead of them. It suggests against levosimendan; LeoPARDS, a trial of levosimendan in septic shock, did not show less organ dysfunction or lower mortality and found more supraventricular tachyarrhythmias. The panel found no trials in patients with septic shock and cardiac dysfunction. That absence of proven survival benefit is not the same as having no role: in a selected patient with low flow and poor perfusion despite adequate pressure and filling, adding contractile support is a reasoned choice to test, judged by its effect on flow and perfusion."
+      ],
+      "questions": [
+        {
+          "id": "q-c-pressor",
+          "kind": "prediction",
+          "prompt": "Patient C's MAP is raised from 64 to 75 mm Hg with a vasoconstrictor alone. Predict the direction of change in his stroke volume, cardiac output, ScvO2 and capillary refill.",
+          "answer": "His stroke volume may fall, because a weak ventricle maintains its output poorly against a higher afterload. It could also hold or even rise if the higher pressure improves his coronary perfusion or venoconstriction raises his venous return, so the direction has to be measured, not assumed. If stroke volume falls, his cardiac output falls with it, or stays level if his heart rate rises. With less flow and the same oxygen consumption, his tissues would extract more, so his ScvO2 would be expected to fall further. His capillary refill would be expected to stay slow or lengthen, because skin vessels constrict further and flow falls. The pressure gain could hide a fall in delivery, which is why flow and perfusion are rechecked after the change.",
+          "causalChain": "Vasoconstrictor raises afterload; a depressed ventricle loses stroke volume as afterload rises; output falls; extraction rises and ScvO2 falls; skin vasoconstriction and lower flow slow capillary refill.",
+          "assumption": "That his heart rate and filling stay roughly the same and that the agent has no direct effect on contraction.",
+          "misconception": "That a higher MAP always means a better circulation."
+        },
+        {
+          "id": "q-heart-transfer",
+          "kind": "transfer",
+          "prompt": "A patient presents with fever and a weak left ventricle, and the eventual diagnosis is takotsubo syndrome or myocarditis rather than sepsis. Where does the septic-heart reasoning help, and where does it mislead?",
+          "answer": "It helps with the hemodynamics: a weak ventricle with a low stroke volume and high SVR responds poorly to more afterload, and pressure and flow need separate assessment, whatever the cause. It misleads if it anchors the clinician on infection. Fever and a weak heart do not prove sepsis, and searching for a source and giving antimicrobials do not treat myocarditis or takotsubo. The recovery pattern may also differ. Whether the cause is septic has to be decided by the history, the tests and the course, not by the hemodynamic pattern.",
+          "causalChain": "Depressed ventricle plus high afterload gives low output regardless of cause; fever can accompany non-infective myocardial disease; the cause determines specific treatment; hemodynamic pattern alone cannot identify the cause.",
+          "assumption": "That the patient's ventricular function has been assessed by imaging.",
+          "misconception": "That a febrile patient with shock always has septic shock."
+        }
+      ],
+      "refs": [
+        "ssc-2026",
+        "gordon-2016"
+      ]
+    },
+    {
+      "id": "source-control",
+      "title": "Part VII. Treating the cause: source and time",
+      "body": [
+        "Everything in Parts II to VI buys time. Vasopressors restore tone, fluid restores volume for a while, and support for the heart restores flow. None of them removes the infection that is driving the host response. Only antimicrobials and, where there is a source that needs control, source control do that. Both start at the outset, alongside support, not after it."
+      ],
+      "questions": []
+    },
+    {
+      "id": "antimicrobial-timing",
+      "parentId": "source-control",
+      "title": "Antimicrobial timing: association, not proof",
+      "body": [
+        "Kumar and colleagues, in a retrospective study of patients with septic shock, found that each hour of delay in effective antimicrobial therapy after the onset of hypotension was associated with lower survival. Seymour and colleagues, using data from the mandated sepsis program in New York State, found that longer time to completion of the sepsis bundle and to antibiotics was associated with higher mortality. Both are observational. Patients who are treated later differ from those treated early in ways that are hard to measure, such as how obvious their sepsis was at presentation, so the size of any effect is uncertain.",
+        "The physiological reasoning is straightforward: as long as the organisms keep multiplying, they keep driving the host response that Parts II to VI describe. The Surviving Sepsis Campaign 2026 guideline recommends giving antimicrobials immediately, ideally within 1 hour of recognition, in adults with possible, probable or definite septic shock. It is a strong recommendation built on very low certainty evidence. The urgency rests on that physiology and on the observational associations; it does not establish a fixed, causal mortality cost for each hour in every patient."
+      ],
+      "questions": [],
+      "refs": [
+        "kumar-2006",
+        "seymour-2017",
+        "ssc-2026"
+      ]
+    },
+    {
+      "id": "source-control-principle",
+      "parentId": "source-control",
+      "title": "Why a drained collection changes the physiology",
+      "body": [
+        "An abscess, an infected gallbladder, an obstructed and infected urinary tract, an infected device or dead tissue can hold organisms and inflammatory products where antimicrobials alone may not be enough. How well antimicrobials reach the site varies with the source: some collections are reached poorly, and obstruction or dead tissue keeps organisms in place, but not every infected space is beyond their reach. While such a source remains, it can keep feeding the host response. Source control takes away that input by draining a collection, relieving an obstruction, removing infected material or a device, or debriding dead tissue. Whether it is needed, and by which method, depends on the source and the patient. Once the input is removed, the circulation has a chance to recover as tone returns, leak slows and the heart recovers.",
+        "Patient C has a gallbladder source that has not yet been drained. While it remains, it is a continuing risk, and it may be driving his circulation in the wrong direction however well he is supported. Patients should be assessed rapidly for a source that needs urgent control, and the Surviving Sepsis Campaign 2026 guideline suggests early source control, ideally within 6 hours of diagnosis when a source needing control is found (a conditional recommendation on very low certainty evidence). The method is a matter for the clinical team and for surgical or interventional judgment."
+      ],
+      "questions": [
+        {
+          "id": "q-c-source",
+          "kind": "prediction",
+          "prompt": "Patient C receives appropriate antimicrobials, but his gallbladder is not drained for 24 hours. What can and cannot be predicted about his vasopressor need and lactate over that day?",
+          "answer": "His course cannot be predicted with confidence. He may improve on antimicrobials and support, he may stay the same, or he may worsen, with rising vasopressor need and lactate. What can be said is that an undrained source he still needs controlled keeps his risk high: it can go on supplying organisms and inflammatory products to the host response, sustaining low tone, leak and myocardial depression. That continuing risk, not a fixed trajectory, is the reason to assess and arrange source control promptly rather than waiting to see whether he fails.",
+          "causalChain": "An undrained source can keep driving the host response; vasoplegia, leak and myocardial depression may persist; antimicrobials may or may not control it alone; the trajectory is uncertain, and the continuing risk justifies prompt source control.",
+          "assumption": "That the chosen antimicrobials are active against the organisms and that no other source is present.",
+          "misconception": "That starting antimicrobials is enough to control any source."
+        },
+        {
+          "id": "q-source-transfer",
+          "kind": "transfer",
+          "prompt": "A patient has a necrotizing soft tissue infection. Why does the reasoning of this Part make source control more urgent rather than less?",
+          "answer": "Dead and dying tissue has little or no blood supply, so antimicrobials reach it poorly, and the infection can spread along tissue planes quickly. The source can keep growing while it remains, so the host response may be driven harder as time passes. Supportive treatment can hold the numbers for a time but does not reach the cause. Surgical debridement of the dead tissue is the main way to remove the input.",
+          "causalChain": "Necrotic tissue is poorly perfused; antimicrobials reach it poorly; infection spreads; the inflammatory input grows; debridement removes it.",
+          "assumption": "That the diagnosis is correct and that the patient can tolerate surgery.",
+          "misconception": "That a patient must be hemodynamically stable before the source is dealt with."
+        }
+      ],
+      "refs": [
+        "ssc-2026"
+      ]
+    },
+    {
+      "id": "support-limits",
+      "title": "Part VIII. Support, its limits, and reassessment",
+      "body": [
+        "Support keeps the patient alive while the cause is treated. It works on some levels of the circulation and not others, so each form of support helps up to a point and then stops. Reading the response means asking three separate questions, about pressure, about flow and about the organs, because a treatment can improve one while worsening another."
+      ],
+      "questions": []
+    },
+    {
+      "id": "pressure-targets",
+      "parentId": "support-limits",
+      "title": "What tone loss means for a pressure target",
+      "body": [
+        "The [Shock chapter](/cases/shock-pressure-flow#principle-pressors-inotropes) covers the mean arterial pressure target and the trials behind it, SEPSISPAM and the trial by Lamontagne and colleagues in older adults. The Surviving Sepsis Campaign 2026 guideline strongly recommends an initial MAP target of 65 mm Hg over higher targets (Recommendation 13), and for patients aged 65 and over it conditionally suggests a target of 60 to 65 mm Hg (Recommendation 14).",
+        "What lost tone adds is a reason why a pressure target is a floor, not a goal. Below a certain pressure, organs whose autoregulation is impaired by sepsis lose flow as pressure falls. Above that floor, more pressure bought with more constriction does not guarantee more flow, as Patient V's falling output and Patient C's afterload problem show. The target sets the minimum the circulation must provide; the other signals show whether it is enough."
+      ],
+      "questions": [],
+      "refs": [
+        "sepsispam-2014",
+        "lamontagne-2020",
+        "ssc-2026"
+      ]
+    },
+    {
+      "id": "adjuncts",
+      "parentId": "support-limits",
+      "title": "Adjunct treatments and what the trials tested",
+      "body": [
+        "Several treatments have been tested because they act on a mechanism that catecholamines do not.", "Vasopressin replaces a hormone that may be relatively deficient and acts through non-adrenergic receptors, so it can raise vascular tone when the response to catecholamines is blunted. VASST compared vasopressin with norepinephrine in adults with septic shock already receiving norepinephrine and found no significant difference in mortality, its primary outcome. A possible difference in a less severely ill subgroup was not supported by a significant test for heterogeneity and is hypothesis-generating only. Reading that subgroup, or the pressure vasopressin produces, as evidence of a survival benefit would overreach.", "Corticosteroids are thought to restore vascular responsiveness to catecholamines and to modulate the host response. ADRENAL tested a continuous hydrocortisone infusion against placebo in adults with septic shock who were receiving mechanical ventilation, and enrolled only such patients. No significant difference in mortality at 90 days, its primary outcome, was detected (27.9% vs 28.8%), although shock resolved faster with hydrocortisone. APROCCHSS tested hydrocortisone plus fludrocortisone against placebo in a sicker population of adults with septic shock in intensive care, with about 49 percent mortality in the placebo group, in a factorial design that originally also included drotrecogin alfa. It found lower mortality at 90 days, its primary outcome (43.0% vs 49.1%, relative risk 0.88, 95% CI 0.78 to 0.99); the difference at 28 days was not significant. ADRENAL and APROCCHSS differed in regimen, population and design, so comparing their results cannot isolate the contribution of fludrocortisone. Direct randomized evidence also exists: COIITSS randomized 509 adults with septic shock, all receiving hydrocortisone, to added oral fludrocortisone or none (within a factorial trial that also tested intensive insulin), and in-hospital mortality was 42.9% versus 45.8%, a difference that was not statistically significant (RR 0.94, 95% CI 0.77 to 1.14). Fludrocortisone was a secondary objective of that trial, so its contribution remains open rather than disproven. Concluding that steroids simply work or simply fail, or that fludrocortisone has been shown to be ineffective, would overreach.", "Angiotensin II acts through its own receptor and replaces a constricting signal. ATHOS-3 tested it in adults with vasodilatory shock that persisted despite high vasopressor requirements, most but not all of whom had sepsis, and found that more patients reached its blood pressure goal at hour 3 with angiotensin II (69.9% vs 23.4%). That primary outcome was a pressure response, not survival, and the trial did not show a significant difference in mortality. Treating that pressure response as a patient-centered benefit would overreach: a higher mean arterial pressure is not by itself better perfusion or survival.",
+        "Among these trials, only APROCCHSS showed a significant mortality difference. The Surviving Sepsis Campaign 2026 guideline makes conditional suggestions about adding vasopressin and epinephrine in septic shock; for angiotensin II it suggests only that norepinephrine be preferred to it as the first-line agent, and it makes no recommendation about adding it. The physiological lesson is that a drug can act on a real mechanism and raise pressure without improving survival, and that two trials of a similar treatment can reach different conclusions when their regimens, populations and designs differ."
+      ],
+      "questions": [
+        {
+          "id": "q-adjunct-boundary",
+          "kind": "evidence-boundary",
+          "prompt": "ADRENAL and APROCCHSS reached different conclusions about mortality with corticosteroids in septic shock. What differed between the trials, and what can a reader conclude?",
+          "answer": "The interventions differed: ADRENAL tested hydrocortisone alone, while APROCCHSS added fludrocortisone, a mineralocorticoid. The populations also differed: ADRENAL enrolled only patients receiving mechanical ventilation, while APROCCHSS enrolled adults in intensive care within 24 hours of septic shock. APROCCHSS's population was sicker, with about 49 percent mortality in its placebo group against about 29 percent in ADRENAL's, and its mortality difference was significant at 90 days, the primary outcome (relative risk 0.88, 95% CI 0.78 to 0.99, an upper limit close to no effect), but not at 28 days. A reader can conclude that corticosteroids act on a real mechanism and appear to speed resolution of shock, but that a mortality benefit depends on details of the population and the regimen that two trials cannot settle on their own. The trials do not support a simple statement that steroids work or do not work, and neither trial tested fludrocortisone against hydrocortisone alone, so they cannot show that it caused APROCCHSS's result; COIITSS, which did make that comparison, found no statistically significant mortality difference, which leaves the question open rather than showing fludrocortisone to be ineffective.",
+          "causalChain": "Two trials of a related intervention; different regimens and populations; one shows a mortality benefit and one does not; regimen, severity and design all differ, so the trials cannot isolate fludrocortisone; mechanism and pressure effects do not guarantee survival benefit.",
+          "assumption": "That each trial's primary outcome, mortality at 90 days, is the right measure for comparing them.",
+          "misconception": "That a trial without a mortality benefit means the treatment has no physiological effect."
+        }
+      ],
+      "refs": [
+        "russell-2008",
+        "venkatesh-2018",
+        "annane-2018",
+        "annane-2010",
+        "khanna-2017",
+        "ssc-2026"
+      ]
+    },
+    {
+      "id": "reassess-three-questions",
+      "parentId": "support-limits",
+      "title": "Three separate questions",
+      "body": [
+        "For each patient, three questions need separate answers. Is the pressure enough? Is the flow enough? Are the organs recovering? Pressure is read from MAP. Flow is read from cardiac output where it is measured, and indirectly from capillary refill, ScvO2 and the lactate trend. Organ recovery is read from mental state, urine output, gas exchange and the trend in organ function tests.",
+        "In Patient V, pressure is the first problem and flow is already high, so the question is whether her organs recover as tone is restored and her source is treated. In Patient L, pressure is held, but his organs are paying for the fluid that leaked, so the question is whether flow can be maintained without adding more. In Patient C, pressure is near target while flow is low, so the question is whether flow can be raised and his source removed. The [Shock chapter's final return](/cases/shock-pressure-flow#principle-final-return) used the same three questions."
+      ],
+      "questions": [
+        {
+          "id": "q-reassess-predict",
+          "kind": "prediction",
+          "prompt": "After source control, Patient V's vasopressor need falls over 12 hours. Predict which signals improve first and why.",
+          "answer": "Her vasopressor need and pressure improve first, because arteriolar and venous tone recover as the inflammatory drive falls. Capillary refill should improve or stay normal, although if her weakened heart limits her output, as on day 2, it may recover only as her output does. Her lactate would be expected to fall more slowly, because clearance takes time and adrenergic stimulation falls only as her vasopressor need falls. Organ function, such as renal function, would be expected to recover last, over days, because organs recover more slowly than vessels respond.",
+          "causalChain": "Source control removes the inflammatory input; vascular tone recovers within hours; vasopressor need falls; lactate falls more slowly with clearance and reduced adrenergic drive; organ function recovers over days.",
+          "assumption": "That no new complication occurs and that her heart function does not worsen.",
+          "misconception": "That a falling lactate is the first sign of recovery."
+        },
+        {
+          "id": "q-discordant-map",
+          "kind": "evidence-boundary",
+          "prompt": "Patient C's MAP rises from 64 to 72 mm Hg after norepinephrine is started. A colleague says the treatment has worked. What does the higher MAP settle, and what does it leave open?",
+          "answer": "It settles only the first question: his pressure is now above the floor. It does not show whether his flow rose, held or fell, because a weak ventricle facing a higher afterload can lose stroke volume, while venous recruitment and better coronary perfusion can push the other way. Whether the treatment helped is answered by the other rows of the table: a repeat measure of cardiac output or stroke volume, his ScvO2, capillary refill, urine output, mental state and lactate trend, and progress toward draining his gallbladder. If flow and perfusion worsened while MAP improved, the higher pressure was bought at a cost.",
+          "causalChain": "Vasopressor raises MAP; afterload rises; stroke volume may fall, hold or rise; pressure does not measure flow; perfusion and organ signals decide whether the change helped.",
+          "assumption": "That the MAP reading is accurate and taken at steady state after the change.",
+          "misconception": "That a better MAP means the treatment helped."
+        },
+        {
+          "id": "q-reassess-transfer",
+          "kind": "transfer",
+          "prompt": "A patient with septic shock also has chronic heart failure with a reduced ejection fraction. Which of the three questions becomes hardest to answer, and why?",
+          "answer": "Flow is likely to become hardest, but it depends on what is actually known about this patient. Chronic heart failure with a reduced ejection fraction does not by itself mean a low baseline output, a raised lactate or a slow capillary refill; many such patients have none of these at rest. If a prior measurement or the current assessment shows a low output, then a low output now may reflect the chronic condition, new septic depression or underfilling, and the indirect signals become harder to attribute. The heart also tolerates both fluid and afterload poorly, so each test of flow carries more risk. Pressure is still read directly, and organ recovery can be judged against the patient's baseline, but flow needs a direct measurement more than in most patients.",
+          "causalChain": "If baseline output is known to be low, it confounds the signals of flow; septic depression adds to it; fluid and afterload are poorly tolerated; indirect markers overlap with the chronic state; direct flow measurement becomes more important.",
+          "assumption": "That the patient's baseline ejection fraction and function are known.",
+          "misconception": "That a patient with heart failure should never receive fluid in sepsis, or that every such patient starts with a low output."
+        }
+      ],
+      "table": {
+        "caption": "Reassessment at a glance, for the three patients at presentation (illustrative)",
+        "header": [
+          "What to read",
+          "Patient V",
+          "Patient L",
+          "Patient C"
+        ],
+        "rows": [
+          [
+            "Pressure (MAP)",
+            "53, before any vasopressor",
+            "66 on norepinephrine",
+            "64, before any vasopressor"
+          ],
+          [
+            "Flow, measured or estimated",
+            "Cardiac output 7.5 L/min",
+            "Not measured",
+            "Cardiac output 3.2 L/min; ScvO2 55 percent"
+          ],
+          [
+            "Peripheral perfusion",
+            "Warm; capillary refill 3 seconds",
+            "Edematous; not stated",
+            "Cold; capillary refill 5 seconds"
+          ],
+          [
+            "Organ function",
+            "Lactate 4.2 mmol/L",
+            "Rising oxygen need; lactate 2.6 mmol/L",
+            "Lactate 6.0 mmol/L"
+          ],
+          [
+            "Evidence that the source is controlled",
+            "Pneumonia on antimicrobials; no drainable source given",
+            "Urinary source on antimicrobials; obstruction not stated",
+            "Gallbladder not yet drained"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "final-return",
+      "parentId": "support-limits",
+      "title": "Back to the three patients",
+      "body": [
+        "Patient V's circulation failed first at the arterioles and veins. Her flow was high and her pressure low because the vessels had lost their tone; once tone was restored, a weakened heart became visible. Restoring tone addressed her mechanism; fluid helped only briefly, because her veins and capillaries let it go. Patient L's main problem was where his fluid went: normal distribution and leak together, on top of the tone loss that needed a vasopressor. His pressure was held, but the fluid that kept it there had moved into his lungs and other organs, and his heart was no longer able to use more. Patient C's circulation failed mainly at the heart. His vessels were constricted to hold a pressure his weak ventricle could barely produce, and adding more constriction risked lowering flow further. All three needed antimicrobials from the start, and Patient C needed prompt control of his source.",
+        "One label covered all three. At any moment, the level that sepsis attacked most shaped which support helped and which harmed, and that level could change."
+      ],
+      "questions": []
+    },
+    {
+      "id": "synthesis",
+      "parentId": "support-limits",
+      "title": "Synthesis",
+      "body": [
+        "Sepsis attacks the circulation at four levels: arteriolar tone, venous capacitance, the capillary wall, and the heart and cells. The first three are well established; the microcirculatory and cellular explanations are observed or hypothetical and are not treatment targets. Fluids, vasopressors and support for the heart each act on some of these levels and not others, so each helps up to a point and then stops. The levels are not mutually exclusive, and the dominant one can change within the same patient. Only antimicrobials and source control remove the cause. The trials tested strategies in populations; the physiology is what lets a clinician decide which level is failing in the patient in front of them."
+      ],
+      "questions": []
+    }
+  ],
+  "treatmentApproach": [
+    {
+      "id": "recognise",
+      "title": "Recognize septic shock by organs and perfusion",
+      "action": "Look for organ dysfunction and signs of poor perfusion, not only a low blood pressure. Note whether the peripheries are warm or cold and how long capillary refill takes.",
+      "why": "The label identifies risk, not the hemodynamic type; patients with the same pressure and shock index can have opposite circulations.",
+      "principleIds": [
+        "sepsis-defining",
+        "three-profiles"
+      ]
+    },
+    {
+      "id": "treat-cause",
+      "title": "Give antimicrobials and assess for a source at once",
+      "action": "Give antimicrobials immediately, ideally within an hour of recognizing septic shock, and assess early for a collection, obstruction, infected device or dead tissue that needs drainage, removal or debridement, alongside the first assessment of the circulation.",
+      "why": "Support buys time; only antimicrobials and source control remove the driver of the host response.",
+      "principleIds": [
+        "antimicrobial-timing",
+        "source-control-principle"
+      ],
+      "refs": [
+        "ssc-2026"
+      ]
+    },
+    {
+      "id": "restore-pressure",
+      "title": "Restore perfusion pressure, then ask which level is failing",
+      "action": "Restore a minimum perfusion pressure. Before adding more of anything, decide whether the main problem is lost tone, lost volume or a weak heart.",
+      "why": "Fluid, vasopressors and support for contraction each act on different levels; the wrong one can raise a number while worsening flow.",
+      "principleIds": [
+        "vascular-tone",
+        "venous-capacitance",
+        "septic-heart"
+      ]
+    },
+    {
+      "id": "fluid-test",
+      "title": "Treat each fluid bolus as a test",
+      "action": "State the response you expect from each bolus and the cost you will watch for, such as rising oxygen need. Stop when the response stops.",
+      "why": "Fluid benefit may be transient as crystalloid distributes beyond the circulation and vascular tone changes. Additional fluid can worsen congestion, so assess both its expected effect on flow and the patient's ability to tolerate it.",
+      "principleIds": [
+        "where-fluid-goes",
+        "fluid-evidence"
+      ]
+    },
+    {
+      "id": "measure-flow",
+      "title": "Assess flow when the response does not fit",
+      "action": "When pressure improves but perfusion does not, or the heart may be weak, assess cardiac function and flow directly rather than relying on pressure.",
+      "why": "A vasoconstrictor can raise pressure and lower output in a weak heart; pressure alone cannot show it.",
+      "principleIds": [
+        "c-numbers",
+        "afterload-cost"
+      ]
+    },
+    {
+      "id": "reassess",
+      "title": "Reassess pressure, flow and organs separately",
+      "action": "Recheck pressure, flow signals and organ function as three questions, and act on each against the level you think is failing.",
+      "why": "A treatment can improve one of the three while worsening another; signals change on different timescales.",
+      "principleIds": [
+        "reassess-three-questions",
+        "perfusion-targets"
+      ]
+    }
+  ]
+}
