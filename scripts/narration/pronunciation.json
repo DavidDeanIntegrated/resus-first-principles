@@ -1,0 +1,52 @@
+{
+  "$comment": "Reusable medical pronunciation rules for hosted narration. Applied in order, as Python regular expressions, to the synthesis text only; the verbatim chapter text is never changed. A rule may change how a symbol, unit or abbreviation is spoken, never what the sentence says. 'unhandled' lists characters that must not reach the synthesizer.",
+  "rules": [
+    { "match": "\\blog\\((\\d+) / \\(([\\d.]+) × ([\\d.]+)\\)\\)", "say": "log of \\1 divided by the product of \\2 and \\3" },
+    { "match": " ≈ ", "say": ", about " },
+    { "match": " × ", "say": " times " },
+    { "match": " / ", "say": " divided by " },
+    { "match": " = ", "say": " equals " },
+    { "match": " \\+ ", "say": " plus " },
+    { "match": "(?<=\\d) vs\\.? (?=\\d)", "say": " versus " },
+    { "match": "\\b(\\d{2,3})/(\\d{2,3})\\b", "say": "\\1 over \\2" },
+    { "match": "–", "say": "-" },
+
+    { "match": "\\bmm Hg\\b", "say": "millimeters of mercury" },
+    { "match": "\\bcm H2O\\b", "say": "centimeters of water" },
+    { "match": "\\bmmol/L\\b", "say": "millimoles per liter" },
+    { "match": "\\bmL/min\\b", "say": "milliliters per minute" },
+    { "match": "\\bL/min\\b", "say": "liters per minute" },
+    { "match": "(?<=\\d) mL\\b", "say": " milliliters" },
+    { "match": "(?<=\\d) L\\b", "say": " liters" },
+    { "match": "(?<=\\d) kg\\b", "say": " kilograms" },
+
+    { "match": "\\bPaCO2\\b", "say": "P A C O two" },
+    { "match": "\\bPaO2\\b", "say": "P A O two" },
+    { "match": "\\bPAO2\\b", "say": "P A O two" },
+    { "match": "\\bSpO2\\b", "say": "S P O two" },
+    { "match": "\\bSaO2\\b", "say": "S A O two" },
+    { "match": "\\bCO2\\b", "say": "C O two" },
+    { "match": "\\bpH\\b", "say": "P H" },
+    { "match": "\\bFRC\\b", "say": "F R C" },
+    { "match": "\\bRV\\b", "say": "R V" },
+    { "match": "\\bICU\\b", "say": "I C U" },
+    { "match": "\\bUK\\b", "say": "U K" },
+    { "match": "\\bPEEP\\b", "say": "peep" },
+
+    { "match": "\\bPREOXI\\b", "say": "Pre-Oxy" },
+    { "match": "\\bPreVent\\b", "say": "Pre-Vent" },
+    { "match": "\\bPREPARE II\\b", "say": "Prepare Two" },
+    { "match": "\\bINTUBE\\b", "say": "In-Tube" },
+    { "match": "\\bTHRIVE\\b", "say": "Thrive" },
+    { "match": "\\bFELLOW\\b", "say": "Fellow" },
+
+    { "match": "\\bPart VII\\b", "say": "Part Seven" },
+    { "match": "\\bPart VI\\b", "say": "Part Six" },
+    { "match": "\\bPart IV\\b", "say": "Part Four" },
+    { "match": "\\bPart V\\b", "say": "Part Five" },
+    { "match": "\\bPart III\\b", "say": "Part Three" },
+    { "match": "\\bPart II\\b", "say": "Part Two" },
+    { "match": "\\bPart I\\b", "say": "Part One" }
+  ],
+  "unhandled": "[×÷≈=+/–—<>≤≥±°·²⁻⁵π*\\[\\]]|\\b[A-Za-z]+[0-9]\\b|\\b(?:II|III|IV|VI|VII|VIII)\\b"
+}

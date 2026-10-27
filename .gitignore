@@ -29,3 +29,6 @@ coverage/
 
 # jetbrains setting folder
 .idea/
+
+# python bytecode
+__pycache__/

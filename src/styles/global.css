@@ -1385,7 +1385,7 @@ h2 {
   html .audio-player-inner { display: flex; align-items: center; gap: var(--s5); }
   html .audio-player-row { display: flex; flex-wrap: nowrap; flex: 1; }
   html .ap-meta { order: 0; flex: 1 1 auto; min-width: 0; }
-  html .ap-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  html .ap-title, html .ap-narrator { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   html .ap-note { flex: none; max-width: 15rem; margin: 0; }
 
   .diagram svg.diagram-screen {
@@ -2295,6 +2295,7 @@ html[data-audio-player="open"] body {
 .ap-meta { flex: 1 0 100%; order: -1; min-width: 0; }
 .ap-kicker { margin: 0; font: 600 0.75rem/1.2 var(--f-text); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
 .ap-title { margin: 2px 0 0; font: 500 1rem/1.25 var(--f-display); white-space: normal; overflow: visible; }
+.ap-narrator { margin: 2px 0 0; font: 400 0.8125rem/1.3 var(--f-text); color: var(--ink-soft); }
 .ap-progress { display: flex; align-items: center; gap: var(--s2); margin-top: 4px; }
 .ap-time { flex: none; font: 400 0.8125rem/1 var(--f-text); font-variant-numeric: tabular-nums; color: var(--ink-soft); }
 .ap-bar { position: relative; flex: 1; height: 6px; border-radius: 3px; background: var(--paper-deep); box-shadow: inset 0 0 0 1px var(--rule-strong); overflow: hidden; }
