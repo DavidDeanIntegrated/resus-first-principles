@@ -5,7 +5,7 @@
   "title": "Acute Respiratory Failure: Getting Oxygen In and Carbon Dioxide Out",
   "summary": "Why the same oxygen saturation can hide a failing lung, failing ventilation, or a failing respiratory pump, and how to use those differences to reason about support and its limits. Study material, not a protocol.",
   "shareDescription": "Why the same saturation can hide different failures of lung and respiratory pump, and how to reason about oxygen, high-flow and non-invasive support.",
-  "contentStatus": "draft",
+  "contentStatus": "published",
   "diagrams": [
     "r1-four-mechanisms",
     "r1-alveolar-ventilation",

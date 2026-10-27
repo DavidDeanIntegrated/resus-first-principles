@@ -70,17 +70,17 @@ describe('acute respiratory failure chapter', () => {
   );
   const parsed = caseSchema.safeParse(raw);
 
-  it('is a draft chapter with its own diagram ids', () => {
+  it('is a published chapter with its own diagram ids', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
     const document = parsed.data;
     expect(document.slug).toBe('acute-respiratory-failure');
     expect(document.title).toBe('Acute Respiratory Failure: Getting Oxygen In and Carbon Dioxide Out');
-    expect(document.contentStatus).toBe('draft');
+    expect(document.contentStatus).toBe('published');
     expect(document.strict).toBe(true);
     expect(document.diagrams).toEqual([...respiratoryFigureIds]);
     expect([...declaredDiagramIds(document)]).toEqual([...respiratoryFigureIds]);
-    expect(chapterRobots(document.contentStatus)).toBe('noindex');
+    expect(chapterRobots(document.contentStatus)).toBeNull();
     expect(hasNarration(document.slug)).toBe(false);
   });
 
@@ -174,32 +174,24 @@ describe('acute respiratory failure chapter', () => {
     expect(css).not.toMatch(/data-diagram="(?:coronary-circuit|pressure-pairs|compression-release|pressure-gradient)"\] svg\.diagram-print/);
   });
 
-  it('is excluded from the production build', () => {
+  it('is included in the production build', () => {
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
     const document = parsed.data;
     const production = [{ slug: document.slug, contentStatus: document.contentStatus }];
-    expect(isBuiltChapter(document.contentStatus, {})).toBe(false);
-    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'production' })).toBe(false);
-    expect(isBuiltChapter(document.contentStatus, { WORKERS_CI: '1', WORKERS_CI_BRANCH: 'main' })).toBe(false);
-    expect(includeChapter(document.contentStatus, 'route', {})).toBe(false);
-    expect(includeChapter(document.contentStatus, 'index', {})).toBe(false);
-    expect(includeChapter(document.contentStatus, 'sitemap', { VERCEL_ENV: 'preview' })).toBe(false);
-    expect(chaptersForBuild(production, {}).map((entry) => entry.slug)).toEqual([]);
-    expect(chaptersForDiscovery(production)).toEqual([]);
-    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'preview' })).toBe(true);
-    expect(
-      isBuiltChapter(document.contentStatus, {
-        WORKERS_CI: '1',
-        WORKERS_CI_BRANCH: 'cursor/acute-respiratory-failure-4e66',
-      }),
-    ).toBe(true);
+    expect(isBuiltChapter(document.contentStatus, {})).toBe(true);
+    expect(isBuiltChapter(document.contentStatus, { VERCEL_ENV: 'production' })).toBe(true);
+    expect(isBuiltChapter(document.contentStatus, { WORKERS_CI: '1', WORKERS_CI_BRANCH: 'main' })).toBe(true);
+    expect(includeChapter(document.contentStatus, 'route', {})).toBe(true);
+    expect(includeChapter(document.contentStatus, 'index', {})).toBe(true);
+    expect(includeChapter(document.contentStatus, 'sitemap', { VERCEL_ENV: 'preview' })).toBe(true);
+    expect(chaptersForBuild(production, {}).map((entry) => entry.slug)).toEqual(['acute-respiratory-failure']);
+    expect(chaptersForDiscovery(production).map((entry) => entry.slug)).toEqual(['acute-respiratory-failure']);
 
     const page = join(repoRoot, 'dist/cases/acute-respiratory-failure/index.html');
-    expect(existsSync(page)).toBe(false);
+    expect(existsSync(page)).toBe(true);
     const index = readFileSync(join(repoRoot, 'dist/index.html'), 'utf8');
-    expect(index).not.toContain('/cases/acute-respiratory-failure');
-    expect(index).not.toContain('Acute Respiratory Failure');
+    expect(index).toContain('/cases/acute-respiratory-failure');
     expect(index).toContain('href="/cases/adult-cardiac-arrest"');
     expect(index).toContain('href="/cases/shock-pressure-flow"');
   });
