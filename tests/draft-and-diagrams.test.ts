@@ -178,7 +178,9 @@ describe('per-chapter diagram ids', () => {
     expect(result.ok).toBe(true);
     if (!result.ok) return;
     expect(result.cases.map((entry) => entry.document.slug).sort()).toEqual([
+      'acute-respiratory-failure',
       'adult-cardiac-arrest',
+      'physiologically-difficult-airway',
       'septic-shock',
       'shock-pressure-flow',
     ]);
