@@ -45,9 +45,9 @@ const attachmentSha256: Record<string, string> = {
   'r4-pressure-volume.svg': '7d12767502fa91a517d158b7b9ed3ac7256be126880dec44d4f775b2e33715c8',
   'r4-pressure-volume-print.svg': 'a008227c93b8c12012ea5a83d08cb05cb1d34308320ce3776580d97501f0ff15',
   'r4-pressure-volume.inline.html': 'e0892b9dc518cb98b4f69153ac65450b00196f6861e960706b78853aff1c3475',
-  'r4-pleural-pressure.svg': 'f9385371c4778c6f88ee4f1b5f8a6f57998e6f1aca064a8a8fde3048c6b85c84',
-  'r4-pleural-pressure-print.svg': '3518e75ce62c1c9ace6f658c2a279b789c682f754387bc5a664946bd9a668f30',
-  'r4-pleural-pressure.inline.html': 'd5be60ecafbb88255b6ec9983e48868f765bcb353e2a73924c66942cdcfcba2c',
+  'r4-pleural-pressure.svg': 'd55297860ddb271ac1d0583c8e8252cd4c2b1655d41d802d242d8882a3c3089f',
+  'r4-pleural-pressure-print.svg': '696285a80927ce712fcbf184ba978ef7a5ece2f10e78afa4c40c092bbc3c51c3',
+  'r4-pleural-pressure.inline.html': '6c5c13242bdef8d890f1a7a709a1f424e430c1d159fc406a9499dff314434ee5',
 };
 
 const placements: Record<string, string> = {
