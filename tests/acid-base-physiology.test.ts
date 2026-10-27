@@ -28,14 +28,14 @@ const acceptedDraftSha256 = 'd7059a6bad40ac53d3337f305cf3a59f5829cb4555bcdd0634a
 /** sha256 of the Atelier attachments. The chapter id is the Atelier stem. */
 const attachmentSha256: Record<string, string> = {
   'fig-r8-01-two-routes.svg': '645e34bddf916d50657f30462aa682e03bdcf0865edbb25d435cfb8e9b474474',
-  'fig-r8-01-two-routes-print.svg': 'ddef0f8e8183d4f0a0a328c1a6cca49c2e00344ff20944bc2bfceb6c38b0142f',
-  'fig-r8-01-two-routes.inline.html': '315bc5352e1edd6627118354caea68cffc7c0d528567742dcd6a25d63db0954e',
-  'fig-r8-02-expected-vs-observed.svg': 'd919e55660b34cc1c8b5c4c373b518c0b3cc80355ca0befbb2e33f10c2f560d3',
-  'fig-r8-02-expected-vs-observed-print.svg': '95d9ed470e0a7aab360dbfa7b12f5979c0a6479b82b81e756aba920ab47c074e',
-  'fig-r8-02-expected-vs-observed.inline.html': '3d86637e9b6cb859866278c8382e00f81d8bd698a3eeb1b5c05b3b2c35f2cfe1',
+  'fig-r8-01-two-routes-print.svg': 'dfab26be9dab98e8e45d44ce9ac10d1710ccfe3a1691157f76cf81f52c28b3fa',
+  'fig-r8-01-two-routes.inline.html': '92f517285da6eaba51a8a9ba00eafa21e342b063b92c0f78da72c3f1031524d6',
+  'fig-r8-02-expected-vs-observed.svg': '077af7865e4a65bc7e92a03fb72c5c39fc8921c96e0c6ecf8b6e5d659fee903f',
+  'fig-r8-02-expected-vs-observed-print.svg': 'da5480037c4c47a4d6015225a3310df6902e7c0618456336c95b1108ca455c60',
+  'fig-r8-02-expected-vs-observed.inline.html': 'a38543986ea4e30820dab7916cb8c224e0ae4abc75a2360881aad2d2ff04ad1e',
   'fig-r8-03-anion-gap-bookkeeping.svg': '5561968e675b3504fdaceefc099af8623e7646a047dbfcd7fd1673e39af59358',
-  'fig-r8-03-anion-gap-bookkeeping-print.svg': '2e8d0943ede68be993c80f89918cea2bee996e4db99c065f249d01a9529c31a0',
-  'fig-r8-03-anion-gap-bookkeeping.inline.html': '0dc5c684c7be75cccaac9e4f709055b4b4d7ed6bad3d56ffdba98a0b07acb929',
+  'fig-r8-03-anion-gap-bookkeeping-print.svg': '0116b2fc4a4eafbd1b753e5dd09dd6863b38549d3d74a3e0a016ca225e40ce27',
+  'fig-r8-03-anion-gap-bookkeeping.inline.html': '65092a9127c25dceb972641f04c6e3cd3e9e1669c84df82f8a720e46713ded31',
 };
 
 const placements: Record<string, string> = {
