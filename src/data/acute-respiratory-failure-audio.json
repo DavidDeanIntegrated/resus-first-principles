@@ -1,0 +1,65 @@
+[
+  {
+    "index": 0,
+    "heading": "Acute Respiratory Failure: Getting Oxygen In and Carbon Dioxide Out",
+    "anchor": null,
+    "filename": "00-title-and-introduction.mp3",
+    "duration_seconds": 19.4
+  },
+  {
+    "index": 1,
+    "heading": "Part I. The same saturation, three different failures",
+    "anchor": "principle-same-saturation",
+    "filename": "01-same-saturation.mp3",
+    "duration_seconds": 306.0
+  },
+  {
+    "index": 2,
+    "heading": "Part II. Getting carbon dioxide out",
+    "anchor": "principle-co2-out",
+    "filename": "02-co2-out.mp3",
+    "duration_seconds": 449.2
+  },
+  {
+    "index": 3,
+    "heading": "Part III. Getting oxygen in: the five mechanisms of hypoxemia",
+    "anchor": "principle-oxygen-in",
+    "filename": "03-oxygen-in.mp3",
+    "duration_seconds": 923.5
+  },
+  {
+    "index": 4,
+    "heading": "Part IV. The pump: mechanics, work of breathing, and fatigue",
+    "anchor": "principle-pump",
+    "filename": "04-pump.mp3",
+    "duration_seconds": 583.3
+  },
+  {
+    "index": 5,
+    "heading": "Part V. What bedside measurements can and cannot tell you",
+    "anchor": "principle-bedside-measures",
+    "filename": "05-bedside-measures.mp3",
+    "duration_seconds": 505.7
+  },
+  {
+    "index": 6,
+    "heading": "Part VI. Support matched to the mechanism",
+    "anchor": "principle-support",
+    "filename": "06-support.mp3",
+    "duration_seconds": 669.3
+  },
+  {
+    "index": 7,
+    "heading": "Part VII. Reassessment and synthesis",
+    "anchor": "principle-reassessment",
+    "filename": "07-reassessment.mp3",
+    "duration_seconds": 295.1
+  },
+  {
+    "index": 8,
+    "heading": "Approach to treatment",
+    "anchor": "treatment-heading",
+    "filename": "08-approach-to-treatment.mp3",
+    "duration_seconds": 130.0
+  }
+]
