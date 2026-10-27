@@ -1,0 +1,107 @@
+{
+  "case": "src/content/cases/physiologically-difficult-airway.json",
+  "caseSha256": "3eac626736956e8883b62bee958c13e189095ecd18c758efe6d7ea9e2b4bbaa2",
+  "pronunciationSha256": "c0280cb0d20fe6921ef71f095e9893c34e69d5993f995ce9acd761389c25e407",
+  "sections": [
+    {
+      "key": "00-title-and-introduction",
+      "narrator": "silas-mercer",
+      "anchor": null,
+      "paragraphs": 2,
+      "verbatimChars": 306,
+      "verbatimSha256": "ab3bf762520368e67570b0d83d9bf901066657a67b7a179b7795110b03265496",
+      "synthesisChars": 305,
+      "synthesisSha256": "fc2e1dead5e95c05011f5ae302b1ddab42319a8685309562e3c07b8012dec2d6"
+    },
+    {
+      "key": "01-four-patients",
+      "narrator": "mags-callahan",
+      "anchor": "principle-four-patients",
+      "paragraphs": 15,
+      "verbatimChars": 6072,
+      "verbatimSha256": "acea7a762defef9db17f7c5b78512db38e62018ae5fabcb2b7d334b39d3111ce",
+      "synthesisChars": 6167,
+      "synthesisSha256": "6976e4293784884e4477eb5881615b0546ec93bcf81f9ad5c8f2048ac40166cb"
+    },
+    {
+      "key": "02-oxygen-reserve",
+      "narrator": "amara-bennet",
+      "anchor": "principle-oxygen-reserve",
+      "paragraphs": 21,
+      "verbatimChars": 7424,
+      "verbatimSha256": "84abf629c3b3104ae874b90ce944c2e8300253367927deb387f10b19dce20876",
+      "synthesisChars": 7634,
+      "synthesisSha256": "1e857f1457e14ca5678716d56ba131670963b5cc65ad864533b287c193fcf94b"
+    },
+    {
+      "key": "03-preoxygenation",
+      "narrator": "amara-bennet",
+      "anchor": "principle-preoxygenation",
+      "paragraphs": 16,
+      "verbatimChars": 6875,
+      "verbatimSha256": "19e165629a2d3c45c420044fe73ed2494d40b9dcb314aef4ac7aef9d5bf908b9",
+      "synthesisChars": 6918,
+      "synthesisSha256": "b9ea2e85c7bf0a13597329d5208bca1ff66bedf2c02382e3cd2dd254f52262f5"
+    },
+    {
+      "key": "04-hypotension",
+      "narrator": "elias-voss",
+      "anchor": "principle-hypotension",
+      "paragraphs": 15,
+      "verbatimChars": 5552,
+      "verbatimSha256": "fc12853c3316e97d7c882f8a0444d032dd55241fc7787a65afd4a8339b29ee22",
+      "synthesisChars": 5606,
+      "synthesisSha256": "de048bf6421ef114e76ceb4f699cee52fc80dfc080d95523ac20ca8bb5e28878"
+    },
+    {
+      "key": "05-acidosis",
+      "narrator": "rebecca-sterling",
+      "anchor": "principle-acidosis",
+      "paragraphs": 18,
+      "verbatimChars": 5852,
+      "verbatimSha256": "a585410b5a5274d5f5f3f989d5cb987bb99072dbf59f2516eafacae6cec519b8",
+      "synthesisChars": 6369,
+      "synthesisSha256": "1b8e488da5e27285dc41b75d8f7c9c338cf587f1059bb555946e15c310867816"
+    },
+    {
+      "key": "06-right-ventricle",
+      "narrator": "elias-voss",
+      "anchor": "principle-right-ventricle",
+      "paragraphs": 13,
+      "verbatimChars": 4948,
+      "verbatimSha256": "3e6145658c13ed0ab02030678efc55ae299fea7da3ddc6219c5046844c773bf2",
+      "synthesisChars": 5031,
+      "synthesisSha256": "78dabcd2036d4182f9fd0c86d9f6407e843d5b5f189502cda0fd04e75b88675d"
+    },
+    {
+      "key": "07-after-tube",
+      "narrator": "rebecca-sterling",
+      "anchor": "principle-after-tube",
+      "paragraphs": 12,
+      "verbatimChars": 3530,
+      "verbatimSha256": "677bf6a72b86e30a2440bad5fd5b1879230b301d738c3352d5f11818dc157e80",
+      "synthesisChars": 3543,
+      "synthesisSha256": "706293ef8ff517e2f9809bd5d19ad0bdfded309fb97dd20537743d2ff1cd1822"
+    },
+    {
+      "key": "08-synthesis",
+      "narrator": "silas-mercer",
+      "anchor": "principle-synthesis",
+      "paragraphs": 3,
+      "verbatimChars": 1215,
+      "verbatimSha256": "90386b1c5ec9e46edd7a12e9ece22eb9f01ac1e27a8fcc35d8c555106b93cf86",
+      "synthesisChars": 1215,
+      "synthesisSha256": "2730c4428d546ac10635a566a4fd5d042af23e94bb5c80eedd0d3e4a600173ab"
+    },
+    {
+      "key": "09-approach-to-treatment",
+      "narrator": "rebecca-sterling",
+      "anchor": "treatment-heading",
+      "paragraphs": 8,
+      "verbatimChars": 2712,
+      "verbatimSha256": "8b7c412ae1de8f546b1498b5833f6815f098073022e3df3ba900f44cb450e89c",
+      "synthesisChars": 2712,
+      "synthesisSha256": "bab72532ad6829131f2cfaaaea296680f8da1485f9826873faa5ddd52280813c"
+    }
+  ]
+}

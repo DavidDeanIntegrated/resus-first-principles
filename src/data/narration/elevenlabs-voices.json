@@ -1,0 +1,15 @@
+{
+  "$comment": "Permanent ElevenLabs voice registry. These are voice identifiers, not credentials. The API key is read from ELEVENLABS_API_KEY at generation time and is never stored in the repository. Do not clone, regenerate or replace these voices; if one is inaccessible, hold its audio and report it.",
+  "voices": {
+    "rebecca-sterling": { "character": "Dr. Rebecca Sterling", "voiceId": "8noItgVD2RdpBdDfOPhD" },
+    "frank-delaney": { "character": "Frank Delaney", "voiceId": "BBwIPMwsC3NWj28P7MLT" },
+    "lena-whitaker": { "character": "Dr. Lena Whitaker", "voiceId": "Xkmc3p6hTQvHtffKOD3Y" },
+    "walter-hayes": { "character": "Dr. Walter Hayes", "voiceId": "a30pUq363d6nCWFArsp1" },
+    "daniel-brooks": { "character": "Dr. Daniel Brooks", "voiceId": "87Hk7Q6J6wuIzb6TuR04" },
+    "rosa-vega": { "character": "Rosa \"Ro\" Vega", "voiceId": "H4VNlLMKfj1i8lUguLlG" },
+    "elias-voss": { "character": "Dr. Elias Voss", "voiceId": "vcsmI6TS6R0is86vqFCv" },
+    "amara-bennet": { "character": "Dr. Amara Bennet", "voiceId": "3tIELv664FO24gtjkqyj" },
+    "mags-callahan": { "character": "Margaret \"Mags\" Callahan", "voiceId": "GVZBMlrmqCH7uBXY71ez" },
+    "silas-mercer": { "character": "Silas Mercer", "voiceId": "ponzvMwZFYr8GZh2gHKV" }
+  }
+}
