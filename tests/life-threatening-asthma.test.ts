@@ -29,14 +29,14 @@ const acceptedDraftSha256 = '1dd41f99658edbb70460017f48054231d5bae3dad06fccdc837
 /** sha256 of the Atelier attachments. The chapter id is the Atelier stem. */
 const attachmentSha256: Record<string, string> = {
   'fig-r7-01-equal-pressure-point.svg': 'abc412ee899a56db12a898c32e142e0def8ec1b4626a276f1f053ed6bfcff561',
-  'fig-r7-01-equal-pressure-point-print.svg': 'e895b066c1f1f38d96290e49e542d8c3dd57262b55799e537475cd413ef16c36',
-  'fig-r7-01-equal-pressure-point.inline.html': '15660ef9fa8502ecf68c24bfcb985506b4415242007b9b408bdc346199a3aae7',
-  'fig-r7-02-breath-stacking.svg': '13e8db2f375c3b53ad26007e2f821b8315fdd33580e5f44658364c887df20642',
-  'fig-r7-02-breath-stacking-print.svg': '1ef77f78029ce7c3b578dd3a1801e47229eab8535bd9e2c8ce694ef494cdbcd3',
-  'fig-r7-02-breath-stacking.inline.html': 'fe100e4925c5058d7a94631a7f688d607c732f9ee41ef400c3677523aee38d8a',
+  'fig-r7-01-equal-pressure-point-print.svg': 'e0ac0207461721e8f915b15111d60c9fc18fdd3948f8d900ef27536e964ce28b',
+  'fig-r7-01-equal-pressure-point.inline.html': '2c19d160f2398368b8c8316328f76c29ba00a2d5f4383c18d606c7183b4ed621',
+  'fig-r7-02-breath-stacking.svg': '88634c23d0805ffdb414c96e040b67d66bc3fd432fadc165b5a07b681646ca41',
+  'fig-r7-02-breath-stacking-print.svg': '61f43ed199aba0b9da26c314a7bacebbdbe09a894af1dc8e16a9eed433af0c0f',
+  'fig-r7-02-breath-stacking.inline.html': '557023fb6847711fb3bd6ef8de1f0de56c0882b4622fbdc115e55f629feeda40',
   'fig-r7-03-more-time-to-exhale.svg': 'f19061e94d66e5eeda025d5d55e8508536b20492326b379c263027c610787a6b',
-  'fig-r7-03-more-time-to-exhale-print.svg': '7889a25d17214de1e0ed70480b476b7759122b387fb86bf7602312dd0d53aeec',
-  'fig-r7-03-more-time-to-exhale.inline.html': 'f2360f99c826d6d762e6bf5460a8916cf38f7f2832d9c22fdd0b46cc06a1c90c',
+  'fig-r7-03-more-time-to-exhale-print.svg': '035c115eab0a6f14a33f143878f5577f44cd00c531fe395f0f5ecdaf63d8ca2e',
+  'fig-r7-03-more-time-to-exhale.inline.html': '0a5da4badab3f6d7d2f5fdbbe6c6c6830459a1713b8254e43a19505bf466f14b',
 };
 
 const placements: Record<string, string> = {
