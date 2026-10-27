@@ -24,16 +24,16 @@ import {
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
 /** Accepted draft (sha256). The chapter file is that draft, including its diagram ids. */
-const acceptedDraftSha256 = '751585e4c48568b082427ef4780f55ebba0103c5df741113754056924e05390f';
+const acceptedDraftSha256 = '3e3e1f472f14ec65fbcc68f74f2b1a821eab2d349b502563a627a051d1f2543b';
 
 /** sha256 of the Atelier attachments, in chapter-id file names. */
 const attachmentSha256: Record<string, string> = {
-  'r3-three-septic-circulations.svg': '586c4039ed797269f283b744b31008747d2162c07b7339338a07c7d71c296b4f',
-  'r3-three-septic-circulations-print.svg': 'fb2b4267d6b6b8ad3c2507adc446a3bdbe2d04e1d27f29d78bf0dfd036f15dc5',
-  'r3-three-septic-circulations.inline.html': 'fa174d705b64d07cd18a1e611237cc3609603efcddbc63a4e1f1c412341a6ea3',
-  'r3-where-fluid-goes.svg': '91125d22e76630be960de94f5fbd9bf49c7f2a22d6619809bc61c692e89797e5',
-  'r3-where-fluid-goes-print.svg': '9614f1dc14eb0ed6060032e3d14fee16dc264e73a285680933392996a9e61f15',
-  'r3-where-fluid-goes.inline.html': '31e60606e5eff87fc54a98fc5fcd306d32025072f0431a3039c9f175f7fec7cd',
+  'r3-three-septic-circulations.svg': '1cf507277d0ad7e912ff16a824f8336afe19f9b839230c8f3c2f9f5addb75339',
+  'r3-three-septic-circulations-print.svg': '6e97b4fd7ac325c17ef76500d3d3d5c932b5058ac245a5bce65ccc97d5be4d71',
+  'r3-three-septic-circulations.inline.html': 'b918d7ba9b609bf368e551fbae190c82ba1a37c39d7bcb4438b0d358a03124b9',
+  'r3-where-fluid-goes.svg': '4ac76486e3f3fe771f90be72074b82a5e6d240dcd8b337a87180cc8166ce157f',
+  'r3-where-fluid-goes-print.svg': 'eb9a8f6eb2d4c497d1ef6db0b451a138993b665a1f988faf44af5d20ba8d0827',
+  'r3-where-fluid-goes.inline.html': 'f089c159de266016f987fff11ab5a760815f9e42053d69b8a8170f5b8fb04af2',
   'r3-coherence.svg': '92a67218d792394965ffd692be549fef5d63869f22944e3ded9090a8a1e600c3',
   'r3-coherence-print.svg': '2f65f7307506dab7bc2b0b55cb469b90c156492e9a94549707ad275e7f265c3f',
   'r3-coherence.inline.html': '417e49c4ed6ccd69ff9f1a8c661352cd76c597a6f827a2866889fac226524ea3',
