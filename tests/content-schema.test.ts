@@ -76,6 +76,7 @@ describe('case schema', () => {
       'acute-respiratory-failure',
       'adult-cardiac-arrest',
       'cardiogenic-pulmonary-edema',
+      'life-threatening-asthma',
       'physiologically-difficult-airway',
       'septic-shock',
       'shock-pressure-flow',

@@ -1,0 +1,24 @@
+---
+// Same wrapper as the Shock figures: a screen SVG, a print SVG, and a figcaption
+// whose caption comes from the chapter module. Title and description stay in the SVG.
+import { asthmaSvg, type AsthmaFigureId } from '../../lib/asthma-figures.ts';
+
+interface Props {
+  id: AsthmaFigureId;
+  caption: string;
+  alt: string;
+}
+
+const { id, caption } = Astro.props;
+const screen = asthmaSvg(id, 'screen');
+const print = asthmaSvg(id, 'print');
+---
+
+<figure class="diagram" data-diagram={id}>
+  <Fragment set:html={screen} />
+  <Fragment set:html={print} />
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>{caption}</p>
+  </figcaption>
+</figure>

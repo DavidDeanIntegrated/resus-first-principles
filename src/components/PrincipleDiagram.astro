@@ -1,5 +1,6 @@
 ---
 import AirwayFigure from './diagrams/AirwayFigure.astro';
+import AsthmaFigure from './diagrams/AsthmaFigure.astro';
 import CardiogenicFigure from './diagrams/CardiogenicFigure.astro';
 import CompressionPause from './diagrams/CompressionPause.astro';
 import CompressionRelease from './diagrams/CompressionRelease.astro';
@@ -14,6 +15,7 @@ import ShockCirculationGradients from './diagrams/ShockCirculationGradients.astr
 import ShockFluidResponse from './diagrams/ShockFluidResponse.astro';
 import ShockPressureFlow from './diagrams/ShockPressureFlow.astro';
 import { isAirwayFigureId } from '../lib/airway-figures.ts';
+import { isAsthmaFigureId } from '../lib/asthma-figures.ts';
 import { isCardiogenicFigureId } from '../lib/cardiogenic-figures.ts';
 import { isPhysiologyFigureId } from '../lib/physiology-figures.ts';
 import { isRespiratoryFigureId } from '../lib/respiratory-figures.ts';
@@ -70,6 +72,8 @@ const Shock = isShockDiagramId(diagramId) ? shockDiagrams[diagramId] : null;
     <AirwayFigure id={diagramId} caption={caption} alt={alt} />
   ) : isCardiogenicFigureId(diagramId) ? (
     <CardiogenicFigure id={diagramId} caption={caption} alt={alt} />
+  ) : isAsthmaFigureId(diagramId) ? (
+    <AsthmaFigure id={diagramId} caption={caption} alt={alt} />
   ) : isRespiratoryFigureId(diagramId) ? (
     <RespiratoryFigure id={diagramId} caption={caption} alt={alt} />
   ) : isSepticFigureId(diagramId) ? (

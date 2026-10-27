@@ -1,0 +1,406 @@
+{
+ "schemaVersion": 1,
+ "id": "life-threatening-asthma",
+ "slug": "life-threatening-asthma",
+ "title": "Life-Threatening Asthma: When the Lung Cannot Empty",
+ "summary": "Why a patient with severe asthma can work harder while moving less air, how trapped volume loads the muscles and squeezes the circulation, and why more time to exhale works. Study material, not a protocol.",
+ "shareDescription": "Why severe asthma is a failure to empty the lung, and why more time to exhale works.",
+ "contentStatus": "draft",
+ "diagrams": [
+  "fig-r7-01-equal-pressure-point",
+  "fig-r7-02-breath-stacking",
+  "fig-r7-03-more-time-to-exhale"
+ ],
+ "strict": true,
+ "reviewNote": "Draft for physician review.",
+ "references": [
+  {
+   "id": "gina-2026",
+   "label": "Global Initiative for Asthma. Global Strategy for Asthma Management and Prevention, 2026 update",
+   "url": "https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+   "note": "Chapter 9 text. Gives no intubation criteria (intensive care management is outside its scope) and no NIV recommendation."
+  },
+  {
+   "id": "caep-asthma",
+   "label": "Management of acute asthma in adults in the emergency department: assisted ventilation. CJEM (CAEP)",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2826468"
+  },
+  {
+   "id": "jcm-2024",
+   "label": "Critical Care Management of Severe Asthma Exacerbations. J Clin Med. 2024;13(3):859",
+   "url": "https://doi.org/10.3390/jcm13030859"
+  },
+  {
+   "id": "stather-2005",
+   "label": "Stather DR, Stewart TE. Clinical review: mechanical ventilation in severe asthma. Crit Care. 2005;9:581",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1414026"
+  },
+  {
+   "id": "hamzaoui-2013",
+   "label": "Hamzaoui O, Monnet X, Teboul JL. Pulsus paradoxus. Eur Respir J. 2013;42:1696–1705",
+   "url": "https://doi.org/10.1183/09031936.00138912"
+  },
+  {
+   "id": "rayner-2006",
+   "label": "Rayner J, et al. Chest. 2006;130:754–65",
+   "url": "https://doi.org/10.1378/chest.130.3.754"
+  },
+  {
+   "id": "mead-1967",
+   "label": "Mead J, Turner JM, Macklem PT, Little JB. Significance of the relationship between lung recoil and maximum expiratory flow. J Appl Physiol. 1967;22(1):95–108. PMID 6017658",
+   "url": "https://doi.org/10.1152/jappl.1967.22.1.95"
+  },
+  {
+   "id": "west-luks",
+   "label": "West JB, Luks AM. West's Respiratory Physiology: The Essentials. 11th ed. Wolters Kluwer; 2020. ISBN 9781975139186.",
+   "url": "https://shop.lww.com/West-s-Respiratory-Physiology/p/9781975139186"
+  },
+  {
+   "id": "manthous-heliox",
+   "label": "Madison JM, Irwin RS. Heliox for asthma: a trial balloon. Chest. 1995;107(3):597–598",
+   "url": "https://doi.org/10.1378/chest.107.3.597"
+  },
+  {
+   "id": "cochrane-heliox-neonates",
+   "label": "Cochrane review: heliox in ventilated newborns",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10552068",
+   "note": "Source for helium at about one-seventh the density of nitrogen."
+  },
+  {
+   "id": "moulton-2011",
+   "label": "Moulton BC, Fryer AD. Muscarinic receptor antagonists, from folklore to pharmacology; finding drugs that actually work in asthma and COPD. Br J Pharmacol. 2011;163(1):44–52. PMID 21198547",
+   "url": "https://doi.org/10.1111/j.1476-5381.2010.01190.x"
+  },
+  {
+   "id": "statpearls-ipratropium",
+   "label": "Ipratropium. StatPearls (NBK544261)",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK544261/"
+  }
+ ],
+ "principles": [
+  {
+   "id": "three-patients",
+   "title": "Part I. Three patients who cannot empty their lungs",
+   "body": [
+    "The three adults with severe asthma in this chapter are hypothetical and illustrative, built to carry the physiology. The first is a young adult who is working hard to breathe and wheezing loudly, with a carbon dioxide tension that is low or normal. The second is the same patient hours later: the wheeze is quieter, the effort looks smaller, and the carbon dioxide is rising. The third has been intubated and bagged at a fast rate, and the blood pressure then falls.",
+    "The chapter asks two questions. Why can a patient work harder to breathe while moving less useful air? And why can ventilation make the circulation worse? Both answers come from one fact: in severe asthma the problem is getting air out, not getting it in."
+   ],
+   "questions": []
+  },
+  {
+   "id": "normal-expiration",
+   "title": "Part II. How a normal lung empties",
+   "body": [
+    "In quiet breathing, expiration is passive: the lung's own recoil pushes gas out until it balances the chest wall. How fast each unit empties depends on its airway resistance and its compliance, and in a normal lung almost every unit finishes before the next breath begins."
+   ],
+   "questions": []
+  },
+  {
+   "id": "passive-expiration",
+   "parentId": "normal-expiration",
+   "title": "Quiet expiration is passive",
+   "body": [
+    "In quiet breathing, inspiration is active and expiration is passive. At the end of inspiration the stretched lung recoils inward, and that recoil makes alveolar pressure higher than the pressure at the airway opening. This pressure difference drives gas out. As the lung empties, its inward recoil weakens until it exactly balances the outward recoil of the chest wall. That balance point is functional residual capacity (FRC), the relaxed volume of the respiratory system. At FRC, alveolar pressure equals airway-opening pressure, flow stops, and the next breath starts from there.",
+    "How long emptying takes depends on two properties of each lung unit: the resistance of its airway and its compliance. Their product is the time constant. A unit with a stiff wall or an open airway empties quickly; a unit with a compliant wall behind a narrow airway empties slowly. In a normal lung, almost every unit finishes emptying well before the next breath begins."
+   ],
+   "questions": [],
+   "refs": [
+    "west-luks"
+   ]
+  },
+  {
+   "id": "disturbance",
+   "title": "Part III. What narrowing does to expiratory flow",
+   "body": [
+    "In asthma the airways narrow, and the same expiratory flow then needs a larger pressure difference. This part follows that pressure along the airway to show why pushing harder stops adding flow, and why uneven narrowing leaves some units still emptying when the next breath starts."
+   ],
+   "questions": []
+  },
+  {
+   "id": "resistance",
+   "parentId": "disturbance",
+   "title": "Narrow airways need a larger pressure difference",
+   "body": [
+    "In an asthma attack, three processes narrow the airways at once: smooth muscle contracts, the airway wall swells, and mucus fills part of the lumen. Resistance rises steeply as the radius falls, roughly with the fourth power of the radius in idealized smooth flow, so a modest loss of radius produces a large rise in resistance. As a result, the same expiratory flow now needs a much larger pressure difference between the alveolus and the mouth.",
+    "That driving pressure is used up gradually, not all at once. Pressure falls along the airway from the alveolus toward the mouth, because each segment spends part of it overcoming its own resistance. The narrower the airway, the faster pressure falls along its length."
+   ],
+   "questions": [],
+   "refs": [
+    "west-luks"
+   ]
+  },
+  {
+   "id": "equal-pressure-point",
+   "parentId": "disturbance",
+   "title": "Why pushing harder stops helping",
+   "body": [
+    "The airways inside the chest are surrounded by pleural pressure. During a forced or effortful exhalation, the expiratory muscles raise pleural pressure, which presses on the alveoli and on the airways alike. Alveolar pressure equals pleural pressure plus the lung's own elastic recoil pressure. Pressure inside the airway starts at that alveolar value and falls along the airway's length.",
+    "Somewhere along the airway, the pressure inside falls to equal the pleural pressure outside. Downstream of this equal pressure point, the pressure outside the airway exceeds the pressure inside, and the airway is squeezed. Now suppose the patient pushes harder. The extra effort raises pleural pressure, which raises alveolar pressure by the same amount, but it also raises the squeezing pressure around the airway by the same amount. The added push is spent compressing the airway rather than moving more gas, so beyond this point expiratory flow stops rising with effort. In a narrowed airway, pressure falls faster along the way, so the equal pressure point moves toward the alveolus, compression begins earlier, and flow is limited at lower flows and higher lung volumes.",
+    "This is the core of working harder while moving less. The patient's effort is real and raises pressures throughout the chest, but past flow limitation it no longer buys flow. The account traces to classic work on the relation between lung recoil and maximum expiratory flow and is the standard textbook explanation."
+   ],
+   "questions": [],
+   "refs": [
+    "mead-1967",
+    "west-luks"
+   ],
+   "diagram": {
+    "id": "fig-r7-01-equal-pressure-point",
+    "caption": "Why pushing harder stops helping: pressure along a narrowed airway",
+    "alt": "One airway from alveolus to mouth, drawn normal and narrowed, surrounded by pleural pressure. Pressure falls along each airway, faster in the narrowed one, which crosses below pleural pressure at the equal pressure point, where the wall is drawn squeezed. An inset shows expiratory flow rising with effort and then leveling off once flow is limited."
+   }
+  },
+  {
+   "id": "uneven-units",
+   "parentId": "disturbance",
+   "title": "Uneven narrowing and slow units",
+   "body": [
+    "Narrowing is not uniform. Some units sit behind airways that are only mildly affected and still empty quickly. Others sit behind airways that are badly narrowed or partly plugged, which gives them long time constants. These slow units empty last, and in a severe attack they may still be emptying when the next breath begins."
+   ],
+   "questions": []
+  },
+  {
+   "id": "compensation",
+   "title": "Part IV. How the patient compensates",
+   "body": [
+    "Patient 1 shows the early response. Expiratory effort rises, which helps only until flow becomes limited. Hypoxemia and distress drive up the respiratory rate and minute ventilation, and because minute ventilation is high, carbon dioxide is usually low or normal early in an attack. GINA 2026 notes that PaCO2 is often below normal (below 40 mm Hg) in an acute exacerbation.",
+    "The patient also breathes at a higher lung volume. At larger volumes the lung tissue pulls outward on the airways and holds them wider, and the greater recoil drives expiration harder, so emptying is easier. This is a real compensation, and it is also the start of the problem, because a lung held at a higher volume is a lung that has not emptied."
+   ],
+   "questions": [],
+   "refs": [
+    "gina-2026"
+   ]
+  },
+  {
+   "id": "failure",
+   "title": "Part V. When emptying fails: trapped volume and its costs",
+   "body": [
+    "When the next breath arrives before exhalation has finished, volume is left behind and builds breath by breath. This part traces the costs of that trapped volume: intrinsic PEEP, inspiratory muscles working from a weaker position, a squeezed circulation and, finally, rising carbon dioxide."
+   ],
+   "questions": []
+  },
+  {
+   "id": "hyperinflation",
+   "parentId": "failure",
+   "title": "Breath stacking and dynamic hyperinflation",
+   "body": [
+    "When the next breath starts before exhalation has finished, some volume is left behind. The next breath adds its full tidal volume on top of that remainder, so the following exhalation starts from a larger volume and ends at a larger volume. Breath by breath, end-expiratory volume ratchets upward. It stops climbing only when the lung is large enough that its stronger recoil, together with the wider airways that a larger volume holds open, pushes out a full tidal volume in the time available. That new, higher end-expiratory volume is dynamic hyperinflation. It is a steady state, but one reached at a cost."
+   ],
+   "questions": [],
+   "diagram": {
+    "id": "fig-r7-02-breath-stacking",
+    "caption": "When the next breath comes before the lung has emptied",
+    "alt": "Lung volume over time for successive breaths. In the top trace each exhalation returns to FRC. In the bottom trace each exhalation is cut short, so end-expiratory volume ratchets up to a new, higher plateau with the trapped volume hatched. A callout marks intrinsic PEEP, which the muscles must overcome before inflow begins. Two small alveoli show a fast unit that empties in time and a slow unit with a long time constant that does not finish."
+   }
+  },
+  {
+   "id": "intrinsic-peep",
+   "parentId": "failure",
+   "title": "Intrinsic PEEP: work done before any air moves in",
+   "body": [
+    "Because exhalation was cut short above the relaxed volume, the respiratory system is still recoiling when the next breath begins. At the end of expiration, alveolar pressure is still above airway-opening pressure, and gas is still flowing out. This leftover positive alveolar pressure is intrinsic PEEP.",
+    "Gas cannot flow inward until alveolar pressure falls below airway-opening pressure. So at the start of every breath, the inspiratory muscles must first lower alveolar pressure by the full amount of the intrinsic PEEP, and no air enters while they do so. That effort is work done without flow."
+   ],
+   "questions": [],
+   "workedExample": {
+    "id": "ipeep-example",
+    "title": "Worked example: how much effort moves no air",
+    "body": [
+     "These numbers are illustrative, chosen to make the arithmetic visible.",
+     "Suppose intrinsic PEEP is 10 cm H2O. Before any inspiratory flow begins, the inspiratory muscles must generate 10 cm H2O just to cancel the leftover recoil. Suppose the tidal breath itself then needs another 10 cm H2O to overcome resistance and inflate the lung. The muscles must now produce 20 cm H2O per breath, and half of that is spent before any gas enters. Without intrinsic PEEP, the same breath would need only 10 cm H2O."
+    ]
+   }
+  },
+  {
+   "id": "muscles-circulation",
+   "parentId": "failure",
+   "title": "Weaker muscles and a squeezed circulation",
+   "body": [
+    "The muscles meet this extra load from a weakened position. At high lung volume the diaphragm is flattened and its fibers are already shortened, which places them on a less favorable part of their length–tension relationship, so each contraction generates less pressure. Load rises as capacity falls, the imbalance described in the [Acute Respiratory Failure chapter](/cases/acute-respiratory-failure).",
+    "The trapped volume also acts on the circulation. Raised intrathoracic pressure lowers the pressure gradient for venous return, as described in the [Septic Shock chapter](/cases/septic-shock), and overdistended lung raises right ventricular afterload. Reviews of critically ill patients with asthma describe a hypotension risk that tracks the degree of air trapping, with excess dynamic hyperinflation predicting hypotension and barotrauma.",
+    "Pulsus paradoxus is the bedside sign of these pressure swings. Large inspiratory falls in intrathoracic pressure, made while breathing at high lung volume, exaggerate the normal inspiratory fall in systolic pressure. It is reported as a surrogate of airflow obstruction and appears in severity scores. In one study of adults in the emergency department, mean pulsus paradoxus was 9.1 mm Hg in those appropriately discharged and 17.6 mm Hg in those admitted or who relapsed. Overall it behaves as a moderate, imperfect marker, and it is hard to measure at the bedside. It also carries a trap: in an exhausted patient the swings in intrathoracic pressure can shrink, so a small pulsus can mean exhaustion rather than improvement."
+   ],
+   "questions": [],
+   "refs": [
+    "jcm-2024",
+    "stather-2005",
+    "hamzaoui-2013",
+    "rayner-2006"
+   ]
+  },
+  {
+   "id": "rising-co2",
+   "parentId": "failure",
+   "title": "Rising carbon dioxide means falling alveolar ventilation",
+   "body": [
+    "Patient 2's rising carbon dioxide signals falling alveolar ventilation, which has two possible causes here. The pump can fail as tired, mechanically disadvantaged muscles generate smaller breaths. Dead space can also rise as overdistended units are ventilated but poorly perfused, a mechanism covered in the [Acute Respiratory Failure chapter](/cases/acute-respiratory-failure). GINA 2026 states that fatigue and somnolence suggest PaCO2 may be increasing and airway intervention may be needed, and that a PaO2 below 60 mm Hg with a normal or increased PaCO2, especially above 45 mm Hg, indicates respiratory failure."
+   ],
+   "questions": [],
+   "refs": [
+    "gina-2026"
+   ]
+  },
+  {
+   "id": "intervention",
+   "title": "Part VI. Interventions, by mechanism",
+   "body": [
+    "Interventions work in two ways. Some act on the cause by widening the airways; others buy time by giving the lung longer to empty, at the price of a higher carbon dioxide. The move to positive pressure brings risks of its own, along with a bedside test for them."
+   ],
+   "questions": []
+  },
+  {
+   "id": "treat-cause",
+   "parentId": "intervention",
+   "title": "Treating the narrowing",
+   "body": [
+    "Bronchodilators widen the airways. A beta-2 agonist relaxes airway smooth muscle directly, and an anticholinergic removes vagal bronchoconstrictor tone. Vagal nerves are the dominant constrictor input to airway smooth muscle, releasing acetylcholine onto M3 muscarinic receptors; muscarinic antagonists competitively block that binding. Ipratropium also blocks prejunctional M2 receptors, which normally limit acetylcholine release, and that partly offsets its effect. Wider airways lower resistance and shorten time constants, so units empty faster and the equal pressure point moves back toward the mouth. Corticosteroids act on airway inflammation, and their effect builds over hours, not minutes. These treatments act on the cause; everything else in this part buys time for them to work.",
+    "GINA 2026 does not recommend intravenous magnesium for routine use, but in adults and children who do not respond to initial treatment and remain hypoxemic, it reduces hospital admissions. Nebulized magnesium showed no significant benefit. According to GINA 2026, heliox, a mixture of helium and oxygen, has no role in routine care, though it may be considered for severe exacerbations that do not respond to standard therapy, within limits of availability, cost and technique. Heliox is not a bronchodilator; its effect is physical. Helium is about one-seventh the density of nitrogen, with similar viscosity. Whether flow is turbulent depends on the Reynolds number, which rises with gas density, airway diameter and velocity and falls with viscosity, and turbulent resistance depends on density while laminar resistance does not. A less dense gas therefore converts some turbulent flow to laminar flow and needs less driving pressure for the flow that stays turbulent. This matters most at high flows through narrowed central airways, and it buys time for treatments that act on the cause."
+   ],
+   "questions": [],
+   "refs": [
+    "gina-2026",
+    "manthous-heliox",
+    "cochrane-heliox-neonates",
+    "moulton-2011",
+    "statpearls-ipratropium"
+   ]
+  },
+  {
+   "id": "time-to-exhale",
+   "parentId": "intervention",
+   "title": "Why more time to exhale works",
+   "body": [
+    "Trapping happens because exhalation is cut short. Any intervention that gives the lung more time to empty, or makes it empty faster, lowers end-expiratory volume. The most powerful lever is the respiratory rate, because a slower rate lengthens every expiratory period.",
+    "The tradeoff is carbon dioxide. Fewer breaths mean less minute ventilation, so carbon dioxide rises. Accepting that rise, known as permissive hypercapnia, is often safer than adding breaths, because each added breath or shortened exhalation adds trapped volume, raises intrinsic PEEP and lowers venous return. Detailed ventilator settings belong to the Mechanical Ventilation chapter."
+   ],
+   "questions": [],
+   "diagram": {
+    "id": "fig-r7-03-more-time-to-exhale",
+    "caption": "Why more time to exhale works, and what it costs",
+    "alt": "The same volume-time format at two rates. At the higher rate exhalation is short and breaths stack. At the lower rate expiratory time is longer and volume returns near baseline. A tradeoff strip shows less trapped volume, lower intrinsic PEEP and better venous return, against less minute ventilation and a higher carbon dioxide accepted. A single line notes that bronchodilators widen airways and shorten time constants. A footer contrasts improving, with less work and stable or falling carbon dioxide, against tiring, with less wheeze, rising carbon dioxide and a quieter chest."
+   },
+   "workedExample": {
+    "id": "rate-example",
+    "title": "Worked example: what halving the rate does to expiratory time",
+    "body": [
+     "These numbers are illustrative.",
+     "At 20 breaths per minute, each breath cycle lasts 3 seconds. With an inspiratory time of 1 second, expiration gets 2 seconds. At 10 breaths per minute, each cycle lasts 6 seconds; with the same 1 second of inspiration, expiration gets 5 seconds. Halving the rate has more than doubled the time to exhale, because the inspiratory time stayed the same. Slow units that could not finish in 2 seconds now have far longer."
+    ]
+   }
+  },
+  {
+   "id": "positive-pressure",
+   "parentId": "intervention",
+   "title": "Positive pressure, intubation and the disconnection test",
+   "body": [
+    "GINA 2026 states that the evidence for noninvasive ventilation in asthma is weak and offers no recommendation. If it is tried, the patient should be monitored closely; it should not be attempted in agitated patients, and patients should not be sedated to receive it. GINA also states that sedatives must be avoided. It gives no criteria for intubation, because management in intensive care is outside the scope of the report. Reviews of critical care management list respiratory arrest, extreme muscle fatigue and encephalopathy as indications for invasive ventilation.",
+    "Once the patient is intubated, the danger lies in the breaths given by hand or by machine. Patient 3 was bagged at a fast rate. Each breath arrived before the last had left, so the trapped volume grew, intrathoracic pressure rose, venous return fell, and blood pressure fell with it. The transition to positive pressure itself is covered in the [Difficult Airway chapter](/cases/physiologically-difficult-airway).",
+    "When hypotension follows ventilation in a patient with severe obstruction, a brief disconnection from the ventilator or bag lets trapped gas escape passively. Emergency guidance notes that hypotension during invasive ventilation for asthma may require temporary discontinuation of positive pressure to permit exhalation of trapped air, and a critical care review describes a 30 to 60 second apnea trial. The evidence is expert opinion and physiology, not randomized trials. The maneuver is both a test and a treatment: if trapping is the cause, blood pressure and venous return recover within tens of seconds. If they do not, look for another cause, such as tension pneumothorax, hypovolemia or the induction drugs."
+   ],
+   "questions": [],
+   "refs": [
+    "gina-2026",
+    "jcm-2024",
+    "caep-asthma"
+   ]
+  },
+  {
+   "id": "reassessment",
+   "title": "Part VII. Reassessment: the same sign, opposite meanings",
+   "body": [
+    "Real improvement means less work of breathing together with stable or falling carbon dioxide, a smaller lung, and louder breath sounds as more air moves. Deterioration can look similar from the end of the bed. Patient 2 wheezes less because less air is moving and breathes with less effort because the muscles are failing, while the carbon dioxide rises and the chest grows quieter. GINA 2026 advises transfer to intensive care for a patient who is drowsy, confused or has a silent chest. Less wheeze can signal either outcome, and the carbon dioxide and mental state tell them apart.",
+    "After intubation, the trend in plateau pressure and intrinsic PEEP shows whether trapping is growing or shrinking. How to measure them belongs to the Mechanical Ventilation chapter."
+   ],
+   "questions": [
+    {
+     "id": "q-quiet-chest",
+     "kind": "prediction",
+     "prompt": "Two hours into treatment, a patient's wheeze has become much quieter and the respiratory rate has fallen. What single additional finding most changes your interpretation?",
+     "answer": "The carbon dioxide trend, together with mental state. If carbon dioxide is stable or falling and the patient is alert with louder breath sounds, the airways are opening. If carbon dioxide is rising and the patient is drowsy, less wheeze means less airflow and less effort means failing muscles.",
+     "causalChain": "Wheeze needs airflow; less airflow can come from wider airways that need less effort or from a tiring pump; carbon dioxide shows which, because it rises only when alveolar ventilation falls.",
+     "misconception": "That a quieter chest always means improvement.",
+     "assumption": "That carbon dioxide and mental state are measured rather than inferred from the chest sounds, and that nothing else, such as sedation, explains the drowsiness."
+    },
+    {
+     "id": "q-bagging",
+     "kind": "transfer",
+     "prompt": "Minutes after intubation and rapid bagging, a patient with severe asthma becomes hypotensive. Why might stopping ventilation briefly raise the blood pressure?",
+     "answer": "Rapid breaths left too little time to exhale, so trapped volume and intrathoracic pressure rose, lowering venous return and raising right ventricular afterload. A pause lets trapped gas escape passively; if trapping was the cause, intrathoracic pressure falls and venous return recovers within tens of seconds.",
+     "causalChain": "Short expiratory time leads to trapped volume, then higher intrathoracic pressure, then lower venous return and higher RV afterload, then lower cardiac output and pressure; disconnection reverses the chain.",
+     "assumption": "That trapping, rather than tension pneumothorax, hypovolemia or the induction drugs, is the cause; failure to recover points elsewhere.",
+     "misconception": "That hypotension after intubation is always caused by the induction drugs or hypovolemia."
+    }
+   ],
+   "refs": [
+    "gina-2026"
+   ]
+  },
+  {
+   "id": "contrasts",
+   "title": "Contrasts: ARDS and COPD",
+   "body": [
+    "Asthma and ARDS sit at opposite ends of lung mechanics. In ARDS the lung is stiff and small, and the difficulty is inflating it without injury. In severe asthma the lung is large because it cannot empty, and the difficulty is letting it deflate. COPD shares expiratory flow limitation and intrinsic PEEP, but its flow limitation comes largely from loss of the lung's recoil and airway support, and it is far less reversible with bronchodilators."
+   ],
+   "questions": []
+  },
+  {
+   "id": "synthesis",
+   "title": "Synthesis",
+   "body": [
+    "Severe asthma is a failure to empty. Narrowed airways raise resistance, pressure falls quickly along them, and once effort raises pleural pressure above the pressure inside the airway, more effort squeezes the airway instead of moving gas. Slow units do not finish emptying, volume stacks, and the trapped gas leaves an intrinsic PEEP that a flattened diaphragm must overcome before every breath, while the same pressure squeezes the circulation. Treatment widens the airways, gives the lung time to empty, and accepts a higher carbon dioxide as the price. The same quiet chest can mean recovery or exhaustion, and carbon dioxide and mental state decide which."
+   ],
+   "questions": []
+  }
+ ],
+ "treatmentApproach": [
+  {
+   "id": "recognize",
+   "title": "Recognize life-threatening features",
+   "action": "Look for drowsiness, confusion or a silent chest, and check carbon dioxide; a normal or rising PaCO2 in a severe attack is a warning.",
+   "why": "Early in an attack, high minute ventilation keeps carbon dioxide low; a rising value means alveolar ventilation is failing.",
+   "principleIds": [
+    "compensation",
+    "rising-co2",
+    "reassessment"
+   ]
+  },
+  {
+   "id": "bronchodilate",
+   "title": "Treat the narrowing",
+   "action": "Give inhaled bronchodilators (beta-2 agonist and anticholinergic) and a corticosteroid; consider intravenous magnesium if hypoxemia persists despite initial treatment.",
+   "why": "Wider airways lower resistance and shorten time constants; the steroid effect takes hours.",
+   "principleIds": [
+    "treat-cause"
+   ]
+  },
+  {
+   "id": "time",
+   "title": "Give the lung time to empty",
+   "action": "If ventilation is assisted, avoid fast rates and short exhalations, and accept a higher carbon dioxide.",
+   "why": "Each added breath or shortened exhalation adds trapped volume and intrinsic PEEP and lowers venous return.",
+   "principleIds": [
+    "time-to-exhale",
+    "hyperinflation",
+    "intrinsic-peep"
+   ]
+  },
+  {
+   "id": "disconnect",
+   "title": "If pressure falls after ventilation, disconnect",
+   "action": "Briefly disconnect and let the patient exhale passively; if blood pressure does not recover within tens of seconds, look for tension pneumothorax, hypovolemia or drug effect.",
+   "why": "Disconnection is both a test and a treatment for dynamic hyperinflation.",
+   "principleIds": [
+    "positive-pressure",
+    "muscles-circulation"
+   ]
+  },
+  {
+   "id": "reassess",
+   "title": "Reassess with carbon dioxide and mental state",
+   "action": "Judge improvement by less work together with stable or falling carbon dioxide and louder breath sounds.",
+   "why": "Less wheeze and less effort can mean recovery or exhaustion.",
+   "principleIds": [
+    "reassessment"
+   ]
+  }
+ ]
+}
