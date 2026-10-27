@@ -17,8 +17,37 @@ export interface Narration {
   tracks: readonly NarrationTrack[];
 }
 
+/**
+ * Chapters rendered by scripts/case-narration.py. Each one's manifest lives at
+ * src/data/<slug>-audio.json and its clips at public/audio/<slug>/; a chapter is narrated
+ * only once its manifest exists, so each chapter's audio can land on its own.
+ */
+const chapterTitles: Readonly<Record<string, string>> = {
+  'acute-respiratory-failure': 'Acute Respiratory Failure',
+  'physiologically-difficult-airway': 'The Physiologically Difficult Airway',
+  'septic-shock': 'Septic Shock',
+  'cardiogenic-pulmonary-edema': 'Acute Cardiogenic Pulmonary Edema',
+};
+const chapterManifests = import.meta.glob<readonly NarrationTrack[]>('../data/*-audio.json', {
+  eager: true,
+  import: 'default',
+});
+const chapterNarrations: Record<string, Narration> = {};
+for (const [slug, title] of Object.entries(chapterTitles)) {
+  const tracks = chapterManifests[`../data/${slug}-audio.json`];
+  if (tracks) {
+    chapterNarrations[slug] = {
+      dir: slug,
+      artist: `${title} — Resus First Principles`,
+      storageKey: `rfp-audio-${slug}`,
+      tracks,
+    };
+  }
+}
+
 /** Narrated cases, keyed by case slug. A case without an entry has no audio. */
 const narrations: Readonly<Record<string, Narration>> = {
+  ...chapterNarrations,
   'adult-cardiac-arrest': {
     dir: 'cardiac-arrest',
     artist: 'Adult Cardiac Arrest — Resus First Principles',

@@ -1,0 +1,72 @@
+[
+  {
+    "index": 0,
+    "heading": "Septic Shock: Vascular Tone, Blood Distribution, and Cellular Dysfunction",
+    "anchor": null,
+    "filename": "00-title-and-introduction.mp3",
+    "duration_seconds": 21.4
+  },
+  {
+    "index": 1,
+    "heading": "Part I. Three septic patients, one label",
+    "anchor": "principle-three-septic",
+    "filename": "01-three-septic.mp3",
+    "duration_seconds": 510.2
+  },
+  {
+    "index": 2,
+    "heading": "Part II. Lost arterial tone",
+    "anchor": "principle-vascular-tone",
+    "filename": "02-vascular-tone.mp3",
+    "duration_seconds": 370.4
+  },
+  {
+    "index": 3,
+    "heading": "Part III. The veins: capacitance and stressed volume",
+    "anchor": "principle-venous-capacitance",
+    "filename": "03-venous-capacitance.mp3",
+    "duration_seconds": 168.0
+  },
+  {
+    "index": 4,
+    "heading": "Part IV. The leaking capillary and where fluid goes",
+    "anchor": "principle-permeability",
+    "filename": "04-permeability.mp3",
+    "duration_seconds": 442.0
+  },
+  {
+    "index": 5,
+    "heading": "Part V. Heterogeneous flow and cellular dysfunction",
+    "anchor": "principle-micro-cellular",
+    "filename": "05-micro-cellular.mp3",
+    "duration_seconds": 343.5
+  },
+  {
+    "index": 6,
+    "heading": "Part VI. The septic heart",
+    "anchor": "principle-septic-heart",
+    "filename": "06-septic-heart.mp3",
+    "duration_seconds": 421.4
+  },
+  {
+    "index": 7,
+    "heading": "Part VII. Treating the cause: source and time",
+    "anchor": "principle-source-control",
+    "filename": "07-source-control.mp3",
+    "duration_seconds": 201.6
+  },
+  {
+    "index": 8,
+    "heading": "Part VIII. Support, its limits, and reassessment",
+    "anchor": "principle-support-limits",
+    "filename": "08-support-limits.mp3",
+    "duration_seconds": 521.6
+  },
+  {
+    "index": 9,
+    "heading": "Approach to treatment",
+    "anchor": "treatment-heading",
+    "filename": "09-approach-to-treatment.mp3",
+    "duration_seconds": 139.0
+  }
+]
