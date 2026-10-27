@@ -74,7 +74,8 @@ describe('link previews', () => {
     expect(caseHead).not.toContain(caseSummary);
     expect(caseHead).not.toContain('Shock: Pressure, Flow');
 
-    expect(home).toContain('Each resuscitation case is split into pathophysiology principles');
+    expect(home).toContain('New here? Start here');
+    expect(home).not.toContain('Each resuscitation case is split into pathophysiology principles');
     expect(casePage).toContain(`<h1>Adult cardiac arrest</h1>`);
     expect(casePage).toContain(`<p class="lede">${caseSummary}</p>`);
     expect(casePage.slice(casePage.indexOf('<body>'))).not.toContain(caseDescription);

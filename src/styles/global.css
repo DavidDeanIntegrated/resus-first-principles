@@ -1304,57 +1304,174 @@ h2 {
   min-width: 0;
 }
 
-.case-list {
+/* Home: start-here path, chapter index, and upcoming chapters. */
+.start-path {
+  margin: var(--s6) 0 0;
+  padding: var(--s5) var(--s4);
+  background: var(--sage-tint);
+  border-radius: var(--r);
+}
+
+.start-path .kicker {
+  color: var(--sage);
+}
+
+.page .start-path h2 {
+  margin: var(--s2) 0 var(--s2);
+}
+
+.start-note {
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  max-width: var(--measure);
+}
+
+.start-steps {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--s4);
+  display: grid;
+  gap: var(--s3);
+}
+
+.start-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  height: 100%;
+  min-height: 44px;
+  padding: var(--s4);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  color: inherit;
+  text-decoration: none;
+}
+
+.start-card:hover {
+  border-color: var(--rule-strong);
+}
+
+.start-card .kicker {
+  color: var(--sage);
+}
+
+.start-title,
+.chapter-title {
+  font-family: var(--f-display);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  font-variation-settings: "opsz" 36, "SOFT" 40, "WONK" 0, "wght" 500;
+}
+
+.start-title {
+  font-size: var(--text-stem);
+}
+
+.chapter-title {
+  font-size: var(--text-step);
+}
+
+.chapter-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s3);
+  font-size: var(--text-small);
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.chapter-meta > span + span::before {
+  content: "·";
+  order: -2;
+  margin-right: var(--s3);
+}
+
+.start-card .chapter-meta > span + span::before {
+  content: none;
+}
+
+.audio-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+}
+
+.audio-mark::after {
+  content: "";
+  order: -1;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 2a6 6 0 0 0-6 6v4.5A1.5 1.5 0 0 0 3.5 14H5V9H3.5V8a4.5 4.5 0 0 1 9 0v1H11v5h1.5a1.5 1.5 0 0 0 1.5-1.5V8a6 6 0 0 0-6-6z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 2a6 6 0 0 0-6 6v4.5A1.5 1.5 0 0 0 3.5 14H5V9H3.5V8a4.5 4.5 0 0 1 9 0v1H11v5h1.5a1.5 1.5 0 0 0 1.5-1.5V8a6 6 0 0 0-6-6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.chapter-index,
+.upcoming {
   list-style: none;
   padding: 0;
   border-top: 1px solid var(--rule);
 }
 
-.case-list li {
+.chapter-index li,
+.upcoming li {
   border-bottom: 1px solid var(--rule);
-  padding: var(--s4) 0;
 }
 
-.case-list a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
+.chapter-row,
+.upcoming li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  min-height: 56px;
+  padding: var(--s3) 0;
+}
+
+.chapter-row {
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.chapter-row:hover .chapter-title {
+  text-decoration-thickness: 2px;
+}
+
+.upcoming-title {
   font-family: var(--f-display);
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--text-step);
-  font-variation-settings: "opsz" 36, "SOFT" 40, "WONK" 0, "wght" 600;
-}
-
-.case-list p {
+  line-height: 1.25;
   color: var(--ink-soft);
-  max-width: var(--measure);
+  font-variation-settings: "opsz" 36, "SOFT" 40, "WONK" 0, "wght" 500;
 }
 
-.status {
-  display: inline-block;
-  margin-left: var(--s2);
+.upcoming-tag {
+  align-self: flex-start;
   font-family: var(--f-text);
   font-weight: 600;
   font-size: var(--text-label);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--ink-soft);
+  border: 1px dashed var(--rule-strong);
+  border-radius: 99px;
+  padding: 2px 10px;
   font-variation-settings: "opsz" 12, "wght" 600;
 }
 
-.page h1 {
-  margin-top: 0;
-}
-
-.page > p + p,
-.page .lede + p {
-  margin-top: var(--s4);
-}
-
-/* Home: separate Cases from the intro, and sit the heading on the list rule. */
-.page > h2 {
+.home-note {
   margin-top: var(--s7);
-  margin-bottom: var(--s4);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--rule);
+  font-size: var(--text-small);
+  color: var(--ink-soft);
+  max-width: var(--measure);
 }
 
 /* Primer diagrams. Geometry is in the SVG; color and type use the tokens above. */
@@ -1884,6 +2001,25 @@ h2 {
   .diagram[data-diagram="compression-release"] svg.diagram-wide {
     display: block;
   }
+
+  .chapter-row,
+  .upcoming li {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s4);
+  }
+
+  .chapter-row .chapter-meta,
+  .upcoming-tag {
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .start-path {
+    padding: var(--s5);
+  }
 }
 
 @media (min-width: 900px) {
@@ -1904,6 +2040,14 @@ h2 {
 
   .page {
     padding: var(--s9) var(--s7) var(--s8);
+  }
+
+  .page.home {
+    max-width: 68rem;
+  }
+
+  .start-steps {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .wrap {
