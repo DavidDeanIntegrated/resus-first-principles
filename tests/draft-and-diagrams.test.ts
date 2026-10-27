@@ -181,6 +181,7 @@ describe('per-chapter diagram ids', () => {
       'acute-respiratory-failure',
       'adult-cardiac-arrest',
       'physiologically-difficult-airway',
+      'septic-shock',
       'shock-pressure-flow',
     ]);
     const published = new Set(['adult-cardiac-arrest', 'shock-pressure-flow']);

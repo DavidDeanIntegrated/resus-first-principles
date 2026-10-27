@@ -8,12 +8,14 @@ import PressureGradient from './diagrams/PressureGradient.astro';
 import PressurePairs from './diagrams/PressurePairs.astro';
 import ReversibleCauseOverlap from './diagrams/ReversibleCauseOverlap.astro';
 import RespiratoryFigure from './diagrams/RespiratoryFigure.astro';
+import SepticFigure from './diagrams/SepticFigure.astro';
 import ShockCirculationGradients from './diagrams/ShockCirculationGradients.astro';
 import ShockFluidResponse from './diagrams/ShockFluidResponse.astro';
 import ShockPressureFlow from './diagrams/ShockPressureFlow.astro';
 import { isAirwayFigureId } from '../lib/airway-figures.ts';
 import { isPhysiologyFigureId } from '../lib/physiology-figures.ts';
 import { isRespiratoryFigureId } from '../lib/respiratory-figures.ts';
+import { isSepticFigureId } from '../lib/septic-figures.ts';
 import type { PlacedFigureId } from '../lib/figure-placement.ts';
 import type { DiagramEntry, DiagramField, DiagramId } from '../lib/schema.ts';
 
@@ -66,6 +68,8 @@ const Shock = isShockDiagramId(diagramId) ? shockDiagrams[diagramId] : null;
     <AirwayFigure id={diagramId} caption={caption} alt={alt} />
   ) : isRespiratoryFigureId(diagramId) ? (
     <RespiratoryFigure id={diagramId} caption={caption} alt={alt} />
+  ) : isSepticFigureId(diagramId) ? (
+    <SepticFigure id={diagramId} caption={caption} alt={alt} />
   ) : (
     Diagram && <Diagram />
   )

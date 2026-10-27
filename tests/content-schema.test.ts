@@ -76,6 +76,7 @@ describe('case schema', () => {
       'acute-respiratory-failure',
       'adult-cardiac-arrest',
       'physiologically-difficult-airway',
+      'septic-shock',
       'shock-pressure-flow',
     ]);
     const document = result.cases.find((entry) => entry.document.slug === 'adult-cardiac-arrest')?.document;
