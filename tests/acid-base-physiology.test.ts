@@ -37,8 +37,8 @@ const attachmentSha256: Record<string, string> = {
   'fig-r8-03-anion-gap-bookkeeping-print.svg': '1a885bc9a94cec1868cae85913b304f4cd4a5e4db22612758ded5864986ce504',
   'fig-r8-03-anion-gap-bookkeeping.inline.html': '6a5a6dbb93abd1c748fbcbe3db8287ac3290b605e53b0344565b0c8feb471570',
   'fig-r8-04-renal-bicarbonate.svg': '47205123bdb8854a39801602cb7f02e8798b47473dc5cec9a43828f01cfeb261',
-  'fig-r8-04-renal-bicarbonate-print.svg': '0d3fcaf9ff9d4e7d7c706e8f7a55c4cc5f5517e5b4aa441b33b4e0b263176ab5',
-  'fig-r8-04-renal-bicarbonate.inline.html': 'a4751c576ad0328ce5151dd6c7da6b27e0ea1e1be5906ba7e9f5f01ca42d23d1',
+  'fig-r8-04-renal-bicarbonate-print.svg': 'e75ff02fcb12ea0adab6b2e851eb4a2e39b46ab1d44cb5cc0f6a4a2381df0e9a',
+  'fig-r8-04-renal-bicarbonate.inline.html': '3652eb10671ee32f7298067c9c21f99b2d36948bff14dce249e33ced397889fd',
 };
 
 const placements: Record<string, string> = {
