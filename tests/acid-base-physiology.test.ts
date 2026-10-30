@@ -23,7 +23,7 @@ import { caseSchema, declaredDiagramIds } from '../src/lib/schema.ts';
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
 /** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
-const acceptedDraftSha256 = '5c97fde7e246a82668a8e292f91fe08bf6f5ff5162802cd23663502bce7199f4';
+const acceptedDraftSha256 = 'c9bbe481d15efbda8fecaab6c0963acb68e7ce3bfba045d9e9249d722c348064';
 
 /** sha256 of the Atelier attachments. The chapter id is the Atelier stem. */
 const attachmentSha256: Record<string, string> = {
@@ -36,9 +36,9 @@ const attachmentSha256: Record<string, string> = {
   'fig-r8-03-anion-gap-bookkeeping.svg': '33ea9095deb75781f2376c0bdded0897e0c625a311071880199a1178ceb24a7e',
   'fig-r8-03-anion-gap-bookkeeping-print.svg': '1a885bc9a94cec1868cae85913b304f4cd4a5e4db22612758ded5864986ce504',
   'fig-r8-03-anion-gap-bookkeeping.inline.html': '6a5a6dbb93abd1c748fbcbe3db8287ac3290b605e53b0344565b0c8feb471570',
-  'fig-r8-04-renal-bicarbonate.svg': '95c1a84d0cc2dadfd89cd3ee52c3f7abe34647b971233b70f22ca0b5c15b5042',
-  'fig-r8-04-renal-bicarbonate-print.svg': 'eb34ce2134b42f1f322e6303b430a74ee456f646f452dab9d8ca0f1824cc5191',
-  'fig-r8-04-renal-bicarbonate.inline.html': '58aea352ca791b55da54a3ed058760146e9870f1f292028ac7984117b871d8d8',
+  'fig-r8-04-renal-bicarbonate.svg': '47205123bdb8854a39801602cb7f02e8798b47473dc5cec9a43828f01cfeb261',
+  'fig-r8-04-renal-bicarbonate-print.svg': '0d3fcaf9ff9d4e7d7c706e8f7a55c4cc5f5517e5b4aa441b33b4e0b263176ab5',
+  'fig-r8-04-renal-bicarbonate.inline.html': 'a4751c576ad0328ce5151dd6c7da6b27e0ea1e1be5906ba7e9f5f01ca42d23d1',
 };
 
 const placements: Record<string, string> = {
@@ -55,7 +55,7 @@ const expectedVsObservedAlt =
   "Illustrative values. Two compact cards and one main panel. Patient 1, toxic alcohol: bicarbonate 8; Winter's formula expects a PaCO2 of 18 to 22; observed 20 is inside; pH about 7.22. A second marker shows that at a PaCO2 of 40, holding bicarbonate at 8 by assumption, pH would be about 6.92, or about 7.02 allowing a little acute buffering. Patient 2, opioid: PaCO2 rose from 40 to 70 over minutes; the acute rule expects bicarbonate about 27 and the chronic rule about 34.5; observed 27, consistent with an acute rise but not excluding chronic retention with a new metabolic acidosis; pH about 7.21. Patient 3, in five steps: pH 7.40, PaCO2 40 and bicarbonate 24 are all in range; the anion gap without potassium is 24 against an assumed baseline of 10, a rise of 14; one-for-one, bicarbonate would have fallen to about 10, but it is 24, so bicarbonate has been added; low chloride and low potassium fit vomiting; on a pH axis, the ketoacidosis alone would give about 7.26 and the alkalosis alone about 7.52, and together they give the observed 7.40.";
 
 const renalBicarbonateAlt =
-  "Two tubule-cell panels, urine side on the left and blood on the right, illustrative values. Panel 1, reclamation: about 4,300 millimoles of bicarbonate are filtered daily. The cell secretes a hydrogen ion in exchange for sodium; in the lumen it combines with filtered bicarbonate to form carbonic acid, then carbon dioxide and water; carbon dioxide enters the cell and re-forms hydrogen ion and bicarbonate; bicarbonate crosses to the blood and the hydrogen ion is secreted again, drawn as a loop labeled recycled. Nothing leaves in urine; net acid excreted is zero. Panel 2, new bicarbonate: secreted hydrogen ion binds filtered phosphate, leaving in urine as titratable acid, and glutamine metabolism yields ammonium, which leaves in urine, each with a new bicarbonate sent to the blood. A note says ammonium counts only if excreted. A box notes that free hydrogen ion at urine pH 4.5 is only about 0.03 millimoles per liter, about 0.05 millimoles a day, roughly one fifteen-hundredth of a 70 millimole load. A footer reads: net acid excretion equals ammonium plus titratable acid minus urinary bicarbonate, and develops over days.";
+  "Two tubule-cell panels, urine side on the left and blood on the right, illustrative values. Panel 1, reclamation: about 4,300 millimoles of bicarbonate are filtered daily. The cell secretes a hydrogen ion in exchange for sodium; in the lumen it combines with filtered bicarbonate to form carbonic acid, then carbon dioxide and water; carbon dioxide enters the cell and re-forms hydrogen ion and bicarbonate; bicarbonate crosses to the blood and the hydrogen ion is secreted again, drawn as a loop labeled recycled. Nothing leaves in urine; net acid excreted is zero. Panel 2, new bicarbonate: secreted hydrogen ion binds filtered phosphate, leaving in urine as titratable acid, and glutamine metabolism yields ammonium, which leaves in urine, each with a new bicarbonate sent to the blood. A note says ammonium counts only if excreted. A box notes that free hydrogen ion at urine pH 4.5 is only about 0.03 millimoles per liter, about 0.05 millimoles a day, roughly one fifteen-hundredth of a 70 millimole load. A footer reads: net acid excretion equals ammonium plus titratable acid minus urinary bicarbonate; it runs continuously, and after a sustained acid load it begins to rise within hours and takes days to reach full strength.";
 
 const anionGapAlt =
   "Paired stacked columns of cations and anions, schematic and not to scale, under the formula gap equals sodium minus chloride plus bicarbonate, calculated without potassium. Sodium stands against chloride, bicarbonate and unmeasured anions, with albumin the largest part of the unmeasured block. Four variants: normal; low albumin, where the baseline gap shrinks and can hide an added acid, with the example of a gap of 10 at albumin 2.0 against a normal 4.0 adjusting to 15; gap acidosis, where lactate, ketones or toxic alcohol acids take the place of bicarbonate and the gap widens; and chloride gain or bicarbonate loss, labeled gap normal: bicarbonate lost or diluted, chloride takes its place in the arithmetic. In that panel, bicarbonate is lost or diluted and chloride takes its place in the arithmetic; chloride does not push bicarbonate out. Renal dysfunction is noted as able to do both. A small timeline shows the osmolar gap high early and the anion gap rising later in toxic alcohol poisoning. The albumin adjustment corrects the baseline only.";
@@ -120,7 +120,7 @@ describe('acid-base physiology chapter', () => {
     for (const figure of attached) expect(placements[figure.id]).toBe(figure.section);
     expect(attached.map((figure) => figure.caption)).toEqual([
       "Buffers hold acid reversibly; the lungs and kidneys set the balance; metabolism can undo organic acids.",
-      "Reclaiming filtered bicarbonate prevents loss; only acid leaving on urinary buffers adds new bicarbonate",
+      "Reclaiming filtered bicarbonate prevents loss; acid leaving on urinary buffers is how the kidney makes new bicarbonate",
       "The same pH, different states: compare compensation with what is expected (illustrative values; the pH of 6.92 holds bicarbonate at 8 by assumption)",
       "The anion gap is bookkeeping, and albumin fills most of it",
     ]);
