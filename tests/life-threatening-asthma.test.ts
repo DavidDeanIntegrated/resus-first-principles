@@ -24,16 +24,16 @@ const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const contentDirectory = join(repoRoot, 'src/content/cases');
 
 /** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
-const acceptedDraftSha256 = '2f59213d150a97b410fd09eadcdc909fc0963690cf6ee815178f4f1b1ff079fe';
+const acceptedDraftSha256 = '0ff6efebf0ee29893e9ecad28a8ea98145f7a11f3d3b736051244876a7dde40d';
 
 /** sha256 of the Atelier attachments. The chapter id is the Atelier stem. */
 const attachmentSha256: Record<string, string> = {
-  'fig-r7-01-equal-pressure-point.svg': 'f92d9784de0d2fb102f5042e64beae7ce4183b4c20fe25d5c24b3afeccf6071c',
-  'fig-r7-01-equal-pressure-point-print.svg': '76021ae04176df9927ec83765933ad2438b1bb86158a7ec6fd286c5f1650593f',
-  'fig-r7-01-equal-pressure-point.inline.html': 'ea301d01e6afd9aa8b028496907e5b3eb46806a3e7acaf5c2dd6eeafe4a65368',
-  'fig-r7-02-breath-stacking.svg': 'eefbac9f4b967a348c3160fca454773a9bdbe3a25f1c6147cf1ebd9330ed5d3d',
-  'fig-r7-02-breath-stacking-print.svg': '76cbfeb8e5a233a6cfa2664bff7801ee3ee65d18a439e37b134164705085a864',
-  'fig-r7-02-breath-stacking.inline.html': 'c322a1ad73aa66c97ac8a89d02a412ab7126ccab7e58270d7d2487a215910884',
+  'fig-r7-01-equal-pressure-point.svg': '0c27756cfa6cd8cafc5fa2c37ce64e5f16629760178a90d8a05b9690f817f28a',
+  'fig-r7-01-equal-pressure-point-print.svg': '462b35dd60e8eba6a1c4a99ad1792eff612b0ca03a1407cb9101a9f70f60d59e',
+  'fig-r7-01-equal-pressure-point.inline.html': '1a586aa7d8147613cfd9382032af319bc26cc2e22d9357664b1be1b1c5cb1c69',
+  'fig-r7-02-breath-stacking.svg': '8d468a6fd46edaa86122ec80dbf1a38782242c67713c42de134acadf5bd4d982',
+  'fig-r7-02-breath-stacking-print.svg': '50365ff36ec7341efb97efba329551922b7f39f2b4bb971d07bfb89649aad5ae',
+  'fig-r7-02-breath-stacking.inline.html': 'bbb8ca42dbf50b0719554c3102c313260557ad42e238d6c0a4c83292e2f576c9',
   'fig-r7-03-more-time-to-exhale.svg': '021bd455dfbc703003ad583012664c51db466fccbf91545321425575bcd80361',
   'fig-r7-03-more-time-to-exhale-print.svg': 'fe86f09f6c3b95ec993d7b4fdfd30d271002ca307403ed5a4a9a906bdb3f23f7',
   'fig-r7-03-more-time-to-exhale.inline.html': '49e627171e2ea54ce3c6deb77f1522d1221e7ad1b25311377f92644f5a5b4c56',
@@ -123,8 +123,8 @@ describe('life-threatening asthma chapter', () => {
       expect(figure.alt.length).toBeGreaterThan(0);
     }
     expect(attached.map((figure) => figure.caption)).toEqual([
-      'Why pushing harder stops helping: pressure along a narrowed airway',
-      'When the next breath comes before the lung has emptied',
+      'Why pushing harder stops helping: pressure along a narrowed airway, with no applied PEEP',
+      'When the next breath comes before the lung has emptied, with zero applied PEEP',
       'Why more time to exhale works, and what it costs',
     ]);
     for (const reference of parsed.data.references ?? []) {
