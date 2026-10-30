@@ -104,7 +104,8 @@
     {
       "id": "rodrigo-2003",
       "label": "Rodrigo GJ, et al. Chest. 2003;124(4):1312–1317. Randomized comparison of 28% and 100% oxygen in acute asthma. PMID 14555560",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/14555560/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14555560/",
+      "note": "Cited only for the association of high-concentration oxygen with a rise in PaCO2."
     },
     {
       "id": "gold-2026",

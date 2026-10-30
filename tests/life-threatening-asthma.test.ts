@@ -24,16 +24,16 @@ const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const contentDirectory = join(repoRoot, 'src/content/cases');
 
 /** Accepted draft (sha256). The chapter file matches that draft byte for byte. */
-const acceptedDraftSha256 = '0ff6efebf0ee29893e9ecad28a8ea98145f7a11f3d3b736051244876a7dde40d';
+const acceptedDraftSha256 = 'db87e8b6be868e8b9bf04cd7886c3aa6046d6ea214909bd1149387f91114f7cb';
 
 /** sha256 of the Atelier attachments. The chapter id is the Atelier stem. */
 const attachmentSha256: Record<string, string> = {
   'fig-r7-01-equal-pressure-point.svg': '0c27756cfa6cd8cafc5fa2c37ce64e5f16629760178a90d8a05b9690f817f28a',
   'fig-r7-01-equal-pressure-point-print.svg': '462b35dd60e8eba6a1c4a99ad1792eff612b0ca03a1407cb9101a9f70f60d59e',
   'fig-r7-01-equal-pressure-point.inline.html': '1a586aa7d8147613cfd9382032af319bc26cc2e22d9357664b1be1b1c5cb1c69',
-  'fig-r7-02-breath-stacking.svg': '8d468a6fd46edaa86122ec80dbf1a38782242c67713c42de134acadf5bd4d982',
-  'fig-r7-02-breath-stacking-print.svg': '50365ff36ec7341efb97efba329551922b7f39f2b4bb971d07bfb89649aad5ae',
-  'fig-r7-02-breath-stacking.inline.html': 'bbb8ca42dbf50b0719554c3102c313260557ad42e238d6c0a4c83292e2f576c9',
+  'fig-r7-02-breath-stacking.svg': 'b871e8e233e45b20fbd67059a4187ede0b18fdd6ae5a0f3c06c70e0cd7fe631f',
+  'fig-r7-02-breath-stacking-print.svg': 'f422b4a69cae3d24ad5ca47ec3320b2baba9cb92fc4592ad0c3fd0189d9d71cc',
+  'fig-r7-02-breath-stacking.inline.html': 'e5963dc1d2d2620fb757c33a746522ca1f49cc186a45ba5512c712f6df9e5b46',
   'fig-r7-03-more-time-to-exhale.svg': '021bd455dfbc703003ad583012664c51db466fccbf91545321425575bcd80361',
   'fig-r7-03-more-time-to-exhale-print.svg': 'fe86f09f6c3b95ec993d7b4fdfd30d271002ca307403ed5a4a9a906bdb3f23f7',
   'fig-r7-03-more-time-to-exhale.inline.html': '49e627171e2ea54ce3c6deb77f1522d1221e7ad1b25311377f92644f5a5b4c56',
