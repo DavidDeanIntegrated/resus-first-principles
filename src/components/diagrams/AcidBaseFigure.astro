@@ -1,0 +1,24 @@
+---
+// Same wrapper as the Shock figures: a screen SVG, a print SVG, and a figcaption
+// whose caption comes from the chapter module. Title and description stay in the SVG.
+import { acidBaseSvg, type AcidBaseFigureId } from '../../lib/acid-base-figures.ts';
+
+interface Props {
+  id: AcidBaseFigureId;
+  caption: string;
+  alt: string;
+}
+
+const { id, caption } = Astro.props;
+const screen = acidBaseSvg(id, 'screen');
+const print = acidBaseSvg(id, 'print');
+---
+
+<figure class="diagram" data-diagram={id}>
+  <Fragment set:html={screen} />
+  <Fragment set:html={print} />
+  <figcaption>
+    <p class="kicker">Figure</p>
+    <p>{caption}</p>
+  </figcaption>
+</figure>
